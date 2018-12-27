@@ -94,3 +94,13 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+Dir['./spec/support/custom_matchers/**/*.rb'].each { |f| require f }
+
+def body_as_json
+  json_str_to_hash(response.body)
+end
+
+def json_str_to_hash(str)
+  JSON.parse(str).with_indifferent_access
+end

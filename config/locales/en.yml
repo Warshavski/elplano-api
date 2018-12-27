@@ -31,3 +31,9 @@
 
 en:
   hello: "Hello world"
+  restify:
+    errors:
+      missing:
+        data: 'Parameters does not present by JSON:API format. Missing "data" key'
+        type: 'Parameters does not present by JSON:API format. Missing "type" key'
+        attributes: 'Parameters does not present by JSON:API format. Missing "attributes" key'

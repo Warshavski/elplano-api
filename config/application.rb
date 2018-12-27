@@ -35,5 +35,18 @@ module StdplanApi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    config.eager_load_paths.push("#{config.root}/lib")
+
+    # Configure sensitive parameters which will be filtered from the log file.
+    #
+    # Parameters filtered:
+    #
+    #   - Any parameter ending with `token`
+    #   - Any parameter containing `password`
+    #   - Any parameter containing `secret`
+    #   - Any parameter ending with `key`
+    #
+    config.filter_parameters += [/token$/, /password/, /secret/, /key$/]
   end
 end

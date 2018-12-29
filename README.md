@@ -1,8 +1,8 @@
 # Study plan
 
-[![Build Status](https://travis-ci.com/Warshavski/stdplan-api.svg?branch=develop)](https://travis-ci.com/Warshavski/stdplan-api)
-[![Maintainability](https://api.codeclimate.com/v1/badges/24844c90210c54234d4e/maintainability)](https://codeclimate.com/github/Warshavski/stdplan-api/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/24844c90210c54234d4e/test_coverage)](https://codeclimate.com/github/Warshavski/stdplan-api/test_coverage)
+[![Build Status](https://travis-ci.com/Warshavski/elplano-api.svg?branch=develop)](https://travis-ci.com/Warshavski/elplano-api)
+[![Maintainability](https://api.codeclimate.com/v1/badges/24844c90210c54234d4e/maintainability)](https://codeclimate.com/github/Warshavski/elplano-api/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/24844c90210c54234d4e/test_coverage)](https://codeclimate.com/github/Warshavski/elplano-api/test_coverage)
 
 Class schedule management application (API)
 
@@ -19,12 +19,12 @@ Class schedule management application (API)
 
 **Clone the repo.**
 ```bash
-git clone https://github.com/warshavski/stdplan-api.git
+git clone https://github.com/warshavski/elplano-api.git
 ```
 
 **cd into the directory and install the reqirements.**
 ```bash
-cd stdplan-api && bundle install
+cd elplano-api && bundle install
 ```
 
 **set up the database**

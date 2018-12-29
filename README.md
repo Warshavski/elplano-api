@@ -1,8 +1,8 @@
-# Study plan
+# El Plano
 
-[![Build Status](https://travis-ci.com/Warshavski/elplano-api.svg?branch=develop)](https://travis-ci.com/Warshavski/elplano-api)
-[![Maintainability](https://api.codeclimate.com/v1/badges/24844c90210c54234d4e/maintainability)](https://codeclimate.com/github/Warshavski/elplano-api/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/24844c90210c54234d4e/test_coverage)](https://codeclimate.com/github/Warshavski/elplano-api/test_coverage)
+[![Build Status](https://travis-ci.org/Warshavski/elplano-api.svg?branch=develop)](https://travis-ci.org/Warshavski/elplano-api)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a5e9ecd7da62ba334087/maintainability)](https://codeclimate.com/github/Warshavski/elplano-api/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a5e9ecd7da62ba334087/test_coverage)](https://codeclimate.com/github/Warshavski/elplano-api/test_coverage)
 
 Class schedule management application (API)
 

@@ -32,7 +32,7 @@ class ApplicationController < ActionController::API
     #
     # Per https://tools.ietf.org/html/rfc5987, headers need to be ISO-8859-1, not UTF-8
     #
-    response.headers['Page-Title'] = CGI.escape(page_title('Stdplan'))
+    response.headers['Page-Title'] = CGI.escape(page_title('El Plano'))
   end
 
   def page_title(*titles)

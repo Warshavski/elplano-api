@@ -11,29 +11,8 @@ module Api
 
         set_default_serializer UserSerializer
 
-        # GET : api/v1/cancel
-        def cancel
-          route_not_found
-        end
-
-        # GET : api/v1/users/sign_up
-        def new
-          route_not_found
-        end
-
-        # GET : api/v1/users/edit
-        def edit
-          route_not_found
-        end
-
-        # PATCH/PUT : api/v1/users
-        def update
-          route_not_found
-        end
-
-        # DELETE : api/v1/users
-        def destroy
-          route_not_found
+        %i[cancel new edit update destroy].each do |method|
+          define_method(method) { route_not_found }
         end
 
         # POST : api/v1/users

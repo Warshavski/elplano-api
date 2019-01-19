@@ -1,3 +1,7 @@
+branches:
+  only:
+    - master
+    - develop
 addons:
   postgresql: 9.6
 after_success:

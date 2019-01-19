@@ -11,6 +11,22 @@ RSpec.describe User, type: :model do
     it { should validate_uniqueness_of(:username) }
   end
 
+  describe 'associations' do
+    it do
+      have_many(:access_grants)
+        .class_name('Doorkeeper::AccessGrant')
+        .with_foreign_key(:resource_owner_id)
+        .dependent(:delete_all)
+    end
+
+    it do
+      have_many(:access_tokens)
+        .class_name('Doorkeeper::AccessToken')
+        .with_foreign_key(:resource_owner_id)
+        .dependent(:delete_all)
+    end
+  end
+
   describe 'user creation' do
     let(:user) { create(:user, username: 'wat_user') }
 

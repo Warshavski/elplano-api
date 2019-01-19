@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
       scope :me do
         resource :student, only: %i[show update]
+        resources :events, except: %i[new edit]
       end
     end
   end

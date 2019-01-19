@@ -14,6 +14,12 @@ class Student < ApplicationRecord
           foreign_key: :president_id,
           dependent: :destroy
 
+  has_many :created_events,
+           class_name: 'Event',
+           foreign_key: :creator_id,
+           inverse_of: :creator,
+           dependent: :delete_all
+
   validates :full_name, length: { maximum: 200 }
   validates :email,     length: { maximum: 100 }
   validates :phone,     length: { maximum: 50 }

@@ -82,6 +82,18 @@ describe ApplicationController do
     end
   end
 
+  describe '#current_user' do
+    let!(:student) { create(:student, user: user) }
+
+    it 'returns student info of authenticated user' do
+      allow(controller).to receive(:current_user).and_return(user)
+
+      current_student = controller.send(:current_student)
+
+      expect(current_student).to eq student
+    end
+  end
+
   context 'control headers' do
     controller(described_class) do
       def index

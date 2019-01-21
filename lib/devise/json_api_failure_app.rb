@@ -7,7 +7,7 @@ module Devise
   #
   class JsonApiFailureApp < Devise::FailureApp
     def respond
-      if api_request?
+      if api_request? || oauth_request?
         json_api_error_response
       else
         super
@@ -20,10 +20,14 @@ module Devise
       request.controller_class.to_s.start_with? 'Api::'
     end
 
+    def oauth_request?
+      request.controller_class.to_s.start_with? 'Doorkeeper::'
+    end
+
     def json_api_error_response
       self.status        = 401
       self.content_type  = 'application/vnd.api+json; charset=utf-8'
-      self.response_body = { errors: [{ status: '401', title: i18n_message }]}.to_json
+      self.response_body = { errors: [{ status: '401', title: i18n_message }] }.to_json
     end
   end
 end

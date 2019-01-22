@@ -7,7 +7,7 @@ describe Api::V1::Users::ConfirmationsController do
     it 'responds with not found' do
       get('/api/v1/users/confirmation/new')
 
-      expect(response).to have_http_status(:no_content)
+      expect(response).to have_http_status(:unauthorized)
     end
   end
 

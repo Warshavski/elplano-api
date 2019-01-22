@@ -11,6 +11,8 @@ module Api
 
         set_default_serializer UserSerializer
 
+        skip_before_action :doorkeeper_authorize!
+
         %i[cancel new edit update destroy].each do |method|
           define_method(method) { route_not_found }
         end

@@ -13,6 +13,8 @@ module Api
       class UnlocksController < Devise::UnlocksController
         include DeviseJsonApi
 
+        skip_before_action :doorkeeper_authorize!
+
         # GET :  api/v1/users/unlock/new
         def new
           route_not_found

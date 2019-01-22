@@ -13,6 +13,8 @@ module Api
       class ConfirmationsController < Devise::ConfirmationsController
         include DeviseJsonApi
 
+        skip_before_action :doorkeeper_authorize!
+
         # GET : api/v1/users/confirmation/new
         def new
           route_not_found

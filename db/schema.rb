@@ -15,9 +15,6 @@ ActiveRecord::Schema.define(version: 2019_01_21_183038) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-# Could not dump table "events" because of following StandardError
-#   Unknown type 'event_status' for column 'status'
-
   create_table "oauth_access_grants", force: :cascade do |t|
     t.bigint "resource_owner_id", null: false
     t.bigint "application_id", null: false
@@ -92,7 +89,6 @@ ActiveRecord::Schema.define(version: 2019_01_21_183038) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "events", "users"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_grants", "users", column: "resource_owner_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"

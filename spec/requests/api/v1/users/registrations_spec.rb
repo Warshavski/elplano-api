@@ -6,7 +6,7 @@ describe Api::V1::Users::RegistrationsController do
     it 'responds with not found' do
       get('/api/v1/users/cancel')
 
-      expect(response).to have_http_status(:no_content)
+      expect(response).to have_http_status(:unauthorized)
     end
   end
 
@@ -14,7 +14,7 @@ describe Api::V1::Users::RegistrationsController do
     it 'responds with not found' do
       get('/api/v1/users/sign_up')
 
-      expect(response).to have_http_status(:no_content)
+      expect(response).to have_http_status(:unauthorized)
     end
   end
 

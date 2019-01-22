@@ -9,8 +9,14 @@ class ApplicationController < ActionController::API
   include ExceptionHandler
   include JsonApi::RestifyParams
 
+  DEFAULT_CACHE_CONTROL = "#{ActionDispatch::Http::Cache::Response::DEFAULT_CACHE_CONTROL}, no-store"
+
+  before_action :destroy_session
   before_action :check_request_format
   before_action :set_page_title_header
+  before_action :set_default_headers
+
+  prepend_before_action :doorkeeper_authorize!
 
   def check_request_format
     route_not_found unless json_request?
@@ -20,12 +26,28 @@ class ApplicationController < ActionController::API
     if current_user
       not_found('endpoint does not exists')
     else
-      authenticate_user!
+      doorkeeper_authorize!
     end
   end
 
   def json_request?
     request.format.json?
+  end
+
+  def set_default_headers
+    headers['X-Frame-Options'] = 'DENY'
+    headers['X-XSS-Protection'] = '1; mode=block'
+    headers['X-UA-Compatible'] = 'IE=edge'
+    headers['X-Content-Type-Options'] = 'nosniff'
+
+    if current_user
+      #
+      # Adds `no-store` to the DEFAULT_CACHE_CONTROL,
+      # to prevent security concerns due to caching private data.
+      #
+      headers['Cache-Control'] = DEFAULT_CACHE_CONTROL
+      headers['Pragma'] = 'no-cache' # HTTP 1.0 compatibility
+    end
   end
 
   def set_page_title_header
@@ -50,7 +72,14 @@ class ApplicationController < ActionController::API
 
   private
 
-  def current_resource_owner
-    User.find(doorkeeper_token.resource_owner_id) if doorkeeper_token
+  def destroy_session
+    request.session_options[:skip] = true
   end
+
+  def current_resource_owner
+    return nil unless doorkeeper_token
+    @current_resource_owner ||= User.find(doorkeeper_token.resource_owner_id)
+  end
+
+  alias current_user current_resource_owner
 end

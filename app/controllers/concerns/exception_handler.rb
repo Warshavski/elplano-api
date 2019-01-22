@@ -33,6 +33,21 @@ module ExceptionHandler
       render_errors(ErrorSerializer.serialize(e.record, 422), :unprocessable_entity)
     end
 
+    rescue_from Errors::AuthError do |e|
+      log_exception(e)
+
+      render_errors(
+        [
+          {
+            status: 401,
+            detail: e.message,
+            source: { pointer: 'authorization header' }
+          }
+        ],
+        :unauthorized
+      )
+    end
+
     def not_found(message = 'Record not found')
       render_errors([{ status: 404, detail: message }], :not_found)
     end

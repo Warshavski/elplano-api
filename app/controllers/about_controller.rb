@@ -5,6 +5,7 @@
 #   Used to represent core information about API
 #
 class AboutController < ApplicationController
+  skip_before_action :doorkeeper_authorize!
 
   # GET : /
   #

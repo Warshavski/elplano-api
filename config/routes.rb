@@ -19,4 +19,10 @@ Rails.application.routes.draw do
                  skip: %i[sessions password]
     end
   end
+
+  namespace :api, defaults: { format: 'json' } do
+    namespace :v1 do
+      resource :me, only: :show, controller: :me
+    end
+  end
 end

@@ -1,3 +1,6 @@
+env:
+  global:
+    - REVISION=$(git rev-parse --short HEAD 2> /dev/null); if [ $REVISION ]; then echo $REVISION; else echo 'unknown'; fi
 branches:
   only:
     - master
@@ -33,4 +36,7 @@ deploy:
   on:
     branches:
       - develop
-  run: "rake db:migrate"
+  run:
+    - "echo $REVISION > REVISION"
+    - "rake db:migrate"
+

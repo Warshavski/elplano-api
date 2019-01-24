@@ -37,6 +37,6 @@ deploy:
     branches:
       - develop
   run:
-    - "echo $REVISION > REVISION"
-    - "rake db:migrate"
+    - "sleep 30; echo $REVISION > REVISION"
+    - "sleep 30; rake db:migrate"
 

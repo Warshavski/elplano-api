@@ -13,9 +13,13 @@ gem 'fast_jsonapi'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
+
 # Use postgresql as the database for Active Record
+# https://github.com/ged/ruby-pg
 gem 'pg', '>= 0.18', '< 2.0'
+
 # Use Puma as the app server
+# https://github.com/puma/puma
 gem 'puma', '~> 3.11'
 
 # Use Redis adapter to run Action Cable in production
@@ -28,6 +32,7 @@ gem 'puma', '~> 3.11'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
+# https://github.com/Shopify/bootsnap
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # OAuth 2 provider for Ruby on Rails / Grape.
@@ -38,6 +43,8 @@ gem 'doorkeeper', '>= 5.0.1'
 # https://github.com/cyu/rack-cors
 gem 'rack-cors', require: 'rack/cors'
 
+# Exception tracking and logging from Ruby to Rollbar https://docs.rollbar.com/docs/ruby
+# https://github.com/rollbar/rollbar-gem
 gem 'rollbar'
 
 group :development, :test do

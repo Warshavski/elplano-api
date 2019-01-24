@@ -56,5 +56,22 @@ module Elplano
     #   - Any parameter ending with `key`
     #
     config.filter_parameters += [/token$/, /password/, /secret/, /key$/]
+
+    #
+    # Allow access to El Plano API from other domains
+    #
+    config.middleware.insert_before(0, Rack::Cors) do
+      #
+      # Cross-origin requests must not have the session cookie available
+      #
+      allow do
+        origins '*'
+        resource '*',
+                 credentials: false,
+                 headers: :any,
+                 methods: :any,
+                 expose: %w[Link X-Total X-Total-Pages X-Per-Page X-Page X-Next-Page X-Prev-Page]
+      end
+    end
   end
 end

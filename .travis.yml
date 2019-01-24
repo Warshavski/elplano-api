@@ -9,6 +9,7 @@ after_success:
 cache:
   - bundler
 before_script:
+  - SHA1=$(git rev-parse --short HEAD 2> /dev/null); if [ $SHA1 ]; then echo $SHA1; else echo 'unknown'; fi
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
     > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
@@ -34,6 +35,6 @@ deploy:
     branches:
       - develop
   run:
-    - "SHA1=$(git rev-parse --short HEAD 2> /dev/null); if [ $SHA1 ]; then echo $SHA1; else echo 'unknown'; fi > REVISION"
+    - "$SHA1 > REVISION"
     - "rake db:migrate"
 

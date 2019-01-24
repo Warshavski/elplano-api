@@ -30,3 +30,4 @@ coverage
 /config/master.key
 
 .env
+REVISION

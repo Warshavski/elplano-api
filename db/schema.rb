@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_21_183038) do
+ActiveRecord::Schema.define(version: 2019_01_26_202535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "groups", force: :cascade do |t|
+    t.bigint "president_id", null: false
+    t.string "number", limit: 25, null: false
+    t.string "title", limit: 200
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["president_id"], name: "index_groups_on_president_id"
+  end
 
   create_table "oauth_access_grants", force: :cascade do |t|
     t.bigint "resource_owner_id", null: false
@@ -57,6 +66,21 @@ ActiveRecord::Schema.define(version: 2019_01_21_183038) do
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
   end
 
+  create_table "students", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "full_name", limit: 200
+    t.string "email", limit: 100
+    t.string "phone", limit: 50
+    t.text "about"
+    t.jsonb "social_networks", default: {}, null: false
+    t.boolean "president", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "group_id"
+    t.index ["group_id"], name: "index_students_on_group_id"
+    t.index ["user_id"], name: "index_students_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "avatar"
@@ -89,8 +113,11 @@ ActiveRecord::Schema.define(version: 2019_01_21_183038) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "groups", "students", column: "president_id"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_grants", "users", column: "resource_owner_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "users", column: "resource_owner_id"
+  add_foreign_key "students", "groups"
+  add_foreign_key "students", "users"
 end

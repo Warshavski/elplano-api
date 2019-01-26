@@ -8,7 +8,6 @@ module Api
       #   Used to handle new user registration
       #
       class RegistrationsController < Devise::RegistrationsController
-
         set_default_serializer UserSerializer
 
         skip_before_action :doorkeeper_authorize!
@@ -22,8 +21,7 @@ module Api
         # Register new user in application
         #
         def create
-          user = build_resource(sign_up_params)
-          user.save
+          user = ::Users::Register.new.execute { build_resource(sign_up_params) }
 
           if user.persisted?
             handle_auth(user)

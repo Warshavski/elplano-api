@@ -29,6 +29,8 @@ class User < ApplicationRecord
                            foreign_key: :resource_owner_id,
                            dependent: :delete_all
 
+  has_one :student, dependent: :destroy
+
   #
   # Validations
   #

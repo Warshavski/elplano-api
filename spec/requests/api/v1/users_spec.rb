@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Api::V1::MeController do
+describe Api::V1::UsersController do
   describe '#show' do
     context 'anonymous user' do
       before(:each) { get '/api/v1/me' }
@@ -22,10 +22,10 @@ describe Api::V1::MeController do
         actual_keys = body_as_json[:data].keys
 
         expect(response.body).to look_like_json
-        expect(actual_keys).to match_array(%w[id type attributes])
+        expect(actual_keys).to match_array(%w[id type attributes relationships])
       end
 
-      it 'returns with correct attributes' do
+      it 'returns correct attributes set' do
         actual_keys = body_as_json[:data][:attributes].keys
         expected_keys = %w[
           email
@@ -34,14 +34,16 @@ describe Api::V1::MeController do
           created_at
           updated_at
           admin
-          current_sign_in_at
-          last_sign_in_at
-          current_sign_in_ip
-          last_sign_in_ip
-          confirmed_at
+          confirmed
         ]
 
         expect(actual_keys).to match_array(expected_keys)
+      end
+
+      it 'returns student in relationships' do
+        relationships_keys = body_as_json[:data][:relationships].keys
+
+        expect(relationships_keys).to match_array(['student'])
       end
 
       it 'returns token owner' do

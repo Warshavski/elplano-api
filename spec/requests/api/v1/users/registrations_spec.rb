@@ -51,16 +51,41 @@ describe Api::V1::Users::RegistrationsController do
       actual_keys = body_as_json[:data].keys
 
       expect(response.body).to look_like_json
-      expect(actual_keys).to match_array(%w[id type attributes])
+      expect(actual_keys).to match_array(%w[id type attributes relationships])
     end
 
     it { expect(body_as_json).to include(:meta) }
 
     it 'returns with correct attributes' do
       actual_keys = body_as_json[:data][:attributes].keys
-      expected_keys = %w[email username avatar_url created_at updated_at]
+      expected_keys = %w[email username avatar_url admin confirmed created_at updated_at]
 
       expect(actual_keys).to match_array(expected_keys)
+    end
+
+    it 'returns student in relationships' do
+      relationships_keys = body_as_json[:data][:relationships].keys
+
+      expect(relationships_keys).to match_array(['student'])
+    end
+
+    it 'returns registered user' do
+      actual_username = body_as_json[:data][:attributes][:username]
+
+      expect(actual_username).to eq(user_params[:attributes][:username])
+    end
+
+    it 'returns unconfirmed user' do
+      confirmation_flag = body_as_json[:data][:attributes][:confirmed]
+
+      expect(confirmation_flag).to be false
+    end
+
+
+    it 'returns non admin user' do
+      admin_flag = body_as_json[:data][:attributes][:admin]
+
+      expect(admin_flag).to be false
     end
 
     # TODO : fix "undefined method `env' for nil:NilClass"

@@ -7,7 +7,7 @@
 class UserSerializer
   include FastJsonapi::ObjectSerializer
 
-  attributes :email, :username, :created_at, :updated_at
+  attributes :email, :username, :admin, :created_at, :updated_at
 
   #
   # just stub for the first time
@@ -15,5 +15,11 @@ class UserSerializer
   attribute :avatar_url do |_object|
     nil
   end
+
+  attribute :confirmed do |object|
+    object.confirmation_token && object.confirmed_at.nil? ? false : true
+  end
+
+  belongs_to :student, serializer: StudentSerializer
 end
 

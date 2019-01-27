@@ -22,7 +22,11 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
-      resource :me, only: :show, controller: :me
+      resource :me, only: :show, controller: :users
+
+      scope :me do
+        resource :student, only: %i[show update]
+      end
     end
   end
 end

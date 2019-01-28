@@ -14,6 +14,12 @@ RSpec.describe Student, type: :model do
         .with_foreign_key(:president_id)
         .dependent(:destroy)
     end
+
+    it do
+      have_many(:created_events)
+        .class_name('Event')
+        .dependent(:delete_all)
+    end
   end
 
   describe 'validations' do

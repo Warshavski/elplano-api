@@ -81,5 +81,9 @@ class ApplicationController < ActionController::API
     @current_resource_owner ||= User.find(doorkeeper_token.resource_owner_id)
   end
 
+  def current_student
+    current_user.student
+  end
+
   alias current_user current_resource_owner
 end

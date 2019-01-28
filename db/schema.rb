@@ -10,10 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_26_202535) do
+ActiveRecord::Schema.define(version: 2019_01_27_150426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+# Could not dump table "events" because of following StandardError
+#   Unknown type 'event_status' for column 'status'
 
   create_table "groups", force: :cascade do |t|
     t.bigint "president_id", null: false
@@ -113,6 +116,7 @@ ActiveRecord::Schema.define(version: 2019_01_26_202535) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "events", "students", column: "creator_id"
   add_foreign_key "groups", "students", column: "president_id"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_grants", "users", column: "resource_owner_id"

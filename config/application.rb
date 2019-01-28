@@ -39,6 +39,7 @@ module Elplano
     config.api_only = true
 
     config.eager_load_paths.push("#{config.root}/lib")
+    config.eager_load_paths.push("#{Rails.root}/app/validators")
 
     #
     # This middleware needs to precede ActiveRecord::QueryCache and

@@ -39,6 +39,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # https://github.com/doorkeeper-gem/doorkeeper
 gem 'doorkeeper', '>= 5.0.1'
 
+# Settings is a plugin that makes managing a table of global key, value pairs easy.
+# https://github.com/huacnlee/rails-settings-cached
+gem 'rails-settings-cached'
+
 # Rack Middleware for handling Cross-Origin Resource Sharing (CORS), which makes cross-origin AJAX possible.
 # https://github.com/cyu/rack-cors
 gem 'rack-cors', require: 'rack/cors'

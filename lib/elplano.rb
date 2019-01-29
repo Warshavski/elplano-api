@@ -14,7 +14,7 @@ module Elplano
   end
 
   def self.config
-    ApplicationSettings
+    ApplicationSetting
   end
 
   def self.migrations_hash

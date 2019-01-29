@@ -94,4 +94,11 @@ RSpec.configure do |config|
   config.around(:each) do |example|
     DatabaseCleaner.cleaning { example.run }
   end
+
+  config.after(:suite) do
+    # ...
+    ApplicationSetting.thing_scoped.each do |r|
+      Rails.cache.delete("settings:#{r.var}")
+    end
+  end
 end

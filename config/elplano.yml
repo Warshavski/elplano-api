@@ -6,6 +6,16 @@ defaults: &defaults
     ip_whitelist:
       - 127.0.0.0/8
 
+  elplano:
+    ## Web server settings (note: host is the FQDN, do not include http://)
+    host: localhost
+    port: 80 # Set to 443 if using HTTPS, see installation.md#using-https for additional HTTPS configuration details
+    https: false # Set to true if using HTTPS, see installation.md#using-https for additional HTTPS configuration details
+
+  gravatar:
+    plain_url: 'https://www.gravatar.com/avatar/%{hash}?s=%{size}&d=identicon'
+    ssl_url: 'https://secure.gravatar.com/avatar/%{hash}?s=%{size}&d=identicon'
+
 development:
   <<: *defaults
 

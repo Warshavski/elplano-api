@@ -40,7 +40,11 @@ module Middleware
     end
 
     def ip_whitelist
-      @ip_whitelist ||= ['127.0.0.0/8'].map(&IPAddr.method(:new))
+      @ip_whitelist ||= monitoring['ip_whitelist'].map(&IPAddr.method(:new))
+    end
+
+    def monitoring
+      Elplano.config.monitoring
     end
   end
 end

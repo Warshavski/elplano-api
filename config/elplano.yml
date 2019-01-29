@@ -1,0 +1,16 @@
+# config/elplano.yml for rails-settings-cached
+defaults: &defaults
+  # Built in monitoring settings
+  monitoring:
+    # IP whitelist to access monitoring endpoints
+    ip_whitelist:
+      - 127.0.0.0/8
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

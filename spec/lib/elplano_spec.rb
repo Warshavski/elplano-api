@@ -40,4 +40,8 @@ describe Elplano do
       it { expect(described_class.revision).to eq('Unknown') }
     end
   end
+
+  describe '.config' do
+    it { expect(described_class.config).to be ApplicationSettings }
+  end
 end

@@ -22,6 +22,8 @@ Bundler.require(*Rails.groups)
 module Elplano
   class Application < Rails::Application
     require_relative Rails.root.join('lib/middleware/health_check')
+    require_relative Rails.root.join('lib/elplano/redis/wrapper')
+    require_relative Rails.root.join('lib/elplano/redis/cache')
 
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
@@ -74,5 +76,18 @@ module Elplano
                  expose: %w[Link X-Total X-Total-Pages X-Per-Page X-Page X-Next-Page X-Prev-Page]
       end
     end
+
+    #
+    # Use caching across all environments
+    #
+    caching_config_hash = ::Elplano::Redis::Cache.params
+    caching_config_hash[:namespace] = ::Elplano::Redis::Cache::CACHE_NAMESPACE
+
+    #
+    # Limit cache grow
+    #
+    caching_config_hash[:expires_in] = 2.weeks
+
+    config.cache_store = :redis_store, caching_config_hash
   end
 end

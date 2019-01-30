@@ -22,9 +22,6 @@ gem 'pg', '>= 0.18', '< 2.0'
 # https://github.com/puma/puma
 gem 'puma', '~> 3.11'
 
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -50,6 +47,12 @@ gem 'rack-cors', require: 'rack/cors'
 # Exception tracking and logging from Ruby to Rollbar https://docs.rollbar.com/docs/ruby
 # https://github.com/rollbar/rollbar-gem
 gem 'rollbar'
+
+# Cache
+gem 'connection_pool'
+gem 'redis'
+gem 'redis-namespace'
+gem 'redis-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

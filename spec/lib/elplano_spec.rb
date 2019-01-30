@@ -42,6 +42,6 @@ describe Elplano do
   end
 
   describe '.config' do
-    it { expect(described_class.config).to be ApplicationSettings }
+    it { expect(described_class.config).to be ApplicationSetting }
   end
 end

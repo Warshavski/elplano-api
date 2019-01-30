@@ -12,8 +12,8 @@ class UserSerializer
   #
   # just stub for the first time
   #
-  attribute :avatar_url do |_object|
-    nil
+  attribute :avatar_url do |object|
+    Users::Gravatar.new.generate(object.email, 100, 2, username: object.username)
   end
 
   attribute :confirmed do |object|

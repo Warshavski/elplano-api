@@ -51,6 +51,7 @@ Shoulda::Matchers.configure do |config|
 end
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each(&method(:require))
+Dir[Rails.root.join('spec/support/helpers/*.rb')].each(&method(:require))
 
 RSpec.configure do |config|
   config.include RestifyHelper
@@ -95,10 +96,28 @@ RSpec.configure do |config|
     DatabaseCleaner.cleaning { example.run }
   end
 
+  config.around(:each, :use_clean_rails_memory_store_caching) do |example|
+    caching_store = Rails.cache
+    Rails.cache = ActiveSupport::Cache::MemoryStore.new
+
+    example.run
+
+    Rails.cache = caching_store
+  end
+
+  config.around(:each, :clean_booky_redis_cache) do |example|
+    redis_cache_cleanup!
+
+    example.run
+
+    redis_cache_cleanup!
+  end
+
   config.after(:suite) do
     # ...
     ApplicationSetting.thing_scoped.each do |r|
-      Rails.cache.delete("settings:#{r.var}")
+      key = "#{Elplano::Redis::Cache::CACHE_NAMESPACE}:rails_settings_cached/#{r.var}"
+      Rails.cache.delete(key)
     end
   end
 end

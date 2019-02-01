@@ -1,5 +1,5 @@
 development:
-  url: redis://localhost:6379/10
+  url: <%= ENV.fetch("REDIS_CACHE_URL") { redis://localhost:6379/10 } %>
   #
   # url: redis://localhost:6380
   # sentinels:
@@ -10,12 +10,12 @@ development:
   #     host: slave2
   #     port: 26380 # point to sentinel, not to redis port
 test:
-  url: redis://localhost:6379/10
+  url: <%= ENV.fetch("REDIS_CACHE_URL") { redis://localhost:6379/10 } %>
   #
   # url: redis://localhost:6380
 production:
   # Redis (single instance)
-  url: unix:/var/run/redis/redis.cache.sock
+  url: <%= ENV.fetch("REDIS_CACHE_URL") { unix:/var/run/redis/redis.cache.sock } %>
 
   # url: redis://master:6380
   # sentinels:

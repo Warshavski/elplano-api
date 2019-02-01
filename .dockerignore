@@ -1,0 +1,16 @@
+
+.byebug_history
+.env*
+.git
+.gitignore
+.dockerignore
+.gitlab-ci.yml
+.travis.yml
+Brewfile
+Procfile*
+docker-compose.*
+Dockerfile
+coverage/*
+log/*
+storage/*
+tmp/*

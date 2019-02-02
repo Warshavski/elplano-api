@@ -43,6 +43,8 @@ module Elplano
     config.eager_load_paths.push("#{config.root}/lib")
     config.eager_load_paths.push("#{Rails.root}/app/validators")
 
+    config.active_record.schema_format = :sql
+
     #
     # This middleware needs to precede ActiveRecord::QueryCache and
     # other middlewares that connect to the database.

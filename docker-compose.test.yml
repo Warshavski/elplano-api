@@ -1,0 +1,40 @@
+version: '3.4'
+services:
+  db:
+    image: postgres:alpine
+    environment:
+      - POSTGRES_PASSWORD
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+  redis:
+    image: redis:alpine
+    expose:
+      - 6379
+    volumes:
+      - redis:/data
+
+  app:
+    image: dockerrails_app_test
+    build:
+      context: .
+      args:
+        - RAILS_ENV=test
+    environment:
+      REDIS_URL: redis://redis:6379
+      REDIS_CACHE_URL: redis://redis:6379/10
+      RAILS_ENV: test
+      DB_HOST: db
+      POSTGRES_PASSWORD: test
+      SECRET_KEY_BASE: we-dont-need-a-secret-here
+      DB_USER: postgres
+      DB_PASSWORD: test
+    ports:
+      - 3000
+    links:
+      - db
+      - redis
+
+volumes:
+  postgres:
+  redis:

@@ -59,6 +59,10 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
   gem 'rspec-parameterized', require: false
+
+  # Shim to load environment variables from .env into ENV in development.
+  # https://github.com/bkeepers/dotenv
+  gem 'dotenv-rails'
 end
 
 group :development do

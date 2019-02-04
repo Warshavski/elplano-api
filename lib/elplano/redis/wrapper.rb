@@ -70,7 +70,7 @@ module Elplano
           #
           # otherwise, if config files exists for wrapper class, use it
           #
-          file_name = config_file_path('resque.yml')
+          file_name = config_file_path('redis.yml')
           return file_name if File.file?(file_name)
 
           #

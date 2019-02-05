@@ -1,0 +1,30 @@
+AllCops:
+  TargetRubyVersion: 2.5
+  Exclude:
+    - 'spec/**/*'
+    - 'db/**/*'
+    - 'app/views/**/*'
+    - 'config/**/*'
+    - 'bin/*'
+    - 'Rakefile'
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Layout/AccessModifierIndentation:
+  EnforcedStyle: indent
+
+Layout/EmptyLineAfterMagicComment:
+  Enabled: false
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: space
+
+Metrics/LineLength:
+  AllowURI: true
+  Enabled: false
+
+Rails:
+  Enabled: true

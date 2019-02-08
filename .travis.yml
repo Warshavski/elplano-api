@@ -53,5 +53,4 @@ jobs:
         - provider: script
           script: scripts/build-image.sh
           on:
-            branches:
-              - develop
+            branch: develop

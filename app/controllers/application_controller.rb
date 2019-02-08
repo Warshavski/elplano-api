@@ -37,7 +37,6 @@ class ApplicationController < ActionController::API
   def set_default_headers
     headers['X-Frame-Options'] = 'DENY'
     headers['X-XSS-Protection'] = '1; mode=block'
-    headers['X-UA-Compatible'] = 'IE=edge'
     headers['X-Content-Type-Options'] = 'nosniff'
 
     if current_user
@@ -81,9 +80,9 @@ class ApplicationController < ActionController::API
     @current_resource_owner ||= User.find(doorkeeper_token.resource_owner_id)
   end
 
+  alias current_user current_resource_owner
+
   def current_student
     current_user.student
   end
-
-  alias current_user current_resource_owner
 end

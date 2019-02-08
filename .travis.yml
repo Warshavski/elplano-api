@@ -51,7 +51,6 @@ jobs:
         - sh scripts/test-image.sh
       deploy:
         - provider: script
-          script: scripts/build-image.sh
+          script: chmod +x scripts/build-image.sh && scripts/build-image.sh
           on:
-            branches:
-              - develop
+            branch: develop

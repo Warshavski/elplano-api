@@ -1,0 +1,50 @@
+{
+  "resource": "Students",
+  "resource_explanation": "El Plano student's profile API",
+  "http_method": "GET",
+  "route": "api/v1/me/student",
+  "description": "SHOW : Retrieve Authenticated Users's  information",
+  "explanation": "- `full_name` - represents concatenated student's first, last and middle names\n- `email` - represents email which use to contact with the student\n- `phone` - represents phone which use to contact with the student\n- `about` - represents some detailed information about student(BIO)\n- `social_networks` - represents a list of social networks\n- `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member)\n- timestamps\n\nAlso, includes information about the group\n\n- `title` - represents group name\n- `number` - represents group identity\n- timestamps\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "api/v1/me/student",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer a6335f19991ee8d083185d003a93701b7f3ad3ffceee78194e14759db835a4ec",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"34\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Mrs. Socorro Shanika Corwin\",\n      \"email\": \"talisha@okuneva.io\",\n      \"phone\": \"812-323-4305\",\n      \"about\": \"In aut eum. Rerum aspernatur nemo. Veritatis quasi non. Distinctio porro et. Ut quia vel.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/omega_ritchie\",\n        \"facebook\": \"http://facebook/je_sporer\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-10T16:03:16.455Z\",\n      \"updated_at\": \"2019-02-10T16:03:16.455Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"17\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"17\",\n      \"type\": \"group\",\n      \"attributes\": {\n        \"number\": \"4087939459\",\n        \"title\": \"Tempora repellendus iusto.\",\n        \"created_at\": \"2019-02-10T16:03:16.452Z\",\n        \"updated_at\": \"2019-02-10T16:03:16.452Z\"\n      },\n      \"relationships\": {\n        \"students\": {\n          \"data\": [\n            {\n              \"id\": \"34\",\n              \"type\": \"student\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/vnd.api+json; charset=utf-8",
+        "ETag": "W/\"e9d1f5a37787dda0170346c5e5298395\"",
+        "X-Request-Id": "c7a58caa-6cb6-4107-a69c-b828361ecbb0",
+        "X-Runtime": "0.009852",
+        "Vary": "Origin",
+        "Content-Length": "769"
+      },
+      "response_content_type": "application/vnd.api+json; charset=utf-8",
+      "curl": "curl -g \"http://localhost:3000api/v1/me/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer a6335f19991ee8d083185d003a93701b7f3ad3ffceee78194e14759db835a4ec\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

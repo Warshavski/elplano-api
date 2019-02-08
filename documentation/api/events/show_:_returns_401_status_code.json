@@ -1,0 +1,45 @@
+{
+  "resource": "Events",
+  "resource_explanation": "El Plano events API",
+  "http_method": "GET",
+  "route": "api/v1/me/events/:id",
+  "description": "SHOW : Returns 401 status code",
+  "explanation": "Returns 401 status code in case of missing or invalid access token\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "api/v1/me/events/4",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 401,
+      "response_status_text": "Unauthorized",
+      "response_body": null,
+      "response_headers": {
+        "Cache-Control": "private, no-store",
+        "Pragma": "no-cache",
+        "WWW-Authenticate": "Bearer realm=\"Doorkeeper\", error=\"invalid_token\", error_description=\"The access token is invalid\"",
+        "Content-Type": "text/html",
+        "X-Request-Id": "964a4b92-89f4-4603-865b-44b8b37fd407",
+        "X-Runtime": "0.001252",
+        "Vary": "Origin",
+        "Content-Length": "0"
+      },
+      "response_content_type": "text/html",
+      "curl": "curl -g \"http://localhost:3000api/v1/me/events/4\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

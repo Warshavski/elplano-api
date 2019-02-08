@@ -54,6 +54,14 @@ gem 'redis'
 gem 'redis-namespace'
 gem 'redis-rails'
 
+# Automatically generate API documentation from RSpec
+# https://github.com/zipmark/rspec_api_documentation
+gem 'rspec_api_documentation'
+
+# Apitome: /iˈpitəmē/ An API documentation reader for RSpec API Documentation.
+# https://github.com/jejacks0n/apitome
+gem "apitome"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

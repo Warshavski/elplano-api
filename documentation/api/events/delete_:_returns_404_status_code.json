@@ -1,0 +1,49 @@
+{
+  "resource": "Events",
+  "resource_explanation": "El Plano events API",
+  "http_method": "DELETE",
+  "route": "api/v1/me/events/:id",
+  "description": "DELETE : Returns 404 status code",
+  "explanation": "Returns 404 status code in case if requested event not exists\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "api/v1/me/events/0",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer 752d9edc68e45dfa4bd1f87d6e9f6c78fc8404374ba73c8f3e27af48c8d5cf8c",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 404,
+      "response_status_text": "Not Found",
+      "response_body": "{\n  \"errors\": [\n    {\n      \"status\": 404,\n      \"detail\": \"Couldn't find Event with 'id'=0 [WHERE \\\"events\\\".\\\"creator_id\\\" = $1]\"\n    }\n  ]\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/vnd.api+json; charset=utf-8",
+        "X-Request-Id": "0f624abb-955f-406c-a4b4-f626f683fdc9",
+        "X-Runtime": "0.005892",
+        "Vary": "Origin",
+        "Content-Length": "109"
+      },
+      "response_content_type": "application/vnd.api+json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000api/v1/me/events/0\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 752d9edc68e45dfa4bd1f87d6e9f6c78fc8404374ba73c8f3e27af48c8d5cf8c\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

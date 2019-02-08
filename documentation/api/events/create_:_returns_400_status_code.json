@@ -1,0 +1,49 @@
+{
+  "resource": "Events",
+  "resource_explanation": "El Plano events API",
+  "http_method": "POST",
+  "route": "api/v1/me/events",
+  "description": "CREATE : Returns 400 status code",
+  "explanation": "Returns 400 status code in case of missing parameters\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "api/v1/me/events",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer 873b2c9428d30c3668cd5b11b78df44488476a9392ab6f706a113d0afe5953eb",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 400,
+      "response_status_text": "Bad Request",
+      "response_body": "{\n  \"errors\": [\n    {\n      \"status\": 400,\n      \"detail\": \"param is missing or the value is empty: Parameters does not present by JSON:API format. Missing \\\"data\\\" key\",\n      \"source\": {\n        \"pointer\": \"Parameters does not present by JSON:API format. Missing \\\"data\\\" key\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/vnd.api+json; charset=utf-8",
+        "X-Request-Id": "904dfdda-3c62-4d9f-b20b-6ac213c89212",
+        "X-Runtime": "0.006057",
+        "Vary": "Origin",
+        "Content-Length": "239"
+      },
+      "response_content_type": "application/vnd.api+json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000api/v1/me/events\" -d '' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 873b2c9428d30c3668cd5b11b78df44488476a9392ab6f706a113d0afe5953eb\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

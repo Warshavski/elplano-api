@@ -23,6 +23,10 @@ FactoryBot.define do
     end
 
     factory :admin, traits: [:admin]
+
+    trait :student do
+      after(:create) { |user, _| create(:student, user: user) }
+    end
   end
 
   factory :user_params, class: Hash do

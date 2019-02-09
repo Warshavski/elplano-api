@@ -56,14 +56,14 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: 'https://elplano-api.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: ENV['MAILER_HOST'] }
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    address: 'smtp.sendgrid.net',
-    port: '25',
-    domain: 'heroku.com',
-    user_name: ENV['SENDGRID_USERNAME'],
-    password: ENV['SENDGRID_PASSWORD'],
+    address: ENV['MAILER_ADDRESS'],
+    port: ENV['MAILER_PORT'],
+    domain: ENV['MAILER_DOMAIN'],
+    user_name: ENV['MAILER_USERNAME'],
+    password: ENV['MAILER_PASSWORD'],
     authentication: 'plain',
     enable_starttls_auto: true
   }

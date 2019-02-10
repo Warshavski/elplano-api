@@ -1,0 +1,50 @@
+{
+  "resource": "Events",
+  "resource_explanation": "El Plano events API",
+  "http_method": "GET",
+  "route": "api/v1/me/events",
+  "description": "INDEX : Retrieve events created by authenticated user",
+  "explanation": "- `title` - represents event name\n- `description` - represents event detailed description\n- `status` - represents event current status\n  - `confirmed` - The event is confirmed. This is the default status.\n  - `tentative` - The event is tentatively confirmed.\n  - `cancelled` - The event is cancelled (deleted).\n\n- `recurrence` - represents recurrence rules\n- `timezone` - timezone settings\n- `start_at` - represents when event starts\n- `end_at` - represents when event ends\n- timestamps\n\nAlso, includes reference to the event creator\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "api/v1/me/events",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer 83bcb912415eb6d93ce03be2bc3022502e2ef7f04f8e432a021b429595bccf9e",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"event\",\n      \"attributes\": {\n        \"title\": \"Quaerat temporibus ut omnis.\",\n        \"description\": null,\n        \"status\": \"confirmed\",\n        \"recurrence\": [\n          \"EXDATE;VALUE=DATE:20150610\",\n          \"RDATE;VALUE=DATE:20150609,20150611\",\n          \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n        ],\n        \"start_at\": \"2019-02-11T00:00:00.000Z\",\n        \"end_at\": null,\n        \"timezone\": \"Etc/GMT+12\",\n        \"created_at\": \"2019-02-10T16:03:15.789Z\",\n        \"updated_at\": \"2019-02-10T16:03:15.789Z\"\n      },\n      \"relationships\": {\n        \"creator\": {\n          \"data\": {\n            \"id\": \"2\",\n            \"type\": \"creator\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/vnd.api+json; charset=utf-8",
+        "ETag": "W/\"8ee2dd052259d282169500f3586c879b\"",
+        "X-Request-Id": "43f2306b-3ab5-4156-b8e5-33167f049dca",
+        "X-Runtime": "0.027972",
+        "Vary": "Origin",
+        "Content-Length": "477"
+      },
+      "response_content_type": "application/vnd.api+json; charset=utf-8",
+      "curl": "curl -g \"http://localhost:3000api/v1/me/events\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 83bcb912415eb6d93ce03be2bc3022502e2ef7f04f8e432a021b429595bccf9e\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

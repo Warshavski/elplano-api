@@ -1,0 +1,49 @@
+{
+  "resource": "Students",
+  "resource_explanation": "El Plano student's profile API",
+  "http_method": "PUT",
+  "route": "api/v1/me/student",
+  "description": "UPDATE : Returns 422 status code",
+  "explanation": "Returns 422 status code in case of invalid parameters\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "api/v1/me/student",
+      "request_body": "{\"data\":{\"type\":\"student\",\"attributes\":{\"phone\":\"1123456789012345678901234567890123456789012345678901234567890\"}}}",
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer 803c6970ad2aa58bdf645d1da6b70fcc04078c0dde713c37bdc822c2da933c78",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 422,
+      "response_status_text": "Unprocessable Entity",
+      "response_body": "{\n  \"errors\": [\n    {\n      \"status\": 422,\n      \"source\": {\n        \"pointer\": \"/data/attributes/phone\"\n      },\n      \"detail\": \"is too long (maximum is 50 characters)\"\n    }\n  ]\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/vnd.api+json; charset=utf-8",
+        "X-Request-Id": "019bd186-02c4-4005-95e8-1a92d7324ff9",
+        "X-Runtime": "0.006819",
+        "Vary": "Origin",
+        "Content-Length": "123"
+      },
+      "response_content_type": "application/vnd.api+json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000api/v1/me/student\" -d '{\"data\":{\"type\":\"student\",\"attributes\":{\"phone\":\"1123456789012345678901234567890123456789012345678901234567890\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 803c6970ad2aa58bdf645d1da6b70fcc04078c0dde713c37bdc822c2da933c78\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

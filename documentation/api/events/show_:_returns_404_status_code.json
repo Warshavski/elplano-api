@@ -1,0 +1,49 @@
+{
+  "resource": "Events",
+  "resource_explanation": "El Plano events API",
+  "http_method": "GET",
+  "route": "api/v1/me/events/:id",
+  "description": "SHOW : Returns 404 status code",
+  "explanation": "Returns 404 status code in case if requested event not exists\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "api/v1/me/events/0",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer 1582247cea6e6f0128e1751144109b298f813fafd548413606fb4869c23a8ecb",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 404,
+      "response_status_text": "Not Found",
+      "response_body": "{\n  \"errors\": [\n    {\n      \"status\": 404,\n      \"detail\": \"Couldn't find Event with 'id'=0 [WHERE \\\"events\\\".\\\"creator_id\\\" = $1]\"\n    }\n  ]\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/vnd.api+json; charset=utf-8",
+        "X-Request-Id": "e98480e1-a538-446f-8505-e2fbf37d4e5f",
+        "X-Runtime": "0.007129",
+        "Vary": "Origin",
+        "Content-Length": "109"
+      },
+      "response_content_type": "application/vnd.api+json; charset=utf-8",
+      "curl": "curl -g \"http://localhost:3000api/v1/me/events/0\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 1582247cea6e6f0128e1751144109b298f813fafd548413606fb4869c23a8ecb\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

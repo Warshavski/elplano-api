@@ -48,6 +48,9 @@ GEM
       memoizable (~> 0.4.0)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    apitome (0.2.1)
+      kramdown
+      railties
     arel (9.0.0)
     ast (2.4.0)
     bcrypt (3.1.12)
@@ -102,6 +105,7 @@ GEM
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
     json (2.1.0)
+    kramdown (2.1.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -122,6 +126,7 @@ GEM
     minitest (5.11.3)
     msgpack (1.2.4)
     multi_json (1.13.1)
+    mustache (1.1.0)
     nio4r (2.3.1)
     nokogiri (1.9.1)
       mini_portile2 (~> 2.4.0)
@@ -229,6 +234,10 @@ GEM
       rails (> 4.0, < 6.0)
       rspec (~> 3.0)
     rspec-support (3.8.0)
+    rspec_api_documentation (6.1.0)
+      activesupport (>= 3.0.0)
+      mustache (~> 1.0, >= 0.99.4)
+      rspec (~> 3.0)
     rspec_junit_formatter (0.4.1)
       rspec-core (>= 2, < 4, != 2.12.0)
     ruby_dep (1.5.0)
@@ -279,6 +288,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  apitome
   bootsnap (>= 1.1.0)
   bullet
   byebug
@@ -304,6 +314,7 @@ DEPENDENCIES
   rspec-parameterized
   rspec-rails
   rspec-sqlimit
+  rspec_api_documentation
   rspec_junit_formatter
   shoulda-matchers
   simplecov

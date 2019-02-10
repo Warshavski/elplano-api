@@ -2,15 +2,28 @@
 
 FactoryBot.define do
   factory :student, class: Student, aliases: [:creator] do
-
     full_name { Faker::Name.name_with_middle }
     email     { Faker::Internet.email }
     phone     { Faker::PhoneNumber.cell_phone }
+    about     { Faker::Lorem.paragraph(5) }
+
+    social_networks do
+      {
+        'twitter' => Faker::Internet.url('twitter'),
+        'facebook' => Faker::Internet.url('facebook')
+      }
+    end
 
     user
 
     trait :president do
       president { true }
+    end
+
+    trait :group_member do
+      after(:build) do |student, _|
+        student.group = create(:group)
+      end
     end
 
     factory :president, traits: [:president]
@@ -25,8 +38,8 @@ FactoryBot.define do
           phone: '+8 983 47 89 312',
           full_name: 'Sir Wat Name Yeah',
           social_networks: {
-            'facebook' => 'some facebook link',
-            'twitter' => 'some twitter link'
+            'twitter' => 'https://twitter.com/watever',
+            'facebook' => 'https://facebook.com/watever'
           }
         }
       }

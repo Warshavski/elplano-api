@@ -1,0 +1,49 @@
+{
+  "resource": "Events",
+  "resource_explanation": "El Plano events API",
+  "http_method": "PUT",
+  "route": "api/v1/me/events/:id",
+  "description": "UPDATE : Returns 422 status code",
+  "explanation": "Returns 422 status code in case of invalid parameters\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "api/v1/me/events/9",
+      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":null,\"status\":null,\"start_at\":null,\"end_at\":null,\"timezone\":\"wat timezone\"}}}",
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer ed5282cfbc0f7acd8531b9299627e207ff9c9a43a2188468d709d7f86e51147c",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 422,
+      "response_status_text": "Unprocessable Entity",
+      "response_body": "{\n  \"errors\": [\n    {\n      \"status\": 422,\n      \"source\": {\n        \"pointer\": \"/data/attributes/start_at\"\n      },\n      \"detail\": \"can't be blank\"\n    },\n    {\n      \"status\": 422,\n      \"source\": {\n        \"pointer\": \"/data/attributes/title\"\n      },\n      \"detail\": \"can't be blank\"\n    },\n    {\n      \"status\": 422,\n      \"source\": {\n        \"pointer\": \"/data/attributes/title\"\n      },\n      \"detail\": \"is too short (minimum is 3 characters)\"\n    },\n    {\n      \"status\": 422,\n      \"source\": {\n        \"pointer\": \"/data/attributes/timezone\"\n      },\n      \"detail\": \"does not exist\"\n    }\n  ]\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/vnd.api+json; charset=utf-8",
+        "X-Request-Id": "e6e86482-ae4e-4138-b5a4-df832f26e1e8",
+        "X-Runtime": "0.009768",
+        "Vary": "Origin",
+        "Content-Length": "390"
+      },
+      "response_content_type": "application/vnd.api+json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000api/v1/me/events/9\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":null,\"status\":null,\"start_at\":null,\"end_at\":null,\"timezone\":\"wat timezone\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer ed5282cfbc0f7acd8531b9299627e207ff9c9a43a2188468d709d7f86e51147c\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

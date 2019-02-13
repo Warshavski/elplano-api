@@ -25,4 +25,12 @@ class Student < ApplicationRecord
   validates :phone,     length: { maximum: 50 }
 
   scope :presidents, -> { where(president: true) }
+
+  def any_group?
+    !supervised_group.nil? || !group.nil?
+  end
+
+  def group_owner?
+    supervised_group&.president_id == id
+  end
 end

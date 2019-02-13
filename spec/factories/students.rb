@@ -26,6 +26,12 @@ FactoryBot.define do
       end
     end
 
+    trait :group_supervisor do
+      after(:create) do |student, _|
+        student.supervised_group = create(:group, president: student, students: [student])
+      end
+    end
+
     factory :president, traits: [:president]
   end
 

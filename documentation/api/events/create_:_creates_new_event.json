@@ -66,11 +66,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/me/events",
-      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Quaerat et in.\",\"description\":\"Officiis totam et. Minus distinctio qui. Sit iste voluptatem. Tempora modi illum. Perspiciatis voluptate eum.\",\"status\":\"cancelled\",\"start_at\":\"2019-02-09\",\"end_at\":\"2019-02-11\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]}}}",
+      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Possimus atque sequi.\",\"description\":\"Odit rerum qui. Et ut nobis. Minima in tenetur. Iusto nisi excepturi. Ullam et officiis.\",\"status\":\"cancelled\",\"start_at\":\"2019-02-13\",\"end_at\":\"2019-02-15\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 561a8ae31a3fbdd9f6867f549fa314bc127b5e52ffed912db2b03a2acce54e38",
+        "Authorization": "Bearer f388f4aff0aff60371b2334cb55cb29d0c5fd7937ad49e980091aa0341143077",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -79,7 +79,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Quaerat et in.\",\n      \"description\": \"Officiis totam et. Minus distinctio qui. Sit iste voluptatem. Tempora modi illum. Perspiciatis voluptate eum.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-02-09T00:00:00.000Z\",\n      \"end_at\": \"2019-02-11T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-02-10T16:03:16.063Z\",\n      \"updated_at\": \"2019-02-10T16:03:16.063Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"12\",\n          \"type\": \"creator\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Possimus atque sequi.\",\n      \"description\": \"Odit rerum qui. Et ut nobis. Minima in tenetur. Iusto nisi excepturi. Ullam et officiis.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-02-13T00:00:00.000Z\",\n      \"end_at\": \"2019-02-15T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-02-14T11:53:45.105Z\",\n      \"updated_at\": \"2019-02-14T11:53:45.105Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"12\",\n          \"type\": \"creator\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -88,14 +88,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "ETag": "W/\"a42c9ee7d0caee4006711322f4d4948d\"",
-        "X-Request-Id": "b6d75ccb-e889-4dc2-91e5-e2fcdac04afe",
-        "X-Runtime": "0.008713",
+        "ETag": "W/\"f02eba69ace7aed4b2377155da89cab8\"",
+        "X-Request-Id": "b9fdb8f3-094c-4a8d-8a85-609f59d4d6d9",
+        "X-Runtime": "0.013569",
         "Vary": "Origin",
-        "Content-Length": "591"
+        "Content-Length": "577"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000api/v1/me/events\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Quaerat et in.\",\"description\":\"Officiis totam et. Minus distinctio qui. Sit iste voluptatem. Tempora modi illum. Perspiciatis voluptate eum.\",\"status\":\"cancelled\",\"start_at\":\"2019-02-09\",\"end_at\":\"2019-02-11\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 561a8ae31a3fbdd9f6867f549fa314bc127b5e52ffed912db2b03a2acce54e38\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000api/v1/me/events\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Possimus atque sequi.\",\"description\":\"Odit rerum qui. Et ut nobis. Minima in tenetur. Iusto nisi excepturi. Ullam et officiis.\",\"status\":\"cancelled\",\"start_at\":\"2019-02-13\",\"end_at\":\"2019-02-15\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer f388f4aff0aff60371b2334cb55cb29d0c5fd7937ad49e980091aa0341143077\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
+      resource :group, except: %i[new edit]
+
       resource :me, only: :show, controller: :users
 
       scope :me do

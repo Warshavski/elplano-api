@@ -45,4 +45,48 @@ RSpec.describe Student, type: :model do
       end
     end
   end
+
+  describe '#any_group?' do
+    subject { student.any_group? }
+
+    context 'no groups' do
+      let(:student) { create(:student) }
+
+      it { expect(subject).to be false }
+    end
+
+    context 'has supervised group' do
+      let(:student) { create(:student, :group_supervisor) }
+
+      it { expect(subject).to be true }
+    end
+
+    context 'has group' do
+      let(:student) { create(:student, :group_member) }
+
+      it { expect(subject).to be true }
+    end
+  end
+
+  describe '#group_owner?' do
+    subject { student.group_owner? }
+
+    context 'no groups' do
+      let(:student) { create(:student) }
+
+      it { expect(subject).to be false }
+    end
+
+    context 'has supervised group' do
+      let(:student) { create(:student, :group_supervisor) }
+
+      it { expect(subject).to be true }
+    end
+
+    context 'has group' do
+      let(:student) { create(:student, :group_member) }
+
+      it { expect(subject).to be false }
+    end
+  end
 end

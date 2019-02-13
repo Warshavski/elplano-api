@@ -39,12 +39,12 @@ module ExceptionHandler
       render_errors(
         [
           {
-            status: 401,
+            status: 403,
             detail: e.message,
             source: { pointer: 'authorization header' }
           }
         ],
-        :unauthorized
+        :forbidden
       )
     end
 

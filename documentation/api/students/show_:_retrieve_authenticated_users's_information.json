@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer a6335f19991ee8d083185d003a93701b7f3ad3ffceee78194e14759db835a4ec",
+        "Authorization": "Bearer 854f82feada486467bf928cf651d7e717c22eba227b5d277363a7b266b4a8e45",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"34\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Mrs. Socorro Shanika Corwin\",\n      \"email\": \"talisha@okuneva.io\",\n      \"phone\": \"812-323-4305\",\n      \"about\": \"In aut eum. Rerum aspernatur nemo. Veritatis quasi non. Distinctio porro et. Ut quia vel.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/omega_ritchie\",\n        \"facebook\": \"http://facebook/je_sporer\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-10T16:03:16.455Z\",\n      \"updated_at\": \"2019-02-10T16:03:16.455Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"17\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"17\",\n      \"type\": \"group\",\n      \"attributes\": {\n        \"number\": \"4087939459\",\n        \"title\": \"Tempora repellendus iusto.\",\n        \"created_at\": \"2019-02-10T16:03:16.452Z\",\n        \"updated_at\": \"2019-02-10T16:03:16.452Z\"\n      },\n      \"relationships\": {\n        \"students\": {\n          \"data\": [\n            {\n              \"id\": \"34\",\n              \"type\": \"student\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"48\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Leandra Lovetta Hackett\",\n      \"email\": \"demetriusjones@jenkinswisoky.name\",\n      \"phone\": \"1-829-883-2613\",\n      \"about\": \"Sit et qui. Illum vitae et. Corporis ipsa soluta. Similique dicta est. Quod nisi nihil.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/brianna.zemlak\",\n        \"facebook\": \"http://facebook/eusebio_muller\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-14T11:53:45.919Z\",\n      \"updated_at\": \"2019-02-14T11:53:45.919Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"26\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"26\",\n      \"type\": \"group\",\n      \"attributes\": {\n        \"number\": \"5458524103\",\n        \"title\": \"Et magnam maxime.\",\n        \"created_at\": \"2019-02-14T11:53:45.918Z\",\n        \"updated_at\": \"2019-02-14T11:53:45.918Z\"\n      },\n      \"relationships\": {\n        \"students\": {\n          \"data\": [\n            {\n              \"id\": \"48\",\n              \"type\": \"student\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "ETag": "W/\"e9d1f5a37787dda0170346c5e5298395\"",
-        "X-Request-Id": "c7a58caa-6cb6-4107-a69c-b828361ecbb0",
-        "X-Runtime": "0.009852",
+        "ETag": "W/\"8a4a1b028f08369679afad36381df301\"",
+        "X-Request-Id": "10804ba0-7e95-4cc4-a8b4-65f6d7aff410",
+        "X-Runtime": "0.014408",
         "Vary": "Origin",
-        "Content-Length": "769"
+        "Content-Length": "777"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000api/v1/me/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer a6335f19991ee8d083185d003a93701b7f3ad3ffceee78194e14759db835a4ec\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000api/v1/me/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 854f82feada486467bf928cf651d7e717c22eba227b5d277363a7b266b4a8e45\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

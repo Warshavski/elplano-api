@@ -58,7 +58,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 336f52bf38ed9b4021a4092b506c7d60b1210244caf2da1336f6b4228ff429ba",
+        "Authorization": "Bearer 14cf0a5119dae70ebf58114136cb7831c7faebc038cd952fe3354782d48b51bd",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -67,7 +67,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"36\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Sir Wat Name Yeah\",\n      \"email\": \"wat@wat.wat\",\n      \"phone\": \"+8 983 47 89 312\",\n      \"about\": \"Nihil dolorem voluptatem. Aliquid quia quisquam. Facilis magni commodi. Ut laboriosam debitis. Autem soluta aperiam.\",\n      \"social_networks\": {\n        \"twitter\": \"https://twitter.com/watever\",\n        \"facebook\": \"https://facebook.com/watever\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-10T16:03:16.500Z\",\n      \"updated_at\": \"2019-02-10T16:03:16.510Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"18\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"50\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Sir Wat Name Yeah\",\n      \"email\": \"wat@wat.wat\",\n      \"phone\": \"+8 983 47 89 312\",\n      \"about\": \"Placeat optio et. Cum rerum aperiam. Aut dolorem consequatur. Enim ab nemo. Quo sed assumenda.\",\n      \"social_networks\": {\n        \"twitter\": \"https://twitter.com/watever\",\n        \"facebook\": \"https://facebook.com/watever\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-14T11:53:45.973Z\",\n      \"updated_at\": \"2019-02-14T11:53:45.984Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"27\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -76,14 +76,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "ETag": "W/\"3f0a25c50ff624fc8444f9b87c2e0478\"",
-        "X-Request-Id": "5b47e51e-cd95-4fc3-aecc-631ca8a0a4ee",
-        "X-Runtime": "0.008253",
+        "ETag": "W/\"e4dab6ff00e69a56afdd6550a56019a6\"",
+        "X-Request-Id": "72da19c7-cf9c-440e-8716-ef8740cbad48",
+        "X-Runtime": "0.008494",
         "Vary": "Origin",
-        "Content-Length": "522"
+        "Content-Length": "500"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000api/v1/me/student\" -d '{\"data\":{\"type\":\"student\",\"attributes\":{\"email\":\"wat@wat.wat\",\"phone\":\"+8 983 47 89 312\",\"full_name\":\"Sir Wat Name Yeah\",\"social_networks\":{\"twitter\":\"https://twitter.com/watever\",\"facebook\":\"https://facebook.com/watever\"}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 336f52bf38ed9b4021a4092b506c7d60b1210244caf2da1336f6b4228ff429ba\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000api/v1/me/student\" -d '{\"data\":{\"type\":\"student\",\"attributes\":{\"email\":\"wat@wat.wat\",\"phone\":\"+8 983 47 89 312\",\"full_name\":\"Sir Wat Name Yeah\",\"social_networks\":{\"twitter\":\"https://twitter.com/watever\",\"facebook\":\"https://facebook.com/watever\"}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 14cf0a5119dae70ebf58114136cb7831c7faebc038cd952fe3354782d48b51bd\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

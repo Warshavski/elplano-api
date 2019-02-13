@@ -1,8 +1,8 @@
 {
-  "resource": "Students",
-  "resource_explanation": "El Plano student's profile API",
+  "resource": "groups",
+  "resource_explanation": "El Plano groups API",
   "http_method": "PUT",
-  "route": "api/v1/me/student",
+  "route": "api/v1/group",
   "description": "UPDATE : Returns 400 status code",
   "explanation": "Returns 400 status code in case of missing parameters\n",
   "parameters": [
@@ -14,12 +14,12 @@
   "requests": [
     {
       "request_method": "PUT",
-      "request_path": "api/v1/me/student",
+      "request_path": "api/v1/group",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 792ddec48c0e288cdd913f7d2af51b76097eed11a7d9b6ce2ed77dfb7c7a273a",
+        "Authorization": "Bearer fc17be1e3cb514b21d4eadce5b584f5f72fa59a69500a6d8af02764779273bde",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -37,13 +37,13 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "X-Request-Id": "dac23a9a-4fd7-47f6-acfc-a2d27152517e",
-        "X-Runtime": "0.005270",
+        "X-Request-Id": "ddad0f96-1600-41c5-9d87-44414387cd74",
+        "X-Runtime": "0.006679",
         "Vary": "Origin",
         "Content-Length": "239"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000api/v1/me/student\" -d '' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 792ddec48c0e288cdd913f7d2af51b76097eed11a7d9b6ce2ed77dfb7c7a273a\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000api/v1/group\" -d '' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer fc17be1e3cb514b21d4eadce5b584f5f72fa59a69500a6d8af02764779273bde\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

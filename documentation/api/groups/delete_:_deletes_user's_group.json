@@ -1,10 +1,10 @@
 {
-  "resource": "Events",
-  "resource_explanation": "El Plano events API",
+  "resource": "groups",
+  "resource_explanation": "El Plano groups API",
   "http_method": "DELETE",
-  "route": "api/v1/me/events/:id",
-  "description": "DELETE : Deletes selected event",
-  "explanation": "Deletes event\n",
+  "route": "api/v1/group",
+  "description": "DELETE : Deletes user's group",
+  "explanation": "Deletes group\n",
   "parameters": [
 
   ],
@@ -14,12 +14,12 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "api/v1/me/events/10",
+      "request_path": "api/v1/group",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 84bb34fdb251fa28a1c2f6466a291adf303586595b34105ebbcd2cfa6dd82466",
+        "Authorization": "Bearer 971d1cd01bedd424a168da0b2a2f9988dc2a1977f4bf9f5abaf1d59ccbf2c92e",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -36,12 +36,12 @@
         "X-Content-Type-Options": "nosniff",
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
-        "X-Request-Id": "b9ece01f-925f-42a1-8a33-d9018b90eea5",
-        "X-Runtime": "0.009633",
+        "X-Request-Id": "2067ca41-eea4-4448-94e4-e6cd4056ffb4",
+        "X-Runtime": "0.010685",
         "Vary": "Origin"
       },
       "response_content_type": null,
-      "curl": "curl \"http://localhost:3000api/v1/me/events/10\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 84bb34fdb251fa28a1c2f6466a291adf303586595b34105ebbcd2cfa6dd82466\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000api/v1/group\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 971d1cd01bedd424a168da0b2a2f9988dc2a1977f4bf9f5abaf1d59ccbf2c92e\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

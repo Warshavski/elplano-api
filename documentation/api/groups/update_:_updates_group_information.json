@@ -1,0 +1,67 @@
+{
+  "resource": "groups",
+  "resource_explanation": "El Plano groups API",
+  "http_method": "PUT",
+  "route": "api/v1/group",
+  "description": "UPDATE : Updates group information",
+  "explanation": "Update and return updated group\n",
+  "parameters": [
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "requred": true,
+      "name": "title",
+      "description": "Human readable identity)"
+    },
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "requred": true,
+      "name": "number",
+      "description": "Main group identity"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "api/v1/group",
+      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Aut dolor sapiente.\",\"number\":\"18560\"}}}",
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer 989c5845f3975d927a500f53b0fed39b1023290f3a420c71887337764afe95c5",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"20\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"18560\",\n      \"title\": \"Aut dolor sapiente.\",\n      \"created_at\": \"2019-02-14T11:53:45.692Z\",\n      \"updated_at\": \"2019-02-14T11:53:45.705Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"39\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/vnd.api+json; charset=utf-8",
+        "ETag": "W/\"22428036b5387df1cb5b97063f7f7473\"",
+        "X-Request-Id": "806fd97d-9994-454c-8973-641b3a85b5a1",
+        "X-Runtime": "0.013351",
+        "Vary": "Origin",
+        "Content-Length": "246"
+      },
+      "response_content_type": "application/vnd.api+json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Aut dolor sapiente.\",\"number\":\"18560\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 989c5845f3975d927a500f53b0fed39b1023290f3a420c71887337764afe95c5\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

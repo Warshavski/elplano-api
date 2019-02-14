@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 83bcb912415eb6d93ce03be2bc3022502e2ef7f04f8e432a021b429595bccf9e",
+        "Authorization": "Bearer 4a47d3eb4be5006625fc852c78cb35f904f21397442dee12a6f9757d2c7ec493",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"event\",\n      \"attributes\": {\n        \"title\": \"Quaerat temporibus ut omnis.\",\n        \"description\": null,\n        \"status\": \"confirmed\",\n        \"recurrence\": [\n          \"EXDATE;VALUE=DATE:20150610\",\n          \"RDATE;VALUE=DATE:20150609,20150611\",\n          \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n        ],\n        \"start_at\": \"2019-02-11T00:00:00.000Z\",\n        \"end_at\": null,\n        \"timezone\": \"Etc/GMT+12\",\n        \"created_at\": \"2019-02-10T16:03:15.789Z\",\n        \"updated_at\": \"2019-02-10T16:03:15.789Z\"\n      },\n      \"relationships\": {\n        \"creator\": {\n          \"data\": {\n            \"id\": \"2\",\n            \"type\": \"creator\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"event\",\n      \"attributes\": {\n        \"title\": \"Quisquam non dignissimos autem.\",\n        \"description\": null,\n        \"status\": \"confirmed\",\n        \"recurrence\": [\n          \"EXDATE;VALUE=DATE:20150610\",\n          \"RDATE;VALUE=DATE:20150609,20150611\",\n          \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n        ],\n        \"start_at\": \"2019-02-15T00:00:00.000Z\",\n        \"end_at\": null,\n        \"timezone\": \"Etc/GMT+12\",\n        \"created_at\": \"2019-02-14T11:53:44.780Z\",\n        \"updated_at\": \"2019-02-14T11:53:44.780Z\"\n      },\n      \"relationships\": {\n        \"creator\": {\n          \"data\": {\n            \"id\": \"2\",\n            \"type\": \"creator\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "ETag": "W/\"8ee2dd052259d282169500f3586c879b\"",
-        "X-Request-Id": "43f2306b-3ab5-4156-b8e5-33167f049dca",
-        "X-Runtime": "0.027972",
+        "ETag": "W/\"1ec4002275334f9b725f14827b05da25\"",
+        "X-Request-Id": "7055a944-ca15-4d2a-a80e-775b1837a49a",
+        "X-Runtime": "0.040714",
         "Vary": "Origin",
-        "Content-Length": "477"
+        "Content-Length": "480"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000api/v1/me/events\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 83bcb912415eb6d93ce03be2bc3022502e2ef7f04f8e432a021b429595bccf9e\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000api/v1/me/events\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 4a47d3eb4be5006625fc852c78cb35f904f21397442dee12a6f9757d2c7ec493\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

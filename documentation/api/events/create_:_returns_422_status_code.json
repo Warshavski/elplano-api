@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 79e96cd6c3cd2f6fe05f774534bb5e43929c9747ffeaa0f1becee1c4cb9ff01d",
+        "Authorization": "Bearer 471048f05f9b9761ecf0cf4fc521ab2b028a9cc6f73c4fb4d77c6e85f33fd9f7",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -37,13 +37,13 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "X-Request-Id": "33ed6fca-f58f-40ca-9ef3-f69a7bfe1696",
-        "X-Runtime": "0.013686",
+        "X-Request-Id": "06488740-2af9-44e2-a45c-8acbf12a5a8f",
+        "X-Runtime": "0.010745",
         "Vary": "Origin",
         "Content-Length": "390"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000api/v1/me/events\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":null,\"status\":null,\"start_at\":null,\"end_at\":null,\"timezone\":\"wat timezone\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 79e96cd6c3cd2f6fe05f774534bb5e43929c9747ffeaa0f1becee1c4cb9ff01d\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000api/v1/me/events\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":null,\"status\":null,\"start_at\":null,\"end_at\":null,\"timezone\":\"wat timezone\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 471048f05f9b9761ecf0cf4fc521ab2b028a9cc6f73c4fb4d77c6e85f33fd9f7\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

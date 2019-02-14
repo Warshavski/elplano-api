@@ -1,0 +1,49 @@
+{
+  "resource": "groups",
+  "resource_explanation": "El Plano groups API",
+  "http_method": "DELETE",
+  "route": "api/v1/group",
+  "description": "CREATE : Returns 403 status code",
+  "explanation": "Returns 403 status code in case in user has no access to action\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "api/v1/group",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer 81ccc4fbb6626a2c0bf19914fba6ff28e02df84c85aa42a749f30ffab6a2196f",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 403,
+      "response_status_text": "Forbidden",
+      "response_body": "{\n  \"errors\": [\n    {\n      \"status\": 403,\n      \"detail\": \"Auth error: Edit not allowed\",\n      \"source\": {\n        \"pointer\": \"authorization header\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/vnd.api+json; charset=utf-8",
+        "X-Request-Id": "2158596e-3654-4288-93f8-75d312dc3fd5",
+        "X-Runtime": "0.005893",
+        "Vary": "Origin",
+        "Content-Length": "111"
+      },
+      "response_content_type": "application/vnd.api+json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000api/v1/group\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 81ccc4fbb6626a2c0bf19914fba6ff28e02df84c85aa42a749f30ffab6a2196f\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

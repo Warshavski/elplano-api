@@ -22,6 +22,7 @@ RSpec.describe 'Group management', type: :request do
     end
 
     include_examples 'json:api examples',
+                     %w[data],
                      %w[id type attributes relationships],
                      %w[title number created_at updated_at],
                      %w[students]
@@ -63,6 +64,7 @@ RSpec.describe 'Group management', type: :request do
         end
 
         include_examples 'json:api examples',
+                         %w[data],
                          %w[id type attributes relationships],
                          %w[title number created_at updated_at],
                          %w[students]
@@ -105,6 +107,7 @@ RSpec.describe 'Group management', type: :request do
       end
 
       include_examples 'json:api examples',
+                       %w[data],
                        %w[id type attributes relationships],
                        %w[title number created_at updated_at],
                        %w[students]

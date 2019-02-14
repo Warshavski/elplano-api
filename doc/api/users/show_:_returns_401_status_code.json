@@ -19,6 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
+        "Authorization": null,
         "Host": "example.org",
         "Cookie": ""
       },
@@ -33,13 +34,13 @@
         "Pragma": "no-cache",
         "WWW-Authenticate": "Bearer realm=\"Doorkeeper\", error=\"invalid_token\", error_description=\"The access token is invalid\"",
         "Content-Type": "text/html",
-        "X-Request-Id": "f0872c57-84e7-4203-a85b-6375793505b3",
-        "X-Runtime": "0.003968",
+        "X-Request-Id": "40c43e9d-4a18-45db-8081-185cf0fea58f",
+        "X-Runtime": "0.002488",
         "Vary": "Origin",
         "Content-Length": "0"
       },
       "response_content_type": "text/html",
-      "curl": "curl -g \"http://localhost:3000api/v1/me\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/me\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: \" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

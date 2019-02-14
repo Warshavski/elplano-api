@@ -66,11 +66,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/me/events/6",
-      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Similique laudantium dolores.\",\"description\":\"Commodi enim et. Consectetur occaecati voluptates. Quasi veritatis qui. Reprehenderit voluptatem veniam. Sapiente vel corrupti.\",\"status\":\"cancelled\",\"start_at\":\"2019-02-13\",\"end_at\":\"2019-02-15\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]}}}",
+      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Ex et ratione.\",\"description\":\"Deleniti repudiandae rerum. Id veniam exercitationem. Quis consequuntur sint. Tempora dignissimos autem. Qui nesciunt atque.\",\"status\":\"cancelled\",\"start_at\":\"2019-02-13\",\"end_at\":\"2019-02-15\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer fbd00d5eb089c63f2521990eeeaa88420fc518c712cb091f178948e7fb68d086",
+        "Authorization": "Bearer 298c5bf5b21bd2d8a2cbc4fd55039f23d818dcf86845580ac72206fb09c99c0a",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -79,7 +79,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Similique laudantium dolores.\",\n      \"description\": \"Commodi enim et. Consectetur occaecati voluptates. Quasi veritatis qui. Reprehenderit voluptatem veniam. Sapiente vel corrupti.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-02-13T00:00:00.000Z\",\n      \"end_at\": \"2019-02-15T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-02-14T11:53:45.218Z\",\n      \"updated_at\": \"2019-02-14T11:53:45.234Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"18\",\n          \"type\": \"creator\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Ex et ratione.\",\n      \"description\": \"Deleniti repudiandae rerum. Id veniam exercitationem. Quis consequuntur sint. Tempora dignissimos autem. Qui nesciunt atque.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-02-13T00:00:00.000Z\",\n      \"end_at\": \"2019-02-15T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-02-14T13:52:34.635Z\",\n      \"updated_at\": \"2019-02-14T13:52:34.650Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"18\",\n          \"type\": \"creator\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -88,14 +88,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "ETag": "W/\"e7b47def915b86f6fc9c53ff280b9471\"",
-        "X-Request-Id": "9292eae6-1d76-4d12-85db-f6123e447eac",
-        "X-Runtime": "0.009814",
+        "ETag": "W/\"68e8ac73e023c632f35d43e7a7f4f74c\"",
+        "X-Request-Id": "56818e0f-2e97-4c4a-a4c8-1504a40796a2",
+        "X-Runtime": "0.011978",
         "Vary": "Origin",
-        "Content-Length": "624"
+        "Content-Length": "606"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000api/v1/me/events/6\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Similique laudantium dolores.\",\"description\":\"Commodi enim et. Consectetur occaecati voluptates. Quasi veritatis qui. Reprehenderit voluptatem veniam. Sapiente vel corrupti.\",\"status\":\"cancelled\",\"start_at\":\"2019-02-13\",\"end_at\":\"2019-02-15\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer fbd00d5eb089c63f2521990eeeaa88420fc518c712cb091f178948e7fb68d086\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/me/events/6\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Ex et ratione.\",\"description\":\"Deleniti repudiandae rerum. Id veniam exercitationem. Quis consequuntur sint. Tempora dignissimos autem. Qui nesciunt atque.\",\"status\":\"cancelled\",\"start_at\":\"2019-02-13\",\"end_at\":\"2019-02-15\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 298c5bf5b21bd2d8a2cbc4fd55039f23d818dcf86845580ac72206fb09c99c0a\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

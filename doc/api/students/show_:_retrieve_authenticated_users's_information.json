@@ -4,7 +4,7 @@
   "http_method": "GET",
   "route": "api/v1/me/student",
   "description": "SHOW : Retrieve Authenticated Users's  information",
-  "explanation": "- `full_name` - represents concatenated student's first, last and middle names\n- `email` - represents email which use to contact with the student\n- `phone` - represents phone which use to contact with the student\n- `about` - represents some detailed information about student(BIO)\n- `social_networks` - represents a list of social networks\n- `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member)\n- timestamps\n\nAlso, includes information about the group\n\n- `title` - represents group name\n- `number` - represents group identity\n- timestamps\n",
+  "explanation": "Student attributes :\n\n- `full_name` - represents concatenated student's first, last and middle names\n- `email` - represents email which is used to contact with the student\n- `phone` - represents phone which is used to contact with the student\n- `about` - represents some detailed information about student(BIO)\n- `social_networks` - represents a list of social networks\n- `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member)\n- timestamps\n\nAlso, includes information about a group\n\n- `title` - represents group human readable identity\n- `number` - represents group main identity\n- timestamps\n",
   "parameters": [
 
   ],
@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 854f82feada486467bf928cf651d7e717c22eba227b5d277363a7b266b4a8e45",
+        "Authorization": "Bearer 0a947431be2a17fdb7c0538b007b95016267085d4dbb03d2d77fc31b19f677f8",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"48\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Leandra Lovetta Hackett\",\n      \"email\": \"demetriusjones@jenkinswisoky.name\",\n      \"phone\": \"1-829-883-2613\",\n      \"about\": \"Sit et qui. Illum vitae et. Corporis ipsa soluta. Similique dicta est. Quod nisi nihil.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/brianna.zemlak\",\n        \"facebook\": \"http://facebook/eusebio_muller\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-14T11:53:45.919Z\",\n      \"updated_at\": \"2019-02-14T11:53:45.919Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"26\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"26\",\n      \"type\": \"group\",\n      \"attributes\": {\n        \"number\": \"5458524103\",\n        \"title\": \"Et magnam maxime.\",\n        \"created_at\": \"2019-02-14T11:53:45.918Z\",\n        \"updated_at\": \"2019-02-14T11:53:45.918Z\"\n      },\n      \"relationships\": {\n        \"students\": {\n          \"data\": [\n            {\n              \"id\": \"48\",\n              \"type\": \"student\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"48\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Jefferson Kristan Gleichner\",\n      \"email\": \"gavin@mrazstracke.com\",\n      \"phone\": \"371.208.9721\",\n      \"about\": \"Dolor ab laborum. Sed voluptas reiciendis. Similique ab sit. Veritatis ea earum. Quam suscipit mollitia.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/mui\",\n        \"facebook\": \"http://facebook/gina_buckridge\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-14T13:52:35.335Z\",\n      \"updated_at\": \"2019-02-14T13:52:35.335Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"26\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"26\",\n      \"type\": \"group\",\n      \"attributes\": {\n        \"number\": \"3401295038\",\n        \"title\": \"Commodi laboriosam velit.\",\n        \"created_at\": \"2019-02-14T13:52:35.332Z\",\n        \"updated_at\": \"2019-02-14T13:52:35.332Z\"\n      },\n      \"relationships\": {\n        \"students\": {\n          \"data\": [\n            {\n              \"id\": \"48\",\n              \"type\": \"student\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "ETag": "W/\"8a4a1b028f08369679afad36381df301\"",
-        "X-Request-Id": "10804ba0-7e95-4cc4-a8b4-65f6d7aff410",
-        "X-Runtime": "0.014408",
+        "ETag": "W/\"40955e69cfc90b28b6832c4978907eba\"",
+        "X-Request-Id": "d61fcd25-1c79-4439-9ef5-33b7ffdb7be2",
+        "X-Runtime": "0.009194",
         "Vary": "Origin",
-        "Content-Length": "777"
+        "Content-Length": "781"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000api/v1/me/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 854f82feada486467bf928cf651d7e717c22eba227b5d277363a7b266b4a8e45\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/me/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 0a947431be2a17fdb7c0538b007b95016267085d4dbb03d2d77fc31b19f677f8\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

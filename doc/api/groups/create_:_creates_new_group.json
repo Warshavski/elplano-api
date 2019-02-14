@@ -1,5 +1,5 @@
 {
-  "resource": "groups",
+  "resource": "Groups",
   "resource_explanation": "El Plano groups API",
   "http_method": "POST",
   "route": "api/v1/group",
@@ -32,11 +32,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group",
-      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Non reiciendis delectus.\",\"number\":\"60989\"}}}",
+      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Pariatur eaque aperiam.\",\"number\":\"18048\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 10e8b2bdb869b7e83ad62d44151c1067c92a2c43406cbcf3e92cd43b6a1c3a35",
+        "Authorization": "Bearer 88782ed8e8c7af08369bd9afe54638fded43a52b1fc83c0d633b1c31957c41c8",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -45,7 +45,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"18\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"60989\",\n      \"title\": \"Non reiciendis delectus.\",\n      \"created_at\": \"2019-02-14T11:53:45.572Z\",\n      \"updated_at\": \"2019-02-14T11:53:45.572Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"34\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"18\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"18048\",\n      \"title\": \"Pariatur eaque aperiam.\",\n      \"created_at\": \"2019-02-14T13:52:34.984Z\",\n      \"updated_at\": \"2019-02-14T13:52:34.984Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"34\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -54,14 +54,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "ETag": "W/\"53fec5d8d747e71ace8946c295ad526f\"",
-        "X-Request-Id": "c001a28a-a2bb-4194-9653-1442209de15c",
-        "X-Runtime": "0.016798",
+        "ETag": "W/\"7449791e23338ef9c03df46c4d4cef65\"",
+        "X-Request-Id": "18a6d1ac-8e71-45ae-a081-2d40cb34e74e",
+        "X-Runtime": "0.013633",
         "Vary": "Origin",
-        "Content-Length": "251"
+        "Content-Length": "250"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Non reiciendis delectus.\",\"number\":\"60989\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 10e8b2bdb869b7e83ad62d44151c1067c92a2c43406cbcf3e92cd43b6a1c3a35\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Pariatur eaque aperiam.\",\"number\":\"18048\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 88782ed8e8c7af08369bd9afe54638fded43a52b1fc83c0d633b1c31957c41c8\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

@@ -37,4 +37,21 @@ FactoryBot.define do
       }
     end
   end
+
+  factory :invalid_event_params, class: Hash do
+    initialize_with do
+      {
+        type: 'event',
+        attributes: {
+          title: nil,
+          description: nil,
+          status: nil,
+          start_at: nil,
+          end_at: nil,
+          timezone: nil,
+          recurrence: []
+        }
+      }
+    end
+  end
 end

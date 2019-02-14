@@ -82,7 +82,7 @@ class Event < ApplicationRecord
 
   belongs_to :creator, class_name: 'Student', inverse_of: :created_events
 
-  validates :creator, :start_at, presence: true
+  validates :creator, :start_at, :timezone, presence: true
   validates :title, presence: true, length: { in: 3..250 }
 
   validates :timezone, timezone_existence: true

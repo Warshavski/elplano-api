@@ -12,25 +12,26 @@ resource 'Students' do
 
   header 'Accept', 'application/vnd.api+json'
   header 'Content-Type', 'application/vnd.api+json'
+  header 'Authorization', :authorization
 
   get 'api/v1/me/student' do
     context 'Authorized - 200' do
-      header 'Authorization', :authorization
-
       example "SHOW : Retrieve Authenticated Users's  information" do
         explanation <<~DESC
+          Student attributes :
+
           - `full_name` - represents concatenated student's first, last and middle names
-          - `email` - represents email which use to contact with the student
-          - `phone` - represents phone which use to contact with the student
+          - `email` - represents email which is used to contact with the student
+          - `phone` - represents phone which is used to contact with the student
           - `about` - represents some detailed information about student(BIO)
           - `social_networks` - represents a list of social networks
           - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member)
           - timestamps
 
-          Also, includes information about the group
+          Also, includes information about a group
 
-          - `title` - represents group name
-          - `number` - represents group identity
+          - `title` - represents group human readable identity
+          - `number` - represents group main identity
           - timestamps
         DESC
 
@@ -47,6 +48,8 @@ resource 'Students' do
     end
 
     context 'Unauthorized - 401' do
+      let(:authorization) { nil }
+
       example 'SHOW : Returns 401 status code' do
         explanation <<~DESC
           Returns 401 status code in case of missing or invalid access token
@@ -61,8 +64,6 @@ resource 'Students' do
 
   put 'api/v1/me/student' do
     context 'Authorized - 200' do
-      header 'Authorization', :authorization
-
       with_options scope: %i[data attributes] do
         parameter :full_name, 'Full name'
         parameter :email, 'Contact email'
@@ -91,6 +92,8 @@ resource 'Students' do
     end
 
     context 'Unauthorized - 401' do
+      let(:authorization) { nil }
+
       example 'UPDATE : Returns 401 status code' do
         explanation <<~DESC
           Returns 401 status code in case of missing or invalid access token
@@ -103,8 +106,6 @@ resource 'Students' do
     end
 
     context 'Missing parameters - 400' do
-      header 'Authorization', :authorization
-
       example 'UPDATE : Returns 400 status code' do
         explanation <<~DESC
           Returns 400 status code in case of missing parameters
@@ -117,14 +118,13 @@ resource 'Students' do
     end
 
     context 'Invalid parameters - 422' do
-      header 'Authorization', :authorization
-
       let(:raw_post) do
         {
           data: {
             type: 'student',
             attributes: {
-              phone: '1123456789012345678901234567890123456789012345678901234567890'
+              phone: '1123456789012345678901234567890123456789012345678901234567890',
+              email: 'wat'
             }
           }
         }.to_json

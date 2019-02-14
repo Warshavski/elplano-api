@@ -1,5 +1,5 @@
 {
-  "resource": "groups",
+  "resource": "Groups",
   "resource_explanation": "El Plano groups API",
   "http_method": "POST",
   "route": "api/v1/group",
@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 08fec6414dc12ef4e8fc4e26a179612df3c6687d6261e3088e001e213a6c6d7d",
+        "Authorization": "Bearer 86d206db51a8c05c1762eb029716462a4123764e0785b1a8c6bf9aa67915f754",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -37,13 +37,13 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "X-Request-Id": "0144bf81-027a-453c-88ed-a4e8a66d0ac2",
-        "X-Runtime": "0.013720",
+        "X-Request-Id": "073786d6-9461-4806-8de3-71a5f687f79c",
+        "X-Runtime": "0.015307",
         "Vary": "Origin",
         "Content-Length": "100"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":null,\"number\":null}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 08fec6414dc12ef4e8fc4e26a179612df3c6687d6261e3088e001e213a6c6d7d\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":null,\"number\":null}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 86d206db51a8c05c1762eb029716462a4123764e0785b1a8c6bf9aa67915f754\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

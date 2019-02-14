@@ -1,5 +1,5 @@
 {
-  "resource": "groups",
+  "resource": "Groups",
   "resource_explanation": "El Plano groups API",
   "http_method": "PUT",
   "route": "api/v1/group",
@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer fc17be1e3cb514b21d4eadce5b584f5f72fa59a69500a6d8af02764779273bde",
+        "Authorization": "Bearer 6aa7c31ecae8044f9703765cfaae73007714e3342c7f47d55619f8685567d2a7",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -37,13 +37,13 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "X-Request-Id": "ddad0f96-1600-41c5-9d87-44414387cd74",
-        "X-Runtime": "0.006679",
+        "X-Request-Id": "0faf16c5-8b00-4862-8269-d08a3b7083f0",
+        "X-Runtime": "0.006984",
         "Vary": "Origin",
         "Content-Length": "239"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000api/v1/group\" -d '' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer fc17be1e3cb514b21d4eadce5b584f5f72fa59a69500a6d8af02764779273bde\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 6aa7c31ecae8044f9703765cfaae73007714e3342c7f47d55619f8685567d2a7\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

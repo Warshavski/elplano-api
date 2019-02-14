@@ -11,13 +11,14 @@ resource 'Users' do
 
   header 'Accept', 'application/vnd.api+json'
   header 'Content-Type', 'application/vnd.api+json'
+  header 'Authorization', :authorization
 
   get 'api/v1/me' do
     context 'Authorized - 200' do
-      header 'Authorization', :authorization
-
       example "SHOW : Retrieve Authenticated Users's Profile" do
         explanation <<~DESC
+          Users attributes :
+
           - `email` - represents email that was used to register a user in the application(unique in application scope)
           - `username` - used as user name
           - `admin` - `false` if regular user `true`, if the user has access to application settings
@@ -33,6 +34,8 @@ resource 'Users' do
     end
 
     context 'Unauthorized - 401' do
+      let(:authorization) { nil }
+
       example 'SHOW : Returns 401 status code' do
         explanation <<~DESC
           Returns 401 status code in case of missing or invalid access token

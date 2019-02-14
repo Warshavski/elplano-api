@@ -4,7 +4,7 @@
   "http_method": "GET",
   "route": "api/v1/me/events",
   "description": "INDEX : Retrieve events created by authenticated user",
-  "explanation": "- `title` - represents event name\n- `description` - represents event detailed description\n- `status` - represents event current status\n  - `confirmed` - The event is confirmed. This is the default status.\n  - `tentative` - The event is tentatively confirmed.\n  - `cancelled` - The event is cancelled (deleted).\n\n- `recurrence` - represents recurrence rules\n- `timezone` - timezone settings\n- `start_at` - represents when event starts\n- `end_at` - represents when event ends\n- timestamps\n\nAlso, includes reference to the event creator\n",
+  "explanation": "Event attributes :\n\n- `title` - represents event name\n- `description` - represents event detailed description\n- `status` - represents event current status\n  - `confirmed` - The event is confirmed. This is the default status.\n  - `tentative` - The event is tentatively confirmed.\n  - `cancelled` - The event is cancelled (deleted).\n\n- `recurrence` - represents recurrence rules\n- `timezone` - timezone settings\n- `start_at` - represents when event starts\n- `end_at` - represents when event ends\n- timestamps\n\nAlso, includes reference to the event creator\n",
   "parameters": [
 
   ],
@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 4a47d3eb4be5006625fc852c78cb35f904f21397442dee12a6f9757d2c7ec493",
+        "Authorization": "Bearer cc0500904416b0fad03e4bdbe105d2d3bfe2218128a3e58ea729fce45fb34354",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"event\",\n      \"attributes\": {\n        \"title\": \"Quisquam non dignissimos autem.\",\n        \"description\": null,\n        \"status\": \"confirmed\",\n        \"recurrence\": [\n          \"EXDATE;VALUE=DATE:20150610\",\n          \"RDATE;VALUE=DATE:20150609,20150611\",\n          \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n        ],\n        \"start_at\": \"2019-02-15T00:00:00.000Z\",\n        \"end_at\": null,\n        \"timezone\": \"Etc/GMT+12\",\n        \"created_at\": \"2019-02-14T11:53:44.780Z\",\n        \"updated_at\": \"2019-02-14T11:53:44.780Z\"\n      },\n      \"relationships\": {\n        \"creator\": {\n          \"data\": {\n            \"id\": \"2\",\n            \"type\": \"creator\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"event\",\n      \"attributes\": {\n        \"title\": \"Possimus illum accusamus quis.\",\n        \"description\": null,\n        \"status\": \"confirmed\",\n        \"recurrence\": [\n          \"EXDATE;VALUE=DATE:20150610\",\n          \"RDATE;VALUE=DATE:20150609,20150611\",\n          \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n        ],\n        \"start_at\": \"2019-02-15T00:00:00.000Z\",\n        \"end_at\": null,\n        \"timezone\": \"Etc/GMT+12\",\n        \"created_at\": \"2019-02-14T13:52:34.190Z\",\n        \"updated_at\": \"2019-02-14T13:52:34.190Z\"\n      },\n      \"relationships\": {\n        \"creator\": {\n          \"data\": {\n            \"id\": \"2\",\n            \"type\": \"creator\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "ETag": "W/\"1ec4002275334f9b725f14827b05da25\"",
-        "X-Request-Id": "7055a944-ca15-4d2a-a80e-775b1837a49a",
-        "X-Runtime": "0.040714",
+        "ETag": "W/\"c5014716aa7a5d40f43333974002eea2\"",
+        "X-Request-Id": "7a237482-4f28-40cc-9d14-a9802d264b6b",
+        "X-Runtime": "0.028888",
         "Vary": "Origin",
-        "Content-Length": "480"
+        "Content-Length": "479"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000api/v1/me/events\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 4a47d3eb4be5006625fc852c78cb35f904f21397442dee12a6f9757d2c7ec493\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/me/events\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer cc0500904416b0fad03e4bdbe105d2d3bfe2218128a3e58ea729fce45fb34354\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

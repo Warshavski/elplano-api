@@ -15,11 +15,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/me/student",
-      "request_body": "{\"data\":{\"type\":\"student\",\"attributes\":{\"phone\":\"1123456789012345678901234567890123456789012345678901234567890\"}}}",
+      "request_body": "{\"data\":{\"type\":\"student\",\"attributes\":{\"phone\":\"1123456789012345678901234567890123456789012345678901234567890\",\"email\":\"wat\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer da4674466b360c05462cee0a569be9f0ca666b64666f321b91b5fe398c337bcc",
+        "Authorization": "Bearer 6ab7e92df70fd6a9f7d1c571830a9eade1099fdcafa97e5768f7a3c612f6d13a",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 422,
       "response_status_text": "Unprocessable Entity",
-      "response_body": "{\n  \"errors\": [\n    {\n      \"status\": 422,\n      \"source\": {\n        \"pointer\": \"/data/attributes/phone\"\n      },\n      \"detail\": \"is too long (maximum is 50 characters)\"\n    }\n  ]\n}",
+      "response_body": "{\n  \"errors\": [\n    {\n      \"status\": 422,\n      \"source\": {\n        \"pointer\": \"/data/attributes/phone\"\n      },\n      \"detail\": \"is too long (maximum is 50 characters)\"\n    },\n    {\n      \"status\": 422,\n      \"source\": {\n        \"pointer\": \"/data/attributes/email\"\n      },\n      \"detail\": \"is invalid\"\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,13 +37,13 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "X-Request-Id": "8079b910-0fa2-4e68-a696-5da82c259f91",
-        "X-Runtime": "0.006977",
+        "X-Request-Id": "9c87afc2-5dea-4ed5-ac24-c16abb9468d9",
+        "X-Runtime": "0.007868",
         "Vary": "Origin",
-        "Content-Length": "123"
+        "Content-Length": "206"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000api/v1/me/student\" -d '{\"data\":{\"type\":\"student\",\"attributes\":{\"phone\":\"1123456789012345678901234567890123456789012345678901234567890\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer da4674466b360c05462cee0a569be9f0ca666b64666f321b91b5fe398c337bcc\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/me/student\" -d '{\"data\":{\"type\":\"student\",\"attributes\":{\"phone\":\"1123456789012345678901234567890123456789012345678901234567890\",\"email\":\"wat\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 6ab7e92df70fd6a9f7d1c571830a9eade1099fdcafa97e5768f7a3c612f6d13a\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

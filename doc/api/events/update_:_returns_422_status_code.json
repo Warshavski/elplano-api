@@ -15,11 +15,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/me/events/9",
-      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":null,\"status\":null,\"start_at\":null,\"end_at\":null,\"timezone\":\"wat timezone\"}}}",
+      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":null,\"description\":null,\"status\":null,\"start_at\":null,\"end_at\":null,\"timezone\":null,\"recurrence\":[]}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 7d548ab6f89833e9facc5bf71216cc36d659668774fcae30798fd99fedb6cec7",
+        "Authorization": "Bearer c7b1e18c630a59a0d87e95a8cf8647de9992dd7ebe0e0f0d0bf75df4ad67e122",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 422,
       "response_status_text": "Unprocessable Entity",
-      "response_body": "{\n  \"errors\": [\n    {\n      \"status\": 422,\n      \"source\": {\n        \"pointer\": \"/data/attributes/start_at\"\n      },\n      \"detail\": \"can't be blank\"\n    },\n    {\n      \"status\": 422,\n      \"source\": {\n        \"pointer\": \"/data/attributes/title\"\n      },\n      \"detail\": \"can't be blank\"\n    },\n    {\n      \"status\": 422,\n      \"source\": {\n        \"pointer\": \"/data/attributes/title\"\n      },\n      \"detail\": \"is too short (minimum is 3 characters)\"\n    },\n    {\n      \"status\": 422,\n      \"source\": {\n        \"pointer\": \"/data/attributes/timezone\"\n      },\n      \"detail\": \"does not exist\"\n    }\n  ]\n}",
+      "response_body": "{\n  \"errors\": [\n    {\n      \"status\": 422,\n      \"source\": {\n        \"pointer\": \"/data/attributes/start_at\"\n      },\n      \"detail\": \"can't be blank\"\n    },\n    {\n      \"status\": 422,\n      \"source\": {\n        \"pointer\": \"/data/attributes/timezone\"\n      },\n      \"detail\": \"can't be blank\"\n    },\n    {\n      \"status\": 422,\n      \"source\": {\n        \"pointer\": \"/data/attributes/timezone\"\n      },\n      \"detail\": \"does not exist\"\n    },\n    {\n      \"status\": 422,\n      \"source\": {\n        \"pointer\": \"/data/attributes/title\"\n      },\n      \"detail\": \"can't be blank\"\n    },\n    {\n      \"status\": 422,\n      \"source\": {\n        \"pointer\": \"/data/attributes/title\"\n      },\n      \"detail\": \"is too short (minimum is 3 characters)\"\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,13 +37,13 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "X-Request-Id": "32d966e2-223b-4d32-b14f-1d770068bf55",
-        "X-Runtime": "0.009646",
+        "X-Request-Id": "beab4856-bac9-4725-9887-4f97fd7f583f",
+        "X-Runtime": "0.010079",
         "Vary": "Origin",
-        "Content-Length": "390"
+        "Content-Length": "480"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000api/v1/me/events/9\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":null,\"status\":null,\"start_at\":null,\"end_at\":null,\"timezone\":\"wat timezone\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 7d548ab6f89833e9facc5bf71216cc36d659668774fcae30798fd99fedb6cec7\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/me/events/9\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":null,\"description\":null,\"status\":null,\"start_at\":null,\"end_at\":null,\"timezone\":null,\"recurrence\":[]}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer c7b1e18c630a59a0d87e95a8cf8647de9992dd7ebe0e0f0d0bf75df4ad67e122\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

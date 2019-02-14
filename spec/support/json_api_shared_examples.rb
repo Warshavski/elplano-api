@@ -1,6 +1,6 @@
-RSpec.shared_examples 'json:api examples' do |body, attributes, relationships|
+RSpec.shared_examples 'json:api examples' do |root, body, attributes, relationships|
   it 'responds with root json-api keys' do
-    expect(body_as_json.keys).to match_array(%w[data])
+    expect(body_as_json.keys).to match_array(root)
   end
 
   it { expect(response.body).to look_like_json }

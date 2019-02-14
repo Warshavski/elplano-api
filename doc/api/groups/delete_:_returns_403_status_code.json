@@ -1,9 +1,9 @@
 {
   "resource": "Groups",
   "resource_explanation": "El Plano groups API",
-  "http_method": "POST",
+  "http_method": "DELETE",
   "route": "api/v1/group",
-  "description": "CREATE : Returns 403 status code",
+  "description": "DELETE : Returns 403 status code",
   "explanation": "Returns 403 status code in case in user has no access to action\n",
   "parameters": [
 
@@ -13,13 +13,13 @@
   ],
   "requests": [
     {
-      "request_method": "POST",
+      "request_method": "DELETE",
       "request_path": "api/v1/group",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer a629d5363f4d5bf343a1a6a116545dac04b3a3c80aae6a3f5ecdcd72b6a2fee9",
+        "Authorization": "Bearer b82a5bca73830f8d3e3c06dcb79228add49c2ca0ecb2b10480b4a02b042a1b2d",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 403,
       "response_status_text": "Forbidden",
-      "response_body": "{\n  \"errors\": [\n    {\n      \"status\": 403,\n      \"detail\": \"Auth error: Create not allowed\",\n      \"source\": {\n        \"pointer\": \"authorization header\"\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"errors\": [\n    {\n      \"status\": 403,\n      \"detail\": \"Auth error: Edit not allowed\",\n      \"source\": {\n        \"pointer\": \"authorization header\"\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,13 +37,13 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "X-Request-Id": "ebc26652-ef4f-4d0b-a343-78738060cf8b",
-        "X-Runtime": "0.006728",
+        "X-Request-Id": "81dee3e2-f248-4141-8227-b0a0af4fa6f6",
+        "X-Runtime": "0.006447",
         "Vary": "Origin",
-        "Content-Length": "113"
+        "Content-Length": "111"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer a629d5363f4d5bf343a1a6a116545dac04b3a3c80aae6a3f5ecdcd72b6a2fee9\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer b82a5bca73830f8d3e3c06dcb79228add49c2ca0ecb2b10480b4a02b042a1b2d\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

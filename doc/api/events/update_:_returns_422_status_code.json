@@ -2,7 +2,7 @@
   "resource": "Events",
   "resource_explanation": "El Plano events API",
   "http_method": "PUT",
-  "route": "api/v1/me/events/:id",
+  "route": "api/v1/events/:id",
   "description": "UPDATE : Returns 422 status code",
   "explanation": "Returns 422 status code in case of invalid parameters\n",
   "parameters": [
@@ -14,12 +14,12 @@
   "requests": [
     {
       "request_method": "PUT",
-      "request_path": "api/v1/me/events/9",
+      "request_path": "api/v1/events/9",
       "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":null,\"description\":null,\"status\":null,\"start_at\":null,\"end_at\":null,\"timezone\":null,\"recurrence\":[]}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer c7b1e18c630a59a0d87e95a8cf8647de9992dd7ebe0e0f0d0bf75df4ad67e122",
+        "Authorization": "Bearer 5d517d50675655e0e922f1ebf4ad0b46f14514fe339ebf3972702e34ee499668",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -37,13 +37,13 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "X-Request-Id": "beab4856-bac9-4725-9887-4f97fd7f583f",
-        "X-Runtime": "0.010079",
+        "X-Request-Id": "7d318ac1-26a8-43b8-ac0d-23ee9c978994",
+        "X-Runtime": "0.008191",
         "Vary": "Origin",
         "Content-Length": "480"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/me/events/9\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":null,\"description\":null,\"status\":null,\"start_at\":null,\"end_at\":null,\"timezone\":null,\"recurrence\":[]}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer c7b1e18c630a59a0d87e95a8cf8647de9992dd7ebe0e0f0d0bf75df4ad67e122\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/events/9\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":null,\"description\":null,\"status\":null,\"start_at\":null,\"end_at\":null,\"timezone\":null,\"recurrence\":[]}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 5d517d50675655e0e922f1ebf4ad0b46f14514fe339ebf3972702e34ee499668\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

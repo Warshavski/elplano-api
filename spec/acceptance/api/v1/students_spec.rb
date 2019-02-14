@@ -14,7 +14,7 @@ resource 'Students' do
   header 'Content-Type', 'application/vnd.api+json'
   header 'Authorization', :authorization
 
-  get 'api/v1/me/student' do
+  get 'api/v1/student' do
     context 'Authorized - 200' do
       example "SHOW : Retrieve Authenticated Users's  information" do
         explanation <<~DESC
@@ -62,7 +62,7 @@ resource 'Students' do
     end
   end
 
-  put 'api/v1/me/student' do
+  put 'api/v1/student' do
     context 'Authorized - 200' do
       with_options scope: %i[data attributes] do
         parameter :full_name, 'Full name'

@@ -17,7 +17,7 @@ resource 'Events' do
   header 'Content-Type', 'application/vnd.api+json'
   header 'Authorization', :authorization
 
-  get 'api/v1/me/events' do
+  get 'api/v1/events' do
     let!(:events) { create_list(:event, 1, creator: student) }
 
     context 'Authorized - 200' do
@@ -68,7 +68,7 @@ resource 'Events' do
     end
   end
 
-  get 'api/v1/me/events/:id' do
+  get 'api/v1/events/:id' do
     context 'Authorized - 200' do
       example 'SHOW : Retrieve information about requested event' do
         explanation <<~DESC
@@ -113,7 +113,7 @@ resource 'Events' do
     end
   end
 
-  post 'api/v1/me/events' do
+  post 'api/v1/events' do
     context 'Authorized - 201' do
       with_options scope: %i[dta attributes] do
         parameter :title, 'Event title(human readable identity)', requred: true
@@ -187,7 +187,7 @@ resource 'Events' do
     end
   end
 
-  put 'api/v1/me/events/:id' do
+  put 'api/v1/events/:id' do
     context 'Authorized - 200' do
       with_options scope: %i[data attributes] do
         parameter :title, 'Event title(human readable identity)', requred: true
@@ -273,7 +273,7 @@ resource 'Events' do
     end
   end
 
-  delete 'api/v1/me/events/:id' do
+  delete 'api/v1/events/:id' do
     context 'Authorized - 200' do
       example 'DELETE : Deletes selected event' do
         explanation <<~DESC

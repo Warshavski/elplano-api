@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer eb8b25deb82c3ce3dde33b1b64bed521b03ae0f80ec68ab4b82c18c23146a84c",
+        "Authorization": "Bearer 21bec43ad0d56643a04339ed7b6c49ee2aa165948f46a88daf541970b0b69935",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"17\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"8260181051\",\n      \"title\": \"Sit distinctio fugiat.\",\n      \"created_at\": \"2019-02-14T13:52:34.933Z\",\n      \"updated_at\": \"2019-02-14T13:52:34.933Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"33\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"17\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"6981973260\",\n      \"title\": \"Ipsum odio rerum.\",\n      \"created_at\": \"2019-02-14T14:23:49.136Z\",\n      \"updated_at\": \"2019-02-14T14:23:49.136Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"33\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "ETag": "W/\"dc4a053d6432ef0f9fbdebd43d274367\"",
-        "X-Request-Id": "f2e9fd53-049f-4fde-8bff-d8c61460d570",
-        "X-Runtime": "0.010334",
+        "ETag": "W/\"d79cd209799aa2b9089bcbe1ad3369dc\"",
+        "X-Request-Id": "04b10c01-b913-4e45-9766-d5d45d838b58",
+        "X-Runtime": "0.008595",
         "Vary": "Origin",
-        "Content-Length": "254"
+        "Content-Length": "249"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer eb8b25deb82c3ce3dde33b1b64bed521b03ae0f80ec68ab4b82c18c23146a84c\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 21bec43ad0d56643a04339ed7b6c49ee2aa165948f46a88daf541970b0b69935\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

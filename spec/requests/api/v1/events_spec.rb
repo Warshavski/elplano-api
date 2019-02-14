@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'Events management', type: :request do
   include_context 'shared auth'
 
-  let(:base_url)  { '/api/v1/me/events' }
+  let(:base_url)  { '/api/v1/events' }
   let(:event_url) { "#{base_url}/#{event.id}" }
 
   let!(:student) { create(:student, user: user) }

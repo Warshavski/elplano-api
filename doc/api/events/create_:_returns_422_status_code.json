@@ -2,7 +2,7 @@
   "resource": "Events",
   "resource_explanation": "El Plano events API",
   "http_method": "POST",
-  "route": "api/v1/me/events",
+  "route": "api/v1/events",
   "description": "CREATE : Returns 422 status code",
   "explanation": "Returns 422 status code in case of invalid parameters\n",
   "parameters": [
@@ -14,12 +14,12 @@
   "requests": [
     {
       "request_method": "POST",
-      "request_path": "api/v1/me/events",
+      "request_path": "api/v1/events",
       "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":null,\"description\":null,\"status\":null,\"start_at\":null,\"end_at\":null,\"timezone\":null,\"recurrence\":[]}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 6b44119ab9410694ed22140afc995f35a4af48d7d394c4610aa53a862732a120",
+        "Authorization": "Bearer 421232ca6edd4e2d2dbc0c7c76edd5ef1cd6e18ada8028afd416d378b6953912",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -37,13 +37,13 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "X-Request-Id": "881d6795-2a04-4ace-9beb-29f53b711f45",
-        "X-Runtime": "0.010903",
+        "X-Request-Id": "87ad03a5-0a6e-4635-8f0f-026bbff34b12",
+        "X-Runtime": "0.008664",
         "Vary": "Origin",
         "Content-Length": "480"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/me/events\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":null,\"description\":null,\"status\":null,\"start_at\":null,\"end_at\":null,\"timezone\":null,\"recurrence\":[]}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 6b44119ab9410694ed22140afc995f35a4af48d7d394c4610aa53a862732a120\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/events\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":null,\"description\":null,\"status\":null,\"start_at\":null,\"end_at\":null,\"timezone\":null,\"recurrence\":[]}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 421232ca6edd4e2d2dbc0c7c76edd5ef1cd6e18ada8028afd416d378b6953912\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

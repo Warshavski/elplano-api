@@ -2,7 +2,7 @@
   "resource": "Events",
   "resource_explanation": "El Plano events API",
   "http_method": "POST",
-  "route": "api/v1/me/events",
+  "route": "api/v1/events",
   "description": "CREATE : Returns 400 status code",
   "explanation": "Returns 400 status code in case of missing parameters\n",
   "parameters": [
@@ -14,12 +14,12 @@
   "requests": [
     {
       "request_method": "POST",
-      "request_path": "api/v1/me/events",
+      "request_path": "api/v1/events",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 4167b25898d6b30957b9e7e2ffca82722126d8d86d707e5deaed376de94c912a",
+        "Authorization": "Bearer dd6080d4c4d7f36fe82d638938621655f0037bd2d0efd11c5bb10eb19f25e6d7",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -37,13 +37,13 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "X-Request-Id": "e850614d-6ea4-45b1-9620-644d65a36ccf",
-        "X-Runtime": "0.005976",
+        "X-Request-Id": "01f7b31a-f17d-4789-bc3f-6fafdb23efef",
+        "X-Runtime": "0.004659",
         "Vary": "Origin",
         "Content-Length": "239"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/me/events\" -d '' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 4167b25898d6b30957b9e7e2ffca82722126d8d86d707e5deaed376de94c912a\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/events\" -d '' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer dd6080d4c4d7f36fe82d638938621655f0037bd2d0efd11c5bb10eb19f25e6d7\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

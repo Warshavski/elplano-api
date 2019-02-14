@@ -2,7 +2,7 @@
   "resource": "Users",
   "resource_explanation": "El Plano user's profile API",
   "http_method": "GET",
-  "route": "api/v1/me",
+  "route": "api/v1/user",
   "description": "SHOW : Returns 401 status code",
   "explanation": "Returns 401 status code in case of missing or invalid access token\n",
   "parameters": [
@@ -14,7 +14,7 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "api/v1/me",
+      "request_path": "api/v1/user",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.api+json",
@@ -34,13 +34,13 @@
         "Pragma": "no-cache",
         "WWW-Authenticate": "Bearer realm=\"Doorkeeper\", error=\"invalid_token\", error_description=\"The access token is invalid\"",
         "Content-Type": "text/html",
-        "X-Request-Id": "40c43e9d-4a18-45db-8081-185cf0fea58f",
-        "X-Runtime": "0.002488",
+        "X-Request-Id": "343e70f3-a0c6-4d66-8b20-87ced4ddc2d1",
+        "X-Runtime": "0.001554",
         "Vary": "Origin",
         "Content-Length": "0"
       },
       "response_content_type": "text/html",
-      "curl": "curl -g \"http://localhost:3000/api/v1/me\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: \" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/user\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: \" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

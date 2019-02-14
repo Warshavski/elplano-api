@@ -2,7 +2,7 @@
   "resource": "Events",
   "resource_explanation": "El Plano events API",
   "http_method": "PUT",
-  "route": "api/v1/me/events/:id",
+  "route": "api/v1/events/:id",
   "description": "UPDATE : Returns 401 status code",
   "explanation": "Returns 401 status code in case of missing or invalid access token\n",
   "parameters": [
@@ -14,7 +14,7 @@
   "requests": [
     {
       "request_method": "PUT",
-      "request_path": "api/v1/me/events/7",
+      "request_path": "api/v1/events/7",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.api+json",
@@ -34,13 +34,13 @@
         "Pragma": "no-cache",
         "WWW-Authenticate": "Bearer realm=\"Doorkeeper\", error=\"invalid_token\", error_description=\"The access token is invalid\"",
         "Content-Type": "text/html",
-        "X-Request-Id": "751a3e66-40be-49ff-beba-66e36d081481",
-        "X-Runtime": "0.001623",
+        "X-Request-Id": "d3feec9c-7ecb-41d6-8626-6ddabcd695f9",
+        "X-Runtime": "0.001150",
         "Vary": "Origin",
         "Content-Length": "0"
       },
       "response_content_type": "text/html",
-      "curl": "curl \"http://localhost:3000/api/v1/me/events/7\" -d '' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: \" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/events/7\" -d '' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: \" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

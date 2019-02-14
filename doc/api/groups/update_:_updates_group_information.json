@@ -32,11 +32,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group",
-      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Maiores aliquam consequatur.\",\"number\":\"80463\"}}}",
+      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Velit eius repudiandae.\",\"number\":\"11499\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 43c67287a38b5606012c5fd0bcaaf568368eae5ea4ff1339ca7017d0c42b8eb5",
+        "Authorization": "Bearer 5a615528cbfc6392c8234ef83fa8df6e24fb297edd4b19d865d8be33be08cb40",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -45,7 +45,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"20\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"80463\",\n      \"title\": \"Maiores aliquam consequatur.\",\n      \"created_at\": \"2019-02-14T13:52:35.110Z\",\n      \"updated_at\": \"2019-02-14T13:52:35.125Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"39\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"20\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"11499\",\n      \"title\": \"Velit eius repudiandae.\",\n      \"created_at\": \"2019-02-14T14:23:49.262Z\",\n      \"updated_at\": \"2019-02-14T14:23:49.271Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"39\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -54,14 +54,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "ETag": "W/\"3729cab330f0036a41cb333c78ea7104\"",
-        "X-Request-Id": "8a7cc68f-20df-45e7-9a13-4eda82748516",
-        "X-Runtime": "0.011582",
+        "ETag": "W/\"afec4d3e18b9e0b47b1351d9426b1ef3\"",
+        "X-Request-Id": "497c974c-aeb8-42ca-8a50-149cc0326c40",
+        "X-Runtime": "0.009353",
         "Vary": "Origin",
-        "Content-Length": "255"
+        "Content-Length": "250"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Maiores aliquam consequatur.\",\"number\":\"80463\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 43c67287a38b5606012c5fd0bcaaf568368eae5ea4ff1339ca7017d0c42b8eb5\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Velit eius repudiandae.\",\"number\":\"11499\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 5a615528cbfc6392c8234ef83fa8df6e24fb297edd4b19d865d8be33be08cb40\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

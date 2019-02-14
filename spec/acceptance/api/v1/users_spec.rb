@@ -13,7 +13,7 @@ resource 'Users' do
   header 'Content-Type', 'application/vnd.api+json'
   header 'Authorization', :authorization
 
-  get 'api/v1/me' do
+  get 'api/v1/user' do
     context 'Authorized - 200' do
       example "SHOW : Retrieve Authenticated Users's Profile" do
         explanation <<~DESC

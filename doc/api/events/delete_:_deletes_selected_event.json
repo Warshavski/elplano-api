@@ -2,7 +2,7 @@
   "resource": "Events",
   "resource_explanation": "El Plano events API",
   "http_method": "DELETE",
-  "route": "api/v1/me/events/:id",
+  "route": "api/v1/events/:id",
   "description": "DELETE : Deletes selected event",
   "explanation": "Deletes event\n",
   "parameters": [
@@ -14,12 +14,12 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "api/v1/me/events/10",
+      "request_path": "api/v1/events/10",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 88bc60006c94b38af1a0af8c9730349afc631386de8c1998f659a7e39afba704",
+        "Authorization": "Bearer 8057f2ae24150b55179efd4d341ff67d5fa6d684cdd9b24bc7546f5cfab5ece0",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -36,12 +36,12 @@
         "X-Content-Type-Options": "nosniff",
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
-        "X-Request-Id": "7294093a-cc83-4e20-a818-132f4bd045a1",
-        "X-Runtime": "0.007222",
+        "X-Request-Id": "d40de233-45e5-4399-a31e-05669db9cfe6",
+        "X-Runtime": "0.005785",
         "Vary": "Origin"
       },
       "response_content_type": null,
-      "curl": "curl \"http://localhost:3000/api/v1/me/events/10\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 88bc60006c94b38af1a0af8c9730349afc631386de8c1998f659a7e39afba704\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/events/10\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 8057f2ae24150b55179efd4d341ff67d5fa6d684cdd9b24bc7546f5cfab5ece0\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

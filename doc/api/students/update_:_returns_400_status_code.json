@@ -2,7 +2,7 @@
   "resource": "Students",
   "resource_explanation": "El Plano student's profile API",
   "http_method": "PUT",
-  "route": "api/v1/me/student",
+  "route": "api/v1/student",
   "description": "UPDATE : Returns 400 status code",
   "explanation": "Returns 400 status code in case of missing parameters\n",
   "parameters": [
@@ -14,12 +14,12 @@
   "requests": [
     {
       "request_method": "PUT",
-      "request_path": "api/v1/me/student",
+      "request_path": "api/v1/student",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 86d09ffbc9c42eda0a75cc066e86313afc9f69436de9fc20c81977daeee35e6c",
+        "Authorization": "Bearer 0e473587c0d6c2ab65c1cdc1dd130fc8ad597d38d92dbd5d5af60b936db8ca96",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -37,13 +37,13 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "X-Request-Id": "52cd4ecc-bd32-4eff-ae3e-002ea4574d69",
-        "X-Runtime": "0.005323",
+        "X-Request-Id": "4a98ab00-4da2-4641-b933-96172db8e429",
+        "X-Runtime": "0.007632",
         "Vary": "Origin",
         "Content-Length": "239"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/me/student\" -d '' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 86d09ffbc9c42eda0a75cc066e86313afc9f69436de9fc20c81977daeee35e6c\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/student\" -d '' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 0e473587c0d6c2ab65c1cdc1dd130fc8ad597d38d92dbd5d5af60b936db8ca96\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

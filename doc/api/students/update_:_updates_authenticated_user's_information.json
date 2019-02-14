@@ -2,7 +2,7 @@
   "resource": "Students",
   "resource_explanation": "El Plano student's profile API",
   "http_method": "PUT",
-  "route": "api/v1/me/student",
+  "route": "api/v1/student",
   "description": "UPDATE : Updates authenticated user's information",
   "explanation": "Update and return student specific information\n",
   "parameters": [
@@ -53,12 +53,12 @@
   "requests": [
     {
       "request_method": "PUT",
-      "request_path": "api/v1/me/student",
+      "request_path": "api/v1/student",
       "request_body": "{\"data\":{\"type\":\"student\",\"attributes\":{\"email\":\"wat@wat.wat\",\"phone\":\"+8 983 47 89 312\",\"full_name\":\"Sir Wat Name Yeah\",\"social_networks\":{\"twitter\":\"https://twitter.com/watever\",\"facebook\":\"https://facebook.com/watever\"}}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 525bbf7118596df4c6a3468fe0eab7cc5cfedf14b4e32ab05a62b56e3148c18c",
+        "Authorization": "Bearer 3c41ed8c04465f1c2b1738b7c78e39be8b8f2184d99e5d691d5b1ffe93b13336",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -67,7 +67,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"50\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Sir Wat Name Yeah\",\n      \"email\": \"wat@wat.wat\",\n      \"phone\": \"+8 983 47 89 312\",\n      \"about\": \"Aut et iste. Tempora nisi quia. Inventore recusandae mollitia. Minus voluptas explicabo. Laboriosam aut ab.\",\n      \"social_networks\": {\n        \"twitter\": \"https://twitter.com/watever\",\n        \"facebook\": \"https://facebook.com/watever\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-14T13:52:35.378Z\",\n      \"updated_at\": \"2019-02-14T13:52:35.389Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"27\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"50\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Sir Wat Name Yeah\",\n      \"email\": \"wat@wat.wat\",\n      \"phone\": \"+8 983 47 89 312\",\n      \"about\": \"Quis at hic. Voluptatem quidem eum. Consequatur maiores qui. Ut est asperiores. Aut possimus quod.\",\n      \"social_networks\": {\n        \"twitter\": \"https://twitter.com/watever\",\n        \"facebook\": \"https://facebook.com/watever\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-14T14:23:49.456Z\",\n      \"updated_at\": \"2019-02-14T14:23:49.464Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"27\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -76,14 +76,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "ETag": "W/\"4099a7232b694b91ade721236ba4fc7d\"",
-        "X-Request-Id": "b892328e-5fe3-47c2-8d5e-d48932baf663",
-        "X-Runtime": "0.008043",
+        "ETag": "W/\"8432733055afe80f7bcea336dd654bf9\"",
+        "X-Request-Id": "a557f417-22d1-4e13-a845-b83f9f20456e",
+        "X-Runtime": "0.006390",
         "Vary": "Origin",
-        "Content-Length": "513"
+        "Content-Length": "504"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/me/student\" -d '{\"data\":{\"type\":\"student\",\"attributes\":{\"email\":\"wat@wat.wat\",\"phone\":\"+8 983 47 89 312\",\"full_name\":\"Sir Wat Name Yeah\",\"social_networks\":{\"twitter\":\"https://twitter.com/watever\",\"facebook\":\"https://facebook.com/watever\"}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 525bbf7118596df4c6a3468fe0eab7cc5cfedf14b4e32ab05a62b56e3148c18c\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/student\" -d '{\"data\":{\"type\":\"student\",\"attributes\":{\"email\":\"wat@wat.wat\",\"phone\":\"+8 983 47 89 312\",\"full_name\":\"Sir Wat Name Yeah\",\"social_networks\":{\"twitter\":\"https://twitter.com/watever\",\"facebook\":\"https://facebook.com/watever\"}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 3c41ed8c04465f1c2b1738b7c78e39be8b8f2184d99e5d691d5b1ffe93b13336\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

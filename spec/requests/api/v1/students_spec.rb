@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Api::V1::StudentsController do
   include_context 'shared auth'
 
-  let(:described_url) { '/api/v1/me/student' }
+  let(:described_url) { '/api/v1/student' }
 
   describe '#show' do
     subject { get described_url, headers: auth_header }

@@ -9,7 +9,7 @@ module Api
     class UsersController < ApplicationController
       set_default_serializer UserSerializer
 
-      # GET : api/v1/me
+      # GET : api/v1/user
       #
       # Get information about current user
       #

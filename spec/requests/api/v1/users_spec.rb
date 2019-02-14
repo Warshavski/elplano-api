@@ -4,7 +4,7 @@ describe Api::V1::UsersController do
   include_context 'shared auth'
 
   describe '#show' do
-    subject { get '/api/v1/me', headers: auth_header }
+    subject { get '/api/v1/user', headers: auth_header }
 
     before(:each) { subject }
 

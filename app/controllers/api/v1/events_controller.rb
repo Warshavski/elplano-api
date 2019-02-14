@@ -7,7 +7,7 @@ module Api
     class EventsController < ApplicationController
       set_default_serializer EventSerializer
 
-      # GET : api/v1/me/events
+      # GET : api/v1/events
       #
       # Get list of events
       #
@@ -15,7 +15,7 @@ module Api
         render_json filter_events, status: :ok
       end
 
-      # GET : api/v1/me/events/{:id}
+      # GET : api/v1/events/{:id}
       #
       # Get detailed information about event
       #
@@ -25,7 +25,7 @@ module Api
         render_json event, status: :ok
       end
 
-      # POST : api/v1/me/events
+      # POST : api/v1/events
       #
       # Creates(schedule) new event
       #
@@ -35,7 +35,7 @@ module Api
         render_json event, status: :created
       end
 
-      # PATCH/PUT : api/v1/me/events/{:id]}
+      # PATCH/PUT : api/v1/events/{:id]}
       #
       # Updates/renew information about scheduled event
       #
@@ -47,7 +47,7 @@ module Api
         render_json event, status: :ok
       end
 
-      # DELETE : api/v1/me/events/{:id}
+      # DELETE : api/v1/events/{:id}
       #
       # Deletes scheduled event
       #

@@ -39,6 +39,19 @@ rake db:seed
 rails s
 ```
 
+#### Docker
+**[install docker-compose](https://docs.docker.com/compose/)**
+
+**set up environment variables**
+```bash
+mv .env.example .env
+```
+
+**cd into the directory and start app via docker-compose.**
+```bash
+cd elplano-api && docker-compose up -d
+```
+
 #### Running tests
 
 Running all tests.
@@ -46,7 +59,19 @@ Running all tests.
 bundle exec rspec
 ```
 
-Running a specific test file
+Running a specific test file.
 ```bash
 bundle exec rspec ./spec/path/to/file
+```
+
+#### Documentation
+
+Generate/Update API documentation.
+```bash
+bundle exec rspec spec/acceptance --format RspecApiDocumentation::ApiFormatter
+```
+
+See API documentation.
+```bash
+[api host]/documentation
 ```

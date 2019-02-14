@@ -1,0 +1,308 @@
+{
+  "resources": [
+    {
+      "name": "Events",
+      "explanation": "El Plano events API",
+      "examples": [
+        {
+          "description": "CREATE : Creates new event",
+          "link": "events/create_:_creates_new_event.json",
+          "groups": "all",
+          "route": "api/v1/events",
+          "method": "post"
+        },
+        {
+          "description": "CREATE : Returns 400 status code",
+          "link": "events/create_:_returns_400_status_code.json",
+          "groups": "all",
+          "route": "api/v1/events",
+          "method": "post"
+        },
+        {
+          "description": "CREATE : Returns 401 status code",
+          "link": "events/create_:_returns_401_status_code.json",
+          "groups": "all",
+          "route": "api/v1/events",
+          "method": "post"
+        },
+        {
+          "description": "CREATE : Returns 422 status code",
+          "link": "events/create_:_returns_422_status_code.json",
+          "groups": "all",
+          "route": "api/v1/events",
+          "method": "post"
+        },
+        {
+          "description": "DELETE : Deletes selected event",
+          "link": "events/delete_:_deletes_selected_event.json",
+          "groups": "all",
+          "route": "api/v1/events/:id",
+          "method": "delete"
+        },
+        {
+          "description": "DELETE : Returns 401 status code",
+          "link": "events/delete_:_returns_401_status_code.json",
+          "groups": "all",
+          "route": "api/v1/events/:id",
+          "method": "delete"
+        },
+        {
+          "description": "DELETE : Returns 404 status code",
+          "link": "events/delete_:_returns_404_status_code.json",
+          "groups": "all",
+          "route": "api/v1/events/:id",
+          "method": "delete"
+        },
+        {
+          "description": "INDEX : Retrieve events created by authenticated user",
+          "link": "events/index_:_retrieve_events_created_by_authenticated_user.json",
+          "groups": "all",
+          "route": "api/v1/events",
+          "method": "get"
+        },
+        {
+          "description": "INDEX : Returns 401 status code",
+          "link": "events/index_:_returns_401_status_code.json",
+          "groups": "all",
+          "route": "api/v1/events",
+          "method": "get"
+        },
+        {
+          "description": "SHOW : Retrieve information about requested event",
+          "link": "events/show_:_retrieve_information_about_requested_event.json",
+          "groups": "all",
+          "route": "api/v1/events/:id",
+          "method": "get"
+        },
+        {
+          "description": "SHOW : Returns 401 status code",
+          "link": "events/show_:_returns_401_status_code.json",
+          "groups": "all",
+          "route": "api/v1/events/:id",
+          "method": "get"
+        },
+        {
+          "description": "SHOW : Returns 404 status code",
+          "link": "events/show_:_returns_404_status_code.json",
+          "groups": "all",
+          "route": "api/v1/events/:id",
+          "method": "get"
+        },
+        {
+          "description": "UPDATE : Returns 400 status code",
+          "link": "events/update_:_returns_400_status_code.json",
+          "groups": "all",
+          "route": "api/v1/events/:id",
+          "method": "put"
+        },
+        {
+          "description": "UPDATE : Returns 401 status code",
+          "link": "events/update_:_returns_401_status_code.json",
+          "groups": "all",
+          "route": "api/v1/events/:id",
+          "method": "put"
+        },
+        {
+          "description": "UPDATE : Returns 404 status code",
+          "link": "events/update_:_returns_404_status_code.json",
+          "groups": "all",
+          "route": "api/v1/events/:id",
+          "method": "put"
+        },
+        {
+          "description": "UPDATE : Returns 422 status code",
+          "link": "events/update_:_returns_422_status_code.json",
+          "groups": "all",
+          "route": "api/v1/events/:id",
+          "method": "put"
+        },
+        {
+          "description": "UPDATE : Updates selected event information",
+          "link": "events/update_:_updates_selected_event_information.json",
+          "groups": "all",
+          "route": "api/v1/events/:id",
+          "method": "put"
+        }
+      ]
+    },
+    {
+      "name": "Groups",
+      "explanation": "El Plano groups API",
+      "examples": [
+        {
+          "description": "CREATE : Creates new group",
+          "link": "groups/create_:_creates_new_group.json",
+          "groups": "all",
+          "route": "api/v1/group",
+          "method": "post"
+        },
+        {
+          "description": "CREATE : Returns 400 status code",
+          "link": "groups/create_:_returns_400_status_code.json",
+          "groups": "all",
+          "route": "api/v1/group",
+          "method": "post"
+        },
+        {
+          "description": "CREATE : Returns 401 status code",
+          "link": "groups/create_:_returns_401_status_code.json",
+          "groups": "all",
+          "route": "api/v1/group",
+          "method": "post"
+        },
+        {
+          "description": "CREATE : Returns 403 status code",
+          "link": "groups/create_:_returns_403_status_code.json",
+          "groups": "all",
+          "route": "api/v1/group",
+          "method": "post"
+        },
+        {
+          "description": "CREATE : Returns 422 status code",
+          "link": "groups/create_:_returns_422_status_code.json",
+          "groups": "all",
+          "route": "api/v1/group",
+          "method": "post"
+        },
+        {
+          "description": "DELETE : Deletes user's group",
+          "link": "groups/delete_:_deletes_user's_group.json",
+          "groups": "all",
+          "route": "api/v1/group",
+          "method": "delete"
+        },
+        {
+          "description": "DELETE : Returns 401 status code",
+          "link": "groups/delete_:_returns_401_status_code.json",
+          "groups": "all",
+          "route": "api/v1/group",
+          "method": "delete"
+        },
+        {
+          "description": "DELETE : Returns 403 status code",
+          "link": "groups/delete_:_returns_403_status_code.json",
+          "groups": "all",
+          "route": "api/v1/group",
+          "method": "delete"
+        },
+        {
+          "description": "SHOW : Retrieve information about user's group",
+          "link": "groups/show_:_retrieve_information_about_user's_group.json",
+          "groups": "all",
+          "route": "api/v1/group",
+          "method": "get"
+        },
+        {
+          "description": "SHOW : Returns 401 status code",
+          "link": "groups/show_:_returns_401_status_code.json",
+          "groups": "all",
+          "route": "api/v1/group",
+          "method": "get"
+        },
+        {
+          "description": "UPDATE : Returns 400 status code",
+          "link": "groups/update_:_returns_400_status_code.json",
+          "groups": "all",
+          "route": "api/v1/group",
+          "method": "put"
+        },
+        {
+          "description": "UPDATE : Returns 401 status code",
+          "link": "groups/update_:_returns_401_status_code.json",
+          "groups": "all",
+          "route": "api/v1/group",
+          "method": "put"
+        },
+        {
+          "description": "UPDATE : Returns 403 status code",
+          "link": "groups/update_:_returns_403_status_code.json",
+          "groups": "all",
+          "route": "api/v1/group",
+          "method": "put"
+        },
+        {
+          "description": "UPDATE : Returns 422 status code",
+          "link": "groups/update_:_returns_422_status_code.json",
+          "groups": "all",
+          "route": "api/v1/group",
+          "method": "put"
+        },
+        {
+          "description": "UPDATE : Updates group information",
+          "link": "groups/update_:_updates_group_information.json",
+          "groups": "all",
+          "route": "api/v1/group",
+          "method": "put"
+        }
+      ]
+    },
+    {
+      "name": "Students",
+      "explanation": "El Plano student's profile API",
+      "examples": [
+        {
+          "description": "SHOW : Retrieve Authenticated Users's  information",
+          "link": "students/show_:_retrieve_authenticated_users's_information.json",
+          "groups": "all",
+          "route": "api/v1/student",
+          "method": "get"
+        },
+        {
+          "description": "SHOW : Returns 401 status code",
+          "link": "students/show_:_returns_401_status_code.json",
+          "groups": "all",
+          "route": "api/v1/student",
+          "method": "get"
+        },
+        {
+          "description": "UPDATE : Returns 400 status code",
+          "link": "students/update_:_returns_400_status_code.json",
+          "groups": "all",
+          "route": "api/v1/student",
+          "method": "put"
+        },
+        {
+          "description": "UPDATE : Returns 401 status code",
+          "link": "students/update_:_returns_401_status_code.json",
+          "groups": "all",
+          "route": "api/v1/student",
+          "method": "put"
+        },
+        {
+          "description": "UPDATE : Returns 422 status code",
+          "link": "students/update_:_returns_422_status_code.json",
+          "groups": "all",
+          "route": "api/v1/student",
+          "method": "put"
+        },
+        {
+          "description": "UPDATE : Updates authenticated user's information",
+          "link": "students/update_:_updates_authenticated_user's_information.json",
+          "groups": "all",
+          "route": "api/v1/student",
+          "method": "put"
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "explanation": "El Plano user's profile API",
+      "examples": [
+        {
+          "description": "SHOW : Retrieve Authenticated Users's Profile",
+          "link": "users/show_:_retrieve_authenticated_users's_profile.json",
+          "groups": "all",
+          "route": "api/v1/user",
+          "method": "get"
+        },
+        {
+          "description": "SHOW : Returns 401 status code",
+          "link": "users/show_:_returns_401_status_code.json",
+          "groups": "all",
+          "route": "api/v1/user",
+          "method": "get"
+        }
+      ]
+    }
+  ]
+}

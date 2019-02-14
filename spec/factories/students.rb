@@ -51,4 +51,18 @@ FactoryBot.define do
       }
     end
   end
+
+  factory :invalid_student_params, class: Hash do
+    initialize_with do
+      {
+        type: 'group',
+        attributes: {
+          email: nil,
+          phone: nil,
+          full_name: nil,
+          social_networks: nil
+        }
+      }
+    end
+  end
 end

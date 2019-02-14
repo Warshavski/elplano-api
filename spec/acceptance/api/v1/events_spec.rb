@@ -5,24 +5,26 @@ require 'acceptance_helper'
 resource 'Events' do
   explanation 'El Plano events API'
 
-  let(:student) { create(:student, :group_member) }
   let(:user)  { student.user }
   let(:token) { create(:token, resource_owner_id: user.id).token }
   let(:authorization) { "Bearer #{token}" }
 
+  let(:student) { create(:student, :group_member) }
   let(:event) { create(:event, title: 'some_new_event', creator: student) }
+  let(:id) { event.id }
 
   header 'Accept', 'application/vnd.api+json'
   header 'Content-Type', 'application/vnd.api+json'
+  header 'Authorization', :authorization
 
-  get 'api/v1/me/events' do
+  get 'api/v1/events' do
     let!(:events) { create_list(:event, 1, creator: student) }
 
     context 'Authorized - 200' do
-      header 'Authorization', :authorization
-
       example 'INDEX : Retrieve events created by authenticated user' do
         explanation <<~DESC
+          Event attributes :
+
           - `title` - represents event name
           - `description` - represents event detailed description
           - `status` - represents event current status
@@ -52,6 +54,8 @@ resource 'Events' do
     end
 
     context 'Unauthorized - 401' do
+      let(:authorization) { nil }
+
       example 'INDEX : Returns 401 status code' do
         explanation <<~DESC
           Returns 401 status code in case of missing or invalid access token
@@ -64,12 +68,8 @@ resource 'Events' do
     end
   end
 
-  get 'api/v1/me/events/:id' do
+  get 'api/v1/events/:id' do
     context 'Authorized - 200' do
-      header 'Authorization', :authorization
-
-      let(:id) { event.id }
-
       example 'SHOW : Retrieve information about requested event' do
         explanation <<~DESC
           Returns single instance of the event. Detailed information see INDEX description
@@ -85,8 +85,6 @@ resource 'Events' do
     end
 
     context 'Not found - 404' do
-      header 'Authorization', :authorization
-
       let(:id) { 0 }
 
       example 'SHOW : Returns 404 status code' do
@@ -101,7 +99,7 @@ resource 'Events' do
     end
 
     context 'Unauthorized - 401' do
-      let(:id) { event.id }
+      let(:authorization) { nil }
 
       example 'SHOW : Returns 401 status code' do
         explanation <<~DESC
@@ -115,10 +113,8 @@ resource 'Events' do
     end
   end
 
-  post 'api/v1/me/events' do
+  post 'api/v1/events' do
     context 'Authorized - 201' do
-      header 'Authorization', :authorization
-
       with_options scope: %i[dta attributes] do
         parameter :title, 'Event title(human readable identity)', requred: true
         parameter :description, 'Detailed event description'
@@ -149,6 +145,8 @@ resource 'Events' do
     end
 
     context 'Unauthorized - 401' do
+      let(:authorization) { nil }
+
       example 'CREATE : Returns 401 status code' do
         explanation <<~DESC
           Returns 401 status code in case of missing or invalid access token
@@ -161,8 +159,6 @@ resource 'Events' do
     end
 
     context 'Missing parameters - 400' do
-      header 'Authorization', :authorization
-
       example 'CREATE : Returns 400 status code' do
         explanation <<~DESC
           Returns 400 status code in case of missing parameters
@@ -175,21 +171,8 @@ resource 'Events' do
     end
 
     context 'Invalid parameters - 422' do
-      header 'Authorization', :authorization
-
       let(:raw_post) do
-        {
-          data: {
-            type: 'event',
-            attributes: {
-              title: nil,
-              status: nil,
-              start_at: nil,
-              end_at: nil,
-              timezone: 'wat timezone'
-            }
-          }
-        }.to_json
+        { data: build(:invalid_event_params) }.to_json
       end
 
       example 'CREATE : Returns 422 status code' do
@@ -204,10 +187,8 @@ resource 'Events' do
     end
   end
 
-  put 'api/v1/me/events/:id' do
+  put 'api/v1/events/:id' do
     context 'Authorized - 200' do
-      header 'Authorization', :authorization
-
       with_options scope: %i[data attributes] do
         parameter :title, 'Event title(human readable identity)', requred: true
         parameter :description, 'Detailed event description'
@@ -236,7 +217,7 @@ resource 'Events' do
     end
 
     context 'Unauthorized - 401' do
-      let(:id) { event.id }
+      let(:authorization) { nil }
 
       example 'UPDATE : Returns 401 status code' do
         explanation <<~DESC
@@ -250,10 +231,6 @@ resource 'Events' do
     end
 
     context 'Missing parameters - 400' do
-      header 'Authorization', :authorization
-
-      let(:id) { event.id }
-
       example 'UPDATE : Returns 400 status code' do
         explanation <<~DESC
           Returns 400 status code in case of missing parameters
@@ -266,23 +243,8 @@ resource 'Events' do
     end
 
     context 'Invalid parameters - 422' do
-      header 'Authorization', :authorization
-
-      let(:id) { event.id }
-
       let(:raw_post) do
-        {
-          data: {
-            type: 'event',
-            attributes: {
-              title: nil,
-              status: nil,
-              start_at: nil,
-              end_at: nil,
-              timezone: 'wat timezone'
-            }
-          }
-        }.to_json
+        { data: build(:invalid_event_params) }.to_json
       end
 
       example 'UPDATE : Returns 422 status code' do
@@ -297,8 +259,6 @@ resource 'Events' do
     end
 
     context 'Not found - 404' do
-      header 'Authorization', :authorization
-
       let(:id) { 0 }
 
       example 'UPDATE : Returns 404 status code' do
@@ -313,12 +273,8 @@ resource 'Events' do
     end
   end
 
-  delete 'api/v1/me/events/:id' do
+  delete 'api/v1/events/:id' do
     context 'Authorized - 200' do
-      header 'Authorization', :authorization
-
-      let(:id) { event.id }
-
       example 'DELETE : Deletes selected event' do
         explanation <<~DESC
           Deletes event
@@ -331,7 +287,7 @@ resource 'Events' do
     end
 
     context 'Unauthorized - 401' do
-      let(:id) { event.id }
+      let(:authorization) { nil }
 
       example 'DELETE : Returns 401 status code' do
         explanation <<~DESC
@@ -345,8 +301,6 @@ resource 'Events' do
     end
 
     context 'Not found - 404' do
-      header 'Authorization', :authorization
-
       let(:id) { 0 }
 
       example 'DELETE : Returns 404 status code' do

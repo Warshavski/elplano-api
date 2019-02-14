@@ -1,0 +1,50 @@
+{
+  "resource": "Students",
+  "resource_explanation": "El Plano student's profile API",
+  "http_method": "GET",
+  "route": "api/v1/student",
+  "description": "SHOW : Retrieve Authenticated Users's  information",
+  "explanation": "Student attributes :\n\n- `full_name` - represents concatenated student's first, last and middle names\n- `email` - represents email which is used to contact with the student\n- `phone` - represents phone which is used to contact with the student\n- `about` - represents some detailed information about student(BIO)\n- `social_networks` - represents a list of social networks\n- `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member)\n- timestamps\n\nAlso, includes information about a group\n\n- `title` - represents group human readable identity\n- `number` - represents group main identity\n- timestamps\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "api/v1/student",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer c4220b5ab9ec5eedf920aef3304e01d0010f17c6e513532b8af688146ec3320b",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"48\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Laurel Velia Lemke\",\n      \"email\": \"dariospencer@kutch.name\",\n      \"phone\": \"358.670.9498\",\n      \"about\": \"Consequuntur impedit et. Quia omnis debitis. Ab corrupti laudantium. Voluptatem ea quod. Non autem veritatis.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/eric\",\n        \"facebook\": \"http://facebook/kala\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-14T14:23:49.423Z\",\n      \"updated_at\": \"2019-02-14T14:23:49.423Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"26\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"26\",\n      \"type\": \"group\",\n      \"attributes\": {\n        \"number\": \"3509595695\",\n        \"title\": \"Reprehenderit exercitationem rerum.\",\n        \"created_at\": \"2019-02-14T14:23:49.422Z\",\n        \"updated_at\": \"2019-02-14T14:23:49.422Z\"\n      },\n      \"relationships\": {\n        \"students\": {\n          \"data\": [\n            {\n              \"id\": \"48\",\n              \"type\": \"student\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/vnd.api+json; charset=utf-8",
+        "ETag": "W/\"043525b1cda686a20b683c96dc4f2889\"",
+        "X-Request-Id": "17d56a15-fb06-4254-b478-91069ccd06ad",
+        "X-Runtime": "0.007025",
+        "Vary": "Origin",
+        "Content-Length": "780"
+      },
+      "response_content_type": "application/vnd.api+json; charset=utf-8",
+      "curl": "curl -g \"http://localhost:3000/api/v1/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer c4220b5ab9ec5eedf920aef3304e01d0010f17c6e513532b8af688146ec3320b\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

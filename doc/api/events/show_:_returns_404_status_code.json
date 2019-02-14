@@ -1,0 +1,49 @@
+{
+  "resource": "Events",
+  "resource_explanation": "El Plano events API",
+  "http_method": "GET",
+  "route": "api/v1/events/:id",
+  "description": "SHOW : Returns 404 status code",
+  "explanation": "Returns 404 status code in case if requested event not exists\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "api/v1/events/0",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer 972e3a1683fa0523c6d552bb62653e9a50291482c2a17bd2143044ba081992f1",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 404,
+      "response_status_text": "Not Found",
+      "response_body": "{\n  \"errors\": [\n    {\n      \"status\": 404,\n      \"detail\": \"Couldn't find Event with 'id'=0 [WHERE \\\"events\\\".\\\"creator_id\\\" = $1]\"\n    }\n  ]\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/vnd.api+json; charset=utf-8",
+        "X-Request-Id": "7f5ee3c3-90e7-42c8-9381-bbc99cb365d0",
+        "X-Runtime": "0.006292",
+        "Vary": "Origin",
+        "Content-Length": "109"
+      },
+      "response_content_type": "application/vnd.api+json; charset=utf-8",
+      "curl": "curl -g \"http://localhost:3000/api/v1/events/0\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 972e3a1683fa0523c6d552bb62653e9a50291482c2a17bd2143044ba081992f1\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

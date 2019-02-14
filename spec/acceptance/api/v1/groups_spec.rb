@@ -2,7 +2,7 @@
 
 require 'acceptance_helper'
 
-resource 'groups' do
+resource 'Groups' do
   explanation 'El Plano groups API'
 
   let(:user)  { student.user }
@@ -209,7 +209,7 @@ resource 'groups' do
     context 'Access denied - 403' do
       let(:student) { create(:student, :group_member) }
 
-      example 'CREATE : Returns 403 status code' do
+      example 'UPDATE : Returns 403 status code' do
         explanation <<~DESC
           Returns 403 status code in case in user has no access to action
         DESC
@@ -251,7 +251,7 @@ resource 'groups' do
     context 'Access denied - 403' do
       let(:student) { create(:student, :group_member) }
 
-      example 'CREATE : Returns 403 status code' do
+      example 'DELETE : Returns 403 status code' do
         explanation <<~DESC
           Returns 403 status code in case in user has no access to action
         DESC

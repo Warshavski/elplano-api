@@ -1,0 +1,101 @@
+{
+  "resource": "Events",
+  "resource_explanation": "El Plano events API",
+  "http_method": "PUT",
+  "route": "api/v1/events/:id",
+  "description": "UPDATE : Updates selected event information",
+  "explanation": "Update and return updated event\n",
+  "parameters": [
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "requred": true,
+      "name": "title",
+      "description": "Event title(human readable identity)"
+    },
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "name": "description",
+      "description": "Detailed event description"
+    },
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "name": "recurrence",
+      "description": "Recurrence rules if an event is recurrent"
+    },
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "requred": true,
+      "name": "start_at",
+      "description": "Event start date"
+    },
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "requred": true,
+      "name": "end_at",
+      "description": "Event end date"
+    },
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "requred": true,
+      "name": "timezone",
+      "description": "Event timezone"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "api/v1/events/6",
+      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Non possimus cupiditate.\",\"description\":\"Quo occaecati nobis. Id consequatur sunt. Reprehenderit dicta doloremque. Aut optio sed. Nam eos consequatur.\",\"status\":\"cancelled\",\"start_at\":\"2019-02-13\",\"end_at\":\"2019-02-15\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]}}}",
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer 56f3eabadd0c8eebb69dafe22d5d06cb77a9d4e0b555149424cb9ae03203494d",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Non possimus cupiditate.\",\n      \"description\": \"Quo occaecati nobis. Id consequatur sunt. Reprehenderit dicta doloremque. Aut optio sed. Nam eos consequatur.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-02-13T00:00:00.000Z\",\n      \"end_at\": \"2019-02-15T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-02-14T14:23:48.913Z\",\n      \"updated_at\": \"2019-02-14T14:23:48.924Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"18\",\n          \"type\": \"creator\"\n        }\n      }\n    }\n  }\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/vnd.api+json; charset=utf-8",
+        "ETag": "W/\"d489660a4b060ab03fd6079270459a01\"",
+        "X-Request-Id": "46a3bf99-0b17-40e8-86a1-217732e26610",
+        "X-Runtime": "0.007790",
+        "Vary": "Origin",
+        "Content-Length": "601"
+      },
+      "response_content_type": "application/vnd.api+json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/api/v1/events/6\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Non possimus cupiditate.\",\"description\":\"Quo occaecati nobis. Id consequatur sunt. Reprehenderit dicta doloremque. Aut optio sed. Nam eos consequatur.\",\"status\":\"cancelled\",\"start_at\":\"2019-02-13\",\"end_at\":\"2019-02-15\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 56f3eabadd0c8eebb69dafe22d5d06cb77a9d4e0b555149424cb9ae03203494d\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

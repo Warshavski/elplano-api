@@ -24,6 +24,8 @@ class Student < ApplicationRecord
   validates :email,     length: { maximum: 100 }
   validates :phone,     length: { maximum: 50 }
 
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+
   scope :presidents, -> { where(president: true) }
 
   def any_group?

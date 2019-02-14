@@ -9,7 +9,7 @@ module Api
     class StudentsController < ApplicationController
       set_default_serializer StudentSerializer
 
-      # GET : api/v1/me/student
+      # GET : api/v1/student
       #
       # Get student specific information about current user
       #
@@ -17,7 +17,7 @@ module Api
         render_json current_user.student, include: [:group], status: :ok
       end
 
-      # PATCH/PUT : api/v1/me/student
+      # PATCH/PUT : api/v1/student
       #
       # Update student specific information about current user
       #

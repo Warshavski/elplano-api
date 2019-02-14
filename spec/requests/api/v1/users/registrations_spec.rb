@@ -47,32 +47,17 @@ describe Api::V1::Users::RegistrationsController do
 
     before(:each) { post '/api/v1/users', params: { data: user_params } }
 
-    it 'responds with json-api format' do
-      actual_keys = body_as_json[:data].keys
-
-      expect(response.body).to look_like_json
-      expect(actual_keys).to match_array(%w[id type attributes relationships])
-    end
-
-    it { expect(body_as_json).to include(:meta) }
-
-    it 'returns with correct attributes' do
-      actual_keys = body_as_json[:data][:attributes].keys
-      expected_keys = %w[email username avatar_url admin confirmed created_at updated_at]
-
-      expect(actual_keys).to match_array(expected_keys)
-    end
-
-    it 'returns student in relationships' do
-      relationships_keys = body_as_json[:data][:relationships].keys
-
-      expect(relationships_keys).to match_array(['student'])
-    end
+    include_examples 'json:api examples',
+                     %w[data meta],
+                     %w[id type attributes relationships],
+                     %w[email username avatar_url admin confirmed created_at updated_at],
+                     %w[student]
 
     it 'returns registered user' do
       actual_username = body_as_json[:data][:attributes][:username]
+      expected_username = user_params[:attributes][:username]
 
-      expect(actual_username).to eq(user_params[:attributes][:username])
+      expect(actual_username).to eq(expected_username)
     end
 
     it 'returns unconfirmed user' do

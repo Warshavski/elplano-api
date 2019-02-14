@@ -1,0 +1,49 @@
+{
+  "resource": "Groups",
+  "resource_explanation": "El Plano groups API",
+  "http_method": "PUT",
+  "route": "api/v1/group",
+  "description": "UPDATE : Returns 422 status code",
+  "explanation": "Returns 422 status code in case of invalid parameters\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "api/v1/group",
+      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":null,\"number\":null}}}",
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer dd25d132e680541df61aff3fd6e700d3e5526fbbca335695efe5045ead138dfb",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 422,
+      "response_status_text": "Unprocessable Entity",
+      "response_body": "{\n  \"errors\": [\n    {\n      \"status\": 422,\n      \"source\": {\n        \"pointer\": \"/data/attributes/number\"\n      },\n      \"detail\": \"can't be blank\"\n    }\n  ]\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/vnd.api+json; charset=utf-8",
+        "X-Request-Id": "2ec66072-bfaf-497c-95e8-fc198b906fab",
+        "X-Runtime": "0.006299",
+        "Vary": "Origin",
+        "Content-Length": "100"
+      },
+      "response_content_type": "application/vnd.api+json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":null,\"number\":null}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer dd25d132e680541df61aff3fd6e700d3e5526fbbca335695efe5045ead138dfb\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

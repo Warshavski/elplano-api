@@ -6,7 +6,7 @@
 #
 class TimezoneExistenceValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
-    if ActiveSupport::TimeZone[value].blank?
+    if value.nil? || ActiveSupport::TimeZone[value].blank?
       record.errors.add(attribute, 'does not exist')
     end
   end

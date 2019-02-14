@@ -1,0 +1,50 @@
+{
+  "resource": "Groups",
+  "resource_explanation": "El Plano groups API",
+  "http_method": "GET",
+  "route": "api/v1/group",
+  "description": "SHOW : Retrieve information about user's group",
+  "explanation": "Returns detailed information about user's group\n\n`title` - Human readable group identity\n`number` - Main group identity\ntimestamps\n\nAlso, returns information about group members in relationships\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "api/v1/group",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer 21bec43ad0d56643a04339ed7b6c49ee2aa165948f46a88daf541970b0b69935",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"17\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"6981973260\",\n      \"title\": \"Ipsum odio rerum.\",\n      \"created_at\": \"2019-02-14T14:23:49.136Z\",\n      \"updated_at\": \"2019-02-14T14:23:49.136Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"33\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/vnd.api+json; charset=utf-8",
+        "ETag": "W/\"d79cd209799aa2b9089bcbe1ad3369dc\"",
+        "X-Request-Id": "04b10c01-b913-4e45-9766-d5d45d838b58",
+        "X-Runtime": "0.008595",
+        "Vary": "Origin",
+        "Content-Length": "249"
+      },
+      "response_content_type": "application/vnd.api+json; charset=utf-8",
+      "curl": "curl -g \"http://localhost:3000/api/v1/group\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 21bec43ad0d56643a04339ed7b6c49ee2aa165948f46a88daf541970b0b69935\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

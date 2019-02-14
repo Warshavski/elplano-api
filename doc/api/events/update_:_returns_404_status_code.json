@@ -1,0 +1,49 @@
+{
+  "resource": "Events",
+  "resource_explanation": "El Plano events API",
+  "http_method": "PUT",
+  "route": "api/v1/events/:id",
+  "description": "UPDATE : Returns 404 status code",
+  "explanation": "Returns 404 status code in case if requested event not exists\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "api/v1/events/0",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer 2cd71e57fa1e40e9641bb26c069aaa4b4da9dca348f46a884c8f1965c03ba3b2",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 404,
+      "response_status_text": "Not Found",
+      "response_body": "{\n  \"errors\": [\n    {\n      \"status\": 404,\n      \"detail\": \"Couldn't find Event with 'id'=0 [WHERE \\\"events\\\".\\\"creator_id\\\" = $1]\"\n    }\n  ]\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/vnd.api+json; charset=utf-8",
+        "X-Request-Id": "ffc22297-8bce-4715-8b14-dcd0d4f48ad6",
+        "X-Runtime": "0.005464",
+        "Vary": "Origin",
+        "Content-Length": "109"
+      },
+      "response_content_type": "application/vnd.api+json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/api/v1/events/0\" -d '' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 2cd71e57fa1e40e9641bb26c069aaa4b4da9dca348f46a884c8f1965c03ba3b2\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

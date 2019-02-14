@@ -21,21 +21,11 @@ describe Api::V1::Users::UnlocksController do
 
       it { expect(response).to have_http_status(:ok) }
 
-      it 'responds with json-api format' do
-        actual_keys = body_as_json[:data].keys
-
-        expect(response.body).to look_like_json
-        expect(actual_keys).to match_array(%w[id type attributes relationships])
-      end
-
-      it { expect(body_as_json).to include(:meta) }
-
-      it 'returns with correct attributes' do
-        actual_keys = body_as_json[:data][:attributes].keys
-        expected_keys = %w[email username avatar_url admin confirmed created_at updated_at]
-
-        expect(actual_keys).to match_array(expected_keys)
-      end
+      include_examples 'json:api examples',
+                       %w[data meta],
+                       %w[id type attributes relationships],
+                       %w[email username avatar_url admin confirmed created_at updated_at],
+                       %w[student]
     end
 
     context 'invalid token' do
@@ -67,21 +57,11 @@ describe Api::V1::Users::UnlocksController do
 
       it { expect(response).to have_http_status(:ok) }
 
-      it { expect(body_as_json).to include(:meta) }
-
-      it 'responds with json-api format' do
-        actual_keys = body_as_json[:data].keys
-
-        expect(response.body).to look_like_json
-        expect(actual_keys).to match_array(%w[id type attributes relationships])
-      end
-
-      it 'returns with correct attributes' do
-        actual_keys = body_as_json[:data][:attributes].keys
-        expected_keys = %w[email username avatar_url admin confirmed created_at updated_at]
-
-        expect(actual_keys).to match_array(expected_keys)
-      end
+      include_examples 'json:api examples',
+                       %w[data meta],
+                       %w[id type attributes relationships],
+                       %w[email username avatar_url admin confirmed created_at updated_at],
+                       %w[student]
     end
 
     context 'invalid params' do

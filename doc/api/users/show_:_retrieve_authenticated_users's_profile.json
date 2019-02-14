@@ -1,0 +1,50 @@
+{
+  "resource": "Users",
+  "resource_explanation": "El Plano user's profile API",
+  "http_method": "GET",
+  "route": "api/v1/user",
+  "description": "SHOW : Retrieve Authenticated Users's Profile",
+  "explanation": "Users attributes :\n\n- `email` - represents email that was used to register a user in the application(unique in application scope)\n- `username` - used as user name\n- `admin` - `false` if regular user `true`, if the user has access to application settings\n- `confirmed` - `false` if the user did not confirm his address otherwise `true`\n- timestamps\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "api/v1/user",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer 35934490a5bf81a5431559ca33af0c63ef1f61c111df00ee5a85fa44b571428a",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"55\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"sandi@dibbert.net\",\n      \"username\": \"treva\",\n      \"admin\": false,\n      \"created_at\": \"2019-02-14T14:23:49.538Z\",\n      \"updated_at\": \"2019-02-14T14:23:49.538Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/a16dacf9be7548282ca2b434c4f54e5a?s=200&d=identicon\",\n      \"confirmed\": true\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"55\",\n          \"type\": \"student\"\n        }\n      }\n    }\n  }\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/vnd.api+json; charset=utf-8",
+        "ETag": "W/\"8883bf706f3f34f977651053ac908d91\"",
+        "X-Request-Id": "aa111e82-11a6-4eea-980a-9650dc542480",
+        "X-Runtime": "0.041524",
+        "Vary": "Origin",
+        "Content-Length": "376"
+      },
+      "response_content_type": "application/vnd.api+json; charset=utf-8",
+      "curl": "curl -g \"http://localhost:3000/api/v1/user\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 35934490a5bf81a5431559ca33af0c63ef1f61c111df00ee5a85fa44b571428a\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

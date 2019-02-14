@@ -30,6 +30,12 @@ RSpec.describe Student, type: :model do
     it { validate_length_of(:phone).is_at_most(50) }
   end
 
+  describe '#email' do
+    it { should allow_values('wat@email.com').for(:email) }
+
+    it { should_not allow_values('', 'wat', 'local.wat', nil).for(:email) }
+  end
+
   context 'scopes' do
     describe '.presidents' do
       let!(:student) { create(:student) }

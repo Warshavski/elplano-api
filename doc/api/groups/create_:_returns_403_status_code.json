@@ -1,0 +1,49 @@
+{
+  "resource": "Groups",
+  "resource_explanation": "El Plano groups API",
+  "http_method": "POST",
+  "route": "api/v1/group",
+  "description": "CREATE : Returns 403 status code",
+  "explanation": "Returns 403 status code in case in user has no access to action\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "api/v1/group",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer a15016ec455322c5dba9c02a5e9739afbfa005cfd799db6586e5e803658b880d",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 403,
+      "response_status_text": "Forbidden",
+      "response_body": "{\n  \"errors\": [\n    {\n      \"status\": 403,\n      \"detail\": \"Auth error: Create not allowed\",\n      \"source\": {\n        \"pointer\": \"authorization header\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/vnd.api+json; charset=utf-8",
+        "X-Request-Id": "beca8eda-fee1-4e43-9974-78d9d8cb4a3a",
+        "X-Runtime": "0.004858",
+        "Vary": "Origin",
+        "Content-Length": "113"
+      },
+      "response_content_type": "application/vnd.api+json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer a15016ec455322c5dba9c02a5e9739afbfa005cfd799db6586e5e803658b880d\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

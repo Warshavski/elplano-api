@@ -1,10 +1,10 @@
 {
-  "resource": "Events",
-  "resource_explanation": "El Plano events API",
+  "resource": "Group members(Students)",
+  "resource_explanation": "El Plano group members API",
   "http_method": "GET",
-  "route": "api/v1/events/:id",
+  "route": "api/v1/group/students/:id",
   "description": "SHOW : Returns 404 status code",
-  "explanation": "Returns 404 status code in case if requested event not exists\n",
+  "explanation": "Returns 404 status code in case if requested student not exists\n",
   "parameters": [
 
   ],
@@ -14,12 +14,12 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "api/v1/events/0",
+      "request_path": "api/v1/group/students/0",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer c8be84562add8fed29bf875dce728c6fac5c4f930ffc45a2c4882d03abf0e75d",
+        "Authorization": "Bearer dd81e78ecf9ec817625d24aee180ddd5ee5193e04ef27608769938e3be02ceb8",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 404,
       "response_status_text": "Not Found",
-      "response_body": "{\n  \"errors\": [\n    {\n      \"status\": 404,\n      \"detail\": \"Couldn't find Event with 'id'=0 [WHERE \\\"events\\\".\\\"creator_id\\\" = $1]\"\n    }\n  ]\n}",
+      "response_body": "{\n  \"errors\": [\n    {\n      \"status\": 404,\n      \"detail\": \"Couldn't find Student with 'id'=0 [WHERE \\\"students\\\".\\\"group_id\\\" = $1]\"\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,13 +37,13 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "X-Request-Id": "5278ded6-7b1b-4635-9794-26639ed48082",
-        "X-Runtime": "0.007076",
+        "X-Request-Id": "d58aa063-0b14-4177-af76-12a8c169497a",
+        "X-Runtime": "0.007234",
         "Vary": "Origin",
-        "Content-Length": "109"
+        "Content-Length": "111"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/events/0\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer c8be84562add8fed29bf875dce728c6fac5c4f930ffc45a2c4882d03abf0e75d\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/students/0\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer dd81e78ecf9ec817625d24aee180ddd5ee5193e04ef27608769938e3be02ceb8\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

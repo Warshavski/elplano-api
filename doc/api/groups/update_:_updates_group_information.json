@@ -32,11 +32,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group",
-      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Velit eius repudiandae.\",\"number\":\"11499\"}}}",
+      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Possimus distinctio aperiam.\",\"number\":\"35196\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 5a615528cbfc6392c8234ef83fa8df6e24fb297edd4b19d865d8be33be08cb40",
+        "Authorization": "Bearer 481229a0a3a274d32ea10fe33e47d331599a33120a536d240aa5817da2233669",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -45,7 +45,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"20\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"11499\",\n      \"title\": \"Velit eius repudiandae.\",\n      \"created_at\": \"2019-02-14T14:23:49.262Z\",\n      \"updated_at\": \"2019-02-14T14:23:49.271Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"39\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"24\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"35196\",\n      \"title\": \"Possimus distinctio aperiam.\",\n      \"created_at\": \"2019-02-15T07:38:00.285Z\",\n      \"updated_at\": \"2019-02-15T07:38:00.296Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"47\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -54,14 +54,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "ETag": "W/\"afec4d3e18b9e0b47b1351d9426b1ef3\"",
-        "X-Request-Id": "497c974c-aeb8-42ca-8a50-149cc0326c40",
-        "X-Runtime": "0.009353",
+        "ETag": "W/\"6d93cb4efd3fccacee0a708177c3f72a\"",
+        "X-Request-Id": "d89cf57b-e420-4bca-813e-f4237fd996f7",
+        "X-Runtime": "0.008595",
         "Vary": "Origin",
-        "Content-Length": "250"
+        "Content-Length": "255"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Velit eius repudiandae.\",\"number\":\"11499\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 5a615528cbfc6392c8234ef83fa8df6e24fb297edd4b19d865d8be33be08cb40\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Possimus distinctio aperiam.\",\"number\":\"35196\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 481229a0a3a274d32ea10fe33e47d331599a33120a536d240aa5817da2233669\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

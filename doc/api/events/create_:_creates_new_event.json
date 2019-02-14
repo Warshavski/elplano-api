@@ -66,11 +66,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/events",
-      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Cupiditate incidunt eius.\",\"description\":\"Recusandae quis adipisci. Veritatis sit quis. Neque et quidem. Sit non quo. Quia expedita aut.\",\"status\":\"cancelled\",\"start_at\":\"2019-02-13\",\"end_at\":\"2019-02-15\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]}}}",
+      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Quo libero minus.\",\"description\":\"Repellendus animi rerum. Consequuntur voluptatem autem. Ad sint inventore. Alias dolores distinctio. Et sed hic.\",\"status\":\"cancelled\",\"start_at\":\"2019-02-14\",\"end_at\":\"2019-02-16\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 203471500a070bfdc2afd7f836ed0976a612eee3cc183922ae6732381a4f124a",
+        "Authorization": "Bearer 0ab8ebd4d17f2de15a62029e834cb44a7587e0bc82f6630e6cd109d60d98a69c",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -79,7 +79,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Cupiditate incidunt eius.\",\n      \"description\": \"Recusandae quis adipisci. Veritatis sit quis. Neque et quidem. Sit non quo. Quia expedita aut.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-02-13T00:00:00.000Z\",\n      \"end_at\": \"2019-02-15T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-02-14T14:23:48.826Z\",\n      \"updated_at\": \"2019-02-14T14:23:48.826Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"12\",\n          \"type\": \"creator\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Quo libero minus.\",\n      \"description\": \"Repellendus animi rerum. Consequuntur voluptatem autem. Ad sint inventore. Alias dolores distinctio. Et sed hic.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-02-14T00:00:00.000Z\",\n      \"end_at\": \"2019-02-16T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-02-15T07:37:59.428Z\",\n      \"updated_at\": \"2019-02-15T07:37:59.428Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"12\",\n          \"type\": \"creator\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -88,14 +88,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "ETag": "W/\"958be3e27b3a207eab33a466fd4edf17\"",
-        "X-Request-Id": "bbf83355-c738-434b-b1b1-842c6e23802b",
-        "X-Runtime": "0.007972",
+        "ETag": "W/\"4cc8ff4899ea35258842425a1b97f112\"",
+        "X-Request-Id": "23120fb6-b26d-4456-9050-dec590009836",
+        "X-Runtime": "0.012416",
         "Vary": "Origin",
-        "Content-Length": "587"
+        "Content-Length": "597"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/events\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Cupiditate incidunt eius.\",\"description\":\"Recusandae quis adipisci. Veritatis sit quis. Neque et quidem. Sit non quo. Quia expedita aut.\",\"status\":\"cancelled\",\"start_at\":\"2019-02-13\",\"end_at\":\"2019-02-15\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 203471500a070bfdc2afd7f836ed0976a612eee3cc183922ae6732381a4f124a\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/events\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Quo libero minus.\",\"description\":\"Repellendus animi rerum. Consequuntur voluptatem autem. Ad sint inventore. Alias dolores distinctio. Et sed hic.\",\"status\":\"cancelled\",\"start_at\":\"2019-02-14\",\"end_at\":\"2019-02-16\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 0ab8ebd4d17f2de15a62029e834cb44a7587e0bc82f6630e6cd109d60d98a69c\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

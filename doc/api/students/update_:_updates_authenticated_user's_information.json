@@ -58,7 +58,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 3c41ed8c04465f1c2b1738b7c78e39be8b8f2184d99e5d691d5b1ffe93b13336",
+        "Authorization": "Bearer 2f3acdb134f03f1fc834296717ce6b2c4f4902216ae469b1c8a74d09e01e2f64",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -67,7 +67,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"50\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Sir Wat Name Yeah\",\n      \"email\": \"wat@wat.wat\",\n      \"phone\": \"+8 983 47 89 312\",\n      \"about\": \"Quis at hic. Voluptatem quidem eum. Consequatur maiores qui. Ut est asperiores. Aut possimus quod.\",\n      \"social_networks\": {\n        \"twitter\": \"https://twitter.com/watever\",\n        \"facebook\": \"https://facebook.com/watever\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-14T14:23:49.456Z\",\n      \"updated_at\": \"2019-02-14T14:23:49.464Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"27\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"58\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Sir Wat Name Yeah\",\n      \"email\": \"wat@wat.wat\",\n      \"phone\": \"+8 983 47 89 312\",\n      \"about\": \"Animi hic non. Sit in distinctio. Numquam dolore non. Reiciendis quibusdam atque. Autem ullam qui.\",\n      \"social_networks\": {\n        \"twitter\": \"https://twitter.com/watever\",\n        \"facebook\": \"https://facebook.com/watever\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-15T07:38:00.497Z\",\n      \"updated_at\": \"2019-02-15T07:38:00.505Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"31\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"57\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -76,14 +76,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "ETag": "W/\"8432733055afe80f7bcea336dd654bf9\"",
-        "X-Request-Id": "a557f417-22d1-4e13-a845-b83f9f20456e",
-        "X-Runtime": "0.006390",
+        "ETag": "W/\"f955fda5a629ea8579be3ca984774e4d\"",
+        "X-Request-Id": "0b7677cb-481e-4d34-8257-5f86a32e1309",
+        "X-Runtime": "0.006500",
         "Vary": "Origin",
-        "Content-Length": "504"
+        "Content-Length": "546"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/student\" -d '{\"data\":{\"type\":\"student\",\"attributes\":{\"email\":\"wat@wat.wat\",\"phone\":\"+8 983 47 89 312\",\"full_name\":\"Sir Wat Name Yeah\",\"social_networks\":{\"twitter\":\"https://twitter.com/watever\",\"facebook\":\"https://facebook.com/watever\"}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 3c41ed8c04465f1c2b1738b7c78e39be8b8f2184d99e5d691d5b1ffe93b13336\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/student\" -d '{\"data\":{\"type\":\"student\",\"attributes\":{\"email\":\"wat@wat.wat\",\"phone\":\"+8 983 47 89 312\",\"full_name\":\"Sir Wat Name Yeah\",\"social_networks\":{\"twitter\":\"https://twitter.com/watever\",\"facebook\":\"https://facebook.com/watever\"}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 2f3acdb134f03f1fc834296717ce6b2c4f4902216ae469b1c8a74d09e01e2f64\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

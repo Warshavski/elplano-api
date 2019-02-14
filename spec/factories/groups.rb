@@ -6,6 +6,12 @@ FactoryBot.define do
     title   { Faker::Lorem.sentence(3) }
 
     president
+
+    trait :with_students do
+      after(:build) do |group, _|
+        group.students = create_list(:student, 5)
+      end
+    end
   end
 
   factory :group_params, class: Hash do

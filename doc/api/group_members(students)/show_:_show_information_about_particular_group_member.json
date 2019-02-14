@@ -1,0 +1,50 @@
+{
+  "resource": "Group members(Students)",
+  "resource_explanation": "El Plano group members API",
+  "http_method": "GET",
+  "route": "api/v1/group/students/:id",
+  "description": "SHOW : Show information about particular group member",
+  "explanation": "Student attributes :\n\n- `full_name` - represents concatenated student's first, last and middle names\n- `email` - represents email which is used to contact with the student\n- `phone` - represents phone which is used to contact with the student\n- `about` - represents some detailed information about student(BIO)\n- `social_networks` - represents a list of social networks\n- `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member)\n- timestamps\n\nAlso, includes information about a user and relationships to the group and user\n\n- `email` - represents email that was used to register a user in the application(unique in application scope)\n- `username` - used as user name\n- `admin` - `false` if regular user `true`, if the user has access to application settings\n- `confirmed` - `false` if the user did not confirm his address otherwise `true`\n- `avatar_url` - user's avatar URL\n- timestamps\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "api/v1/group/students/36",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer fcc6fe6de4320fe920583e8b76bce01c5a8dba27ea58232534161e0cb708e832",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"36\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Mr. Yuk Fredricka D'Amore\",\n      \"email\": \"marcellus@heel.net\",\n      \"phone\": \"390-256-9699\",\n      \"about\": \"Ut quam voluptatibus. Praesentium ipsam quis. Quia enim cumque. Nihil quibusdam ut. Enim modi deleniti.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/gabrielle_becker\",\n        \"facebook\": \"http://facebook/cecille_mante\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-15T07:37:59.996Z\",\n      \"updated_at\": \"2019-02-15T07:37:59.996Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"18\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"35\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"35\",\n      \"type\": \"user\",\n      \"attributes\": {\n        \"email\": \"erik@schambergerbeier.info\",\n        \"username\": \"krishna_mayert\",\n        \"admin\": false,\n        \"created_at\": \"2019-02-15T07:37:59.983Z\",\n        \"updated_at\": \"2019-02-15T07:37:59.983Z\",\n        \"avatar_url\": \"https://www.gravatar.com/avatar/b590bbc7115a5c67cf3ef6d2bc5b87e2?s=200&d=identicon\",\n        \"confirmed\": true\n      },\n      \"relationships\": {\n        \"student\": {\n          \"data\": {\n            \"id\": \"36\",\n            \"type\": \"student\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/vnd.api+json; charset=utf-8",
+        "ETag": "W/\"5d3933fd767ef031f859d3aa27484433\"",
+        "X-Request-Id": "890748af-9312-436e-bfbd-f8dc0dbb859b",
+        "X-Runtime": "0.037124",
+        "Vary": "Origin",
+        "Content-Length": "966"
+      },
+      "response_content_type": "application/vnd.api+json; charset=utf-8",
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/students/36\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer fcc6fe6de4320fe920583e8b76bce01c5a8dba27ea58232534161e0cb708e832\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

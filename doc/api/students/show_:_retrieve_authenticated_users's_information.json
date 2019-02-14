@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer c4220b5ab9ec5eedf920aef3304e01d0010f17c6e513532b8af688146ec3320b",
+        "Authorization": "Bearer 903cd0e4d56bf56605d1c5ae8a6d0affe32376d361825790b0c2fa4bd2a2732d",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"48\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Laurel Velia Lemke\",\n      \"email\": \"dariospencer@kutch.name\",\n      \"phone\": \"358.670.9498\",\n      \"about\": \"Consequuntur impedit et. Quia omnis debitis. Ab corrupti laudantium. Voluptatem ea quod. Non autem veritatis.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/eric\",\n        \"facebook\": \"http://facebook/kala\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-14T14:23:49.423Z\",\n      \"updated_at\": \"2019-02-14T14:23:49.423Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"26\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"26\",\n      \"type\": \"group\",\n      \"attributes\": {\n        \"number\": \"3509595695\",\n        \"title\": \"Reprehenderit exercitationem rerum.\",\n        \"created_at\": \"2019-02-14T14:23:49.422Z\",\n        \"updated_at\": \"2019-02-14T14:23:49.422Z\"\n      },\n      \"relationships\": {\n        \"students\": {\n          \"data\": [\n            {\n              \"id\": \"48\",\n              \"type\": \"student\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"56\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Ammie Catalina Adams\",\n      \"email\": \"leighann@harrismann.info\",\n      \"phone\": \"(826) 408-5294\",\n      \"about\": \"Cupiditate quia molestiae. Nobis dolor modi. Voluptatem expedita et. Quia veniam aut. Nostrum sit excepturi.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/alfonzo_murphy\",\n        \"facebook\": \"http://facebook/jarrod.kohler\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-15T07:38:00.461Z\",\n      \"updated_at\": \"2019-02-15T07:38:00.461Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"30\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"55\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"30\",\n      \"type\": \"group\",\n      \"attributes\": {\n        \"number\": \"8754975353\",\n        \"title\": \"Ipsam eligendi repellat.\",\n        \"created_at\": \"2019-02-15T07:38:00.459Z\",\n        \"updated_at\": \"2019-02-15T07:38:00.459Z\"\n      },\n      \"relationships\": {\n        \"students\": {\n          \"data\": [\n            {\n              \"id\": \"56\",\n              \"type\": \"student\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "ETag": "W/\"043525b1cda686a20b683c96dc4f2889\"",
-        "X-Request-Id": "17d56a15-fb06-4254-b478-91069ccd06ad",
-        "X-Runtime": "0.007025",
+        "ETag": "W/\"8c92173347f887843169b487ee90c393\"",
+        "X-Request-Id": "2a8422cd-821a-464d-9f78-e80fc14823d3",
+        "X-Runtime": "0.007678",
         "Vary": "Origin",
-        "Content-Length": "780"
+        "Content-Length": "834"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer c4220b5ab9ec5eedf920aef3304e01d0010f17c6e513532b8af688146ec3320b\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 903cd0e4d56bf56605d1c5ae8a6d0affe32376d361825790b0c2fa4bd2a2732d\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

@@ -31,6 +31,11 @@ Rails.application.routes.draw do
       # (see GroupsController)
       resource :group, except: %i[new edit]
 
+      namespace :group do
+        # (see Group::StudentsController)
+        resources :students, only: %i[index show]
+      end
+
       # (see EventsController)
       resources :events, except: %i[new edit]
     end

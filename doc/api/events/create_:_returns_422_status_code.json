@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 421232ca6edd4e2d2dbc0c7c76edd5ef1cd6e18ada8028afd416d378b6953912",
+        "Authorization": "Bearer 88056f33322ef1f95faa87ce52ae0b1a9cf0d635288c185e19258ec6fb2aea46",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -37,13 +37,13 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "X-Request-Id": "87ad03a5-0a6e-4635-8f0f-026bbff34b12",
-        "X-Runtime": "0.008664",
+        "X-Request-Id": "ca8e89cc-5d3c-49a3-a8cf-37ed3a774df0",
+        "X-Runtime": "0.014175",
         "Vary": "Origin",
         "Content-Length": "480"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/events\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":null,\"description\":null,\"status\":null,\"start_at\":null,\"end_at\":null,\"timezone\":null,\"recurrence\":[]}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 421232ca6edd4e2d2dbc0c7c76edd5ef1cd6e18ada8028afd416d378b6953912\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/events\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":null,\"description\":null,\"status\":null,\"start_at\":null,\"end_at\":null,\"timezone\":null,\"recurrence\":[]}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 88056f33322ef1f95faa87ce52ae0b1a9cf0d635288c185e19258ec6fb2aea46\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

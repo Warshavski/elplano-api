@@ -29,7 +29,7 @@ describe Api::V1::StudentsController do
                        %w[data included],
                        %w[id type attributes relationships],
                        %w[full_name email phone about president social_networks created_at updated_at],
-                       %w[group]
+                       %w[group user]
 
       it 'returns student info of the token owner' do
         actual_full_name = body_as_json[:data][:attributes][:full_name]
@@ -57,7 +57,7 @@ describe Api::V1::StudentsController do
                      %w[data],
                      %w[id type attributes relationships],
                      %w[full_name email phone about president social_networks created_at updated_at],
-                     %w[group]
+                     %w[group user]
 
     it 'returns updated student info' do
       actual_attributes = body_as_json[:data][:attributes]

@@ -10,7 +10,7 @@ RspecApiDocumentation.configure do |config|
   #
   # Output folder
   #
-  config.docs_dir = Rails.root.join('documentation', 'api')
+  config.docs_dir = Rails.root.join('doc', 'api')
 
   #
   # An array of output format(s).
@@ -29,5 +29,5 @@ RspecApiDocumentation.configure do |config|
 
   config.post_body_formatter = :json
 
-  config.curl_host = 'http://localhost:3000'
+  config.curl_host = 'http://localhost:3000/'
 end

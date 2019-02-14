@@ -12,7 +12,7 @@ Apitome.setup do |config|
 
   # This is where rspec_api_documentation outputs the JSON files. This is configurable within RAD, and so is
   # configurable here.
-  config.doc_path = 'documentation/api'
+  config.doc_path = 'doc/api'
 
   # Set a parent controller that Apitome::DocsController inherits from. Useful if you want to use a custom
   # `before_action`.

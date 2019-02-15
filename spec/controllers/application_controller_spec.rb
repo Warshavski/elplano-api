@@ -82,7 +82,7 @@ describe ApplicationController do
     end
   end
 
-  describe '#current_user' do
+  describe '#current_student' do
     let!(:student) { create(:student, user: user) }
 
     it 'returns student info of authenticated user' do
@@ -91,6 +91,30 @@ describe ApplicationController do
       current_student = controller.send(:current_student)
 
       expect(current_student).to eq student
+    end
+  end
+
+  describe '#current_group' do
+    let!(:student) { create(:student, :group_member) }
+
+    it 'returns student info of authenticated user' do
+      allow(controller).to receive(:current_student).and_return(student)
+
+      current_group = controller.send(:current_group)
+
+      expect(current_group).to eq student.group
+    end
+  end
+
+  describe '#supervised_group' do
+    let!(:student) { create(:student, :group_supervisor) }
+
+    it 'returns student info of authenticated user' do
+      allow(controller).to receive(:current_student).and_return(student)
+
+      supervised_group = controller.send(:supervised_group)
+
+      expect(supervised_group).to eq student.supervised_group
     end
   end
 

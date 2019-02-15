@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Events management', type: :request do
-  include_context 'shared auth'
+  include_context 'shared setup'
 
   let(:base_url)  { '/api/v1/events' }
   let(:event_url) { "#{base_url}/#{event.id}" }
@@ -17,7 +17,7 @@ RSpec.describe 'Events management', type: :request do
   let(:invalid_request_params) { { data: build(:invalid_event_params) } }
 
   describe 'GET #index' do
-    subject { get base_url, headers: auth_header }
+    subject { get base_url, headers: headers }
 
     let!(:events) { create_list(:event, 10, creator: student) }
 
@@ -35,7 +35,7 @@ RSpec.describe 'Events management', type: :request do
   end
 
   describe 'GET #show' do
-    subject { get event_url, headers: auth_header }
+    subject { get event_url, headers: headers }
 
     before(:each) { subject }
 
@@ -66,7 +66,7 @@ RSpec.describe 'Events management', type: :request do
   end
 
   describe 'POST #create' do
-    subject { post base_url, params: request_params, headers: auth_header }
+    subject { post base_url, params: request_params, headers: headers }
 
     before(:each) { subject }
 
@@ -91,7 +91,7 @@ RSpec.describe 'Events management', type: :request do
   end
 
   describe 'PUT #update' do
-    subject { put event_url, params: request_params, headers: auth_header }
+    subject { put event_url, params: request_params, headers: headers }
 
     before(:each) { subject }
 
@@ -125,19 +125,19 @@ RSpec.describe 'Events management', type: :request do
 
   describe 'DELETE #destroy' do
     it 'responds with a 204 status' do
-      delete event_url, headers: auth_header
+      delete event_url, headers: headers
 
       expect(response).to have_http_status(:no_content)
     end
 
     it 'responds with a 404 status not existed event' do
-      delete "#{base_url}/wat_event?", headers: auth_header
+      delete "#{base_url}/wat_event?", headers: headers
 
       expect(response).to have_http_status(:not_found)
     end
 
     it 'deletes publisher' do
-      expect { delete event_url, headers: auth_header }.to change(Event, :count).by(0)
+      expect { delete event_url, headers: headers }.to change(Event, :count).by(0)
     end
   end
 end

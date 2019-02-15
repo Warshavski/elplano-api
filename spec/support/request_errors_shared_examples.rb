@@ -12,7 +12,7 @@ RSpec.shared_examples 'request errors examples' do
   end
 
   context 'responds with a 401 status on not presented auth header' do
-    let(:auth_header) { nil }
+    let(:headers) { nil }
 
     it { expect(response).to have_http_status(:unauthorized) }
   end

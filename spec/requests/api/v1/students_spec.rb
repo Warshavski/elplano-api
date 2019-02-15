@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 describe Api::V1::StudentsController do
-  include_context 'shared auth'
+  include_context 'shared setup'
 
   let(:described_url) { '/api/v1/student' }
 
   describe '#show' do
-    subject { get described_url, headers: auth_header }
+    subject { get described_url, headers: headers }
 
     context 'anonymous user' do
-      let(:auth_header) { nil }
+      let(:headers) { nil }
 
       before(:each) { subject }
 
@@ -41,7 +41,7 @@ describe Api::V1::StudentsController do
   end
 
   describe '#update' do
-    subject { put described_url, headers: auth_header, params: request_params }
+    subject { put described_url, headers: headers, params: request_params }
 
     let!(:student) { create(:student, user: user) }
 

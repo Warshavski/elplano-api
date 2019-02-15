@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 describe Api::V1::UsersController do
-  include_context 'shared auth'
+  include_context 'shared setup'
 
   describe '#show' do
-    subject { get '/api/v1/user', headers: auth_header }
+    subject { get '/api/v1/user', headers: headers }
 
     before(:each) { subject }
 
     context 'anonymous user' do
-      let(:auth_header) { nil }
+      let(:headers) { nil }
 
       it { expect(response).to have_http_status(:unauthorized) }
 

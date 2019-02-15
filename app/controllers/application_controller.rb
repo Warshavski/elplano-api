@@ -19,7 +19,7 @@ class ApplicationController < ActionController::API
   prepend_before_action :doorkeeper_authorize!
 
   def check_request_format
-    route_not_found unless json_request?
+    head :unsupported_media_type unless json_request?
   end
 
   def route_not_found
@@ -31,7 +31,11 @@ class ApplicationController < ActionController::API
   end
 
   def json_request?
-    request.format.json?
+    request.format.json? && json_content_type?
+  end
+
+  def json_content_type?
+    request.content_type == Mime[:json]
   end
 
   def set_default_headers

@@ -18,6 +18,7 @@ describe ApplicationController do
 
     context 'when format is handled' do
       it 'returns 200 response' do
+        request.headers.merge('Content-Type' => 'application/vnd.api+json')
         get :index, format: :json
 
         expect(response).to have_http_status :ok
@@ -25,10 +26,10 @@ describe ApplicationController do
     end
 
     context 'when format is not handled' do
-      it 'returns 404 response' do
+      it 'returns 415 response' do
         get :index
 
-        expect(response).to have_http_status :not_found
+        expect(response).to have_http_status :unsupported_media_type
       end
     end
   end
@@ -61,6 +62,41 @@ describe ApplicationController do
       controller.send(:set_page_title_header)
 
       expect(response.headers['Page-Title']).to eq('El+Plano')
+    end
+  end
+
+  describe '#json_content_type?' do
+    let(:controller) { described_class.new }
+    let(:request)    { double(content_type: content_type) }
+
+    subject { controller.send(:json_content_type?) }
+
+    before do
+      allow(controller).to receive(:request).and_return(request)
+    end
+
+    context 'not json content-type' do
+      let(:content_type) { 'text' }
+
+      it { expect(subject).to be false }
+    end
+
+    context 'application/json' do
+      let(:content_type) { 'application/json' }
+
+      it { expect(subject).to be true }
+    end
+
+    context 'text/x-json' do
+      let(:content_type) { 'text/x-json' }
+
+      it { expect(subject).to be true }
+    end
+
+    context 'application/vnd.api+json' do
+      let(:content_type) { 'application/vnd.api+json' }
+
+      it { expect(subject).to be true }
     end
   end
 

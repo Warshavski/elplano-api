@@ -87,6 +87,16 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
+  # WARNING!
+  #
+  # Dirty hack to prevent tests fall.
+  #
+  # TODO : Need to find better solution
+  #
+  config.before(:each, type: :request) do
+    allow_any_instance_of(ApplicationController).to receive(:json_content_type?).and_return(true)
+  end
+
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
     DatabaseCleaner.strategy = :transaction

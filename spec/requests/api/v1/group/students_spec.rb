@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe 'Students management', type: :request do
-  include_context 'shared auth'
+  include_context 'shared setup'
 
   let(:base) { '/api/v1/group/students' }
 
-  subject { get endpoint, headers: auth_header }
+  subject { get endpoint, headers: headers }
 
   before(:each) { subject }
 
@@ -23,7 +23,7 @@ RSpec.describe 'Students management', type: :request do
     end
 
     context 'anonymous user' do
-      let(:auth_header) { nil }
+      let(:headers) { nil }
 
       it { expect(response).to have_http_status(:unauthorized) }
     end
@@ -34,7 +34,7 @@ RSpec.describe 'Students management', type: :request do
     let(:endpoint)  { "#{base}/#{student.id}" }
 
     context 'anonymous user' do
-      let(:auth_header) { nil }
+      let(:headers) { nil }
 
       it { expect(response).to have_http_status(:unauthorized) }
     end

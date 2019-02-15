@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 35934490a5bf81a5431559ca33af0c63ef1f61c111df00ee5a85fa44b571428a",
+        "Authorization": "Bearer c4e9820091b2fc51504916c6d6d935b9015b5b67355b2bfaf3862b8732c3d7cb",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"55\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"sandi@dibbert.net\",\n      \"username\": \"treva\",\n      \"admin\": false,\n      \"created_at\": \"2019-02-14T14:23:49.538Z\",\n      \"updated_at\": \"2019-02-14T14:23:49.538Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/a16dacf9be7548282ca2b434c4f54e5a?s=200&d=identicon\",\n      \"confirmed\": true\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"55\",\n          \"type\": \"student\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"63\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"marywalter@nader.org\",\n      \"username\": \"benjamin\",\n      \"admin\": false,\n      \"created_at\": \"2019-02-15T07:38:00.579Z\",\n      \"updated_at\": \"2019-02-15T07:38:00.579Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/56206e1b5229e7ed565b08ced47c7972?s=200&d=identicon\",\n      \"confirmed\": true\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"63\",\n          \"type\": \"student\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "ETag": "W/\"8883bf706f3f34f977651053ac908d91\"",
-        "X-Request-Id": "aa111e82-11a6-4eea-980a-9650dc542480",
-        "X-Runtime": "0.041524",
+        "ETag": "W/\"d4a8bcf684ab6074c74d0b35d20dac95\"",
+        "X-Request-Id": "a64a4eb8-64ac-4c45-b91c-b2c119383b24",
+        "X-Runtime": "0.029364",
         "Vary": "Origin",
-        "Content-Length": "376"
+        "Content-Length": "382"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/user\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 35934490a5bf81a5431559ca33af0c63ef1f61c111df00ee5a85fa44b571428a\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/user\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer c4e9820091b2fc51504916c6d6d935b9015b5b67355b2bfaf3862b8732c3d7cb\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

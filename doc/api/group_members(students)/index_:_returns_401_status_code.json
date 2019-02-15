@@ -1,9 +1,9 @@
 {
-  "resource": "Students",
-  "resource_explanation": "El Plano student's profile API",
-  "http_method": "PUT",
-  "route": "api/v1/student",
-  "description": "UPDATE : Returns 401 status code",
+  "resource": "Group members(Students)",
+  "resource_explanation": "El Plano group members API",
+  "http_method": "GET",
+  "route": "api/v1/group/students",
+  "description": "INDEX : Returns 401 status code",
   "explanation": "Returns 401 status code in case of missing or invalid access token\n",
   "parameters": [
 
@@ -13,8 +13,8 @@
   ],
   "requests": [
     {
-      "request_method": "PUT",
-      "request_path": "api/v1/student",
+      "request_method": "GET",
+      "request_path": "api/v1/group/students",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.api+json",
@@ -34,13 +34,13 @@
         "Pragma": "no-cache",
         "WWW-Authenticate": "Bearer realm=\"Doorkeeper\", error=\"invalid_token\", error_description=\"The access token is invalid\"",
         "Content-Type": "text/html",
-        "X-Request-Id": "1d642fe0-1f88-42bd-86f5-9b4b6673bdf4",
-        "X-Runtime": "0.001296",
+        "X-Request-Id": "644dbf6e-6529-4ffe-808c-fd3fe3c78175",
+        "X-Runtime": "0.001382",
         "Vary": "Origin",
         "Content-Length": "0"
       },
       "response_content_type": "text/html",
-      "curl": "curl \"http://localhost:3000/api/v1/student\" -d '' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: \" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/students\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: \" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

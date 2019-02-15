@@ -126,6 +126,47 @@
       ]
     },
     {
+      "name": "Group members(Students)",
+      "explanation": "El Plano group members API",
+      "examples": [
+        {
+          "description": "INDEX : Retrieve group members",
+          "link": "group_members(students)/index_:_retrieve_group_members.json",
+          "groups": "all",
+          "route": "api/v1/group/students",
+          "method": "get"
+        },
+        {
+          "description": "INDEX : Returns 401 status code",
+          "link": "group_members(students)/index_:_returns_401_status_code.json",
+          "groups": "all",
+          "route": "api/v1/group/students",
+          "method": "get"
+        },
+        {
+          "description": "SHOW : Returns 401 status code",
+          "link": "group_members(students)/show_:_returns_401_status_code.json",
+          "groups": "all",
+          "route": "api/v1/group/students/:id",
+          "method": "get"
+        },
+        {
+          "description": "SHOW : Returns 404 status code",
+          "link": "group_members(students)/show_:_returns_404_status_code.json",
+          "groups": "all",
+          "route": "api/v1/group/students/:id",
+          "method": "get"
+        },
+        {
+          "description": "SHOW : Show information about particular group member",
+          "link": "group_members(students)/show_:_show_information_about_particular_group_member.json",
+          "groups": "all",
+          "route": "api/v1/group/students/:id",
+          "method": "get"
+        }
+      ]
+    },
+    {
       "name": "Groups",
       "explanation": "El Plano groups API",
       "examples": [

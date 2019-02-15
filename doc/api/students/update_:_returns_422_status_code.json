@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 4c97709c0380bb43fbb5d0064f67cd4aa148d2d2dbed8896c13b2e40005ba45a",
+        "Authorization": "Bearer 237b95e96fddcb95ee064fc57543efc416c615cadcae9af4f485643afdaed7a0",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -37,13 +37,13 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "X-Request-Id": "75e889b6-1825-47c7-b112-8a57ef2ff9db",
-        "X-Runtime": "0.007673",
+        "X-Request-Id": "51622a30-cbb0-4cc8-9862-ef72bcbde1d7",
+        "X-Runtime": "0.007083",
         "Vary": "Origin",
         "Content-Length": "206"
       },
       "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/student\" -d '{\"data\":{\"type\":\"student\",\"attributes\":{\"phone\":\"1123456789012345678901234567890123456789012345678901234567890\",\"email\":\"wat\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 4c97709c0380bb43fbb5d0064f67cd4aa148d2d2dbed8896c13b2e40005ba45a\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/student\" -d '{\"data\":{\"type\":\"student\",\"attributes\":{\"phone\":\"1123456789012345678901234567890123456789012345678901234567890\",\"email\":\"wat\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 237b95e96fddcb95ee064fc57543efc416c615cadcae9af4f485643afdaed7a0\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

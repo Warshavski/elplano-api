@@ -31,7 +31,7 @@ module Api
       # Get detailed information about current user's group
       #
       def show
-        render_json student_group, status: :ok
+        render_json current_group, status: :ok
       end
 
       # POST : api/v1/group
@@ -76,14 +76,6 @@ module Api
         return unless current_student.any_group?
 
         raise Errors::AuthError, 'Create not allowed'
-      end
-
-      def student_group
-        @student_group || current_student.group
-      end
-
-      def supervised_group
-        @supervised_group ||= current_student.supervised_group
       end
 
       def group_params

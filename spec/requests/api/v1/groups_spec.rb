@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Group management', type: :request do
-  include_context 'shared auth'
+  include_context 'shared setup'
 
   let(:group_url) { '/api/v1/group' }
 
@@ -15,7 +15,7 @@ RSpec.describe 'Group management', type: :request do
   describe 'GET #show' do
     let!(:student) { create(:student, :group_member, user: user) }
 
-    before(:each) { get group_url, headers: auth_header }
+    before(:each) { get group_url, headers: headers }
 
     it 'responds with a 200 status' do
       expect(response).to have_http_status(:ok)
@@ -29,7 +29,7 @@ RSpec.describe 'Group management', type: :request do
   end
 
   describe 'POST #create' do
-    subject { post group_url, params: request_params, headers: auth_header }
+    subject { post group_url, params: request_params, headers: headers }
 
     context 'student with group' do
       context 'simple group member' do
@@ -75,7 +75,7 @@ RSpec.describe 'Group management', type: :request do
   end
 
   describe 'PUT #update' do
-    subject { put group_url, params: request_params, headers: auth_header }
+    subject { put group_url, params: request_params, headers: headers }
 
     context 'simple group owner' do
       let!(:student) { create(:student, :group_member, user: user) }
@@ -127,13 +127,13 @@ RSpec.describe 'Group management', type: :request do
     let!(:student) { create(:student, :group_supervisor, user: user) }
 
     it 'responds with a 204 status' do
-      delete group_url, headers: auth_header
+      delete group_url, headers: headers
 
       expect(response).to have_http_status(:no_content)
     end
 
     it 'deletes group' do
-      expect { delete group_url, headers: auth_header }.to change(Group, :count).by(-1)
+      expect { delete group_url, headers: headers }.to change(Group, :count).by(-1)
     end
   end
 end

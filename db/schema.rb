@@ -15,8 +15,19 @@ ActiveRecord::Schema.define(version: 2019_01_29_184540) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-# Could not dump table "events" because of following StandardError
-#   Unknown type 'event_status' for column 'status'
+  create_table "events", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "description"
+    t.bigint "creator_id", null: false
+    t.datetime "start_at", null: false
+    t.datetime "end_at"
+    t.string "timezone", null: false
+    t.jsonb "recurrence", default: [], null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "status", default: "confirmed", null: false
+    t.index ["creator_id"], name: "index_events_on_creator_id"
+  end
 
   create_table "groups", force: :cascade do |t|
     t.bigint "president_id", null: false

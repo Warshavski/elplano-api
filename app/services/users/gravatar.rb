@@ -11,7 +11,7 @@ module Users
 
     def initialize
       @gravatar_config = Elplano.config.gravatar
-      @elplano_config = Elplano.config.elplano
+      @elplano_config = Elplano.config.core
     end
 
     def generate(email, size = nil, scale = 2, username: nil)

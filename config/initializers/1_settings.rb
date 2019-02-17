@@ -3,11 +3,11 @@
 #
 # El Plano
 #
-ApplicationSetting.elplano ||= {}
+ApplicationSetting.core ||= {}
 
-ApplicationSetting.elplano['relative_url_root'] ||= ENV['RAILS_RELATIVE_URL_ROOT'] || ''
-ApplicationSetting.elplano['protocol']          ||= ApplicationSetting.elplano['https'] ? 'https' : 'http'
-ApplicationSetting.elplano['base_url']          ||= ApplicationSetting.__send__(:build_base_elplano_url)
+ApplicationSetting.core['relative_url_root'] ||= ENV['RAILS_RELATIVE_URL_ROOT'] || ''
+ApplicationSetting.core['protocol']          ||= ApplicationSetting.core['https'] ? 'https' : 'http'
+ApplicationSetting.core['base_url']          ||= ApplicationSetting.__send__(:build_base_elplano_url)
 
 #
 # Gravatar

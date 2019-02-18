@@ -2,32 +2,11 @@
   "resources": [
     {
       "name": "Events",
-      "explanation": "El Plano events API",
+      "explanation": "El Plano events API.\n\nEvent attributes :\n\n - `title` - Represents event name.\n - `description` - Represents event detailed description.\n - `status` - Represents event current status.\n   - `confirmed` - The event is confirmed. This is the default status.\n   - `tentative` - The event is tentatively confirmed.\n   - `cancelled` - The event is cancelled (deleted).\n\n - `recurrence` - Represents recurrence rules.\n - `timezone` - Timezone settings.\n - `start_at` - Represents when event starts.\n - `end_at` - Represents when event ends.\n - timestamps\n\n Also, includes reference to the event creator.\n",
       "examples": [
         {
           "description": "CREATE : Creates new event",
           "link": "events/create_:_creates_new_event.json",
-          "groups": "all",
-          "route": "api/v1/events",
-          "method": "post"
-        },
-        {
-          "description": "CREATE : Returns 400 status code",
-          "link": "events/create_:_returns_400_status_code.json",
-          "groups": "all",
-          "route": "api/v1/events",
-          "method": "post"
-        },
-        {
-          "description": "CREATE : Returns 401 status code",
-          "link": "events/create_:_returns_401_status_code.json",
-          "groups": "all",
-          "route": "api/v1/events",
-          "method": "post"
-        },
-        {
-          "description": "CREATE : Returns 422 status code",
-          "link": "events/create_:_returns_422_status_code.json",
           "groups": "all",
           "route": "api/v1/events",
           "method": "post"
@@ -40,29 +19,8 @@
           "method": "delete"
         },
         {
-          "description": "DELETE : Returns 401 status code",
-          "link": "events/delete_:_returns_401_status_code.json",
-          "groups": "all",
-          "route": "api/v1/events/:id",
-          "method": "delete"
-        },
-        {
-          "description": "DELETE : Returns 404 status code",
-          "link": "events/delete_:_returns_404_status_code.json",
-          "groups": "all",
-          "route": "api/v1/events/:id",
-          "method": "delete"
-        },
-        {
           "description": "INDEX : Retrieve events created by authenticated user",
           "link": "events/index_:_retrieve_events_created_by_authenticated_user.json",
-          "groups": "all",
-          "route": "api/v1/events",
-          "method": "get"
-        },
-        {
-          "description": "INDEX : Returns 401 status code",
-          "link": "events/index_:_returns_401_status_code.json",
           "groups": "all",
           "route": "api/v1/events",
           "method": "get"
@@ -75,48 +33,6 @@
           "method": "get"
         },
         {
-          "description": "SHOW : Returns 401 status code",
-          "link": "events/show_:_returns_401_status_code.json",
-          "groups": "all",
-          "route": "api/v1/events/:id",
-          "method": "get"
-        },
-        {
-          "description": "SHOW : Returns 404 status code",
-          "link": "events/show_:_returns_404_status_code.json",
-          "groups": "all",
-          "route": "api/v1/events/:id",
-          "method": "get"
-        },
-        {
-          "description": "UPDATE : Returns 400 status code",
-          "link": "events/update_:_returns_400_status_code.json",
-          "groups": "all",
-          "route": "api/v1/events/:id",
-          "method": "put"
-        },
-        {
-          "description": "UPDATE : Returns 401 status code",
-          "link": "events/update_:_returns_401_status_code.json",
-          "groups": "all",
-          "route": "api/v1/events/:id",
-          "method": "put"
-        },
-        {
-          "description": "UPDATE : Returns 404 status code",
-          "link": "events/update_:_returns_404_status_code.json",
-          "groups": "all",
-          "route": "api/v1/events/:id",
-          "method": "put"
-        },
-        {
-          "description": "UPDATE : Returns 422 status code",
-          "link": "events/update_:_returns_422_status_code.json",
-          "groups": "all",
-          "route": "api/v1/events/:id",
-          "method": "put"
-        },
-        {
           "description": "UPDATE : Updates selected event information",
           "link": "events/update_:_updates_selected_event_information.json",
           "groups": "all",
@@ -126,40 +42,19 @@
       ]
     },
     {
-      "name": "Group members(Students)",
-      "explanation": "El Plano group members API",
+      "name": "Group members",
+      "explanation": "El Plano group members API.\n\nStudent attributes :\n\n  - `full_name` - Represents concatenated student's first, last and middle names.\n  - `email` - Represents email which is used to contact with the student.\n  - `phone` - Represents phone which is used to contact with the student.\n  - `about` - Represents some detailed information about student(BIO).\n  - `social_networks` - Represents a list of social networks.\n  - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).\n  - timestamps\n\n  Also, includes information about a user and relationships to the group and user.\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Used as user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - `avatar_url` - User's avatar URL.\n  - timestamps\n",
       "examples": [
         {
           "description": "INDEX : Retrieve group members",
-          "link": "group_members(students)/index_:_retrieve_group_members.json",
+          "link": "group_members/index_:_retrieve_group_members.json",
           "groups": "all",
           "route": "api/v1/group/students",
-          "method": "get"
-        },
-        {
-          "description": "INDEX : Returns 401 status code",
-          "link": "group_members(students)/index_:_returns_401_status_code.json",
-          "groups": "all",
-          "route": "api/v1/group/students",
-          "method": "get"
-        },
-        {
-          "description": "SHOW : Returns 401 status code",
-          "link": "group_members(students)/show_:_returns_401_status_code.json",
-          "groups": "all",
-          "route": "api/v1/group/students/:id",
-          "method": "get"
-        },
-        {
-          "description": "SHOW : Returns 404 status code",
-          "link": "group_members(students)/show_:_returns_404_status_code.json",
-          "groups": "all",
-          "route": "api/v1/group/students/:id",
           "method": "get"
         },
         {
           "description": "SHOW : Show information about particular group member",
-          "link": "group_members(students)/show_:_show_information_about_particular_group_member.json",
+          "link": "group_members/show_:_show_information_about_particular_group_member.json",
           "groups": "all",
           "route": "api/v1/group/students/:id",
           "method": "get"
@@ -167,40 +62,39 @@
       ]
     },
     {
+      "name": "Group's Invites",
+      "explanation": "El Plano group's invites API.\n\nInvite attributes :\n\n- `email` - Represents email where invite was sent.\n- `invitation_token` - Represents token.\n- `status` - Represents invite current status.\n  - `accepted` - The invite was accepted by the recipient.\n  - `pending` - The invite was not accepted by the recipient. Default status.\n- `sent_at` - Date and time when the invite was sent.\n- `accepted_at` - Date and time when the invite was accepted by recipient.\n- timestamps\n\nAlso, includes reference to the sender, recipient.\n",
+      "examples": [
+        {
+          "description": "CREATE : Create new invite",
+          "link": "group's_invites/create_:_create_new_invite.json",
+          "groups": "all",
+          "route": "api/v1/group/invites",
+          "method": "post"
+        },
+        {
+          "description": "INDEX : Retrieve user's group invitations",
+          "link": "group's_invites/index_:_retrieve_user's_group_invitations.json",
+          "groups": "all",
+          "route": "api/v1/group/invites",
+          "method": "get"
+        },
+        {
+          "description": "SHOW : Retrieve information about requested invite",
+          "link": "group's_invites/show_:_retrieve_information_about_requested_invite.json",
+          "groups": "all",
+          "route": "api/v1/group/invites/:id",
+          "method": "get"
+        }
+      ]
+    },
+    {
       "name": "Groups",
-      "explanation": "El Plano groups API",
+      "explanation": "El Plano groups API'.\n\nGroup attributes: \n\n  - `title` - Human readable group identity.\n  - `number` - Main group identity.\n  - timestamps\n\n  Also, returns information about group members in relationships.\n",
       "examples": [
         {
           "description": "CREATE : Creates new group",
           "link": "groups/create_:_creates_new_group.json",
-          "groups": "all",
-          "route": "api/v1/group",
-          "method": "post"
-        },
-        {
-          "description": "CREATE : Returns 400 status code",
-          "link": "groups/create_:_returns_400_status_code.json",
-          "groups": "all",
-          "route": "api/v1/group",
-          "method": "post"
-        },
-        {
-          "description": "CREATE : Returns 401 status code",
-          "link": "groups/create_:_returns_401_status_code.json",
-          "groups": "all",
-          "route": "api/v1/group",
-          "method": "post"
-        },
-        {
-          "description": "CREATE : Returns 403 status code",
-          "link": "groups/create_:_returns_403_status_code.json",
-          "groups": "all",
-          "route": "api/v1/group",
-          "method": "post"
-        },
-        {
-          "description": "CREATE : Returns 422 status code",
-          "link": "groups/create_:_returns_422_status_code.json",
           "groups": "all",
           "route": "api/v1/group",
           "method": "post"
@@ -213,60 +107,11 @@
           "method": "delete"
         },
         {
-          "description": "DELETE : Returns 401 status code",
-          "link": "groups/delete_:_returns_401_status_code.json",
-          "groups": "all",
-          "route": "api/v1/group",
-          "method": "delete"
-        },
-        {
-          "description": "DELETE : Returns 403 status code",
-          "link": "groups/delete_:_returns_403_status_code.json",
-          "groups": "all",
-          "route": "api/v1/group",
-          "method": "delete"
-        },
-        {
           "description": "SHOW : Retrieve information about user's group",
           "link": "groups/show_:_retrieve_information_about_user's_group.json",
           "groups": "all",
           "route": "api/v1/group",
           "method": "get"
-        },
-        {
-          "description": "SHOW : Returns 401 status code",
-          "link": "groups/show_:_returns_401_status_code.json",
-          "groups": "all",
-          "route": "api/v1/group",
-          "method": "get"
-        },
-        {
-          "description": "UPDATE : Returns 400 status code",
-          "link": "groups/update_:_returns_400_status_code.json",
-          "groups": "all",
-          "route": "api/v1/group",
-          "method": "put"
-        },
-        {
-          "description": "UPDATE : Returns 401 status code",
-          "link": "groups/update_:_returns_401_status_code.json",
-          "groups": "all",
-          "route": "api/v1/group",
-          "method": "put"
-        },
-        {
-          "description": "UPDATE : Returns 403 status code",
-          "link": "groups/update_:_returns_403_status_code.json",
-          "groups": "all",
-          "route": "api/v1/group",
-          "method": "put"
-        },
-        {
-          "description": "UPDATE : Returns 422 status code",
-          "link": "groups/update_:_returns_422_status_code.json",
-          "groups": "all",
-          "route": "api/v1/group",
-          "method": "put"
         },
         {
           "description": "UPDATE : Updates group information",
@@ -279,7 +124,7 @@
     },
     {
       "name": "Students",
-      "explanation": "El Plano student's profile API",
+      "explanation": "El Plano student's profile API.\n\nStudent attributes :\n\n  - `full_name` - Represents concatenated student's first, last and middle names.\n  - `email` - Represents email which is used to contact with the student.\n  - `phone` - Represents phone which is used to contact with the student.\n  - `about` - Represents some detailed information about student(BIO).\n  - `social_networks` - Represents a list of social networks.\n  - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).\n  - timestamps\n\n  Also, includes information about a group.\n\n  - `title` - Represents group human readable identity.\n  - `number` - Represents group main identity.\n  - timestamps\n",
       "examples": [
         {
           "description": "SHOW : Retrieve Authenticated Users's  information",
@@ -287,34 +132,6 @@
           "groups": "all",
           "route": "api/v1/student",
           "method": "get"
-        },
-        {
-          "description": "SHOW : Returns 401 status code",
-          "link": "students/show_:_returns_401_status_code.json",
-          "groups": "all",
-          "route": "api/v1/student",
-          "method": "get"
-        },
-        {
-          "description": "UPDATE : Returns 400 status code",
-          "link": "students/update_:_returns_400_status_code.json",
-          "groups": "all",
-          "route": "api/v1/student",
-          "method": "put"
-        },
-        {
-          "description": "UPDATE : Returns 401 status code",
-          "link": "students/update_:_returns_401_status_code.json",
-          "groups": "all",
-          "route": "api/v1/student",
-          "method": "put"
-        },
-        {
-          "description": "UPDATE : Returns 422 status code",
-          "link": "students/update_:_returns_422_status_code.json",
-          "groups": "all",
-          "route": "api/v1/student",
-          "method": "put"
         },
         {
           "description": "UPDATE : Updates authenticated user's information",
@@ -326,19 +143,39 @@
       ]
     },
     {
+      "name": "User's Invites",
+      "explanation": "El Plano user's invites API.\n\nInvite attributes :\n\n- `email` - Represents email where invite was sent.\n- `invitation_token` - Represents token.\n- `status` - Represents invite current status.\n  - `accepted` - The invite was accepted by the recipient.\n  - `pending` - The invite was not accepted by the recipient. Default status.\n- `sent_at` - Date and time when the invite was sent.\n- `accepted_at` - Date and time when the invite was accepted by recipient.\n- timestamps\n\nAlso, includes reference to the sender, recipient.\n",
+      "examples": [
+        {
+          "description": "INDEX : Retrieve invites for authenticated user",
+          "link": "user's_invites/index_:_retrieve_invites_for_authenticated_user.json",
+          "groups": "all",
+          "route": "api/v1/invites",
+          "method": "get"
+        },
+        {
+          "description": "SHOW : Retrieve information about requested invite",
+          "link": "user's_invites/show_:_retrieve_information_about_requested_invite.json",
+          "groups": "all",
+          "route": "api/v1/invites/:token",
+          "method": "get"
+        },
+        {
+          "description": "UPDATE : Accept selected invite",
+          "link": "user's_invites/update_:_accept_selected_invite.json",
+          "groups": "all",
+          "route": "api/v1/invites/:token",
+          "method": "patch"
+        }
+      ]
+    },
+    {
       "name": "Users",
-      "explanation": "El Plano user's profile API",
+      "explanation": "El Plano user's profile API.\n\nUsers attributes :\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Used as user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - timestamps\n",
       "examples": [
         {
           "description": "SHOW : Retrieve Authenticated Users's Profile",
           "link": "users/show_:_retrieve_authenticated_users's_profile.json",
-          "groups": "all",
-          "route": "api/v1/user",
-          "method": "get"
-        },
-        {
-          "description": "SHOW : Returns 401 status code",
-          "link": "users/show_:_returns_401_status_code.json",
           "groups": "all",
           "route": "api/v1/user",
           "method": "get"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_29_184540) do
+ActiveRecord::Schema.define(version: 2019_02_18_093324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,23 @@ ActiveRecord::Schema.define(version: 2019_01_29_184540) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["president_id"], name: "index_groups_on_president_id"
+  end
+
+  create_table "invites", force: :cascade do |t|
+    t.bigint "sender_id", null: false
+    t.bigint "recipient_id"
+    t.bigint "group_id", null: false
+    t.string "email", null: false
+    t.string "invitation_token"
+    t.datetime "sent_at", null: false
+    t.datetime "accepted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id", "email"], name: "index_invites_on_group_id_and_email", unique: true
+    t.index ["group_id"], name: "index_invites_on_group_id"
+    t.index ["invitation_token"], name: "index_invites_on_invitation_token", unique: true
+    t.index ["recipient_id"], name: "index_invites_on_recipient_id"
+    t.index ["sender_id"], name: "index_invites_on_sender_id"
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
@@ -139,6 +156,9 @@ ActiveRecord::Schema.define(version: 2019_01_29_184540) do
 
   add_foreign_key "events", "students", column: "creator_id"
   add_foreign_key "groups", "students", column: "president_id"
+  add_foreign_key "invites", "groups"
+  add_foreign_key "invites", "users", column: "recipient_id"
+  add_foreign_key "invites", "users", column: "sender_id"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_grants", "users", column: "resource_owner_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"

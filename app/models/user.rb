@@ -29,6 +29,16 @@ class User < ApplicationRecord
                            foreign_key: :resource_owner_id,
                            dependent: :delete_all
 
+  has_many :invitations, class_name: 'Invite',
+                         foreign_key: :recipient_id,
+                         inverse_of: :recipient,
+                         dependent: :destroy
+
+  has_many :sent_invites, class_name: 'Invite',
+                          foreign_key: :sender_id,
+                          inverse_of: :sender,
+                          dependent: :destroy
+
   has_one :student, dependent: :destroy
 
   #

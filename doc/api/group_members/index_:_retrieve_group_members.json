@@ -1,0 +1,50 @@
+{
+  "resource": "Group members",
+  "resource_explanation": "El Plano group members API.\n\nStudent attributes :\n\n  - `full_name` - Represents concatenated student's first, last and middle names.\n  - `email` - Represents email which is used to contact with the student.\n  - `phone` - Represents phone which is used to contact with the student.\n  - `about` - Represents some detailed information about student(BIO).\n  - `social_networks` - Represents a list of social networks.\n  - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).\n  - timestamps\n\n  Also, includes information about a user and relationships to the group and user.\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Used as user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - `avatar_url` - User's avatar URL.\n  - timestamps\n",
+  "http_method": "GET",
+  "route": "api/v1/group/students",
+  "description": "INDEX : Retrieve group members",
+  "explanation": "Return list of group members.\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "api/v1/group/students",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer 1742be3459c78b7265b880c96816bb077acc4da62a790dad76c85232d77fbea8",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"17\",\n      \"type\": \"student\",\n      \"attributes\": {\n        \"full_name\": \"Mr. Elroy Darleen Feeney\",\n        \"email\": \"santawolff@kleinkoepp.io\",\n        \"phone\": \"1-176-149-1765\",\n        \"about\": \"Modi consectetur veniam. Adipisci accusantium fugiat. Cumque distinctio quia. Aut rerum officiis. Eos ipsum ut.\",\n        \"social_networks\": {\n          \"twitter\": \"http://twitter/selina.lehner\",\n          \"facebook\": \"http://facebook/jaqueline.kshlerin\"\n        },\n        \"president\": false,\n        \"created_at\": \"2019-02-21T17:52:11.026Z\",\n        \"updated_at\": \"2019-02-21T17:52:11.026Z\"\n      },\n      \"relationships\": {\n        \"group\": {\n          \"data\": {\n            \"id\": \"9\",\n            \"type\": \"group\"\n          }\n        },\n        \"user\": {\n          \"data\": {\n            \"id\": \"16\",\n            \"type\": \"user\"\n          }\n        }\n      }\n    }\n  ],\n  \"included\": [\n    {\n      \"id\": \"16\",\n      \"type\": \"user\",\n      \"attributes\": {\n        \"email\": \"nannie@kuvalis.biz\",\n        \"username\": \"hildegarde_hahn\",\n        \"admin\": false,\n        \"created_at\": \"2019-02-21T17:52:11.009Z\",\n        \"updated_at\": \"2019-02-21T17:52:11.009Z\",\n        \"avatar_url\": \"https://www.gravatar.com/avatar/375326cba7a09051b62c0bb75146e376?s=200&d=identicon\",\n        \"confirmed\": true\n      },\n      \"relationships\": {\n        \"student\": {\n          \"data\": {\n            \"id\": \"17\",\n            \"type\": \"student\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"8b26324b0534d59e7bd708a59aaf5fab\"",
+        "X-Request-Id": "019c446c-314b-498c-ab63-083c834b642f",
+        "X-Runtime": "0.013008",
+        "Vary": "Origin",
+        "Content-Length": "977"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/students\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 1742be3459c78b7265b880c96816bb077acc4da62a790dad76c85232d77fbea8\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

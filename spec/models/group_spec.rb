@@ -5,6 +5,8 @@ RSpec.describe Group, type: :model do
     it { should belong_to(:president).class_name('Student') }
 
     it { should have_many(:students).dependent(:nullify) }
+
+    it { should have_many(:invites) }
   end
 
   describe 'validations' do

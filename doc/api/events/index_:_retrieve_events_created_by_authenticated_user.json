@@ -1,10 +1,10 @@
 {
   "resource": "Events",
-  "resource_explanation": "El Plano events API",
+  "resource_explanation": "El Plano events API.\n\nEvent attributes :\n\n - `title` - Represents event name.\n - `description` - Represents event detailed description.\n - `status` - Represents event current status.\n   - `confirmed` - The event is confirmed. This is the default status.\n   - `tentative` - The event is tentatively confirmed.\n   - `cancelled` - The event is cancelled (deleted).\n\n - `recurrence` - Represents recurrence rules.\n - `timezone` - Timezone settings.\n - `start_at` - Represents when event starts.\n - `end_at` - Represents when event ends.\n - timestamps\n\n Also, includes reference to the event creator.\n",
   "http_method": "GET",
   "route": "api/v1/events",
   "description": "INDEX : Retrieve events created by authenticated user",
-  "explanation": "Event attributes :\n\n- `title` - represents event name\n- `description` - represents event detailed description\n- `status` - represents event current status\n  - `confirmed` - The event is confirmed. This is the default status.\n  - `tentative` - The event is tentatively confirmed.\n  - `cancelled` - The event is cancelled (deleted).\n\n- `recurrence` - represents recurrence rules\n- `timezone` - timezone settings\n- `start_at` - represents when event starts\n- `end_at` - represents when event ends\n- timestamps\n\nAlso, includes reference to the event creator\n",
+  "explanation": "Return list of available events.\n",
   "parameters": [
 
   ],
@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 656726c522525e0a605072037bea34502c6e010f77d19073d3190d250f7239aa",
+        "Authorization": "Bearer 7ba40ba5526e7f7d667a5d33041b27c7d1839020c5c2f1542231da776ba2d2ec",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"event\",\n      \"attributes\": {\n        \"title\": \"Explicabo sint quasi ipsam.\",\n        \"description\": null,\n        \"status\": \"confirmed\",\n        \"recurrence\": [\n          \"EXDATE;VALUE=DATE:20150610\",\n          \"RDATE;VALUE=DATE:20150609,20150611\",\n          \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n        ],\n        \"start_at\": \"2019-02-16T00:00:00.000Z\",\n        \"end_at\": null,\n        \"timezone\": \"Etc/GMT+12\",\n        \"created_at\": \"2019-02-15T07:37:59.101Z\",\n        \"updated_at\": \"2019-02-15T07:37:59.101Z\"\n      },\n      \"relationships\": {\n        \"creator\": {\n          \"data\": {\n            \"id\": \"2\",\n            \"type\": \"creator\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": [\n\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -36,15 +36,15 @@
         "X-Content-Type-Options": "nosniff",
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
-        "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "ETag": "W/\"258828a0f3211402b084a627a67eb165\"",
-        "X-Request-Id": "13132726-5e8f-4f9f-8db1-fb8a9bd71c51",
-        "X-Runtime": "0.029717",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"8fe32e407a1038ee38753b70e5374b3a\"",
+        "X-Request-Id": "517f4caf-8146-4728-bf14-1d13135ca260",
+        "X-Runtime": "0.035337",
         "Vary": "Origin",
-        "Content-Length": "476"
+        "Content-Length": "11"
       },
-      "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/events\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 656726c522525e0a605072037bea34502c6e010f77d19073d3190d250f7239aa\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl -g \"http://localhost:3000/api/v1/events\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 7ba40ba5526e7f7d667a5d33041b27c7d1839020c5c2f1542231da776ba2d2ec\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

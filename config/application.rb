@@ -30,7 +30,10 @@ module Elplano
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
-    Rails.application.routes.default_url_options = { host: 'localhost', tld_length: 1 }
+    Rails.application.routes.default_url_options = {
+      host: ENV['API_HOST'],
+      tld_length: 1
+    }
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

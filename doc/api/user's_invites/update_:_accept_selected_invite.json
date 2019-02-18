@@ -1,0 +1,50 @@
+{
+  "resource": "User's Invites",
+  "resource_explanation": "El Plano user's invites API.\n\nInvite attributes :\n\n- `email` - Represents email where invite was sent.\n- `invitation_token` - Represents token.\n- `status` - Represents invite current status.\n  - `accepted` - The invite was accepted by the recipient.\n  - `pending` - The invite was not accepted by the recipient. Default status.\n- `sent_at` - Date and time when the invite was sent.\n- `accepted_at` - Date and time when the invite was accepted by recipient.\n- timestamps\n\nAlso, includes reference to the sender, recipient.\n",
+  "http_method": "PATCH",
+  "route": "api/v1/invites/:token",
+  "description": "UPDATE : Accept selected invite",
+  "explanation": "Accept and return accepted invite.\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "api/v1/invites/6S6Fo2KUEGgpfnwVXVic",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer 74c7d89b68329e4035e7a6fb2cf38ccec77ddb0d938d4b97ea677bf57e06bb46",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"traceymclaughlin@torp.co\",\n      \"invitation_token\": null,\n      \"sent_at\": \"2019-02-21T17:52:11.394Z\",\n      \"accepted_at\": \"2019-02-21T17:52:11.404Z\",\n      \"created_at\": \"2019-02-21T17:52:11.394Z\",\n      \"updated_at\": \"2019-02-21T17:52:11.407Z\",\n      \"status\": \"accepted\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"31\",\n          \"type\": \"sender\"\n        }\n      },\n      \"recipient\": {\n        \"data\": {\n          \"id\": \"30\",\n          \"type\": \"recipient\"\n        }\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"17\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"b45c792c790681f5a77b636d4f3d0ec2\"",
+        "X-Request-Id": "b0031702-a663-4046-9e2d-86e8eea4592f",
+        "X-Runtime": "0.014487",
+        "Vary": "Origin",
+        "Content-Length": "447"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/api/v1/invites/6S6Fo2KUEGgpfnwVXVic\" -d '' -X PATCH \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 74c7d89b68329e4035e7a6fb2cf38ccec77ddb0d938d4b97ea677bf57e06bb46\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

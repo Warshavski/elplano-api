@@ -12,6 +12,13 @@ defaults: &defaults
     port: 80 # Set to 443 if using HTTPS, see installation.md#using-https for additional HTTPS configuration details
     https: false # Set to true if using HTTPS, see installation.md#using-https for additional HTTPS configuration details
 
+    ## Email settings
+    # Email address used in the "From" field in mails sent by El Plano
+    email_from: example@example.com
+    email_display_name: El Plano
+    email_reply_to: noreply@example.com
+    email_subject_suffix: ''
+
   gravatar:
     plain_url: 'https://www.gravatar.com/avatar/%{hash}?s=%{size}&d=identicon'
     ssl_url: 'https://secure.gravatar.com/avatar/%{hash}?s=%{size}&d=identicon'

@@ -14,9 +14,10 @@ Rails.application.routes.draw do
                  controllers: {
                    registrations: 'api/v1/users/registrations',
                    confirmations: 'api/v1/users/confirmations',
+                   passwords:     'api/v1/users/passwords',
                    unlocks:       'api/v1/users/unlocks'
                  },
-                 skip: %i[sessions password]
+                 skip: %i[sessions]
     end
   end
 

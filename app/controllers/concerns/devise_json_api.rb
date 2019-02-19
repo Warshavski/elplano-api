@@ -13,6 +13,8 @@ module DeviseJsonApi
     protected
 
     def handle_error(resource)
+      yield if block_given?
+
       render_errors(ErrorSerializer.serialize(resource, 422), :unprocessable_entity)
     end
 

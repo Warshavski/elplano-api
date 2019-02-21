@@ -13,7 +13,7 @@ RSpec.describe 'Group management', type: :request do
   let(:invalid_request_params) { { data: build(:invalid_group_params) } }
 
   describe 'GET #show' do
-    let!(:student) { create(:student, :group_member, user: user) }
+    let_it_be(:student) { create(:student, :group_member, user: user) }
 
     before(:each) { get group_url, headers: headers }
 
@@ -33,7 +33,7 @@ RSpec.describe 'Group management', type: :request do
 
     context 'student with group' do
       context 'simple group member' do
-        let!(:student) { create(:student, :group_member, user: user) }
+        let_it_be(:student) { create(:student, :group_member, user: user) }
 
         before(:each) { subject }
 
@@ -43,7 +43,7 @@ RSpec.describe 'Group management', type: :request do
       end
 
       context 'group owner' do
-        let!(:student) { create(:student, :group_supervisor, user: user) }
+        let_it_be(:student) { create(:student, :group_supervisor, user: user) }
 
         before(:each) { subject }
 
@@ -54,7 +54,7 @@ RSpec.describe 'Group management', type: :request do
     end
 
     context 'student with no group' do
-      let!(:student) { create(:student, user: user) }
+      let_it_be(:student) { create(:student, user: user) }
 
       before(:each) { subject }
 
@@ -78,7 +78,7 @@ RSpec.describe 'Group management', type: :request do
     subject { put group_url, params: request_params, headers: headers }
 
     context 'simple group owner' do
-      let!(:student) { create(:student, :group_member, user: user) }
+      let_it_be(:student) { create(:student, :group_member, user: user) }
 
       before(:each) { subject }
 
@@ -88,7 +88,7 @@ RSpec.describe 'Group management', type: :request do
     end
 
     context 'student with no group' do
-      let!(:student) { create(:student, user: user) }
+      let_it_be(:student) { create(:student, user: user) }
 
       before(:each) { subject }
 
@@ -98,7 +98,7 @@ RSpec.describe 'Group management', type: :request do
     end
 
     context 'group owner' do
-      let!(:student) { create(:student, :group_supervisor, user: user) }
+      let_it_be(:student) { create(:student, :group_supervisor, user: user) }
 
       before(:each) { subject }
 
@@ -124,7 +124,7 @@ RSpec.describe 'Group management', type: :request do
   end
 
   describe 'DELETE #destroy' do
-    let!(:student) { create(:student, :group_supervisor, user: user) }
+    let_it_be(:student) { create(:student, :group_supervisor, user: user) }
 
     it 'responds with a 204 status' do
       delete group_url, headers: headers

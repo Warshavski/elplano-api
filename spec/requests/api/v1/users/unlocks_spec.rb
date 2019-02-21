@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Api::V1::Users::UnlocksController do
-  let(:user) { create(:user, locked_at: Time.now, unlock_token: 'wat') }
+  let_it_be(:user) { create(:user, locked_at: Time.now, unlock_token: 'wat') }
 
   describe '#new' do
     it 'responds with not found' do

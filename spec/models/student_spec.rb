@@ -38,7 +38,7 @@ RSpec.describe Student, type: :model do
 
   context 'scopes' do
     describe '.presidents' do
-      let!(:student) { create(:student) }
+      let_it_be(:student) { create(:student) }
 
       it 'returns only user with president privileges' do
         president = create(:president)
@@ -62,7 +62,7 @@ RSpec.describe Student, type: :model do
     end
 
     context 'has supervised group' do
-      let(:student) { create(:student, :group_supervisor) }
+      let_it_be(:student) { create(:student, :group_supervisor) }
 
       it { expect(subject).to be true }
     end
@@ -84,7 +84,7 @@ RSpec.describe Student, type: :model do
     end
 
     context 'has supervised group' do
-      let(:student) { create(:student, :group_supervisor) }
+      let_it_be(:student) { create(:student, :group_supervisor) }
 
       it { expect(subject).to be true }
     end

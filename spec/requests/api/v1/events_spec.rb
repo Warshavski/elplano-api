@@ -8,9 +8,9 @@ RSpec.describe 'Events management', type: :request do
   let(:base_url)  { '/api/v1/events' }
   let(:event_url) { "#{base_url}/#{event.id}" }
 
-  let!(:student) { create(:student, user: user) }
+  let_it_be(:student) { create(:student, user: user) }
+  let_it_be(:event)   { create(:event, title: 'some_new_event', creator: student) }
 
-  let(:event)         { create(:event, title: 'some_new_event', creator: student) }
   let(:event_params)  { build(:event_params) }
 
   let(:request_params) { { data: event_params } }
@@ -19,7 +19,7 @@ RSpec.describe 'Events management', type: :request do
   describe 'GET #index' do
     subject { get base_url, headers: headers }
 
-    let!(:events) { create_list(:event, 10, creator: student) }
+    let_it_be(:events) { create_list(:event, 5, creator: student) }
 
     before(:each) { subject }
 
@@ -29,7 +29,7 @@ RSpec.describe 'Events management', type: :request do
       end
 
       it 'returns correct quantity' do
-        expect(JSON.parse(response.body)['data'].count).to be(10)
+        expect(JSON.parse(response.body)['data'].count).to be(6)
       end
     end
   end
@@ -137,7 +137,7 @@ RSpec.describe 'Events management', type: :request do
     end
 
     it 'deletes publisher' do
-      expect { delete event_url, headers: headers }.to change(Event, :count).by(0)
+      expect { delete event_url, headers: headers }.to change(Event, :count).by(-1)
     end
   end
 end

@@ -6,7 +6,7 @@ RSpec.describe Groups::Creator do
   let(:params) { { number: '123', title: 'wat' } }
 
   context 'when owner already has a group' do
-    let(:owner) { create(:president) }
+    let_it_be(:owner) { create(:president) }
 
     it 'throws validation error' do
       expect { subject }.to raise_error(ActiveRecord::RecordInvalid, 'student already has a group!')

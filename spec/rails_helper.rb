@@ -3,6 +3,8 @@
 require 'simplecov'
 SimpleCov.start do
   add_filter 'config/initializers/doorkeeper.rb'
+  add_filter 'spec/support/helpers/stub_env.rb'
+  add_filter 'spec/support/redis/redis_helpers.rb'
 end
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
@@ -18,6 +20,10 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 require 'rspec/rails'
 require 'rspec-parameterized'
 # Add additional requires below this line. Rails is not loaded until this point!
+
+require 'test_prof/recipes/rspec/before_all'
+require 'test_prof/recipes/rspec/let_it_be'
+require 'test_prof/recipes/rspec/factory_all_stub'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are

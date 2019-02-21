@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 describe ApplicationController do
-  let(:user) { create(:user) }
+  let_it_be(:user) { create(:user) }
 
-  let!(:token) { create(:token, resource_owner_id: user.id) }
+  let_it_be(:token) { create(:token, resource_owner_id: user.id) }
 
   describe 'response format' do
     controller(described_class) do
@@ -119,7 +119,7 @@ describe ApplicationController do
   end
 
   describe '#current_student' do
-    let!(:student) { create(:student, user: user) }
+    let_it_be(:student) { create(:student, user: user) }
 
     it 'returns student info of authenticated user' do
       allow(controller).to receive(:current_user).and_return(user)
@@ -131,7 +131,7 @@ describe ApplicationController do
   end
 
   describe '#current_group' do
-    let!(:student) { create(:student, :group_member) }
+    let_it_be(:student) { create(:student, :group_member) }
 
     it 'returns student info of authenticated user' do
       allow(controller).to receive(:current_student).and_return(student)
@@ -143,7 +143,7 @@ describe ApplicationController do
   end
 
   describe '#supervised_group' do
-    let!(:student) { create(:student, :group_supervisor) }
+    let_it_be(:student) { create(:student, :group_supervisor) }
 
     it 'returns student info of authenticated user' do
       allow(controller).to receive(:current_student).and_return(student)

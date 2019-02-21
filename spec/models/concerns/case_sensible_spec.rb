@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe CaseSensible do
   describe '.iwhere' do
-    let(:connection) { ActiveRecord::Base.connection }
+    let_it_be(:connection) { ActiveRecord::Base.connection }
 
-    let(:model) do
+    let_it_be(:model) do
       Class.new(ActiveRecord::Base) do
         include CaseSensible
 
@@ -12,8 +12,8 @@ describe CaseSensible do
       end
     end
 
-    let!(:first_model)  { model.create(email: 'mOdEl-1', username: 'mOdEl 1') }
-    let!(:second_model) { model.create(email: 'mOdEl-2', username: 'mOdEl 2') }
+    let_it_be(:first_model)  { model.create(email: 'mOdEl-1', username: 'mOdEl 1') }
+    let_it_be(:second_model) { model.create(email: 'mOdEl-2', username: 'mOdEl 2') }
 
     it 'finds a single instance by a single attribute regardless of case' do
       expect(model.iwhere(email: 'MODEL-1')).to contain_exactly(first_model)

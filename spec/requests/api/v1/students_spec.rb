@@ -19,7 +19,7 @@ describe Api::V1::StudentsController do
     end
 
     context 'authenticated user' do
-      let!(:student) { create(:student, user: user) }
+      let_it_be(:student) { create(:student, user: user) }
 
       before(:each) { subject }
 
@@ -43,7 +43,7 @@ describe Api::V1::StudentsController do
   describe '#update' do
     subject { put described_url, headers: headers, params: request_params }
 
-    let!(:student) { create(:student, user: user) }
+    let_it_be(:student) { create(:student, user: user) }
 
     let(:student_params) { build(:student_params) }
     let(:request_params) { { data: student_params } }

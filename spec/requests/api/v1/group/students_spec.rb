@@ -5,6 +5,8 @@ RSpec.describe 'Students management', type: :request do
 
   let(:base) { '/api/v1/group/students' }
 
+  let_it_be(:student)   { create(:student, :group_member, user: user) }
+
   subject { get endpoint, headers: headers }
 
   before(:each) { subject }
@@ -12,14 +14,10 @@ RSpec.describe 'Students management', type: :request do
   describe 'GET #index' do
     let(:endpoint) { base }
 
-    let!(:group) { create(:group, :with_students) }
-
     context 'authorized user' do
-      let(:user) { create(:user, student: group.students.first) }
-
       it { expect(response).to have_http_status(:ok) }
 
-      it { expect(body_as_json[:data].count).to eq(5) }
+      it { expect(body_as_json[:data].count).to eq(1) }
     end
 
     context 'anonymous user' do
@@ -30,7 +28,6 @@ RSpec.describe 'Students management', type: :request do
   end
 
   describe 'GET #show' do
-    let(:student)   { create(:student, :group_member, user: user) }
     let(:endpoint)  { "#{base}/#{student.id}" }
 
     context 'anonymous user' do

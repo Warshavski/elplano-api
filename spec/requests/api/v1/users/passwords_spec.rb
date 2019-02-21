@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Api::V1::Users::PasswordsController do
-  let!(:user) { create(:user, :reset_password) }
+  let_it_be(:user) { create(:user, :reset_password) }
 
   describe '#new' do
     it 'responds with unauthorized' do

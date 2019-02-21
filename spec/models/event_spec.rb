@@ -6,7 +6,7 @@ RSpec.describe Event, type: :model do
   end
 
   describe 'validations' do
-    subject { create(:event) }
+    subject { build_stubbed(:event) }
 
     it { should validate_presence_of(:title) }
 

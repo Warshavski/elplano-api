@@ -4,6 +4,10 @@ require 'rails_helper'
 require 'rspec_api_documentation'
 require 'rspec_api_documentation/dsl'
 
+require 'test_prof/recipes/rspec/before_all'
+require 'test_prof/recipes/rspec/let_it_be'
+require 'test_prof/recipes/rspec/factory_all_stub'
+
 RspecApiDocumentation.configure do |config|
   config.api_name = 'El Plano API'
 

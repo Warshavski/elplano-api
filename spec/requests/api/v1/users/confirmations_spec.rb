@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Api::V1::Users::ConfirmationsController do
-  let(:user) { create(:user, confirmation_token: 'wat', confirmed_at: nil) }
+  let_it_be(:user) { create(:user, confirmation_token: 'wat', confirmed_at: nil) }
 
   describe '#new' do
     it 'responds with not found' do

@@ -28,9 +28,10 @@ RSpec.describe User, type: :model do
   end
 
   describe 'user creation' do
-    let(:user) { create(:user, username: 'wat_user') }
+    let_it_be(:user) { create(:user, username: 'wat_user') }
 
     it { expect(user.admin?).to be_falsey }
+
     it { expect(user.banned_at).to be_nil }
   end
 
@@ -53,7 +54,7 @@ RSpec.describe User, type: :model do
     end
 
     describe '.admins' do
-      let!(:user) { create(:user) }
+      let_it_be(:user) { create(:user) }
 
       it 'returns only user with admin privileges' do
         admin = create(:admin)
@@ -67,7 +68,7 @@ RSpec.describe User, type: :model do
     end
 
     describe '.banned' do
-      let!(:user) { create(:user) }
+      let_it_be(:user) { create(:user) }
 
       it 'returns only banned users' do
         banned_user = create(:user, banned_at: Time.now)
@@ -81,7 +82,7 @@ RSpec.describe User, type: :model do
     end
 
     describe '.active' do
-      let!(:banned_user) { create(:user, banned_at: Time.now) }
+      let_it_be(:banned_user) { create(:user, banned_at: Time.now) }
 
       it 'returns only active users' do
         active_user = create(:user)
@@ -95,7 +96,7 @@ RSpec.describe User, type: :model do
     end
 
     describe '.confirmed' do
-      let!(:unconfirmed_user) { create(:user, confirmed_at: nil) }
+      let_it_be(:unconfirmed_user) { create(:user, confirmed_at: nil) }
 
       it 'returns only user confirmed users' do
         user = create(:user)
@@ -110,7 +111,7 @@ RSpec.describe User, type: :model do
   end
 
   describe '.filter' do
-    let(:user) { double }
+    let_it_be(:user) { double }
 
     it 'filters by active users by default' do
       expect(described_class).to receive(:active).and_return([user])
@@ -140,8 +141,8 @@ RSpec.describe User, type: :model do
   end
 
   describe '.by_login' do
-    let(:username) { 'John' }
-    let!(:user) { create(:user, username: username) }
+    let_it_be(:username) { 'John' }
+    let_it_be(:user) { create(:user, username: username) }
 
     it 'finds user by email' do
       expect(described_class.by_login(user.email)).to eq(user)

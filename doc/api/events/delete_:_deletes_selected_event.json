@@ -1,10 +1,10 @@
 {
   "resource": "Events",
-  "resource_explanation": "El Plano events API",
+  "resource_explanation": "El Plano events API.\n\nEvent attributes :\n\n - `title` - Represents event name.\n - `description` - Represents event detailed description.\n - `status` - Represents event current status.\n   - `confirmed` - The event is confirmed. This is the default status.\n   - `tentative` - The event is tentatively confirmed.\n   - `cancelled` - The event is cancelled (deleted).\n\n - `recurrence` - Represents recurrence rules.\n - `timezone` - Timezone settings.\n - `start_at` - Represents when event starts.\n - `end_at` - Represents when event ends.\n - timestamps\n\n Also, includes reference to the event creator.\n",
   "http_method": "DELETE",
   "route": "api/v1/events/:id",
   "description": "DELETE : Deletes selected event",
-  "explanation": "Deletes event\n",
+  "explanation": "Delete event.\n",
   "parameters": [
 
   ],
@@ -14,12 +14,12 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "api/v1/events/10",
+      "request_path": "api/v1/events/4",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 31b6626cd80e2e7f62b20744cd7c5d8f994533121a0e57193fdf2b57533daf09",
+        "Authorization": "Bearer 6b2a5af7ada975a2efcdb68425539b3833be27e6d811a6425905552fee838ceb",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -36,12 +36,12 @@
         "X-Content-Type-Options": "nosniff",
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
-        "X-Request-Id": "a69a741e-66e5-4393-a664-d838921b010c",
-        "X-Runtime": "0.006750",
+        "X-Request-Id": "c15374cf-0052-4ac0-b837-9016c2b42221",
+        "X-Runtime": "0.009848",
         "Vary": "Origin"
       },
       "response_content_type": null,
-      "curl": "curl \"http://localhost:3000/api/v1/events/10\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 31b6626cd80e2e7f62b20744cd7c5d8f994533121a0e57193fdf2b57533daf09\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/events/4\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 6b2a5af7ada975a2efcdb68425539b3833be27e6d811a6425905552fee838ceb\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

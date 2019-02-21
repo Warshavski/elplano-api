@@ -1,10 +1,10 @@
 {
   "resource": "Groups",
-  "resource_explanation": "El Plano groups API",
+  "resource_explanation": "El Plano groups API'.\n\nGroup attributes: \n\n  - `title` - Human readable group identity.\n  - `number` - Main group identity.\n  - timestamps\n\n  Also, returns information about group members in relationships.\n",
   "http_method": "GET",
   "route": "api/v1/group",
   "description": "SHOW : Retrieve information about user's group",
-  "explanation": "Returns detailed information about user's group\n\n`title` - Human readable group identity\n`number` - Main group identity\ntimestamps\n\nAlso, returns information about group members in relationships\n",
+  "explanation": "Return detailed information about user's group.\n",
   "parameters": [
 
   ],
@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 8e6b0fc967d12c696094375846ec822ef261ebf55672fa36b1358c3c2fc15645",
+        "Authorization": "Bearer 6d064f0c0ce4c7ed5d8b483286d0c0a1ebba714cef71a0cfd8a2737e3eb6df8f",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"21\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"9484018188\",\n      \"title\": \"Ipsum veritatis doloremque.\",\n      \"created_at\": \"2019-02-15T07:38:00.140Z\",\n      \"updated_at\": \"2019-02-15T07:38:00.140Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"41\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"11\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"4781757498\",\n      \"title\": \"Eum delectus porro.\",\n      \"created_at\": \"2019-02-21T17:52:11.103Z\",\n      \"updated_at\": \"2019-02-21T17:52:11.103Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"20\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -36,15 +36,15 @@
         "X-Content-Type-Options": "nosniff",
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
-        "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "ETag": "W/\"5ce810aa9f472b6677c80e0a5644e6cf\"",
-        "X-Request-Id": "d987db9c-6ff0-4023-ac8e-27c47ac3b399",
-        "X-Runtime": "0.013201",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"4ac8b3266838dfdba28b5e763d330ba8\"",
+        "X-Request-Id": "0503f508-09f2-46ee-bae7-f2cdee21408d",
+        "X-Runtime": "0.009665",
         "Vary": "Origin",
-        "Content-Length": "259"
+        "Content-Length": "251"
       },
-      "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 8e6b0fc967d12c696094375846ec822ef261ebf55672fa36b1358c3c2fc15645\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl -g \"http://localhost:3000/api/v1/group\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 6d064f0c0ce4c7ed5d8b483286d0c0a1ebba714cef71a0cfd8a2737e3eb6df8f\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

@@ -1,10 +1,10 @@
 {
   "resource": "Groups",
-  "resource_explanation": "El Plano groups API",
+  "resource_explanation": "El Plano groups API'.\n\nGroup attributes: \n\n  - `title` - Human readable group identity.\n  - `number` - Main group identity.\n  - timestamps\n\n  Also, returns information about group members in relationships.\n",
   "http_method": "PUT",
   "route": "api/v1/group",
   "description": "UPDATE : Updates group information",
-  "explanation": "Update and return updated group\n",
+  "explanation": "Update and return updated group.\n",
   "parameters": [
     {
       "scope": [
@@ -32,11 +32,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group",
-      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Possimus distinctio aperiam.\",\"number\":\"35196\"}}}",
+      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Error eaque dignissimos.\",\"number\":\"18714\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 481229a0a3a274d32ea10fe33e47d331599a33120a536d240aa5817da2233669",
+        "Authorization": "Bearer a0f6d2aa43ae72e0688fd49f12fcdad08b0f6d92ced30fe23d1982824e7c3c80",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -45,7 +45,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"24\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"35196\",\n      \"title\": \"Possimus distinctio aperiam.\",\n      \"created_at\": \"2019-02-15T07:38:00.285Z\",\n      \"updated_at\": \"2019-02-15T07:38:00.296Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"47\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"13\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"18714\",\n      \"title\": \"Error eaque dignissimos.\",\n      \"created_at\": \"2019-02-21T17:52:11.170Z\",\n      \"updated_at\": \"2019-02-21T17:52:11.184Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"22\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -53,15 +53,15 @@
         "X-Content-Type-Options": "nosniff",
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
-        "Content-Type": "application/vnd.api+json; charset=utf-8",
-        "ETag": "W/\"6d93cb4efd3fccacee0a708177c3f72a\"",
-        "X-Request-Id": "d89cf57b-e420-4bca-813e-f4237fd996f7",
-        "X-Runtime": "0.008595",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"99607e413e0f974d28f5a236fc21ef6b\"",
+        "X-Request-Id": "7b7b4122-65d1-4b8c-bf8c-c00d91de7ffb",
+        "X-Runtime": "0.010896",
         "Vary": "Origin",
-        "Content-Length": "255"
+        "Content-Length": "251"
       },
-      "response_content_type": "application/vnd.api+json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Possimus distinctio aperiam.\",\"number\":\"35196\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 481229a0a3a274d32ea10fe33e47d331599a33120a536d240aa5817da2233669\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Error eaque dignissimos.\",\"number\":\"18714\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer a0f6d2aa43ae72e0688fd49f12fcdad08b0f6d92ced30fe23d1982824e7c3c80\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

@@ -23,22 +23,28 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
-      # (see UsersController)
-      resource :user, only: :show
-
-      # (see StudentsController)
-      resource :student, only: %i[show update]
+      # (see EventsController)
+      resources :events, except: %i[new edit]
 
       # (see GroupsController)
       resource :group, except: %i[new edit]
 
       namespace :group do
+        # (see Group::InvitesController)
+        resources :invites, only: %i[index show create]
+
         # (see Group::StudentsController)
         resources :students, only: %i[index show]
       end
 
-      # (see EventsController)
-      resources :events, except: %i[new edit]
+      # (see InvitesController)
+      resources :invites, only: %i[index show update], param: :token
+
+      # (see StudentsController)
+      resource :student, only: %i[show update]
+
+      # (see UsersController)
+      resource :user, only: :show
     end
   end
 end

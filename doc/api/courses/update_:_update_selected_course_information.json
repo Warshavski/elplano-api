@@ -31,11 +31,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/courses/4",
-      "request_body": "{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Master of Design\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":5,\"type\":\"lecturer\"}]}}}}",
+      "request_body": "{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Master of Arts\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":5,\"type\":\"lecturer\"}]}}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 391db23168cd260628230376525ac8ef99e4530a6c3a91f1bf0f045e63a8984d",
+        "Authorization": "Bearer 496d9e88cc632b8de8fff34e77a1f089025817ac4ae98909f711bdafebce3bce",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -44,7 +44,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"4\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-03-30T16:46:16.448Z\",\n      \"updated_at\": \"2019-03-30T16:46:16.491Z\",\n      \"title\": \"Master Of Design\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"5\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"4\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-05-23T07:49:14.354Z\",\n      \"updated_at\": \"2019-05-23T07:49:14.395Z\",\n      \"title\": \"Master Of Arts\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"5\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -53,14 +53,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"d0260ffae0b9349e822522f3ad19063d\"",
-        "X-Request-Id": "b68ff45a-98a7-41b9-b17b-d9112e7a4769",
-        "X-Runtime": "0.015693",
+        "ETag": "W/\"d7ea074842d8d855022a7f36339d5f83\"",
+        "X-Request-Id": "49bf8183-409b-4512-8198-d412fdf343af",
+        "X-Runtime": "0.023136",
         "Vary": "Origin",
-        "Content-Length": "227"
+        "Content-Length": "225"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/courses/4\" -d '{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Master of Design\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":5,\"type\":\"lecturer\"}]}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 391db23168cd260628230376525ac8ef99e4530a6c3a91f1bf0f045e63a8984d\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/courses/4\" -d '{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Master of Arts\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":5,\"type\":\"lecturer\"}]}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 496d9e88cc632b8de8fff34e77a1f089025817ac4ae98909f711bdafebce3bce\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

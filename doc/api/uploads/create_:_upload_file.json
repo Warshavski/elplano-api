@@ -1,0 +1,61 @@
+{
+  "resource": "Uploads",
+  "resource_explanation": "El Plano file uploads API.\n\nUploaded file metadata attributes :\n\n  - `id` - Represents unique uploaded file identity.\n  - `storage` - Represents file storage type.\n  - `metadata` - Represents uploaded file metadata(name, size, e.t.c.).\n    - `filename` - Represents name of the uploaded file.\n    - `size` - Represents size of the uploaded file(bytes).\n    - `mime_type` - Represents MIME(Multipurpose Internet Mail Extensions or MIME) type of the uploaded file.\n\n",
+  "http_method": "POST",
+  "route": "uploads",
+  "description": "CREATE : Upload file",
+  "explanation": "Returns uploaded file identity and its metadata\n",
+  "parameters": [
+    {
+      "scope": "upload",
+      "required": true,
+      "name": "type",
+      "description": "Uploader type"
+    },
+    {
+      "scope": "upload",
+      "required": true,
+      "name": "file",
+      "description": "The file that needs to be uploaded"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "uploads",
+      "request_body": "{\"upload\":{\"type\":\"avatar\",\"file\":{\"original_filename\":\"dk.png\",\"tempfile\":\"#\\u003cFile:0x00005626f7ee8c10\\u003e\",\"content_type\":null}}}",
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer a037e9d5583cdf76bec9d4440b485ed1605e9499e307dabbd524a456555c757f",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\n  \"id\": \"344f98a5e8c879851116c54e9eb5e610.jpg\",\n  \"storage\": \"cache\",\n  \"metadata\": {\n    \"filename\": \"dk.png\",\n    \"size\": 1062,\n    \"mime_type\": \"image/png\"\n  }\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"8ecd08c9c8b429daec96b39817a22ceb\"",
+        "X-Request-Id": "c15d2b57-df73-4c14-846a-a9c10a6aa865",
+        "X-Runtime": "0.007759",
+        "Vary": "Origin",
+        "Content-Length": "132"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/uploads\" -d '{\"upload\":{\"type\":\"avatar\",\"file\":{\"original_filename\":\"dk.png\",\"tempfile\":\"#\\u003cFile:0x00005626f7ee8c10\\u003e\",\"content_type\":null}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer a037e9d5583cdf76bec9d4440b485ed1605e9499e307dabbd524a456555c757f\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

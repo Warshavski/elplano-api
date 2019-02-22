@@ -23,12 +23,15 @@ resource 'Lecturers' do
   let(:authorization) { "Bearer #{token}" }
 
   let(:course) { create(:course, group: student.group) }
-  let(:group)  { student.group }
+  let(:group) { student.group }
   let(:lecturer) { create(:lecturer, :with_courses, group: group) }
   let(:id) { lecturer.id }
 
-  header 'Accept',        'application/vnd.api+json'
-  header 'Content-Type',  'application/vnd.api+json'
+  let(:file) { fixture_file_upload('spec/fixtures/files/dk.png') }
+  let(:metadata) { AvatarUploader.new(:cache).upload(file) }
+
+  header 'Accept', 'application/vnd.api+json'
+  header 'Content-Type', 'application/vnd.api+json'
   header 'Authorization', :authorization
 
   get 'api/v1/lecturers' do
@@ -64,23 +67,29 @@ resource 'Lecturers' do
   end
 
   post 'api/v1/lecturers' do
-    with_options scope: %i[dta attributes] do
+    with_options scope: %i[data attributes] do
       parameter :first_name, 'Lecturer first name', required: true
       parameter :last_name, 'Lecturer last name', required: true
       parameter :patronymic, 'Lecturer patronymic', required: true
       parameter :courses, 'Courses of the lecturer. Included in "relationships" category'
+      parameter :avatar, 'Uploaded file metadata received from `uploads` endpoint'
     end
 
     let(:raw_post) do
-      course_params = {
-        relationships: {
-          courses: {
-            data: [{ id: course.id, type: 'courses' }]
-          }
-        }
-      }
+      core_params = build(:lecturer_params)
 
-      { data: build(:lecturer_params).merge(course_params) }.to_json
+      core_params.merge!(
+        {
+          relationships: {
+            courses: {
+              data: [{ id: course.id, type: 'courses' }]
+            }
+          }
+        })
+
+      core_params[:attributes].merge!(avatar: metadata.to_json)
+
+      { data: core_params }.to_json
     end
 
     example 'CREATE : Create new lecturer' do
@@ -98,23 +107,29 @@ resource 'Lecturers' do
   end
 
   put 'api/v1/lecturers/:id' do
-    with_options scope: %i[dta attributes] do
+    with_options scope: %i[data attributes] do
       parameter :first_name, 'Lecturer first name', required: true
       parameter :last_name, 'Lecturer last name', required: true
       parameter :patronymic, 'Lecturer patronymic', required: true
       parameter :courses, 'Courses of the lecturer. Included in "relationships" category'
+      parameter :avatar, 'Uploaded file metadata received from `uploads` endpoint'
     end
 
     let(:raw_post) do
-      course_params = {
-        relationships: {
-          courses: {
-            data: [{ id: course.id, type: 'courses' }]
-          }
-        }
-      }
+      core_params = build(:lecturer_params)
 
-      { data: build(:lecturer_params).merge(course_params) }.to_json
+      core_params.merge!(
+        {
+          relationships: {
+            courses: {
+              data: [{ id: course.id, type: 'courses' }]
+            }
+          }
+        })
+
+      core_params[:attributes].merge!(avatar: metadata.to_json)
+
+      { data: core_params }.to_json
     end
 
     example 'UPDATE : Update selected lecturer information' do

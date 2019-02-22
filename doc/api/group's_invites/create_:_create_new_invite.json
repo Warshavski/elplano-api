@@ -23,11 +23,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group/invites",
-      "request_body": "{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"augustreichel@wildermanbauch.name\"}}}",
+      "request_body": "{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"gilda@boyerpollich.net\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 990039d462a5995695d3f1483e9deab557ec73ab93b1a6dc096ef8b1a1f83414",
+        "Authorization": "Bearer e049bc93f9aeaeb1adf47c590a8803ff6480192a4ecf709005510addac88d54c",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -36,7 +36,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"augustreichel@wildermanbauch.name\",\n      \"invitation_token\": \"b8BGCKhs-SwrTR-EsRi3\",\n      \"sent_at\": \"2019-03-30T16:46:16.900Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-03-30T16:46:16.900Z\",\n      \"updated_at\": \"2019-03-30T16:46:16.900Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"gilda@boyerpollich.net\",\n      \"invitation_token\": \"jzmJgmxnGze3sXe4Fb1s\",\n      \"sent_at\": \"2019-05-23T07:49:14.910Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-05-23T07:49:14.910Z\",\n      \"updated_at\": \"2019-05-23T07:49:14.910Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -45,14 +45,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"184a688768d9884714cc84301bb75662\"",
-        "X-Request-Id": "abef65c9-9ef5-4695-b73c-f44cf8dd03b7",
-        "X-Runtime": "0.062044",
+        "ETag": "W/\"07ba2b82d966bfa877260f182c55d9d6\"",
+        "X-Request-Id": "e4c9c316-fa20-43eb-886f-fe298ad9e836",
+        "X-Runtime": "0.378936",
         "Vary": "Origin",
-        "Content-Length": "426"
+        "Content-Length": "415"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/invites\" -d '{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"augustreichel@wildermanbauch.name\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 990039d462a5995695d3f1483e9deab557ec73ab93b1a6dc096ef8b1a1f83414\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/invites\" -d '{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"gilda@boyerpollich.net\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer e049bc93f9aeaeb1adf47c590a8803ff6480192a4ecf709005510addac88d54c\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

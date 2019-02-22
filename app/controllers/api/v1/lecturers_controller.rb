@@ -23,6 +23,12 @@ module Api
 
       set_default_serializer LecturerSerializer
 
+      rescue_from Errno::ENOENT, KeyError do |e|
+        handle_error(e, :bad_request) do
+          [{ status: 400, detail: e.message, source: { pointer: '/data/attributes/avatar' } }]
+        end
+      end
+
       # GET : api/v1/group/lecturers
       #
       # Get list of lecturers
@@ -86,7 +92,7 @@ module Api
       def lecturer_params
         restify_param(:lecturer)
           .require(:lecturer)
-          .permit(:first_name, :last_name, :patronymic, course_ids: [])
+          .permit(:first_name, :last_name, :patronymic, :avatar, course_ids: [])
       end
     end
   end

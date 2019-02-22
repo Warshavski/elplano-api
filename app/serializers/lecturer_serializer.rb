@@ -23,5 +23,7 @@ class LecturerSerializer
     object.patronymic.titleize
   end
 
+  attribute :avatar, &:avatar_url
+
   has_many :courses, serializer: CourseSerializer
 end

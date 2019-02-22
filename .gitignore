@@ -19,6 +19,8 @@
 
 /public/uploads
 
+/storage/uploads
+
 .byebug_history
 
 # Ignore IDE files

@@ -3,6 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
+# The official AWS SDK for Ruby
+# https://github.com/aws/aws-sdk-ruby/tree/master/gems/aws-sdk-s3
+gem 'aws-sdk-s3'
+
 # https://github.com/plataformatec/devise
 # Flexible authentication solution for Rails with Warden.
 gem 'devise', '>= 4.6.1'
@@ -47,6 +51,10 @@ gem 'sidekiq'
 # Lightweight job scheduler extension for Sidekiq
 # https://github.com/moove-it/sidekiq-scheduler
 gem 'sidekiq-scheduler'
+
+# File Attachment toolkit for Ruby applications.
+# https://github.com/shrinerb/shrine
+gem 'shrine', '~> 2.0'
 
 # Settings is a plugin that makes managing a table of global key, value pairs easy.
 # https://github.com/huacnlee/rails-settings-cached
@@ -108,6 +116,7 @@ group :test do
   gem 'rspec-sqlimit'
   gem 'rspec_junit_formatter'
   gem 'shoulda-matchers', '>= 4.0.0'
+  gem 'shrine-memory'
   gem 'simplecov', require: false
   gem 'webmock'
 

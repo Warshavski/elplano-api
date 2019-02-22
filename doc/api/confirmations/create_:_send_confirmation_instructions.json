@@ -23,7 +23,7 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/users/confirmation",
-      "request_body": "{\"data\":{\"id\":\"\",\"type\":\"user\",\"attributes\":{\"login\":\"jimmyhane@bernhardabshire.info\"}}}",
+      "request_body": "{\"data\":{\"id\":\"\",\"type\":\"user\",\"attributes\":{\"login\":\"darin@lubowitz.org\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
@@ -44,13 +44,13 @@
         "Content-Type": "application/json; charset=utf-8",
         "ETag": "W/\"f09f4232db7afe28489911394ecb758a\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "f9c602b7-6416-4c81-b2ec-c8bb68f455d5",
-        "X-Runtime": "0.006011",
+        "X-Request-Id": "1a5084a2-1654-4991-895e-b5b248eb263f",
+        "X-Runtime": "0.003347",
         "Vary": "Origin",
         "Content-Length": "168"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/users/confirmation\" -d '{\"data\":{\"id\":\"\",\"type\":\"user\",\"attributes\":{\"login\":\"jimmyhane@bernhardabshire.info\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/users/confirmation\" -d '{\"data\":{\"id\":\"\",\"type\":\"user\",\"attributes\":{\"login\":\"darin@lubowitz.org\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

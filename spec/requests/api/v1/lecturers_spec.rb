@@ -54,7 +54,7 @@ RSpec.describe 'Lecturers management', type: :request do
     include_examples 'json:api examples',
                      %w[data],
                      %w[id type attributes relationships],
-                     %w[first_name last_name patronymic created_at updated_at],
+                     %w[avatar first_name last_name patronymic created_at updated_at],
                      %w[courses]
 
     it 'returns correct expected data' do
@@ -84,7 +84,7 @@ RSpec.describe 'Lecturers management', type: :request do
       include_examples 'json:api examples',
                        %w[data],
                        %w[id type attributes relationships],
-                       %w[first_name last_name patronymic created_at updated_at],
+                       %w[avatar first_name last_name patronymic created_at updated_at],
                        %w[courses]
 
       it 'returns created model' do
@@ -95,6 +95,42 @@ RSpec.describe 'Lecturers management', type: :request do
       end
 
       include_examples 'request errors examples'
+    end
+
+    context 'avatar' do
+      let(:file)      { fixture_file_upload('spec/fixtures/files/dk.png') }
+      let(:metadata)  { AvatarUploader.new(:cache).upload(file) }
+
+      let(:request_params) do
+        core_params = build(:lecturer_params)
+
+        core_params[:attributes].merge!(avatar: metadata.to_json)
+
+        { data: core_params }
+      end
+
+      it { expect(response).to have_http_status(:created) }
+
+      context 'invalid avatar metadata' do
+        let(:request_params) do
+          core_params = build(:lecturer_params)
+
+          core_params[:attributes].merge!(
+            avatar: {
+              id: "344f98a5e8c879851116c54e9eb5e610.jpg",
+              storage:"cache",
+              metadata:{
+                filename:"KMZxXr_1.jpg",
+                size:187165,
+                mime_type:"image/jpeg"
+              }
+            }.to_json
+          )
+          { data: core_params }
+        end
+
+        it { expect(response).to have_http_status(:bad_request) }
+      end
     end
 
     context 'course binding' do
@@ -146,10 +182,46 @@ RSpec.describe 'Lecturers management', type: :request do
       include_examples 'json:api examples',
                        %w[data],
                        %w[id type attributes relationships],
-                       %w[first_name last_name patronymic created_at updated_at],
+                       %w[avatar first_name last_name patronymic created_at updated_at],
                        %w[courses]
 
       include_examples 'request errors examples'
+
+      context 'avatar' do
+        let(:file)      { fixture_file_upload('spec/fixtures/files/dk.png') }
+        let(:metadata)  { AvatarUploader.new(:cache).upload(file) }
+
+        let(:request_params) do
+          core_params = build(:lecturer_params)
+
+          core_params[:attributes].merge!(avatar: metadata.to_json)
+
+          { data: core_params }
+        end
+
+        it { expect(response).to have_http_status(:ok) }
+
+        context 'invalid avatar metadata' do
+          let(:request_params) do
+            core_params = build(:lecturer_params)
+
+            core_params[:attributes].merge!(
+              avatar: {
+                id: "344f98a5e8c879851116c54e9eb5e610.jpg",
+                storage:"cache",
+                metadata:{
+                  filename:"KMZxXr_1.jpg",
+                  size:187165,
+                  mime_type:"image/jpeg"
+                }
+              }.to_json
+            )
+            { data: core_params }
+          end
+
+          it { expect(response).to have_http_status(:bad_request) }
+        end
+      end
 
       context 'course binding' do
         let_it_be(:course) { create(:course, group: student.group) }

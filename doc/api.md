@@ -52,6 +52,62 @@ The following table shows the possible return codes for API requests.
 | `422 Unprocessable`       | The entity could not be processed.
 | `500 Server Error`        | While handling the request something went wrong server-side.
 
+### Errors
+ 
+A server might process multiple attributes and then return multiple validation problems in a single response.
+
+Error objects provide additional information about problems encountered while performing an operation. 
+Error objects are returned as an array keyed by errors in the top level of a JSON:API document.
+
+An error object have the following members:
+
+- `status` - The HTTP status code applicable to this problem, expressed as a string value.
+- `source` - An object containing references to the source of the error, optionally including any of the following members:
+    - `pointer` - A JSON Pointer [RFC6901](https://tools.ietf.org/html/rfc6901) to the associated entity in the request document [e.g. "/data" for a primary data object, or "/data/attributes/title" for a specific attribute].
+- `detail` - A human-readable explanation specific to this occurrence of the problem.
+
+Response example:
+
+    {
+        "errors": [
+            {
+                "status": 422,
+                "source": {
+                    "pointer": "/data/attributes/email"
+                },
+                "detail": "can't be blank"
+            },
+            {
+                "status": 422,
+                "source": {
+                    "pointer": "/data/attributes/password"
+                },
+                "detail": "can't be blank"
+            },
+            {
+                "status": 422,
+                "source": {
+                    "pointer": "/data/attributes/password_confirmation"
+                },
+                "detail": "doesn't match Password"
+            },
+            {
+                "status": 422,
+                "source": {
+                    "pointer": "/data/attributes/username"
+                },
+                "detail": "can't be blank"
+            },
+            {
+                "status": 422,
+                "source": {
+                    "pointer": "/data/attributes/email_confirmation"
+                },
+                "detail": "doesn't match Email"
+            }
+        ]
+    }
+
 
 ### Cross origin resource sharing
 The API supports Cross Origin Resource Sharing (CORS) for AJAX requests from any origin. 
@@ -84,10 +140,10 @@ curl command, password grant :
 command output :
 
     {
-      "access_token":"0ddb922452c983a70566e30dce16e2017db335103e35d783874c448862a78168",
-      "token_type":"bearer",
-      "expires_in":7200,
-      "refresh_token":"f2188c4165d912524e04c6496d10f06803cc08ed50271a0b0a73061e3ac1c06c",
+       "access_token":"0ddb922452c983a70566e30dce16e2017db335103e35d783874c448862a78168",
+       "token_type":"bearer",
+       "expires_in":7200,
+       "refresh_token":"f2188c4165d912524e04c6496d10f06803cc08ed50271a0b0a73061e3ac1c06c",
     }
 
 curl command, refresh token grant :
@@ -101,10 +157,10 @@ curl command, refresh token grant :
 command output :
 
     {
-      "access_token":"ad0b5847cb7d254f1e2ff1910275fe9dcb95345c9d54502d156fe35a37b93e80",
-      "token_type":"bearer",
-      "expires_in":30,
-      "refresh_token":"cc38f78a5b8abe8ee81cdf25b1ca74c3fa10c3da2309de5ac37fde00cbcf2815",
+       "access_token":"ad0b5847cb7d254f1e2ff1910275fe9dcb95345c9d54502d156fe35a37b93e80",
+       "token_type":"bearer",
+       "expires_in":30,
+       "refresh_token":"cc38f78a5b8abe8ee81cdf25b1ca74c3fa10c3da2309de5ac37fde00cbcf2815",
     }
 
 failed response (invalid username, password, or code)
@@ -112,8 +168,8 @@ failed response (invalid username, password, or code)
 command output :
     
     {
-      "error":"invalid_grant",
-      "error_description":"The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client.",
+       "error":"invalid_grant",
+       "error_description":"The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client.",
     }
 
 &nbsp;

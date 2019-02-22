@@ -14,7 +14,7 @@ module Api
       # Get student specific information about current user
       #
       def show
-        render_json current_user.student, include: [:group], status: :ok
+        render_json current_student, status: :ok
       end
 
       # PATCH/PUT : api/v1/student
@@ -22,10 +22,9 @@ module Api
       # Update student specific information about current user
       #
       def update
-        student = current_user.student
-        student.update!(student_params)
+        current_student.update!(student_params)
 
-        render_json student, status: :ok
+        render_json current_student, status: :ok
       end
 
       private

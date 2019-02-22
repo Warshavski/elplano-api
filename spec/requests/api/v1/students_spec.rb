@@ -26,7 +26,7 @@ describe Api::V1::StudentsController do
       it { expect(response).to have_http_status(:ok) }
 
       include_examples 'json:api examples',
-                       %w[data included],
+                       %w[data],
                        %w[id type attributes relationships],
                        %w[full_name email phone about president social_networks created_at updated_at],
                        %w[group user]

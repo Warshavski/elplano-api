@@ -51,7 +51,7 @@ module Api
       def update
         supervised_group.update!(group_params)
 
-        render_json supervised_group.reload, status: :ok
+        render_json supervised_group, status: :ok
       end
 
       # DELETE : api/v1/group

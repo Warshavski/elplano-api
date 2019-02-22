@@ -23,11 +23,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group/invites",
-      "request_body": "{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"jayna@ebertgoyette.net\"}}}",
+      "request_body": "{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"maryetta@carrollwolf.net\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 6963a6f9964f42e4c46d42ffbe674ca11859a45297ef7ca01122a9ff7cfec0a0",
+        "Authorization": "Bearer f4300c3cccf61d7a609fb53edea1fbcac4915fb71191e9de91405fc918dae2aa",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -36,7 +36,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"jayna@ebertgoyette.net\",\n      \"invitation_token\": \"izs_F18necRhn8Yn_sQb\",\n      \"sent_at\": \"2019-02-21T17:52:10.953Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-02-21T17:52:10.953Z\",\n      \"updated_at\": \"2019-02-21T17:52:10.953Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"15\",\n          \"type\": \"sender\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"8\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"maryetta@carrollwolf.net\",\n      \"invitation_token\": \"f4kBqqgrvQpTsxb8WDyt\",\n      \"sent_at\": \"2019-02-22T12:39:26.660Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-02-22T12:39:26.659Z\",\n      \"updated_at\": \"2019-02-22T12:39:26.659Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"15\",\n          \"type\": \"sender\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"8\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -45,14 +45,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"94aef2bd7dac24b19846aae1ef9de133\"",
-        "X-Request-Id": "318f7f6d-2ee3-44e4-bfa3-6e9cfbd6764e",
-        "X-Runtime": "0.054545",
+        "ETag": "W/\"c27e0a359bb86617c6b0eb5c1d26efcd\"",
+        "X-Request-Id": "5bbbe42b-e244-47dd-b9b4-6fdbb5d5940e",
+        "X-Runtime": "0.052136",
         "Vary": "Origin",
-        "Content-Length": "413"
+        "Content-Length": "415"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/invites\" -d '{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"jayna@ebertgoyette.net\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 6963a6f9964f42e4c46d42ffbe674ca11859a45297ef7ca01122a9ff7cfec0a0\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/invites\" -d '{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"maryetta@carrollwolf.net\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer f4300c3cccf61d7a609fb53edea1fbcac4915fb71191e9de91405fc918dae2aa\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

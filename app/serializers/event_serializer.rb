@@ -7,9 +7,13 @@
 class EventSerializer
   include FastJsonapi::ObjectSerializer
 
+  set_type :event
+
   attributes :title, :description, :status, :recurrence,
              :start_at, :end_at, :timezone, :created_at, :updated_at
 
-  belongs_to :creator, serializer: StudentSerializer
+  belongs_to :creator,
+             record_type: :student,
+             serializer: StudentSerializer
 end
 

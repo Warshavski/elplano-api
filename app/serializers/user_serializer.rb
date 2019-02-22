@@ -1,4 +1,4 @@
-# frozen_string_literal: true.
+# frozen_string_literal: true
 
 # UserSerializer
 #
@@ -6,6 +6,8 @@
 #
 class UserSerializer
   include FastJsonapi::ObjectSerializer
+
+  set_type :user
 
   attributes :email, :username, :admin, :created_at, :updated_at
 
@@ -22,4 +24,3 @@ class UserSerializer
 
   belongs_to :student, serializer: StudentSerializer
 end
-

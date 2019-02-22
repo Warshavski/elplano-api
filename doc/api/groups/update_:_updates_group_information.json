@@ -32,11 +32,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group",
-      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Error eaque dignissimos.\",\"number\":\"18714\"}}}",
+      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Deserunt id temporibus.\",\"number\":\"94881\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer a0f6d2aa43ae72e0688fd49f12fcdad08b0f6d92ced30fe23d1982824e7c3c80",
+        "Authorization": "Bearer 8e66d0f1b893a7c386dbca1c9699398c768d7590e52a82967c3dafaec5c99c7c",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -45,7 +45,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"13\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"18714\",\n      \"title\": \"Error eaque dignissimos.\",\n      \"created_at\": \"2019-02-21T17:52:11.170Z\",\n      \"updated_at\": \"2019-02-21T17:52:11.184Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"22\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"13\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"94881\",\n      \"title\": \"Deserunt id temporibus.\",\n      \"created_at\": \"2019-02-22T12:39:26.882Z\",\n      \"updated_at\": \"2019-02-22T12:39:26.895Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"22\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -54,14 +54,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"99607e413e0f974d28f5a236fc21ef6b\"",
-        "X-Request-Id": "7b7b4122-65d1-4b8c-bf8c-c00d91de7ffb",
-        "X-Runtime": "0.010896",
+        "ETag": "W/\"beff02c28bd8e7705f1fdafd6445305e\"",
+        "X-Request-Id": "e737c1ae-d8e0-4ec1-afd6-744af970ce23",
+        "X-Runtime": "0.009771",
         "Vary": "Origin",
-        "Content-Length": "251"
+        "Content-Length": "250"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Error eaque dignissimos.\",\"number\":\"18714\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer a0f6d2aa43ae72e0688fd49f12fcdad08b0f6d92ced30fe23d1982824e7c3c80\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Deserunt id temporibus.\",\"number\":\"94881\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 8e66d0f1b893a7c386dbca1c9699398c768d7590e52a82967c3dafaec5c99c7c\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

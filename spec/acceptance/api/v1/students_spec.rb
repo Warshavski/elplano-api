@@ -40,10 +40,7 @@ resource 'Students' do
 
       do_request
 
-      expected_body = StudentSerializer
-                        .new(student, include: [:group])
-                        .serialized_json
-                        .to_s
+      expected_body = StudentSerializer.new(student).serialized_json.to_s
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

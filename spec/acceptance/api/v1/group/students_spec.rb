@@ -46,7 +46,7 @@ resource 'Group members' do
       do_request
 
       expected_body = StudentSerializer
-                        .new(student.group.students, include: [:user])
+                        .new(student.group.students, params: { exclude: [:group] })
                         .serialized_json
                         .to_s
 

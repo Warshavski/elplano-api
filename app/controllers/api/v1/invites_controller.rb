@@ -26,7 +26,10 @@ module Api
       def show
         invite = filter_invites.find_by(invitation_token: params[:token])
 
-        render_json invite, include: [:group], status: :ok
+        render_json invite,
+                    include: [:group],
+                    params: { exclude: [:students] },
+                    status: :ok
       end
 
       # PATCH/PUT : api/v1/invites/{:id}

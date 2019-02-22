@@ -18,7 +18,7 @@ RSpec.describe 'About endpoint', type: :request do
 
     it 'responds with expected data' do
       expected_data = {
-        'data' => {
+        'meta' => {
           'version' => 1,
           'revision' => 2
         }

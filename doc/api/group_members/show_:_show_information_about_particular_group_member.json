@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer cdadbb0371fa42b3adbb9c6f52b1d41fe98c860689f2b7077a9f3fd6d6a4b042",
+        "Authorization": "Bearer c87324d2ba35959df27891f9f0e04fe6ae556013db0efcbec5e59b44a5c261b5",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"19\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Delma Le Schroeder\",\n      \"email\": \"lenafisher@mohr.org\",\n      \"phone\": \"1-841-209-2269\",\n      \"about\": \"Ut et eum. Quas sapiente provident. Rem corporis consequatur. Qui consequuntur iusto. Suscipit nihil velit.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/kenda_ortiz\",\n        \"facebook\": \"http://facebook/rex_gutmann\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-21T17:52:11.072Z\",\n      \"updated_at\": \"2019-02-21T17:52:11.072Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"10\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"18\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"18\",\n      \"type\": \"user\",\n      \"attributes\": {\n        \"email\": \"quinton@runolfon.io\",\n        \"username\": \"rodger\",\n        \"admin\": false,\n        \"created_at\": \"2019-02-21T17:52:11.057Z\",\n        \"updated_at\": \"2019-02-21T17:52:11.057Z\",\n        \"avatar_url\": \"https://www.gravatar.com/avatar/0be1e8cf9f49a412ee403b71f4933632?s=200&d=identicon\",\n        \"confirmed\": true\n      },\n      \"relationships\": {\n        \"student\": {\n          \"data\": {\n            \"id\": \"19\",\n            \"type\": \"student\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"19\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Lin Julee Fahey\",\n      \"email\": \"phillis@bode.name\",\n      \"phone\": \"863-826-6375\",\n      \"about\": \"Eos accusantium illo. Mollitia eum accusantium. Eum magni et. Sit tenetur enim. Est in nemo.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/ruthanne_casper\",\n        \"facebook\": \"http://facebook/reed\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-22T12:39:26.777Z\",\n      \"updated_at\": \"2019-02-22T12:39:26.777Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"10\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"18\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"18\",\n      \"type\": \"user\",\n      \"attributes\": {\n        \"email\": \"jeff@kobergnaum.biz\",\n        \"username\": \"janice_frami\",\n        \"admin\": false,\n        \"created_at\": \"2019-02-22T12:39:26.759Z\",\n        \"updated_at\": \"2019-02-22T12:39:26.759Z\",\n        \"avatar_url\": \"https://www.gravatar.com/avatar/4ffca03bd74ea541a795a734b790b1a0?s=200&d=identicon\",\n        \"confirmed\": true\n      },\n      \"relationships\": {\n        \"student\": {\n          \"data\": {\n            \"id\": \"19\",\n            \"type\": \"student\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"8b437d96125b4fcee700eaf05e607c11\"",
-        "X-Request-Id": "8282d856-9337-4dad-9320-4b82b46adcec",
-        "X-Runtime": "0.009946",
+        "ETag": "W/\"d98d455a52fac0a93cf9597defe801a1\"",
+        "X-Request-Id": "b86ca805-f4d0-4999-a0f9-c664e2627855",
+        "X-Runtime": "0.010772",
         "Vary": "Origin",
-        "Content-Length": "944"
+        "Content-Length": "925"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/students/19\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer cdadbb0371fa42b3adbb9c6f52b1d41fe98c860689f2b7077a9f3fd6d6a4b042\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/students/19\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer c87324d2ba35959df27891f9f0e04fe6ae556013db0efcbec5e59b44a5c261b5\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

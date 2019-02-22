@@ -48,7 +48,7 @@ resource 'Events' do
       do_request
 
       expected_body = EventSerializer
-                        .new(student.created_events)
+                        .new(student.reload.created_events)
                         .serialized_json
                         .to_s
 

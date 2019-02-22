@@ -18,9 +18,11 @@ module Api
         # Get list of group members
         #
         def index
-          students = filter_students.preload(:user)
+          students = filter_students
 
-          render_json students, include: [:user], status: :ok
+          render_json students,
+                      params: { exclude: [:group] },
+                      status: :ok
         end
 
         # GET : api/v1/group/students/{:id}

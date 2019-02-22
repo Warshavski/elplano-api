@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 54ec3f5e892d71e144d5ac9a0c70317868fdc56d4928674f4441487ae48bcef5",
+        "Authorization": "Bearer ed7416a2c1acca29406cff81e4695e9c6502fc7d775aa9bbf4a2956464870083",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"34\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Rueben Roni Steuber\",\n      \"email\": \"damionbecker@wehner.net\",\n      \"phone\": \"(704) 675-5599\",\n      \"about\": \"Vitae velit est. Eum et quia. Sit minus fuga. Nulla facere nihil. Minima qui temporibus.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/adriane_barton\",\n        \"facebook\": \"http://facebook/jacob\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-21T17:52:11.437Z\",\n      \"updated_at\": \"2019-02-21T17:52:11.437Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"18\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"33\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"18\",\n      \"type\": \"group\",\n      \"attributes\": {\n        \"number\": \"8195641486\",\n        \"title\": \"Optio at placeat.\",\n        \"created_at\": \"2019-02-21T17:52:11.435Z\",\n        \"updated_at\": \"2019-02-21T17:52:11.435Z\"\n      },\n      \"relationships\": {\n        \"students\": {\n          \"data\": [\n            {\n              \"id\": \"34\",\n              \"type\": \"student\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"34\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Leisha Allegra Kessler\",\n      \"email\": \"christoper@greenfelder.info\",\n      \"phone\": \"463-299-5440\",\n      \"about\": \"Fugit illum corporis. Aliquid animi quia. Vero soluta earum. Qui labore modi. Molestiae voluptas ipsum.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/maude\",\n        \"facebook\": \"http://facebook/chanda\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-22T12:39:27.143Z\",\n      \"updated_at\": \"2019-02-22T12:39:27.143Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"18\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"33\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"477ce8058d4881eb8df2587d42537a43\"",
-        "X-Request-Id": "c00e1f3d-38e9-49f5-9246-13884598303f",
-        "X-Runtime": "0.008296",
+        "ETag": "W/\"61c1034b3317aaa938d3afdc2335c31c\"",
+        "X-Request-Id": "8dabbca7-5b37-40db-8565-31fd27e477d5",
+        "X-Runtime": "0.007206",
         "Vary": "Origin",
-        "Content-Length": "797"
+        "Content-Length": "555"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 54ec3f5e892d71e144d5ac9a0c70317868fdc56d4928674f4441487ae48bcef5\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer ed7416a2c1acca29406cff81e4695e9c6502fc7d775aa9bbf4a2956464870083\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

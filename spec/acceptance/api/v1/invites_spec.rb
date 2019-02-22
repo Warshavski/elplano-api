@@ -58,7 +58,10 @@ resource "User's Invites" do
 
       do_request
 
-      expected_body = InviteSerializer.new(invite, include: [:group]).serialized_json.to_s
+      expected_body = InviteSerializer
+                        .new(invite, include: [:group], params: { exclude: [:students] })
+                        .serialized_json
+                        .to_s
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

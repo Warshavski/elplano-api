@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 1742be3459c78b7265b880c96816bb077acc4da62a790dad76c85232d77fbea8",
+        "Authorization": "Bearer c1fd890b4bbe3b705128ada621fed3bf73fe8c54095910dee7d42ce62561ccd9",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"17\",\n      \"type\": \"student\",\n      \"attributes\": {\n        \"full_name\": \"Mr. Elroy Darleen Feeney\",\n        \"email\": \"santawolff@kleinkoepp.io\",\n        \"phone\": \"1-176-149-1765\",\n        \"about\": \"Modi consectetur veniam. Adipisci accusantium fugiat. Cumque distinctio quia. Aut rerum officiis. Eos ipsum ut.\",\n        \"social_networks\": {\n          \"twitter\": \"http://twitter/selina.lehner\",\n          \"facebook\": \"http://facebook/jaqueline.kshlerin\"\n        },\n        \"president\": false,\n        \"created_at\": \"2019-02-21T17:52:11.026Z\",\n        \"updated_at\": \"2019-02-21T17:52:11.026Z\"\n      },\n      \"relationships\": {\n        \"group\": {\n          \"data\": {\n            \"id\": \"9\",\n            \"type\": \"group\"\n          }\n        },\n        \"user\": {\n          \"data\": {\n            \"id\": \"16\",\n            \"type\": \"user\"\n          }\n        }\n      }\n    }\n  ],\n  \"included\": [\n    {\n      \"id\": \"16\",\n      \"type\": \"user\",\n      \"attributes\": {\n        \"email\": \"nannie@kuvalis.biz\",\n        \"username\": \"hildegarde_hahn\",\n        \"admin\": false,\n        \"created_at\": \"2019-02-21T17:52:11.009Z\",\n        \"updated_at\": \"2019-02-21T17:52:11.009Z\",\n        \"avatar_url\": \"https://www.gravatar.com/avatar/375326cba7a09051b62c0bb75146e376?s=200&d=identicon\",\n        \"confirmed\": true\n      },\n      \"relationships\": {\n        \"student\": {\n          \"data\": {\n            \"id\": \"17\",\n            \"type\": \"student\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"17\",\n      \"type\": \"student\",\n      \"attributes\": {\n        \"full_name\": \"Willie Daniele Fahey\",\n        \"email\": \"jewel@sipes.org\",\n        \"phone\": \"1-678-530-5156\",\n        \"about\": \"Est tenetur aut. Iste rerum exercitationem. Ut harum sequi. Iure vel incidunt. Facilis illum sed.\",\n        \"social_networks\": {\n          \"twitter\": \"http://twitter/hollis_hackett\",\n          \"facebook\": \"http://facebook/eryn\"\n        },\n        \"president\": false,\n        \"created_at\": \"2019-02-22T12:39:26.722Z\",\n        \"updated_at\": \"2019-02-22T12:39:26.722Z\"\n      },\n      \"relationships\": {\n        \"user\": {\n          \"data\": {\n            \"id\": \"16\",\n            \"type\": \"user\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"8b26324b0534d59e7bd708a59aaf5fab\"",
-        "X-Request-Id": "019c446c-314b-498c-ab63-083c834b642f",
-        "X-Runtime": "0.013008",
+        "ETag": "W/\"95ee59dc8a7ee0952afb2e2798a81c44\"",
+        "X-Request-Id": "912a700e-1260-46a3-9895-9b4784ae7e7a",
+        "X-Runtime": "0.009209",
         "Vary": "Origin",
-        "Content-Length": "977"
+        "Content-Length": "502"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/students\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 1742be3459c78b7265b880c96816bb077acc4da62a790dad76c85232d77fbea8\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/students\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer c1fd890b4bbe3b705128ada621fed3bf73fe8c54095910dee7d42ce62561ccd9\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

@@ -12,11 +12,11 @@ class AboutController < ApplicationController
   # Show version and revision
   #
   def show
-    api_info = {
+    information = {
       version: Elplano.version,
       revision: Elplano.revision
     }
 
-    render json: { data: api_info }, status: :ok
+    render json: { meta: information }, status: :ok
   end
 end

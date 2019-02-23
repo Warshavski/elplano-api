@@ -16,6 +16,17 @@ services:
     volumes:
       - redis:/data
 
+  sidekiq:
+    depends_on:
+      - db
+      - redis
+    build: .
+    command: sidekiq -C config/sidekiq.yml
+    volumes:
+      - '.:/app'
+    env_file:
+      - '.env'
+
   app:
     image: elplano_development
     build:
@@ -30,6 +41,7 @@ services:
     links:
       - db
       - redis
+      - sidekiq
     volumes:
       - .:/app
 

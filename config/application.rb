@@ -66,5 +66,7 @@ module Elplano
     caching_config_hash[:expires_in] = 2.weeks
 
     config.cache_store = :redis_store, caching_config_hash
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end

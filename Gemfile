@@ -36,6 +36,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # https://github.com/doorkeeper-gem/doorkeeper
 gem 'doorkeeper', '>= 5.0.1'
 
+# Simple, efficient background processing for Ruby
+# https://github.com/mperham/sidekiq
+gem 'sidekiq'
+
 # Settings is a plugin that makes managing a table of global key, value pairs easy.
 # https://github.com/huacnlee/rails-settings-cached
 gem 'rails-settings-cached'
@@ -60,7 +64,7 @@ gem 'rspec_api_documentation'
 
 # Apitome: /iˈpitəmē/ An API documentation reader for RSpec API Documentation.
 # https://github.com/jejacks0n/apitome
-gem "apitome"
+gem 'apitome'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

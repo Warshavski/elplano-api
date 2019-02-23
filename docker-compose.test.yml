@@ -14,6 +14,15 @@ services:
     volumes:
       - redis:/data
 
+  sidekiq:
+    depends_on:
+      - db
+      - redis
+    build: .
+    command: sidekiq -C config/sidekiq.yml
+    volumes:
+      - '.:/app'
+
   app:
     image: dockerrails_app_test
     build:
@@ -23,6 +32,7 @@ services:
     environment:
       REDIS_URL: redis://redis:6379
       REDIS_CACHE_URL: redis://redis:6379/10
+      REDIS_QUEUES_URL: redis://redis:6379/11
       RAILS_ENV: test
       DB_HOST: db
       POSTGRES_PASSWORD: test
@@ -34,6 +44,7 @@ services:
     links:
       - db
       - redis
+      - sidekiq
 
 volumes:
   postgres:

@@ -7,9 +7,12 @@ module Groups
   #
   #   NOTE : owner automatically become a group member and group president.
   #
-  class Creator
+  class Create
+    attr_reader :owner
 
-    # @param [Student] owner Group owner(group president).
+    # Create new group
+    #
+    # @param [Student] owner - Group owner(group president).
     #   A Person, who can administer the group.
     #
     # @param [Hash] params Parameters required for group creation
@@ -19,7 +22,29 @@ module Groups
     #
     # @return [Group]
     #
-    def execute(owner, params)
+    def self.call(owner, params)
+      new(owner).execute(params)
+    end
+
+    # @param [Student] owner - Group owner(group president).
+    #   A Person, who can administer the group.
+    #
+    def initialize(owner)
+      raise ArgumentError, owner if owner.nil?
+
+      @owner = owner
+    end
+
+    # Create new group
+    #
+    # @param [Hash] params Parameters required for group creation
+    #
+    # @option params [String] :number - Special group identity
+    # @option params [String] :title  - Human readable group identity
+    #
+    # @return [Group]
+    #
+    def execute(params)
       validate_owner!(owner)
 
       ActiveRecord::Base.transaction do

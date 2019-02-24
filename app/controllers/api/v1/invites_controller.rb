@@ -37,7 +37,7 @@ module Api
       # Claim invite(accept invite by current user)
       #
       def update
-        invite = Invites::Claim.execute(current_user, params[:token])
+        invite = Invites::Claim.call(current_user, params[:token])
 
         render_json invite, status: :ok
       end

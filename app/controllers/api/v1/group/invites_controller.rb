@@ -35,7 +35,7 @@ module Api
         # Create new invitation
         #
         def create
-          invite = Invites::Create.execute(
+          invite = Invites::Create.call(
             current_user,
             invite_params.merge(group: current_group)
           )

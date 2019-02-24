@@ -39,7 +39,7 @@ module Api
       # Creates new group
       #
       def create
-        group = Groups::Creator.new.execute(current_student, group_params)
+        group = Groups::Create.call(current_student, group_params)
 
         render_json group, status: :created
       end

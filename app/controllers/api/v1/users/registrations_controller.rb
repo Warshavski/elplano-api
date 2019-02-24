@@ -21,7 +21,7 @@ module Api
         # Register new user in application
         #
         def create
-          user = ::Users::Register.new.execute { build_resource(sign_up_params) }
+          user = ::Users::Register.call { build_resource(sign_up_params) }
 
           if user.persisted?
             handle_auth(user)

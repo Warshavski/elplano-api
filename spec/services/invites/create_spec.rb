@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Invites::Create do
   # Two in one
-  describe '.execute' do
-    subject { described_class.execute(user, params) }
+  describe '.call' do
+    subject { described_class.call(user, params) }
 
     let_it_be(:student) { create(:student, :group_supervisor) }
 

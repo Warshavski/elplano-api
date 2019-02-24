@@ -1,17 +1,25 @@
 require 'rails_helper'
 
 describe Users::Gravatar do
-  describe '#generate' do
-    subject { described_class.new }
+  describe '.call' do
+    subject { described_class.call(params) }
 
     let(:url) { 'http://example.com/avatar?hash=%{hash}&size=%{size}&email=%{email}&username=%{username}' }
+    let(:params) do
+      {
+        email: 'wat@so.yeah',
+        size: 100,
+        scale: 2,
+        username: 'user'
+      }
+    end
 
     before do
-      allow(subject).to receive(:gravatar_config).and_return('plain_url' => url)
+      allow_any_instance_of(described_class).to receive(:gravatar_config).and_return('plain_url' => url)
     end
 
     it 'replaces the placeholders' do
-      avatar_url = subject.generate('wat@so.yeah', 100, 2, username: 'user')
+      avatar_url = subject
 
       inclusions = %W[
           hash=#{Digest::MD5.hexdigest('wat@so.yeah')}

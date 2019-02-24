@@ -3,28 +3,48 @@
 module Invites
   # Invites::Claim
   #
-  #   Used to claim invite for user
+  #   Used to claim invite by the user(accept issued invitation)
   #
   class Claim
     attr_reader :recipient
 
-    def self.execute(user, invitation_token)
+    # Accept an invitation to the group(claim invite by recipient)
+    #
+    # @param [User] user -
+    #   A user who accepts the invite(invitation recipient)
+    #
+    # @param [String] invitation_token -
+    #   A unique token used to find and confirm the invitation
+    #
+    # @return [Invite]
+    #
+    def self.call(user, invitation_token)
       new(user).execute(invitation_token)
     end
 
+    # @param [User] recipient -
+    #   A user who accepts the invite(invitation recipient)
+    #
     def initialize(recipient)
       check_args!(recipient)
 
       @recipient = recipient
     end
 
+    # Accept an invitation to the group(claim invite by recipient)
+    #
+    # @param [String] invitation_token -
+    #   A unique token used to find and confirm the invitation
+    #
+    # @return [Invite]
+    #
     def execute(invitation_token)
       check_args!(invitation_token)
 
       invite = find_invite(invitation_token)
       claim_invite!(invite) if valid_invite?(invite)
 
-      invite.reload
+      invite
     end
 
     private

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Invites::Claim do
-  describe '.execute' do
-    subject { described_class.execute(user, token) }
+  describe '.call' do
+    subject { described_class.call(user, token) }
 
     context 'valid invite' do
       let(:user)    { create(:user, :student) }

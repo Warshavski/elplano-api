@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'middleware/health_check'
+require 'elplano/middleware/health_check'
 
-describe Middleware::HealthCheck do
+describe Elplano::Middleware::HealthCheck do
   let(:app) { double(:app) }
   let(:middleware) { described_class.new(app) }
   let(:env) { {} }

@@ -18,13 +18,10 @@ RSpec.describe Event, type: :model do
 
     it { should validate_presence_of(:timezone) }
 
-    #
-    # TODO : find shoulda matchers version(v4.0) with backed_by_column_of_type method.
-    #
-    # it do
-    #   should define_enum_for(:status)
-    #              .with(confirmed: 'confirmed', tentative: 'tentative', cancelled: 'cancelled').
-    #              backed_by_column_of_type(:string)
-    # end
+    it do
+      should define_enum_for(:status)
+               .with_values(confirmed: 'confirmed', tentative: 'tentative', cancelled: 'cancelled')
+               .backed_by_column_of_type(:string)
+    end
   end
 end

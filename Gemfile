@@ -95,7 +95,7 @@ group :test do
   gem 'faker'
   gem 'rspec-sqlimit'
   gem 'rspec_junit_formatter'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '>= 4.0.0'
   gem 'simplecov', require: false
   gem 'webmock'
 

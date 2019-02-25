@@ -6,7 +6,7 @@ RSpec.describe Student, type: :model do
   describe 'associations' do
     it { should belong_to(:user) }
 
-    it { should belong_to(:group) }
+    it { should belong_to(:group).optional }
 
     it do
       should have_one(:supervised_group)

@@ -36,7 +36,7 @@ module Api
         #
         def create
           invite = Invites::Create.call(
-            current_user,
+            current_student,
             invite_params.merge(group: current_group)
           )
 

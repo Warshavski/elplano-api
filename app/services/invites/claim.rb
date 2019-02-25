@@ -3,27 +3,27 @@
 module Invites
   # Invites::Claim
   #
-  #   Used to claim invite by the user(accept issued invitation)
+  #   Used to claim invite by the student(accept issued invitation)
   #
   class Claim
     attr_reader :recipient
 
     # Accept an invitation to the group(claim invite by recipient)
     #
-    # @param [User] user -
-    #   A user who accepts the invite(invitation recipient)
+    # @param [Student] student -
+    #   A student who accepts the invite(invitation recipient)
     #
     # @param [String] invitation_token -
     #   A unique token used to find and confirm the invitation
     #
     # @return [Invite]
     #
-    def self.call(user, invitation_token)
-      new(user).execute(invitation_token)
+    def self.call(student, invitation_token)
+      new(student).execute(invitation_token)
     end
 
-    # @param [User] recipient -
-    #   A user who accepts the invite(invitation recipient)
+    # @param [Student] recipient -
+    #   A student who accepts the invite(invitation recipient)
     #
     def initialize(recipient)
       check_args!(recipient)
@@ -58,13 +58,13 @@ module Invites
     end
 
     def valid_invite?(invite)
-      invite.email == recipient.email
+      invite.email == recipient.user.email
     end
 
     def claim_invite!(invite)
       ActiveRecord::Base.transaction do
         invite.claim_by!(recipient)
-        recipient.student.update!(group: invite.group)
+        recipient.update!(group: invite.group)
       end
     end
   end

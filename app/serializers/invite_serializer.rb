@@ -17,7 +17,13 @@ class InviteSerializer
     object.accepted? ? :accepted : :pending
   end
 
-  belongs_to :sender,     serializer: UserSerializer
-  belongs_to :recipient,  serializer: UserSerializer
-  belongs_to :group,      serializer: GroupSerializer
+  belongs_to :sender,
+             record_type: :student,
+             serializer: StudentSerializer
+
+  belongs_to :recipient,
+             record_type: :student,
+             serializer: StudentSerializer
+
+  belongs_to :group, serializer: GroupSerializer
 end

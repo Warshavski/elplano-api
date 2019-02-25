@@ -2,19 +2,19 @@
 
 # Invite
 #
-#   Used to invite users to groups
-#
-#   NOTE : invitation_token used with sent_at in case of not existed user
+#   Used to invite students to groups
 #
 class Invite < ApplicationRecord
   belongs_to :group
 
-  belongs_to :sender, class_name: 'User',
-                      inverse_of: :sent_invites
+  belongs_to :sender,
+             class_name: 'Student',
+             inverse_of: :sent_invites
 
-  belongs_to :recipient, class_name: 'User',
-                         inverse_of: :invitations,
-                         optional: true
+  belongs_to :recipient,
+             class_name: 'Student',
+             inverse_of: :invitations,
+             optional: true
 
   validates :group, :sender, presence: true
 
@@ -39,8 +39,8 @@ class Invite < ApplicationRecord
     self.sent_at = Time.now.utc
   end
 
-  def claim_by!(user)
-    update!(recipient: user, accepted_at: Time.now.utc, invitation_token: nil)
+  def claim_by!(student)
+    update!(recipient: student, accepted_at: Time.now.utc, invitation_token: nil)
   end
 
   def accepted?

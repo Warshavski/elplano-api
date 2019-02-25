@@ -97,6 +97,14 @@ end
 
 Dir['./spec/support/custom_matchers/**/*.rb'].each { |f| require f }
 
+def relationship_data(rel_name)
+  json_data[:relationships][rel_name][:data]
+end
+
+def json_data
+  body_as_json[:data]
+end
+
 def body_as_json
   json_str_to_hash(response.body)
 end

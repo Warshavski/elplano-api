@@ -1,0 +1,50 @@
+{
+  "resource": "Lecturers",
+  "resource_explanation": "El Plano lecturers API.\n\nCourse attributes :\n\n - `first_name`\n - `last_name`\n - `patronymic`\n - timestamps\n\n Also, includes reference to the courses.\n",
+  "http_method": "GET",
+  "route": "api/v1/lecturers/:id",
+  "description": "SHOW : Retrieve information about requested lecturer",
+  "explanation": "Return single instance of the lecturer.\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "api/v1/lecturers/8",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer 86c67f0d3650dd9beb9b3b755ffa3d5ce8ac13190e5ca235c8c796dc7f066d03",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"8\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"created_at\": \"2019-02-27T06:43:21.570Z\",\n      \"updated_at\": \"2019-02-27T06:43:21.570Z\",\n      \"first_name\": \"Lorette\",\n      \"last_name\": \"Corkery\",\n      \"patronymic\": \"Phd\"\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"9\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"b93b12b956e8b69d43d293e026daf83e\"",
+        "X-Request-Id": "395b4199-a8a9-40b2-8ea3-17f9d1116838",
+        "X-Runtime": "0.008993",
+        "Vary": "Origin",
+        "Content-Length": "262"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl -g \"http://localhost:3000/api/v1/lecturers/8\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 86c67f0d3650dd9beb9b3b755ffa3d5ce8ac13190e5ca235c8c796dc7f066d03\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

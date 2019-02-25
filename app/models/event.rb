@@ -82,6 +82,8 @@ class Event < ApplicationRecord
 
   belongs_to :creator, class_name: 'Student', inverse_of: :created_events
 
+  belongs_to :course, optional: true
+
   validates :creator, :start_at, :timezone, presence: true
   validates :title, presence: true, length: { in: 3..250 }
 

@@ -5,10 +5,10 @@ require 'rails_helper'
 RSpec.describe 'Events management', type: :request do
   include_context 'shared setup'
 
-  let(:base_url)  { '/api/v1/events' }
-  let(:event_url) { "#{base_url}/#{event.id}" }
+  let(:base_endpoint)  { '/api/v1/events' }
+  let(:resource_endpoint) { "#{base_endpoint}/#{event.id}" }
 
-  let_it_be(:student) { create(:student, user: user) }
+  let_it_be(:student) { create(:student, :group_member, user: user) }
   let_it_be(:event)   { create(:event, title: 'some_new_event', creator: student) }
 
   let(:event_params)  { build(:event_params) }
@@ -17,7 +17,7 @@ RSpec.describe 'Events management', type: :request do
   let(:invalid_request_params) { { data: build(:invalid_event_params) } }
 
   describe 'GET #index' do
-    subject { get base_url, headers: headers }
+    subject { get base_endpoint, headers: headers }
 
     let_it_be(:events) { create_list(:event, 5, creator: student) }
 
@@ -39,7 +39,7 @@ RSpec.describe 'Events management', type: :request do
   end
 
   describe 'GET #show' do
-    subject { get event_url, headers: headers }
+    subject { get resource_endpoint, headers: headers }
 
     before(:each) { subject }
 
@@ -51,7 +51,7 @@ RSpec.describe 'Events management', type: :request do
                      %w[data],
                      %w[id type attributes relationships],
                      %w[title description status start_at end_at timezone recurrence created_at updated_at],
-                     %w[creator]
+                     %w[creator course]
 
     it 'returns correct expected data' do
       actual_title = body_as_json[:data][:attributes][:title]
@@ -61,7 +61,7 @@ RSpec.describe 'Events management', type: :request do
     end
 
     context 'not valid request' do
-      let(:event_url) { "#{base_url}/wat_event?" }
+      let(:resource_endpoint) { "#{base_endpoint}/wat_event?" }
 
       it 'returns 404 response on not existed event' do
         expect(response).to have_http_status(:not_found)
@@ -70,7 +70,7 @@ RSpec.describe 'Events management', type: :request do
   end
 
   describe 'POST #create' do
-    subject { post base_url, params: request_params, headers: headers }
+    subject { post base_endpoint, params: request_params, headers: headers }
 
     before(:each) { subject }
 
@@ -82,7 +82,7 @@ RSpec.describe 'Events management', type: :request do
                      %w[data],
                      %w[id type attributes relationships],
                      %w[title description status start_at end_at timezone recurrence created_at updated_at],
-                     %w[creator]
+                     %w[creator course]
 
     it 'returns created model' do
       actual_title = body_as_json[:data][:attributes][:title]
@@ -92,10 +92,32 @@ RSpec.describe 'Events management', type: :request do
     end
 
     include_examples 'request errors examples'
+
+    context 'course binding' do
+      let_it_be(:course) { create(:course, group: student.group) }
+
+      let(:event_params) do
+        course_params = {
+          relationships: {
+            course: {
+              data: { id: course.id, type: 'course' }
+            }
+          }
+        }
+
+        build(:event_params).merge(course_params)
+      end
+
+      it 'return created model with bound course' do
+        actual_course_id = relationship_data(:course)[:id].to_i
+
+        expect(actual_course_id).to eq(course.id)
+      end
+    end
   end
 
   describe 'PUT #update' do
-    subject { put event_url, params: request_params, headers: headers }
+    subject { put resource_endpoint, params: request_params, headers: headers }
 
     before(:each) { subject }
 
@@ -114,12 +136,34 @@ RSpec.describe 'Events management', type: :request do
                      %w[data],
                      %w[id type attributes relationships],
                      %w[title description status start_at end_at timezone recurrence created_at updated_at],
-                     %w[creator]
+                     %w[creator course]
 
     include_examples 'request errors examples'
 
+    context 'course binding' do
+      let_it_be(:course) { create(:course, group: student.group) }
+
+      let(:event_params) do
+        course_params = {
+          relationships: {
+            course: {
+              data: { id: course.id, type: 'course' }
+            }
+          }
+        }
+
+        build(:event_params).merge(course_params)
+      end
+
+      it 'return created model with bound course' do
+        actual_course_id = relationship_data(:course)[:id].to_i
+
+        expect(actual_course_id).to eq(course.id)
+      end
+    end
+
     context 'response with errors' do
-      let(:event_url) { "#{base_url}/wat_event?" }
+      let(:resource_endpoint) { "#{base_endpoint}/wat_event?" }
 
       it 'responds with a 404 status not existed event' do
         expect(response).to have_http_status(:not_found)
@@ -129,19 +173,19 @@ RSpec.describe 'Events management', type: :request do
 
   describe 'DELETE #destroy' do
     it 'responds with a 204 status' do
-      delete event_url, headers: headers
+      delete resource_endpoint, headers: headers
 
       expect(response).to have_http_status(:no_content)
     end
 
     it 'responds with a 404 status not existed event' do
-      delete "#{base_url}/wat_event?", headers: headers
+      delete "#{base_endpoint}/wat_event?", headers: headers
 
       expect(response).to have_http_status(:not_found)
     end
 
     it 'deletes publisher' do
-      expect { delete event_url, headers: headers }.to change(Event, :count).by(-1)
+      expect { delete resource_endpoint, headers: headers }.to change(Event, :count).by(-1)
     end
   end
 end

@@ -21,10 +21,11 @@ resource 'Events' do
      - `end_at` - Represents when event ends.
      - timestamps
   
-     Also, includes reference to the event creator.
+     Also, includes reference to the event creator and attached course.
   DESC
 
   let(:student) { create(:student, :group_member) }
+  let(:course) { create(:course, group: student.group) }
 
   let(:user) { student.user }
   let(:token) { create(:token, resource_owner_id: user.id).token }
@@ -78,9 +79,20 @@ resource 'Events' do
       parameter :start_at, 'Event start date', requred: true
       parameter :end_at, 'Event end date', requred: true
       parameter :timezone, 'Event timezone', requred: true
+      parameter :course, 'The course to which the event is attached. Included in "relationships" category'
     end
 
-    let(:raw_post) { { data: build(:event_params) }.to_json }
+    let(:raw_post) do
+      course_params = {
+        relationships: {
+          course: {
+            data: { id: course.id, type: 'course' }
+          }
+        }
+      }
+
+      { data: build(:event_params).merge(course_params) }.to_json
+    end
 
     example 'CREATE : Creates new event' do
       explanation <<~DESC
@@ -108,9 +120,20 @@ resource 'Events' do
       parameter :start_at, 'Event start date', requred: true
       parameter :end_at, 'Event end date', requred: true
       parameter :timezone, 'Event timezone', requred: true
+      parameter :course, 'The course to which the event is attached. Included in "relationships" category'
     end
 
-    let(:raw_post) { { data: build(:event_params) }.to_json }
+    let(:raw_post) do
+      course_params = {
+        relationships: {
+          course: {
+            data: { id: course.id, type: 'course' }
+          }
+        }
+      }
+
+      { data: build(:event_params).merge(course_params) }.to_json
+    end
 
     example 'UPDATE : Updates selected event information' do
       explanation <<~DESC

@@ -15,5 +15,7 @@ class EventSerializer
   belongs_to :creator,
              record_type: :student,
              serializer: StudentSerializer
+
+  belongs_to :course, serializer: CourseSerializer
 end
 

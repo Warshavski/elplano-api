@@ -6,7 +6,9 @@ RSpec.describe Group, type: :model do
 
     it { should have_many(:students).dependent(:nullify) }
 
-    it { should have_many(:invites) }
+    it { should have_many(:invites).dependent(:destroy) }
+
+    it { should have_many(:lecturers).dependent(:destroy) }
   end
 
   describe 'validations' do

@@ -54,6 +54,8 @@ module Elplano
     #
     config.middleware.insert_after(Rails::Rack::Logger, ::Middleware::HealthCheck)
 
+    config.middleware.insert_after Warden::Manager, Rack::Attack
+
     #
     # Use caching across all environments
     #

@@ -50,6 +50,7 @@ The following table shows the possible return codes for API requests.
 | `404 Not Found`           | A resource could not be accessed, e.g., an ID for a resource could not be found.
 | `415 Unsupported type`    | Indicates that the request has an unsupported type specified in `Content-Type` header.
 | `422 Unprocessable`       | The entity could not be processed.
+| `429 Too Many Requests`   | Indicates the user has sent too many requests in a given amount of time ("rate limiting").
 | `500 Server Error`        | While handling the request something went wrong server-side.
 
 ### Errors

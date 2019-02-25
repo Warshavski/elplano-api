@@ -6,6 +6,10 @@ defaults: &defaults
     ip_whitelist:
       - 127.0.0.0/8
 
+  rack_attack:
+    ip_whitelist:
+      - 127.0.0.0/8
+
   core:
     ## Web server settings (note: host is the FQDN, do not include http://)
     host: localhost

@@ -6,6 +6,8 @@ SimpleCov.start do
   add_filter 'spec/support/helpers/stub_env.rb'
   add_filter 'spec/support/redis/redis_helpers.rb'
   add_filter 'config/initializers/sidekiq.rb'
+  add_filter 'config/initializers/rack_attack.rb'
+  add_filter 'config/initializers/rack_attack_logging.rb'
 end
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'

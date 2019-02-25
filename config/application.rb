@@ -23,7 +23,7 @@ Bundler.require(*Rails.groups)
 
 module Elplano
   class Application < Rails::Application
-    require_relative Rails.root.join('lib/middleware/health_check')
+    require_relative Rails.root.join('lib/elplano/middleware/health_check')
     require_relative Rails.root.join('lib/elplano/redis/wrapper')
     require_relative Rails.root.join('lib/elplano/redis/cache')
 
@@ -52,7 +52,7 @@ module Elplano
     # This middleware needs to precede ActiveRecord::QueryCache and
     # other middlewares that connect to the database.
     #
-    config.middleware.insert_after(Rails::Rack::Logger, ::Middleware::HealthCheck)
+    config.middleware.insert_after(Rails::Rack::Logger, ::Elplano::Middleware::HealthCheck)
 
     config.middleware.insert_after Warden::Manager, Rack::Attack
 

@@ -33,7 +33,7 @@ module ExceptionHandler
       render_errors(ErrorSerializer.serialize(e.record, 422), :unprocessable_entity)
     end
 
-    rescue_from Errors::AuthError do |e|
+    rescue_from Elplano::Errors::AuthError do |e|
       log_exception(e)
 
       render_errors(

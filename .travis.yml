@@ -6,7 +6,6 @@ addons:
   postgresql: 9.6
 services:
   - redis-server
-  - docker
 
 cache:
   - bundler
@@ -36,8 +35,6 @@ jobs:
 
       after_script:
         - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
-
-    - stage: staging deploy
       deploy:
         provider: heroku
         api_key:
@@ -49,11 +46,3 @@ jobs:
             - develop
         run:
           - "rake db:migrate"
-
-      - stage: release deploy
-        deploy:
-          install: skip
-          - provider: script
-            script: chmod +x scripts/build-image.sh
-            on:
-              branch: release

@@ -54,6 +54,6 @@ jobs:
         deploy:
           install: skip
           - provider: script
-            script: chmod +x scripts/build-image.sh && scripts/build-image.sh
+            script: chmod +x scripts/build-image.sh
             on:
               branch: release

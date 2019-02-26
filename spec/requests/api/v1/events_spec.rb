@@ -21,9 +21,13 @@ RSpec.describe 'Events management', type: :request do
 
     let_it_be(:events) { create_list(:event, 5, creator: student) }
 
-    before(:each) { subject }
+    context 'N+1' do
+      bulletify { subject }
+    end
 
     context 'unsorted events collection' do
+      before(:each) { subject }
+
       it 'responds with a 200 status' do
         expect(response).to have_http_status(:ok)
       end

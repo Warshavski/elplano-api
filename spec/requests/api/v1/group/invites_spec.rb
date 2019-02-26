@@ -22,6 +22,10 @@ RSpec.describe 'Group invites management', type: :request do
 
     let(:endpoint) { base }
 
+    context 'N+1' do
+      bulletify { subject }
+    end
+
     context 'authorized' do
       before(:each) { subject }
 

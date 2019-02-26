@@ -2,9 +2,11 @@
 
 require 'simplecov'
 SimpleCov.start do
-  add_filter 'config/initializers/doorkeeper.rb'
   add_filter 'spec/support/helpers/stub_env.rb'
   add_filter 'spec/support/redis/redis_helpers.rb'
+  add_filter 'spec/support/bullet_context.rb'
+
+  add_filter 'config/initializers/doorkeeper.rb'
   add_filter 'config/initializers/sidekiq.rb'
   add_filter 'config/initializers/rack_attack.rb'
   add_filter 'config/initializers/rack_attack_logging.rb'
@@ -95,6 +97,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  config.alias_example_to :bulletify, bullet: true
 
   # WARNING!
   #

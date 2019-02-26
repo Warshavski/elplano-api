@@ -18,9 +18,13 @@ RSpec.describe 'Invites management', type: :request do
 
     let(:endpoint) { base }
 
-    before(:each) { subject }
+    context 'N+1' do
+      bulletify { subject }
+    end
 
     context 'unsorted invites collection' do
+      before(:each) { subject }
+
       it 'responds with a 200 status' do
         expect(response).to have_http_status(:ok)
       end

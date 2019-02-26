@@ -14,6 +14,10 @@ RSpec.describe 'Students management', type: :request do
   describe 'GET #index' do
     let(:endpoint) { base }
 
+    context 'N+1' do
+      bulletify { subject }
+    end
+
     context 'authorized user' do
       it { expect(response).to have_http_status(:ok) }
 

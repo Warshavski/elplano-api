@@ -38,7 +38,7 @@ resource 'Events' do
   header 'Authorization', :authorization
 
   get 'api/v1/events' do
-    let(:events) { create_list(:event, 1, creator: student) }
+    let!(:events) { create_list(:event, 1, creator: student) }
 
     example 'INDEX : Retrieve events created by authenticated user' do
       explanation <<~DESC
@@ -47,10 +47,7 @@ resource 'Events' do
 
       do_request
 
-      expected_body = EventSerializer
-                        .new(student.reload.created_events)
-                        .serialized_json
-                        .to_s
+      expected_body = EventSerializer.new(events).serialized_json.to_s
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

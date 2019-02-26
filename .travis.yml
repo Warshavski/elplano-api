@@ -1,20 +1,24 @@
-branches:
-  only:
-    - master
-    - develop
+dist: trusty
+language: ruby
+rvm:
+  - 2.5.3
+addons:
+  postgresql: 9.6
 services:
   - redis-server
   - docker
 
+cache:
+  - bundler
+
+branches:
+  only:
+    - release
+    - develop
+
 jobs:
   include:
-    - stage: heroku
-      addons:
-        postgresql: 9.6
-      after_success:
-        - bundle exec codeclimate-test-reporter
-      cache:
-        - bundler
+    - stage: test
       before_script:
         - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
           > ./cc-test-reporter
@@ -22,15 +26,18 @@ jobs:
         - "./cc-test-reporter before-build"
         - cp config/database.yml.travis config/database.yml
         - psql -c 'create database travis_ci_test;' -U postgres
-      dist: trusty
-      language: ruby
-      rvm:
-        - 2.5.3
+
       script:
         - bundle exec rails db:migrate RAILS_ENV=test
         - bundle exec rspec
+
+      after_success:
+        - bundle exec codeclimate-test-reporter
+
       after_script:
         - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+
+    - stage: staging deploy
       deploy:
         provider: heroku
         api_key:
@@ -42,15 +49,11 @@ jobs:
             - develop
         run:
           - "rake db:migrate"
-    - stage: docker
-      install: skip
-      before_script:
-        - docker --version
-        - docker-compose --version
-      script:
-        - sh scripts/test-image.sh
-      deploy:
-        - provider: script
-          script: chmod +x scripts/build-image.sh && scripts/build-image.sh
-          on:
-            branch: develop
+
+      - stage: release deploy
+        deploy:
+          install: skip
+          - provider: script
+            script: chmod +x scripts/build-image.sh && scripts/build-image.sh
+            on:
+              branch: release

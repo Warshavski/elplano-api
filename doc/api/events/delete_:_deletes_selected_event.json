@@ -14,12 +14,12 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "api/v1/events/4",
+      "request_path": "api/v1/events/5",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 494c441536cf715f6e6585e078a715c6e48751b59acceed43ee60431e73fc8ec",
+        "Authorization": "Bearer 93d5792424ce161bf70a303f9bb8043bacc65cd70afb06cd92f707c7f42cce06",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -36,12 +36,12 @@
         "X-Content-Type-Options": "nosniff",
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
-        "X-Request-Id": "ec99d01a-cf18-4c64-8ea5-7649881ee34f",
-        "X-Runtime": "0.013199",
+        "X-Request-Id": "a38c9daf-2ba5-47ba-ad65-0060e4b706a2",
+        "X-Runtime": "0.007647",
         "Vary": "Origin"
       },
       "response_content_type": null,
-      "curl": "curl \"http://localhost:3000/api/v1/events/4\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 494c441536cf715f6e6585e078a715c6e48751b59acceed43ee60431e73fc8ec\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/events/5\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 93d5792424ce161bf70a303f9bb8043bacc65cd70afb06cd92f707c7f42cce06\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

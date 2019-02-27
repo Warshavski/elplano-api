@@ -1,0 +1,50 @@
+{
+  "resource": "Courses",
+  "resource_explanation": "El Plano courses API.\n\nCourse attributes :\n\n - `title` - Represents course name(human readable identity).\n - timestamps\n\n Also, includes reference to the course lecturer.\n",
+  "http_method": "GET",
+  "route": "api/v1/courses",
+  "description": "INDEX : Retrieve courses created by authenticated user",
+  "explanation": "Return list of available courses.\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "api/v1/courses",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer a16a07694100ffe983d97c893a0c3cb82f44f747b7bea701f8e2ccf3e22744d3",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"course\",\n      \"attributes\": {\n        \"created_at\": \"2019-02-27T06:43:20.431Z\",\n        \"updated_at\": \"2019-02-27T06:43:20.431Z\",\n        \"title\": \"Neque Unde.\"\n      },\n      \"relationships\": {\n        \"lecturers\": {\n          \"data\": [\n            {\n              \"id\": \"1\",\n              \"type\": \"lecturer\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"e22c6b435c30962eb498c6c7987ab6b5\"",
+        "X-Request-Id": "7ef7e007-e613-4e98-80a5-3f7f1b187e9e",
+        "X-Runtime": "0.031974",
+        "Vary": "Origin",
+        "Content-Length": "224"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl -g \"http://localhost:3000/api/v1/courses\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer a16a07694100ffe983d97c893a0c3cb82f44f747b7bea701f8e2ccf3e22744d3\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

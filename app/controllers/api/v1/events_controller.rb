@@ -71,6 +71,7 @@ module Api
           .permit(
             :title, :description, :status,
             :start_at, :end_at, :timezone,
+            :course_id,
             recurrence: []
           )
       end

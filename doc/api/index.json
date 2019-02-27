@@ -1,8 +1,49 @@
 {
   "resources": [
     {
+      "name": "Courses",
+      "explanation": "El Plano courses API.\n\nCourse attributes :\n\n - `title` - Represents course name(human readable identity).\n - timestamps\n\n Also, includes reference to the course lecturer.\n",
+      "examples": [
+        {
+          "description": "CREATE : Create new course",
+          "link": "courses/create_:_create_new_course.json",
+          "groups": "all",
+          "route": "api/v1/courses",
+          "method": "post"
+        },
+        {
+          "description": "DELETE : Delete selected course",
+          "link": "courses/delete_:_delete_selected_course.json",
+          "groups": "all",
+          "route": "api/v1/courses/:id",
+          "method": "delete"
+        },
+        {
+          "description": "INDEX : Retrieve courses created by authenticated user",
+          "link": "courses/index_:_retrieve_courses_created_by_authenticated_user.json",
+          "groups": "all",
+          "route": "api/v1/courses",
+          "method": "get"
+        },
+        {
+          "description": "SHOW : Retrieve information about requested course",
+          "link": "courses/show_:_retrieve_information_about_requested_course.json",
+          "groups": "all",
+          "route": "api/v1/courses/:id",
+          "method": "get"
+        },
+        {
+          "description": "UPDATE : Update selected course information",
+          "link": "courses/update_:_update_selected_course_information.json",
+          "groups": "all",
+          "route": "api/v1/courses/:id",
+          "method": "put"
+        }
+      ]
+    },
+    {
       "name": "Events",
-      "explanation": "El Plano events API.\n\nEvent attributes :\n\n - `title` - Represents event name.\n - `description` - Represents event detailed description.\n - `status` - Represents event current status.\n   - `confirmed` - The event is confirmed. This is the default status.\n   - `tentative` - The event is tentatively confirmed.\n   - `cancelled` - The event is cancelled (deleted).\n\n - `recurrence` - Represents recurrence rules.\n - `timezone` - Timezone settings.\n - `start_at` - Represents when event starts.\n - `end_at` - Represents when event ends.\n - timestamps\n\n Also, includes reference to the event creator.\n",
+      "explanation": "El Plano events API.\n\nEvent attributes :\n\n - `title` - Represents event name.\n - `description` - Represents event detailed description.\n - `status` - Represents event current status.\n   - `confirmed` - The event is confirmed. This is the default status.\n   - `tentative` - The event is tentatively confirmed.\n   - `cancelled` - The event is cancelled (deleted).\n\n - `recurrence` - Represents recurrence rules.\n - `timezone` - Timezone settings.\n - `start_at` - Represents when event starts.\n - `end_at` - Represents when event ends.\n - timestamps\n\n Also, includes reference to the event creator and attached course.\n",
       "examples": [
         {
           "description": "CREATE : Creates new event",
@@ -118,6 +159,47 @@
           "link": "groups/update_:_updates_group_information.json",
           "groups": "all",
           "route": "api/v1/group",
+          "method": "put"
+        }
+      ]
+    },
+    {
+      "name": "Lecturers",
+      "explanation": "El Plano lecturers API.\n\nCourse attributes :\n\n - `first_name`\n - `last_name`\n - `patronymic`\n - timestamps\n\n Also, includes reference to the courses.\n",
+      "examples": [
+        {
+          "description": "CREATE : Create new lecturer",
+          "link": "lecturers/create_:_create_new_lecturer.json",
+          "groups": "all",
+          "route": "api/v1/lecturers",
+          "method": "post"
+        },
+        {
+          "description": "DELETE : Delete selected lecturer",
+          "link": "lecturers/delete_:_delete_selected_lecturer.json",
+          "groups": "all",
+          "route": "api/v1/lecturers/:id",
+          "method": "delete"
+        },
+        {
+          "description": "INDEX : Retrieve lecturers created by authenticated user",
+          "link": "lecturers/index_:_retrieve_lecturers_created_by_authenticated_user.json",
+          "groups": "all",
+          "route": "api/v1/lecturers",
+          "method": "get"
+        },
+        {
+          "description": "SHOW : Retrieve information about requested lecturer",
+          "link": "lecturers/show_:_retrieve_information_about_requested_lecturer.json",
+          "groups": "all",
+          "route": "api/v1/lecturers/:id",
+          "method": "get"
+        },
+        {
+          "description": "UPDATE : Update selected lecturer information",
+          "link": "lecturers/update_:_update_selected_lecturer_information.json",
+          "groups": "all",
+          "route": "api/v1/lecturers/:id",
           "method": "put"
         }
       ]

@@ -1,0 +1,66 @@
+{
+  "resource": "Courses",
+  "resource_explanation": "El Plano courses API.\n\nCourse attributes :\n\n - `title` - Represents course name(human readable identity).\n - timestamps\n\n Also, includes reference to the course lecturer.\n",
+  "http_method": "PUT",
+  "route": "api/v1/courses/:id",
+  "description": "UPDATE : Update selected course information",
+  "explanation": "Update and return updated course.\n",
+  "parameters": [
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "requred": true,
+      "name": "title",
+      "description": "Course title(human readable identity)"
+    },
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "name": "lecturers",
+      "description": "Lecturers of the course. Included in \"relationships\" category"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "api/v1/courses/4",
+      "request_body": "{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Master of Arts\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":5,\"type\":\"lecturer\"}]}}}}",
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer d376be1b3d6ee36deae555cb4935d491d89392c7781503a3fd3b06cc6e099e0c",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"4\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-02-27T06:43:20.644Z\",\n      \"updated_at\": \"2019-02-27T06:43:20.674Z\",\n      \"title\": \"Master Of Arts\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"5\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"1ce3350980e430610b26f8b0ba38bbae\"",
+        "X-Request-Id": "8191583f-2a12-4639-8ad5-de29bbf44a3c",
+        "X-Runtime": "0.015154",
+        "Vary": "Origin",
+        "Content-Length": "225"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/api/v1/courses/4\" -d '{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Master of Arts\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":5,\"type\":\"lecturer\"}]}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer d376be1b3d6ee36deae555cb4935d491d89392c7781503a3fd3b06cc6e099e0c\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_18_093324) do
+ActiveRecord::Schema.define(version: 2019_02_26_124850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "courses", force: :cascade do |t|
+    t.string "title", limit: 200, null: false
+    t.bigint "group_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id", "title"], name: "index_courses_on_group_id_and_title", unique: true
+    t.index ["group_id"], name: "index_courses_on_group_id"
+  end
 
   create_table "events", force: :cascade do |t|
     t.string "title", null: false
@@ -26,6 +35,8 @@ ActiveRecord::Schema.define(version: 2019_02_18_093324) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status", default: "confirmed", null: false
+    t.bigint "course_id"
+    t.index ["course_id"], name: "index_events_on_course_id"
     t.index ["creator_id"], name: "index_events_on_creator_id"
   end
 
@@ -53,6 +64,27 @@ ActiveRecord::Schema.define(version: 2019_02_18_093324) do
     t.index ["invitation_token"], name: "index_invites_on_invitation_token", unique: true
     t.index ["recipient_id"], name: "index_invites_on_recipient_id"
     t.index ["sender_id"], name: "index_invites_on_sender_id"
+  end
+
+  create_table "lecturers", force: :cascade do |t|
+    t.string "first_name", limit: 40, null: false
+    t.string "last_name", limit: 40, null: false
+    t.string "patronymic", limit: 40, null: false
+    t.bigint "group_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id", "first_name", "last_name", "patronymic"], name: "index_lecturers_on_full_name_and_group", unique: true
+    t.index ["group_id"], name: "index_lecturers_on_group_id"
+  end
+
+  create_table "lectures", force: :cascade do |t|
+    t.bigint "lecturer_id"
+    t.bigint "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_lectures_on_course_id"
+    t.index ["lecturer_id", "course_id"], name: "index_lectures_on_lecturer_id_and_course_id", unique: true
+    t.index ["lecturer_id"], name: "index_lectures_on_lecturer_id"
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
@@ -154,11 +186,16 @@ ActiveRecord::Schema.define(version: 2019_02_18_093324) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "courses", "groups"
+  add_foreign_key "events", "courses"
   add_foreign_key "events", "students", column: "creator_id"
   add_foreign_key "groups", "students", column: "president_id"
   add_foreign_key "invites", "groups"
   add_foreign_key "invites", "students", column: "recipient_id"
   add_foreign_key "invites", "students", column: "sender_id"
+  add_foreign_key "lecturers", "groups"
+  add_foreign_key "lectures", "courses"
+  add_foreign_key "lectures", "lecturers"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_grants", "users", column: "resource_owner_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"

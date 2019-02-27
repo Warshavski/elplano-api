@@ -3,12 +3,12 @@ class CreateInvites < ActiveRecord::Migration[5.2]
     create_table :invites do |t|
       t.references :sender,
                    null: false,
-                   foreign_key: { to_table: :users },
+                   foreign_key: { to_table: :students },
                    index: true
 
       t.references :recipient,
                    null: true,
-                   foreign_key: { to_table: :users },
+                   foreign_key: { to_table: :students },
                    index: true
 
       t.references :group,

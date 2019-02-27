@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer c77603fa45124f4aa4a0645eb685d07729295cb608edf2b15a2e06b3cb524388",
+        "Authorization": "Bearer 9efaf39b3252b7153e7a806ad22f1daf78d77623c91c46e0e6d0a74e616ba210",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"34\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Demarcus Candra Baumbach\",\n      \"email\": \"junior@rau.net\",\n      \"phone\": \"861.067.5585\",\n      \"about\": \"Voluptatem sint qui. Quaerat quis ea. Blanditiis occaecati minima. Hic incidunt eius. Id nobis ipsam.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/raphael.vonrueden\",\n        \"facebook\": \"http://facebook/tamisha\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-26T07:58:17.503Z\",\n      \"updated_at\": \"2019-02-26T07:58:17.503Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"18\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"33\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"34\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Ms. Agueda Audie Haag\",\n      \"email\": \"dorseyprice@huelshagenes.com\",\n      \"phone\": \"1-134-389-7803\",\n      \"about\": \"Occaecati odit culpa. Accusamus ex quaerat. Voluptatibus aut quo. Deserunt quasi facere. Aut dolores alias.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/lea\",\n        \"facebook\": \"http://facebook/columbus\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-27T06:08:48.950Z\",\n      \"updated_at\": \"2019-02-27T06:08:48.950Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"18\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"33\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"ae2c7be132a27bc4552df857863a35b6\"",
-        "X-Request-Id": "0c949bf4-c9a7-4bb3-bee2-28af86476d17",
-        "X-Runtime": "0.007163",
+        "ETag": "W/\"e2af7068d79752752e35d899cbf328d6\"",
+        "X-Request-Id": "92142798-b295-4e36-86a5-3f6b633dfbcc",
+        "X-Runtime": "0.005494",
         "Vary": "Origin",
-        "Content-Length": "555"
+        "Content-Length": "561"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer c77603fa45124f4aa4a0645eb685d07729295cb608edf2b15a2e06b3cb524388\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 9efaf39b3252b7153e7a806ad22f1daf78d77623c91c46e0e6d0a74e616ba210\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

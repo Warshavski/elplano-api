@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 8c244625aa3ac231a7f3a8a6a8e7510e9208a838f7208c26798c4c01fe4be9ea",
+        "Authorization": "Bearer c5c72d98866c9e9afbd13d9f20555dbabadf18dd70db2b2973d3040ce4787813",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"19\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Heriberto Susanna Bradtke II\",\n      \"email\": \"hong@schowaltercrooks.co\",\n      \"phone\": \"1-974-370-8754\",\n      \"about\": \"Debitis aut blanditiis. Pariatur cum mollitia. Eos deleniti eos. Et a repellendus. Omnis atque consequuntur.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/fredrick_kerluke\",\n        \"facebook\": \"http://facebook/roslyn\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-26T07:58:17.160Z\",\n      \"updated_at\": \"2019-02-26T07:58:17.160Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"10\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"18\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"18\",\n      \"type\": \"user\",\n      \"attributes\": {\n        \"email\": \"darrelreichert@aufderhar.co\",\n        \"username\": \"vance.hudson\",\n        \"admin\": false,\n        \"created_at\": \"2019-02-26T07:58:17.144Z\",\n        \"updated_at\": \"2019-02-26T07:58:17.144Z\",\n        \"avatar_url\": \"https://www.gravatar.com/avatar/d569ef3f266884be45dcf97b1f6560a6?s=200&d=identicon\",\n        \"confirmed\": true\n      },\n      \"relationships\": {\n        \"student\": {\n          \"data\": {\n            \"id\": \"19\",\n            \"type\": \"student\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"19\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Harland Winter Borer I\",\n      \"email\": \"roseanna@marquardt.io\",\n      \"phone\": \"231.594.5616\",\n      \"about\": \"Aperiam ratione inventore. Non minima numquam. Cumque sed unde. Quod ea aut. Minus et quae.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/carmela\",\n        \"facebook\": \"http://facebook/vernie.wiza\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-27T06:08:48.693Z\",\n      \"updated_at\": \"2019-02-27T06:08:48.693Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"10\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"18\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"18\",\n      \"type\": \"user\",\n      \"attributes\": {\n        \"email\": \"krystinarunte@quitzon.net\",\n        \"username\": \"milford_morar\",\n        \"admin\": false,\n        \"created_at\": \"2019-02-27T06:08:48.683Z\",\n        \"updated_at\": \"2019-02-27T06:08:48.683Z\",\n        \"avatar_url\": \"https://www.gravatar.com/avatar/fab573ea56541aa2d203d5ca42466ec1?s=200&d=identicon\",\n        \"confirmed\": true\n      },\n      \"relationships\": {\n        \"student\": {\n          \"data\": {\n            \"id\": \"19\",\n            \"type\": \"student\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"19a58d673efdc25f0d8f19097cc8f86d\"",
-        "X-Request-Id": "932cfb5b-d108-4abc-8986-a84542eefb9c",
-        "X-Runtime": "0.009856",
+        "ETag": "W/\"e5815702087f762af41296580343b9ef\"",
+        "X-Request-Id": "801105ae-8461-4b3a-9127-f2339583872b",
+        "X-Runtime": "0.007782",
         "Vary": "Origin",
-        "Content-Length": "974"
+        "Content-Length": "941"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/students/19\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 8c244625aa3ac231a7f3a8a6a8e7510e9208a838f7208c26798c4c01fe4be9ea\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/students/19\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer c5c72d98866c9e9afbd13d9f20555dbabadf18dd70db2b2973d3040ce4787813\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

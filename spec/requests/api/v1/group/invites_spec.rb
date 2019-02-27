@@ -10,7 +10,7 @@ RSpec.describe 'Group invites management', type: :request do
   let_it_be(:student)  { create(:student, user: user) }
   let_it_be(:group)    { create(:group, president: student, students: [student]) }
 
-  let_it_be(:invite) { create(:invite, sender: user, group: group) }
+  let_it_be(:invite) { create(:invite, sender: student, group: group) }
 
   let(:invite_params) { build(:invite_params) }
 

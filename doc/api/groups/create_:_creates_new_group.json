@@ -32,11 +32,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group",
-      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Distinctio ea quia.\",\"number\":\"13802\"}}}",
+      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Quod ex mollitia.\",\"number\":\"62587\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 0cf06bf75a935af3cd05e09a8c02bbdc396583e5eb46e53dfe16c84b25e5e30b",
+        "Authorization": "Bearer c698ddadb058a71bdbf73ce4e2e7b71ba6e8545d81a8ebf5c0762f77c461054e",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -45,7 +45,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"12\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"13802\",\n      \"title\": \"Distinctio ea quia.\",\n      \"created_at\": \"2019-02-26T07:58:17.239Z\",\n      \"updated_at\": \"2019-02-26T07:58:17.239Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"21\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"12\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"62587\",\n      \"title\": \"Quod ex mollitia.\",\n      \"created_at\": \"2019-02-27T06:08:48.749Z\",\n      \"updated_at\": \"2019-02-27T06:08:48.749Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"21\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -54,14 +54,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"fed0e0571772e3f1b8953290602bc818\"",
-        "X-Request-Id": "1de6d9dd-a1c1-4bca-98cc-e21484c56d9f",
-        "X-Runtime": "0.012923",
+        "ETag": "W/\"e8161adfff23a3c1b94b080da83e6db9\"",
+        "X-Request-Id": "e4e5a111-7dea-45da-b5a4-78adb179bf9a",
+        "X-Runtime": "0.009740",
         "Vary": "Origin",
-        "Content-Length": "246"
+        "Content-Length": "244"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Distinctio ea quia.\",\"number\":\"13802\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 0cf06bf75a935af3cd05e09a8c02bbdc396583e5eb46e53dfe16c84b25e5e30b\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Quod ex mollitia.\",\"number\":\"62587\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer c698ddadb058a71bdbf73ce4e2e7b71ba6e8545d81a8ebf5c0762f77c461054e\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

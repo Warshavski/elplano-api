@@ -10,11 +10,11 @@ module Invites
 
     # Create and send invite
     #
-    # @param [User] sender -
-    #   The user who initiates the invitation to the group(originally group owner)
+    # @param [Student] sender -
+    #   The student who initiates the invitation to the group(originally group owner)
     #
     # @param [Hash] params -
-    #   the parameters that determine the recipient and group for the invitation
+    #   The parameters that determine the recipient and group for the invitation
     #
     # @option params [String] :email - Email address of the recipient(used to send an invitation)
     # @option params [Group]  :group - The group to which the recipient will join after accepting the invitation
@@ -25,8 +25,8 @@ module Invites
       new(sender).execute(params)
     end
 
-    # @param [User] sender -
-    #   The user who initiates the invitation to the group(originally group owner)
+    # @param [Student] sender -
+    #   The student who initiates the invitation to the group(originally group owner)
     #
     def initialize(sender)
       raise ArgumentError, sender if sender.nil?

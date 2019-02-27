@@ -20,6 +20,20 @@ RSpec.describe Student, type: :model do
         .class_name('Event')
         .dependent(:delete_all)
     end
+
+    it do
+      have_many(:sent_invites)
+        .class_name('Invite')
+        .with_foreign_key(:sender_id)
+        .dependent(:destroy)
+    end
+
+    it do
+      have_many(:invitations)
+        .class_name('Invite')
+        .with_foreign_key(:recipient_id)
+        .dependent(:destroy)
+    end
   end
 
   describe 'validations' do

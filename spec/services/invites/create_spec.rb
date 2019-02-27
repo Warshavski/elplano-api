@@ -3,12 +3,11 @@ require 'rails_helper'
 RSpec.describe Invites::Create do
   # Two in one
   describe '.call' do
-    subject { described_class.call(user, params) }
+    subject { described_class.call(student, params) }
 
     let_it_be(:student) { create(:student, :group_supervisor) }
 
     context 'valid arguments' do
-      let_it_be(:user) { student.user }
       let(:params) do
         {
           email: 'seems@legit.email',
@@ -21,7 +20,7 @@ RSpec.describe Invites::Create do
       end
 
       it 'creates invite with specified sender' do
-        expect(subject.sender).to eq(user)
+        expect(subject.sender).to eq(student)
       end
 
       it "creates invite with sender's group" do
@@ -35,7 +34,7 @@ RSpec.describe Invites::Create do
       # HA! tricky things down here
       context 'notification presence' do
         it 'triggers notification' do
-          service = described_class.new(user)
+          service = described_class.new(student)
           expect(service).to receive(:notify_about).once
 
           service.execute(params)
@@ -45,18 +44,17 @@ RSpec.describe Invites::Create do
 
     context 'invalid arguments' do
       context 'invalid params' do
-        let_it_be(:user) { student.user }
         let(:params) { { email: nil } }
 
         it { expect { subject }.to raise_error(ActiveRecord::RecordInvalid) }
       end
 
       context 'invalid student' do
-        let(:user) { nil }
+        let_it_be(:student) { nil }
         let_it_be(:params) do
           {
             email: 'seems@legit.email',
-            group: student.supervised_group
+            group: create(:group)
           }
         end
 

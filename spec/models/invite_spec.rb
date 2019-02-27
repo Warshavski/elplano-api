@@ -4,9 +4,9 @@ RSpec.describe Invite, type: :model do
   describe 'associations' do
     it { should belong_to(:group) }
 
-    it { should belong_to(:sender).class_name('User') }
+    it { should belong_to(:sender).class_name('Student') }
 
-    it { should belong_to(:recipient).class_name('User').optional }
+    it { should belong_to(:recipient).class_name('Student').optional }
   end
 
   describe 'validations' do
@@ -48,10 +48,10 @@ RSpec.describe Invite, type: :model do
   describe '#claim_by!' do
     let(:invite) { create(:invite, :rnd_group) }
 
-    subject { invite.claim_by!(user) }
+    subject { invite.claim_by!(student) }
 
     context 'existed user' do
-      let(:user) { create(:user) }
+      let(:student) { create(:student) }
 
       before(:each) { subject }
 
@@ -59,11 +59,11 @@ RSpec.describe Invite, type: :model do
 
       it { expect(invite.accepted_at).to_not be(nil) }
 
-      it { expect(invite.recipient).to eq(user) }
+      it { expect(invite.recipient).to eq(student) }
     end
 
-    context 'nil user' do
-      let(:user) { nil }
+    context 'nil student' do
+      let(:student) { nil }
 
       it { expect { subject }.to raise_error(ActiveRecord::RecordInvalid) }
     end

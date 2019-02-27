@@ -20,6 +20,18 @@ class Student < ApplicationRecord
            inverse_of: :creator,
            dependent: :delete_all
 
+  has_many :invitations,
+           class_name: 'Invite',
+           foreign_key: :recipient_id,
+           inverse_of: :recipient,
+           dependent: :destroy
+
+  has_many :sent_invites,
+           class_name: 'Invite',
+           foreign_key: :sender_id,
+           inverse_of: :sender,
+           dependent: :destroy
+
   validates :full_name, length: { maximum: 200 }
   validates :email,     length: { maximum: 100 }
   validates :phone,     length: { maximum: 50 }

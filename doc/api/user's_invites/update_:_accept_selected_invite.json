@@ -14,12 +14,12 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "api/v1/invites/ZDQAymzLYWt6pvf8wXiV",
+      "request_path": "api/v1/invites/Z4c9hnmVqUHgGn_GboUA",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 5ea87324df1d9990b490910c93ba902314f4da3d6d643bf12bcf1a431eafa734",
+        "Authorization": "Bearer 3065826faccd491481db1d8b5697a0bf7a8934208a3fca8d572d217b20d2c660",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"cletusprosacco@metz.biz\",\n      \"invitation_token\": null,\n      \"sent_at\": \"2019-02-26T07:58:17.464Z\",\n      \"accepted_at\": \"2019-02-26T07:58:17.474Z\",\n      \"created_at\": \"2019-02-26T07:58:17.464Z\",\n      \"updated_at\": \"2019-02-26T07:58:17.477Z\",\n      \"status\": \"accepted\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"31\",\n          \"type\": \"sender\"\n        }\n      },\n      \"recipient\": {\n        \"data\": {\n          \"id\": \"30\",\n          \"type\": \"recipient\"\n        }\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"17\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"diego@wuckert.biz\",\n      \"invitation_token\": null,\n      \"sent_at\": \"2019-02-27T06:08:48.918Z\",\n      \"accepted_at\": \"2019-02-27T06:08:48.926Z\",\n      \"created_at\": \"2019-02-27T06:08:48.918Z\",\n      \"updated_at\": \"2019-02-27T06:08:48.929Z\",\n      \"status\": \"accepted\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"31\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": {\n          \"id\": \"30\",\n          \"type\": \"student\"\n        }\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"17\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"05e47c995356df870ece69d4a28b59c2\"",
-        "X-Request-Id": "b6f7a7c9-db2e-4d70-9763-71788695dfd0",
-        "X-Runtime": "0.013345",
+        "ETag": "W/\"01e93581d6385370572b80e55f710de1\"",
+        "X-Request-Id": "83900935-53e0-4c3d-b345-803171745411",
+        "X-Runtime": "0.010283",
         "Vary": "Origin",
-        "Content-Length": "446"
+        "Content-Length": "439"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/invites/ZDQAymzLYWt6pvf8wXiV\" -d '' -X PATCH \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 5ea87324df1d9990b490910c93ba902314f4da3d6d643bf12bcf1a431eafa734\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/invites/Z4c9hnmVqUHgGn_GboUA\" -d '' -X PATCH \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 3065826faccd491481db1d8b5697a0bf7a8934208a3fca8d572d217b20d2c660\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

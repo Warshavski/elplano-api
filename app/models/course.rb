@@ -2,7 +2,9 @@
 
 # Course
 #
-#   [DESCRIPTION]
+#   Used to represent courses(managed by the group owner).
+#
+#   NOTE : Each group has its own list of courses and they can't cross with another group.
 #
 class Course < ApplicationRecord
   belongs_to :group

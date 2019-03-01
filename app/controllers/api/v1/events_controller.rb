@@ -2,7 +2,13 @@ module Api
   module V1
     # Api::V1::EventsController
     #
-    #   ...[DESCRIPTION]...
+    #   Used to control events in scope of current user
+    #
+    #     - list created events
+    #     - get information about particular event(detailed information)
+    #     - create a new event(schedule event)
+    #     - update information about event
+    #     - delete event
     #
     class EventsController < ApplicationController
       set_default_serializer EventSerializer

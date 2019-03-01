@@ -2,7 +2,7 @@
 
 # LecturerSerializer
 #
-#   [DESCRIPTION]
+#   Used for lecturer data representation
 #
 class LecturerSerializer
   include FastJsonapi::ObjectSerializer

@@ -2,7 +2,10 @@
 
 # Lecturer
 #
-#   [DESCRIPTION]
+#   Used to represents lecturer(teacher).
+#
+#   NOTE : For now, all lecturers presented not as users, they must be managed by group owner.
+#          Each group has its own list of lecturers and they can't cross with another group.
 #
 class Lecturer < ApplicationRecord
   belongs_to :group

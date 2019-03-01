@@ -68,9 +68,10 @@ module Users
     def execute(&block)
       User.transaction do
         user = block ? yield : User.new(params)
-        user.save!
 
-        Student.create!(user: user, email: user.email)
+        user.save! do |u|
+          Student.create!(user: u, email: u.email)
+        end
 
         user
       end

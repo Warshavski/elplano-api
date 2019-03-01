@@ -18,6 +18,11 @@ module Users
     # @option params [Integer]  :scale    - (optional, default = 2) Used to specify image scale
     # @option params [String]   :username - (optional, default = nil) Used to calculate hash for the image
     #
+    # Default options are:
+    #   :size => 40
+    #   :scale => 2
+    #   :username => nil
+    #
     # @return [String]
     #
     def self.call(params)

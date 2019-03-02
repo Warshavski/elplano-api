@@ -19,6 +19,8 @@ module Invites
     # @option params [String] :email - Email address of the recipient(used to send an invitation)
     # @option params [Group]  :group - The group to which the recipient will join after accepting the invitation
     #
+    # @raise [ArgumentError] error on invalid input(nil sender)
+    #
     # @return [Invite]
     #
     def self.call(sender, params)
@@ -27,6 +29,8 @@ module Invites
 
     # @param [Student] sender -
     #   The student who initiates the invitation to the group(originally group owner)
+    #
+    # @raise [ArgumentError] error on invalid input(nil sender)
     #
     def initialize(sender)
       raise ArgumentError, sender if sender.nil?

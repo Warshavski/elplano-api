@@ -2,7 +2,7 @@
 
 # CourseSerializer
 #
-#   [DESCRIPTION]
+#   Used for course data representation
 #
 class CourseSerializer
   include FastJsonapi::ObjectSerializer

@@ -2,7 +2,7 @@
 
 # InviteSerializer
 #
-#   Used for [DESCRIPTION]
+#   Used for invite data representation
 #
 class InviteSerializer
   include FastJsonapi::ObjectSerializer

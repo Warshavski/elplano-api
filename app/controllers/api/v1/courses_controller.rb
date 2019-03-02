@@ -4,7 +4,19 @@ module Api
   module V1
     # Api::V1::CoursesController
     #
-    #   [DESCRIPTION]
+    #   Used to control courses in the scope of the group
+    #
+    #   Regular group member's actions:
+    #
+    #     - list available courses
+    #     - get information about particular course
+    #
+    #   Group owner actions:
+    #
+    #     - regular group member's actions
+    #     - create a new course
+    #     - update information about particular course
+    #     - delete particular course
     #
     class CoursesController < ApplicationController
       set_default_serializer CourseSerializer

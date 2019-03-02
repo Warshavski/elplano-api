@@ -4,7 +4,19 @@ module Api
   module V1
     # Api::V1::LecturersController
     #
-    #   [DESCRIPTION]
+    #   Used to control lecturers in the scope of the group
+    #
+    #   Regular group member's actions:
+    #
+    #     - list available lecturers
+    #     - get information about particular lecturer
+    #
+    #   Group owner actions:
+    #
+    #     - regular group member's actions
+    #     - create a new lecturer
+    #     - update information about particular lecturer
+    #     - delete particular lecturer
     #
     class LecturersController < ApplicationController
       set_default_serializer LecturerSerializer

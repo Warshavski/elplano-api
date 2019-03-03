@@ -13,8 +13,6 @@ RUN apk add --update --no-cache \
     build-base \
     postgresql-dev \
     git \
-    imagemagick \
-    python2 \
     tzdata
 
 WORKDIR /app
@@ -42,7 +40,6 @@ ARG ADDITIONAL_PACKAGES
 # Add Alpine packages
 RUN apk add --update --no-cache \
     postgresql-client \
-    imagemagick \
     $ADDITIONAL_PACKAGES \
     tzdata \
     file

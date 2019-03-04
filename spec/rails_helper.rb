@@ -2,6 +2,8 @@
 
 require 'simplecov'
 SimpleCov.start do
+  add_filter 'spec/factories'
+
   add_filter 'spec/support/helpers/stub_env.rb'
   add_filter 'spec/support/redis/redis_helpers.rb'
   add_filter 'spec/support/bullet_context.rb'

@@ -50,4 +50,19 @@ FactoryBot.define do
       }
     end
   end
+
+  factory :invalid_user_params, class: Hash do
+    initialize_with do
+      {
+        type: 'user',
+        attributes: {
+          email: 'wat_email',
+          email_confirmation: 'wat@wat.wat',
+          password: '123456',
+          password_confirmation: '',
+          username: nil
+        }
+      }
+    end
+  end
 end

@@ -23,39 +23,18 @@ module Api
         def create
           user = ::Users::Register.call { build_resource(sign_up_params) }
 
-          if user.persisted?
-            handle_auth(user)
-          else
-            handle_error(user)
-          end
+          handle_auth(user)
         end
 
         private
 
         def handle_auth(user)
-          if user.active_for_authentication?
-            #
-            # Success!
-            #
-            message = find_message(:signed_up, {})
-
-            sign_up(resource_name, user)
-          else
-            #
-            # Success but activation required
-            #
-            message = find_message(:"signed_up_but_#{user.inactive_message}", {})
-            expire_data_after_sign_in!
-          end
+          #
+          # Success but activation required
+          #
+          message = find_message(:"signed_up_but_#{user.inactive_message}", {})
 
           render_json user, meta: { message: message }, status: :created
-        end
-
-        def handle_error(user)
-          clean_up_passwords(user)
-          set_minimum_password_length
-
-          render_errors(ErrorSerializer.serialize(user, 422), :unprocessable_entity)
         end
 
         def sign_up_params

@@ -11,6 +11,14 @@ describe Api::V1::Users::PasswordsController do
     end
   end
 
+  describe '#edit' do
+    it 'responds with unauthorized' do
+      get('/api/v1/users/password/edit?reset_password_token=abcdef')
+
+      expect(response).to have_http_status(:unauthorized)
+    end
+  end
+
   describe '#update' do
     let(:endpoint) { '/api/v1/users/password' }
 
@@ -69,7 +77,13 @@ describe Api::V1::Users::PasswordsController do
       }
     end
 
+    let(:paranoid) { true }
+
     subject { post '/api/v1/users/password', params: { data: user_params }  }
+
+    before do
+      allow(Devise).to receive(:paranoid).and_return(paranoid)
+    end
 
     before(:each) { subject }
 
@@ -79,7 +93,7 @@ describe Api::V1::Users::PasswordsController do
       it { expect(body_as_json.keys).to match_array(['meta'])}
     end
 
-    context 'invalid params' do
+    context 'empty params' do
       let(:user_params) { nil }
 
       it { expect(response).to have_http_status(:bad_request) }
@@ -89,6 +103,22 @@ describe Api::V1::Users::PasswordsController do
         expected_keys = %w[status source detail]
 
         expect(actual_keys).to match_array(expected_keys)
+      end
+    end
+
+    context 'invalid params' do
+      let(:user_params) { build(:invalid_user_params) }
+
+      context 'paranoid mode on' do
+        let(:paranoid) { true }
+
+        it { expect(response).to have_http_status(:ok) }
+      end
+
+      context 'paranoid mode off' do
+        let(:paranoid) { false }
+
+        it { expect(response).to have_http_status(:unprocessable_entity) }
       end
     end
   end

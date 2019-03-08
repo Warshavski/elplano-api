@@ -40,6 +40,10 @@ gem 'doorkeeper', '>= 5.0.1'
 # https://github.com/mperham/sidekiq
 gem 'sidekiq'
 
+# Lightweight job scheduler extension for Sidekiq
+# https://github.com/moove-it/sidekiq-scheduler
+gem 'sidekiq-scheduler'
+
 # Settings is a plugin that makes managing a table of global key, value pairs easy.
 # https://github.com/huacnlee/rails-settings-cached
 gem 'rails-settings-cached'

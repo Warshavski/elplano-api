@@ -86,7 +86,7 @@ module Api
       end
 
       def filter_courses
-        current_group.courses
+        current_group&.courses || Course.none
       end
 
       def course_params

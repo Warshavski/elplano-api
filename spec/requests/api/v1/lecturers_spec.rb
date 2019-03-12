@@ -25,6 +25,16 @@ RSpec.describe 'Lecturers management', type: :request do
       bulletify { subject }
     end
 
+    context 'student without group' do
+      let_it_be(:student) { create(:student, user: user) }
+
+      before(:each) { subject }
+
+      it { expect(response).to have_http_status(:ok) }
+
+      it { expect(body_as_json['data']).to eq([]) }
+    end
+
     context 'unsorted lecturers collection' do
       before(:each) { subject }
 

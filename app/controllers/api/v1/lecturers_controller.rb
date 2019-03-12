@@ -80,7 +80,7 @@ module Api
       private
 
       def filter_lecturers
-        current_group.lecturers
+        current_group&.lecturers || Lecturer.none
       end
 
       def authorize_edit!

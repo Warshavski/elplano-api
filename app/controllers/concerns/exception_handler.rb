@@ -9,6 +9,23 @@ module ExceptionHandler
 
   included do
 
+    # Return 500 - Internal Server Error
+    #
+    rescue_from StandardError do |e|
+      log_exception(e)
+
+      render_errors(
+        [
+          {
+            status: 500,
+            detail: '(ノಠ益ಠ)ノ彡┻━┻',
+            source: 'server'
+          }
+        ],
+        :internal_server_error
+      )
+    end
+
     # Return 400 - Bad Request
     #
     rescue_from ActionController::ParameterMissing do |e|

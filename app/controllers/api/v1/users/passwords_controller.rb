@@ -32,7 +32,7 @@ module Api
           if successfully_sent?(resource)
             render json: { meta: { message: @message } }, status: :ok
           else
-            handle_error(resource)
+            process_error(resource)
           end
         end
 
@@ -48,7 +48,7 @@ module Api
 
             render_json resource, meta: { message: @message }, status: :ok
           else
-            handle_error(resource) { set_minimum_password_length }
+            process_error(resource) { set_minimum_password_length }
           end
         end
 

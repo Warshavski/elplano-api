@@ -2,87 +2,70 @@
 
 # ExceptionHandler
 #
-#   Used to handle ActiveRecord exceptions
+#   Used to handle application exceptions and render appropriate json response
 #
 module ExceptionHandler
   extend ActiveSupport::Concern
 
   included do
-
     # Return 500 - Internal Server Error
     #
     rescue_from StandardError do |e|
-      log_exception(e)
-
-      render_errors(
-        [
-          {
-            status: 500,
-            detail: '(ノಠ益ಠ)ノ彡┻━┻',
-            source: 'server'
-          }
-        ],
-        :internal_server_error
-      )
+      handle_error(e, :internal_server_error) do
+        [{ status: 500, detail: '(ノಠ益ಠ)ノ彡┻━┻', source: { pointer: 'server' } }]
+      end
     end
 
     # Return 400 - Bad Request
     #
     rescue_from ActionController::ParameterMissing do |e|
-      log_exception(e)
-
-      render_errors([{ status: 400, detail: e.message, source: { pointer: e.param }}], :bad_request)
+      handle_error(e, :bad_request) do
+        [{ status: 400, detail: e.message, source: { pointer: e.param } }]
+      end
     end
 
     # Return 404 - Not Found
     #
     rescue_from ActiveRecord::RecordNotFound do |e|
-      log_exception(e)
-
-      not_found(e.message)
+      handle_error(e, :not_found) do
+        [{ status: 404, detail: e.message }]
+      end
     end
 
     # Return 422 - Unprocessable Entity (validation|duplicate record)
     #
     rescue_from ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique do |e|
-      log_exception(e)
-
-      render_errors(ErrorSerializer.serialize(e.record, 422), :unprocessable_entity)
+      handle_error(e, :unprocessable_entity) do
+        ErrorSerializer.serialize(e.record, 422)
+      end
     end
 
     rescue_from Elplano::Errors::AuthError do |e|
-      log_exception(e)
-
-      render_errors(
-        [
-          {
-            status: 403,
-            detail: e.message,
-            source: { pointer: 'authorization header' }
-          }
-        ],
-        :forbidden
-      )
+      handle_error(e, :forbidden) do
+        [{ status: 403, detail: e.message, source: { pointer: 'authorization header' } }]
+      end
     end
+  end
 
-    def not_found(message = 'Record not found')
-      render_errors([{ status: 404, detail: message }], :not_found)
-    end
+  private
 
-    private
+  def handle_error(error, status)
+    log_exception(error)
 
-    def render_errors(object, status)
-      render json: { errors: object }, status: status
-    end
+    render_error(yield, status)
+  end
 
-    def log_exception(exception)
-      application_trace = ActionDispatch::ExceptionWrapper
-                          .new(ActiveSupport::BacktraceCleaner.new, exception)
-                          .application_trace
+  def render_error(representation, status)
+    render json: { errors: representation }, status: status
+  end
 
-      application_trace.map! { |t| "  #{t}\n" }
+  def log_exception(exception)
+    application_trace = ActionDispatch::ExceptionWrapper
+                        .new(ActiveSupport::BacktraceCleaner.new, exception)
+                        .application_trace
 
-      logger.error "\n#{exception.class.name} (#{exception.message}):\n#{application_trace.join}"
-    end
+    application_trace.map! { |t| "  #{t}\n" }
+
+    logger.error "\n#{exception.class.name} (#{exception.message}):\n#{application_trace.join}"
   end
 end

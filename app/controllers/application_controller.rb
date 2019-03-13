@@ -30,6 +30,10 @@ class ApplicationController < ActionController::API
     end
   end
 
+  def not_found(message = 'Record not found')
+    render_error([{ status: 404, detail: message }], :not_found)
+  end
+
   def json_request?
     request.format.json? && json_content_type?
   end

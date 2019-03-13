@@ -32,7 +32,7 @@ module Api
 
             render_json resource, meta: { message: message }, status: :ok
           else
-            handle_error(resource)
+            process_error(resource)
           end
         end
 
@@ -46,7 +46,7 @@ module Api
           if successfully_sent?(resource)
             render_json resource, meta: { message: @message }, status: :ok
           else
-            handle_error(resource)
+            process_error(resource)
           end
         end
 

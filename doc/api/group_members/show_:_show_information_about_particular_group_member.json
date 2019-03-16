@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 5f044399d098c716369ecdb300c99a64a9b9003e0460c665e0bcf1f2f7e34532",
+        "Authorization": "Bearer 581f35af11925089a7afa2b6793a9f5a6266a458983cd1f596a3123923edd431",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"24\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Jenae Leona McKenzie\",\n      \"email\": \"nicholas@langworthwalsh.name\",\n      \"phone\": \"683.263.9788\",\n      \"about\": \"Voluptatem in ex. Accusantium sed fuga. In hic alias. Qui aut est. A consequatur nam.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/ozzie.johnston\",\n        \"facebook\": \"http://facebook/refugia\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-27T06:43:21.186Z\",\n      \"updated_at\": \"2019-02-27T06:43:21.186Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"15\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"23\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"23\",\n      \"type\": \"user\",\n      \"attributes\": {\n        \"email\": \"gilberto@kihn.name\",\n        \"username\": \"elsie\",\n        \"admin\": false,\n        \"created_at\": \"2019-02-27T06:43:21.171Z\",\n        \"updated_at\": \"2019-02-27T06:43:21.171Z\",\n        \"avatar_url\": \"https://www.gravatar.com/avatar/07e461fe00f34e92ed2d7b1597050fbd?s=200&d=identicon\",\n        \"confirmed\": true\n      },\n      \"relationships\": {\n        \"student\": {\n          \"data\": {\n            \"id\": \"24\",\n            \"type\": \"student\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"24\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Miss Simon Alison Gerhold\",\n      \"email\": \"deehalvorson@moore.net\",\n      \"phone\": \"148.053.4923\",\n      \"about\": \"Ab alias debitis. Assumenda ad laboriosam. Accusamus rerum aut. Itaque minus sunt. Dicta quam fugit.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/kylie\",\n        \"facebook\": \"http://facebook/haie_frami\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-03-16T16:21:04.914Z\",\n      \"updated_at\": \"2019-03-16T16:21:04.914Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"15\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"23\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"23\",\n      \"type\": \"user\",\n      \"attributes\": {\n        \"email\": \"leda@gibsonhamill.info\",\n        \"username\": \"gertie_keeling\",\n        \"admin\": false,\n        \"created_at\": \"2019-03-16T16:21:04.899Z\",\n        \"updated_at\": \"2019-03-16T16:21:04.899Z\",\n        \"avatar_url\": \"https://www.gravatar.com/avatar/2d86073e8c40e435f7b5e1545493ee64?s=200&d=identicon\",\n        \"confirmed\": true\n      },\n      \"relationships\": {\n        \"student\": {\n          \"data\": {\n            \"id\": \"24\",\n            \"type\": \"student\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"b196e82a93a762cad270e2db70f036d1\"",
-        "X-Request-Id": "be1c465a-5bbe-4c05-a1da-c209b83a25f2",
-        "X-Runtime": "0.009414",
+        "ETag": "W/\"7e9e84f62970c467f4af015a6a36ee48\"",
+        "X-Request-Id": "0d6a91ea-5daf-42d5-845b-19c12e8de7ae",
+        "X-Runtime": "0.011656",
         "Vary": "Origin",
-        "Content-Length": "928"
+        "Content-Length": "949"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/students/24\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 5f044399d098c716369ecdb300c99a64a9b9003e0460c665e0bcf1f2f7e34532\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/students/24\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 581f35af11925089a7afa2b6793a9f5a6266a458983cd1f596a3123923edd431\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

@@ -36,6 +36,21 @@ FactoryBot.define do
     end
   end
 
+  trait :unconfirmed do
+    after(:build) do |user, _|
+      user.confirmation_token = Devise.token_generator.digest(user, :confirmation_token, 'token')
+      user.confirmed_at = nil
+      user.confirmation_sent_at = Time.now.utc
+    end
+  end
+
+  trait :locked do
+    after(:build) do |user, _|
+      user.unlock_token = Devise.token_generator.digest(user, :unlock_token, 'token')
+      user.locked_at = Time.now.utc
+    end
+  end
+
   factory :user_params, class: Hash do
     initialize_with do
       {

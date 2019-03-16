@@ -205,6 +205,39 @@
       ]
     },
     {
+      "name": "Passwords",
+      "explanation": "User password reset API.\n\nProvides the ability to change the password.\n",
+      "examples": [
+        {
+          "description": "CREATE : Send reset password instructions",
+          "link": "passwords/create_:_send_reset_password_instructions.json",
+          "groups": "all",
+          "route": "api/v1/users/password",
+          "method": "post"
+        },
+        {
+          "description": "UPDATE : Reset password",
+          "link": "passwords/update_:_reset_password.json",
+          "groups": "all",
+          "route": "api/v1/users/password",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "name": "Registrations",
+      "explanation": "User registration API.\n\nUsers attributes :\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Used as user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - timestamps\n",
+      "examples": [
+        {
+          "description": "CREATE : Register new user",
+          "link": "registrations/create_:_register_new_user.json",
+          "groups": "all",
+          "route": "api/v1/users",
+          "method": "post"
+        }
+      ]
+    },
+    {
       "name": "Students",
       "explanation": "El Plano student's profile API.\n\nStudent attributes :\n\n  - `full_name` - Represents concatenated student's first, last and middle names.\n  - `email` - Represents email which is used to contact with the student.\n  - `phone` - Represents phone which is used to contact with the student.\n  - `about` - Represents some detailed information about student(BIO).\n  - `social_networks` - Represents a list of social networks.\n  - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).\n  - timestamps\n\n  Also, includes information about a group.\n\n  - `title` - Represents group human readable identity.\n  - `number` - Represents group main identity.\n  - timestamps\n",
       "examples": [
@@ -221,6 +254,40 @@
           "groups": "all",
           "route": "api/v1/student",
           "method": "put"
+        }
+      ]
+    },
+    {
+      "name": "Unlocks",
+      "explanation": "User confirmation API.\n\nProvides the ability to confirm user.\n",
+      "examples": [
+        {
+          "description": "CREATE : Send confirmation instructions",
+          "link": "unlocks/create_:_send_confirmation_instructions.json",
+          "groups": "all",
+          "route": "api/v1/users/confirmation",
+          "method": "post"
+        },
+        {
+          "description": "CREATE : Send unlock instructions",
+          "link": "unlocks/create_:_send_unlock_instructions.json",
+          "groups": "all",
+          "route": "api/v1/users/unlock",
+          "method": "post"
+        },
+        {
+          "description": "SHOW : Confirm user",
+          "link": "unlocks/show_:_confirm_user.json",
+          "groups": "all",
+          "route": "api/v1/users/confirmation?confirmation_token=token",
+          "method": "get"
+        },
+        {
+          "description": "SHOW : Unlock user",
+          "link": "unlocks/show_:_unlock_user.json",
+          "groups": "all",
+          "route": "api/v1/users/unlock?unlock_token=token",
+          "method": "get"
         }
       ]
     },

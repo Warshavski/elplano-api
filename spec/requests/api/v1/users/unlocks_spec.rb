@@ -21,11 +21,7 @@ describe Api::V1::Users::UnlocksController do
 
       it { expect(response).to have_http_status(:ok) }
 
-      include_examples 'json:api examples',
-                       %w[data meta],
-                       %w[id type attributes relationships],
-                       %w[email username avatar_url admin confirmed created_at updated_at],
-                       %w[student]
+      it { expect(body_as_json.keys).to match_array(['meta'])}
     end
 
     context 'invalid token' do
@@ -57,11 +53,7 @@ describe Api::V1::Users::UnlocksController do
 
       it { expect(response).to have_http_status(:ok) }
 
-      include_examples 'json:api examples',
-                       %w[data meta],
-                       %w[id type attributes relationships],
-                       %w[email username avatar_url admin confirmed created_at updated_at],
-                       %w[student]
+      it { expect(body_as_json.keys).to match_array(['meta'])}
     end
 
     context 'invalid params' do

@@ -1,0 +1,56 @@
+{
+  "resource": "Unlocks",
+  "resource_explanation": "User confirmation API.\n\nProvides the ability to confirm user.\n",
+  "http_method": "POST",
+  "route": "api/v1/users/confirmation",
+  "description": "CREATE : Send confirmation instructions",
+  "explanation": "Create confirmation user token and send confirmation instructions to the specified email address.\n",
+  "parameters": [
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "required": true,
+      "name": "email",
+      "description": "Unique email that used to identify user in application"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "api/v1/users/confirmation",
+      "request_body": "{\"data\":{\"id\":\"\",\"type\":\"user\",\"attributes\":{\"login\":\"efren@haleybauch.info\"}}}",
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"meta\": {\n    \"message\": \"If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes.\"\n  }\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"f09f4232db7afe28489911394ecb758a\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "7c779901-485c-4d01-9b28-0f9233d89fc5",
+        "X-Runtime": "0.003027",
+        "Vary": "Origin",
+        "Content-Length": "168"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/api/v1/users/confirmation\" -d '{\"data\":{\"id\":\"\",\"type\":\"user\",\"attributes\":{\"login\":\"efren@haleybauch.info\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

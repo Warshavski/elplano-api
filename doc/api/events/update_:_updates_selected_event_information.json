@@ -74,11 +74,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/events/4",
-      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Et voluptatem tempore.\",\"description\":\"Rerum placeat voluptatem. Error itaque eum. Magnam incidunt molestias. Blanditiis esse quos. Velit veritatis saepe.\",\"status\":\"cancelled\",\"start_at\":\"2019-02-26\",\"end_at\":\"2019-02-28\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":7,\"type\":\"course\"}}}}}",
+      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Accusamus ut nesciunt.\",\"description\":\"Amet repellendus eveniet. Placeat culpa voluptatem. Exercitationem illum eos. Culpa iste et. Repudiandae cumque hic.\",\"status\":\"cancelled\",\"start_at\":\"2019-03-15\",\"end_at\":\"2019-03-17\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":7,\"type\":\"course\"}}}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer f01a79860d01294b580c45e8ace1ebc9346c5c52d88d2ef336bd89186711303a",
+        "Authorization": "Bearer eb1f5d52deedec9b8c87bf1d25694c0a42542a3a0b60ef972109b3e0fff16ae9",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -87,7 +87,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"4\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Et voluptatem tempore.\",\n      \"description\": \"Rerum placeat voluptatem. Error itaque eum. Magnam incidunt molestias. Blanditiis esse quos. Velit veritatis saepe.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-02-26T00:00:00.000Z\",\n      \"end_at\": \"2019-02-28T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-02-27T06:43:20.881Z\",\n      \"updated_at\": \"2019-02-27T06:43:20.896Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"student\"\n        }\n      },\n      \"course\": {\n        \"data\": {\n          \"id\": \"7\",\n          \"type\": \"course\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"4\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Accusamus ut nesciunt.\",\n      \"description\": \"Amet repellendus eveniet. Placeat culpa voluptatem. Exercitationem illum eos. Culpa iste et. Repudiandae cumque hic.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-03-15T00:00:00.000Z\",\n      \"end_at\": \"2019-03-17T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-03-16T16:21:04.595Z\",\n      \"updated_at\": \"2019-03-16T16:21:04.612Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"student\"\n        }\n      },\n      \"course\": {\n        \"data\": {\n          \"id\": \"7\",\n          \"type\": \"course\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -96,14 +96,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"85eae896c83d79cb0411c52af2a610dd\"",
-        "X-Request-Id": "acb0e56b-b584-4ad1-9985-9d88f6a86f46",
-        "X-Runtime": "0.009280",
+        "ETag": "W/\"04dede571a0cd0171c4e4acad9dd6689\"",
+        "X-Request-Id": "90132d5e-a4a0-45bc-a612-1645d4ffff0b",
+        "X-Runtime": "0.010962",
         "Vary": "Origin",
-        "Content-Length": "650"
+        "Content-Length": "651"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/events/4\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Et voluptatem tempore.\",\"description\":\"Rerum placeat voluptatem. Error itaque eum. Magnam incidunt molestias. Blanditiis esse quos. Velit veritatis saepe.\",\"status\":\"cancelled\",\"start_at\":\"2019-02-26\",\"end_at\":\"2019-02-28\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":7,\"type\":\"course\"}}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer f01a79860d01294b580c45e8ace1ebc9346c5c52d88d2ef336bd89186711303a\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/events/4\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Accusamus ut nesciunt.\",\"description\":\"Amet repellendus eveniet. Placeat culpa voluptatem. Exercitationem illum eos. Culpa iste et. Repudiandae cumque hic.\",\"status\":\"cancelled\",\"start_at\":\"2019-03-15\",\"end_at\":\"2019-03-17\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":7,\"type\":\"course\"}}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer eb1f5d52deedec9b8c87bf1d25694c0a42542a3a0b60ef972109b3e0fff16ae9\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

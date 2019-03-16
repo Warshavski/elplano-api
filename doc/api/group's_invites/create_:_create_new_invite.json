@@ -23,11 +23,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group/invites",
-      "request_body": "{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"nohemihayes@cole.net\"}}}",
+      "request_body": "{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"florentinocollins@harris.io\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer d51dba305f00fda5de4fbe5022a773c8765a3872a1bb4f699ae56f912d8bd6ec",
+        "Authorization": "Bearer 4774a39c97779b9aded221c6bf24555ea839b64fe774b1907d03b6ea24001bbe",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -36,7 +36,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"nohemihayes@cole.net\",\n      \"invitation_token\": \"9dknrqxnREQDPmyiLxBy\",\n      \"sent_at\": \"2019-02-27T06:43:21.079Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-02-27T06:43:21.079Z\",\n      \"updated_at\": \"2019-02-27T06:43:21.079Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"florentinocollins@harris.io\",\n      \"invitation_token\": \"f3h1Yr483pxpjJTo1FCU\",\n      \"sent_at\": \"2019-03-16T16:21:04.794Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-03-16T16:21:04.794Z\",\n      \"updated_at\": \"2019-03-16T16:21:04.794Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -45,14 +45,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"45ddba50b3751671a57cfea7e4fa6392\"",
-        "X-Request-Id": "12788b28-c4e7-4e62-bc08-f914fe4a2948",
-        "X-Runtime": "0.053218",
+        "ETag": "W/\"227f37561565323f48ccec3e6dd51bf9\"",
+        "X-Request-Id": "e88418ff-9ed8-4e41-b83f-903a5a13a6d5",
+        "X-Runtime": "0.061417",
         "Vary": "Origin",
-        "Content-Length": "413"
+        "Content-Length": "420"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/invites\" -d '{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"nohemihayes@cole.net\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer d51dba305f00fda5de4fbe5022a773c8765a3872a1bb4f699ae56f912d8bd6ec\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/invites\" -d '{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"florentinocollins@harris.io\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 4774a39c97779b9aded221c6bf24555ea839b64fe774b1907d03b6ea24001bbe\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

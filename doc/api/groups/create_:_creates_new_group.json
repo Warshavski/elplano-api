@@ -32,11 +32,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group",
-      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Provident nihil in.\",\"number\":\"52625\"}}}",
+      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Accusamus iste impedit.\",\"number\":\"77467\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer e0c0d91753a4724c457ec8bdc558d9014503468366b9a2d07d59a22e48fa1e6f",
+        "Authorization": "Bearer cd63c285b60a2fc764ddd1fdb8cb39d415e233d16dc701f0b4a1502c3cc07156",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -45,7 +45,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"17\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"52625\",\n      \"title\": \"Provident nihil in.\",\n      \"created_at\": \"2019-02-27T06:43:21.260Z\",\n      \"updated_at\": \"2019-02-27T06:43:21.260Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"26\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"17\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"77467\",\n      \"title\": \"Accusamus iste impedit.\",\n      \"created_at\": \"2019-03-16T16:21:04.990Z\",\n      \"updated_at\": \"2019-03-16T16:21:04.990Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"26\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -54,14 +54,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"ec187cc9666b3796ce3a9745faa8a8ba\"",
-        "X-Request-Id": "95e655ed-5063-4aac-977f-6e774561bd4c",
-        "X-Runtime": "0.015417",
+        "ETag": "W/\"faca8af0c4ff32da0a5ecb587c166af2\"",
+        "X-Request-Id": "d23f4d3c-c4ad-43b2-8058-6d8ecf0255c3",
+        "X-Runtime": "0.012277",
         "Vary": "Origin",
-        "Content-Length": "246"
+        "Content-Length": "250"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Provident nihil in.\",\"number\":\"52625\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer e0c0d91753a4724c457ec8bdc558d9014503468366b9a2d07d59a22e48fa1e6f\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Accusamus iste impedit.\",\"number\":\"77467\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer cd63c285b60a2fc764ddd1fdb8cb39d415e233d16dc701f0b4a1502c3cc07156\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

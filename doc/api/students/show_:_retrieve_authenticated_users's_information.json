@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 57b827764aa8027697317a823c28c20ec162eb966dff220128d16c818ef17074",
+        "Authorization": "Bearer a2772efc84eee0a6177b2f2d13c92a88e72dde2c7b1742e37a7a97613c259945",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"44\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Mr. Angel Carola Walker\",\n      \"email\": \"micahwindler@mcclure.net\",\n      \"phone\": \"544.367.7503\",\n      \"about\": \"Eligendi in sint. Sunt magnam praesentium. Modi doloribus quis. Quia aut voluptas. Magnam et qui.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/mahalia_mills\",\n        \"facebook\": \"http://facebook/gwendolyn\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-02-27T06:43:21.777Z\",\n      \"updated_at\": \"2019-02-27T06:43:21.777Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"28\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"43\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"44\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Williams Yesenia Feeney\",\n      \"email\": \"arielchristiansen@yundt.name\",\n      \"phone\": \"1-507-873-9147\",\n      \"about\": \"Quis culpa nesciunt. Et doloribus et. Quam minima est. Minima at voluptas. Accusantium iure quis.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/sierra\",\n        \"facebook\": \"http://facebook/gale_terry\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-03-16T16:21:05.513Z\",\n      \"updated_at\": \"2019-03-16T16:21:05.513Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"28\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"43\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"16321b9485da791dca46a4905716fae2\"",
-        "X-Request-Id": "7b8577e7-d885-486d-8392-f6878ca3864b",
-        "X-Runtime": "0.007121",
+        "ETag": "W/\"5e1826da421326b314fa45720cff0831\"",
+        "X-Request-Id": "ec869724-2163-48b5-b245-3d818df633df",
+        "X-Runtime": "0.006789",
         "Vary": "Origin",
         "Content-Length": "558"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 57b827764aa8027697317a823c28c20ec162eb966dff220128d16c818ef17074\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer a2772efc84eee0a6177b2f2d13c92a88e72dde2c7b1742e37a7a97613c259945\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

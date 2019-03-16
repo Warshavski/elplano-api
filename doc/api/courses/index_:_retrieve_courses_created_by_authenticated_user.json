@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer a16a07694100ffe983d97c893a0c3cb82f44f747b7bea701f8e2ccf3e22744d3",
+        "Authorization": "Bearer 4b25992e0b71b45af8803b63dd96bf9b52e892abdccb868db3004731a5a6d0aa",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"course\",\n      \"attributes\": {\n        \"created_at\": \"2019-02-27T06:43:20.431Z\",\n        \"updated_at\": \"2019-02-27T06:43:20.431Z\",\n        \"title\": \"Neque Unde.\"\n      },\n      \"relationships\": {\n        \"lecturers\": {\n          \"data\": [\n            {\n              \"id\": \"1\",\n              \"type\": \"lecturer\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"course\",\n      \"attributes\": {\n        \"created_at\": \"2019-03-16T16:21:04.100Z\",\n        \"updated_at\": \"2019-03-16T16:21:04.100Z\",\n        \"title\": \"Voluptas Fugiat.\"\n      },\n      \"relationships\": {\n        \"lecturers\": {\n          \"data\": [\n            {\n              \"id\": \"1\",\n              \"type\": \"lecturer\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"e22c6b435c30962eb498c6c7987ab6b5\"",
-        "X-Request-Id": "7ef7e007-e613-4e98-80a5-3f7f1b187e9e",
-        "X-Runtime": "0.031974",
+        "ETag": "W/\"8c61ea1334c54f2300ebf74b7e7270f1\"",
+        "X-Request-Id": "a8c3f33e-11c5-43d4-9abc-3b2f24467cb4",
+        "X-Runtime": "0.023925",
         "Vary": "Origin",
-        "Content-Length": "224"
+        "Content-Length": "229"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/courses\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer a16a07694100ffe983d97c893a0c3cb82f44f747b7bea701f8e2ccf3e22744d3\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/courses\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 4b25992e0b71b45af8803b63dd96bf9b52e892abdccb868db3004731a5a6d0aa\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

@@ -74,11 +74,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/events",
-      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Laboriosam vel consequatur.\",\"description\":\"Qui qui quia. Vel qui sunt. Fuga quia consequatur. Voluptas consequatur et. Qui commodi praesentium.\",\"status\":\"cancelled\",\"start_at\":\"2019-02-26\",\"end_at\":\"2019-02-28\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":6,\"type\":\"course\"}}}}}",
+      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Soluta quo et.\",\"description\":\"Soluta facere qui. Praesentium et est. Amet reiciendis aut. Corporis aspernatur rem. Quia voluptatem culpa.\",\"status\":\"cancelled\",\"start_at\":\"2019-03-15\",\"end_at\":\"2019-03-17\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":6,\"type\":\"course\"}}}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 403b40098d1559e394c05875d411991220347fdda24a95e54f808c96e946ffd8",
+        "Authorization": "Bearer 3f32c23d4403f9d9c8d7493df43a461b3458ac748053c901c6fe78078cfc133a",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -87,7 +87,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Laboriosam vel consequatur.\",\n      \"description\": \"Qui qui quia. Vel qui sunt. Fuga quia consequatur. Voluptas consequatur et. Qui commodi praesentium.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-02-26T00:00:00.000Z\",\n      \"end_at\": \"2019-02-28T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-02-27T06:43:20.852Z\",\n      \"updated_at\": \"2019-02-27T06:43:20.852Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"11\",\n          \"type\": \"student\"\n        }\n      },\n      \"course\": {\n        \"data\": {\n          \"id\": \"6\",\n          \"type\": \"course\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Soluta quo et.\",\n      \"description\": \"Soluta facere qui. Praesentium et est. Amet reiciendis aut. Corporis aspernatur rem. Quia voluptatem culpa.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-03-15T00:00:00.000Z\",\n      \"end_at\": \"2019-03-17T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-03-16T16:21:04.562Z\",\n      \"updated_at\": \"2019-03-16T16:21:04.562Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"11\",\n          \"type\": \"student\"\n        }\n      },\n      \"course\": {\n        \"data\": {\n          \"id\": \"6\",\n          \"type\": \"course\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -96,14 +96,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"09f5d61cdf6eef10d3e51ecc12fa6a5b\"",
-        "X-Request-Id": "05f1f0bb-dfbc-4d52-aca5-6ffaabedd69a",
-        "X-Runtime": "0.011937",
+        "ETag": "W/\"ad9536e383f213fd465ad82bd10a4b6e\"",
+        "X-Request-Id": "2ebfece3-796b-4c5a-b881-62d9d3642f79",
+        "X-Runtime": "0.010127",
         "Vary": "Origin",
-        "Content-Length": "640"
+        "Content-Length": "634"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/events\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Laboriosam vel consequatur.\",\"description\":\"Qui qui quia. Vel qui sunt. Fuga quia consequatur. Voluptas consequatur et. Qui commodi praesentium.\",\"status\":\"cancelled\",\"start_at\":\"2019-02-26\",\"end_at\":\"2019-02-28\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":6,\"type\":\"course\"}}}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 403b40098d1559e394c05875d411991220347fdda24a95e54f808c96e946ffd8\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/events\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Soluta quo et.\",\"description\":\"Soluta facere qui. Praesentium et est. Amet reiciendis aut. Corporis aspernatur rem. Quia voluptatem culpa.\",\"status\":\"cancelled\",\"start_at\":\"2019-03-15\",\"end_at\":\"2019-03-17\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":6,\"type\":\"course\"}}}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 3f32c23d4403f9d9c8d7493df43a461b3458ac748053c901c6fe78078cfc133a\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

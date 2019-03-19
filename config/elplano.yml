@@ -18,9 +18,9 @@ defaults: &defaults
 
     ## Email settings
     # Email address used in the "From" field in mails sent by El Plano
-    email_from: example@example.com
-    email_display_name: El Plano
-    email_reply_to: noreply@example.com
+    email_from: 'noreply@elplano.com'
+    email_display_name: 'El Plano'
+    email_reply_to: 'noreply@elplano.com'
     email_subject_suffix: ''
 
   gravatar:

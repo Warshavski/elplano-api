@@ -5,7 +5,7 @@ ruby '2.5.3'
 
 # https://github.com/plataformatec/devise
 # Flexible authentication solution for Rails with Warden.
-gem 'devise'
+gem 'devise', '>= 4.6.1'
 
 # https://github.com/Netflix/fast_jsonapi
 # A lightning fast JSON:API serializer for Ruby Objects.

@@ -30,10 +30,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  errors:
+    access_error: 'Action not allowed'
   restify:
     errors:
-      missing:
-        data: 'Parameters does not present by JSON:API format. Missing "data" key'
-        type: 'Parameters does not present by JSON:API format. Missing "type" key'
-        attributes: 'Parameters does not present by JSON:API format. Missing "attributes" key'
+      missing: 'Parameters does not present by JSON:API format. Missing %{key} key'
+

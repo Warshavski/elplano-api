@@ -131,7 +131,8 @@ module JsonApi
     end
 
     def ensure!(condition, type)
-      message = I18n.t(type, scope: %i[restify errors missing])
+      message = I18n.t('restify.errors.missing', key: type)
+
       raise ActionController::ParameterMissing, message unless condition
     end
 

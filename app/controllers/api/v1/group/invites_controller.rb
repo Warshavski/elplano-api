@@ -48,7 +48,7 @@ module Api
         def authorize_student!
           return if current_student.group_owner?
 
-          raise Elplano::Errors::AuthError, 'Invites not allowed'
+          raise Elplano::Errors::AuthError, I18n.t('errors.access_error')
         end
 
         def filter_invites

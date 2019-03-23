@@ -69,13 +69,13 @@ module Api
       def authorize_edit
         return if current_student.group_owner?
 
-        raise Elplano::Errors::AuthError, 'Edit not allowed'
+        raise Elplano::Errors::AuthError, I18n.t('errors.access_error')
       end
 
       def authorize_create
         return unless current_student.any_group?
 
-        raise Elplano::Errors::AuthError, 'Create not allowed'
+        raise Elplano::Errors::AuthError, I18n.t('errors.access_error')
       end
 
       def group_params

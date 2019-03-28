@@ -12,7 +12,7 @@ resource 'Users' do
       - `username` - Used as user name.
       - `admin` - `false` if regular user `true`, if the user has access to application settings.
       - `confirmed` - `false` if the user did not confirm his address otherwise `true`.
-      - timestamps
+      - `timestamps`
   DESC
 
   let(:user) { create(:user, :student) }

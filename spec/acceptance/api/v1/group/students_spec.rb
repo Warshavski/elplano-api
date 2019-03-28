@@ -23,7 +23,7 @@ resource 'Group members' do
       - `admin` - `false` if regular user `true`, if the user has access to application settings.
       - `confirmed` - `false` if the user did not confirm his address otherwise `true`.
       - `avatar_url` - User's avatar URL.
-      - timestamps
+      - `timestamps`
   DESC
 
   let(:user)  { student.user }

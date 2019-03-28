@@ -1,6 +1,6 @@
 {
   "resource": "Courses",
-  "resource_explanation": "El Plano courses API.\n\nCourse attributes :\n\n - `title` - Represents course name(human readable identity).\n - timestamps\n\n Also, includes reference to the course lecturer.\n",
+  "resource_explanation": "El Plano courses API.\n\nCourse attributes :\n\n - `title` - Represents course name(human readable identity).\n - `timestamps`\n\n Also, includes reference to the course lecturer.\n",
   "http_method": "POST",
   "route": "api/v1/courses",
   "description": "CREATE : Create new course",
@@ -11,7 +11,7 @@
         "dta",
         "attributes"
       ],
-      "requred": true,
+      "required": true,
       "name": "title",
       "description": "Course title(human readable identity)"
     },
@@ -31,11 +31,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/courses",
-      "request_body": "{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Master of Arts\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":3,\"type\":\"lecturer\"}]}}}}",
+      "request_body": "{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Bachelor of Engineering\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":3,\"type\":\"lecturer\"}]}}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer c47baad017e4ff4417c58916f5bde086495e7062fc411275627435074779ae18",
+        "Authorization": "Bearer b80031dc6dc21e51444fb3776e9c59eef960693341f422dd4c296022db99c593",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -44,7 +44,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-03-16T16:21:04.308Z\",\n      \"updated_at\": \"2019-03-16T16:21:04.308Z\",\n      \"title\": \"Master Of Arts\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"3\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-03-28T17:27:27.551Z\",\n      \"updated_at\": \"2019-03-28T17:27:27.551Z\",\n      \"title\": \"Bachelor Of Engineering\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"3\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -53,14 +53,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"c630f5209945694865477ddbe4360d2c\"",
-        "X-Request-Id": "614fef6d-9d5d-4f28-917c-b76ed2ed737d",
-        "X-Runtime": "0.016994",
+        "ETag": "W/\"09b2cfbb540f2e8b3ff758f1cbf5114f\"",
+        "X-Request-Id": "eb7cacbd-c5fd-4b8f-b126-1d2acc377b17",
+        "X-Runtime": "0.016482",
         "Vary": "Origin",
-        "Content-Length": "225"
+        "Content-Length": "234"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/courses\" -d '{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Master of Arts\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":3,\"type\":\"lecturer\"}]}}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer c47baad017e4ff4417c58916f5bde086495e7062fc411275627435074779ae18\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/courses\" -d '{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Bachelor of Engineering\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":3,\"type\":\"lecturer\"}]}}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer b80031dc6dc21e51444fb3776e9c59eef960693341f422dd4c296022db99c593\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

@@ -15,7 +15,7 @@ resource "User's Invites" do
       - `pending` - The invite was not accepted by the recipient. Default status.
     - `sent_at` - Date and time when the invite was sent.
     - `accepted_at` - Date and time when the invite was accepted by recipient.
-    - timestamps
+    - `timestamps`
 
     Also, includes reference to the sender, recipient.
   DESC

@@ -1,6 +1,6 @@
 {
   "resource": "User's Invites",
-  "resource_explanation": "El Plano user's invites API.\n\nInvite attributes :\n\n- `email` - Represents email where invite was sent.\n- `invitation_token` - Represents token.\n- `status` - Represents invite current status.\n  - `accepted` - The invite was accepted by the recipient.\n  - `pending` - The invite was not accepted by the recipient. Default status.\n- `sent_at` - Date and time when the invite was sent.\n- `accepted_at` - Date and time when the invite was accepted by recipient.\n- timestamps\n\nAlso, includes reference to the sender, recipient.\n",
+  "resource_explanation": "El Plano user's invites API.\n\nInvite attributes :\n\n- `email` - Represents email where invite was sent.\n- `invitation_token` - Represents token.\n- `status` - Represents invite current status.\n  - `accepted` - The invite was accepted by the recipient.\n  - `pending` - The invite was not accepted by the recipient. Default status.\n- `sent_at` - Date and time when the invite was sent.\n- `accepted_at` - Date and time when the invite was accepted by recipient.\n- `timestamps`\n\nAlso, includes reference to the sender, recipient.\n",
   "http_method": "GET",
   "route": "api/v1/invites/:token",
   "description": "SHOW : Retrieve information about requested invite",
@@ -14,12 +14,12 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "api/v1/invites/qiQo8-etnxRxhbkKfDWP",
+      "request_path": "api/v1/invites/oXDZscyoNbyy2YLEsn1A",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 442d3313d894048100690e816b87bbf893874c969b107dcb901c574088dda721",
+        "Authorization": "Bearer cea01c920aa280f0bfe9277f0f7864655021c4b93f24c760ec2430aaa66ba68f",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"ned@kirlin.org\",\n      \"invitation_token\": \"qiQo8-etnxRxhbkKfDWP\",\n      \"sent_at\": \"2019-03-16T16:21:05.158Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-03-16T16:21:05.158Z\",\n      \"updated_at\": \"2019-03-16T16:21:05.158Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"33\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"21\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"21\",\n      \"type\": \"group\",\n      \"attributes\": {\n        \"number\": \"7523278214\",\n        \"title\": \"Ullam sapiente soluta.\",\n        \"created_at\": \"2019-03-16T16:21:05.155Z\",\n        \"updated_at\": \"2019-03-16T16:21:05.155Z\"\n      },\n      \"relationships\": {\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"devoralehner@walter.info\",\n      \"invitation_token\": \"oXDZscyoNbyy2YLEsn1A\",\n      \"sent_at\": \"2019-03-28T17:27:28.573Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-03-28T17:27:28.573Z\",\n      \"updated_at\": \"2019-03-28T17:27:28.573Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"33\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"21\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"21\",\n      \"type\": \"group\",\n      \"attributes\": {\n        \"number\": \"9893063138\",\n        \"title\": \"Est quia vero.\",\n        \"created_at\": \"2019-03-28T17:27:28.569Z\",\n        \"updated_at\": \"2019-03-28T17:27:28.569Z\"\n      },\n      \"relationships\": {\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"53f5041e20a8a444b2d68a479b29fbf3\"",
-        "X-Request-Id": "e78be015-7af7-43d8-a40a-7326ee01a598",
-        "X-Runtime": "0.006145",
+        "ETag": "W/\"3373f60b5b3afec8f0adbef14c6606a2\"",
+        "X-Request-Id": "3c70779c-dea3-4876-b320-f7ca54205ad9",
+        "X-Runtime": "0.006860",
         "Vary": "Origin",
-        "Content-Length": "616"
+        "Content-Length": "618"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/invites/qiQo8-etnxRxhbkKfDWP\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 442d3313d894048100690e816b87bbf893874c969b107dcb901c574088dda721\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/invites/oXDZscyoNbyy2YLEsn1A\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer cea01c920aa280f0bfe9277f0f7864655021c4b93f24c760ec2430aaa66ba68f\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

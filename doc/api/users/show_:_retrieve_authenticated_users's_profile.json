@@ -1,6 +1,6 @@
 {
   "resource": "Users",
-  "resource_explanation": "El Plano user's profile API.\n\nUsers attributes :\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Used as user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - timestamps\n",
+  "resource_explanation": "El Plano user's profile API.\n\nUsers attributes :\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Used as user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - `timestamps`\n",
   "http_method": "GET",
   "route": "api/v1/user",
   "description": "SHOW : Retrieve Authenticated Users's Profile",
@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer dfc9e6ab775a27a1e433f9dcb65b20f5c3a694f3a6c01689edd46486bf94f1f2",
+        "Authorization": "Bearer 586a9cdd40ffac9e9794e3c93d52d42305e0f0083537b9dd86a7bfac2e26d543",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"51\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"waylonrunte@bruenkuphal.biz\",\n      \"username\": \"gabriel_von\",\n      \"admin\": false,\n      \"created_at\": \"2019-03-16T16:21:06.188Z\",\n      \"updated_at\": \"2019-03-16T16:21:06.188Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/70895bca2bd76190664c677692f17910?s=200&d=identicon\",\n      \"confirmed\": true\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"48\",\n          \"type\": \"student\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"51\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"clair@kilback.biz\",\n      \"username\": \"devorah\",\n      \"admin\": false,\n      \"created_at\": \"2019-03-28T17:27:29.607Z\",\n      \"updated_at\": \"2019-03-28T17:27:29.607Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/f6b6f83b4ea23294cb86b117d984557c?s=200&d=identicon\",\n      \"confirmed\": true\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"48\",\n          \"type\": \"student\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"dedef206a484d5aa4644bcaa49bfec65\"",
-        "X-Request-Id": "30b6ddbe-9f12-4336-b23b-0b2d3267fdd2",
-        "X-Runtime": "0.006776",
+        "ETag": "W/\"0cea248d226284fa3381b3c259210c45\"",
+        "X-Request-Id": "c1c55b4e-e872-452a-b14f-2ca17ca039a9",
+        "X-Runtime": "0.009830",
         "Vary": "Origin",
-        "Content-Length": "392"
+        "Content-Length": "378"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/user\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer dfc9e6ab775a27a1e433f9dcb65b20f5c3a694f3a6c01689edd46486bf94f1f2\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/user\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 586a9cdd40ffac9e9794e3c93d52d42305e0f0083537b9dd86a7bfac2e26d543\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

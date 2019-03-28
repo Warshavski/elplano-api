@@ -1,5 +1,5 @@
 {
-  "resource": "Unlocks",
+  "resource": "Confirmations",
   "resource_explanation": "User confirmation API.\n\nProvides the ability to confirm user.\n",
   "http_method": "GET",
   "route": "api/v1/users/confirmation?confirmation_token=token",
@@ -32,19 +32,19 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"47\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"efren@haleybauch.info\",\n      \"username\": \"ben_bayer\",\n      \"admin\": false,\n      \"created_at\": \"2019-03-16T16:21:05.741Z\",\n      \"updated_at\": \"2019-03-16T16:21:05.763Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/84a02e8f97bacf1e54210aab9f79a127?s=200&d=identicon\",\n      \"confirmed\": true\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": null\n      }\n    }\n  },\n  \"meta\": {\n    \"message\": \"Your email address has been successfully confirmed.\"\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"47\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"janniemoore@wolff.biz\",\n      \"username\": \"willy\",\n      \"admin\": false,\n      \"created_at\": \"2019-03-28T17:27:29.118Z\",\n      \"updated_at\": \"2019-03-28T17:27:29.176Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/9d510d62c2dbc60e710a9e26893e104b?s=200&d=identicon\",\n      \"confirmed\": true\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": null\n      }\n    }\n  },\n  \"meta\": {\n    \"message\": \"Your email address has been successfully confirmed.\"\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"65b8f239da38e840582625e6de27f124\"",
+        "ETag": "W/\"518dd194cf11b79dd6098ce97008e9cc\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "570ab1fb-dabb-4a18-a80d-a1e7a577b7db",
-        "X-Runtime": "0.020681",
+        "X-Request-Id": "b57aeb5e-7388-46b3-bd1d-a4db3afaea84",
+        "X-Runtime": "0.035086",
         "Vary": "Origin",
-        "Content-Length": "433"
+        "Content-Length": "429"
       },
       "response_content_type": "application/json; charset=utf-8",
       "curl": "curl -g \"http://localhost:3000/api/v1/users/confirmation?confirmation_token=token\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""

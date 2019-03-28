@@ -1,6 +1,6 @@
 {
   "resource": "Groups",
-  "resource_explanation": "El Plano groups API'.\n\nGroup attributes: \n\n  - `title` - Human readable group identity.\n  - `number` - Main group identity.\n  - timestamps\n\n  Also, returns information about group members in relationships.\n",
+  "resource_explanation": "El Plano groups API'.\n\nGroup attributes: \n\n  - `title` - Human readable group identity.\n  - `number` - Main group identity.\n  - `timestamps`\n\n  Also, returns information about group members in relationships.\n",
   "http_method": "PUT",
   "route": "api/v1/group",
   "description": "UPDATE : Updates group information",
@@ -11,7 +11,7 @@
         "data",
         "attributes"
       ],
-      "requred": true,
+      "required": true,
       "name": "title",
       "description": "Human readable identity)"
     },
@@ -20,7 +20,7 @@
         "data",
         "attributes"
       ],
-      "requred": true,
+      "required": true,
       "name": "number",
       "description": "Main group identity"
     }
@@ -32,11 +32,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group",
-      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Facilis commodi unde.\",\"number\":\"90666\"}}}",
+      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"In consequatur voluptatum.\",\"number\":\"84619\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 3a1e0233ae238a2327972d4dbf659b80facf6f34302f5de91b9de8bb1e6dc04c",
+        "Authorization": "Bearer da82487062b1148bcb2b863f46695855235f21c398022723552c40cd34986535",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -45,7 +45,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"18\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"90666\",\n      \"title\": \"Facilis commodi unde.\",\n      \"created_at\": \"2019-03-16T16:21:05.014Z\",\n      \"updated_at\": \"2019-03-16T16:21:05.028Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"27\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"18\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"84619\",\n      \"title\": \"In consequatur voluptatum.\",\n      \"created_at\": \"2019-03-28T17:27:28.421Z\",\n      \"updated_at\": \"2019-03-28T17:27:28.434Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"27\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -54,14 +54,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"f04608f15fcd5c5fa6763d0dd1a1aa4b\"",
-        "X-Request-Id": "1716d85e-8e1d-4722-b10c-15ae522a4d38",
-        "X-Runtime": "0.011558",
+        "ETag": "W/\"512027c520d865a33709827abe796c5d\"",
+        "X-Request-Id": "9ee5f937-ce47-4f62-b85e-6142b15835e5",
+        "X-Runtime": "0.008690",
         "Vary": "Origin",
-        "Content-Length": "248"
+        "Content-Length": "253"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Facilis commodi unde.\",\"number\":\"90666\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 3a1e0233ae238a2327972d4dbf659b80facf6f34302f5de91b9de8bb1e6dc04c\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"In consequatur voluptatum.\",\"number\":\"84619\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer da82487062b1148bcb2b863f46695855235f21c398022723552c40cd34986535\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

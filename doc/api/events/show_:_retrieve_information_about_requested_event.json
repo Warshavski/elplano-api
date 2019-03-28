@@ -1,6 +1,6 @@
 {
   "resource": "Events",
-  "resource_explanation": "El Plano events API.\n\nEvent attributes :\n\n - `title` - Represents event name.\n - `description` - Represents event detailed description.\n - `status` - Represents event current status.\n   - `confirmed` - The event is confirmed. This is the default status.\n   - `tentative` - The event is tentatively confirmed.\n   - `cancelled` - The event is cancelled (deleted).\n\n - `recurrence` - Represents recurrence rules.\n - `timezone` - Timezone settings.\n - `start_at` - Represents when event starts.\n - `end_at` - Represents when event ends.\n - timestamps\n\n Also, includes reference to the event creator and attached course.\n",
+  "resource_explanation": "El Plano events API.\n\nEvent attributes :\n\n - `title` - Represents event name.\n - `description` - Represents event detailed description.\n - `status` - Represents event current status.\n   - `confirmed` - The event is confirmed. This is the default status.\n   - `tentative` - The event is tentatively confirmed.\n   - `cancelled` - The event is cancelled (deleted).\n\n - `recurrence` - Represents recurrence rules.\n - `timezone` - Timezone settings.\n - `start_at` - Represents when event starts.\n - `end_at` - Represents when event ends.\n - `timestamps`\n\n Also, includes reference to the event creator and attached course.\n",
   "http_method": "GET",
   "route": "api/v1/events/:id",
   "description": "SHOW : Retrieve information about requested event",
@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 436b43155b8cc0400ac29ff5c6d673c97673166c89d14c234a3288eb06b9dadf",
+        "Authorization": "Bearer 2e5432896e0860b1fc0155955bfde9dc67dfe7df28f1acfc68c02b1b8a2d3620",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"2\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"some_new_event\",\n      \"description\": null,\n      \"status\": \"confirmed\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-03-17T00:00:00.000Z\",\n      \"end_at\": null,\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-03-16T16:21:04.508Z\",\n      \"updated_at\": \"2019-03-16T16:21:04.508Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"9\",\n          \"type\": \"student\"\n        }\n      },\n      \"course\": {\n        \"data\": null\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"2\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"some_new_event\",\n      \"description\": null,\n      \"status\": \"confirmed\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-03-29T00:00:00.000Z\",\n      \"end_at\": null,\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-03-28T17:27:27.758Z\",\n      \"updated_at\": \"2019-03-28T17:27:27.758Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"9\",\n          \"type\": \"student\"\n        }\n      },\n      \"course\": {\n        \"data\": null\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"7a7e5f5f6a775fc5dd03802dbf6e60a5\"",
-        "X-Request-Id": "a9e5a602-921d-4726-a64b-2a7b47173d61",
-        "X-Runtime": "0.007408",
+        "ETag": "W/\"2607dba9771abddf527d5609022cdc42\"",
+        "X-Request-Id": "98ed4ef4-5522-45fd-b171-df6e864dcbf5",
+        "X-Runtime": "0.006460",
         "Vary": "Origin",
         "Content-Length": "484"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/events/2\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 436b43155b8cc0400ac29ff5c6d673c97673166c89d14c234a3288eb06b9dadf\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/events/2\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 2e5432896e0860b1fc0155955bfde9dc67dfe7df28f1acfc68c02b1b8a2d3620\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

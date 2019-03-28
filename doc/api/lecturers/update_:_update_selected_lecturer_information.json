@@ -1,6 +1,6 @@
 {
   "resource": "Lecturers",
-  "resource_explanation": "El Plano lecturers API.\n\nCourse attributes :\n\n - `first_name`\n - `last_name`\n - `patronymic`\n - timestamps\n\n Also, includes reference to the courses.\n",
+  "resource_explanation": "El Plano lecturers API.\n\nCourse attributes :\n\n - `first_name`\n - `last_name`\n - `patronymic`\n - `timestamps`\n\n Also, includes reference to the courses.\n",
   "http_method": "PUT",
   "route": "api/v1/lecturers/:id",
   "description": "UPDATE : Update selected lecturer information",
@@ -11,7 +11,7 @@
         "dta",
         "attributes"
       ],
-      "requred": true,
+      "required": true,
       "name": "first_name",
       "description": "Lecturer first name"
     },
@@ -20,7 +20,7 @@
         "dta",
         "attributes"
       ],
-      "requred": true,
+      "required": true,
       "name": "last_name",
       "description": "Lecturer last name"
     },
@@ -29,7 +29,7 @@
         "dta",
         "attributes"
       ],
-      "requred": true,
+      "required": true,
       "name": "patronymic",
       "description": "Lecturer patronymic"
     },
@@ -49,11 +49,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/lecturers/10",
-      "request_body": "{\"data\":{\"type\":\"lecturer\",\"attributes\":{\"first_name\":\"Herta\",\"last_name\":\"Pfannerstill\",\"patronymic\":\"Ms.\"},\"relationships\":{\"courses\":{\"data\":[{\"id\":12,\"type\":\"courses\"}]}}}}",
+      "request_body": "{\"data\":{\"type\":\"lecturer\",\"attributes\":{\"first_name\":\"Katrice\",\"last_name\":\"Volkman\",\"patronymic\":\"Miss\"},\"relationships\":{\"courses\":{\"data\":[{\"id\":12,\"type\":\"courses\"}]}}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 8240ed6d59675bd13a1ff7d4ad98543f28855bf8141a944eca29f8a88fdb44b9",
+        "Authorization": "Bearer 56bb959da3812673e58181ce4c0931a7e919af28c05c534dd887070221ed6c9a",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -62,7 +62,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"10\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"created_at\": \"2019-03-16T16:21:05.396Z\",\n      \"updated_at\": \"2019-03-16T16:21:05.430Z\",\n      \"first_name\": \"Herta\",\n      \"last_name\": \"Pfannerstill\",\n      \"patronymic\": \"Ms.\"\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"12\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"10\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"created_at\": \"2019-03-28T17:27:28.797Z\",\n      \"updated_at\": \"2019-03-28T17:27:28.826Z\",\n      \"first_name\": \"Katrice\",\n      \"last_name\": \"Volkman\",\n      \"patronymic\": \"Miss\"\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"12\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -71,14 +71,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"c28034abec55a74cc88d0daedaef28d7\"",
-        "X-Request-Id": "2698f4d2-ab07-4256-b6d9-62fe05be5485",
-        "X-Runtime": "0.018056",
+        "ETag": "W/\"6fac4d9ff5534a8827c8d6e6c6858d7f\"",
+        "X-Request-Id": "1824ab20-47a2-43f4-82d6-c47cb230ea52",
+        "X-Runtime": "0.015009",
         "Vary": "Origin",
-        "Content-Length": "267"
+        "Content-Length": "265"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/lecturers/10\" -d '{\"data\":{\"type\":\"lecturer\",\"attributes\":{\"first_name\":\"Herta\",\"last_name\":\"Pfannerstill\",\"patronymic\":\"Ms.\"},\"relationships\":{\"courses\":{\"data\":[{\"id\":12,\"type\":\"courses\"}]}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 8240ed6d59675bd13a1ff7d4ad98543f28855bf8141a944eca29f8a88fdb44b9\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/lecturers/10\" -d '{\"data\":{\"type\":\"lecturer\",\"attributes\":{\"first_name\":\"Katrice\",\"last_name\":\"Volkman\",\"patronymic\":\"Miss\"},\"relationships\":{\"courses\":{\"data\":[{\"id\":12,\"type\":\"courses\"}]}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 56bb959da3812673e58181ce4c0931a7e919af28c05c534dd887070221ed6c9a\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

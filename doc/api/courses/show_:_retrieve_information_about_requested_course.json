@@ -1,6 +1,6 @@
 {
   "resource": "Courses",
-  "resource_explanation": "El Plano courses API.\n\nCourse attributes :\n\n - `title` - Represents course name(human readable identity).\n - timestamps\n\n Also, includes reference to the course lecturer.\n",
+  "resource_explanation": "El Plano courses API.\n\nCourse attributes :\n\n - `title` - Represents course name(human readable identity).\n - `timestamps`\n\n Also, includes reference to the course lecturer.\n",
   "http_method": "GET",
   "route": "api/v1/courses/:id",
   "description": "SHOW : Retrieve information about requested course",
@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer c81c25d9d2fe23a6ee763696ba251e621e56a08de4e673e775bbb82558f1c4ac",
+        "Authorization": "Bearer faa13a0723538ce52d4218e0920c71b823e3c3c380a2ae6f355e44edbc9b2d49",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"2\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-03-16T16:21:04.241Z\",\n      \"updated_at\": \"2019-03-16T16:21:04.241Z\",\n      \"title\": \"Qui Ut.\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"2\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"2\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-03-28T17:27:27.486Z\",\n      \"updated_at\": \"2019-03-28T17:27:27.486Z\",\n      \"title\": \"Cum Et.\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"2\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"e2ff08933ad92e48f3a87f1a998489ec\"",
-        "X-Request-Id": "1f398554-39a2-45ed-ab76-efa4a0771ab9",
-        "X-Runtime": "0.010039",
+        "ETag": "W/\"8f9c4ec52a003ca0e417658375f78475\"",
+        "X-Request-Id": "ee8a2e87-18f5-419c-a8ff-f59ff50c2fd0",
+        "X-Runtime": "0.008564",
         "Vary": "Origin",
         "Content-Length": "218"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/courses/2\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer c81c25d9d2fe23a6ee763696ba251e621e56a08de4e673e775bbb82558f1c4ac\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/courses/2\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer faa13a0723538ce52d4218e0920c71b823e3c3c380a2ae6f355e44edbc9b2d49\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

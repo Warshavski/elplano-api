@@ -1,6 +1,6 @@
 {
   "resource": "Courses",
-  "resource_explanation": "El Plano courses API.\n\nCourse attributes :\n\n - `title` - Represents course name(human readable identity).\n - timestamps\n\n Also, includes reference to the course lecturer.\n",
+  "resource_explanation": "El Plano courses API.\n\nCourse attributes :\n\n - `title` - Represents course name(human readable identity).\n - `timestamps`\n\n Also, includes reference to the course lecturer.\n",
   "http_method": "DELETE",
   "route": "api/v1/courses/:id",
   "description": "DELETE : Delete selected course",
@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer e2df32e92589749994d2b710cf05219160e040d2d966a91eb2ccb2e9c06a445f",
+        "Authorization": "Bearer 9b0e5a433d55126f9029ce86859b7cec5456087aa99af03ed485b162a4f3c99d",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -36,12 +36,12 @@
         "X-Content-Type-Options": "nosniff",
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
-        "X-Request-Id": "9a0a002d-49ee-45ca-ad53-84e96c07b518",
-        "X-Runtime": "0.015365",
+        "X-Request-Id": "6813b2ea-a4ab-438e-a329-0ba95830ea12",
+        "X-Runtime": "0.014717",
         "Vary": "Origin"
       },
       "response_content_type": null,
-      "curl": "curl \"http://localhost:3000/api/v1/courses/5\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer e2df32e92589749994d2b710cf05219160e040d2d966a91eb2ccb2e9c06a445f\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/courses/5\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 9b0e5a433d55126f9029ce86859b7cec5456087aa99af03ed485b162a4f3c99d\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

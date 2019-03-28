@@ -1,6 +1,6 @@
 {
   "resource": "Groups",
-  "resource_explanation": "El Plano groups API'.\n\nGroup attributes: \n\n  - `title` - Human readable group identity.\n  - `number` - Main group identity.\n  - timestamps\n\n  Also, returns information about group members in relationships.\n",
+  "resource_explanation": "El Plano groups API'.\n\nGroup attributes: \n\n  - `title` - Human readable group identity.\n  - `number` - Main group identity.\n  - `timestamps`\n\n  Also, returns information about group members in relationships.\n",
   "http_method": "GET",
   "route": "api/v1/group",
   "description": "SHOW : Retrieve information about user's group",
@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 3cdf740f8116cb14f2e9d3b0f46d7d8608791e007621116bf95bb53ae95cd32d",
+        "Authorization": "Bearer 7651e8e402e1c64b3e169ea2f2558e52d5488c37e6ac762120d1632f8d9b016b",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"16\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"2389575501\",\n      \"title\": \"Dolor quia placeat.\",\n      \"created_at\": \"2019-03-16T16:21:04.945Z\",\n      \"updated_at\": \"2019-03-16T16:21:04.945Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"25\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"16\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"4957824395\",\n      \"title\": \"Dolore esse explicabo.\",\n      \"created_at\": \"2019-03-28T17:27:28.342Z\",\n      \"updated_at\": \"2019-03-28T17:27:28.342Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"25\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"2c932a8caa74698bc46eba8db637feb1\"",
-        "X-Request-Id": "5f65c5d5-d194-482c-bc96-e7ded68191eb",
-        "X-Runtime": "0.007754",
+        "ETag": "W/\"3ba5ce3bbd29421c981a5fa9cac2d3fb\"",
+        "X-Request-Id": "eeb71bc3-70d1-4818-8c3e-8bf9a07fb1da",
+        "X-Runtime": "0.009673",
         "Vary": "Origin",
-        "Content-Length": "251"
+        "Content-Length": "254"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 3cdf740f8116cb14f2e9d3b0f46d7d8608791e007621116bf95bb53ae95cd32d\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 7651e8e402e1c64b3e169ea2f2558e52d5488c37e6ac762120d1632f8d9b016b\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

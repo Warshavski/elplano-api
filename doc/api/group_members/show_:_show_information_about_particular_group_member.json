@@ -1,6 +1,6 @@
 {
   "resource": "Group members",
-  "resource_explanation": "El Plano group members API.\n\nStudent attributes :\n\n  - `full_name` - Represents concatenated student's first, last and middle names.\n  - `email` - Represents email which is used to contact with the student.\n  - `phone` - Represents phone which is used to contact with the student.\n  - `about` - Represents some detailed information about student(BIO).\n  - `social_networks` - Represents a list of social networks.\n  - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).\n  - timestamps\n\n  Also, includes information about a user and relationships to the group and user.\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Used as user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - `avatar_url` - User's avatar URL.\n  - timestamps\n",
+  "resource_explanation": "El Plano group members API.\n\nStudent attributes :\n\n  - `full_name` - Represents concatenated student's first, last and middle names.\n  - `email` - Represents email which is used to contact with the student.\n  - `phone` - Represents phone which is used to contact with the student.\n  - `about` - Represents some detailed information about student(BIO).\n  - `social_networks` - Represents a list of social networks.\n  - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).\n  - timestamps\n\n  Also, includes information about a user and relationships to the group and user.\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Used as user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - `avatar_url` - User's avatar URL.\n  - `timestamps`\n",
   "http_method": "GET",
   "route": "api/v1/group/students/:id",
   "description": "SHOW : Show information about particular group member",
@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 581f35af11925089a7afa2b6793a9f5a6266a458983cd1f596a3123923edd431",
+        "Authorization": "Bearer bd65c09ef148409ffca0422179d246b0af239b9b68ab7086f61e192a6c0aab66",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"24\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Miss Simon Alison Gerhold\",\n      \"email\": \"deehalvorson@moore.net\",\n      \"phone\": \"148.053.4923\",\n      \"about\": \"Ab alias debitis. Assumenda ad laboriosam. Accusamus rerum aut. Itaque minus sunt. Dicta quam fugit.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/kylie\",\n        \"facebook\": \"http://facebook/haie_frami\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-03-16T16:21:04.914Z\",\n      \"updated_at\": \"2019-03-16T16:21:04.914Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"15\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"23\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"23\",\n      \"type\": \"user\",\n      \"attributes\": {\n        \"email\": \"leda@gibsonhamill.info\",\n        \"username\": \"gertie_keeling\",\n        \"admin\": false,\n        \"created_at\": \"2019-03-16T16:21:04.899Z\",\n        \"updated_at\": \"2019-03-16T16:21:04.899Z\",\n        \"avatar_url\": \"https://www.gravatar.com/avatar/2d86073e8c40e435f7b5e1545493ee64?s=200&d=identicon\",\n        \"confirmed\": true\n      },\n      \"relationships\": {\n        \"student\": {\n          \"data\": {\n            \"id\": \"24\",\n            \"type\": \"student\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"24\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Evangelina Lara Heller V\",\n      \"email\": \"verda@welch.io\",\n      \"phone\": \"136-657-6684\",\n      \"about\": \"Debitis omnis magnam. Aliquam et provident. In molestias possimus. Veritatis voluptatem eius. Ullam totam molestiae.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/carmella\",\n        \"facebook\": \"http://facebook/kris.franecki\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-03-28T17:27:28.284Z\",\n      \"updated_at\": \"2019-03-28T17:27:28.284Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"15\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"23\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"23\",\n      \"type\": \"user\",\n      \"attributes\": {\n        \"email\": \"gerthabuckridge@stokes.org\",\n        \"username\": \"lakeesha_wolff\",\n        \"admin\": false,\n        \"created_at\": \"2019-03-28T17:27:28.268Z\",\n        \"updated_at\": \"2019-03-28T17:27:28.268Z\",\n        \"avatar_url\": \"https://www.gravatar.com/avatar/c51675ec12f493fd1aa1bf2dafba48a4?s=200&d=identicon\",\n        \"confirmed\": true\n      },\n      \"relationships\": {\n        \"student\": {\n          \"data\": {\n            \"id\": \"24\",\n            \"type\": \"student\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"7e9e84f62970c467f4af015a6a36ee48\"",
-        "X-Request-Id": "0d6a91ea-5daf-42d5-845b-19c12e8de7ae",
-        "X-Runtime": "0.011656",
+        "ETag": "W/\"f34b6329ef6271e6ae252920b53bcc7d\"",
+        "X-Request-Id": "68ea4096-2cb2-4d4f-9294-7575d477597c",
+        "X-Runtime": "0.038088",
         "Vary": "Origin",
-        "Content-Length": "949"
+        "Content-Length": "966"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/students/24\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 581f35af11925089a7afa2b6793a9f5a6266a458983cd1f596a3123923edd431\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/students/24\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer bd65c09ef148409ffca0422179d246b0af239b9b68ab7086f61e192a6c0aab66\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "resource": "Group members",
-  "resource_explanation": "El Plano group members API.\n\nStudent attributes :\n\n  - `full_name` - Represents concatenated student's first, last and middle names.\n  - `email` - Represents email which is used to contact with the student.\n  - `phone` - Represents phone which is used to contact with the student.\n  - `about` - Represents some detailed information about student(BIO).\n  - `social_networks` - Represents a list of social networks.\n  - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).\n  - timestamps\n\n  Also, includes information about a user and relationships to the group and user.\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Used as user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - `avatar_url` - User's avatar URL.\n  - timestamps\n",
+  "resource_explanation": "El Plano group members API.\n\nStudent attributes :\n\n  - `full_name` - Represents concatenated student's first, last and middle names.\n  - `email` - Represents email which is used to contact with the student.\n  - `phone` - Represents phone which is used to contact with the student.\n  - `about` - Represents some detailed information about student(BIO).\n  - `social_networks` - Represents a list of social networks.\n  - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).\n  - timestamps\n\n  Also, includes information about a user and relationships to the group and user.\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Used as user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - `avatar_url` - User's avatar URL.\n  - `timestamps`\n",
   "http_method": "GET",
   "route": "api/v1/group/students",
   "description": "INDEX : Retrieve group members",
@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 0a3179c699d1d3bfe3b3a9c830042be4739cac66703d739e24e2157e5ae4a360",
+        "Authorization": "Bearer 0c4595e0d55655b70ecc4183fb7365fdd9fb8ba4d1a9a4c8190d0e26a1272782",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"22\",\n      \"type\": \"student\",\n      \"attributes\": {\n        \"full_name\": \"Ryann Sondra Prosacco\",\n        \"email\": \"minhwisoky@emmerich.io\",\n        \"phone\": \"352-961-3734\",\n        \"about\": \"Praesentium magni est. Ipsa doloribus enim. Molestiae voluptatem excepturi. Illo reiciendis laboriosam. Quis sint et.\",\n        \"social_networks\": {\n          \"twitter\": \"http://twitter/francis\",\n          \"facebook\": \"http://facebook/winston\"\n        },\n        \"president\": false,\n        \"created_at\": \"2019-03-16T16:21:04.873Z\",\n        \"updated_at\": \"2019-03-16T16:21:04.873Z\"\n      },\n      \"relationships\": {\n        \"user\": {\n          \"data\": {\n            \"id\": \"21\",\n            \"type\": \"user\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"22\",\n      \"type\": \"student\",\n      \"attributes\": {\n        \"full_name\": \"Fermin Karla Harvey Jr.\",\n        \"email\": \"bryannaabernathy@sipes.info\",\n        \"phone\": \"1-227-764-1903\",\n        \"about\": \"Incidunt doloremque placeat. Voluptates molestiae cupiditate. Optio voluptates aut. Rerum eos rerum. Et et provident.\",\n        \"social_networks\": {\n          \"twitter\": \"http://twitter/hugo\",\n          \"facebook\": \"http://facebook/neely.schoen\"\n        },\n        \"president\": false,\n        \"created_at\": \"2019-03-28T17:27:28.239Z\",\n        \"updated_at\": \"2019-03-28T17:27:28.239Z\"\n      },\n      \"relationships\": {\n        \"user\": {\n          \"data\": {\n            \"id\": \"21\",\n            \"type\": \"user\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"f934521251d27d8f0117c2075973c2eb\"",
-        "X-Request-Id": "be16a4f1-c210-4601-b4d0-6895b3a8d9b2",
-        "X-Runtime": "0.009214",
+        "ETag": "W/\"40ed44b020dee100dc6774d8898b6690\"",
+        "X-Request-Id": "ad7c62e3-0dea-458a-9783-6a7ad5061f9b",
+        "X-Runtime": "0.015461",
         "Vary": "Origin",
-        "Content-Length": "524"
+        "Content-Length": "535"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/students\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 0a3179c699d1d3bfe3b3a9c830042be4739cac66703d739e24e2157e5ae4a360\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/students\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 0c4595e0d55655b70ecc4183fb7365fdd9fb8ba4d1a9a4c8190d0e26a1272782\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

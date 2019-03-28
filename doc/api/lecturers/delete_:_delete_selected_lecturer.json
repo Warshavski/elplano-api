@@ -1,6 +1,6 @@
 {
   "resource": "Lecturers",
-  "resource_explanation": "El Plano lecturers API.\n\nCourse attributes :\n\n - `first_name`\n - `last_name`\n - `patronymic`\n - timestamps\n\n Also, includes reference to the courses.\n",
+  "resource_explanation": "El Plano lecturers API.\n\nCourse attributes :\n\n - `first_name`\n - `last_name`\n - `patronymic`\n - `timestamps`\n\n Also, includes reference to the courses.\n",
   "http_method": "DELETE",
   "route": "api/v1/lecturers/:id",
   "description": "DELETE : Delete selected lecturer",
@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 3f2412f941159fa890e1c56923c4bd52dab47a44a8976dd681a0afb5564df6a5",
+        "Authorization": "Bearer 4be470982884449d5160e7248ec9c12bf8ac98b78fecffc386ec5b64d4d3649b",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -36,12 +36,12 @@
         "X-Content-Type-Options": "nosniff",
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
-        "X-Request-Id": "1f1ad7a0-c1ca-48a5-a5cd-54c0120e9182",
-        "X-Runtime": "0.009717",
+        "X-Request-Id": "a2f818df-92a2-4d8d-af94-1e63a3339e6f",
+        "X-Runtime": "0.008901",
         "Vary": "Origin"
       },
       "response_content_type": null,
-      "curl": "curl \"http://localhost:3000/api/v1/lecturers/11\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 3f2412f941159fa890e1c56923c4bd52dab47a44a8976dd681a0afb5564df6a5\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/lecturers/11\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 4be470982884449d5160e7248ec9c12bf8ac98b78fecffc386ec5b64d4d3649b\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

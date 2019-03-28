@@ -19,7 +19,7 @@ resource 'Events' do
      - `timezone` - Timezone settings.
      - `start_at` - Represents when event starts.
      - `end_at` - Represents when event ends.
-     - timestamps
+     - `timestamps`
   
      Also, includes reference to the event creator and attached course.
   DESC
@@ -72,13 +72,13 @@ resource 'Events' do
 
   post 'api/v1/events' do
     with_options scope: %i[dta attributes] do
-      parameter :title, 'Event title(human readable identity)', requred: true
+      parameter :title, 'Event title(human readable identity)', required: true
       parameter :description, 'Detailed event description'
-      # parameter :status, 'Event status', requred: true
+      # parameter :status, 'Event status', required: true
       parameter :recurrence, 'Recurrence rules if an event is recurrent'
-      parameter :start_at, 'Event start date', requred: true
-      parameter :end_at, 'Event end date', requred: true
-      parameter :timezone, 'Event timezone', requred: true
+      parameter :start_at, 'Event start date', required: true
+      parameter :end_at, 'Event end date', required: true
+      parameter :timezone, 'Event timezone', required: true
       parameter :course, 'The course to which the event is attached. Included in "relationships" category'
     end
 
@@ -113,13 +113,13 @@ resource 'Events' do
 
   put 'api/v1/events/:id' do
     with_options scope: %i[data attributes] do
-      parameter :title, 'Event title(human readable identity)', requred: true
+      parameter :title, 'Event title(human readable identity)', required: true
       parameter :description, 'Detailed event description'
       # parameter :status, 'Event status'
       parameter :recurrence, 'Recurrence rules if an event is recurrent'
-      parameter :start_at, 'Event start date', requred: true
-      parameter :end_at, 'Event end date', requred: true
-      parameter :timezone, 'Event timezone', requred: true
+      parameter :start_at, 'Event start date', required: true
+      parameter :end_at, 'Event end date', required: true
+      parameter :timezone, 'Event timezone', required: true
       parameter :course, 'The course to which the event is attached. Included in "relationships" category'
     end
 

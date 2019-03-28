@@ -9,7 +9,7 @@ resource 'Courses' do
     Course attributes :
 
      - `title` - Represents course name(human readable identity).
-     - timestamps
+     - `timestamps`
   
      Also, includes reference to the course lecturer.
   DESC
@@ -63,7 +63,7 @@ resource 'Courses' do
 
   post 'api/v1/courses' do
     with_options scope: %i[dta attributes] do
-      parameter :title, 'Course title(human readable identity)', requred: true
+      parameter :title, 'Course title(human readable identity)', required: true
       parameter :lecturers, 'Lecturers of the course. Included in "relationships" category'
     end
 
@@ -95,7 +95,7 @@ resource 'Courses' do
 
   put 'api/v1/courses/:id' do
     with_options scope: %i[data attributes] do
-      parameter :title, 'Course title(human readable identity)', requred: true
+      parameter :title, 'Course title(human readable identity)', required: true
       parameter :lecturers, 'Lecturers of the course. Included in "relationships" category'
     end
 

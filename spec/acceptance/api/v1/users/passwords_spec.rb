@@ -16,7 +16,7 @@ resource 'Passwords' do
 
   post 'api/v1/users/password' do
     with_options scope: %i[data attributes] do
-      parameter :login, 'Unique email that used to identify user in application or username.', requred: true
+      parameter :login, 'Unique email that used to identify user in application or username.', required: true
     end
 
     let(:raw_post) do

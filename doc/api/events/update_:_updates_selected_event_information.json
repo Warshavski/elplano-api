@@ -1,6 +1,6 @@
 {
   "resource": "Events",
-  "resource_explanation": "El Plano events API.\n\nEvent attributes :\n\n - `title` - Represents event name.\n - `description` - Represents event detailed description.\n - `status` - Represents event current status.\n   - `confirmed` - The event is confirmed. This is the default status.\n   - `tentative` - The event is tentatively confirmed.\n   - `cancelled` - The event is cancelled (deleted).\n\n - `recurrence` - Represents recurrence rules.\n - `timezone` - Timezone settings.\n - `start_at` - Represents when event starts.\n - `end_at` - Represents when event ends.\n - timestamps\n\n Also, includes reference to the event creator and attached course.\n",
+  "resource_explanation": "El Plano events API.\n\nEvent attributes :\n\n - `title` - Represents event name.\n - `description` - Represents event detailed description.\n - `status` - Represents event current status.\n   - `confirmed` - The event is confirmed. This is the default status.\n   - `tentative` - The event is tentatively confirmed.\n   - `cancelled` - The event is cancelled (deleted).\n\n - `recurrence` - Represents recurrence rules.\n - `timezone` - Timezone settings.\n - `start_at` - Represents when event starts.\n - `end_at` - Represents when event ends.\n - `timestamps`\n\n Also, includes reference to the event creator and attached course.\n",
   "http_method": "PUT",
   "route": "api/v1/events/:id",
   "description": "UPDATE : Updates selected event information",
@@ -11,7 +11,7 @@
         "data",
         "attributes"
       ],
-      "requred": true,
+      "required": true,
       "name": "title",
       "description": "Event title(human readable identity)"
     },
@@ -36,7 +36,7 @@
         "data",
         "attributes"
       ],
-      "requred": true,
+      "required": true,
       "name": "start_at",
       "description": "Event start date"
     },
@@ -45,7 +45,7 @@
         "data",
         "attributes"
       ],
-      "requred": true,
+      "required": true,
       "name": "end_at",
       "description": "Event end date"
     },
@@ -54,7 +54,7 @@
         "data",
         "attributes"
       ],
-      "requred": true,
+      "required": true,
       "name": "timezone",
       "description": "Event timezone"
     },
@@ -74,11 +74,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/events/4",
-      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Accusamus ut nesciunt.\",\"description\":\"Amet repellendus eveniet. Placeat culpa voluptatem. Exercitationem illum eos. Culpa iste et. Repudiandae cumque hic.\",\"status\":\"cancelled\",\"start_at\":\"2019-03-15\",\"end_at\":\"2019-03-17\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":7,\"type\":\"course\"}}}}}",
+      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Repudiandae et quia.\",\"description\":\"Voluptatem quas qui. Laudantium et totam. Laudantium dolorem aspernatur. Voluptatum ea minus. Eius voluptas rerum.\",\"status\":\"cancelled\",\"start_at\":\"2019-03-27\",\"end_at\":\"2019-03-29\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":7,\"type\":\"course\"}}}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer eb1f5d52deedec9b8c87bf1d25694c0a42542a3a0b60ef972109b3e0fff16ae9",
+        "Authorization": "Bearer 1e556e89e9bd823c92c573b61829a606790ccb0fd44197ac3097a12c15e0d4d0",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -87,7 +87,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"4\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Accusamus ut nesciunt.\",\n      \"description\": \"Amet repellendus eveniet. Placeat culpa voluptatem. Exercitationem illum eos. Culpa iste et. Repudiandae cumque hic.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-03-15T00:00:00.000Z\",\n      \"end_at\": \"2019-03-17T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-03-16T16:21:04.595Z\",\n      \"updated_at\": \"2019-03-16T16:21:04.612Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"student\"\n        }\n      },\n      \"course\": {\n        \"data\": {\n          \"id\": \"7\",\n          \"type\": \"course\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"4\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Repudiandae et quia.\",\n      \"description\": \"Voluptatem quas qui. Laudantium et totam. Laudantium dolorem aspernatur. Voluptatum ea minus. Eius voluptas rerum.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-03-27T00:00:00.000Z\",\n      \"end_at\": \"2019-03-29T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-03-28T17:27:27.840Z\",\n      \"updated_at\": \"2019-03-28T17:27:27.856Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"student\"\n        }\n      },\n      \"course\": {\n        \"data\": {\n          \"id\": \"7\",\n          \"type\": \"course\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -96,14 +96,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"04dede571a0cd0171c4e4acad9dd6689\"",
-        "X-Request-Id": "90132d5e-a4a0-45bc-a612-1645d4ffff0b",
-        "X-Runtime": "0.010962",
+        "ETag": "W/\"3ff8dbff256beba19434d61c9288d2bf\"",
+        "X-Request-Id": "60174fa7-848d-40e1-9ff1-103f83ce90ad",
+        "X-Runtime": "0.008398",
         "Vary": "Origin",
-        "Content-Length": "651"
+        "Content-Length": "647"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/events/4\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Accusamus ut nesciunt.\",\"description\":\"Amet repellendus eveniet. Placeat culpa voluptatem. Exercitationem illum eos. Culpa iste et. Repudiandae cumque hic.\",\"status\":\"cancelled\",\"start_at\":\"2019-03-15\",\"end_at\":\"2019-03-17\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":7,\"type\":\"course\"}}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer eb1f5d52deedec9b8c87bf1d25694c0a42542a3a0b60ef972109b3e0fff16ae9\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/events/4\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Repudiandae et quia.\",\"description\":\"Voluptatem quas qui. Laudantium et totam. Laudantium dolorem aspernatur. Voluptatum ea minus. Eius voluptas rerum.\",\"status\":\"cancelled\",\"start_at\":\"2019-03-27\",\"end_at\":\"2019-03-29\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":7,\"type\":\"course\"}}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 1e556e89e9bd823c92c573b61829a606790ccb0fd44197ac3097a12c15e0d4d0\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

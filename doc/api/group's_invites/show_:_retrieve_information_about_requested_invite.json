@@ -1,6 +1,6 @@
 {
   "resource": "Group's Invites",
-  "resource_explanation": "El Plano group's invites API.\n\nInvite attributes :\n\n- `email` - Represents email where invite was sent.\n- `invitation_token` - Represents token.\n- `status` - Represents invite current status.\n  - `accepted` - The invite was accepted by the recipient.\n  - `pending` - The invite was not accepted by the recipient. Default status.\n- `sent_at` - Date and time when the invite was sent.\n- `accepted_at` - Date and time when the invite was accepted by recipient.\n- timestamps\n\nAlso, includes reference to the sender, recipient.\n",
+  "resource_explanation": "El Plano group's invites API.\n\nInvite attributes :\n\n- `email` - Represents email where invite was sent.\n- `invitation_token` - Represents token.\n- `status` - Represents invite current status.\n  - `accepted` - The invite was accepted by the recipient.\n  - `pending` - The invite was not accepted by the recipient. Default status.\n- `sent_at` - Date and time when the invite was sent.\n- `accepted_at` - Date and time when the invite was accepted by recipient.\n- `timestamps`\n\nAlso, includes reference to the sender, recipient.\n",
   "http_method": "GET",
   "route": "api/v1/group/invites/:id",
   "description": "SHOW : Retrieve information about requested invite",
@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer e1986838e36a4a95c0554e1c5b17ed4503a92464883ea006f323343f78a3e50c",
+        "Authorization": "Bearer 49f272625fa251b8ae2890325d5d9e3e63fddebf8d7e9ed834bb42facbf2340b",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"2\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"owen@kozey.com\",\n      \"invitation_token\": \"UeuUyFzSV_mLYuDn1cVD\",\n      \"sent_at\": \"2019-03-16T16:21:04.745Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-03-16T16:21:04.745Z\",\n      \"updated_at\": \"2019-03-16T16:21:04.745Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"19\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"12\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"2\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"jaime@gleichner.info\",\n      \"invitation_token\": \"2as4A3cBKLhG7zFXz-Pe\",\n      \"sent_at\": \"2019-03-28T17:27:27.980Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-03-28T17:27:27.980Z\",\n      \"updated_at\": \"2019-03-28T17:27:27.980Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"19\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"12\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"936f7d782ec96fe534c04c3ad1f31eb5\"",
-        "X-Request-Id": "47578d63-2b73-4488-aea5-de7f46b6c860",
-        "X-Runtime": "0.006959",
+        "ETag": "W/\"a5298afaf892dd3ce3ff8cc7fdffc80a\"",
+        "X-Request-Id": "e81ce423-a889-4548-934a-d68665bece1e",
+        "X-Runtime": "0.006674",
         "Vary": "Origin",
-        "Content-Length": "407"
+        "Content-Length": "413"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/invites/2\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer e1986838e36a4a95c0554e1c5b17ed4503a92464883ea006f323343f78a3e50c\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/invites/2\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 49f272625fa251b8ae2890325d5d9e3e63fddebf8d7e9ed834bb42facbf2340b\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

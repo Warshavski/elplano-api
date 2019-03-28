@@ -10,7 +10,7 @@ resource 'Groups' do
 
       - `title` - Human readable group identity.
       - `number` - Main group identity.
-      - timestamps
+      - `timestamps`
 
       Also, returns information about group members in relationships.
   DESC
@@ -46,8 +46,8 @@ resource 'Groups' do
     let_it_be(:student) { create(:student) }
 
     with_options scope: %i[dta attributes] do
-      parameter :title, 'Human readable identity)', requred: true
-      parameter :number, 'Main group identity', requred: true
+      parameter :title, 'Human readable identity)', required: true
+      parameter :number, 'Main group identity', required: true
     end
 
     let(:raw_post) { { data: build(:group_params) }.to_json }
@@ -71,8 +71,8 @@ resource 'Groups' do
 
   put 'api/v1/group' do
     with_options scope: %i[data attributes] do
-      parameter :title, 'Human readable identity)', requred: true
-      parameter :number, 'Main group identity', requred: true
+      parameter :title, 'Human readable identity)', required: true
+      parameter :number, 'Main group identity', required: true
     end
 
     let(:raw_post) { { data: build(:group_params) }.to_json }

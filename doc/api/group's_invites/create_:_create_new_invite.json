@@ -1,6 +1,6 @@
 {
   "resource": "Group's Invites",
-  "resource_explanation": "El Plano group's invites API.\n\nInvite attributes :\n\n- `email` - Represents email where invite was sent.\n- `invitation_token` - Represents token.\n- `status` - Represents invite current status.\n  - `accepted` - The invite was accepted by the recipient.\n  - `pending` - The invite was not accepted by the recipient. Default status.\n- `sent_at` - Date and time when the invite was sent.\n- `accepted_at` - Date and time when the invite was accepted by recipient.\n- timestamps\n\nAlso, includes reference to the sender, recipient.\n",
+  "resource_explanation": "El Plano group's invites API.\n\nInvite attributes :\n\n- `email` - Represents email where invite was sent.\n- `invitation_token` - Represents token.\n- `status` - Represents invite current status.\n  - `accepted` - The invite was accepted by the recipient.\n  - `pending` - The invite was not accepted by the recipient. Default status.\n- `sent_at` - Date and time when the invite was sent.\n- `accepted_at` - Date and time when the invite was accepted by recipient.\n- `timestamps`\n\nAlso, includes reference to the sender, recipient.\n",
   "http_method": "POST",
   "route": "api/v1/group/invites",
   "description": "CREATE : Create new invite",
@@ -11,7 +11,7 @@
         "data",
         "attributes"
       ],
-      "requred": true,
+      "required": true,
       "name": "email",
       "description": "Email where invite should be send"
     }
@@ -23,11 +23,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group/invites",
-      "request_body": "{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"florentinocollins@harris.io\"}}}",
+      "request_body": "{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"derricktremblay@conn.info\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 4774a39c97779b9aded221c6bf24555ea839b64fe774b1907d03b6ea24001bbe",
+        "Authorization": "Bearer 0b8d8e37ab7681e3e765ba4c10eba641e1c8c205f5471d1a07005d9f2540662c",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -36,7 +36,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"florentinocollins@harris.io\",\n      \"invitation_token\": \"f3h1Yr483pxpjJTo1FCU\",\n      \"sent_at\": \"2019-03-16T16:21:04.794Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-03-16T16:21:04.794Z\",\n      \"updated_at\": \"2019-03-16T16:21:04.794Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"derricktremblay@conn.info\",\n      \"invitation_token\": \"-hRpadammH2w-oFBtsJU\",\n      \"sent_at\": \"2019-03-28T17:27:28.032Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-03-28T17:27:28.032Z\",\n      \"updated_at\": \"2019-03-28T17:27:28.032Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -45,14 +45,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"227f37561565323f48ccec3e6dd51bf9\"",
-        "X-Request-Id": "e88418ff-9ed8-4e41-b83f-903a5a13a6d5",
-        "X-Runtime": "0.061417",
+        "ETag": "W/\"aae35c0b6a0d98760617da73adab9b19\"",
+        "X-Request-Id": "00322d75-1f08-47dd-bf5d-a069f790039c",
+        "X-Runtime": "0.204770",
         "Vary": "Origin",
-        "Content-Length": "420"
+        "Content-Length": "418"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/invites\" -d '{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"florentinocollins@harris.io\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 4774a39c97779b9aded221c6bf24555ea839b64fe774b1907d03b6ea24001bbe\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/invites\" -d '{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"derricktremblay@conn.info\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 0b8d8e37ab7681e3e765ba4c10eba641e1c8c205f5471d1a07005d9f2540662c\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

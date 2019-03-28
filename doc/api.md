@@ -84,27 +84,6 @@ Response example:
                     "pointer": "/data/attributes/password"
                 },
                 "detail": "can't be blank"
-            },
-            {
-                "status": 422,
-                "source": {
-                    "pointer": "/data/attributes/password_confirmation"
-                },
-                "detail": "doesn't match Password"
-            },
-            {
-                "status": 422,
-                "source": {
-                    "pointer": "/data/attributes/username"
-                },
-                "detail": "can't be blank"
-            },
-            {
-                "status": 422,
-                "source": {
-                    "pointer": "/data/attributes/email_confirmation"
-                },
-                "detail": "doesn't match Email"
             }
         ]
     }
@@ -121,84 +100,49 @@ Work in progress...
 API authentication is based on [OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749)
 You can use an OAuth2 token to authenticate with the API by passing it in the Authorization header.
   
-Example of using the OAuth2 token in a parameter:
-
-    curl --header "Authorization: Bearer OAUTH-TOKEN" http://elplano.example.com/api/v1/user  
-
-&nbsp;
-
-### Examples of access token issuing
-
 #### `POST /oauth/token`
-  
-curl command, password grant :
 
-    curl -F grant_type=password \
-    -F username=user@example.com \
-    -F password=password \
-    -X POST http://elplano.example.com/oauth/token
-    
-command output :
+Post here with login and password for password grant type, or refresh token for refresh token type.
+
+&nbsp;
+
+#### ACCESS TOKEN
+
+Body: 
 
     {
-       "access_token":"0ddb922452c983a70566e30dce16e2017db335103e35d783874c448862a78168",
-       "token_type":"bearer",
-       "expires_in":7200,
-       "refresh_token":"f2188c4165d912524e04c6496d10f06803cc08ed50271a0b0a73061e3ac1c06c",
+      "grant_type":"password",
+      "login":"user@example.com",
+      "password":"doorkeeper"
     }
 
-curl command, refresh token grant :
-
-    curl -F grant_type=refresh_token \
-    -F client_id=9b36d8c0db59eff5038aea7a417d73e69aea75b41aac771816d2ef1b3109cc2f \
-    -F client_secret=d6ea27703957b69939b8104ed4524595e210cd2e79af587744a7eb6e58f5b3d2 \
-    -F refresh_token=c65b265611713028344a2c285dfdc4e28f9ce2dbc36b9f7e12f626a3d106a304 \
-    -X POST http://elplano.example.com/oauth/token
-
-command output :
+Response :
 
     {
-       "access_token":"ad0b5847cb7d254f1e2ff1910275fe9dcb95345c9d54502d156fe35a37b93e80",
-       "token_type":"bearer",
-       "expires_in":30,
-       "refresh_token":"cc38f78a5b8abe8ee81cdf25b1ca74c3fa10c3da2309de5ac37fde00cbcf2815",
-    }
-
-failed response (invalid username, password, or code)
-
-command output :
-    
-    {
-       "error":"invalid_grant",
-       "error_description":"The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client.",
+      "access_token": "c94f702057a6c0bd6fe9bb90f1bfd782358bfad2983fb88c8dd93e6e7b841cd6",
+      "token_type": "Bearer",
+      "expires_in": 3600,
+      "refresh_token": "d42ece80c67ad32101aa530cf49147581a357160d6a8a3cb575d2154edef50a1",
+      "created_at": 1553776199
     }
 
 &nbsp;
 
-#### `POST /oauth/revoke`
+#### REFRESH TOKEN
 
-Post here with client credentials(in basic auth or in params client_id and client_secret) to revoke an access/refresh token. 
-This corresponds to the token endpoint, using the OAuth 2.0 Token Revocation RFC (RFC 7009).
+Body:
 
-curl command, token revoke with client credentials in params
+    {
+      "grant_type":"refresh_token",
+      "refresh_token":"49aff0c25d295196656006c2f9400640b742abfc37e468d98a0c86786f53e4e5"
+    }
 
-    curl -F client_id=9b36d8c0db59eff5038aea7a417d73e69aea75b41aac771816d2ef1b3109cc2f \
-    -F client_secret=d6ea27703957b69939b8104ed4524595e210cd2e79af587744a7eb6e58f5b3d2 \
-    -F token=dbaf9757982a9e738f05d249b7b5b4a266b3a139049317c4909f2f263572c781 \
-    -X POST http://elplano.example.com/oauth/revoke
+Response:
 
-
-command output
-
-    {}
-
-curl command, token revoke with client credentials in basic auth
-
-    curl -F token=dbaf9757982a9e738f05d249b7b5b4a266b3a139049317c4909f2f263572c781 \
-    -u '9b36d8c0db59eff5038aea7a417d73e69aea75b41aac771816d2ef1b3109cc2f:d6ea27703957b69939b8104ed4524595e210cd2e79af587744a7eb6e58f5b3d2' \
-    -X POST http://elplano.example.com/oauth/revoke
-
-    
-command output :
-
-    {}
+    {
+      "access_token": "2f82b5d9f02a1790c13842e6a53c244b07d7370cd09231a679ed56dafb81d615",
+      "token_type": "Bearer",
+      "expires_in": 3600,
+      "refresh_token": "bf9ad57f8a90442849338b4501d8ab4b11822e5c13944e9bdcba0d9b7dab1d26",
+      "created_at": 1553666769,
+    }

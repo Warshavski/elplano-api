@@ -2,7 +2,7 @@
 
 require 'acceptance_helper'
 
-resource 'Unlocks' do
+resource 'Confirmations' do
   let_it_be(:user) { create(:user, :unconfirmed) }
 
   explanation <<~DESC

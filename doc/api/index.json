@@ -1,8 +1,28 @@
 {
   "resources": [
     {
+      "name": "Confirmations",
+      "explanation": "User confirmation API.\n\nProvides the ability to confirm user.\n",
+      "examples": [
+        {
+          "description": "CREATE : Send confirmation instructions",
+          "link": "confirmations/create_:_send_confirmation_instructions.json",
+          "groups": "all",
+          "route": "api/v1/users/confirmation",
+          "method": "post"
+        },
+        {
+          "description": "SHOW : Confirm user",
+          "link": "confirmations/show_:_confirm_user.json",
+          "groups": "all",
+          "route": "api/v1/users/confirmation?confirmation_token=token",
+          "method": "get"
+        }
+      ]
+    },
+    {
       "name": "Courses",
-      "explanation": "El Plano courses API.\n\nCourse attributes :\n\n - `title` - Represents course name(human readable identity).\n - timestamps\n\n Also, includes reference to the course lecturer.\n",
+      "explanation": "El Plano courses API.\n\nCourse attributes :\n\n - `title` - Represents course name(human readable identity).\n - `timestamps`\n\n Also, includes reference to the course lecturer.\n",
       "examples": [
         {
           "description": "CREATE : Create new course",
@@ -43,7 +63,7 @@
     },
     {
       "name": "Events",
-      "explanation": "El Plano events API.\n\nEvent attributes :\n\n - `title` - Represents event name.\n - `description` - Represents event detailed description.\n - `status` - Represents event current status.\n   - `confirmed` - The event is confirmed. This is the default status.\n   - `tentative` - The event is tentatively confirmed.\n   - `cancelled` - The event is cancelled (deleted).\n\n - `recurrence` - Represents recurrence rules.\n - `timezone` - Timezone settings.\n - `start_at` - Represents when event starts.\n - `end_at` - Represents when event ends.\n - timestamps\n\n Also, includes reference to the event creator and attached course.\n",
+      "explanation": "El Plano events API.\n\nEvent attributes :\n\n - `title` - Represents event name.\n - `description` - Represents event detailed description.\n - `status` - Represents event current status.\n   - `confirmed` - The event is confirmed. This is the default status.\n   - `tentative` - The event is tentatively confirmed.\n   - `cancelled` - The event is cancelled (deleted).\n\n - `recurrence` - Represents recurrence rules.\n - `timezone` - Timezone settings.\n - `start_at` - Represents when event starts.\n - `end_at` - Represents when event ends.\n - `timestamps`\n\n Also, includes reference to the event creator and attached course.\n",
       "examples": [
         {
           "description": "CREATE : Creates new event",
@@ -84,7 +104,7 @@
     },
     {
       "name": "Group members",
-      "explanation": "El Plano group members API.\n\nStudent attributes :\n\n  - `full_name` - Represents concatenated student's first, last and middle names.\n  - `email` - Represents email which is used to contact with the student.\n  - `phone` - Represents phone which is used to contact with the student.\n  - `about` - Represents some detailed information about student(BIO).\n  - `social_networks` - Represents a list of social networks.\n  - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).\n  - timestamps\n\n  Also, includes information about a user and relationships to the group and user.\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Used as user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - `avatar_url` - User's avatar URL.\n  - timestamps\n",
+      "explanation": "El Plano group members API.\n\nStudent attributes :\n\n  - `full_name` - Represents concatenated student's first, last and middle names.\n  - `email` - Represents email which is used to contact with the student.\n  - `phone` - Represents phone which is used to contact with the student.\n  - `about` - Represents some detailed information about student(BIO).\n  - `social_networks` - Represents a list of social networks.\n  - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).\n  - timestamps\n\n  Also, includes information about a user and relationships to the group and user.\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Used as user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - `avatar_url` - User's avatar URL.\n  - `timestamps`\n",
       "examples": [
         {
           "description": "INDEX : Retrieve group members",
@@ -104,7 +124,7 @@
     },
     {
       "name": "Group's Invites",
-      "explanation": "El Plano group's invites API.\n\nInvite attributes :\n\n- `email` - Represents email where invite was sent.\n- `invitation_token` - Represents token.\n- `status` - Represents invite current status.\n  - `accepted` - The invite was accepted by the recipient.\n  - `pending` - The invite was not accepted by the recipient. Default status.\n- `sent_at` - Date and time when the invite was sent.\n- `accepted_at` - Date and time when the invite was accepted by recipient.\n- timestamps\n\nAlso, includes reference to the sender, recipient.\n",
+      "explanation": "El Plano group's invites API.\n\nInvite attributes :\n\n- `email` - Represents email where invite was sent.\n- `invitation_token` - Represents token.\n- `status` - Represents invite current status.\n  - `accepted` - The invite was accepted by the recipient.\n  - `pending` - The invite was not accepted by the recipient. Default status.\n- `sent_at` - Date and time when the invite was sent.\n- `accepted_at` - Date and time when the invite was accepted by recipient.\n- `timestamps`\n\nAlso, includes reference to the sender, recipient.\n",
       "examples": [
         {
           "description": "CREATE : Create new invite",
@@ -131,7 +151,7 @@
     },
     {
       "name": "Groups",
-      "explanation": "El Plano groups API'.\n\nGroup attributes: \n\n  - `title` - Human readable group identity.\n  - `number` - Main group identity.\n  - timestamps\n\n  Also, returns information about group members in relationships.\n",
+      "explanation": "El Plano groups API'.\n\nGroup attributes: \n\n  - `title` - Human readable group identity.\n  - `number` - Main group identity.\n  - `timestamps`\n\n  Also, returns information about group members in relationships.\n",
       "examples": [
         {
           "description": "CREATE : Creates new group",
@@ -165,7 +185,7 @@
     },
     {
       "name": "Lecturers",
-      "explanation": "El Plano lecturers API.\n\nCourse attributes :\n\n - `first_name`\n - `last_name`\n - `patronymic`\n - timestamps\n\n Also, includes reference to the courses.\n",
+      "explanation": "El Plano lecturers API.\n\nCourse attributes :\n\n - `first_name`\n - `last_name`\n - `patronymic`\n - `timestamps`\n\n Also, includes reference to the courses.\n",
       "examples": [
         {
           "description": "CREATE : Create new lecturer",
@@ -239,7 +259,7 @@
     },
     {
       "name": "Students",
-      "explanation": "El Plano student's profile API.\n\nStudent attributes :\n\n  - `full_name` - Represents concatenated student's first, last and middle names.\n  - `email` - Represents email which is used to contact with the student.\n  - `phone` - Represents phone which is used to contact with the student.\n  - `about` - Represents some detailed information about student(BIO).\n  - `social_networks` - Represents a list of social networks.\n  - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).\n  - timestamps\n\n  Also, includes information about a group.\n\n  - `title` - Represents group human readable identity.\n  - `number` - Represents group main identity.\n  - timestamps\n",
+      "explanation": "El Plano student's profile API.\n\nStudent attributes :\n\n  - `full_name` - Represents concatenated student's first, last and middle names.\n  - `email` - Represents email which is used to contact with the student.\n  - `phone` - Represents phone which is used to contact with the student.\n  - `about` - Represents some detailed information about student(BIO).\n  - `social_networks` - Represents a list of social networks.\n  - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).\n  - timestamps\n\n  Also, includes information about a group.\n\n  - `title` - Represents group human readable identity.\n  - `number` - Represents group main identity.\n  - `timestamps`\n",
       "examples": [
         {
           "description": "SHOW : Retrieve Authenticated Users's  information",
@@ -259,28 +279,14 @@
     },
     {
       "name": "Unlocks",
-      "explanation": "User confirmation API.\n\nProvides the ability to confirm user.\n",
+      "explanation": "User unlock API.\n\nProvides the ability to unlock user.\n",
       "examples": [
-        {
-          "description": "CREATE : Send confirmation instructions",
-          "link": "unlocks/create_:_send_confirmation_instructions.json",
-          "groups": "all",
-          "route": "api/v1/users/confirmation",
-          "method": "post"
-        },
         {
           "description": "CREATE : Send unlock instructions",
           "link": "unlocks/create_:_send_unlock_instructions.json",
           "groups": "all",
           "route": "api/v1/users/unlock",
           "method": "post"
-        },
-        {
-          "description": "SHOW : Confirm user",
-          "link": "unlocks/show_:_confirm_user.json",
-          "groups": "all",
-          "route": "api/v1/users/confirmation?confirmation_token=token",
-          "method": "get"
         },
         {
           "description": "SHOW : Unlock user",
@@ -293,7 +299,7 @@
     },
     {
       "name": "User's Invites",
-      "explanation": "El Plano user's invites API.\n\nInvite attributes :\n\n- `email` - Represents email where invite was sent.\n- `invitation_token` - Represents token.\n- `status` - Represents invite current status.\n  - `accepted` - The invite was accepted by the recipient.\n  - `pending` - The invite was not accepted by the recipient. Default status.\n- `sent_at` - Date and time when the invite was sent.\n- `accepted_at` - Date and time when the invite was accepted by recipient.\n- timestamps\n\nAlso, includes reference to the sender, recipient.\n",
+      "explanation": "El Plano user's invites API.\n\nInvite attributes :\n\n- `email` - Represents email where invite was sent.\n- `invitation_token` - Represents token.\n- `status` - Represents invite current status.\n  - `accepted` - The invite was accepted by the recipient.\n  - `pending` - The invite was not accepted by the recipient. Default status.\n- `sent_at` - Date and time when the invite was sent.\n- `accepted_at` - Date and time when the invite was accepted by recipient.\n- `timestamps`\n\nAlso, includes reference to the sender, recipient.\n",
       "examples": [
         {
           "description": "INDEX : Retrieve invites for authenticated user",
@@ -320,7 +326,7 @@
     },
     {
       "name": "Users",
-      "explanation": "El Plano user's profile API.\n\nUsers attributes :\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Used as user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - timestamps\n",
+      "explanation": "El Plano user's profile API.\n\nUsers attributes :\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Used as user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - `timestamps`\n",
       "examples": [
         {
           "description": "SHOW : Retrieve Authenticated Users's Profile",

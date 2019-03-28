@@ -20,7 +20,7 @@ resource 'Students' do
     
       - `title` - Represents group human readable identity.
       - `number` - Represents group main identity.
-      - timestamps
+      - `timestamps`
   DESC
 
   let(:student) { create(:student, :group_member) }

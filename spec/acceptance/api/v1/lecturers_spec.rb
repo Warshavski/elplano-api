@@ -11,7 +11,7 @@ resource 'Lecturers' do
      - `first_name`
      - `last_name`
      - `patronymic`
-     - timestamps
+     - `timestamps`
   
      Also, includes reference to the courses.
   DESC
@@ -65,9 +65,9 @@ resource 'Lecturers' do
 
   post 'api/v1/lecturers' do
     with_options scope: %i[dta attributes] do
-      parameter :first_name, 'Lecturer first name', requred: true
-      parameter :last_name, 'Lecturer last name', requred: true
-      parameter :patronymic, 'Lecturer patronymic', requred: true
+      parameter :first_name, 'Lecturer first name', required: true
+      parameter :last_name, 'Lecturer last name', required: true
+      parameter :patronymic, 'Lecturer patronymic', required: true
       parameter :courses, 'Courses of the lecturer. Included in "relationships" category'
     end
 
@@ -99,9 +99,9 @@ resource 'Lecturers' do
 
   put 'api/v1/lecturers/:id' do
     with_options scope: %i[dta attributes] do
-      parameter :first_name, 'Lecturer first name', requred: true
-      parameter :last_name, 'Lecturer last name', requred: true
-      parameter :patronymic, 'Lecturer patronymic', requred: true
+      parameter :first_name, 'Lecturer first name', required: true
+      parameter :last_name, 'Lecturer last name', required: true
+      parameter :patronymic, 'Lecturer patronymic', required: true
       parameter :courses, 'Courses of the lecturer. Included in "relationships" category'
     end
 

@@ -1,5 +1,5 @@
 {
-  "resource": "Unlocks",
+  "resource": "Confirmations",
   "resource_explanation": "User confirmation API.\n\nProvides the ability to confirm user.\n",
   "http_method": "POST",
   "route": "api/v1/users/confirmation",
@@ -23,7 +23,7 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/users/confirmation",
-      "request_body": "{\"data\":{\"id\":\"\",\"type\":\"user\",\"attributes\":{\"login\":\"efren@haleybauch.info\"}}}",
+      "request_body": "{\"data\":{\"id\":\"\",\"type\":\"user\",\"attributes\":{\"login\":\"janniemoore@wolff.biz\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
@@ -44,13 +44,13 @@
         "Content-Type": "application/json; charset=utf-8",
         "ETag": "W/\"f09f4232db7afe28489911394ecb758a\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "7c779901-485c-4d01-9b28-0f9233d89fc5",
-        "X-Runtime": "0.003027",
+        "X-Request-Id": "8a00359d-a748-46aa-8e7b-0255d5a60c65",
+        "X-Runtime": "0.003255",
         "Vary": "Origin",
         "Content-Length": "168"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/users/confirmation\" -d '{\"data\":{\"id\":\"\",\"type\":\"user\",\"attributes\":{\"login\":\"efren@haleybauch.info\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/users/confirmation\" -d '{\"data\":{\"id\":\"\",\"type\":\"user\",\"attributes\":{\"login\":\"janniemoore@wolff.biz\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

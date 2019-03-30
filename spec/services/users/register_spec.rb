@@ -5,7 +5,6 @@ RSpec.describe Users::Register do
     {
       username: 'wat name',
       email: 'wat@email.wat',
-      email_confirmation: 'wat@email.wat',
       password: '123456',
       password_confirmation: '123456'
     }

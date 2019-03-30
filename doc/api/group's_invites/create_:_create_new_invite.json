@@ -23,11 +23,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group/invites",
-      "request_body": "{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"derricktremblay@conn.info\"}}}",
+      "request_body": "{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"augustreichel@wildermanbauch.name\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 0b8d8e37ab7681e3e765ba4c10eba641e1c8c205f5471d1a07005d9f2540662c",
+        "Authorization": "Bearer 990039d462a5995695d3f1483e9deab557ec73ab93b1a6dc096ef8b1a1f83414",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -36,7 +36,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"derricktremblay@conn.info\",\n      \"invitation_token\": \"-hRpadammH2w-oFBtsJU\",\n      \"sent_at\": \"2019-03-28T17:27:28.032Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-03-28T17:27:28.032Z\",\n      \"updated_at\": \"2019-03-28T17:27:28.032Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"augustreichel@wildermanbauch.name\",\n      \"invitation_token\": \"b8BGCKhs-SwrTR-EsRi3\",\n      \"sent_at\": \"2019-03-30T16:46:16.900Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-03-30T16:46:16.900Z\",\n      \"updated_at\": \"2019-03-30T16:46:16.900Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -45,14 +45,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"aae35c0b6a0d98760617da73adab9b19\"",
-        "X-Request-Id": "00322d75-1f08-47dd-bf5d-a069f790039c",
-        "X-Runtime": "0.204770",
+        "ETag": "W/\"184a688768d9884714cc84301bb75662\"",
+        "X-Request-Id": "abef65c9-9ef5-4695-b73c-f44cf8dd03b7",
+        "X-Runtime": "0.062044",
         "Vary": "Origin",
-        "Content-Length": "418"
+        "Content-Length": "426"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/invites\" -d '{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"derricktremblay@conn.info\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 0b8d8e37ab7681e3e765ba4c10eba641e1c8c205f5471d1a07005d9f2540662c\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/invites\" -d '{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"augustreichel@wildermanbauch.name\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 990039d462a5995695d3f1483e9deab557ec73ab93b1a6dc096ef8b1a1f83414\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

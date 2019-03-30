@@ -22,7 +22,6 @@ resource 'Registrations' do
     with_options scope: %i[data attributes] do
       parameter :username, 'Used as user name.', required: true
       parameter :email, 'Unique email that used to identify user in application', required: true
-      parameter :email_confirmation, 'Email duplicate. Used to prevent typos when entering an email', required: true
       parameter :password, 'Password that the user uses to log in', required: true
       parameter :password_confirmation, 'Password duplicate. Used to prevent typos when entering a password', required: true
     end

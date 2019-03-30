@@ -31,11 +31,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/courses/4",
-      "request_body": "{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Associate Degree in Creative Arts\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":5,\"type\":\"lecturer\"}]}}}}",
+      "request_body": "{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Master of Design\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":5,\"type\":\"lecturer\"}]}}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 4ecf4187f6a277bb4117dbc89862248a2f3cad2e41852f858277de2f1acb18a9",
+        "Authorization": "Bearer 391db23168cd260628230376525ac8ef99e4530a6c3a91f1bf0f045e63a8984d",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -44,7 +44,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"4\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-03-28T17:27:27.577Z\",\n      \"updated_at\": \"2019-03-28T17:27:27.611Z\",\n      \"title\": \"Associate Degree In Creative Arts\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"5\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"4\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-03-30T16:46:16.448Z\",\n      \"updated_at\": \"2019-03-30T16:46:16.491Z\",\n      \"title\": \"Master Of Design\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"5\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -53,14 +53,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"f1e39afe3095b2ac9e1d2020f9328112\"",
-        "X-Request-Id": "2ba7e0c1-cff5-4bbe-8152-85528934e674",
-        "X-Runtime": "0.016254",
+        "ETag": "W/\"d0260ffae0b9349e822522f3ad19063d\"",
+        "X-Request-Id": "b68ff45a-98a7-41b9-b17b-d9112e7a4769",
+        "X-Runtime": "0.015693",
         "Vary": "Origin",
-        "Content-Length": "244"
+        "Content-Length": "227"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/courses/4\" -d '{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Associate Degree in Creative Arts\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":5,\"type\":\"lecturer\"}]}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 4ecf4187f6a277bb4117dbc89862248a2f3cad2e41852f858277de2f1acb18a9\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/courses/4\" -d '{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Master of Design\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":5,\"type\":\"lecturer\"}]}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 391db23168cd260628230376525ac8ef99e4530a6c3a91f1bf0f045e63a8984d\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

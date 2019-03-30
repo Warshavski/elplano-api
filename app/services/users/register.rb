@@ -18,9 +18,6 @@ module Users
     # @option [String] :email -
     #   Unique email that used to identify user in system
     #
-    # @option [String] :email_confirmation -
-    #   Email duplicate. Used to prevent typos when entering a email
-    #
     # @option [String] :password -
     #   Password that the user uses to log in
     #
@@ -42,9 +39,6 @@ module Users
     #
     # @option [String] :email -
     #   Unique email that used to identify user in system
-    #
-    # @option [String] :email_confirmation -
-    #   Email duplicate. Used to prevent typos when entering a email
     #
     # @option [String] :password -
     #   Password that the user uses to log in

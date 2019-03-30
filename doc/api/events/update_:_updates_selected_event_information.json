@@ -74,11 +74,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/events/4",
-      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Repudiandae et quia.\",\"description\":\"Voluptatem quas qui. Laudantium et totam. Laudantium dolorem aspernatur. Voluptatum ea minus. Eius voluptas rerum.\",\"status\":\"cancelled\",\"start_at\":\"2019-03-27\",\"end_at\":\"2019-03-29\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":7,\"type\":\"course\"}}}}}",
+      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Suscipit nisi perspiciatis.\",\"description\":\"Voluptatem placeat quasi. Placeat et quas. Beatae aut ut. Nobis corrupti aut. Quo at eum.\",\"status\":\"cancelled\",\"start_at\":\"2019-03-29\",\"end_at\":\"2019-03-31\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":7,\"type\":\"course\"}}}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 1e556e89e9bd823c92c573b61829a606790ccb0fd44197ac3097a12c15e0d4d0",
+        "Authorization": "Bearer 605b52e07680d05287bb36046ca52b6e7d8ac0e0b9f30b98adfc8cac7522ab63",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -87,7 +87,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"4\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Repudiandae et quia.\",\n      \"description\": \"Voluptatem quas qui. Laudantium et totam. Laudantium dolorem aspernatur. Voluptatum ea minus. Eius voluptas rerum.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-03-27T00:00:00.000Z\",\n      \"end_at\": \"2019-03-29T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-03-28T17:27:27.840Z\",\n      \"updated_at\": \"2019-03-28T17:27:27.856Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"student\"\n        }\n      },\n      \"course\": {\n        \"data\": {\n          \"id\": \"7\",\n          \"type\": \"course\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"4\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Suscipit nisi perspiciatis.\",\n      \"description\": \"Voluptatem placeat quasi. Placeat et quas. Beatae aut ut. Nobis corrupti aut. Quo at eum.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-03-29T00:00:00.000Z\",\n      \"end_at\": \"2019-03-31T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-03-30T16:46:16.719Z\",\n      \"updated_at\": \"2019-03-30T16:46:16.741Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"student\"\n        }\n      },\n      \"course\": {\n        \"data\": {\n          \"id\": \"7\",\n          \"type\": \"course\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -96,14 +96,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"3ff8dbff256beba19434d61c9288d2bf\"",
-        "X-Request-Id": "60174fa7-848d-40e1-9ff1-103f83ce90ad",
-        "X-Runtime": "0.008398",
+        "ETag": "W/\"b70380a0064a3d4cab573693f447ac68\"",
+        "X-Request-Id": "4b0ffb76-6df0-4aee-9a50-4dd90c185ba2",
+        "X-Runtime": "0.010717",
         "Vary": "Origin",
-        "Content-Length": "647"
+        "Content-Length": "629"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/events/4\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Repudiandae et quia.\",\"description\":\"Voluptatem quas qui. Laudantium et totam. Laudantium dolorem aspernatur. Voluptatum ea minus. Eius voluptas rerum.\",\"status\":\"cancelled\",\"start_at\":\"2019-03-27\",\"end_at\":\"2019-03-29\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":7,\"type\":\"course\"}}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 1e556e89e9bd823c92c573b61829a606790ccb0fd44197ac3097a12c15e0d4d0\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/events/4\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Suscipit nisi perspiciatis.\",\"description\":\"Voluptatem placeat quasi. Placeat et quas. Beatae aut ut. Nobis corrupti aut. Quo at eum.\",\"status\":\"cancelled\",\"start_at\":\"2019-03-29\",\"end_at\":\"2019-03-31\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":7,\"type\":\"course\"}}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 605b52e07680d05287bb36046ca52b6e7d8ac0e0b9f30b98adfc8cac7522ab63\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

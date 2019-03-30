@@ -57,7 +57,6 @@ FactoryBot.define do
         type: 'user',
         attributes: {
           email: 'wat@wat.wat',
-          email_confirmation: 'wat@wat.wat',
           password: '123456',
           password_confirmation: '123456',
           username: 'wat'
@@ -72,7 +71,6 @@ FactoryBot.define do
         type: 'user',
         attributes: {
           email: 'wat_email',
-          email_confirmation: 'wat@wat.wat',
           password: '123456',
           password_confirmation: '',
           username: nil

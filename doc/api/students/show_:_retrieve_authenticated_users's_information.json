@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 205f7289555e205936f461f282d9ed0631bd7c01caa2dc9d8508659e7d06f2a0",
+        "Authorization": "Bearer 78ee2c0dc5a732cd8d84eb9584e8f4c1e3adb0c6a17c97e944097deecc5ae29b",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"44\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Drew Cheryl Lind\",\n      \"email\": \"staceerenner@nitzsche.name\",\n      \"phone\": \"714-336-4836\",\n      \"about\": \"Dolore et aspernatur. Et rerum officia. Aut ducimus ea. Ratione assumenda sed. Reprehenderit officia adipisci.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/tomasa_konopelski\",\n        \"facebook\": \"http://facebook/mack\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-03-28T17:27:28.894Z\",\n      \"updated_at\": \"2019-03-28T17:27:28.894Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"28\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"43\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"44\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Camille Carroll Dach\",\n      \"email\": \"marianelacorkery@von.net\",\n      \"phone\": \"1-625-299-5889\",\n      \"about\": \"Dolores dolore possimus. Facilis dolor ipsam. Dignissimos velit et. Quis praesentium voluptas. Possimus voluptas modi.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/daryl\",\n        \"facebook\": \"http://facebook/pinkie_harvey\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-03-30T16:46:17.604Z\",\n      \"updated_at\": \"2019-03-30T16:46:17.604Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"28\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"43\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"951660d00804dffae3d504ddbb20f86b\"",
-        "X-Request-Id": "36bcdb9b-0fc7-4e0a-8045-c51128906b27",
-        "X-Runtime": "0.022789",
+        "ETag": "W/\"1c43c11533badd886559813e90585038\"",
+        "X-Request-Id": "7b1680a6-a26b-4c6e-a24a-d247b0eb9733",
+        "X-Runtime": "0.006083",
         "Vary": "Origin",
-        "Content-Length": "565"
+        "Content-Length": "574"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 205f7289555e205936f461f282d9ed0631bd7c01caa2dc9d8508659e7d06f2a0\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 78ee2c0dc5a732cd8d84eb9584e8f4c1e3adb0c6a17c97e944097deecc5ae29b\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

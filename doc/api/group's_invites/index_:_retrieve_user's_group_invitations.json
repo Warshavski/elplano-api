@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 694d458684c187312a120314fa5e72a423c2eb91c18fc89bee79d01f5e672299",
+        "Authorization": "Bearer 608c24e9a73d13542086822925a545d8d642d51f0dfebd6e6bc67ab0c7429e8c",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"invite\",\n      \"attributes\": {\n        \"email\": \"alphonso@yostvon.com\",\n        \"invitation_token\": \"p7i3sfuxANUs1HVzPjz3\",\n        \"sent_at\": \"2019-03-28T17:27:27.936Z\",\n        \"accepted_at\": null,\n        \"created_at\": \"2019-03-28T17:27:27.935Z\",\n        \"updated_at\": \"2019-03-28T17:27:27.935Z\",\n        \"status\": \"pending\"\n      },\n      \"relationships\": {\n        \"sender\": {\n          \"data\": {\n            \"id\": \"17\",\n            \"type\": \"student\"\n          }\n        },\n        \"recipient\": {\n          \"data\": null\n        },\n        \"group\": {\n          \"data\": {\n            \"id\": \"11\",\n            \"type\": \"group\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"invite\",\n      \"attributes\": {\n        \"email\": \"deanmayert@strosin.com\",\n        \"invitation_token\": \"_EDDsohver-kruwjYBRa\",\n        \"sent_at\": \"2019-03-30T16:46:16.815Z\",\n        \"accepted_at\": null,\n        \"created_at\": \"2019-03-30T16:46:16.815Z\",\n        \"updated_at\": \"2019-03-30T16:46:16.815Z\",\n        \"status\": \"pending\"\n      },\n      \"relationships\": {\n        \"sender\": {\n          \"data\": {\n            \"id\": \"17\",\n            \"type\": \"student\"\n          }\n        },\n        \"recipient\": {\n          \"data\": null\n        },\n        \"group\": {\n          \"data\": {\n            \"id\": \"11\",\n            \"type\": \"group\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"704621f5d2dd1257252bbdf9e23a9828\"",
-        "X-Request-Id": "c294f678-098a-4a9f-902e-1362f13e2aa2",
-        "X-Runtime": "0.010790",
+        "ETag": "W/\"66a6e435bb49e32a4a4d299a7addbc30\"",
+        "X-Request-Id": "304fe848-14d6-45f1-b931-ebe12f78e22e",
+        "X-Runtime": "0.009848",
         "Vary": "Origin",
-        "Content-Length": "415"
+        "Content-Length": "417"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/invites\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 694d458684c187312a120314fa5e72a423c2eb91c18fc89bee79d01f5e672299\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/invites\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 608c24e9a73d13542086822925a545d8d642d51f0dfebd6e6bc67ab0c7429e8c\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

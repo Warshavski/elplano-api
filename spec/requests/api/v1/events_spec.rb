@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Events management', type: :request do
+RSpec.describe Api::V1::EventsController, type: :request do
   include_context 'shared setup'
 
-  let(:base_endpoint)  { '/api/v1/events' }
+  let(:base_endpoint)     { '/api/v1/events' }
   let(:resource_endpoint) { "#{base_endpoint}/#{event.id}" }
 
   let_it_be(:student) { create(:student, :group_member, user: user) }
@@ -28,13 +28,9 @@ RSpec.describe 'Events management', type: :request do
     context 'unsorted events collection' do
       before(:each) { subject }
 
-      it 'responds with a 200 status' do
-        expect(response).to have_http_status(:ok)
-      end
+      it { expect(response).to have_http_status(:ok) }
 
-      it 'returns correct quantity' do
-        expect(JSON.parse(response.body)['data'].count).to be(6)
-      end
+      it { expect(json_data.count).to be(6) }
     end
   end
 
@@ -43,9 +39,9 @@ RSpec.describe 'Events management', type: :request do
 
     before(:each) { subject }
 
-    it 'responds with a 200 status' do
-      expect(response).to have_http_status(:ok)
-    end
+    it { expect(response).to have_http_status(:ok) }
+
+    it { expect(json_data['type']).to eq('event') }
 
     include_examples 'json:api examples',
                      %w[data],
@@ -54,7 +50,7 @@ RSpec.describe 'Events management', type: :request do
                      %w[creator course]
 
     it 'returns correct expected data' do
-      actual_title = body_as_json[:data][:attributes][:title]
+      actual_title = json_data.dig(:attributes, :title)
       expected_title = event.title
 
       expect(actual_title).to eq(expected_title)
@@ -63,9 +59,7 @@ RSpec.describe 'Events management', type: :request do
     context 'not valid request' do
       let(:resource_endpoint) { "#{base_endpoint}/wat_event?" }
 
-      it 'returns 404 response on not existed event' do
-        expect(response).to have_http_status(:not_found)
-      end
+      it { expect(response).to have_http_status(:not_found) }
     end
   end
 
@@ -74,9 +68,9 @@ RSpec.describe 'Events management', type: :request do
 
     before(:each) { subject }
 
-    it 'responds with a 201 status' do
-      expect(response).to have_http_status(:created)
-    end
+    it { expect(response).to have_http_status(:created) }
+
+    it { expect(json_data['type']).to eq('event') }
 
     include_examples 'json:api examples',
                      %w[data],
@@ -85,7 +79,7 @@ RSpec.describe 'Events management', type: :request do
                      %w[creator course]
 
     it 'returns created model' do
-      actual_title = body_as_json[:data][:attributes][:title]
+      actual_title = json_data.dig(:attributes, :title)
       expected_title = event_params[:attributes][:title]
 
       expect(actual_title).to eq(expected_title)
@@ -121,9 +115,9 @@ RSpec.describe 'Events management', type: :request do
 
     before(:each) { subject }
 
-    it 'responds with a 200 status' do
-      expect(response).to have_http_status(:ok)
-    end
+    it { expect(response).to have_http_status(:ok) }
+
+    it { expect(json_data['type']).to eq('event') }
 
     it 'updates a event model' do
       actual_title = event.reload.title
@@ -165,9 +159,7 @@ RSpec.describe 'Events management', type: :request do
     context 'response with errors' do
       let(:resource_endpoint) { "#{base_endpoint}/wat_event?" }
 
-      it 'responds with a 404 status not existed event' do
-        expect(response).to have_http_status(:not_found)
-      end
+      it { expect(response).to have_http_status(:not_found) }
     end
   end
 

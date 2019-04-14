@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Group invites management', type: :request do
+RSpec.describe Api::V1::Group::InvitesController, type: :request do
   include_context 'shared setup'
 
   let(:base)  { '/api/v1/group/invites' }
@@ -29,13 +29,9 @@ RSpec.describe 'Group invites management', type: :request do
     context 'authorized' do
       before(:each) { subject }
 
-      it 'responds with a 200 status' do
-        expect(response).to have_http_status(:ok)
-      end
+      it {  expect(response).to have_http_status(:ok) }
 
-      it 'returns correct quantity' do
-        expect(JSON.parse(response.body)['data'].count).to be(1)
-      end
+      it { expect(json_data.count).to be(1) }
     end
 
     context 'unauthorized' do
@@ -58,9 +54,9 @@ RSpec.describe 'Group invites management', type: :request do
       before(:each) { subject }
 
       context 'valid request' do
-        it 'responds with a 200 status' do
-          expect(response).to have_http_status(:ok)
-        end
+        it { expect(response).to have_http_status(:ok) }
+
+        it { expect(json_data['type']).to eq('invite') }
 
         include_examples 'json:api examples',
                          %w[data],
@@ -69,7 +65,7 @@ RSpec.describe 'Group invites management', type: :request do
                          %w[sender recipient group]
 
         it 'returns correct expected data' do
-          actual_token = body_as_json[:data][:attributes][:invitation_token]
+          actual_token = json_data.dig(:attributes, :invitation_token)
           expected_token = invite.invitation_token
 
           expect(actual_token).to eq(expected_token)
@@ -104,9 +100,9 @@ RSpec.describe 'Group invites management', type: :request do
     context 'authorized' do
       before(:each) { subject }
 
-      it 'responds with a 201 status' do
-        expect(response).to have_http_status(:created)
-      end
+      it { expect(response).to have_http_status(:created) }
+
+      it { expect(json_data['type']).to eq('invite') }
 
       include_examples 'json:api examples',
                        %w[data],
@@ -115,7 +111,7 @@ RSpec.describe 'Group invites management', type: :request do
                        %w[sender recipient group]
 
       it 'returns created model' do
-        actual_title = body_as_json[:data][:attributes][:email]
+        actual_title = json_data.dig(:attributes, :email)
         expected_title = invite_params[:attributes][:email]
 
         expect(actual_title).to eq(expected_title)

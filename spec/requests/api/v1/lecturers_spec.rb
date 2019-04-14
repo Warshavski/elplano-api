@@ -8,7 +8,7 @@ RSpec.describe 'Lecturers management', type: :request do
   let(:base_endpoint)     { '/api/v1/lecturers' }
   let(:resource_endpoint) { "#{base_endpoint}/#{lecturer.id}" }
 
-  let_it_be(:student) { create(:student, :group_supervisor, user: user) }
+  let_it_be(:student)   { create(:student, :group_supervisor, user: user) }
   let_it_be(:lecturer)  { create(:lecturer, group: student.group) }
 
   let(:lecturer_params)  { build(:lecturer_params) }
@@ -32,19 +32,15 @@ RSpec.describe 'Lecturers management', type: :request do
 
       it { expect(response).to have_http_status(:ok) }
 
-      it { expect(body_as_json['data']).to eq([]) }
+      it { expect(json_data).to eq([]) }
     end
 
     context 'unsorted lecturers collection' do
       before(:each) { subject }
 
-      it 'responds with a 200 status' do
-        expect(response).to have_http_status(:ok)
-      end
+      it { expect(response).to have_http_status(:ok) }
 
-      it 'returns correct quantity' do
-        expect(JSON.parse(response.body)['data'].count).to be(5)
-      end
+      it { expect(json_data.count).to be(5) }
     end
   end
 
@@ -53,9 +49,7 @@ RSpec.describe 'Lecturers management', type: :request do
 
     before(:each) { subject }
 
-    it 'responds with a 200 status' do
-      expect(response).to have_http_status(:ok)
-    end
+    it { expect(response).to have_http_status(:ok) }
 
     include_examples 'json:api examples',
                      %w[data],
@@ -64,7 +58,7 @@ RSpec.describe 'Lecturers management', type: :request do
                      %w[courses]
 
     it 'returns correct expected data' do
-      actual_title = body_as_json[:data][:attributes][:first_name].downcase
+      actual_title = json_data.dig(:attributes, :first_name).downcase
       expected_title = lecturer.first_name
 
       expect(actual_title).to eq(expected_title)
@@ -73,9 +67,7 @@ RSpec.describe 'Lecturers management', type: :request do
     context 'not valid request' do
       let(:resource_endpoint) { "#{base_endpoint}/wat_lecturer?" }
 
-      it 'returns 404 response on not existed lecturer' do
-        expect(response).to have_http_status(:not_found)
-      end
+      it { expect(response).to have_http_status(:not_found) }
     end
   end
 
@@ -85,9 +77,9 @@ RSpec.describe 'Lecturers management', type: :request do
     before(:each) { subject }
 
     context 'group owner' do
-      it 'responds with a 201 status' do
-        expect(response).to have_http_status(:created)
-      end
+      it { expect(response).to have_http_status(:created) }
+
+      it { expect(json_data['type']).to eq('lecturer') }
 
       include_examples 'json:api examples',
                        %w[data],
@@ -96,7 +88,7 @@ RSpec.describe 'Lecturers management', type: :request do
                        %w[courses]
 
       it 'returns created model' do
-        actual_title = body_as_json[:data][:attributes][:first_name]
+        actual_title = json_data.dig(:attributes, :first_name)
         expected_title = lecturer_params[:attributes][:first_name]
 
         expect(actual_title).to eq(expected_title)
@@ -130,9 +122,7 @@ RSpec.describe 'Lecturers management', type: :request do
     context 'regular group member' do
       let_it_be(:student) { create(:student, :group_member, user: user) }
 
-      it 'responds with 403 - forbidden' do
-        expect(response).to have_http_status(:forbidden)
-      end
+      it { expect(response).to have_http_status(:forbidden) }
     end
   end
 
@@ -142,9 +132,9 @@ RSpec.describe 'Lecturers management', type: :request do
     before(:each) { subject }
 
     context 'group owner' do
-      it 'responds with a 200 status' do
-        expect(response).to have_http_status(:ok)
-      end
+      it { expect(response).to have_http_status(:ok) }
+
+      it { expect(json_data['type']).to eq('lecturer') }
 
       it 'updates a lecturer model' do
         actual_title = lecturer.reload.first_name
@@ -186,18 +176,14 @@ RSpec.describe 'Lecturers management', type: :request do
       context 'response with errors' do
         let(:resource_endpoint) { "#{base_endpoint}/wat_lecturer?" }
 
-        it 'responds with a 404 status not existed lecturer' do
-          expect(response).to have_http_status(:not_found)
-        end
+        it { expect(response).to have_http_status(:not_found) }
       end
     end
 
     context 'regular group member' do
       let_it_be(:student) { create(:student, :group_member, user: user) }
 
-      it 'responds with 403 - forbidden' do
-        expect(response).to have_http_status(:forbidden)
-      end
+      it { expect(response).to have_http_status(:forbidden) }
     end
   end
 

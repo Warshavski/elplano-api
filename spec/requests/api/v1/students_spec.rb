@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-describe Api::V1::StudentsController do
+describe Api::V1::StudentsController, type: :request do
   include_context 'shared setup'
 
-  let(:described_url) { '/api/v1/student' }
+  let(:endpoint) { '/api/v1/student' }
 
-  describe '#show' do
-    subject { get described_url, headers: headers }
+  describe 'GET #show' do
+    subject { get endpoint, headers: headers }
 
     context 'anonymous user' do
       let(:headers) { nil }
@@ -25,6 +25,8 @@ describe Api::V1::StudentsController do
 
       it { expect(response).to have_http_status(:ok) }
 
+      it { expect(json_data['type']).to eq('student') }
+
       include_examples 'json:api examples',
                        %w[data],
                        %w[id type attributes relationships],
@@ -32,7 +34,7 @@ describe Api::V1::StudentsController do
                        %w[group user]
 
       it 'returns student info of the token owner' do
-        actual_full_name = body_as_json[:data][:attributes][:full_name]
+        actual_full_name = json_data.dig(:attributes, :full_name)
         expected_full_name = user.student.full_name
 
         expect(actual_full_name).to eq(expected_full_name)
@@ -40,8 +42,8 @@ describe Api::V1::StudentsController do
     end
   end
 
-  describe '#update' do
-    subject { put described_url, headers: headers, params: request_params }
+  describe 'PATCH #update' do
+    subject { put endpoint, headers: headers, params: request_params }
 
     let_it_be(:student) { create(:student, user: user) }
 
@@ -53,6 +55,8 @@ describe Api::V1::StudentsController do
 
     it { expect(response).to have_http_status(:ok) }
 
+    it { expect(json_data['type']).to eq('student') }
+
     include_examples 'json:api examples',
                      %w[data],
                      %w[id type attributes relationships],
@@ -60,7 +64,7 @@ describe Api::V1::StudentsController do
                      %w[group user]
 
     it 'returns updated student info' do
-      actual_attributes = body_as_json[:data][:attributes]
+      actual_attributes = json_data[:attributes]
       expected_attributes = student_params[:attributes]
 
 

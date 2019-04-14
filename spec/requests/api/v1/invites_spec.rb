@@ -2,14 +2,13 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Invites management', type: :request do
+RSpec.describe Api::V1::EventsController, type: :request do
   include_context 'shared setup'
 
   let(:base)  { '/api/v1/invites' }
 
   let_it_be(:student) { create(:student, user: user) }
-
-  let_it_be(:invite) { create(:invite, :rnd_group, email: user.email) }
+  let_it_be(:invite)  { create(:invite, :rnd_group, email: user.email) }
 
   let(:request_params) { { data: nil } }
 
@@ -25,13 +24,9 @@ RSpec.describe 'Invites management', type: :request do
     context 'unsorted invites collection' do
       before(:each) { subject }
 
-      it 'responds with a 200 status' do
-        expect(response).to have_http_status(:ok)
-      end
+      it { expect(response).to have_http_status(:ok) }
 
-      it 'returns correct quantity' do
-        expect(JSON.parse(response.body)['data'].count).to be(1)
-      end
+      it { expect(json_data.count).to be(1) }
     end
   end
 
@@ -43,9 +38,9 @@ RSpec.describe 'Invites management', type: :request do
     context 'valid request' do
       let(:endpoint) { "#{base}/#{invite.invitation_token}" }
 
-      it 'responds with a 200 status' do
-        expect(response).to have_http_status(:ok)
-      end
+      it { expect(response).to have_http_status(:ok) }
+
+      it { expect(json_data['type']).to eq('invite') }
 
       include_examples 'json:api examples',
                        %w[data included],
@@ -66,7 +61,7 @@ RSpec.describe 'Invites management', type: :request do
 
       it { expect(response).to have_http_status(:ok) }
 
-      it { expect(body_as_json['data']).to be(nil) }
+      it { expect(json_data).to be(nil) }
     end
   end
 
@@ -78,9 +73,9 @@ RSpec.describe 'Invites management', type: :request do
     context 'valid request' do
       let(:endpoint) { "#{base}/#{invite.invitation_token}" }
 
-      it 'responds with a 200 status' do
-        expect(response).to have_http_status(:ok)
-      end
+      it { expect(response).to have_http_status(:ok) }
+
+      it { expect(json_data['type']).to eq('invite') }
 
       it 'updates an invite status' do
         actual_status = body_as_json['data']['attributes']['status']

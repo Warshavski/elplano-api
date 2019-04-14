@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Courses management', type: :request do
+RSpec.describe Api::V1::CoursesController, type: :request do
   include_context 'shared setup'
 
   let(:base_endpoint)     { '/api/v1/courses' }
@@ -32,18 +32,16 @@ RSpec.describe 'Courses management', type: :request do
 
       it { expect(response).to have_http_status(:ok) }
 
-      it { expect(body_as_json['data']).to eq([]) }
+      it { expect(json_data).to eq([]) }
     end
 
     context 'unsorted courses collection' do
       before(:each) { subject }
 
-      it 'responds with a 200 status' do
-        expect(response).to have_http_status(:ok)
-      end
+      it { expect(response).to have_http_status(:ok) }
 
       it 'returns correct quantity' do
-        expect(JSON.parse(response.body)['data'].count).to be(5)
+        expect(json_data.count).to be(5)
       end
     end
   end
@@ -53,9 +51,9 @@ RSpec.describe 'Courses management', type: :request do
 
     before(:each) { subject }
 
-    it 'responds with a 200 status' do
-      expect(response).to have_http_status(:ok)
-    end
+    it { expect(response).to have_http_status(:ok) }
+
+    it { expect(json_data['type']).to eq('course') }
 
     include_examples 'json:api examples',
                      %w[data],
@@ -73,9 +71,7 @@ RSpec.describe 'Courses management', type: :request do
     context 'not valid request' do
       let(:resource_endpoint) { "#{base_endpoint}/wat_course?" }
 
-      it 'returns 404 response on not existed course' do
-        expect(response).to have_http_status(:not_found)
-      end
+      it { expect(response).to have_http_status(:not_found) }
     end
   end
 
@@ -85,9 +81,7 @@ RSpec.describe 'Courses management', type: :request do
     before(:each) { subject }
 
     context 'group owner' do
-      it 'responds with a 201 status' do
-        expect(response).to have_http_status(:created)
-      end
+      it { expect(response).to have_http_status(:created) }
 
       include_examples 'json:api examples',
                        %w[data],
@@ -96,7 +90,7 @@ RSpec.describe 'Courses management', type: :request do
                        %w[lecturers]
 
       it 'returns created model' do
-        actual_title = body_as_json[:data][:attributes][:title].downcase
+        actual_title = json_data.dig(:attributes, :title).downcase
         expected_title = course_params[:attributes][:title].downcase
 
         expect(actual_title).to eq(expected_title)
@@ -130,9 +124,7 @@ RSpec.describe 'Courses management', type: :request do
     context 'regular group member' do
       let_it_be(:student) { create(:student, :group_member, user: user) }
 
-      it 'responds with 403 - forbidden' do
-        expect(response).to have_http_status(:forbidden)
-      end
+      it { expect(response).to have_http_status(:forbidden) }
     end
   end
 
@@ -142,9 +134,7 @@ RSpec.describe 'Courses management', type: :request do
     before(:each) { subject }
 
     context 'group owner' do
-      it 'responds with a 200 status' do
-        expect(response).to have_http_status(:ok)
-      end
+      it { expect(response).to have_http_status(:ok) }
 
       it 'updates a course model' do
         actual_title = course.reload.title
@@ -186,18 +176,14 @@ RSpec.describe 'Courses management', type: :request do
       context 'response with errors' do
         let(:resource_endpoint) { "#{base_endpoint}/wat_course?" }
 
-        it 'responds with a 404 status not existed course' do
-          expect(response).to have_http_status(:not_found)
-        end
+        it { expect(response).to have_http_status(:not_found) }
       end
     end
 
     context 'regular group member' do
       let_it_be(:student) { create(:student, :group_member, user: user) }
 
-      it 'responds with 403 - forbidden' do
-        expect(response).to have_http_status(:forbidden)
-      end
+      it { expect(response).to have_http_status(:forbidden) }
     end
   end
 

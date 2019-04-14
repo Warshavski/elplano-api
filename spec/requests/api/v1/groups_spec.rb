@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Group management', type: :request do
+RSpec.describe Api::V1::GroupsController, type: :request do
   include_context 'shared setup'
 
   let(:group_url) { '/api/v1/group' }
@@ -17,9 +17,9 @@ RSpec.describe 'Group management', type: :request do
 
     before(:each) { get group_url, headers: headers }
 
-    it 'responds with a 200 status' do
-      expect(response).to have_http_status(:ok)
-    end
+    it { expect(response).to have_http_status(:ok) }
+
+    it { expect(json_data['type']).to eq('group') }
 
     include_examples 'json:api examples',
                      %w[data],
@@ -82,9 +82,7 @@ RSpec.describe 'Group management', type: :request do
 
       before(:each) { subject }
 
-      it 'responds with 403 - forbidden' do
-        expect(response).to have_http_status(:forbidden)
-      end
+      it { expect(response).to have_http_status(:forbidden) }
     end
 
     context 'student with no group' do
@@ -92,9 +90,7 @@ RSpec.describe 'Group management', type: :request do
 
       before(:each) { subject }
 
-      it 'responds with 403 - forbidden' do
-        expect(response).to have_http_status(:forbidden)
-      end
+      it { expect(response).to have_http_status(:forbidden) }
     end
 
     context 'group owner' do
@@ -102,9 +98,9 @@ RSpec.describe 'Group management', type: :request do
 
       before(:each) { subject }
 
-      it 'responds with a 200 status' do
-        expect(response).to have_http_status(:ok)
-      end
+      it { expect(response).to have_http_status(:ok) }
+
+      it { expect(json_data['type']).to eq('group') }
 
       include_examples 'json:api examples',
                        %w[data],

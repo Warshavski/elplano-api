@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Students management', type: :request do
+RSpec.describe Api::V1::Group::StudentsController, type: :request do
   include_context 'shared setup'
 
   let(:base) { '/api/v1/group/students' }
@@ -21,7 +21,7 @@ RSpec.describe 'Students management', type: :request do
     context 'authorized user' do
       it { expect(response).to have_http_status(:ok) }
 
-      it { expect(body_as_json[:data].count).to eq(1) }
+      it { expect(json_data.count).to eq(1) }
     end
 
     context 'anonymous user' do

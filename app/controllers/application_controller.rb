@@ -83,6 +83,23 @@ class ApplicationController < ActionController::API
     request.session_options[:skip] = true
   end
 
+  def doorkeeper_unauthorized_render_options(error: nil)
+    {
+      json: {
+        errors: [
+          {
+            status: 401,
+            title: 'Authorization error',
+            detail: I18n.t(:'errors.messages.invalid_token'),
+            source: {
+              pointer: 'Authorization Header'
+            }
+          }
+        ]
+      }
+    }
+  end
+
   def current_resource_owner
     return nil unless doorkeeper_token
 

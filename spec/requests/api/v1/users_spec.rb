@@ -13,7 +13,7 @@ describe Api::V1::UsersController, type: :request do
 
       it { expect(response).to have_http_status(:unauthorized) }
 
-      it { expect(response.body).to eq('') }
+      it { expect(response.body).to eq("{\"errors\":[{\"status\":401,\"title\":\"Authorization error\",\"detail\":\"Invalid authorization token\",\"source\":{\"pointer\":\"Authorization Header\"}}]}") }
     end
 
     context 'authenticated user' do

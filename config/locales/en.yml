@@ -32,6 +32,8 @@
 en:
   errors:
     access_error: 'Action not allowed'
+    messages:
+      invalid_token: 'Invalid authorization token'
   restify:
     errors:
       missing: 'Parameters does not present by JSON:API format. Missing %{key} key'

@@ -31,10 +31,17 @@
 
 en:
   errors:
-    access_error: 'Action not allowed'
     messages:
       invalid_token: 'Invalid authorization token'
+      access_denied: 'Action not allowed'
+      not_found_endpoint: 'Endpoint does not exists'
+      not_found_record: 'Record not found'
   restify:
     errors:
       missing: 'Parameters does not present by JSON:API format. Missing %{key} key'
 
+  notifications:
+    email:
+      invite:
+        subject: 'Invite was created for you'
+        message: 'You will receive an email with instructions for how to sign up'

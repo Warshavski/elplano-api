@@ -30,7 +30,7 @@ module Api
       def index
         courses = filter_courses.eager_load(:lecturers)
 
-        render_json courses, status: :ok
+        render_resource courses, status: :ok
       end
 
       # GET : api/v1/group/courses/{:id}
@@ -40,7 +40,7 @@ module Api
       def show
         course = filter_courses.find(params[:id])
 
-        render_json course, status: :ok
+        render_resource course, status: :ok
       end
 
       # POST : api/v1/group/courses
@@ -50,7 +50,7 @@ module Api
       def create
         course = current_group.courses.create!(course_params)
 
-        render_json course, status: :created
+        render_resource course, status: :created
       end
 
       # PATCH/PUT : api/v1/group/courses/{:id}
@@ -62,7 +62,7 @@ module Api
 
         course.update!(course_params)
 
-        render_json course, status: :ok
+        render_resource course, status: :ok
       end
 
       # DELETE : api/v1/group/courses/{:id}
@@ -82,7 +82,7 @@ module Api
       def authorize_edit!
         return if current_student.group_owner?
 
-        raise Elplano::Errors::AuthError, I18n.t('errors.access_error')
+        raise Elplano::Errors::AuthError, I18n.t(:'errors.messages.access_denied')
       end
 
       def filter_courses

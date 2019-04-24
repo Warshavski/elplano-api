@@ -20,9 +20,9 @@ module Api
         def index
           students = filter_students
 
-          render_json students,
-                      params: { exclude: [:group] },
-                      status: :ok
+          render_resource students,
+                          params: { exclude: [:group] },
+                          status: :ok
         end
 
         # GET : api/v1/group/students/{:id}
@@ -32,7 +32,7 @@ module Api
         def show
           student = filter_students.find(params[:id])
 
-          render_json student, include: [:user], status: :ok
+          render_resource student, include: [:user], status: :ok
         end
 
         private

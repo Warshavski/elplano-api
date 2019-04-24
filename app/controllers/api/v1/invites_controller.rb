@@ -16,7 +16,7 @@ module Api
       def index
         invitations = filter_invites
 
-        render_json invitations, status: :ok
+        render_resource invitations, status: :ok
       end
 
       # GET : api/v1/invites/{:id}
@@ -26,10 +26,10 @@ module Api
       def show
         invite = filter_invites.find_by(invitation_token: params[:token])
 
-        render_json invite,
-                    include: [:group],
-                    params: { exclude: [:students] },
-                    status: :ok
+        render_resource invite,
+                        include: [:group],
+                        params: { exclude: [:students] },
+                        status: :ok
       end
 
       # PATCH/PUT : api/v1/invites/{:id}
@@ -39,7 +39,7 @@ module Api
       def update
         invite = Invites::Claim.call(current_student, params[:token])
 
-        render_json invite, status: :ok
+        render_resource invite, status: :ok
       end
 
       private

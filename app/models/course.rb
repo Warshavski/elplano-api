@@ -15,11 +15,12 @@ class Course < ApplicationRecord
 
   has_many :events, dependent: :nullify
 
-  validates :title, :group, presence: true
+  validates :group, presence: true
 
-  validates :title, length: { maximum: 200 }
-
-  validates :title, uniqueness: { case_sensitive: false, scope: %i[group_id] }
+  validates :title,
+            presence: true,
+            length: { maximum: 200 },
+            uniqueness: { case_sensitive: false, scope: %i[group_id] }
 
   before_validation -> { title&.downcase! }
 end

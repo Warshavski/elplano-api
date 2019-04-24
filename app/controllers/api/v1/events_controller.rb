@@ -18,7 +18,7 @@ module Api
       # Get list of events
       #
       def index
-        render_json filter_events, status: :ok
+        render_resource filter_events, status: :ok
       end
 
       # GET : api/v1/events/{:id}
@@ -28,7 +28,7 @@ module Api
       def show
         event = filter_events.find(params[:id])
 
-        render_json event, status: :ok
+        render_resource event, status: :ok
       end
 
       # POST : api/v1/events
@@ -38,7 +38,7 @@ module Api
       def create
         event = current_student.created_events.create!(event_params)
 
-        render_json event, status: :created
+        render_resource event, status: :created
       end
 
       # PATCH/PUT : api/v1/events/{:id]}
@@ -50,7 +50,7 @@ module Api
 
         event.update!(event_params)
 
-        render_json event, status: :ok
+        render_resource event, status: :ok
       end
 
       # DELETE : api/v1/events/{:id}

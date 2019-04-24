@@ -17,6 +17,6 @@ class AboutController < ApplicationController
       revision: Elplano.revision
     }
 
-    render json: { meta: information }, status: :ok
+    render_meta information
   end
 end

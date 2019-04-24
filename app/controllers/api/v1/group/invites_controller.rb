@@ -17,7 +17,7 @@ module Api
         # Get list of group invites
         #
         def index
-          render_json filter_invites, status: :ok
+          render_resource filter_invites, status: :ok
         end
 
         # GET : api/v1/group/invites/{:id}
@@ -27,7 +27,7 @@ module Api
         def show
           invite = filter_invites.find(params[:id])
 
-          render_json invite, status: :ok
+          render_resource invite, status: :ok
         end
 
         # POST : api/v1/group/invites
@@ -40,7 +40,7 @@ module Api
             invite_params.merge(group: current_group)
           )
 
-          render_json invite, status: :created
+          render_resource invite, status: :created
         end
 
         private
@@ -48,7 +48,7 @@ module Api
         def authorize_student!
           return if current_student.group_owner?
 
-          raise Elplano::Errors::AuthError, I18n.t('errors.access_error')
+          raise Elplano::Errors::AuthError, I18n.t(:'errors.messages.access_denied')
         end
 
         def filter_invites

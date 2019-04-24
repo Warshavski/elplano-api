@@ -14,7 +14,7 @@ module Api
       # Get information about current user
       #
       def show
-        render_json current_user, status: :ok
+        render_resource current_user, status: :ok
       end
     end
   end

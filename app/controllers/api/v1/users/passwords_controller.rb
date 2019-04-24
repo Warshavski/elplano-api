@@ -30,7 +30,7 @@ module Api
           self.resource = resource_class.send_reset_password_instructions(resource_params)
 
           if successfully_sent?(resource)
-            render json: { meta: { message: @message } }, status: :ok
+            render_meta message: @message
           else
             process_error(resource)
           end
@@ -46,7 +46,7 @@ module Api
           if resource.errors.empty?
             update_state!
 
-            render_json resource, meta: { message: @message }, status: :ok
+            render_resource resource, meta: { message: @message }, status: :ok
           else
             process_error(resource) { set_minimum_password_length }
           end

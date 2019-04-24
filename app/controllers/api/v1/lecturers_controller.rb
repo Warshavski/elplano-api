@@ -30,7 +30,7 @@ module Api
       def index
         lecturers = filter_lecturers.eager_load(:courses)
 
-        render_json lecturers, status: :ok
+        render_resource lecturers, status: :ok
       end
 
       # GET : api/v1/group/lecturers/{:id}
@@ -40,7 +40,7 @@ module Api
       def show
         lecturer = filter_lecturers.find(params[:id])
 
-        render_json lecturer, status: :ok
+        render_resource lecturer, status: :ok
       end
 
       # POST : api/v1/group/lecturers
@@ -50,7 +50,7 @@ module Api
       def create
         lecturer = current_group.lecturers.create!(lecturer_params)
 
-        render_json lecturer, status: :created
+        render_resource lecturer, status: :created
       end
 
       # PATCH/PUT : api/v1/group/lecturers/{:id}
@@ -62,7 +62,7 @@ module Api
 
         lecturer.update!(lecturer_params)
 
-        render_json lecturer, status: :ok
+        render_resource lecturer, status: :ok
       end
 
       # DELETE : api/v1/group/lecturers/{:id}

@@ -34,7 +34,7 @@ module Api
           #
           message = find_message(:"signed_up_but_#{user.inactive_message}", {})
 
-          render_json user, meta: { message: message }, status: :created
+          render_resource user, meta: { message: message }, status: :created
         end
 
         def sign_up_params

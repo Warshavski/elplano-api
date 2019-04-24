@@ -5,9 +5,10 @@
 #   Used as base controller
 #
 class ApplicationController < ActionController::API
-  include Responder
-  include ExceptionHandler
-  include JsonApi::RestifyParams
+  include RestifyParams
+
+  include Handlers::Exception
+  include Handlers::Response
 
   DEFAULT_CACHE_CONTROL = "#{ActionDispatch::Http::Cache::Response::DEFAULT_CACHE_CONTROL}, no-store"
 

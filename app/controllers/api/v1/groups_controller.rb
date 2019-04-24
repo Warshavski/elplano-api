@@ -31,7 +31,7 @@ module Api
       # Get detailed information about current user's group
       #
       def show
-        render_json current_group, status: :ok
+        render_resource current_group, status: :ok
       end
 
       # POST : api/v1/group
@@ -41,7 +41,7 @@ module Api
       def create
         group = Groups::Create.call(current_student, group_params)
 
-        render_json group, status: :created
+        render_resource group, status: :created
       end
 
       # PATCH/PUT : api/v1/group
@@ -51,7 +51,7 @@ module Api
       def update
         supervised_group.update!(group_params)
 
-        render_json supervised_group, status: :ok
+        render_resource supervised_group, status: :ok
       end
 
       # DELETE : api/v1/group

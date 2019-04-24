@@ -17,7 +17,7 @@ module Api
         # Get list of group invites
         #
         def index
-          render_json filter_invites, status: :ok
+          render_resource filter_invites, status: :ok
         end
 
         # GET : api/v1/group/invites/{:id}
@@ -27,7 +27,7 @@ module Api
         def show
           invite = filter_invites.find(params[:id])
 
-          render_json invite, status: :ok
+          render_resource invite, status: :ok
         end
 
         # POST : api/v1/group/invites
@@ -40,7 +40,7 @@ module Api
             invite_params.merge(group: current_group)
           )
 
-          render_json invite, status: :created
+          render_resource invite, status: :created
         end
 
         private

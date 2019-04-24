@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'json_api/restify_params'
 
-describe JsonApi::RestifyParams do
+describe RestifyParams do
   before do
     class FakesController < ActionController::API
-      include JsonApi::RestifyParams
+      include RestifyParams
     end
 
     allow(object).to receive(:params).and_return(ActionController::Parameters.new(jsonapi_params))

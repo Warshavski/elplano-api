@@ -82,7 +82,7 @@ module Api
       def authorize_edit!
         return if current_student.group_owner?
 
-        raise Elplano::Errors::AuthError, I18n.t('errors.access_error')
+        raise Elplano::Errors::AuthError, I18n.t(:'errors.messages.access_denied')
       end
 
       def filter_courses

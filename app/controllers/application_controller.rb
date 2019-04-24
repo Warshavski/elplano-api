@@ -25,13 +25,13 @@ class ApplicationController < ActionController::API
 
   def route_not_found
     if current_user
-      not_found('endpoint does not exists')
+      not_found(I18n.t(:'errors.messages.not_found_endpoint'))
     else
       doorkeeper_authorize!
     end
   end
 
-  def not_found(message = 'Record not found')
+  def not_found(message = I18n.t(:'errors.messages.not_found_record'))
     render_error([{ status: 404, detail: message }], :not_found)
   end
 

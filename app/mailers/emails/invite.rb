@@ -14,7 +14,10 @@ module Emails
     def new_invite(invite_id)
       @invite = ::Invite.find(invite_id)
 
-      mail(to: @invite.email, subject: subject('Invite was created for you'))
+      mail(
+        to: @invite.email,
+        subject: subject(I18n.t(:'notifications.email.invite.subject'))
+      )
     end
   end
 end

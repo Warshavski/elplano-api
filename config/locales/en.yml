@@ -36,10 +36,10 @@ en:
       access_denied: 'Action not allowed'
       not_found_endpoint: 'Endpoint does not exists'
       not_found_record: 'Record not found'
+      invalid_auth: 'Auth error %{param}'
   restify:
     errors:
       missing: 'Parameters does not present by JSON:API format. Missing %{key} key'
-
   notifications:
     email:
       invite:

@@ -13,7 +13,7 @@ module Elplano
 
       def initialize(param)
         @param = param
-        super("Auth error: #{param}")
+        super(I18n.t(:'errors.messages.invalid_token', param: param))
       end
     end
   end

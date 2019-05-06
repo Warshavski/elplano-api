@@ -37,6 +37,7 @@ en:
       not_found_endpoint: 'Endpoint does not exists'
       not_found_record: 'Record not found'
       invalid_auth: 'Auth error %{param}'
+      not_exists: 'does not exist'
   restify:
     errors:
       missing: 'Parameters does not present by JSON:API format. Missing %{key} key'

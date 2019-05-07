@@ -15,7 +15,7 @@ module DeviseJsonApi
     def process_error(resource)
       yield if block_given?
 
-      render_error(ErrorSerializer.serialize(resource, 422), :unprocessable_entity)
+      render_error(ErrorSerializer.new(resource).serialize, :unprocessable_entity)
     end
 
     # Helper for use after calling send_*_instructions methods on a resource.

@@ -37,7 +37,7 @@ module Handlers
       #
       rescue_from ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique do |e|
         handle_error(e, :unprocessable_entity) do
-          ErrorSerializer.serialize(e.record, 422)
+          ErrorSerializer.new(e.record).serialize
         end
       end
 

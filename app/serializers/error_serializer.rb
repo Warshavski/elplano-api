@@ -4,20 +4,44 @@
 #
 #   Used for the errors serialization
 #
-module ErrorSerializer
-  def self.serialize(object, status)
-    object.errors.messages.each_with_object([]) do |(field, errors), result|
-      errors.each { |error_message| result << compose_error(field, status, error_message) }
+class ErrorSerializer
+  def initialize(resource)
+    @resource = resource
+  end
+
+  def serialize
+    errors = @resource.errors
+
+    errors.messages.each_with_object([]) do |(field, messages), result|
+      messages.each do |error_message|
+        result << compose_error(field, 422, error_message)
+      end
     end
   end
 
-  def self.compose_error(field, status, message)
+  private
+
+  def compose_error(attribute, status, message)
     {
       status: status,
-      source: { pointer: "/data/attributes/#{field}" },
-      detail: message
+      source: generate_source(attribute),
+      detail: generate_message(attribute, message)
     }
   end
 
-  private_class_method :compose_error
+  def generate_source(attribute)
+    { pointer: "/data/attributes/#{attribute}" }
+  end
+
+  def generate_message(attribute, message)
+    return message if attribute == :base
+
+    attr_name = attribute.to_s.tr('.', '_').humanize
+    attr_name = @resource.class.human_attribute_name(attribute, default: attr_name)
+
+    I18n.t(:"errors.format",
+           default: '%{attribute} %{message}',
+           attribute: attr_name,
+           message: message)
+  end
 end

@@ -5,6 +5,8 @@
 #   Used as base controller
 #
 class ApplicationController < ActionController::API
+  include ActionPolicy::Controller
+
   include RestifyParams
 
   include Handlers::Exception
@@ -18,6 +20,8 @@ class ApplicationController < ActionController::API
   before_action :set_default_headers
 
   prepend_before_action :doorkeeper_authorize!
+
+  authorize :user, through: :current_student
 
   def check_request_format
     head :unsupported_media_type unless json_request?

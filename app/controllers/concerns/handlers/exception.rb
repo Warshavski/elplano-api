@@ -43,9 +43,9 @@ module Handlers
 
       # Return 403 - Forbidden (No access rights)
       #
-      rescue_from Elplano::Errors::AuthError do |e|
+      rescue_from ActionPolicy::Unauthorized do |e|
         handle_error(e, :forbidden) do
-          [{ status: 403, detail: e.message, source: { pointer: 'authorization scope' } }]
+          [{ status: 403, detail: e.result.message, source: { pointer: 'authorization scope' } }]
         end
       end
     end

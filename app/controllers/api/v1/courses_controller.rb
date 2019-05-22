@@ -19,9 +19,9 @@ module Api
     #     - delete particular course
     #
     class CoursesController < ApplicationController
-      set_default_serializer CourseSerializer
+      before_action :authorize!, only: %i[create update destroy]
 
-      before_action :authorize_edit!, only: %i[create update destroy]
+      set_default_serializer CourseSerializer
 
       # GET : api/v1/group/courses
       #
@@ -78,12 +78,6 @@ module Api
       end
 
       private
-
-      def authorize_edit!
-        return if current_student.group_owner?
-
-        raise Elplano::Errors::AuthError, I18n.t(:'errors.messages.access_denied')
-      end
 
       def filter_courses
         current_group&.courses || Course.none

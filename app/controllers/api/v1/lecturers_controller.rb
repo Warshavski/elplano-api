@@ -19,9 +19,9 @@ module Api
     #     - delete particular lecturer
     #
     class LecturersController < ApplicationController
-      set_default_serializer LecturerSerializer
+      before_action :authorize!, only: %i[create update destroy]
 
-      before_action :authorize_edit!, only: %i[create update destroy]
+      set_default_serializer LecturerSerializer
 
       # GET : api/v1/group/lecturers
       #
@@ -81,12 +81,6 @@ module Api
 
       def filter_lecturers
         current_group&.lecturers || Lecturer.none
-      end
-
-      def authorize_edit!
-        return if current_student.group_owner?
-
-        raise Elplano::Errors::AuthError, I18n.t(:'errors.messages.access_denied')
       end
 
       def lecturer_params

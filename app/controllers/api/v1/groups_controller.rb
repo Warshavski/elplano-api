@@ -21,10 +21,9 @@ module Api
     #     - create a new group and become a group president.
     #
     class GroupsController < ApplicationController
-      set_default_serializer GroupSerializer
+      before_action :authorize!, only: %i[create update destroy]
 
-      before_action :authorize_edit, only: %i[update destroy]
-      before_action :authorize_create, only: :create
+      set_default_serializer GroupSerializer
 
       # GET : api/v1/group
       #

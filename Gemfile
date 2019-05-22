@@ -28,6 +28,10 @@ gem 'puma', '~> 3.11'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Authorization framework for Ruby/Rails applications
+# https://github.com/palkan/action_policy
+gem 'action_policy'
+
 # Reduces boot times through caching; required in config/boot.rb
 # https://github.com/Shopify/bootsnap
 gem 'bootsnap', '>= 1.1.0', require: false

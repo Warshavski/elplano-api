@@ -8,9 +8,9 @@ module Api
       #   Used to control group members invitations
       #
       class InvitesController < ApplicationController
-        set_default_serializer InviteSerializer
+        before_action :authorize!
 
-        before_action :authorize_student!
+        set_default_serializer InviteSerializer
 
         # GET : api/v1/group/invites
         #
@@ -44,12 +44,6 @@ module Api
         end
 
         private
-
-        def authorize_student!
-          return if current_student.group_owner?
-
-          raise Elplano::Errors::AuthError, I18n.t(:'errors.messages.access_denied')
-        end
 
         def filter_invites
           current_group.invites

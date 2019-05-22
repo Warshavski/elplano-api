@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     abstract_type (0.0.7)
+    action_policy (0.3.0)
     actioncable (5.2.2)
       actionpack (= 5.2.2)
       nio4r (~> 2.0)
@@ -311,6 +312,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  action_policy
   apitome
   bootsnap (>= 1.1.0)
   bullet

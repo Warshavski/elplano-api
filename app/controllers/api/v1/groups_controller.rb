@@ -65,18 +65,6 @@ module Api
 
       private
 
-      def authorize_edit
-        return if current_student.group_owner?
-
-        raise Elplano::Errors::AuthError, I18n.t(:'errors.messages.access_denied')
-      end
-
-      def authorize_create
-        return unless current_student.any_group?
-
-        raise Elplano::Errors::AuthError, I18n.t(:'errors.messages.access_denied')
-      end
-
       def group_params
         restify_param(:group)
           .require(:group)

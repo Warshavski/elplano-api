@@ -62,7 +62,7 @@ resource 'Courses' do
   end
 
   post 'api/v1/courses' do
-    with_options scope: %i[dta attributes] do
+    with_options scope: %i[data attributes] do
       parameter :title, 'Course title(human readable identity)', required: true
       parameter :lecturers, 'Lecturers of the course. Included in "relationships" category'
     end

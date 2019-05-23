@@ -46,3 +46,6 @@ en:
       invite:
         subject: 'Invite was created for you'
         message: 'You will receive an email with instructions for how to sign up'
+  uploaders:
+    errors:
+      too_large: 'is too large (max is %{size} MB)'

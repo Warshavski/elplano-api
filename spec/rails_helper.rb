@@ -10,6 +10,7 @@ SimpleCov.start do
 
   add_filter 'config/initializers/doorkeeper.rb'
   add_filter 'config/initializers/sidekiq.rb'
+  add_filter 'config/initializers/shrine.rb'
   add_filter 'config/initializers/rack_attack.rb'
   add_filter 'config/initializers/rack_attack_logging.rb'
 end

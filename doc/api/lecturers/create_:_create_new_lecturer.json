@@ -8,7 +8,7 @@
   "parameters": [
     {
       "scope": [
-        "dta",
+        "data",
         "attributes"
       ],
       "required": true,
@@ -17,7 +17,7 @@
     },
     {
       "scope": [
-        "dta",
+        "data",
         "attributes"
       ],
       "required": true,
@@ -26,7 +26,7 @@
     },
     {
       "scope": [
-        "dta",
+        "data",
         "attributes"
       ],
       "required": true,
@@ -35,11 +35,19 @@
     },
     {
       "scope": [
-        "dta",
+        "data",
         "attributes"
       ],
       "name": "courses",
       "description": "Courses of the lecturer. Included in \"relationships\" category"
+    },
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "name": "avatar",
+      "description": "Uploaded file metadata received from `uploads` endpoint"
     }
   ],
   "response_fields": [
@@ -49,11 +57,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/lecturers",
-      "request_body": "{\"data\":{\"type\":\"lecturer\",\"attributes\":{\"first_name\":\"Edison\",\"last_name\":\"Hoeger\",\"patronymic\":\"Mr.\"},\"relationships\":{\"courses\":{\"data\":[{\"id\":10,\"type\":\"courses\"}]}}}}",
+      "request_body": "{\"data\":{\"type\":\"lecturer\",\"attributes\":{\"first_name\":\"Kenny\",\"last_name\":\"Braun\",\"patronymic\":\"Dr.\",\"avatar\":\"{\\\"id\\\":\\\"0c728575786177fa172fe6cccd65823a.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"},\"relationships\":{\"courses\":{\"data\":[{\"id\":10,\"type\":\"courses\"}]}}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 219ae9649f623e0c4e9b2ba7e852b7de5bb8c714d35298ac7a94553348e1a3fd",
+        "Authorization": "Bearer c93d65e3067867aef8d2540e3f6d72ffa0289bec8fbd684c043faa893cf3a1cf",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -62,7 +70,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"9\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"created_at\": \"2019-03-30T16:46:17.472Z\",\n      \"updated_at\": \"2019-03-30T16:46:17.472Z\",\n      \"first_name\": \"Edison\",\n      \"last_name\": \"Hoeger\",\n      \"patronymic\": \"Mr.\"\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"10\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"9\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"created_at\": \"2019-05-23T07:49:16.005Z\",\n      \"updated_at\": \"2019-05-23T07:49:16.005Z\",\n      \"first_name\": \"Kenny\",\n      \"last_name\": \"Braun\",\n      \"patronymic\": \"Dr.\",\n      \"avatar\": \"memory://0c728575786177fa172fe6cccd65823a.png\"\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"10\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -71,14 +79,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"75a87a1af0233731fdad4dabc83cfb5e\"",
-        "X-Request-Id": "c2417895-e6a3-4fc6-8ce0-4d3e9eda20c0",
-        "X-Runtime": "0.024534",
+        "ETag": "W/\"c3655a20cd5f2c921762a32fe9e92f7d\"",
+        "X-Request-Id": "45b4325d-006a-4236-a789-bb6edc862bf0",
+        "X-Runtime": "0.041071",
         "Vary": "Origin",
-        "Content-Length": "261"
+        "Content-Length": "316"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/lecturers\" -d '{\"data\":{\"type\":\"lecturer\",\"attributes\":{\"first_name\":\"Edison\",\"last_name\":\"Hoeger\",\"patronymic\":\"Mr.\"},\"relationships\":{\"courses\":{\"data\":[{\"id\":10,\"type\":\"courses\"}]}}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 219ae9649f623e0c4e9b2ba7e852b7de5bb8c714d35298ac7a94553348e1a3fd\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/lecturers\" -d '{\"data\":{\"type\":\"lecturer\",\"attributes\":{\"first_name\":\"Kenny\",\"last_name\":\"Braun\",\"patronymic\":\"Dr.\",\"avatar\":\"{\\\"id\\\":\\\"0c728575786177fa172fe6cccd65823a.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"},\"relationships\":{\"courses\":{\"data\":[{\"id\":10,\"type\":\"courses\"}]}}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer c93d65e3067867aef8d2540e3f6d72ffa0289bec8fbd684c043faa893cf3a1cf\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

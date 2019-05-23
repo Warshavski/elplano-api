@@ -32,11 +32,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group",
-      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Et dolor maxime.\",\"number\":\"12062\"}}}",
+      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Omnis nihil vel.\",\"number\":\"74645\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 0c859e9432059472e42926729f83549c42eb5c690bdc0b109479834e79fdb4d9",
+        "Authorization": "Bearer 91ff356a3d1ac3c7c02ec919caa5bab1e3dff89ef193f4076c91a68179c9fd0b",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -45,7 +45,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"17\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"12062\",\n      \"title\": \"Et dolor maxime.\",\n      \"created_at\": \"2019-03-30T16:46:17.092Z\",\n      \"updated_at\": \"2019-03-30T16:46:17.092Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"26\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"17\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"74645\",\n      \"title\": \"Omnis nihil vel.\",\n      \"created_at\": \"2019-05-23T07:49:15.512Z\",\n      \"updated_at\": \"2019-05-23T07:49:15.512Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"26\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -54,14 +54,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"57d2ccc21790082555ad57a0d763b317\"",
-        "X-Request-Id": "3a909880-920e-48e5-bf20-73b7a0982f9e",
-        "X-Runtime": "0.013309",
+        "ETag": "W/\"a8504dd4602dddf96be70ba5e15172f2\"",
+        "X-Request-Id": "78348ee7-7842-41f4-8f2a-6ad0b2ecc4e5",
+        "X-Runtime": "0.035796",
         "Vary": "Origin",
         "Content-Length": "243"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Et dolor maxime.\",\"number\":\"12062\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 0c859e9432059472e42926729f83549c42eb5c690bdc0b109479834e79fdb4d9\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Omnis nihil vel.\",\"number\":\"74645\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 91ff356a3d1ac3c7c02ec919caa5bab1e3dff89ef193f4076c91a68179c9fd0b\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

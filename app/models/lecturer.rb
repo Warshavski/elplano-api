@@ -8,6 +8,8 @@
 #          Each group has its own list of lecturers and they can't cross with another group.
 #
 class Lecturer < ApplicationRecord
+  include AvatarUploader[:avatar]
+
   belongs_to :group
 
   has_many :lectures, dependent: :delete_all

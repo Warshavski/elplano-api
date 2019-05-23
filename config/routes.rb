@@ -53,4 +53,7 @@ Rails.application.routes.draw do
       resource :user, only: :show
     end
   end
+
+  # (see UploadsController)
+  resource :uploads, only: :create
 end

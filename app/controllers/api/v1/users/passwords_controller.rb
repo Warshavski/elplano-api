@@ -10,7 +10,7 @@ module Api
       class PasswordsController < Devise::PasswordsController
         include DeviseJsonApi
 
-        skip_before_action :doorkeeper_authorize!
+        skip_before_action :authorize_access!
 
         # GET : api/v1/accounts/password/new
         def new

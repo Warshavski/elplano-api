@@ -29,11 +29,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group/courses/6",
-      "request_body": "{\"course\":{\"title\":\"Associate Degree in Psychology\",\"lecturer_ids\":[5]}}",
+      "request_body": "{\"course\":{\"title\":\"Associate Degree in Medicine\",\"lecturer_ids\":[5]}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer f98a1f2a9e2d3e74543b4ff12c4c9fa383cb2f1ad991fcca9ffe5beed43fd531",
+        "Authorization": "Bearer 0adf5e87f421f4e2a9cb541c7f9d11a8f93501488eb465bb83e932d47db8c2ed",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -42,7 +42,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-16T09:00:35.141Z\",\n      \"updated_at\": \"2019-08-16T09:00:35.174Z\",\n      \"title\": \"Associate Degree In Psychology\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"5\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-16T10:10:30.903Z\",\n      \"updated_at\": \"2019-08-16T10:10:30.935Z\",\n      \"title\": \"Associate Degree In Medicine\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"5\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -51,14 +51,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"a0f4221a99d53b8c8be0900099ef2caa\"",
-        "X-Request-Id": "0f562feb-a722-4145-b08a-d7638a905b04",
-        "X-Runtime": "0.016812",
+        "ETag": "W/\"f1e46886f0f546b12be113b3f6c1ac89\"",
+        "X-Request-Id": "6a611833-d6c4-4ba7-8a20-98d7fd9eda5e",
+        "X-Runtime": "0.015904",
         "Vary": "Origin",
-        "Content-Length": "241"
+        "Content-Length": "239"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/courses/6\" -d '{\"course\":{\"title\":\"Associate Degree in Psychology\",\"lecturer_ids\":[5]}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer f98a1f2a9e2d3e74543b4ff12c4c9fa383cb2f1ad991fcca9ffe5beed43fd531\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/courses/6\" -d '{\"course\":{\"title\":\"Associate Degree in Medicine\",\"lecturer_ids\":[5]}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 0adf5e87f421f4e2a9cb541c7f9d11a8f93501488eb465bb83e932d47db8c2ed\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

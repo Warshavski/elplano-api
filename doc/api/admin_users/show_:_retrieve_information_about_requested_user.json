@@ -1,0 +1,50 @@
+{
+  "resource": "Admin users",
+  "resource_explanation": "El Plano administration: Users.\n\nUsers attributes :\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Represents used's user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - `banned` - `true` if the user had been locked via admin ban action otherwise `true`.\n  - `locked` - `true` if the user had been locked via login failed attempt otherwise `false`.\n  - `avatar_url` - Represents user's avatar.\n  - `timestamps`\n\n  Also, include reference to student profile(additional user info)\n",
+  "http_method": "GET",
+  "route": "api/v1/admin/users/:id",
+  "description": "SHOW : Retrieve information about requested user",
+  "explanation": "Returns a single instance of the user.\n\nSee user attributes description in the section description.\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "api/v1/admin/users/5",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer ff9f31e1f373282ea20d7321c47c28a4f76311992074b17a241a91725fc7ebdf",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"christie@robel.info\",\n      \"username\": \"lawana_treutel\",\n      \"admin\": false,\n      \"created_at\": \"2019-08-16T10:10:30.201Z\",\n      \"updated_at\": \"2019-08-16T10:10:30.201Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/627ba5ff50af08f421c00ebfca1fb90d?s=200&d=identicon\",\n      \"confirmed\": true,\n      \"banned\": false,\n      \"locked\": false\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"2\",\n          \"type\": \"student\"\n        }\n      }\n    }\n  }\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"d28f50434e4c32d1de20d4067f3f5fc1\"",
+        "X-Request-Id": "1db12955-38bd-4b9f-bf6d-40ccae7c0cb6",
+        "X-Runtime": "0.010172",
+        "Vary": "Origin",
+        "Content-Length": "415"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl -g \"http://localhost:3000/api/v1/admin/users/5\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer ff9f31e1f373282ea20d7321c47c28a4f76311992074b17a241a91725fc7ebdf\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

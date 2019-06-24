@@ -30,11 +30,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group",
-      "request_body": "{\"group\":{\"title\":\"Minima quam inventore.\",\"number\":\"20724\"}}",
+      "request_body": "{\"group\":{\"title\":\"Rerum mollitia voluptate.\",\"number\":\"70611\"}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 7b358b7a9866c24559c7ff85b7fa55ec3623e287d9f4c72dd3447f16f43bb4a4",
+        "Authorization": "Bearer 9522a2fc9967c116b0658b14b850b98f92297409043c2dd7ae810eee8076f73c",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -43,7 +43,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"23\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"20724\",\n      \"title\": \"Minima quam inventore.\",\n      \"created_at\": \"2019-08-16T09:00:35.857Z\",\n      \"updated_at\": \"2019-08-16T09:00:35.874Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"32\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"23\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"70611\",\n      \"title\": \"Rerum mollitia voluptate.\",\n      \"created_at\": \"2019-08-16T10:10:32.088Z\",\n      \"updated_at\": \"2019-08-16T10:10:32.105Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"39\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -52,14 +52,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"71416035a494d6822b1bcc1f6d2f11d2\"",
-        "X-Request-Id": "7ae92631-7eb4-402c-a491-f5e572cd767e",
-        "X-Runtime": "0.011769",
+        "ETag": "W/\"af77e18f42810a178b2a76ca7abc1dfa\"",
+        "X-Request-Id": "a3596d24-7026-492e-b8b1-3f4833f7f5c1",
+        "X-Runtime": "0.010924",
         "Vary": "Origin",
-        "Content-Length": "249"
+        "Content-Length": "252"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"group\":{\"title\":\"Minima quam inventore.\",\"number\":\"20724\"}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 7b358b7a9866c24559c7ff85b7fa55ec3623e287d9f4c72dd3447f16f43bb4a4\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"group\":{\"title\":\"Rerum mollitia voluptate.\",\"number\":\"70611\"}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 9522a2fc9967c116b0658b14b850b98f92297409043c2dd7ae810eee8076f73c\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

@@ -35,6 +35,9 @@ Rails.application.routes.draw do
           # (see Admin::System::InformationController)
           resource :information, only: :show, controller: 'information'
         end
+
+        # (see Admin::UsersController)
+        resources :users, except: %i[new edit create]
       end
 
       # (see EventsController)

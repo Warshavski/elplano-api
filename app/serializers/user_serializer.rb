@@ -20,5 +20,9 @@ class UserSerializer
 
   attribute :confirmed, &:confirmed?
 
+  attribute :banned, &:banned?
+
+  attribute :locked, &:access_locked?
+
   belongs_to :student, serializer: StudentSerializer
 end

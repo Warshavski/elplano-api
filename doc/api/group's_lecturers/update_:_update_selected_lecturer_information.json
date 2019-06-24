@@ -52,11 +52,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group/lecturers/10",
-      "request_body": "{\"lecturer\":{\"first_name\":\"Nathaniel\",\"last_name\":\"Hoppe\",\"patronymic\":\"Mrs.\",\"course_ids\":[12],\"avatar\":\"{\\\"id\\\":\\\"b8f2efaba89df9f35a18b88df9da85e5.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"}}",
+      "request_body": "{\"lecturer\":{\"first_name\":\"Virgilio\",\"last_name\":\"Lakin\",\"patronymic\":\"Miss\",\"course_ids\":[12],\"avatar\":\"{\\\"id\\\":\\\"6d6fb0676d30103c8b1947e0bcba1281.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 190b724c71cf2d700978c41dc1be47eebdc8f0fee26f673e502aa9c2d014eed7",
+        "Authorization": "Bearer c5ea12494cb7f1217408577b944185d7e98196d6a67b17525a458d483b66ad7b",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -65,7 +65,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"10\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-16T09:00:35.599Z\",\n      \"updated_at\": \"2019-08-16T09:00:35.636Z\",\n      \"first_name\": \"Nathaniel\",\n      \"last_name\": \"Hoppe\",\n      \"patronymic\": \"Mrs.\",\n      \"avatar\": \"memory://b8f2efaba89df9f35a18b88df9da85e5.png\"\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"12\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"10\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-16T10:10:31.800Z\",\n      \"updated_at\": \"2019-08-16T10:10:31.839Z\",\n      \"first_name\": \"Virgilio\",\n      \"last_name\": \"Lakin\",\n      \"patronymic\": \"Miss\",\n      \"avatar\": \"memory://6d6fb0676d30103c8b1947e0bcba1281.png\"\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"12\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -74,14 +74,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"9d5cf3171700b460ca683d50170eacd6\"",
-        "X-Request-Id": "3145210c-0bf3-4019-b10a-699f43474b22",
-        "X-Runtime": "0.019920",
+        "ETag": "W/\"e0abc106f904b8767527540cef369d18\"",
+        "X-Request-Id": "619c0d75-537c-41f2-b32f-cf54518aa11d",
+        "X-Runtime": "0.021398",
         "Vary": "Origin",
-        "Content-Length": "322"
+        "Content-Length": "321"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/lecturers/10\" -d '{\"lecturer\":{\"first_name\":\"Nathaniel\",\"last_name\":\"Hoppe\",\"patronymic\":\"Mrs.\",\"course_ids\":[12],\"avatar\":\"{\\\"id\\\":\\\"b8f2efaba89df9f35a18b88df9da85e5.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 190b724c71cf2d700978c41dc1be47eebdc8f0fee26f673e502aa9c2d014eed7\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/lecturers/10\" -d '{\"lecturer\":{\"first_name\":\"Virgilio\",\"last_name\":\"Lakin\",\"patronymic\":\"Miss\",\"course_ids\":[12],\"avatar\":\"{\\\"id\\\":\\\"6d6fb0676d30103c8b1947e0bcba1281.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer c5ea12494cb7f1217408577b944185d7e98196d6a67b17525a458d483b66ad7b\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

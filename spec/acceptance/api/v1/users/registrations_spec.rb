@@ -28,10 +28,12 @@ resource 'Users' do
           - `username` - Represents used's user name.
           - `admin` - `false` if regular user `true`, if the user has access to application settings.
           - `confirmed` - `false` if the user did not confirm his address otherwise `true`.
+          - `banned` - `true` if the user had been locked via admin ban action otherwise `true`.
+          - `locked` - `true` if the user had been locked via login failed attempt otherwise `false`.
           - `avatar_url` - Represents user's avatar.
           - `timestamps`
 
-        Also, includes relationship to the student
+        Also, includes relationship to the student.
       DESC
 
       do_request

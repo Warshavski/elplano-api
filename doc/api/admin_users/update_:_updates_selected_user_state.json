@@ -1,0 +1,54 @@
+{
+  "resource": "Admin users",
+  "resource_explanation": "El Plano administration: Users.\n\nUsers attributes :\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Represents used's user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - `banned` - `true` if the user had been locked via admin ban action otherwise `true`.\n  - `locked` - `true` if the user had been locked via login failed attempt otherwise `false`.\n  - `avatar_url` - Represents user's avatar.\n  - `timestamps`\n\n  Also, include reference to student profile(additional user info)\n",
+  "http_method": "PATCH",
+  "route": "api/v1/admin/users/:id",
+  "description": "UPDATE : Updates selected user state",
+  "explanation": "Updates user state and returns updated user.\n\nAvailable actions list:\n\n  - `ban` - Block access to the application.\n  - `unban` - Remove application access block.\n  - `unlock` - Remove lock caused by wrong password input.\n  - `confirm` - Confirm user account.\n\nSee user attributes description in the section description.\n",
+  "parameters": [
+    {
+      "required": true,
+      "name": "action_type",
+      "description": "One of the action types(`ban`, `unban`, `unlock`, `confirm`)"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "api/v1/admin/users/7",
+      "request_body": "{\"action_type\":\"ban\"}",
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer 5564d2c0488abc9b08519d6db1b151e2831c5ccc66473fae5317f82f82ed2631",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"7\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"scarlett@morarshanahan.io\",\n      \"username\": \"bennett\",\n      \"admin\": false,\n      \"created_at\": \"2019-08-16T10:10:30.244Z\",\n      \"updated_at\": \"2019-08-16T10:10:30.276Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/7121389437f7201034b17a66106191b6?s=200&d=identicon\",\n      \"confirmed\": true,\n      \"banned\": true,\n      \"locked\": false\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"4\",\n          \"type\": \"student\"\n        }\n      }\n    }\n  }\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"84bfb66207e89ca5a543af504b58060e\"",
+        "X-Request-Id": "c7f4da50-b527-4afc-b8ba-2fa2da9fff2e",
+        "X-Runtime": "0.015020",
+        "Vary": "Origin",
+        "Content-Length": "413"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/api/v1/admin/users/7\" -d '{\"action_type\":\"ban\"}' -X PATCH \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 5564d2c0488abc9b08519d6db1b151e2831c5ccc66473fae5317f82f82ed2631\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

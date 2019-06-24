@@ -14,12 +14,12 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "api/v1/invites/XAXktaCRPNUF7sZzzj47",
+      "request_path": "api/v1/invites/zbusx2N_oBHfJB6p1Cud",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer d5f23d7d85f51ffb0929a9c4d0688c9d7821fc85db07fec04fa3a2873ea943ad",
+        "Authorization": "Bearer b3f65e74ae87b0909ba9868d0d4bdaa87e9761e391538de321f7d40164d8135a",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"maud@oconnell.co\",\n      \"invitation_token\": \"XAXktaCRPNUF7sZzzj47\",\n      \"sent_at\": \"2019-08-16T09:00:36.010Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-08-16T09:00:36.009Z\",\n      \"updated_at\": \"2019-08-16T09:00:36.009Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"38\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"26\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"26\",\n      \"type\": \"group\",\n      \"attributes\": {\n        \"number\": \"8522064280\",\n        \"title\": \"Debitis adipisci mollitia.\",\n        \"created_at\": \"2019-08-16T09:00:36.006Z\",\n        \"updated_at\": \"2019-08-16T09:00:36.006Z\"\n      },\n      \"relationships\": {\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"lenny@jonesweinat.biz\",\n      \"invitation_token\": \"zbusx2N_oBHfJB6p1Cud\",\n      \"sent_at\": \"2019-08-16T10:10:32.266Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-08-16T10:10:32.266Z\",\n      \"updated_at\": \"2019-08-16T10:10:32.266Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"45\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"26\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"26\",\n      \"type\": \"group\",\n      \"attributes\": {\n        \"number\": \"3328385927\",\n        \"title\": \"Ut nam distinctio.\",\n        \"created_at\": \"2019-08-16T10:10:32.262Z\",\n        \"updated_at\": \"2019-08-16T10:10:32.262Z\"\n      },\n      \"relationships\": {\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"fa73814a7dc132c777f5f8c73783fca0\"",
-        "X-Request-Id": "2040fa43-85ba-40bd-8a59-fb5820650494",
-        "X-Runtime": "0.007495",
+        "ETag": "W/\"2038e04d51c0002a038a1233db1afaff\"",
+        "X-Request-Id": "a0c6b4b0-8006-436f-81b0-3354e8084698",
+        "X-Runtime": "0.008802",
         "Vary": "Origin",
-        "Content-Length": "622"
+        "Content-Length": "619"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/invites/XAXktaCRPNUF7sZzzj47\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer d5f23d7d85f51ffb0929a9c4d0688c9d7821fc85db07fec04fa3a2873ea943ad\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/invites/zbusx2N_oBHfJB6p1Cud\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer b3f65e74ae87b0909ba9868d0d4bdaa87e9761e391538de321f7d40164d8135a\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

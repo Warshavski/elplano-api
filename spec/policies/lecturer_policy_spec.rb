@@ -4,10 +4,10 @@ require 'rails_helper'
 
 RSpec.describe LecturerPolicy do
   let(:lecturer)  { build_stubbed(:lecturer) }
-  let(:policy)    { described_class.new(lecturer, user: user) }
+  let(:policy)    { described_class.new(lecturer, student: student, user: student.user) }
 
   context 'when student is a group owner' do
-    let_it_be(:user) { create(:student, :group_supervisor) }
+    let_it_be(:student) { create(:student, :group_supervisor) }
 
     describe '#create?' do
       subject { policy.apply(:create?) }
@@ -28,8 +28,8 @@ RSpec.describe LecturerPolicy do
     end
   end
 
-  context 'when user is a regular group member' do
-    let_it_be(:user) { create(:student, :group_member) }
+  context 'when student is a regular group member' do
+    let_it_be(:student) { create(:student, :group_member) }
 
     describe '#create?' do
       subject { policy.apply(:create?) }

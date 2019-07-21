@@ -4,10 +4,10 @@ require 'rails_helper'
 
 RSpec.describe InvitePolicy do
   let(:invite) { build_stubbed(:invite) }
-  let(:policy) { described_class.new(invite, user: user) }
+  let(:policy) { described_class.new(invite, student: student, user: student.user) }
 
   context 'when student is a group owner' do
-    let_it_be(:user) { create(:student, :group_supervisor) }
+    let_it_be(:student) { create(:student, :group_supervisor) }
 
     describe '#create?' do
       subject { policy.apply(:index?) }
@@ -28,8 +28,8 @@ RSpec.describe InvitePolicy do
     end
   end
 
-  context 'when user is a regular group member' do
-    let_it_be(:user) { create(:student, :group_member) }
+  context 'when student is a regular group member' do
+    let_it_be(:student) { create(:student, :group_member) }
 
     describe '#create?' do
       subject { policy.apply(:index?) }

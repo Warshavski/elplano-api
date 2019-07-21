@@ -10,7 +10,7 @@ module Api
       class RegistrationsController < Devise::RegistrationsController
         set_default_serializer UserSerializer
 
-        skip_before_action :doorkeeper_authorize!
+        skip_before_action :authorize_access!
 
         %i[cancel new edit update destroy].each do |method|
           define_method(method) { route_not_found }

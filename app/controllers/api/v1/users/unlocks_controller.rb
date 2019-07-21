@@ -13,7 +13,7 @@ module Api
       class UnlocksController < Devise::UnlocksController
         include DeviseJsonApi
 
-        skip_before_action :doorkeeper_authorize!
+        skip_before_action :authorize_access!
 
         # GET :  api/v1/users/unlock/new
         def new

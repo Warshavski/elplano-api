@@ -12,6 +12,8 @@ class ApplicationController < ActionController::API
   include Handlers::Exception
   include Handlers::Response
 
+  include DoorkeeperJsonApi
+
   DEFAULT_CACHE_CONTROL = "#{ActionDispatch::Http::Cache::Response::DEFAULT_CACHE_CONTROL}, no-store"
 
   before_action :destroy_session
@@ -19,9 +21,10 @@ class ApplicationController < ActionController::API
   before_action :set_page_title_header
   before_action :set_default_headers
 
-  prepend_before_action :doorkeeper_authorize!
+  prepend_before_action :authorize_access!
 
-  authorize :user, through: :current_student
+  authorize :user, through: :current_user
+  authorize :student, through: :current_student
 
   def check_request_format
     head :unsupported_media_type unless json_request?
@@ -31,7 +34,7 @@ class ApplicationController < ActionController::API
     if current_user
       not_found(I18n.t(:'errors.messages.not_found_endpoint'))
     else
-      doorkeeper_authorize!
+      authorize_access!
     end
   end
 
@@ -82,27 +85,20 @@ class ApplicationController < ActionController::API
     @page_title.join(' · ')
   end
 
+  def authorize_access!
+    #
+    # This means that doorkeeper authorization was successful
+    #  otherwise, doorkeeper would render an error
+    #
+    if doorkeeper_authorize!.nil?
+      authorize!(current_user)
+    end
+  end
+
   private
 
   def destroy_session
     request.session_options[:skip] = true
-  end
-
-  def doorkeeper_unauthorized_render_options(error: nil)
-    {
-      json: {
-        errors: [
-          {
-            status: 401,
-            title: 'Authorization error',
-            detail: I18n.t(:'errors.messages.invalid_token'),
-            source: {
-              pointer: 'Authorization Header'
-            }
-          }
-        ]
-      }
-    }
   end
 
   def current_resource_owner

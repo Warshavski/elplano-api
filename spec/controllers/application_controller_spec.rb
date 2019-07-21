@@ -46,7 +46,7 @@ describe ApplicationController do
     it 'does redirect to login page via authenticate_user! if not authenticated' do
       allow(controller).to receive(:current_user).and_return(nil)
 
-      expect(controller).to receive(:doorkeeper_authorize!)
+      expect(controller).to receive(:authorize_access!)
 
       controller.send(:route_not_found)
     end

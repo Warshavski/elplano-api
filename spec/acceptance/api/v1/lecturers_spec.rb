@@ -2,18 +2,18 @@
 
 require 'acceptance_helper'
 
-resource 'Lecturers' do
+resource "Group's lecturers" do
   explanation <<~DESC
-    El Plano lecturers API.
+    El Plano group's lecturers API(created for the group by group owner).
 
     Course attributes :
 
-     - `first_name`
-     - `last_name`
-     - `patronymic`
+     - `first_name` - Represents lecturer first name
+     - `last_name` - Represents lecturer last name
+     - `patronymic` - Represents lecturer patronymic 
      - `timestamps`
   
-     Also, includes reference to the courses.
+    Also, includes reference to the courses.
   DESC
 
   let(:student) { create(:student, :group_supervisor) }
@@ -39,12 +39,12 @@ resource 'Lecturers' do
 
     example 'INDEX : Retrieve lecturers created by authenticated user' do
       explanation <<~DESC
-        Return list of available lecturers.
+        Returns a list of the available lecturers.
       DESC
 
       do_request
 
-      expected_body = LecturerSerializer.new(group.lecturers).serialized_json.to_s
+      expected_body = LecturerSerializer.new(group.lecturers).serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -54,12 +54,12 @@ resource 'Lecturers' do
   get 'api/v1/lecturers/:id' do
     example 'SHOW : Retrieve information about requested lecturer' do
       explanation <<~DESC
-        Return single instance of the lecturer.
+        Returns a single instance of the lecturer.
       DESC
 
       do_request
 
-      expected_body = LecturerSerializer.new(lecturer).serialized_json.to_s
+      expected_body = LecturerSerializer.new(lecturer).serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -94,12 +94,14 @@ resource 'Lecturers' do
 
     example 'CREATE : Create new lecturer' do
       explanation <<~DESC
-        Create and return created lecturer.
+        Creates and returns created lecturer.
+
+        <b>NOTE</b> : This action allowed only for group owner user.
       DESC
 
       do_request
 
-      expected_body = LecturerSerializer.new(group.lecturers.last).serialized_json.to_s
+      expected_body = LecturerSerializer.new(group.lecturers.last).serialized_json
 
       expect(status).to eq(201)
       expect(response_body).to eq(expected_body)
@@ -134,12 +136,14 @@ resource 'Lecturers' do
 
     example 'UPDATE : Update selected lecturer information' do
       explanation <<~DESC
-        Update and return updated lecturer.
+        Updates and returns updated lecturer.
+
+        <b>NOTE</b> : This action allowed only for group owner user.
       DESC
 
       do_request
 
-      expected_body = LecturerSerializer.new(lecturer.reload).serialized_json.to_s
+      expected_body = LecturerSerializer.new(lecturer.reload).serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -150,6 +154,8 @@ resource 'Lecturers' do
     example 'DELETE : Delete selected lecturer' do
       explanation <<~DESC
         Delete lecturer.
+
+        <b>NOTE</b> : This action allowed only for group owner user.
       DESC
 
       do_request

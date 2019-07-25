@@ -2,10 +2,10 @@
 
 require 'acceptance_helper'
 
-resource 'Events' do
+resource "User's events" do
   explanation <<~DESC
-    El Plano events API.
-
+    El Plano user's events API(event created by user).
+    
     Event attributes :
 
      - `title` - Represents event name.
@@ -25,7 +25,7 @@ resource 'Events' do
   DESC
 
   let(:student) { create(:student, :group_member) }
-  let(:course) { create(:course, group: student.group) }
+  let(:course)  { create(:course, group: student.group) }
 
   let(:user) { student.user }
   let(:token) { create(:token, resource_owner_id: user.id).token }
@@ -43,12 +43,12 @@ resource 'Events' do
 
     example 'INDEX : Retrieve events created by authenticated user' do
       explanation <<~DESC
-        Return list of available events.
+        Returns a list of the available events.
       DESC
 
       do_request
 
-      expected_body = EventSerializer.new(events).serialized_json.to_s
+      expected_body = EventSerializer.new(events).serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -58,12 +58,12 @@ resource 'Events' do
   get 'api/v1/events/:id' do
     example 'SHOW : Retrieve information about requested event' do
       explanation <<~DESC
-        Return single instance of the event.
+        Returns a single instance of the event.
       DESC
 
       do_request
 
-      expected_body = EventSerializer.new(event).serialized_json.to_s
+      expected_body = EventSerializer.new(event).serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -96,7 +96,7 @@ resource 'Events' do
 
     example 'CREATE : Creates new event' do
       explanation <<~DESC
-        Create and return created event.
+        Creates and returns created event.
       DESC
 
       do_request
@@ -104,7 +104,6 @@ resource 'Events' do
       expected_body = EventSerializer
                         .new(student.created_events.reload.last)
                         .serialized_json
-                        .to_s
 
       expect(status).to eq(201)
       expect(response_body).to eq(expected_body)
@@ -137,12 +136,12 @@ resource 'Events' do
 
     example 'UPDATE : Updates selected event information' do
       explanation <<~DESC
-        Update and return updated event.
+        Updates and returns updated event.
       DESC
 
       do_request
 
-      expected_body = EventSerializer.new(event.reload).serialized_json.to_s
+      expected_body = EventSerializer.new(event.reload).serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -152,7 +151,7 @@ resource 'Events' do
   delete 'api/v1/events/:id' do
     example 'DELETE : Deletes selected event' do
       explanation <<~DESC
-        Delete event.
+        Deletes event.
       DESC
 
       do_request

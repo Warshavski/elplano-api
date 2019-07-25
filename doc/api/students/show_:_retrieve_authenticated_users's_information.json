@@ -1,10 +1,10 @@
 {
   "resource": "Students",
-  "resource_explanation": "El Plano student's profile API.\n\nStudent attributes :\n\n  - `full_name` - Represents concatenated student's first, last and middle names.\n  - `email` - Represents email which is used to contact with the student.\n  - `phone` - Represents phone which is used to contact with the student.\n  - `about` - Represents some detailed information about student(BIO).\n  - `social_networks` - Represents a list of social networks.\n  - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).\n  - timestamps\n\n  Also, includes information about a group.\n\n  - `title` - Represents group human readable identity.\n  - `number` - Represents group main identity.\n  - `timestamps`\n",
+  "resource_explanation": "El Plano student's profile API.\n\nStudent attributes :\n\n  - `full_name` - Represents concatenated student's first, last and middle names.\n  - `email` - Represents email which is used to contact with the student.\n  - `phone` - Represents phone which is used to contact with the student.\n  - `about` - Represents some detailed information about student(BIO).\n  - `social_networks` - Represents a list of social networks.\n  - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).\n  - `timestamps`\n\nAlso, includes information about a group.\n\n  - `title` - Represents group human readable identity.\n  - `number` - Represents group main identity.\n  - `timestamps`\n",
   "http_method": "GET",
   "route": "api/v1/student",
   "description": "SHOW : Retrieve Authenticated Users's  information",
-  "explanation": "Return detailed information about user's profile(student information).\n",
+  "explanation": "Returns detailed information about user's profile(student information).\n",
   "parameters": [
 
   ],
@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer bc8af522d63c185b4b57f9f204b4daa099dbf2c90f9fa14dd56bccc5f9f33d12",
+        "Authorization": "Bearer b639179f4ceb5be75a094c228d5f7ec82fe54227bacf44eecff285d3a2981165",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"44\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Tama Jacqualine Mueller\",\n      \"email\": \"elease@hackett.com\",\n      \"phone\": \"1-442-699-4085\",\n      \"about\": \"Voluptates est et. Excepturi id adipisci. Consequatur dolores non. Dolorem et expedita. Tempore praesentium quaerat.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/fletcher\",\n        \"facebook\": \"http://facebook/mauro\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-05-23T07:49:16.186Z\",\n      \"updated_at\": \"2019-05-23T07:49:16.186Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"28\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"43\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"44\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Maria Kenneth Abernathy\",\n      \"email\": \"garry@grant.name\",\n      \"phone\": \"848-709-5208\",\n      \"about\": \"Eos eius veniam. Vero est iure. Pariatur natus reprehenderit. Quae magni ut. At iste delectus.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/sunday_leannon\",\n        \"facebook\": \"http://facebook/dalton\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-07-25T14:17:23.860Z\",\n      \"updated_at\": \"2019-07-25T14:17:23.860Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"28\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"43\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"b4b29fd0aa606dc9ad0f3b80461ea5bc\"",
-        "X-Request-Id": "208f32b9-8117-4f37-979b-e2a5b7b2b1b9",
-        "X-Runtime": "0.006488",
+        "ETag": "W/\"279282a5e10659c1b26eff055993ef6f\"",
+        "X-Request-Id": "8af16497-860d-4ab6-a75c-310baf701536",
+        "X-Runtime": "0.014631",
         "Vary": "Origin",
-        "Content-Length": "564"
+        "Content-Length": "545"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer bc8af522d63c185b4b57f9f204b4daa099dbf2c90f9fa14dd56bccc5f9f33d12\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer b639179f4ceb5be75a094c228d5f7ec82fe54227bacf44eecff285d3a2981165\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

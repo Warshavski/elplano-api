@@ -1,10 +1,10 @@
 {
   "resource": "Uploads",
-  "resource_explanation": "El Plano file uploads API.\n\nUploaded file metadata attributes :\n\n  - `id` - Represents unique uploaded file identity.\n  - `storage` - Represents file storage type.\n  - `metadata` - Represents uploaded file metadata(name, size, e.t.c.).\n    - `filename` - Represents name of the uploaded file.\n    - `size` - Represents size of the uploaded file(bytes).\n    - `mime_type` - Represents MIME(Multipurpose Internet Mail Extensions or MIME) type of the uploaded file.\n\n",
+  "resource_explanation": null,
   "http_method": "POST",
   "route": "uploads",
   "description": "CREATE : Upload file",
-  "explanation": "Returns uploaded file identity and its metadata\n",
+  "explanation": "Returns uploaded file identity and its metadata\n\nUploaded file metadata attributes :\n\n  - `id` - Represents unique uploaded file identity.\n  - `storage` - Represents file storage type.\n  - `metadata` - Represents uploaded file metadata(name, size, e.t.c.).\n    - `filename` - Represents name of the uploaded file.\n    - `size` - Represents size of the uploaded file(bytes).\n    - `mime_type` - Represents MIME(Multipurpose Internet Mail Extensions or MIME) type of the uploaded file.\n",
   "parameters": [
     {
       "scope": "upload",
@@ -26,11 +26,11 @@
     {
       "request_method": "POST",
       "request_path": "uploads",
-      "request_body": "{\"upload\":{\"type\":\"avatar\",\"file\":{\"original_filename\":\"dk.png\",\"tempfile\":\"#\\u003cFile:0x00005626f7ee8c10\\u003e\",\"content_type\":null}}}",
+      "request_body": "{\"upload\":{\"type\":\"avatar\",\"file\":{\"original_filename\":\"dk.png\",\"tempfile\":\"#\\u003cFile:0x000055909b197108\\u003e\",\"content_type\":null}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer a037e9d5583cdf76bec9d4440b485ed1605e9499e307dabbd524a456555c757f",
+        "Authorization": "Bearer 5931152afb336f06c25620ecbf8407364600cd04046faf6c7f3b227a2f45c9f2",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -49,13 +49,13 @@
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
         "ETag": "W/\"8ecd08c9c8b429daec96b39817a22ceb\"",
-        "X-Request-Id": "c15d2b57-df73-4c14-846a-a9c10a6aa865",
-        "X-Runtime": "0.007759",
+        "X-Request-Id": "f154c6d7-cd7d-48a0-8719-88c6f80f2169",
+        "X-Runtime": "0.011235",
         "Vary": "Origin",
         "Content-Length": "132"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/uploads\" -d '{\"upload\":{\"type\":\"avatar\",\"file\":{\"original_filename\":\"dk.png\",\"tempfile\":\"#\\u003cFile:0x00005626f7ee8c10\\u003e\",\"content_type\":null}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer a037e9d5583cdf76bec9d4440b485ed1605e9499e307dabbd524a456555c757f\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/uploads\" -d '{\"upload\":{\"type\":\"avatar\",\"file\":{\"original_filename\":\"dk.png\",\"tempfile\":\"#\\u003cFile:0x000055909b197108\\u003e\",\"content_type\":null}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 5931152afb336f06c25620ecbf8407364600cd04046faf6c7f3b227a2f45c9f2\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

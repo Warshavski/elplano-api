@@ -14,9 +14,9 @@ resource 'Students' do
       - `about` - Represents some detailed information about student(BIO).
       - `social_networks` - Represents a list of social networks.
       - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).
-      - timestamps
+      - `timestamps`
     
-      Also, includes information about a group.
+    Also, includes information about a group.
     
       - `title` - Represents group human readable identity.
       - `number` - Represents group main identity.
@@ -35,12 +35,12 @@ resource 'Students' do
   get 'api/v1/student' do
     example "SHOW : Retrieve Authenticated Users's  information" do
       explanation <<~DESC
-        Return detailed information about user's profile(student information).
+        Returns detailed information about user's profile(student information).
       DESC
 
       do_request
 
-      expected_body = StudentSerializer.new(student).serialized_json.to_s
+      expected_body = StudentSerializer.new(student).serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -60,7 +60,7 @@ resource 'Students' do
 
     example "UPDATE : Updates authenticated user's information" do
       explanation <<~DESC
-        Update and return student specific information.
+        Updates and returns student specific information.
       DESC
 
       do_request
@@ -68,7 +68,6 @@ resource 'Students' do
       expected_body = StudentSerializer
                         .new(student.reload)
                         .serialized_json
-                        .to_s
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

@@ -2,7 +2,7 @@
 
 require 'acceptance_helper'
 
-resource 'Group members' do
+resource "Group's members" do
   explanation <<~DESC
     El Plano group members API.
 
@@ -40,7 +40,7 @@ resource 'Group members' do
   get 'api/v1/group/students' do
     example 'INDEX : Retrieve group members' do
       explanation <<~DESC
-        Return list of group members.
+        Returns a list of the group's members.
       DESC
 
       do_request
@@ -48,7 +48,6 @@ resource 'Group members' do
       expected_body = StudentSerializer
                         .new(student.group.students, params: { exclude: [:group] })
                         .serialized_json
-                        .to_s
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -58,7 +57,7 @@ resource 'Group members' do
   get 'api/v1/group/students/:id' do
     example "SHOW : Show information about particular group member" do
       explanation <<~DESC
-        Return single instance of the group member.
+        Returns a single instance of the group member.
       DESC
 
       do_request
@@ -66,7 +65,6 @@ resource 'Group members' do
       expected_body = StudentSerializer
                         .new(student, include: [:user])
                         .serialized_json
-                        .to_s
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

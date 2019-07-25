@@ -18,6 +18,8 @@ resource "Group's Invites" do
     - `timestamps`
 
     Also, includes reference to the sender, recipient.
+
+    <b>NOTE</b> : This endpoint allowed only for the group owner user.
   DESC
 
   let!(:group) { create(:group, president: student, students: [student]) }
@@ -40,12 +42,12 @@ resource "Group's Invites" do
 
     example "INDEX : Retrieve user's group invitations" do
       explanation <<~DESC
-        Return list of user group invitations
+        Returns a list of the user group invitations
       DESC
 
       do_request
 
-      expected_body = InviteSerializer.new(invites).serialized_json.to_s
+      expected_body = InviteSerializer.new(invites).serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -55,12 +57,12 @@ resource "Group's Invites" do
   get 'api/v1/group/invites/:id' do
     example 'SHOW : Retrieve information about requested invite' do
       explanation <<~DESC
-        Return single instance of the invite.
+        Returns a single instance of the invite.
       DESC
 
       do_request
 
-      expected_body = InviteSerializer.new(invite).serialized_json.to_s
+      expected_body = InviteSerializer.new(invite).serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -76,12 +78,12 @@ resource "Group's Invites" do
 
     example 'CREATE : Create new invite' do
       explanation <<~DESC
-        Create and return created invite.
+        Creates and returns created invite.
       DESC
 
       do_request
 
-      expected_body = InviteSerializer.new(Invite.first).serialized_json.to_s
+      expected_body = InviteSerializer.new(Invite.first).serialized_json
 
       expect(status).to eq(201)
       expect(response_body).to eq(expected_body)

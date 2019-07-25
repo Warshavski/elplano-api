@@ -41,8 +41,8 @@ The following table shows the possible return codes for API requests.
 | Return values             | Description
 |---------------------------|-------------------------------------------------------------------------------------------
 | `200 OK`                  | The `GET`, `PUT` or `DELETE` request was successful, the resource(s) itself is returned as JSON.
-| `204 No Content`          | The server has successfully fulfilled the request and that there is no additional content to send in the response payload body.
 | `201 Created`             | The `POST` request was successful and the resource is returned as JSON.
+| `204 No Content`          | The server has successfully fulfilled the request and that there is no additional content to send in the response payload body.
 | `304 Not Modified`        | Indicates that the resource has not been modified since the last request.
 | `400 Bad Request`         | A required attribute of the API request is missing, e.g., the title of an issue is not given.
 | `401 Unauthorized`        | The user is not authenticated, a valid user token is necessary.
@@ -146,3 +146,20 @@ Response:
       "refresh_token": "bf9ad57f8a90442849338b4501d8ab4b11822e5c13944e9bdcba0d9b7dab1d26",
       "created_at": 1553666769,
     }
+
+#### `POST /oauth/revoke`
+
+Post here with client credentials (in basic auth or in params client_id and client_secret) to revoke an access/refresh token. 
+This corresponds to the token endpoint, using the OAuth 2.0 Token Revocation RFC (RFC 7009).
+
+#### REVOKE ACCESS
+
+Body:
+
+    {
+        "token":"49aff0c25d295196656006c2f9400640b742abfc37e468d98a0c86786f53e4e5"
+    }
+
+Response:
+
+    {}

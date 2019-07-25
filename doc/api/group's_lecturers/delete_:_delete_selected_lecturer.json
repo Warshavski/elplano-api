@@ -1,0 +1,47 @@
+{
+  "resource": "Group's lecturers",
+  "resource_explanation": "El Plano group's lecturers API(created for the group by group owner).\n\nCourse attributes :\n\n - `first_name` - Represents lecturer first name\n - `last_name` - Represents lecturer last name\n - `patronymic` - Represents lecturer patronymic \n - `timestamps`\n\nAlso, includes reference to the courses.\n",
+  "http_method": "DELETE",
+  "route": "api/v1/lecturers/:id",
+  "description": "DELETE : Delete selected lecturer",
+  "explanation": "Delete lecturer.\n\n<b>NOTE</b> : This action allowed only for group owner user.\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "api/v1/lecturers/11",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer b8b40714c18c307a38da9f5ffc43ab8b496fef3d810f913a10d1776da9ac4cf5",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "X-Request-Id": "0c7fb715-066d-4f27-abd4-d1b809c8d66c",
+        "X-Runtime": "0.011619",
+        "Vary": "Origin"
+      },
+      "response_content_type": null,
+      "curl": "curl \"http://localhost:3000/api/v1/lecturers/11\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer b8b40714c18c307a38da9f5ffc43ab8b496fef3d810f913a10d1776da9ac4cf5\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

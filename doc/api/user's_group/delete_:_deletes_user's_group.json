@@ -1,0 +1,47 @@
+{
+  "resource": "User's group",
+  "resource_explanation": "El Plano user's group API'.\n\nGroup attributes: \n\n  - `title` - Human readable group identity.\n  - `number` - Main group identity.\n  - `timestamps`\n\nAlso, returns information about group members in relationships.\n",
+  "http_method": "DELETE",
+  "route": "api/v1/group",
+  "description": "DELETE : Deletes user's group",
+  "explanation": "Deletes group.\n\n<b>NOTE</b> : This action allowed only for group owner user.\n",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "api/v1/group",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer 84d499cda3a652a89c1b7bfc60b703af7886ba589f8aae24ad1264c23d0b9e8e",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "X-Request-Id": "9cdd9099-7c37-4d6e-8acd-af89c767cb0d",
+        "X-Runtime": "0.014334",
+        "Vary": "Origin"
+      },
+      "response_content_type": null,
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 84d499cda3a652a89c1b7bfc60b703af7886ba589f8aae24ad1264c23d0b9e8e\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

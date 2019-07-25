@@ -2,14 +2,8 @@
 
 require 'acceptance_helper'
 
-resource 'Passwords' do
+resource 'Users' do
   let_it_be(:user) { create(:user, :reset_password) }
-
-  explanation <<~DESC
-    User password reset API.
-
-    Provides the ability to change the password.
-  DESC
 
   header 'Accept', 'application/vnd.api+json'
   header 'Content-Type', 'application/vnd.api+json'
@@ -22,14 +16,12 @@ resource 'Passwords' do
     let(:raw_post) do
       {
         data: {
-          id: '',
           type: 'user',
           attributes: {
             login: user.email
           }
         }
       }.to_json
-
     end
 
     example 'CREATE : Send reset password instructions' do
@@ -39,14 +31,14 @@ resource 'Passwords' do
 
       do_request
 
-      expected_body = {
+      expected_meta = {
         meta: {
           message: 'If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.'
         }
-      }.to_json.to_s
+      }
 
       expect(status).to eq(200)
-      expect(response_body).to eq(expected_body)
+      expect(response_body).to eq(expected_meta.to_json)
     end
   end
 
@@ -60,7 +52,6 @@ resource 'Passwords' do
     let(:raw_post) do
       {
         data: {
-          id: '',
           type: 'user',
           attributes: {
             password: 'aA@123456',
@@ -73,17 +64,18 @@ resource 'Passwords' do
 
     example 'UPDATE : Reset password' do
       explanation <<~DESC
-        Create reset password token and send reset password instructions to the specified email address.
+        Updates the user's password by changing it to the new one provided by a user.
       DESC
 
       do_request
 
-      expected_body = UserSerializer.new(
-        user.reload,
+      options = {
         meta: {
           message: 'Your password has been changed successfully.'
         }
-      ).serialized_json.to_s
+      }
+
+      expected_body = UserSerializer.new(user.reload, options).serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

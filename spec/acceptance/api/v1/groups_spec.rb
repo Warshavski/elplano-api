@@ -2,9 +2,9 @@
 
 require 'acceptance_helper'
 
-resource 'Groups' do
+resource "User's group" do
   explanation <<~DESC
-    El Plano groups API'.
+    El Plano user's group API'.
 
     Group attributes: 
 
@@ -12,7 +12,7 @@ resource 'Groups' do
       - `number` - Main group identity.
       - `timestamps`
 
-      Also, returns information about group members in relationships.
+    Also, returns information about group members in relationships.
   DESC
 
   let(:student) { create(:student, :group_supervisor) }
@@ -30,12 +30,12 @@ resource 'Groups' do
   get 'api/v1/group' do
     example "SHOW : Retrieve information about user's group" do
       explanation <<~DESC
-        Return detailed information about user's group.
+        Returns detailed information about user's group.
       DESC
 
       do_request
 
-      expected_body = GroupSerializer.new(group).serialized_json.to_s
+      expected_body = GroupSerializer.new(group).serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -54,7 +54,9 @@ resource 'Groups' do
 
     example 'CREATE : Creates new group' do
       explanation <<~DESC
-        Create and return created group.
+        Creates and returns created group.
+
+        <b>NOTE</b> : This action allowed only for non-group owner user's or for a user that has no group membership.
       DESC
 
       do_request
@@ -62,7 +64,6 @@ resource 'Groups' do
       expected_body = GroupSerializer
                         .new(student.reload.group)
                         .serialized_json
-                        .to_s
 
       expect(status).to eq(201)
       expect(response_body).to eq(expected_body)
@@ -79,7 +80,9 @@ resource 'Groups' do
 
     example 'UPDATE : Updates group information' do
       explanation <<~DESC
-        Update and return updated group.
+        Updates and returns updated group.
+
+        <b>NOTE</b> : This action allowed only for group owner user.
       DESC
 
       do_request
@@ -87,7 +90,6 @@ resource 'Groups' do
       expected_body = GroupSerializer
                         .new(student.reload.group)
                         .serialized_json
-                        .to_s
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -97,7 +99,9 @@ resource 'Groups' do
   delete 'api/v1/group' do
     example "DELETE : Deletes user's group" do
       explanation <<~DESC
-        Delete group.
+        Deletes group.
+
+        <b>NOTE</b> : This action allowed only for group owner user.
       DESC
 
       do_request

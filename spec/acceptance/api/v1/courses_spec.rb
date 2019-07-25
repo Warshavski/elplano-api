@@ -2,9 +2,9 @@
 
 require 'acceptance_helper'
 
-resource 'Courses' do
+resource "Group's courses" do
   explanation <<~DESC
-    El Plano courses API.
+    El Plano courses API(created for group by group owner).
 
     Course attributes :
 
@@ -16,7 +16,7 @@ resource 'Courses' do
 
   let(:student) { create(:student, :group_supervisor) }
 
-  let(:user) { student.user }
+  let(:user)  { student.user }
   let(:token) { create(:token, resource_owner_id: user.id).token }
   let(:authorization) { "Bearer #{token}" }
 
@@ -34,7 +34,7 @@ resource 'Courses' do
 
     example 'INDEX : Retrieve courses created by authenticated user' do
       explanation <<~DESC
-        Return list of available courses.
+        Returns a list of the available courses.
       DESC
 
       do_request
@@ -49,7 +49,7 @@ resource 'Courses' do
   get 'api/v1/courses/:id' do
     example 'SHOW : Retrieve information about requested course' do
       explanation <<~DESC
-        Return single instance of the course.
+        Returns a single instance of the course.
       DESC
 
       do_request
@@ -81,7 +81,9 @@ resource 'Courses' do
 
     example 'CREATE : Create new course' do
       explanation <<~DESC
-        Create and return created course.
+        Creates and returns created course.
+
+        <b>NOTE</b> : This action allowed only for group owner user.
       DESC
 
       do_request
@@ -113,7 +115,9 @@ resource 'Courses' do
 
     example 'UPDATE : Update selected course information' do
       explanation <<~DESC
-        Update and return updated course.
+        Updates and return updated course.
+
+        <b>NOTE</b> : This action allowed only for group owner user.
       DESC
 
       do_request
@@ -128,7 +132,9 @@ resource 'Courses' do
   delete 'api/v1/courses/:id' do
     example 'DELETE : Delete selected course' do
       explanation <<~DESC
-        Delete course.
+        Deletes course.
+        
+        <b>NOTE</b> : This action allowed only for group owner user.
       DESC
 
       do_request

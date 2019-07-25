@@ -38,12 +38,12 @@ resource "User's Invites" do
 
     example 'INDEX : Retrieve invites for authenticated user' do
       explanation <<~DESC
-        Return a list of invitations to different groups.
+        Returns a list of invitations to the different groups.
       DESC
 
       do_request
 
-      expected_body = InviteSerializer.new(invites).serialized_json.to_s
+      expected_body = InviteSerializer.new(invites).serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -53,7 +53,7 @@ resource "User's Invites" do
   get 'api/v1/invites/:token' do
     example 'SHOW : Retrieve information about requested invite' do
       explanation <<~DESC
-        Return single instance of the invite.
+        Returns a single instance of the invite.
       DESC
 
       do_request
@@ -61,7 +61,6 @@ resource "User's Invites" do
       expected_body = InviteSerializer
                         .new(invite, include: [:group], params: { exclude: [:students] })
                         .serialized_json
-                        .to_s
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -71,12 +70,12 @@ resource "User's Invites" do
   patch 'api/v1/invites/:token' do
     example 'UPDATE : Accept selected invite' do
       explanation <<~DESC
-        Accept and return accepted invite.
+        Accepts and returns accepted invite.
       DESC
 
       do_request
 
-      expected_body = InviteSerializer.new(invite.reload).serialized_json.to_s
+      expected_body = InviteSerializer.new(invite.reload).serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

@@ -1,0 +1,83 @@
+{
+  "resource": "Users",
+  "resource_explanation": null,
+  "http_method": "POST",
+  "route": "api/v1/users",
+  "description": "CREATE : Register new user",
+  "explanation": "Performs user registration and returns registered user.\n\nAlso, it sends an email with instructions for confirming the user.\n\nUsers attributes :\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Represents used's user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - `avatar_url` - Represents user's avatar.\n  - `timestamps`\n\nAlso, includes relationship to the student\n",
+  "parameters": [
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "required": true,
+      "name": "username",
+      "description": "Used as user name."
+    },
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "required": true,
+      "name": "email",
+      "description": "Unique email that used to identify user in application"
+    },
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "required": true,
+      "name": "password",
+      "description": "Password that the user uses to log in"
+    },
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "required": true,
+      "name": "password_confirmation",
+      "description": "Password duplicate. Used to prevent typos when entering a password"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "api/v1/users",
+      "request_body": "{\"data\":{\"type\":\"user\",\"attributes\":{\"email\":\"wat@wat.wat\",\"password\":\"123456\",\"password_confirmation\":\"123456\",\"username\":\"wat\"}}}",
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"49\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"wat@wat.wat\",\n      \"username\": \"wat\",\n      \"admin\": false,\n      \"created_at\": \"2019-07-25T14:17:24.366Z\",\n      \"updated_at\": \"2019-07-25T14:17:24.366Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/c684a7011ef017204360c8fa55fdab73?s=200&d=identicon\",\n      \"confirmed\": false\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"47\",\n          \"type\": \"student\"\n        }\n      }\n    }\n  },\n  \"meta\": {\n    \"message\": \"A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.\"\n  }\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"2c237d325a1b1f003d3c10f4b49f2c77\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "95e5137e-a892-4da1-9ca5-d6625a14548b",
+        "X-Runtime": "0.031184",
+        "Vary": "Origin",
+        "Content-Length": "511"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/api/v1/users\" -d '{\"data\":{\"type\":\"user\",\"attributes\":{\"email\":\"wat@wat.wat\",\"password\":\"123456\",\"password_confirmation\":\"123456\",\"username\":\"wat\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

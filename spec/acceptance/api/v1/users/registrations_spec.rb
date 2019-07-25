@@ -2,19 +2,7 @@
 
 require 'acceptance_helper'
 
-resource 'Registrations' do
-  explanation <<~DESC
-    User registration API.
-
-    Users attributes :
-
-      - `email` - Represents email that was used to register a user in the application(unique in application scope).
-      - `username` - Used as user name.
-      - `admin` - `false` if regular user `true`, if the user has access to application settings.
-      - `confirmed` - `false` if the user did not confirm his address otherwise `true`.
-      - timestamps
-  DESC
-
+resource 'Users' do
   header 'Accept',        'application/vnd.api+json'
   header 'Content-Type',  'application/vnd.api+json'
 
@@ -30,17 +18,31 @@ resource 'Registrations' do
 
     example 'CREATE : Register new user' do
       explanation <<~DESC
-        Register and return registered user.
+        Performs user registration and returns registered user.
+
+        Also, it sends an email with instructions for confirming the user.
+
+        Users attributes :
+    
+          - `email` - Represents email that was used to register a user in the application(unique in application scope).
+          - `username` - Represents used's user name.
+          - `admin` - `false` if regular user `true`, if the user has access to application settings.
+          - `confirmed` - `false` if the user did not confirm his address otherwise `true`.
+          - `avatar_url` - Represents user's avatar.
+          - `timestamps`
+
+        Also, includes relationship to the student
       DESC
 
       do_request
 
-      expected_body = UserSerializer.new(
-        User.last,
+      options = {
         meta: {
           message: 'A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.'
         }
-      ).serialized_json.to_s
+      }
+
+      expected_body = UserSerializer.new(User.last, options).serialized_json
 
       expect(status).to eq(201)
       expect(response_body).to eq(expected_body)

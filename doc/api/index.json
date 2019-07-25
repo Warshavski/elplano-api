@@ -1,130 +1,8 @@
 {
   "resources": [
     {
-      "name": "Confirmations",
-      "explanation": "User confirmation API.\n\nProvides the ability to confirm user.\n",
-      "examples": [
-        {
-          "description": "CREATE : Send confirmation instructions",
-          "link": "confirmations/create_:_send_confirmation_instructions.json",
-          "groups": "all",
-          "route": "api/v1/users/confirmation",
-          "method": "post"
-        },
-        {
-          "description": "SHOW : Confirm user",
-          "link": "confirmations/show_:_confirm_user.json",
-          "groups": "all",
-          "route": "api/v1/users/confirmation?confirmation_token=token",
-          "method": "get"
-        }
-      ]
-    },
-    {
-      "name": "Courses",
-      "explanation": "El Plano courses API.\n\nCourse attributes :\n\n - `title` - Represents course name(human readable identity).\n - `timestamps`\n\n Also, includes reference to the course lecturer.\n",
-      "examples": [
-        {
-          "description": "CREATE : Create new course",
-          "link": "courses/create_:_create_new_course.json",
-          "groups": "all",
-          "route": "api/v1/courses",
-          "method": "post"
-        },
-        {
-          "description": "DELETE : Delete selected course",
-          "link": "courses/delete_:_delete_selected_course.json",
-          "groups": "all",
-          "route": "api/v1/courses/:id",
-          "method": "delete"
-        },
-        {
-          "description": "INDEX : Retrieve courses created by authenticated user",
-          "link": "courses/index_:_retrieve_courses_created_by_authenticated_user.json",
-          "groups": "all",
-          "route": "api/v1/courses",
-          "method": "get"
-        },
-        {
-          "description": "SHOW : Retrieve information about requested course",
-          "link": "courses/show_:_retrieve_information_about_requested_course.json",
-          "groups": "all",
-          "route": "api/v1/courses/:id",
-          "method": "get"
-        },
-        {
-          "description": "UPDATE : Update selected course information",
-          "link": "courses/update_:_update_selected_course_information.json",
-          "groups": "all",
-          "route": "api/v1/courses/:id",
-          "method": "put"
-        }
-      ]
-    },
-    {
-      "name": "Events",
-      "explanation": "El Plano events API.\n\nEvent attributes :\n\n - `title` - Represents event name.\n - `description` - Represents event detailed description.\n - `status` - Represents event current status.\n   - `confirmed` - The event is confirmed. This is the default status.\n   - `tentative` - The event is tentatively confirmed.\n   - `cancelled` - The event is cancelled (deleted).\n\n - `recurrence` - Represents recurrence rules.\n - `timezone` - Timezone settings.\n - `start_at` - Represents when event starts.\n - `end_at` - Represents when event ends.\n - `timestamps`\n\n Also, includes reference to the event creator and attached course.\n",
-      "examples": [
-        {
-          "description": "CREATE : Creates new event",
-          "link": "events/create_:_creates_new_event.json",
-          "groups": "all",
-          "route": "api/v1/events",
-          "method": "post"
-        },
-        {
-          "description": "DELETE : Deletes selected event",
-          "link": "events/delete_:_deletes_selected_event.json",
-          "groups": "all",
-          "route": "api/v1/events/:id",
-          "method": "delete"
-        },
-        {
-          "description": "INDEX : Retrieve events created by authenticated user",
-          "link": "events/index_:_retrieve_events_created_by_authenticated_user.json",
-          "groups": "all",
-          "route": "api/v1/events",
-          "method": "get"
-        },
-        {
-          "description": "SHOW : Retrieve information about requested event",
-          "link": "events/show_:_retrieve_information_about_requested_event.json",
-          "groups": "all",
-          "route": "api/v1/events/:id",
-          "method": "get"
-        },
-        {
-          "description": "UPDATE : Updates selected event information",
-          "link": "events/update_:_updates_selected_event_information.json",
-          "groups": "all",
-          "route": "api/v1/events/:id",
-          "method": "put"
-        }
-      ]
-    },
-    {
-      "name": "Group members",
-      "explanation": "El Plano group members API.\n\nStudent attributes :\n\n  - `full_name` - Represents concatenated student's first, last and middle names.\n  - `email` - Represents email which is used to contact with the student.\n  - `phone` - Represents phone which is used to contact with the student.\n  - `about` - Represents some detailed information about student(BIO).\n  - `social_networks` - Represents a list of social networks.\n  - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).\n  - timestamps\n\n  Also, includes information about a user and relationships to the group and user.\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Used as user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - `avatar_url` - User's avatar URL.\n  - `timestamps`\n",
-      "examples": [
-        {
-          "description": "INDEX : Retrieve group members",
-          "link": "group_members/index_:_retrieve_group_members.json",
-          "groups": "all",
-          "route": "api/v1/group/students",
-          "method": "get"
-        },
-        {
-          "description": "SHOW : Show information about particular group member",
-          "link": "group_members/show_:_show_information_about_particular_group_member.json",
-          "groups": "all",
-          "route": "api/v1/group/students/:id",
-          "method": "get"
-        }
-      ]
-    },
-    {
       "name": "Group's Invites",
-      "explanation": "El Plano group's invites API.\n\nInvite attributes :\n\n- `email` - Represents email where invite was sent.\n- `invitation_token` - Represents token.\n- `status` - Represents invite current status.\n  - `accepted` - The invite was accepted by the recipient.\n  - `pending` - The invite was not accepted by the recipient. Default status.\n- `sent_at` - Date and time when the invite was sent.\n- `accepted_at` - Date and time when the invite was accepted by recipient.\n- `timestamps`\n\nAlso, includes reference to the sender, recipient.\n",
+      "explanation": "El Plano group's invites API.\n\nInvite attributes :\n\n- `email` - Represents email where invite was sent.\n- `invitation_token` - Represents token.\n- `status` - Represents invite current status.\n  - `accepted` - The invite was accepted by the recipient.\n  - `pending` - The invite was not accepted by the recipient. Default status.\n- `sent_at` - Date and time when the invite was sent.\n- `accepted_at` - Date and time when the invite was accepted by recipient.\n- `timestamps`\n\nAlso, includes reference to the sender, recipient.\n\n<b>NOTE</b> : This endpoint allowed only for the group owner user.\n",
       "examples": [
         {
           "description": "CREATE : Create new invite",
@@ -150,74 +28,81 @@
       ]
     },
     {
-      "name": "Groups",
-      "explanation": "El Plano groups API'.\n\nGroup attributes: \n\n  - `title` - Human readable group identity.\n  - `number` - Main group identity.\n  - `timestamps`\n\n  Also, returns information about group members in relationships.\n",
+      "name": "Group's courses",
+      "explanation": "El Plano courses API(created for group by group owner).\n\nCourse attributes :\n\n - `title` - Represents course name(human readable identity).\n - `timestamps`\n\n Also, includes reference to the course lecturer.\n",
       "examples": [
         {
-          "description": "CREATE : Creates new group",
-          "link": "groups/create_:_creates_new_group.json",
+          "description": "CREATE : Create new course",
+          "link": "group's_courses/create_:_create_new_course.json",
           "groups": "all",
-          "route": "api/v1/group",
+          "route": "api/v1/courses",
           "method": "post"
         },
         {
-          "description": "DELETE : Deletes user's group",
-          "link": "groups/delete_:_deletes_user's_group.json",
+          "description": "DELETE : Delete selected course",
+          "link": "group's_courses/delete_:_delete_selected_course.json",
           "groups": "all",
-          "route": "api/v1/group",
+          "route": "api/v1/courses/:id",
           "method": "delete"
         },
         {
-          "description": "SHOW : Retrieve information about user's group",
-          "link": "groups/show_:_retrieve_information_about_user's_group.json",
+          "description": "INDEX : Retrieve courses created by authenticated user",
+          "link": "group's_courses/index_:_retrieve_courses_created_by_authenticated_user.json",
           "groups": "all",
-          "route": "api/v1/group",
+          "route": "api/v1/courses",
           "method": "get"
         },
         {
-          "description": "UPDATE : Updates group information",
-          "link": "groups/update_:_updates_group_information.json",
+          "description": "SHOW : Retrieve information about requested course",
+          "link": "group's_courses/show_:_retrieve_information_about_requested_course.json",
           "groups": "all",
-          "route": "api/v1/group",
+          "route": "api/v1/courses/:id",
+          "method": "get"
+        },
+        {
+          "description": "UPDATE : Update selected course information",
+          "link": "group's_courses/update_:_update_selected_course_information.json",
+          "groups": "all",
+          "route": "api/v1/courses/:id",
           "method": "put"
         }
       ]
     },
     {
-      "name": "Lecturers",
-      "explanation": "El Plano lecturers API.\n\nCourse attributes :\n\n - `first_name`\n - `last_name`\n - `patronymic`\n - `timestamps`\n\n Also, includes reference to the courses.\n",
+      "name": "Group's lecturers",
+      "explanation": "El Plano group's lecturers API(created for the group by group owner).\n\nCourse attributes :\n\n - `first_name` - Represents lecturer first name\n - `last_name` - Represents lecturer last name\n - `patronymic` - Represents lecturer patronymic \n - `timestamps`\n\nAlso, includes reference to the courses.\n",
       "examples": [
         {
           "description": "CREATE : Create new lecturer",
-          "link": "lecturers/create_:_create_new_lecturer.json",
+          "link": "group's_lecturers/create_:_create_new_lecturer.json",
           "groups": "all",
           "route": "api/v1/lecturers",
           "method": "post"
         },
         {
           "description": "DELETE : Delete selected lecturer",
-          "link": "lecturers/delete_:_delete_selected_lecturer.json",
+          "link": "group's_lecturers/delete_:_delete_selected_lecturer.json",
           "groups": "all",
           "route": "api/v1/lecturers/:id",
           "method": "delete"
         },
         {
           "description": "INDEX : Retrieve lecturers created by authenticated user",
-          "link": "lecturers/index_:_retrieve_lecturers_created_by_authenticated_user.json",
+          "link": "group's_lecturers/index_:_retrieve_lecturers_created_by_authenticated_user.json",
           "groups": "all",
           "route": "api/v1/lecturers",
           "method": "get"
         },
         {
           "description": "SHOW : Retrieve information about requested lecturer",
-          "link": "lecturers/show_:_retrieve_information_about_requested_lecturer.json",
+          "link": "group's_lecturers/show_:_retrieve_information_about_requested_lecturer.json",
           "groups": "all",
           "route": "api/v1/lecturers/:id",
           "method": "get"
         },
         {
           "description": "UPDATE : Update selected lecturer information",
-          "link": "lecturers/update_:_update_selected_lecturer_information.json",
+          "link": "group's_lecturers/update_:_update_selected_lecturer_information.json",
           "groups": "all",
           "route": "api/v1/lecturers/:id",
           "method": "put"
@@ -225,41 +110,28 @@
       ]
     },
     {
-      "name": "Passwords",
-      "explanation": "User password reset API.\n\nProvides the ability to change the password.\n",
+      "name": "Group's members",
+      "explanation": "El Plano group members API.\n\nStudent attributes :\n\n  - `full_name` - Represents concatenated student's first, last and middle names.\n  - `email` - Represents email which is used to contact with the student.\n  - `phone` - Represents phone which is used to contact with the student.\n  - `about` - Represents some detailed information about student(BIO).\n  - `social_networks` - Represents a list of social networks.\n  - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).\n  - timestamps\n\n  Also, includes information about a user and relationships to the group and user.\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Used as user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - `avatar_url` - User's avatar URL.\n  - `timestamps`\n",
       "examples": [
         {
-          "description": "CREATE : Send reset password instructions",
-          "link": "passwords/create_:_send_reset_password_instructions.json",
+          "description": "INDEX : Retrieve group members",
+          "link": "group's_members/index_:_retrieve_group_members.json",
           "groups": "all",
-          "route": "api/v1/users/password",
-          "method": "post"
+          "route": "api/v1/group/students",
+          "method": "get"
         },
         {
-          "description": "UPDATE : Reset password",
-          "link": "passwords/update_:_reset_password.json",
+          "description": "SHOW : Show information about particular group member",
+          "link": "group's_members/show_:_show_information_about_particular_group_member.json",
           "groups": "all",
-          "route": "api/v1/users/password",
-          "method": "patch"
-        }
-      ]
-    },
-    {
-      "name": "Registrations",
-      "explanation": "User registration API.\n\nUsers attributes :\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Used as user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - timestamps\n",
-      "examples": [
-        {
-          "description": "CREATE : Register new user",
-          "link": "registrations/create_:_register_new_user.json",
-          "groups": "all",
-          "route": "api/v1/users",
-          "method": "post"
+          "route": "api/v1/group/students/:id",
+          "method": "get"
         }
       ]
     },
     {
       "name": "Students",
-      "explanation": "El Plano student's profile API.\n\nStudent attributes :\n\n  - `full_name` - Represents concatenated student's first, last and middle names.\n  - `email` - Represents email which is used to contact with the student.\n  - `phone` - Represents phone which is used to contact with the student.\n  - `about` - Represents some detailed information about student(BIO).\n  - `social_networks` - Represents a list of social networks.\n  - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).\n  - timestamps\n\n  Also, includes information about a group.\n\n  - `title` - Represents group human readable identity.\n  - `number` - Represents group main identity.\n  - `timestamps`\n",
+      "explanation": "El Plano student's profile API.\n\nStudent attributes :\n\n  - `full_name` - Represents concatenated student's first, last and middle names.\n  - `email` - Represents email which is used to contact with the student.\n  - `phone` - Represents phone which is used to contact with the student.\n  - `about` - Represents some detailed information about student(BIO).\n  - `social_networks` - Represents a list of social networks.\n  - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).\n  - `timestamps`\n\nAlso, includes information about a group.\n\n  - `title` - Represents group human readable identity.\n  - `number` - Represents group main identity.\n  - `timestamps`\n",
       "examples": [
         {
           "description": "SHOW : Retrieve Authenticated Users's  information",
@@ -278,28 +150,8 @@
       ]
     },
     {
-      "name": "Unlocks",
-      "explanation": "User unlock API.\n\nProvides the ability to unlock user.\n",
-      "examples": [
-        {
-          "description": "CREATE : Send unlock instructions",
-          "link": "unlocks/create_:_send_unlock_instructions.json",
-          "groups": "all",
-          "route": "api/v1/users/unlock",
-          "method": "post"
-        },
-        {
-          "description": "SHOW : Unlock user",
-          "link": "unlocks/show_:_unlock_user.json",
-          "groups": "all",
-          "route": "api/v1/users/unlock?unlock_token=token",
-          "method": "get"
-        }
-      ]
-    },
-    {
       "name": "Uploads",
-      "explanation": "El Plano file uploads API.\n\nUploaded file metadata attributes :\n\n  - `id` - Represents unique uploaded file identity.\n  - `storage` - Represents file storage type.\n  - `metadata` - Represents uploaded file metadata(name, size, e.t.c.).\n    - `filename` - Represents name of the uploaded file.\n    - `size` - Represents size of the uploaded file(bytes).\n    - `mime_type` - Represents MIME(Multipurpose Internet Mail Extensions or MIME) type of the uploaded file.\n\n",
+      "explanation": null,
       "examples": [
         {
           "description": "CREATE : Upload file",
@@ -338,15 +190,145 @@
       ]
     },
     {
-      "name": "Users",
-      "explanation": "El Plano user's profile API.\n\nUsers attributes :\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Used as user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - `timestamps`\n",
+      "name": "User's events",
+      "explanation": "El Plano user's events API(event created by user).\n\nEvent attributes :\n\n - `title` - Represents event name.\n - `description` - Represents event detailed description.\n - `status` - Represents event current status.\n   - `confirmed` - The event is confirmed. This is the default status.\n   - `tentative` - The event is tentatively confirmed.\n   - `cancelled` - The event is cancelled (deleted).\n\n - `recurrence` - Represents recurrence rules.\n - `timezone` - Timezone settings.\n - `start_at` - Represents when event starts.\n - `end_at` - Represents when event ends.\n - `timestamps`\n\n Also, includes reference to the event creator and attached course.\n",
       "examples": [
         {
-          "description": "SHOW : Retrieve Authenticated Users's Profile",
-          "link": "users/show_:_retrieve_authenticated_users's_profile.json",
+          "description": "CREATE : Creates new event",
+          "link": "user's_events/create_:_creates_new_event.json",
+          "groups": "all",
+          "route": "api/v1/events",
+          "method": "post"
+        },
+        {
+          "description": "DELETE : Deletes selected event",
+          "link": "user's_events/delete_:_deletes_selected_event.json",
+          "groups": "all",
+          "route": "api/v1/events/:id",
+          "method": "delete"
+        },
+        {
+          "description": "INDEX : Retrieve events created by authenticated user",
+          "link": "user's_events/index_:_retrieve_events_created_by_authenticated_user.json",
+          "groups": "all",
+          "route": "api/v1/events",
+          "method": "get"
+        },
+        {
+          "description": "SHOW : Retrieve information about requested event",
+          "link": "user's_events/show_:_retrieve_information_about_requested_event.json",
+          "groups": "all",
+          "route": "api/v1/events/:id",
+          "method": "get"
+        },
+        {
+          "description": "UPDATE : Updates selected event information",
+          "link": "user's_events/update_:_updates_selected_event_information.json",
+          "groups": "all",
+          "route": "api/v1/events/:id",
+          "method": "put"
+        }
+      ]
+    },
+    {
+      "name": "User's group",
+      "explanation": "El Plano user's group API'.\n\nGroup attributes: \n\n  - `title` - Human readable group identity.\n  - `number` - Main group identity.\n  - `timestamps`\n\nAlso, returns information about group members in relationships.\n",
+      "examples": [
+        {
+          "description": "CREATE : Creates new group",
+          "link": "user's_group/create_:_creates_new_group.json",
+          "groups": "all",
+          "route": "api/v1/group",
+          "method": "post"
+        },
+        {
+          "description": "DELETE : Deletes user's group",
+          "link": "user's_group/delete_:_deletes_user's_group.json",
+          "groups": "all",
+          "route": "api/v1/group",
+          "method": "delete"
+        },
+        {
+          "description": "SHOW : Retrieve information about user's group",
+          "link": "user's_group/show_:_retrieve_information_about_user's_group.json",
+          "groups": "all",
+          "route": "api/v1/group",
+          "method": "get"
+        },
+        {
+          "description": "UPDATE : Updates group information",
+          "link": "user's_group/update_:_updates_group_information.json",
+          "groups": "all",
+          "route": "api/v1/group",
+          "method": "put"
+        }
+      ]
+    },
+    {
+      "name": "User's profile",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "SHOW : Retrieve authenticated users's profile",
+          "link": "user's_profile/show_:_retrieve_authenticated_users's_profile.json",
           "groups": "all",
           "route": "api/v1/user",
           "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "CREATE : Register new user",
+          "link": "users/create_:_register_new_user.json",
+          "groups": "all",
+          "route": "api/v1/users",
+          "method": "post"
+        },
+        {
+          "description": "CREATE : Send confirmation instructions",
+          "link": "users/create_:_send_confirmation_instructions.json",
+          "groups": "all",
+          "route": "api/v1/users/confirmation",
+          "method": "post"
+        },
+        {
+          "description": "CREATE : Send reset password instructions",
+          "link": "users/create_:_send_reset_password_instructions.json",
+          "groups": "all",
+          "route": "api/v1/users/password",
+          "method": "post"
+        },
+        {
+          "description": "CREATE : Send unlock instructions",
+          "link": "users/create_:_send_unlock_instructions.json",
+          "groups": "all",
+          "route": "api/v1/users/unlock",
+          "method": "post"
+        },
+        {
+          "description": "SHOW : Perform user confirmation",
+          "link": "users/show_:_perform_user_confirmation.json",
+          "groups": "all",
+          "route": "api/v1/users/confirmation?confirmation_token=token",
+          "method": "get"
+        },
+        {
+          "description": "SHOW : Perform user unlock",
+          "link": "users/show_:_perform_user_unlock.json",
+          "groups": "all",
+          "route": "api/v1/users/unlock?unlock_token=token",
+          "method": "get"
+        },
+        {
+          "description": "UPDATE : Reset password",
+          "link": "users/update_:_reset_password.json",
+          "groups": "all",
+          "route": "api/v1/users/password",
+          "method": "patch"
         }
       ]
     }

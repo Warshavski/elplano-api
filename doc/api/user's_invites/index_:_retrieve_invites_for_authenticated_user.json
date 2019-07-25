@@ -4,7 +4,7 @@
   "http_method": "GET",
   "route": "api/v1/invites",
   "description": "INDEX : Retrieve invites for authenticated user",
-  "explanation": "Return a list of invitations to different groups.\n",
+  "explanation": "Returns a list of invitations to the different groups.\n",
   "parameters": [
 
   ],
@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 1166d03f479af97d7415aebe7fc21179bebadac7729c93eb704b952f88cde393",
+        "Authorization": "Bearer f6f726030f3ae37f63d320b6cdc6e30f0ee5135155ef652178beaf3fd05c6057",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"4\",\n      \"type\": \"invite\",\n      \"attributes\": {\n        \"email\": \"kianabartell@wisoky.io\",\n        \"invitation_token\": \"VDs9zh8MoW7JqqiMx8xT\",\n        \"sent_at\": \"2019-05-23T07:49:15.673Z\",\n        \"accepted_at\": null,\n        \"created_at\": \"2019-05-23T07:49:15.673Z\",\n        \"updated_at\": \"2019-05-23T07:49:15.673Z\",\n        \"status\": \"pending\"\n      },\n      \"relationships\": {\n        \"sender\": {\n          \"data\": {\n            \"id\": \"30\",\n            \"type\": \"student\"\n          }\n        },\n        \"recipient\": {\n          \"data\": null\n        },\n        \"group\": {\n          \"data\": {\n            \"id\": \"20\",\n            \"type\": \"group\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"4\",\n      \"type\": \"invite\",\n      \"attributes\": {\n        \"email\": \"michaeljaskolski@runolfon.name\",\n        \"invitation_token\": \"hM1Be2xypJ7nqDWB9s99\",\n        \"sent_at\": \"2019-07-25T14:17:23.247Z\",\n        \"accepted_at\": null,\n        \"created_at\": \"2019-07-25T14:17:23.247Z\",\n        \"updated_at\": \"2019-07-25T14:17:23.247Z\",\n        \"status\": \"pending\"\n      },\n      \"relationships\": {\n        \"sender\": {\n          \"data\": {\n            \"id\": \"30\",\n            \"type\": \"student\"\n          }\n        },\n        \"recipient\": {\n          \"data\": null\n        },\n        \"group\": {\n          \"data\": {\n            \"id\": \"20\",\n            \"type\": \"group\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"350c3c59934af2b0ed993abfa95251e1\"",
-        "X-Request-Id": "ee8c3e89-c5f4-4dd1-94b8-82211e5f241b",
-        "X-Runtime": "0.010335",
+        "ETag": "W/\"e06044dc0997ef7e70bacd09fb31a24b\"",
+        "X-Request-Id": "9c09d9d5-a080-4b7c-9eef-39b2421c806c",
+        "X-Runtime": "0.026035",
         "Vary": "Origin",
-        "Content-Length": "417"
+        "Content-Length": "425"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/invites\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 1166d03f479af97d7415aebe7fc21179bebadac7729c93eb704b952f88cde393\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/invites\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer f6f726030f3ae37f63d320b6cdc6e30f0ee5135155ef652178beaf3fd05c6057\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

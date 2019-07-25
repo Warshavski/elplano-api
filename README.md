@@ -6,6 +6,10 @@
 
 Class schedule management application (API)
 
+## Introduction
+
+El Plano is a self hosted class schedule management REST API server built with Rails and based on [JSON API](https://jsonapi.org/) specification.
+
 ## Setting up
 
 #### Requirements
@@ -22,7 +26,7 @@ Class schedule management application (API)
 git clone https://github.com/warshavski/elplano-api.git
 ```
 
-**cd into the directory and install the reqirements.**
+**cd into the directory and install the requirements.**
 ```bash
 cd elplano-api && bundle install
 ```

@@ -2,14 +2,8 @@
 
 require 'acceptance_helper'
 
-resource 'Unlocks' do
+resource 'Users' do
   let_it_be(:user) { create(:user, :locked) }
-
-  explanation <<~DESC
-    User unlock API.
-
-    Provides the ability to unlock user.
-  DESC
 
   header 'Accept', 'application/vnd.api+json'
   header 'Content-Type', 'application/vnd.api+json'
@@ -17,21 +11,21 @@ resource 'Unlocks' do
   get 'api/v1/users/unlock?unlock_token=token' do
     parameter :unlock_token, 'Unique token from email', required: true
 
-    example 'SHOW : Unlock user' do
+    example 'SHOW : Perform user unlock' do
       explanation <<~DESC
-        Unlock user
+        Provides the ability to unlock locked user.
       DESC
 
       do_request
 
-      expected_body = {
+      expected_meta = {
         meta: {
           message: 'Your account has been unlocked successfully. Please sign in to continue.'
         }
-      }.to_json.to_s
+      }
 
       expect(status).to eq(200)
-      expect(response_body).to eq(expected_body)
+      expect(response_body).to eq(expected_meta.to_json)
     end
   end
 
@@ -43,7 +37,6 @@ resource 'Unlocks' do
     let(:raw_post) do
       {
         data: {
-          id: '',
           type: 'user',
           attributes: {
             login: user.email
@@ -59,14 +52,14 @@ resource 'Unlocks' do
 
       do_request
 
-      expected_body = {
+      expected_meta = {
         meta: {
           message: 'If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.'
         }
-      }.to_json.to_s
+      }
 
       expect(status).to eq(200)
-      expect(response_body).to eq(expected_body)
+      expect(response_body).to eq(expected_meta.to_json)
     end
   end
 end

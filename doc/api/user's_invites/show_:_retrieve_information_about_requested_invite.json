@@ -4,7 +4,7 @@
   "http_method": "GET",
   "route": "api/v1/invites/:token",
   "description": "SHOW : Retrieve information about requested invite",
-  "explanation": "Return single instance of the invite.\n",
+  "explanation": "Returns a single instance of the invite.\n",
   "parameters": [
 
   ],
@@ -14,12 +14,12 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "api/v1/invites/JCKyaiMC8zPTXN2P9AB-",
+      "request_path": "api/v1/invites/S6b1APUEosqMd9CUfPde",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer d3a204ff9d47038a7723b67e5f392b8207a05410799998440193f57a82beaa6d",
+        "Authorization": "Bearer 03c1bccf837a60cef81860199ca82cf5932bbf1d991d9dcbf53bf92dde995ab3",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"rosann@hahn.info\",\n      \"invitation_token\": \"JCKyaiMC8zPTXN2P9AB-\",\n      \"sent_at\": \"2019-05-23T07:49:15.742Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-05-23T07:49:15.742Z\",\n      \"updated_at\": \"2019-05-23T07:49:15.742Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"33\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"21\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"21\",\n      \"type\": \"group\",\n      \"attributes\": {\n        \"number\": \"2111956138\",\n        \"title\": \"Dolorem aut ipsa.\",\n        \"created_at\": \"2019-05-23T07:49:15.736Z\",\n        \"updated_at\": \"2019-05-23T07:49:15.736Z\"\n      },\n      \"relationships\": {\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"irving@ryan.name\",\n      \"invitation_token\": \"S6b1APUEosqMd9CUfPde\",\n      \"sent_at\": \"2019-07-25T14:17:23.322Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-07-25T14:17:23.321Z\",\n      \"updated_at\": \"2019-07-25T14:17:23.321Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"33\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"21\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"21\",\n      \"type\": \"group\",\n      \"attributes\": {\n        \"number\": \"2802403930\",\n        \"title\": \"Enim fuga quidem.\",\n        \"created_at\": \"2019-07-25T14:17:23.318Z\",\n        \"updated_at\": \"2019-07-25T14:17:23.318Z\"\n      },\n      \"relationships\": {\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"de7ac7829ada5229aac388a8e4c4c4fc\"",
-        "X-Request-Id": "1969726a-d5f4-4e24-beae-810f65330aff",
-        "X-Runtime": "0.009488",
+        "ETag": "W/\"31508197ddd27fa25678f5db21cef8df\"",
+        "X-Request-Id": "1f3c4ff2-782e-4936-9264-14ce802dc6bb",
+        "X-Runtime": "0.009196",
         "Vary": "Origin",
         "Content-Length": "613"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/invites/JCKyaiMC8zPTXN2P9AB-\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer d3a204ff9d47038a7723b67e5f392b8207a05410799998440193f57a82beaa6d\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/invites/S6b1APUEosqMd9CUfPde\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 03c1bccf837a60cef81860199ca82cf5932bbf1d991d9dcbf53bf92dde995ab3\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

@@ -1,0 +1,53 @@
+{
+  "resource": "Users",
+  "resource_explanation": null,
+  "http_method": "GET",
+  "route": "api/v1/users/unlock?unlock_token=token",
+  "description": "SHOW : Perform user unlock",
+  "explanation": "Provides the ability to unlock locked user.\n",
+  "parameters": [
+    {
+      "required": true,
+      "name": "unlock_token",
+      "description": "Unique token from email"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "api/v1/users/unlock?unlock_token=token",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+        "unlock_token": "token"
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"meta\": {\n    \"message\": \"Your account has been unlocked successfully. Please sign in to continue.\"\n  }\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"27b484a3962fb78cfb1710ed7ca75835\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "98a647b1-c114-4ebe-bbe8-6e19fcfca130",
+        "X-Runtime": "0.019465",
+        "Vary": "Origin",
+        "Content-Length": "95"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl -g \"http://localhost:3000/api/v1/users/unlock?unlock_token=token\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

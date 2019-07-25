@@ -1,0 +1,92 @@
+{
+  "resource": "Group's lecturers",
+  "resource_explanation": "El Plano group's lecturers API(created for the group by group owner).\n\nCourse attributes :\n\n - `first_name` - Represents lecturer first name\n - `last_name` - Represents lecturer last name\n - `patronymic` - Represents lecturer patronymic \n - `timestamps`\n\nAlso, includes reference to the courses.\n",
+  "http_method": "POST",
+  "route": "api/v1/lecturers",
+  "description": "CREATE : Create new lecturer",
+  "explanation": "Creates and returns created lecturer.\n\n<b>NOTE</b> : This action allowed only for group owner user.\n",
+  "parameters": [
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "required": true,
+      "name": "first_name",
+      "description": "Lecturer first name"
+    },
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "required": true,
+      "name": "last_name",
+      "description": "Lecturer last name"
+    },
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "required": true,
+      "name": "patronymic",
+      "description": "Lecturer patronymic"
+    },
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "name": "courses",
+      "description": "Courses of the lecturer. Included in \"relationships\" category"
+    },
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "name": "avatar",
+      "description": "Uploaded file metadata received from `uploads` endpoint"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "api/v1/lecturers",
+      "request_body": "{\"data\":{\"type\":\"lecturer\",\"attributes\":{\"first_name\":\"Shila\",\"last_name\":\"Hamill\",\"patronymic\":\"Mr.\",\"avatar\":\"{\\\"id\\\":\\\"5656b53a9993c7e88deda675c8f1a296.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"},\"relationships\":{\"courses\":{\"data\":[{\"id\":10,\"type\":\"courses\"}]}}}}",
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer b7845de39521b2eb7a9926a02f1c9c73eca1a3ff653cc5585f096afa9335afbc",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"9\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"created_at\": \"2019-07-25T14:17:23.672Z\",\n      \"updated_at\": \"2019-07-25T14:17:23.672Z\",\n      \"first_name\": \"Shila\",\n      \"last_name\": \"Hamill\",\n      \"patronymic\": \"Mr.\",\n      \"avatar\": \"memory://5656b53a9993c7e88deda675c8f1a296.png\"\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"10\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"f6cc19ffd283edb02830a5b26b4521c2\"",
+        "X-Request-Id": "1bb2b783-0e55-4b2e-8fe6-c4b2218d0d81",
+        "X-Runtime": "0.078534",
+        "Vary": "Origin",
+        "Content-Length": "317"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/api/v1/lecturers\" -d '{\"data\":{\"type\":\"lecturer\",\"attributes\":{\"first_name\":\"Shila\",\"last_name\":\"Hamill\",\"patronymic\":\"Mr.\",\"avatar\":\"{\\\"id\\\":\\\"5656b53a9993c7e88deda675c8f1a296.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"},\"relationships\":{\"courses\":{\"data\":[{\"id\":10,\"type\":\"courses\"}]}}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer b7845de39521b2eb7a9926a02f1c9c73eca1a3ff653cc5585f096afa9335afbc\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

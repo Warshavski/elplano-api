@@ -16,7 +16,7 @@ module Uploads
     # @option params [ActionDispatch::Http::UploadedFile] :file - The file which needs to be uploaded
     # @option params [Symbol, String]                     :type - Type of the uploader which is used to process the file
     #
-    # @raise [Elplano::Errors::ArgumentMissing] error on invalid input(nil params)
+    # @raise [Api::ArgumentMissing] error on invalid input(nil params)
     #
     def self.call(params)
       new(params[:type]).execute(params[:file])
@@ -48,7 +48,7 @@ module Uploads
     private
 
     def check_args!(*args)
-      args.each { |a| raise Elplano::Errors::ArgumentMissing, a if a.nil? }
+      args.each { |a| raise Api::ArgumentMissing, a if a.nil? }
     end
 
     def resolve_uploader

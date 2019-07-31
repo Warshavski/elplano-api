@@ -27,19 +27,19 @@ RSpec.describe Uploads::Cache do
       context 'without file param' do
         let(:file) { nil }
 
-        it { expect { subject }.to raise_error(Elplano::Errors::ArgumentMissing) }
+        it { expect { subject }.to raise_error(Api::ArgumentMissing) }
       end
 
       context 'without type param' do
         let(:type) { nil }
 
-        it { expect { subject }.to raise_error(Elplano::Errors::ArgumentMissing) }
+        it { expect { subject }.to raise_error(Api::ArgumentMissing) }
       end
 
       context 'without not existed uploader type' do
         let(:type) { :wat }
 
-        it { expect { subject }.to raise_error(Elplano::Errors::ArgumentMissing) }
+        it { expect { subject }.to raise_error(Api::ArgumentMissing) }
       end
     end
   end

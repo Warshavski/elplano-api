@@ -38,6 +38,7 @@ en:
       not_found_record: 'Record not found'
       invalid_auth: 'Auth error %{param}'
       not_exists: 'does not exist'
+      argument_missing: 'argument is missing or the value is empty: %{param}'
   restify:
     errors:
       missing: 'Parameters does not present by JSON:API format. Missing %{key} key'

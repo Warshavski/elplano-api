@@ -14,7 +14,7 @@ class UploaderFactory
     # @param [Symbol] storage_type -
     #   Type of storage in which the file will be loaded
     #
-    # @raise [Elplano::Errors::ArgumentMissing] error on invalid input(nil, not existed uploader)
+    # @raise [Api::ArgumentMissing] error on invalid input(nil, not existed uploader)
     #
     # @return [Shrine] uploader instance
     #
@@ -28,13 +28,13 @@ class UploaderFactory
     private
 
     def check_args!(*args)
-      args.each { |a| raise Elplano::Errors::ArgumentMissing, a if a.nil? }
+      args.each { |a| raise Api::ArgumentMissing, a if a.nil? }
     end
 
     def check_presence!(uploader_type)
       return if TYPES.key?(uploader_type)
 
-      raise Elplano::Errors::ArgumentMissing, uploader_type
+      raise Api::ArgumentMissing, uploader_type
     end
   end
 end

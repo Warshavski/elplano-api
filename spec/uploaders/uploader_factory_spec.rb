@@ -11,19 +11,19 @@ RSpec.describe UploaderFactory do
       context 'nil uploader type' do
         let(:uploader_type) { nil }
 
-        it { expect { subject }.to raise_error(Elplano::Errors::ArgumentMissing) }
+        it { expect { subject }.to raise_error(Api::ArgumentMissing) }
       end
 
       context 'nil storage type' do
         let(:storage_type) { nil }
 
-        it { expect { subject }.to raise_error(Elplano::Errors::ArgumentMissing) }
+        it { expect { subject }.to raise_error(Api::ArgumentMissing) }
       end
 
       context 'non existed uploader' do
         let(:uploader_type) { :wat }
 
-        it { expect { subject }.to raise_error(Elplano::Errors::ArgumentMissing) }
+        it { expect { subject }.to raise_error(Api::ArgumentMissing) }
       end
     end
 

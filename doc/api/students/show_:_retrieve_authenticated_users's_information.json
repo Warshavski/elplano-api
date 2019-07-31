@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer b639179f4ceb5be75a094c228d5f7ec82fe54227bacf44eecff285d3a2981165",
+        "Authorization": "Bearer d1774158eb1630766b072fd0e47f42fffa68972fc833de3405c3189f0aea66df",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"44\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Maria Kenneth Abernathy\",\n      \"email\": \"garry@grant.name\",\n      \"phone\": \"848-709-5208\",\n      \"about\": \"Eos eius veniam. Vero est iure. Pariatur natus reprehenderit. Quae magni ut. At iste delectus.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/sunday_leannon\",\n        \"facebook\": \"http://facebook/dalton\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-07-25T14:17:23.860Z\",\n      \"updated_at\": \"2019-07-25T14:17:23.860Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"28\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"43\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"44\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Thomas Paul Little IV\",\n      \"email\": \"mandie@greenholt.co\",\n      \"phone\": \"(220) 352-5426\",\n      \"about\": \"Ipsa quam ullam. Beatae qui est. Tenetur excepturi et. Expedita reiciendis assumenda. Rem nisi quo.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/jacelyn\",\n        \"facebook\": \"http://facebook/chance.franecki\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-08-03T12:33:00.197Z\",\n      \"updated_at\": \"2019-08-03T12:33:00.197Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"28\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"43\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"279282a5e10659c1b26eff055993ef6f\"",
-        "X-Request-Id": "8af16497-860d-4ab6-a75c-310baf701536",
-        "X-Runtime": "0.014631",
+        "ETag": "W/\"b94ec978031fa8aa21c42de30dc34256\"",
+        "X-Request-Id": "2985183d-6ae3-4cc4-b094-09e574dc4fa1",
+        "X-Runtime": "0.018784",
         "Vary": "Origin",
-        "Content-Length": "545"
+        "Content-Length": "555"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer b639179f4ceb5be75a094c228d5f7ec82fe54227bacf44eecff285d3a2981165\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer d1774158eb1630766b072fd0e47f42fffa68972fc833de3405c3189f0aea66df\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

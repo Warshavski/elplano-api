@@ -34,7 +34,7 @@ resource "Group's lecturers" do
   header 'Content-Type', 'application/vnd.api+json'
   header 'Authorization', :authorization
 
-  get 'api/v1/lecturers' do
+  get 'api/v1/group/lecturers' do
     let!(:lecturers) { create_list(:lecturer, 1, :with_courses, group: group) }
 
     example 'INDEX : Retrieve lecturers created by authenticated user' do
@@ -51,7 +51,7 @@ resource "Group's lecturers" do
     end
   end
 
-  get 'api/v1/lecturers/:id' do
+  get 'api/v1/group/lecturers/:id' do
     example 'SHOW : Retrieve information about requested lecturer' do
       explanation <<~DESC
         Returns a single instance of the lecturer.
@@ -66,7 +66,7 @@ resource "Group's lecturers" do
     end
   end
 
-  post 'api/v1/lecturers' do
+  post 'api/v1/group/lecturers' do
     with_options scope: %i[data attributes] do
       parameter :first_name, 'Lecturer first name', required: true
       parameter :last_name, 'Lecturer last name', required: true
@@ -108,7 +108,7 @@ resource "Group's lecturers" do
     end
   end
 
-  put 'api/v1/lecturers/:id' do
+  put 'api/v1/group/lecturers/:id' do
     with_options scope: %i[data attributes] do
       parameter :first_name, 'Lecturer first name', required: true
       parameter :last_name, 'Lecturer last name', required: true
@@ -150,7 +150,7 @@ resource "Group's lecturers" do
     end
   end
 
-  delete 'api/v1/lecturers/:id' do
+  delete 'api/v1/group/lecturers/:id' do
     example 'DELETE : Delete selected lecturer' do
       explanation <<~DESC
         Delete lecturer.

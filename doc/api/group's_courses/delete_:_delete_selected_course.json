@@ -2,7 +2,7 @@
   "resource": "Group's courses",
   "resource_explanation": "El Plano courses API(created for group by group owner).\n\nCourse attributes :\n\n - `title` - Represents course name(human readable identity).\n - `timestamps`\n\n Also, includes reference to the course lecturer.\n",
   "http_method": "DELETE",
-  "route": "api/v1/courses/:id",
+  "route": "api/v1/group/courses/:id",
   "description": "DELETE : Delete selected course",
   "explanation": "Deletes course.\n\n<b>NOTE</b> : This action allowed only for group owner user.\n",
   "parameters": [
@@ -14,12 +14,12 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "api/v1/courses/5",
+      "request_path": "api/v1/group/courses/7",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 4c7b8e2a6d42b668177381081b39f8938c68b4ce90871648962bfa0e12940a15",
+        "Authorization": "Bearer 21627da8a4ddce2a6d6d95004bb5e40e72bc65e8f11de4ec68b1839502d28fae",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -36,12 +36,12 @@
         "X-Content-Type-Options": "nosniff",
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
-        "X-Request-Id": "c3158f9e-679c-4c6e-b12f-565f987b9424",
-        "X-Runtime": "0.017833",
+        "X-Request-Id": "9e4e1aef-73f8-49e5-9094-23cc8e9a6462",
+        "X-Runtime": "0.015838",
         "Vary": "Origin"
       },
       "response_content_type": null,
-      "curl": "curl \"http://localhost:3000/api/v1/courses/5\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 4c7b8e2a6d42b668177381081b39f8938c68b4ce90871648962bfa0e12940a15\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/courses/7\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 21627da8a4ddce2a6d6d95004bb5e40e72bc65e8f11de4ec68b1839502d28fae\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

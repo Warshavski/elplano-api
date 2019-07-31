@@ -23,11 +23,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group/invites",
-      "request_body": "{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"gayleharber@stark.biz\"}}}",
+      "request_body": "{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"rubenratke@gottlieb.com\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer b881eac66175d997c633d96103a6135339ea716fe5f93a5ecc7a275213e53a28",
+        "Authorization": "Bearer 0fd7c94ab41de2eefe88e75442a9c067da09a4f09d5f80705c23b861abe4fdd0",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -36,7 +36,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"gayleharber@stark.biz\",\n      \"invitation_token\": \"GA1qCsV8H5GP7ZgPsSmD\",\n      \"sent_at\": \"2019-07-25T14:17:22.709Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-07-25T14:17:22.709Z\",\n      \"updated_at\": \"2019-07-25T14:17:22.709Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"rubenratke@gottlieb.com\",\n      \"invitation_token\": \"prcJ8FeeMzHbbXKysYRm\",\n      \"sent_at\": \"2019-08-03T12:32:59.126Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-08-03T12:32:59.126Z\",\n      \"updated_at\": \"2019-08-03T12:32:59.126Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -45,14 +45,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"ad02e27e9c6083b1a6f561b83e302036\"",
-        "X-Request-Id": "1b10e580-7ddf-4315-b179-bd4574b59a63",
-        "X-Runtime": "0.197880",
+        "ETag": "W/\"2ccd20d538bb1267bf73f09415d9e20e\"",
+        "X-Request-Id": "c6209b9c-b4b9-414a-ac8b-31e87c220f32",
+        "X-Runtime": "0.226533",
         "Vary": "Origin",
-        "Content-Length": "414"
+        "Content-Length": "416"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/invites\" -d '{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"gayleharber@stark.biz\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer b881eac66175d997c633d96103a6135339ea716fe5f93a5ecc7a275213e53a28\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/invites\" -d '{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"rubenratke@gottlieb.com\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 0fd7c94ab41de2eefe88e75442a9c067da09a4f09d5f80705c23b861abe4fdd0\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

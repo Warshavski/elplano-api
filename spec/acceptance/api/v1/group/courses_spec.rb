@@ -29,7 +29,7 @@ resource "Group's courses" do
   header 'Content-Type',  'application/vnd.api+json'
   header 'Authorization', :authorization
 
-  get 'api/v1/courses' do
+  get 'api/v1/group/courses' do
     let!(:courses) { create_list(:course, 1, :with_lecturers, group: group) }
 
     example 'INDEX : Retrieve courses created by authenticated user' do
@@ -46,7 +46,7 @@ resource "Group's courses" do
     end
   end
 
-  get 'api/v1/courses/:id' do
+  get 'api/v1/group/courses/:id' do
     example 'SHOW : Retrieve information about requested course' do
       explanation <<~DESC
         Returns a single instance of the course.
@@ -61,7 +61,7 @@ resource "Group's courses" do
     end
   end
 
-  post 'api/v1/courses' do
+  post 'api/v1/group/courses' do
     with_options scope: %i[data attributes] do
       parameter :title, 'Course title(human readable identity)', required: true
       parameter :lecturers, 'Lecturers of the course. Included in "relationships" category'
@@ -95,7 +95,7 @@ resource "Group's courses" do
     end
   end
 
-  put 'api/v1/courses/:id' do
+  put 'api/v1/group/courses/:id' do
     with_options scope: %i[data attributes] do
       parameter :title, 'Course title(human readable identity)', required: true
       parameter :lecturers, 'Lecturers of the course. Included in "relationships" category'
@@ -129,7 +129,7 @@ resource "Group's courses" do
     end
   end
 
-  delete 'api/v1/courses/:id' do
+  delete 'api/v1/group/courses/:id' do
     example 'DELETE : Delete selected course' do
       explanation <<~DESC
         Deletes course.

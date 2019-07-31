@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer b8e041bc414720f0c705c77290c7645a16c294d3af8da604ddc7a2718af1c17b",
+        "Authorization": "Bearer 3d183562c470b3fdd8cbc0966b25bcc1241f4dd0d95ade6daf80b9e5e3812a41",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"event\",\n      \"attributes\": {\n        \"title\": \"Impedit sint molestiae aut.\",\n        \"description\": null,\n        \"status\": \"confirmed\",\n        \"recurrence\": [\n          \"EXDATE;VALUE=DATE:20150610\",\n          \"RDATE;VALUE=DATE:20150609,20150611\",\n          \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n        ],\n        \"start_at\": \"2019-07-26T00:00:00.000Z\",\n        \"end_at\": null,\n        \"timezone\": \"Etc/GMT+12\",\n        \"created_at\": \"2019-07-25T14:17:22.277Z\",\n        \"updated_at\": \"2019-07-25T14:17:22.277Z\"\n      },\n      \"relationships\": {\n        \"creator\": {\n          \"data\": {\n            \"id\": \"7\",\n            \"type\": \"student\"\n          }\n        },\n        \"course\": {\n          \"data\": null\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"event\",\n      \"attributes\": {\n        \"title\": \"Voluptas qui laudantium dolor.\",\n        \"description\": null,\n        \"status\": \"confirmed\",\n        \"recurrence\": [\n          \"EXDATE;VALUE=DATE:20150610\",\n          \"RDATE;VALUE=DATE:20150609,20150611\",\n          \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n        ],\n        \"start_at\": \"2019-08-04T00:00:00.000Z\",\n        \"end_at\": null,\n        \"timezone\": \"Etc/GMT+12\",\n        \"created_at\": \"2019-08-03T12:32:58.168Z\",\n        \"updated_at\": \"2019-08-03T12:32:58.168Z\"\n      },\n      \"relationships\": {\n        \"creator\": {\n          \"data\": {\n            \"id\": \"2\",\n            \"type\": \"student\"\n          }\n        },\n        \"course\": {\n          \"data\": null\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"825e4d43ab60822979b65dc7d2ce8ff2\"",
-        "X-Request-Id": "2f51c649-a998-4f4f-b801-68a8455526a7",
-        "X-Runtime": "0.022426",
+        "ETag": "W/\"3f9e80af69ee914485069d364d95f1dc\"",
+        "X-Request-Id": "9be1ad23-55df-455e-b88d-634f7874f182",
+        "X-Runtime": "0.137382",
         "Vary": "Origin",
-        "Content-Length": "499"
+        "Content-Length": "502"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/events\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer b8e041bc414720f0c705c77290c7645a16c294d3af8da604ddc7a2718af1c17b\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/events\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 3d183562c470b3fdd8cbc0966b25bcc1241f4dd0d95ade6daf80b9e5e3812a41\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

@@ -2,7 +2,7 @@
   "resource": "Group's lecturers",
   "resource_explanation": "El Plano group's lecturers API(created for the group by group owner).\n\nCourse attributes :\n\n - `first_name` - Represents lecturer first name\n - `last_name` - Represents lecturer last name\n - `patronymic` - Represents lecturer patronymic \n - `timestamps`\n\nAlso, includes reference to the courses.\n",
   "http_method": "GET",
-  "route": "api/v1/lecturers",
+  "route": "api/v1/group/lecturers",
   "description": "INDEX : Retrieve lecturers created by authenticated user",
   "explanation": "Returns a list of the available lecturers.\n",
   "parameters": [
@@ -14,12 +14,12 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "api/v1/lecturers",
+      "request_path": "api/v1/group/lecturers",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 677089ea0cf8bef5d097a636c8aa1c1eb07d79776b224d5edb345342517ea765",
+        "Authorization": "Bearer e374bf42cb822b2ad071fb055bf7f12a005b8104f98d52a49b686bb1fb47f25e",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"7\",\n      \"type\": \"lecturer\",\n      \"attributes\": {\n        \"created_at\": \"2019-07-25T14:17:23.437Z\",\n        \"updated_at\": \"2019-07-25T14:17:23.437Z\",\n        \"first_name\": \"Codi\",\n        \"last_name\": \"Gerhold\",\n        \"patronymic\": \"I\",\n        \"avatar\": null\n      },\n      \"relationships\": {\n        \"courses\": {\n          \"data\": [\n            {\n              \"id\": \"8\",\n              \"type\": \"course\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"7\",\n      \"type\": \"lecturer\",\n      \"attributes\": {\n        \"created_at\": \"2019-08-03T12:32:59.350Z\",\n        \"updated_at\": \"2019-08-03T12:32:59.350Z\",\n        \"first_name\": \"Jene\",\n        \"last_name\": \"Veum\",\n        \"patronymic\": \"Md\",\n        \"avatar\": null\n      },\n      \"relationships\": {\n        \"courses\": {\n          \"data\": [\n            {\n              \"id\": \"8\",\n              \"type\": \"course\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"a091aa217ddb2b089a71e9412ebe2140\"",
-        "X-Request-Id": "605da2a8-dbe3-42cd-b8f6-55ccb0e078af",
-        "X-Runtime": "0.021382",
+        "ETag": "W/\"d2ea4c6ab9b5db2d050878c931df7e44\"",
+        "X-Request-Id": "89d3f96b-6114-4739-b64d-f1adb3b3d136",
+        "X-Runtime": "0.010630",
         "Vary": "Origin",
-        "Content-Length": "273"
+        "Content-Length": "271"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/lecturers\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 677089ea0cf8bef5d097a636c8aa1c1eb07d79776b224d5edb345342517ea765\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/lecturers\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer e374bf42cb822b2ad071fb055bf7f12a005b8104f98d52a49b686bb1fb47f25e\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

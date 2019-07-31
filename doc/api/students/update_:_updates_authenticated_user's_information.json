@@ -58,7 +58,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 9586db80ebdfa46cf347bfa3f15b414afa671881c210efdf5830cfaae12a424b",
+        "Authorization": "Bearer 6bc0fb80712bedfbca82f9cbb3699448f68420b811921a5089e0b6eed355a537",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -67,7 +67,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"46\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Sir Wat Name Yeah\",\n      \"email\": \"wat@wat.wat\",\n      \"phone\": \"+8 983 47 89 312\",\n      \"about\": \"Totam eos illum. Consequuntur accusamus esse. Mollitia placeat quia. Optio officia fugit. Voluptas sit eum.\",\n      \"social_networks\": {\n        \"twitter\": \"https://twitter.com/watever\",\n        \"facebook\": \"https://facebook.com/watever\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-07-25T14:17:23.916Z\",\n      \"updated_at\": \"2019-07-25T14:17:23.931Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"29\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"45\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"46\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Sir Wat Name Yeah\",\n      \"email\": \"wat@wat.wat\",\n      \"phone\": \"+8 983 47 89 312\",\n      \"about\": \"Rem voluptatem qui. Exercitationem pariatur non. Dolore rerum magnam. Blanditiis voluptas necessitatibus. Ipsum sit et.\",\n      \"social_networks\": {\n        \"twitter\": \"https://twitter.com/watever\",\n        \"facebook\": \"https://facebook.com/watever\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-08-03T12:33:00.247Z\",\n      \"updated_at\": \"2019-08-03T12:33:00.257Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"29\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"45\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -76,14 +76,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"5fc189cfbe3319493fdfe00c6c917b35\"",
-        "X-Request-Id": "1c7a673b-2f50-4049-aa57-075eecc53058",
-        "X-Runtime": "0.012799",
+        "ETag": "W/\"d30ce4071a9fbfc185ae0aa6fccebedc\"",
+        "X-Request-Id": "ce984173-4f10-4f4d-8fc6-259de3f43e36",
+        "X-Runtime": "0.008683",
         "Vary": "Origin",
-        "Content-Length": "555"
+        "Content-Length": "567"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/student\" -d '{\"data\":{\"type\":\"student\",\"attributes\":{\"email\":\"wat@wat.wat\",\"phone\":\"+8 983 47 89 312\",\"full_name\":\"Sir Wat Name Yeah\",\"social_networks\":{\"twitter\":\"https://twitter.com/watever\",\"facebook\":\"https://facebook.com/watever\"}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 9586db80ebdfa46cf347bfa3f15b414afa671881c210efdf5830cfaae12a424b\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/student\" -d '{\"data\":{\"type\":\"student\",\"attributes\":{\"email\":\"wat@wat.wat\",\"phone\":\"+8 983 47 89 312\",\"full_name\":\"Sir Wat Name Yeah\",\"social_networks\":{\"twitter\":\"https://twitter.com/watever\",\"facebook\":\"https://facebook.com/watever\"}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 6bc0fb80712bedfbca82f9cbb3699448f68420b811921a5089e0b6eed355a537\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

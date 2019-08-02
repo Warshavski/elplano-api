@@ -18,9 +18,7 @@ class UserSerializer
     Users::Gravatar.call(email: object.email, size: 100, username: object.username)
   end
 
-  attribute :confirmed do |object|
-    object.confirmation_token && object.confirmed_at.nil? ? false : true
-  end
+  attribute :confirmed, &:confirmed?
 
   belongs_to :student, serializer: StudentSerializer
 end

@@ -23,9 +23,6 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
-      # (see CoursesController)
-      resources :courses, except: %i[new edit]
-
       # (see EventsController)
       resources :events, except: %i[new edit]
 
@@ -33,8 +30,14 @@ Rails.application.routes.draw do
       resource :group, except: %i[new edit]
 
       namespace :group do
+        # (see CoursesController)
+        resources :courses, except: %i[new edit]
+
         # (see Group::InvitesController)
         resources :invites, only: %i[index show create]
+
+        # (see Group::LecturersController)
+        resources :lecturers, except: %i[new edit]
 
         # (see Group::StudentsController)
         resources :students, only: %i[index show]
@@ -42,9 +45,6 @@ Rails.application.routes.draw do
 
       # (see InvitesController)
       resources :invites, only: %i[index show update], param: :token
-
-      # (see LecturersController)
-      resources :lecturers, except: %i[new edit]
 
       # (see StudentsController)
       resource :student, only: %i[show update]

@@ -2,47 +2,43 @@
 
 require 'rails_helper'
 
-RSpec.describe Api::V1::CoursesController, type: :request do
+RSpec.describe Api::V1::Group::CoursesController, type: :request do
   include_context 'shared setup'
 
-  let(:base_endpoint)     { '/api/v1/courses' }
+  let(:base_endpoint)     { '/api/v1/group/courses' }
   let(:resource_endpoint) { "#{base_endpoint}/#{course.id}" }
 
   let_it_be(:student) { create(:student, :group_supervisor, user: user) }
   let_it_be(:course)  { create(:course, title: 'some new course', group: student.group) }
 
-  let(:course_params)  { build(:course_params) }
+  let(:course_params) { build(:course_params) }
 
-  let(:request_params) { { data: course_params } }
-  let(:invalid_request_params) { { data: build(:invalid_course_params) } }
+  let(:request_params)          { { data: course_params } }
+  let(:invalid_request_params)  { { data: build(:invalid_course_params) } }
 
   describe 'GET #index' do
     subject { get base_endpoint, headers: headers }
 
-    let_it_be(:courses) { create_list(:course, 4, group: student.group) }
+    let_it_be(:courses) { create_list(:course, 2, group: student.group) }
 
     context 'N+1' do
       bulletify { subject }
     end
 
-    context 'student without group' do
-      let_it_be(:student) { create(:student, user: user) }
+    before(:each) { subject }
 
-      before(:each) { subject }
+    context 'when current user is a student without group' do
+      let_it_be(:student) { create(:student, user: user) }
 
       it { expect(response).to have_http_status(:ok) }
 
       it { expect(json_data).to eq([]) }
     end
 
-    context 'unsorted courses collection' do
-      before(:each) { subject }
-
+    context 'when no filter or sort params are present' do
       it { expect(response).to have_http_status(:ok) }
 
-      it 'returns correct quantity' do
-        expect(json_data.count).to be(5)
-      end
+      it { expect(json_data.count).to be(3) }
     end
   end
 
@@ -61,14 +57,14 @@ RSpec.describe Api::V1::CoursesController, type: :request do
                      %w[title created_at updated_at],
                      %w[lecturers]
 
-    it 'returns correct expected data' do
-      actual_title = body_as_json[:data][:attributes][:title].downcase
+    it 'returns requested course entity' do
+      actual_title = json_data.dig(:attributes, :title).downcase
       expected_title = course.title
 
       expect(actual_title).to eq(expected_title)
     end
 
-    context 'not valid request' do
+    context 'when request params are not valid' do
       let(:resource_endpoint) { "#{base_endpoint}/wat_course?" }
 
       it { expect(response).to have_http_status(:not_found) }
@@ -80,7 +76,7 @@ RSpec.describe Api::V1::CoursesController, type: :request do
 
     before(:each) { subject }
 
-    context 'group owner' do
+    context 'when user is a group owner' do
       it { expect(response).to have_http_status(:created) }
 
       include_examples 'json:api examples',
@@ -89,14 +85,14 @@ RSpec.describe Api::V1::CoursesController, type: :request do
                        %w[title created_at updated_at],
                        %w[lecturers]
 
-      it 'returns created model' do
+      it 'returns created course entity' do
         actual_title = json_data.dig(:attributes, :title).downcase
-        expected_title = course_params[:attributes][:title].downcase
+        expected_title = course_params.dig(:attributes, :title).downcase
 
         expect(actual_title).to eq(expected_title)
       end
 
-      context 'lecturer binding' do
+      context 'when the course is created with reference to the lecturer' do
         let_it_be(:lecturer) { create(:lecturer, group: student.group) }
 
         let(:course_params) do
@@ -111,7 +107,7 @@ RSpec.describe Api::V1::CoursesController, type: :request do
           build(:course_params).merge(lecturer_params)
         end
 
-        it 'return created model with bound lecturer' do
+        it 'return created course entity with bound lecturer' do
           actual_lecturer_ids = relationship_data(:lecturers).map { |l| l[:id].to_i }
 
           expect(actual_lecturer_ids).to include(lecturer.id)
@@ -121,7 +117,7 @@ RSpec.describe Api::V1::CoursesController, type: :request do
       include_examples 'request errors examples'
     end
 
-    context 'regular group member' do
+    context 'when user is a regular group member' do
       let_it_be(:student) { create(:student, :group_member, user: user) }
 
       it { expect(response).to have_http_status(:forbidden) }
@@ -133,12 +129,12 @@ RSpec.describe Api::V1::CoursesController, type: :request do
 
     before(:each) { subject }
 
-    context 'group owner' do
+    context 'when user is a group owner' do
       it { expect(response).to have_http_status(:ok) }
 
       it 'updates a course model' do
         actual_title = course.reload.title
-        expected_title = course_params[:attributes][:title].downcase
+        expected_title = course_params.dig(:attributes, :title).downcase
 
         expect(actual_title).to eq(expected_title)
       end
@@ -151,7 +147,7 @@ RSpec.describe Api::V1::CoursesController, type: :request do
 
       include_examples 'request errors examples'
 
-      context 'lecturer binding' do
+      context 'when updates with a lecturer' do
         let_it_be(:lecturer) { create(:lecturer, group: student.group) }
 
         let(:course_params) do
@@ -173,14 +169,14 @@ RSpec.describe Api::V1::CoursesController, type: :request do
         end
       end
 
-      context 'response with errors' do
+      context 'when request params are not valid' do
         let(:resource_endpoint) { "#{base_endpoint}/wat_course?" }
 
         it { expect(response).to have_http_status(:not_found) }
       end
     end
 
-    context 'regular group member' do
+    context 'when user is a regular group member' do
       let_it_be(:student) { create(:student, :group_member, user: user) }
 
       it { expect(response).to have_http_status(:forbidden) }
@@ -188,7 +184,7 @@ RSpec.describe Api::V1::CoursesController, type: :request do
   end
 
   describe 'DELETE #destroy' do
-    context 'group owner' do
+    context 'when user is a group owner' do
       it 'responds with a 204 status' do
         delete resource_endpoint, headers: headers
 
@@ -206,7 +202,7 @@ RSpec.describe Api::V1::CoursesController, type: :request do
       end
     end
 
-    context 'regular group member' do
+    context 'when user is a regular group member' do
       let_it_be(:student) { create(:student, :group_member, user: user) }
 
       it 'responds with 403 - forbidden' do

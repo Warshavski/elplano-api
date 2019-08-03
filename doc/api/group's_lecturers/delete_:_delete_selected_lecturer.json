@@ -2,7 +2,7 @@
   "resource": "Group's lecturers",
   "resource_explanation": "El Plano group's lecturers API(created for the group by group owner).\n\nCourse attributes :\n\n - `first_name` - Represents lecturer first name\n - `last_name` - Represents lecturer last name\n - `patronymic` - Represents lecturer patronymic \n - `timestamps`\n\nAlso, includes reference to the courses.\n",
   "http_method": "DELETE",
-  "route": "api/v1/lecturers/:id",
+  "route": "api/v1/group/lecturers/:id",
   "description": "DELETE : Delete selected lecturer",
   "explanation": "Delete lecturer.\n\n<b>NOTE</b> : This action allowed only for group owner user.\n",
   "parameters": [
@@ -14,12 +14,12 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "api/v1/lecturers/11",
+      "request_path": "api/v1/group/lecturers/11",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer b8b40714c18c307a38da9f5ffc43ab8b496fef3d810f913a10d1776da9ac4cf5",
+        "Authorization": "Bearer 5a55a81883553912d4dc409a7d91c8d4809d66e7707c8eb5f2930f57fbf36874",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -36,12 +36,12 @@
         "X-Content-Type-Options": "nosniff",
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
-        "X-Request-Id": "0c7fb715-066d-4f27-abd4-d1b809c8d66c",
-        "X-Runtime": "0.011619",
+        "X-Request-Id": "baff6e6d-f67f-4b2e-a45d-d94fedd5384f",
+        "X-Runtime": "0.009764",
         "Vary": "Origin"
       },
       "response_content_type": null,
-      "curl": "curl \"http://localhost:3000/api/v1/lecturers/11\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer b8b40714c18c307a38da9f5ffc43ab8b496fef3d810f913a10d1776da9ac4cf5\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/lecturers/11\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 5a55a81883553912d4dc409a7d91c8d4809d66e7707c8eb5f2930f57fbf36874\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

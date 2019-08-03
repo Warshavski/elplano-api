@@ -23,7 +23,7 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/users/confirmation",
-      "request_body": "{\"data\":{\"type\":\"user\",\"attributes\":{\"login\":\"willieebert@hegmannblock.net\"}}}",
+      "request_body": "{\"data\":{\"type\":\"user\",\"attributes\":{\"login\":\"eloisa@jacobs.net\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
@@ -44,13 +44,13 @@
         "Content-Type": "application/json; charset=utf-8",
         "ETag": "W/\"f09f4232db7afe28489911394ecb758a\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "c81dac6e-7098-40f6-961f-61d04c3a7b83",
-        "X-Runtime": "0.004099",
+        "X-Request-Id": "9d39ee95-ba44-40c6-8e62-82cdf86eecda",
+        "X-Runtime": "0.003198",
         "Vary": "Origin",
         "Content-Length": "168"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/users/confirmation\" -d '{\"data\":{\"type\":\"user\",\"attributes\":{\"login\":\"willieebert@hegmannblock.net\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/users/confirmation\" -d '{\"data\":{\"type\":\"user\",\"attributes\":{\"login\":\"eloisa@jacobs.net\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

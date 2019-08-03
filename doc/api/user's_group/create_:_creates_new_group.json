@@ -32,11 +32,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group",
-      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Asperiores quia debitis.\",\"number\":\"70417\"}}}",
+      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Autem amet architecto.\",\"number\":\"62480\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 70fbd2eae5b01bbcd884af060bcda3ce61f0f75cb8e0fc2822688003ea6036c8",
+        "Authorization": "Bearer 8453546612b949273cbd20131649884ecefb3c24d55f7dfd727ac1079a372481",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -45,7 +45,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"17\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"70417\",\n      \"title\": \"Asperiores quia debitis.\",\n      \"created_at\": \"2019-07-25T14:17:23.110Z\",\n      \"updated_at\": \"2019-07-25T14:17:23.110Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"26\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"22\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"62480\",\n      \"title\": \"Autem amet architecto.\",\n      \"created_at\": \"2019-08-03T12:32:59.890Z\",\n      \"updated_at\": \"2019-08-03T12:32:59.890Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"31\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -54,14 +54,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"e4ad194af7519ea5921120c34616c96a\"",
-        "X-Request-Id": "50bf8cd9-5b9f-4d3f-a0ba-98f6996d86c1",
-        "X-Runtime": "0.027393",
+        "ETag": "W/\"449a5eaecb2035c195e17055bf7d299a\"",
+        "X-Request-Id": "5a77856c-0f73-42ac-9969-59a02bd11da3",
+        "X-Runtime": "0.023615",
         "Vary": "Origin",
-        "Content-Length": "251"
+        "Content-Length": "249"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Asperiores quia debitis.\",\"number\":\"70417\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 70fbd2eae5b01bbcd884af060bcda3ce61f0f75cb8e0fc2822688003ea6036c8\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Autem amet architecto.\",\"number\":\"62480\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 8453546612b949273cbd20131649884ecefb3c24d55f7dfd727ac1079a372481\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

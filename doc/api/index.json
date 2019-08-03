@@ -35,35 +35,35 @@
           "description": "CREATE : Create new course",
           "link": "group's_courses/create_:_create_new_course.json",
           "groups": "all",
-          "route": "api/v1/courses",
+          "route": "api/v1/group/courses",
           "method": "post"
         },
         {
           "description": "DELETE : Delete selected course",
           "link": "group's_courses/delete_:_delete_selected_course.json",
           "groups": "all",
-          "route": "api/v1/courses/:id",
+          "route": "api/v1/group/courses/:id",
           "method": "delete"
         },
         {
           "description": "INDEX : Retrieve courses created by authenticated user",
           "link": "group's_courses/index_:_retrieve_courses_created_by_authenticated_user.json",
           "groups": "all",
-          "route": "api/v1/courses",
+          "route": "api/v1/group/courses",
           "method": "get"
         },
         {
           "description": "SHOW : Retrieve information about requested course",
           "link": "group's_courses/show_:_retrieve_information_about_requested_course.json",
           "groups": "all",
-          "route": "api/v1/courses/:id",
+          "route": "api/v1/group/courses/:id",
           "method": "get"
         },
         {
           "description": "UPDATE : Update selected course information",
           "link": "group's_courses/update_:_update_selected_course_information.json",
           "groups": "all",
-          "route": "api/v1/courses/:id",
+          "route": "api/v1/group/courses/:id",
           "method": "put"
         }
       ]
@@ -76,35 +76,35 @@
           "description": "CREATE : Create new lecturer",
           "link": "group's_lecturers/create_:_create_new_lecturer.json",
           "groups": "all",
-          "route": "api/v1/lecturers",
+          "route": "api/v1/group/lecturers",
           "method": "post"
         },
         {
           "description": "DELETE : Delete selected lecturer",
           "link": "group's_lecturers/delete_:_delete_selected_lecturer.json",
           "groups": "all",
-          "route": "api/v1/lecturers/:id",
+          "route": "api/v1/group/lecturers/:id",
           "method": "delete"
         },
         {
           "description": "INDEX : Retrieve lecturers created by authenticated user",
           "link": "group's_lecturers/index_:_retrieve_lecturers_created_by_authenticated_user.json",
           "groups": "all",
-          "route": "api/v1/lecturers",
+          "route": "api/v1/group/lecturers",
           "method": "get"
         },
         {
           "description": "SHOW : Retrieve information about requested lecturer",
           "link": "group's_lecturers/show_:_retrieve_information_about_requested_lecturer.json",
           "groups": "all",
-          "route": "api/v1/lecturers/:id",
+          "route": "api/v1/group/lecturers/:id",
           "method": "get"
         },
         {
           "description": "UPDATE : Update selected lecturer information",
           "link": "group's_lecturers/update_:_update_selected_lecturer_information.json",
           "groups": "all",
-          "route": "api/v1/lecturers/:id",
+          "route": "api/v1/group/lecturers/:id",
           "method": "put"
         }
       ]

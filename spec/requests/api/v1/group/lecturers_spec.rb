@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Lecturers management', type: :request do
+RSpec.describe Api::V1::Group::LecturersController, type: :request do
   include_context 'shared setup'
 
-  let(:base_endpoint)     { '/api/v1/lecturers' }
+  let(:base_endpoint)     { '/api/v1/group/lecturers' }
   let(:resource_endpoint) { "#{base_endpoint}/#{lecturer.id}" }
 
   let_it_be(:student)   { create(:student, :group_supervisor, user: user) }
@@ -13,34 +13,34 @@ RSpec.describe 'Lecturers management', type: :request do
 
   let(:lecturer_params)  { build(:lecturer_params) }
 
-  let(:request_params) { { data: lecturer_params } }
-  let(:invalid_request_params) { { data: build(:invalid_lecturer_params) } }
+  let(:request_params)          { { data: lecturer_params } }
+  let(:invalid_request_params)  { { data: build(:invalid_lecturer_params) } }
 
   describe 'GET #index' do
     subject { get base_endpoint, headers: headers }
 
-    let_it_be(:lecturers) { create_list(:lecturer, 4, group: student.group) }
+    let_it_be(:lecturers) { create_list(:lecturer, 2, group: student.group) }
 
     context 'N+1' do
       bulletify { subject }
     end
 
-    context 'student without group' do
-      let_it_be(:student) { create(:student, user: user) }
+    before(:each) { subject }
 
-      before(:each) { subject }
+    context 'when user is a student without group' do
+      let_it_be(:student) { create(:student, user: user) }
 
       it { expect(response).to have_http_status(:ok) }
 
       it { expect(json_data).to eq([]) }
     end
 
-    context 'unsorted lecturers collection' do
+    context 'when no sort or filter params are present' do
       before(:each) { subject }
 
       it { expect(response).to have_http_status(:ok) }
 
-      it { expect(json_data.count).to be(5) }
+      it { expect(json_data.count).to be(3) }
     end
   end
 
@@ -64,7 +64,7 @@ RSpec.describe 'Lecturers management', type: :request do
       expect(actual_title).to eq(expected_title)
     end
 
-    context 'not valid request' do
+    context 'when request params are not valid' do
       let(:resource_endpoint) { "#{base_endpoint}/wat_lecturer?" }
 
       it { expect(response).to have_http_status(:not_found) }
@@ -76,7 +76,7 @@ RSpec.describe 'Lecturers management', type: :request do
 
     before(:each) { subject }
 
-    context 'group owner' do
+    context 'when user is a group owner' do
       it { expect(response).to have_http_status(:created) }
 
       it { expect(json_data['type']).to eq('lecturer') }
@@ -89,7 +89,7 @@ RSpec.describe 'Lecturers management', type: :request do
 
       it 'returns created model' do
         actual_title = json_data.dig(:attributes, :first_name)
-        expected_title = lecturer_params[:attributes][:first_name]
+        expected_title = lecturer_params.dig(:attributes, :first_name)
 
         expect(actual_title).to eq(expected_title)
       end
@@ -97,7 +97,7 @@ RSpec.describe 'Lecturers management', type: :request do
       include_examples 'request errors examples'
     end
 
-    context 'avatar' do
+    context 'when avatar is present' do
       let(:file)      { fixture_file_upload('spec/fixtures/files/dk.png') }
       let(:metadata)  { AvatarUploader.new(:cache).upload(file) }
 
@@ -111,7 +111,7 @@ RSpec.describe 'Lecturers management', type: :request do
 
       it { expect(response).to have_http_status(:created) }
 
-      context 'invalid avatar metadata' do
+      context 'when avatar metadata is not valid' do
         let(:request_params) do
           core_params = build(:lecturer_params)
 
@@ -133,7 +133,7 @@ RSpec.describe 'Lecturers management', type: :request do
       end
     end
 
-    context 'course binding' do
+    context 'when the lecturer is created with reference to the course' do
       let_it_be(:course) { create(:course, group: student.group) }
 
       let(:lecturer_params) do
@@ -148,14 +148,14 @@ RSpec.describe 'Lecturers management', type: :request do
         build(:lecturer_params).merge(course_params)
       end
 
-      it 'return created model with bound course' do
+      it 'return created lecturer entity with reference to the course' do
         actual_course_ids = relationship_data(:courses).map { |c| c[:id].to_i }
 
         expect(actual_course_ids).to include(course.id)
       end
     end
 
-    context 'regular group member' do
+    context 'when user is a regular group member' do
       let_it_be(:student) { create(:student, :group_member, user: user) }
 
       it { expect(response).to have_http_status(:forbidden) }
@@ -167,12 +167,12 @@ RSpec.describe 'Lecturers management', type: :request do
 
     before(:each) { subject }
 
-    context 'group owner' do
+    context 'when user is a group owner' do
       it { expect(response).to have_http_status(:ok) }
 
       it { expect(json_data['type']).to eq('lecturer') }
 
-      it 'updates a lecturer model' do
+      it 'updates requested lecturer entity' do
         actual_title = lecturer.reload.first_name
         expected_title = lecturer_params[:attributes][:first_name].downcase
 
@@ -187,7 +187,7 @@ RSpec.describe 'Lecturers management', type: :request do
 
       include_examples 'request errors examples'
 
-      context 'avatar' do
+      context 'when avatar is updated' do
         let(:file)      { fixture_file_upload('spec/fixtures/files/dk.png') }
         let(:metadata)  { AvatarUploader.new(:cache).upload(file) }
 
@@ -201,7 +201,7 @@ RSpec.describe 'Lecturers management', type: :request do
 
         it { expect(response).to have_http_status(:ok) }
 
-        context 'invalid avatar metadata' do
+        context 'when avatar metadata is not valid' do
           let(:request_params) do
             core_params = build(:lecturer_params)
 
@@ -223,7 +223,7 @@ RSpec.describe 'Lecturers management', type: :request do
         end
       end
 
-      context 'course binding' do
+      context 'when the lecturer is updated with reference to the course' do
         let_it_be(:course) { create(:course, group: student.group) }
 
         let(:lecturer_params) do
@@ -238,21 +238,21 @@ RSpec.describe 'Lecturers management', type: :request do
           build(:lecturer_params).merge(course_params)
         end
 
-        it 'return created model with bound course' do
+        it 'return updated lecturer entity with reference to the course' do
           actual_course_ids = relationship_data(:courses).map { |c| c[:id].to_i }
 
           expect(actual_course_ids).to include(course.id)
         end
       end
 
-      context 'response with errors' do
+      context 'when request params are not valid' do
         let(:resource_endpoint) { "#{base_endpoint}/wat_lecturer?" }
 
         it { expect(response).to have_http_status(:not_found) }
       end
     end
 
-    context 'regular group member' do
+    context 'when user is a regular group member' do
       let_it_be(:student) { create(:student, :group_member, user: user) }
 
       it { expect(response).to have_http_status(:forbidden) }
@@ -260,7 +260,7 @@ RSpec.describe 'Lecturers management', type: :request do
   end
 
   describe 'DELETE #destroy' do
-    context 'group owner' do
+    context 'when user is a group owner' do
       it 'responds with a 204 status' do
         delete resource_endpoint, headers: headers
 
@@ -278,7 +278,7 @@ RSpec.describe 'Lecturers management', type: :request do
       end
     end
 
-    context 'regular group member' do
+    context 'when user is a regular group member' do
       let_it_be(:student) { create(:student, :group_member, user: user) }
 
       it 'responds with 403 - forbidden' do

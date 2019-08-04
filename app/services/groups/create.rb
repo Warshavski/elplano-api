@@ -62,7 +62,7 @@ module Groups
     def validate_owner!(owner)
       return unless owner.president? || owner.any_group?
 
-      raise ActiveRecord::RecordInvalid.new(owner), 'student already has a group!'
+      raise ActiveRecord::RecordInvalid.new(owner), I18n.t('errors.messages.student.already_in_group')
     end
   end
 end

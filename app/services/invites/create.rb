@@ -49,11 +49,7 @@ module Invites
     # @return [Invite]
     #
     def execute(params)
-      invite = create_invite!(params)
-
-      notify_about(invite)
-
-      invite
+      create_invite!(params).tap { |invite| notify_about(invite) }
     end
 
     private

@@ -41,10 +41,9 @@ module Invites
     def execute(invitation_token)
       check_args!(invitation_token)
 
-      invite = find_invite(invitation_token)
-      claim_invite!(invite) if valid_invite?(invite)
-
-      invite
+      find_invite(invitation_token).tap do |invite|
+        claim_invite!(invite) if valid_invite?(invite)
+      end
     end
 
     private

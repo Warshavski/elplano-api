@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 425d3828437414efa08e65641fdbefa86471b027e743dab7ba96511655a6416a",
+        "Authorization": "Bearer 20fe821c04c913007d1d2e0be64a8a4a406af4c048b506707374017507d0dd0a",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"29\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Janiece Londa Hansen\",\n      \"email\": \"melida@anderson.name\",\n      \"phone\": \"1-478-385-5665\",\n      \"about\": \"Excepturi aut nam. Odit voluptatem a. Vel qui recusandae. Aut dolores quia. Aut voluptatem cum.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/walton.steuber\",\n        \"facebook\": \"http://facebook/leandro.rogahn\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-08-05T11:18:27.598Z\",\n      \"updated_at\": \"2019-08-05T11:18:27.598Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"29\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"29\",\n      \"type\": \"user\",\n      \"attributes\": {\n        \"email\": \"catherindenesik@mertz.net\",\n        \"username\": \"kelly_mccullough\",\n        \"admin\": false,\n        \"created_at\": \"2019-08-05T11:18:27.584Z\",\n        \"updated_at\": \"2019-08-05T11:18:27.584Z\",\n        \"avatar_url\": \"https://www.gravatar.com/avatar/a5db957adabbb11abb08926d71fb657c?s=200&d=identicon\",\n        \"confirmed\": true\n      },\n      \"relationships\": {\n        \"student\": {\n          \"data\": {\n            \"id\": \"29\",\n            \"type\": \"student\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"29\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Roderick Stefany Schumm\",\n      \"email\": \"chestermante@fadeltreutel.info\",\n      \"phone\": \"884-984-0077\",\n      \"about\": \"Consequatur sed sit. Qui itaque quos. Veniam quia atque. Neque nemo asperiores. Soluta est facilis.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/sharan.little\",\n        \"facebook\": \"http://facebook/fredric\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-08-06T08:32:05.318Z\",\n      \"updated_at\": \"2019-08-06T08:32:05.318Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"30\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"30\",\n      \"type\": \"user\",\n      \"attributes\": {\n        \"email\": \"theoblick@schultz.com\",\n        \"username\": \"monserrate\",\n        \"admin\": false,\n        \"created_at\": \"2019-08-06T08:32:05.303Z\",\n        \"updated_at\": \"2019-08-06T08:32:05.303Z\",\n        \"avatar_url\": \"https://www.gravatar.com/avatar/03eb504e4d53a3ffe85e347e48d282b3?s=200&d=identicon\",\n        \"confirmed\": true\n      },\n      \"relationships\": {\n        \"student\": {\n          \"data\": {\n            \"id\": \"29\",\n            \"type\": \"student\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"e417bf45765c4038e7a1d3443e58015b\"",
-        "X-Request-Id": "06c59abb-225f-4de0-b655-6cefc03edf6c",
-        "X-Runtime": "0.031347",
+        "ETag": "W/\"077f84731301d6b6cfea8ae5a306ef12\"",
+        "X-Request-Id": "8331e7bc-bc1e-4e00-bdb2-d4f379f2e8c9",
+        "X-Runtime": "0.012528",
         "Vary": "Origin",
-        "Content-Length": "957"
+        "Content-Length": "954"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/students/29\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 425d3828437414efa08e65641fdbefa86471b027e743dab7ba96511655a6416a\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/students/29\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 20fe821c04c913007d1d2e0be64a8a4a406af4c048b506707374017507d0dd0a\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

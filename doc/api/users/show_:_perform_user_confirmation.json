@@ -32,19 +32,19 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"48\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"marilu@feest.biz\",\n      \"username\": \"sherice\",\n      \"admin\": false,\n      \"created_at\": \"2019-08-05T11:18:28.290Z\",\n      \"updated_at\": \"2019-08-05T11:18:28.345Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/23def725116cc816986d8abe6302791c?s=200&d=identicon\",\n      \"confirmed\": true\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": null\n      }\n    }\n  },\n  \"meta\": {\n    \"message\": \"Your email address has been successfully confirmed.\"\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"49\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"borutherford@monahan.io\",\n      \"username\": \"nettie\",\n      \"admin\": false,\n      \"created_at\": \"2019-08-06T08:32:05.948Z\",\n      \"updated_at\": \"2019-08-06T08:32:05.968Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/ba167ac90a067d4b596d41251b2b2176?s=200&d=identicon\",\n      \"confirmed\": true\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": null\n      }\n    }\n  },\n  \"meta\": {\n    \"message\": \"Your email address has been successfully confirmed.\"\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"1d02ce72ce6d9b03b228873805fb93b8\"",
+        "ETag": "W/\"3f022eb2516727d530b9615bf7ac6bbc\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "f7f1cb2f-6a7c-4c7a-9900-04c749b844c8",
-        "X-Runtime": "0.039593",
+        "X-Request-Id": "9d6635fc-659c-47d3-b7ee-a8ec08441529",
+        "X-Runtime": "0.019538",
         "Vary": "Origin",
-        "Content-Length": "426"
+        "Content-Length": "432"
       },
       "response_content_type": "application/json; charset=utf-8",
       "curl": "curl -g \"http://localhost:3000/api/v1/users/confirmation?confirmation_token=token\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""

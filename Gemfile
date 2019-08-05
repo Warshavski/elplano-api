@@ -78,6 +78,16 @@ gem 'redis'
 gem 'redis-namespace'
 gem 'redis-rails'
 
+# System information
+#
+# A focused and fast library to gather memory, cpu, network, load avg and disk information
+# https://github.com/threez/ruby-vmstat
+gem 'vmstat'
+#
+# A Ruby library for getting filesystem information
+# https://github.com/djberg96/sys-filesystem
+gem 'sys-filesystem'
+
 # Automatically generate API documentation from RSpec
 # https://github.com/zipmark/rspec_api_documentation
 gem 'rspec_api_documentation'

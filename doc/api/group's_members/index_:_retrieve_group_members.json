@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 5d1b8d0924a722088861f3521e8978eb9a8f17993143b16264966f21c9fa8f49",
+        "Authorization": "Bearer f006530490636f5e8d70eb0469e1a6e00b285d7227f7fd0010ecd2b301349217",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"27\",\n      \"type\": \"student\",\n      \"attributes\": {\n        \"full_name\": \"Brad Rosetta Frami\",\n        \"email\": \"shyla@gislasonhegmann.co\",\n        \"phone\": \"1-946-847-3064\",\n        \"about\": \"Quibusdam earum aperiam. Sit suscipit earum. Rem et in. Error fuga qui. Explicabo culpa neque.\",\n        \"social_networks\": {\n          \"twitter\": \"http://twitter/juliann\",\n          \"facebook\": \"http://facebook/mason_thiel\"\n        },\n        \"president\": false,\n        \"created_at\": \"2019-08-03T12:32:59.714Z\",\n        \"updated_at\": \"2019-08-03T12:32:59.714Z\"\n      },\n      \"relationships\": {\n        \"user\": {\n          \"data\": {\n            \"id\": \"26\",\n            \"type\": \"user\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"27\",\n      \"type\": \"student\",\n      \"attributes\": {\n        \"full_name\": \"Shaniqua Leonor Hettinger\",\n        \"email\": \"shirleybogan@cremin.name\",\n        \"phone\": \"149.809.2485\",\n        \"about\": \"Nihil doloremque excepturi. Blanditiis et suscipit. Quia nihil accusantium. Consequatur placeat architecto. Repudiandae optio ullam.\",\n        \"social_networks\": {\n          \"twitter\": \"http://twitter/georgianna.dibbert\",\n          \"facebook\": \"http://facebook/randell\"\n        },\n        \"president\": false,\n        \"created_at\": \"2019-08-05T11:18:27.539Z\",\n        \"updated_at\": \"2019-08-05T11:18:27.539Z\"\n      },\n      \"relationships\": {\n        \"user\": {\n          \"data\": {\n            \"id\": \"27\",\n            \"type\": \"user\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"07d9049b42f4be880491f127acc0c021\"",
-        "X-Request-Id": "456bb43c-d896-4158-a0a9-e88101660ec2",
-        "X-Runtime": "0.023058",
+        "ETag": "W/\"62f8c6c22cefa6d3fac32e236e558245\"",
+        "X-Request-Id": "680a09a7-ae13-4735-b49e-e0872f68c0f7",
+        "X-Runtime": "0.025817",
         "Vary": "Origin",
-        "Content-Length": "506"
+        "Content-Length": "556"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/students\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 5d1b8d0924a722088861f3521e8978eb9a8f17993143b16264966f21c9fa8f49\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/students\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer f006530490636f5e8d70eb0469e1a6e00b285d7227f7fd0010ecd2b301349217\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

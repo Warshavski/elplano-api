@@ -26,11 +26,11 @@
     {
       "request_method": "POST",
       "request_path": "uploads",
-      "request_body": "{\"upload\":{\"type\":\"avatar\",\"file\":{\"original_filename\":\"dk.png\",\"tempfile\":\"#\\u003cFile:0x000055c0840316d8\\u003e\",\"content_type\":null}}}",
+      "request_body": "{\"upload\":{\"type\":\"avatar\",\"file\":{\"original_filename\":\"dk.png\",\"tempfile\":\"#\\u003cFile:0x000055c63f1e2fc0\\u003e\",\"content_type\":null}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 1d07b263132e5a9400f107ad720a15aa8239c9c05fa552997bb8fdd04a6f0dec",
+        "Authorization": "Bearer dd72b6d987bb98fbb8d63f6071281d645a71c023c59172d1e110a0ea31925d20",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -49,13 +49,13 @@
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
         "ETag": "W/\"8ecd08c9c8b429daec96b39817a22ceb\"",
-        "X-Request-Id": "9ab6ac5d-a04f-41dd-8e03-59f97eb9e038",
-        "X-Runtime": "0.006730",
+        "X-Request-Id": "5ad049ea-6321-4f36-b706-012a4a658a72",
+        "X-Runtime": "0.014579",
         "Vary": "Origin",
         "Content-Length": "132"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/uploads\" -d '{\"upload\":{\"type\":\"avatar\",\"file\":{\"original_filename\":\"dk.png\",\"tempfile\":\"#\\u003cFile:0x000055c0840316d8\\u003e\",\"content_type\":null}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 1d07b263132e5a9400f107ad720a15aa8239c9c05fa552997bb8fdd04a6f0dec\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/uploads\" -d '{\"upload\":{\"type\":\"avatar\",\"file\":{\"original_filename\":\"dk.png\",\"tempfile\":\"#\\u003cFile:0x000055c63f1e2fc0\\u003e\",\"content_type\":null}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer dd72b6d987bb98fbb8d63f6071281d645a71c023c59172d1e110a0ea31925d20\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

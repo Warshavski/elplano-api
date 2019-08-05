@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 9950e6098636731dd906446ff05c8164e15a6f1da1ef37820e35064f9054f39c",
+        "Authorization": "Bearer 425d3828437414efa08e65641fdbefa86471b027e743dab7ba96511655a6416a",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"29\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Vikki Whitley Ebert\",\n      \"email\": \"bennie@gutmannbarton.co\",\n      \"phone\": \"1-921-263-1941\",\n      \"about\": \"Eius totam quos. Et eos qui. Placeat quasi ullam. Commodi rerum sapiente. Qui iste nemo.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/sol\",\n        \"facebook\": \"http://facebook/launa.paucek\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-08-03T12:32:59.766Z\",\n      \"updated_at\": \"2019-08-03T12:32:59.766Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"28\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"28\",\n      \"type\": \"user\",\n      \"attributes\": {\n        \"email\": \"arlettamurphy@damore.info\",\n        \"username\": \"lashay_schimmel\",\n        \"admin\": false,\n        \"created_at\": \"2019-08-03T12:32:59.752Z\",\n        \"updated_at\": \"2019-08-03T12:32:59.752Z\",\n        \"avatar_url\": \"https://www.gravatar.com/avatar/66c6e07cd67678a2b9d4c8de9bf5741a?s=200&d=identicon\",\n        \"confirmed\": true\n      },\n      \"relationships\": {\n        \"student\": {\n          \"data\": {\n            \"id\": \"29\",\n            \"type\": \"student\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"29\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Janiece Londa Hansen\",\n      \"email\": \"melida@anderson.name\",\n      \"phone\": \"1-478-385-5665\",\n      \"about\": \"Excepturi aut nam. Odit voluptatem a. Vel qui recusandae. Aut dolores quia. Aut voluptatem cum.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/walton.steuber\",\n        \"facebook\": \"http://facebook/leandro.rogahn\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-08-05T11:18:27.598Z\",\n      \"updated_at\": \"2019-08-05T11:18:27.598Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"29\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"29\",\n      \"type\": \"user\",\n      \"attributes\": {\n        \"email\": \"catherindenesik@mertz.net\",\n        \"username\": \"kelly_mccullough\",\n        \"admin\": false,\n        \"created_at\": \"2019-08-05T11:18:27.584Z\",\n        \"updated_at\": \"2019-08-05T11:18:27.584Z\",\n        \"avatar_url\": \"https://www.gravatar.com/avatar/a5db957adabbb11abb08926d71fb657c?s=200&d=identicon\",\n        \"confirmed\": true\n      },\n      \"relationships\": {\n        \"student\": {\n          \"data\": {\n            \"id\": \"29\",\n            \"type\": \"student\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"7d99a9d4b78225cea1b3f445a086039a\"",
-        "X-Request-Id": "e5f248d3-135a-423f-9874-52a00813d9e0",
-        "X-Runtime": "0.017245",
+        "ETag": "W/\"e417bf45765c4038e7a1d3443e58015b\"",
+        "X-Request-Id": "06c59abb-225f-4de0-b655-6cefc03edf6c",
+        "X-Runtime": "0.031347",
         "Vary": "Origin",
-        "Content-Length": "938"
+        "Content-Length": "957"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/students/29\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 9950e6098636731dd906446ff05c8164e15a6f1da1ef37820e35064f9054f39c\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/students/29\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 425d3828437414efa08e65641fdbefa86471b027e743dab7ba96511655a6416a\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

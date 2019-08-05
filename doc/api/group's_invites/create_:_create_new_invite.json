@@ -23,11 +23,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group/invites",
-      "request_body": "{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"rubenratke@gottlieb.com\"}}}",
+      "request_body": "{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"roroberts@nicolaskonopelski.co\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 0fd7c94ab41de2eefe88e75442a9c067da09a4f09d5f80705c23b861abe4fdd0",
+        "Authorization": "Bearer 53d85eb388672856785f2233b0baa61ce3aeeef1d0b1dc5e7034f6f3fbc1cb6f",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -36,7 +36,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"rubenratke@gottlieb.com\",\n      \"invitation_token\": \"prcJ8FeeMzHbbXKysYRm\",\n      \"sent_at\": \"2019-08-03T12:32:59.126Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-08-03T12:32:59.126Z\",\n      \"updated_at\": \"2019-08-03T12:32:59.126Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"roroberts@nicolaskonopelski.co\",\n      \"invitation_token\": \"nrNu6Fw_wRFTxxiHpVJL\",\n      \"sent_at\": \"2019-08-05T11:18:26.978Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-08-05T11:18:26.978Z\",\n      \"updated_at\": \"2019-08-05T11:18:26.978Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -45,14 +45,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"2ccd20d538bb1267bf73f09415d9e20e\"",
-        "X-Request-Id": "c6209b9c-b4b9-414a-ac8b-31e87c220f32",
-        "X-Runtime": "0.226533",
+        "ETag": "W/\"3a3821237a0b6f12e233569f47e22371\"",
+        "X-Request-Id": "c3fdcc4c-7276-4592-ac46-b12716aee8f1",
+        "X-Runtime": "0.112954",
         "Vary": "Origin",
-        "Content-Length": "416"
+        "Content-Length": "423"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/invites\" -d '{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"rubenratke@gottlieb.com\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 0fd7c94ab41de2eefe88e75442a9c067da09a4f09d5f80705c23b861abe4fdd0\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/invites\" -d '{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"roroberts@nicolaskonopelski.co\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 53d85eb388672856785f2233b0baa61ce3aeeef1d0b1dc5e7034f6f3fbc1cb6f\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

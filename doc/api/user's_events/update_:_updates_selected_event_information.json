@@ -74,11 +74,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/events/4",
-      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Quia enim qui.\",\"description\":\"Et quibusdam aut. Dolores quia aut. Quisquam officiis nobis. Quo est in. Sit quis enim.\",\"status\":\"cancelled\",\"start_at\":\"2019-08-02\",\"end_at\":\"2019-08-04\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":2,\"type\":\"course\"}}}}}",
+      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Assumenda voluptatem est.\",\"description\":\"Doloremque dolores a. Enim dolores consectetur. Dolorum qui dolores. Exercitationem et necessitatibus. Impedit et sed.\",\"status\":\"cancelled\",\"start_at\":\"2019-08-04\",\"end_at\":\"2019-08-06\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":2,\"type\":\"course\"}}}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer e34f8098f840f40fee683a68e01834985a82486891e46caf5ae725fbf817cc0d",
+        "Authorization": "Bearer 5fda778e8add94e9e5f5038034d95e423511cf7ece0dbf2339aa7538707525d3",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -87,7 +87,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"4\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Quia enim qui.\",\n      \"description\": \"Et quibusdam aut. Dolores quia aut. Quisquam officiis nobis. Quo est in. Sit quis enim.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-08-02T00:00:00.000Z\",\n      \"end_at\": \"2019-08-04T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-08-03T12:32:58.555Z\",\n      \"updated_at\": \"2019-08-03T12:32:58.573Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"8\",\n          \"type\": \"student\"\n        }\n      },\n      \"course\": {\n        \"data\": {\n          \"id\": \"2\",\n          \"type\": \"course\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"4\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Assumenda voluptatem est.\",\n      \"description\": \"Doloremque dolores a. Enim dolores consectetur. Dolorum qui dolores. Exercitationem et necessitatibus. Impedit et sed.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-08-04T00:00:00.000Z\",\n      \"end_at\": \"2019-08-06T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-08-05T11:18:26.258Z\",\n      \"updated_at\": \"2019-08-05T11:18:26.282Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"8\",\n          \"type\": \"student\"\n        }\n      },\n      \"course\": {\n        \"data\": {\n          \"id\": \"2\",\n          \"type\": \"course\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -96,14 +96,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"840c87e657778efd8362a1b784caaf8c\"",
-        "X-Request-Id": "c118df5c-e4bc-4d95-8694-e799cb694c96",
-        "X-Runtime": "0.012875",
+        "ETag": "W/\"e74ed63ea3de813f977272f5fc8a1b9d\"",
+        "X-Request-Id": "f9c13a55-c3dd-4718-b4e8-3172161ef8e2",
+        "X-Runtime": "0.011983",
         "Vary": "Origin",
-        "Content-Length": "613"
+        "Content-Length": "655"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/events/4\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Quia enim qui.\",\"description\":\"Et quibusdam aut. Dolores quia aut. Quisquam officiis nobis. Quo est in. Sit quis enim.\",\"status\":\"cancelled\",\"start_at\":\"2019-08-02\",\"end_at\":\"2019-08-04\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":2,\"type\":\"course\"}}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer e34f8098f840f40fee683a68e01834985a82486891e46caf5ae725fbf817cc0d\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/events/4\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Assumenda voluptatem est.\",\"description\":\"Doloremque dolores a. Enim dolores consectetur. Dolorum qui dolores. Exercitationem et necessitatibus. Impedit et sed.\",\"status\":\"cancelled\",\"start_at\":\"2019-08-04\",\"end_at\":\"2019-08-06\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":2,\"type\":\"course\"}}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 5fda778e8add94e9e5f5038034d95e423511cf7ece0dbf2339aa7538707525d3\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

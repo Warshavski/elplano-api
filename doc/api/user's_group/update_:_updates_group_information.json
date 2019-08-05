@@ -32,11 +32,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group",
-      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Quidem fugit blanditiis.\",\"number\":\"13307\"}}}",
+      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Dolore et exercitationem.\",\"number\":\"35450\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 4a096a58e057bccbdc7b8a6edddb8fba1e854b101247a32f0d1a46c3834bba66",
+        "Authorization": "Bearer 315a2693963cc67fa8dc770872aea713ff74a82ce790b50124babfee53383991",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -45,7 +45,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"23\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"13307\",\n      \"title\": \"Quidem fugit blanditiis.\",\n      \"created_at\": \"2019-08-03T12:32:59.909Z\",\n      \"updated_at\": \"2019-08-03T12:32:59.923Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"32\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"23\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"35450\",\n      \"title\": \"Dolore et exercitationem.\",\n      \"created_at\": \"2019-08-05T11:18:27.761Z\",\n      \"updated_at\": \"2019-08-05T11:18:27.780Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"32\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -54,14 +54,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"328e14ec1d01771c1714a740ef82275d\"",
-        "X-Request-Id": "08c9c388-baec-459a-8400-c601e792f894",
-        "X-Runtime": "0.010609",
+        "ETag": "W/\"245dd6af52cad6fc937710c9023bc7d0\"",
+        "X-Request-Id": "b081442f-18d2-440b-916e-7f2a6cd87a27",
+        "X-Runtime": "0.014262",
         "Vary": "Origin",
-        "Content-Length": "251"
+        "Content-Length": "252"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Quidem fugit blanditiis.\",\"number\":\"13307\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 4a096a58e057bccbdc7b8a6edddb8fba1e854b101247a32f0d1a46c3834bba66\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Dolore et exercitationem.\",\"number\":\"35450\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 315a2693963cc67fa8dc770872aea713ff74a82ce790b50124babfee53383991\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

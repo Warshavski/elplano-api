@@ -74,11 +74,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/events",
-      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Sunt hic qui.\",\"description\":\"Occaecati nihil et. Accusamus animi sequi. Aut perspiciatis sapiente. Ad aut omnis. Aut ut commodi.\",\"status\":\"cancelled\",\"start_at\":\"2019-08-02\",\"end_at\":\"2019-08-04\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":1,\"type\":\"course\"}}}}}",
+      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Debitis necessitatibus enim.\",\"description\":\"Quod et porro. Nihil nemo id. At voluptas id. Sequi quod odit. Alias asperiores animi.\",\"status\":\"cancelled\",\"start_at\":\"2019-08-05\",\"end_at\":\"2019-08-07\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":1,\"type\":\"course\"}}}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 2d14b78c3521992b7b83bfdf960cadbe40eacdb02472e421f1ce33e9a1911f97",
+        "Authorization": "Bearer fe7ad17fc0b5170f1e646bf7753c55c1a1732f02d3613d1dd6c97fc42448e709",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -87,7 +87,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Sunt hic qui.\",\n      \"description\": \"Occaecati nihil et. Accusamus animi sequi. Aut perspiciatis sapiente. Ad aut omnis. Aut ut commodi.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-08-02T00:00:00.000Z\",\n      \"end_at\": \"2019-08-04T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-08-03T12:32:58.524Z\",\n      \"updated_at\": \"2019-08-03T12:32:58.524Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"6\",\n          \"type\": \"student\"\n        }\n      },\n      \"course\": {\n        \"data\": {\n          \"id\": \"1\",\n          \"type\": \"course\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Debitis necessitatibus enim.\",\n      \"description\": \"Quod et porro. Nihil nemo id. At voluptas id. Sequi quod odit. Alias asperiores animi.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-08-05T00:00:00.000Z\",\n      \"end_at\": \"2019-08-07T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-08-06T08:32:04.295Z\",\n      \"updated_at\": \"2019-08-06T08:32:04.295Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"6\",\n          \"type\": \"student\"\n        }\n      },\n      \"course\": {\n        \"data\": {\n          \"id\": \"1\",\n          \"type\": \"course\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -96,14 +96,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"d9f91f38d269b1f60d4f4cf56c3a1e94\"",
-        "X-Request-Id": "bb9034d9-b83e-456a-a7bd-a40d1112588c",
-        "X-Runtime": "0.009913",
+        "ETag": "W/\"ec7b5e71629dc0956453e02a3a71802c\"",
+        "X-Request-Id": "1d743373-654c-4567-a63b-f0753e054f0e",
+        "X-Runtime": "0.010593",
         "Vary": "Origin",
-        "Content-Length": "624"
+        "Content-Length": "626"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/events\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Sunt hic qui.\",\"description\":\"Occaecati nihil et. Accusamus animi sequi. Aut perspiciatis sapiente. Ad aut omnis. Aut ut commodi.\",\"status\":\"cancelled\",\"start_at\":\"2019-08-02\",\"end_at\":\"2019-08-04\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":1,\"type\":\"course\"}}}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 2d14b78c3521992b7b83bfdf960cadbe40eacdb02472e421f1ce33e9a1911f97\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/events\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Debitis necessitatibus enim.\",\"description\":\"Quod et porro. Nihil nemo id. At voluptas id. Sequi quod odit. Alias asperiores animi.\",\"status\":\"cancelled\",\"start_at\":\"2019-08-05\",\"end_at\":\"2019-08-07\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":1,\"type\":\"course\"}}}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer fe7ad17fc0b5170f1e646bf7753c55c1a1732f02d3613d1dd6c97fc42448e709\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

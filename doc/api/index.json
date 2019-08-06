@@ -1,6 +1,32 @@
 {
   "resources": [
     {
+      "name": "Admin system health",
+      "explanation": "El Plano administration: System components health status.\n\nMeta payload :\n\n - `component_name` - Represents name of the system component health check.\n                        (`db_check`, `redis_check`, `cache_check` `queues_check`).\n\n  - `status` - Status of the system component check.\n  - `message` - Additional message\n  - `labels`\n",
+      "examples": [
+        {
+          "description": "SHOW : Retrieve system health checks status",
+          "link": "admin_system_health/show_:_retrieve_system_health_checks_status.json",
+          "groups": "all",
+          "route": "api/v1/admin/system/health?type=liveness",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "Admin system information",
+      "explanation": "El Plano administration: System information\n\nMeta payload :\n\n - `cpu_cores` - Represents quantity of the CPU cores on the server machine.\n - `memory_usage` - Represents RAM memory usage.\n  - `active_bytes` - Quantity of the used bytes.\n  - `total_bytes` - Quantity of the total bytes on the server machine.\n - `disks_usage` - Represents disks usage.\n   - `total_bytes` - Quantity of the total available disk space on the server machine.\n   - `active_bytes` - Quantity of the used disk space on the server machine.\n   - `disk_name` - Name of the mounted disk.\n   - `mount_path` - Path of the mounted disk.\n",
+      "examples": [
+        {
+          "description": "SHOW : Retrieve system information",
+          "link": "admin_system_information/show_:_retrieve_system_information.json",
+          "groups": "all",
+          "route": "api/v1/admin/system/information",
+          "method": "get"
+        }
+      ]
+    },
+    {
       "name": "Group's Invites",
       "explanation": "El Plano group's invites API.\n\nInvite attributes :\n\n- `email` - Represents email where invite was sent.\n- `invitation_token` - Represents token.\n- `status` - Represents invite current status.\n  - `accepted` - The invite was accepted by the recipient.\n  - `pending` - The invite was not accepted by the recipient. Default status.\n- `sent_at` - Date and time when the invite was sent.\n- `accepted_at` - Date and time when the invite was accepted by recipient.\n- `timestamps`\n\nAlso, includes reference to the sender, recipient.\n\n<b>NOTE</b> : This endpoint allowed only for the group owner user.\n",
       "examples": [

@@ -23,6 +23,17 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
+
+      namespace :admin do
+        namespace :system do
+          # (see Admin::System::HealthController)
+          resource :health, only: :show, controller: 'health'
+
+          # (see Admin::System::InformationController)
+          resource :information, only: :show, controller: 'information'
+        end
+      end
+
       # (see EventsController)
       resources :events, except: %i[new edit]
 

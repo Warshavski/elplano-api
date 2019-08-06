@@ -31,11 +31,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group/courses/6",
-      "request_body": "{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Associate Degree in Design\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":5,\"type\":\"lecturer\"}]}}}}",
+      "request_body": "{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Master of Psychology\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":5,\"type\":\"lecturer\"}]}}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer f56967224f08c6752e70811ecd18296c702e2d1847ff7690e3889d58e0cde473",
+        "Authorization": "Bearer 2544b16f501ecea10364d12bfe0ff140074f48545edbd21bccdd55b1099061f3",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -44,7 +44,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-03T12:32:58.830Z\",\n      \"updated_at\": \"2019-08-03T12:32:58.871Z\",\n      \"title\": \"Associate Degree In Design\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"5\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-06T08:32:04.606Z\",\n      \"updated_at\": \"2019-08-06T08:32:04.647Z\",\n      \"title\": \"Master Of Psychology\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"5\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -53,14 +53,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"170977294fd193ce09ab1fc671775217\"",
-        "X-Request-Id": "318a615f-ba07-4604-a4aa-c88c890b3b51",
-        "X-Runtime": "0.020668",
+        "ETag": "W/\"7cd5d6c10338c18fb500b6aa726cb49c\"",
+        "X-Request-Id": "3c496e3c-c3d4-46a9-89ef-b6e4d8430379",
+        "X-Runtime": "0.021869",
         "Vary": "Origin",
-        "Content-Length": "237"
+        "Content-Length": "231"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/courses/6\" -d '{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Associate Degree in Design\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":5,\"type\":\"lecturer\"}]}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer f56967224f08c6752e70811ecd18296c702e2d1847ff7690e3889d58e0cde473\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/courses/6\" -d '{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Master of Psychology\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":5,\"type\":\"lecturer\"}]}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 2544b16f501ecea10364d12bfe0ff140074f48545edbd21bccdd55b1099061f3\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

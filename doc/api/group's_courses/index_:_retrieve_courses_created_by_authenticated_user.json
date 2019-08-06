@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 80432a2d9d6ef0005cfc85afd8264058b274816ce3783986c8c6d703b2d6f8b4",
+        "Authorization": "Bearer 178dbf335eec17628e285e361a59eadc62a9f389fe1d3608e9c9b289b4bfe08c",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"3\",\n      \"type\": \"course\",\n      \"attributes\": {\n        \"created_at\": \"2019-08-06T08:32:04.408Z\",\n        \"updated_at\": \"2019-08-06T08:32:04.408Z\",\n        \"title\": \"Ullam Pariatur.\"\n      },\n      \"relationships\": {\n        \"lecturers\": {\n          \"data\": [\n            {\n              \"id\": \"1\",\n              \"type\": \"lecturer\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"3\",\n      \"type\": \"course\",\n      \"attributes\": {\n        \"created_at\": \"2019-08-06T10:35:04.702Z\",\n        \"updated_at\": \"2019-08-06T10:35:04.702Z\",\n        \"title\": \"Aperiam Laborum.\"\n      },\n      \"relationships\": {\n        \"lecturers\": {\n          \"data\": [\n            {\n              \"id\": \"1\",\n              \"type\": \"lecturer\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"a63fe525a211a0f58d36642fdb76880e\"",
-        "X-Request-Id": "c5d9173d-9904-4c72-b94b-0f98a43bae8e",
-        "X-Runtime": "0.014300",
+        "ETag": "W/\"a8dda1fd4e19e56a9dd859a5bd13bb0b\"",
+        "X-Request-Id": "4640f094-182c-4d48-a7fa-dcc0c7f25300",
+        "X-Runtime": "0.012541",
         "Vary": "Origin",
-        "Content-Length": "228"
+        "Content-Length": "229"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/courses\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 80432a2d9d6ef0005cfc85afd8264058b274816ce3783986c8c6d703b2d6f8b4\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/courses\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 178dbf335eec17628e285e361a59eadc62a9f389fe1d3608e9c9b289b4bfe08c\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

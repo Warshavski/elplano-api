@@ -57,6 +57,9 @@ Rails.application.routes.draw do
       # (see InvitesController)
       resources :invites, only: %i[index show update], param: :token
 
+      # (see PasswordsController)
+      resource :password, only: :update
+
       # (see StudentsController)
       resource :student, only: %i[show update]
 

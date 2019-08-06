@@ -291,6 +291,19 @@
       ]
     },
     {
+      "name": "User's password",
+      "explanation": "User's password API.\n\nManual password reset.\n",
+      "examples": [
+        {
+          "description": "UPDATE : Updates user's password",
+          "link": "user's_password/update_:_updates_user's_password.json",
+          "groups": "all",
+          "route": "api/v1/password",
+          "method": "put"
+        }
+      ]
+    },
+    {
       "name": "User's profile",
       "explanation": null,
       "examples": [

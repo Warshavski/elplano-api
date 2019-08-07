@@ -23,11 +23,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-<<<<<<< HEAD
-        "Authorization": "Bearer d22f54c45fe6f910c37ec6f75c1eb53f8f123575e6ee9124be77f21624f31bc2",
-=======
-        "Authorization": "Bearer e2881bcf200f075c32d9e55a12155f49557c902e842bf04dcc0fe2b5c2807f77",
->>>>>>> Closes #121 Add admin configurable application settings
+        "Authorization": "Bearer eb1b227f6c9fcccc8d5a4287d78d6c3a0289b03220509673693f5fe467989ce7",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -47,22 +43,13 @@
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
         "ETag": "W/\"af2b85fc020969e69b3b975d4c2796d4\"",
-<<<<<<< HEAD
-        "X-Request-Id": "1f3a0438-b647-415e-8fa5-2467ecd01fe3",
-        "X-Runtime": "0.036606",
-=======
-        "X-Request-Id": "9ab0c391-0750-4671-bec3-d8c6c55f2389",
-        "X-Runtime": "0.020393",
->>>>>>> Closes #121 Add admin configurable application settings
+        "X-Request-Id": "a58358bd-a5a7-41f1-8ecc-1905bbceca94",
+        "X-Runtime": "0.017593",
         "Vary": "Origin",
         "Content-Length": "244"
       },
       "response_content_type": "application/json; charset=utf-8",
-<<<<<<< HEAD
-      "curl": "curl -g \"http://localhost:3000/api/v1/admin/system/health?type=liveness\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer d22f54c45fe6f910c37ec6f75c1eb53f8f123575e6ee9124be77f21624f31bc2\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
-=======
-      "curl": "curl -g \"http://localhost:3000/api/v1/admin/system/health?type=liveness\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer e2881bcf200f075c32d9e55a12155f49557c902e842bf04dcc0fe2b5c2807f77\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
->>>>>>> Closes #121 Add admin configurable application settings
+      "curl": "curl -g \"http://localhost:3000/api/v1/admin/system/health?type=liveness\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer eb1b227f6c9fcccc8d5a4287d78d6c3a0289b03220509673693f5fe467989ce7\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

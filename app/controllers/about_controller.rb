@@ -9,14 +9,10 @@ class AboutController < ApplicationController
 
   # GET : /
   #
-  # Show version and revision
+  # Show app information
+  #   (version, description, e.t.c.)
   #
   def show
-    information = {
-      version: Elplano.version,
-      revision: Elplano.revision
-    }
-
-    render_meta information
+    render_meta ::Information::Compose.call
   end
 end

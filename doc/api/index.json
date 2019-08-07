@@ -1,6 +1,19 @@
 {
   "resources": [
     {
+      "name": "About",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "SHOW : Application information",
+          "link": "about/show_:_application_information.json",
+          "groups": "all",
+          "route": "/",
+          "method": "get"
+        }
+      ]
+    },
+    {
       "name": "Admin settings",
       "explanation": "El Plano administration: Application settings.\n\nSettings attributes :\n\n - `app_contact_username` - Represents contact person's name.\n - `app_contact_email` - Represents contact person's email.\n - `app_title` - Represents application title.\n - `app_short_description` - Represents application short description(may include HTML).\n - `app_description` - Represents application description(may include HTML).\n - `app_extended_description` - Represents application extended description(HTML).\n - `app_terms` - Represents application terms of use(HTML).\n",
       "examples": [

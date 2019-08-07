@@ -19,11 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-<<<<<<< HEAD
-        "Authorization": "Bearer f420e6c87ec4e7e59c03e44cf7fa4db518788afa455785611613bdf886259951",
-=======
-        "Authorization": "Bearer e953b6407b4bd220a9c44de90c3bfa4dd673975bdc091b38cb5b6a11c6ca8528",
->>>>>>> Closes #121 Add admin configurable application settings
+        "Authorization": "Bearer 843dc46016f620bc293ad27c5721cf5e68dc35c28e465f3afc9723ba88e67c06",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -32,11 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-<<<<<<< HEAD
-      "response_body": "{\n  \"data\": {\n    \"id\": \"21\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"9464393191\",\n      \"title\": \"Ullam consequuntur eos.\",\n      \"created_at\": \"2019-08-07T13:10:51.598Z\",\n      \"updated_at\": \"2019-08-07T13:10:51.598Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"30\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
-=======
-      "response_body": "{\n  \"data\": {\n    \"id\": \"21\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"6808294966\",\n      \"title\": \"Eos itaque commodi.\",\n      \"created_at\": \"2019-08-07T10:48:13.023Z\",\n      \"updated_at\": \"2019-08-07T10:48:13.023Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"30\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
->>>>>>> Closes #121 Add admin configurable application settings
+      "response_body": "{\n  \"data\": {\n    \"id\": \"21\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"9028207415\",\n      \"title\": \"Aperiam blanditiis totam.\",\n      \"created_at\": \"2019-08-08T06:03:51.183Z\",\n      \"updated_at\": \"2019-08-08T06:03:51.183Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"30\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -45,24 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-<<<<<<< HEAD
-        "ETag": "W/\"2f69bf812eb1178f55369fbfd68f4f0a\"",
-        "X-Request-Id": "d4b0d03a-8e44-48a9-9242-3556b31d1fef",
-        "X-Runtime": "0.011056",
-=======
-        "ETag": "W/\"2416ec6746426a3150d8c4527cd58513\"",
-        "X-Request-Id": "2c02b8f9-0727-4499-a7fe-be104470fa63",
-        "X-Runtime": "0.009969",
->>>>>>> Closes #121 Add admin configurable application settings
+        "ETag": "W/\"156ec34eade8ce15d127c5eb822be1d2\"",
+        "X-Request-Id": "2c1623aa-9de3-45c9-ab21-35624ba11944",
+        "X-Runtime": "0.012707",
         "Vary": "Origin",
-        "Content-Length": "251"
+        "Content-Length": "257"
       },
       "response_content_type": "application/json; charset=utf-8",
-<<<<<<< HEAD
-      "curl": "curl -g \"http://localhost:3000/api/v1/group\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer f420e6c87ec4e7e59c03e44cf7fa4db518788afa455785611613bdf886259951\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
-=======
-      "curl": "curl -g \"http://localhost:3000/api/v1/group\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer e953b6407b4bd220a9c44de90c3bfa4dd673975bdc091b38cb5b6a11c6ca8528\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
->>>>>>> Closes #121 Add admin configurable application settings
+      "curl": "curl -g \"http://localhost:3000/api/v1/group\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 843dc46016f620bc293ad27c5721cf5e68dc35c28e465f3afc9723ba88e67c06\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

@@ -19,11 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-<<<<<<< HEAD
-        "Authorization": "Bearer 27f28395cdac0f4d376d991ed8c936f0671e3e397d613e5f64c5756aa5df7a8d",
-=======
-        "Authorization": "Bearer 93ff52d4671cb05da739f30c6acfd3eaa89d9c4932a3bab4c2c4660e94a0bb5b",
->>>>>>> Closes #121 Add admin configurable application settings
+        "Authorization": "Bearer 248585754e45794c4375bf8b4feab9a4c26ae13494deb4aef8d14dfc2469c15e",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -32,11 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-<<<<<<< HEAD
-      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"7\",\n      \"type\": \"lecturer\",\n      \"attributes\": {\n        \"created_at\": \"2019-08-07T13:10:51.188Z\",\n        \"updated_at\": \"2019-08-07T13:10:51.188Z\",\n        \"first_name\": \"Yolonda\",\n        \"last_name\": \"Smitham\",\n        \"patronymic\": \"Md\",\n        \"avatar\": null\n      },\n      \"relationships\": {\n        \"courses\": {\n          \"data\": [\n            {\n              \"id\": \"8\",\n              \"type\": \"course\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
-=======
-      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"7\",\n      \"type\": \"lecturer\",\n      \"attributes\": {\n        \"created_at\": \"2019-08-07T10:48:12.622Z\",\n        \"updated_at\": \"2019-08-07T10:48:12.622Z\",\n        \"first_name\": \"Elvia\",\n        \"last_name\": \"Dibbert\",\n        \"patronymic\": \"Dvm\",\n        \"avatar\": null\n      },\n      \"relationships\": {\n        \"courses\": {\n          \"data\": [\n            {\n              \"id\": \"8\",\n              \"type\": \"course\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
->>>>>>> Closes #121 Add admin configurable application settings
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"7\",\n      \"type\": \"lecturer\",\n      \"attributes\": {\n        \"created_at\": \"2019-08-08T06:03:50.810Z\",\n        \"updated_at\": \"2019-08-08T06:03:50.810Z\",\n        \"first_name\": \"Wally\",\n        \"last_name\": \"Jast\",\n        \"patronymic\": \"Dvm\",\n        \"avatar\": null\n      },\n      \"relationships\": {\n        \"courses\": {\n          \"data\": [\n            {\n              \"id\": \"8\",\n              \"type\": \"course\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -45,25 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-<<<<<<< HEAD
-        "ETag": "W/\"80158ac91ef90d71a4bab38ef692ef1c\"",
-        "X-Request-Id": "fc58af40-7f06-4c4f-9493-ad8a4029ff77",
-        "X-Runtime": "0.012165",
+        "ETag": "W/\"edcffc6f4d2e2483187821e5a1c1ff8e\"",
+        "X-Request-Id": "132b6604-4dfc-4cff-93f8-08c86e9779cf",
+        "X-Runtime": "0.011847",
         "Vary": "Origin",
-        "Content-Length": "277"
+        "Content-Length": "273"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/lecturers\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 27f28395cdac0f4d376d991ed8c936f0671e3e397d613e5f64c5756aa5df7a8d\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
-=======
-        "ETag": "W/\"6609627e9f31ad4776242cd495d91ae6\"",
-        "X-Request-Id": "aa2e5f6b-d796-44be-a94c-9b1a3db483a1",
-        "X-Runtime": "0.012372",
-        "Vary": "Origin",
-        "Content-Length": "276"
-      },
-      "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/lecturers\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 93ff52d4671cb05da739f30c6acfd3eaa89d9c4932a3bab4c2c4660e94a0bb5b\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
->>>>>>> Closes #121 Add admin configurable application settings
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/lecturers\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 248585754e45794c4375bf8b4feab9a4c26ae13494deb4aef8d14dfc2469c15e\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

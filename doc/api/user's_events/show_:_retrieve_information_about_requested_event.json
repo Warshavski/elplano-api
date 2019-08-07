@@ -19,11 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-<<<<<<< HEAD
-        "Authorization": "Bearer 56f949b8484c1843f6840188a567df68a08ec5889a4058f7ba44932a4efe90df",
-=======
-        "Authorization": "Bearer df4a8546d9751d39795c747ebecb050090508e02ee0c5ed2c59ef4b58d23c302",
->>>>>>> Closes #121 Add admin configurable application settings
+        "Authorization": "Bearer 20f397cfc504f886604ca5ecdedd66bf0f26ec43aa9a8459e93af7c7c84e05d3",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -32,11 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-<<<<<<< HEAD
-      "response_body": "{\n  \"data\": {\n    \"id\": \"2\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"some_new_event\",\n      \"description\": null,\n      \"status\": \"confirmed\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-08-08T00:00:00.000Z\",\n      \"end_at\": null,\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-08-07T13:10:50.518Z\",\n      \"updated_at\": \"2019-08-07T13:10:50.518Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"4\",\n          \"type\": \"student\"\n        }\n      },\n      \"course\": {\n        \"data\": null\n      }\n    }\n  }\n}",
-=======
-      "response_body": "{\n  \"data\": {\n    \"id\": \"2\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"some_new_event\",\n      \"description\": null,\n      \"status\": \"confirmed\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-08-08T00:00:00.000Z\",\n      \"end_at\": null,\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-08-07T10:48:11.930Z\",\n      \"updated_at\": \"2019-08-07T10:48:11.930Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"4\",\n          \"type\": \"student\"\n        }\n      },\n      \"course\": {\n        \"data\": null\n      }\n    }\n  }\n}",
->>>>>>> Closes #121 Add admin configurable application settings
+      "response_body": "{\n  \"data\": {\n    \"id\": \"2\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"some_new_event\",\n      \"description\": null,\n      \"status\": \"confirmed\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-08-09T00:00:00.000Z\",\n      \"end_at\": null,\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-08-08T06:03:50.105Z\",\n      \"updated_at\": \"2019-08-08T06:03:50.105Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"4\",\n          \"type\": \"student\"\n        }\n      },\n      \"course\": {\n        \"data\": null\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -45,24 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-<<<<<<< HEAD
-        "ETag": "W/\"354233ed0f446aa77de9128ab495ef6d\"",
-        "X-Request-Id": "734fa6c9-207c-43ae-b4c1-77395da009e2",
+        "ETag": "W/\"421e363ceb3cb775581acfdafd1662de\"",
+        "X-Request-Id": "e76a8132-5674-4588-babd-865557a6f1c3",
         "X-Runtime": "0.007654",
-=======
-        "ETag": "W/\"cb78fd22e417d0a2333b038e50365b29\"",
-        "X-Request-Id": "c37b6dc8-a76b-458d-9b67-9042e190abf4",
-        "X-Runtime": "0.008356",
->>>>>>> Closes #121 Add admin configurable application settings
         "Vary": "Origin",
         "Content-Length": "484"
       },
       "response_content_type": "application/json; charset=utf-8",
-<<<<<<< HEAD
-      "curl": "curl -g \"http://localhost:3000/api/v1/events/2\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 56f949b8484c1843f6840188a567df68a08ec5889a4058f7ba44932a4efe90df\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
-=======
-      "curl": "curl -g \"http://localhost:3000/api/v1/events/2\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer df4a8546d9751d39795c747ebecb050090508e02ee0c5ed2c59ef4b58d23c302\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
->>>>>>> Closes #121 Add admin configurable application settings
+      "curl": "curl -g \"http://localhost:3000/api/v1/events/2\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 20f397cfc504f886604ca5ecdedd66bf0f26ec43aa9a8459e93af7c7c84e05d3\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

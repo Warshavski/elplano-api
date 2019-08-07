@@ -19,11 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-<<<<<<< HEAD
-        "Authorization": "Bearer 3f8efcd8e19dcd11626daaccde9d20d006e593185217b0aadac80531cfc76025",
-=======
-        "Authorization": "Bearer f1da07f9af7e84a94950510c8b783649961e9059608e1cc562f925ea8358c1b6",
->>>>>>> Closes #121 Add admin configurable application settings
+        "Authorization": "Bearer 79534b637278ca6fca32cfdda1a07af373f98191d569b0ce786b1ba6d8c8d0b7",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -32,11 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-<<<<<<< HEAD
-      "response_body": "{\n  \"data\": {\n    \"id\": \"29\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Clifton Kisha Flatley\",\n      \"email\": \"jameweinat@zboncak.info\",\n      \"phone\": \"(631) 954-5769\",\n      \"about\": \"Ea fuga et. Quia qui laboriosam. Veniam autem repudiandae. Sit quam in. Voluptatibus molestiae consequatur.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/mindi.kovacek\",\n        \"facebook\": \"http://facebook/tad_johnson\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-08-07T13:10:51.554Z\",\n      \"updated_at\": \"2019-08-07T13:10:51.554Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"30\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"30\",\n      \"type\": \"user\",\n      \"attributes\": {\n        \"email\": \"britni@lueilwitz.net\",\n        \"username\": \"joey\",\n        \"admin\": false,\n        \"created_at\": \"2019-08-07T13:10:51.537Z\",\n        \"updated_at\": \"2019-08-07T13:10:51.537Z\",\n        \"avatar_url\": \"https://www.gravatar.com/avatar/91afe3d576692478a4b32677df39bce6?s=200&d=identicon\",\n        \"confirmed\": true\n      },\n      \"relationships\": {\n        \"student\": {\n          \"data\": {\n            \"id\": \"29\",\n            \"type\": \"student\"\n          }\n        }\n      }\n    }\n  ]\n}",
-=======
-      "response_body": "{\n  \"data\": {\n    \"id\": \"29\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Simonne Lavina Macejkovic\",\n      \"email\": \"maria@hackett.info\",\n      \"phone\": \"1-902-418-8755\",\n      \"about\": \"Aperiam aut et. Veritatis quos voluptatem. Nobis consequatur et. Pariatur reprehenderit dolor. Aut harum aut.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/antonietta\",\n        \"facebook\": \"http://facebook/lorrine\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-08-07T10:48:12.986Z\",\n      \"updated_at\": \"2019-08-07T10:48:12.986Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"31\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"31\",\n      \"type\": \"user\",\n      \"attributes\": {\n        \"email\": \"helga@fadel.info\",\n        \"username\": \"victoria.cronin\",\n        \"admin\": false,\n        \"created_at\": \"2019-08-07T10:48:12.969Z\",\n        \"updated_at\": \"2019-08-07T10:48:12.969Z\",\n        \"avatar_url\": \"https://www.gravatar.com/avatar/5586243e77baa8dcfc82643c6f939bea?s=200&d=identicon\",\n        \"confirmed\": true\n      },\n      \"relationships\": {\n        \"student\": {\n          \"data\": {\n            \"id\": \"29\",\n            \"type\": \"student\"\n          }\n        }\n      }\n    }\n  ]\n}",
->>>>>>> Closes #121 Add admin configurable application settings
+      "response_body": "{\n  \"data\": {\n    \"id\": \"29\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Mr. Estela Allene Parisian\",\n      \"email\": \"ilafunk@quigleyrutherford.com\",\n      \"phone\": \"(802) 552-0581\",\n      \"about\": \"Corporis id architecto. Amet quis quasi. Ut est corrupti. Reiciendis soluta aut. Ad atque eius.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/victor\",\n        \"facebook\": \"http://facebook/dierdre\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-08-08T06:03:51.151Z\",\n      \"updated_at\": \"2019-08-08T06:03:51.151Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"31\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"31\",\n      \"type\": \"user\",\n      \"attributes\": {\n        \"email\": \"edgarbins@jerde.name\",\n        \"username\": \"ila\",\n        \"admin\": false,\n        \"created_at\": \"2019-08-08T06:03:51.135Z\",\n        \"updated_at\": \"2019-08-08T06:03:51.135Z\",\n        \"avatar_url\": \"https://www.gravatar.com/avatar/c6a7d2ea35af4785352a251be0c88ba4?s=200&d=identicon\",\n        \"confirmed\": true\n      },\n      \"relationships\": {\n        \"student\": {\n          \"data\": {\n            \"id\": \"29\",\n            \"type\": \"student\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -45,25 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-<<<<<<< HEAD
-        "ETag": "W/\"d16f6d6cf212b8319d5a9d7fb9b211e4\"",
-        "X-Request-Id": "9e5c0451-d8ae-4eeb-9a74-4312215f71d4",
-        "X-Runtime": "0.012471",
+        "ETag": "W/\"ebb7a5463e3337fae4c6199933294b48\"",
+        "X-Request-Id": "aeca1a9a-a61f-4e35-b806-81fd497e90c7",
+        "X-Runtime": "0.011519",
         "Vary": "Origin",
-        "Content-Length": "952"
+        "Content-Length": "939"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/students/29\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 3f8efcd8e19dcd11626daaccde9d20d006e593185217b0aadac80531cfc76025\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
-=======
-        "ETag": "W/\"48c8964e81afc59f535d24b5fb139331\"",
-        "X-Request-Id": "4bab2075-4ebc-470b-837a-096f895c10ec",
-        "X-Runtime": "0.011934",
-        "Vary": "Origin",
-        "Content-Length": "953"
-      },
-      "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/students/29\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer f1da07f9af7e84a94950510c8b783649961e9059608e1cc562f925ea8358c1b6\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
->>>>>>> Closes #121 Add admin configurable application settings
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/students/29\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 79534b637278ca6fca32cfdda1a07af373f98191d569b0ce786b1ba6d8c8d0b7\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

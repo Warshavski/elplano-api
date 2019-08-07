@@ -23,19 +23,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group/invites",
-<<<<<<< HEAD
-      "request_body": "{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"geneanderson@murphyosinski.name\"}}}",
+      "request_body": "{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"opal@lindgren.org\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 8b42715d9625d55b841021c08dfd367f21e7d15f76b607b15012d5b60ca3c1e4",
-=======
-      "request_body": "{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"yajaira@robelbins.name\"}}}",
-      "request_headers": {
-        "Accept": "application/vnd.api+json",
-        "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 08b965f8fd7f41ea453957bc3bef41f14eb50a035a118b45aeeef38ed983f14c",
->>>>>>> Closes #121 Add admin configurable application settings
+        "Authorization": "Bearer 35c807ab2353b25cdd667ce115d3c4544f418159ce152c6232197f9bfe38aaae",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -44,11 +36,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-<<<<<<< HEAD
-      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"geneanderson@murphyosinski.name\",\n      \"invitation_token\": \"jFcPnZ1JqLocByYqbmem\",\n      \"sent_at\": \"2019-08-07T13:10:51.126Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-08-07T13:10:51.125Z\",\n      \"updated_at\": \"2019-08-07T13:10:51.125Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
-=======
-      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"yajaira@robelbins.name\",\n      \"invitation_token\": \"WX6B7V4bqg4mNDmiGWA9\",\n      \"sent_at\": \"2019-08-07T10:48:12.541Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-08-07T10:48:12.541Z\",\n      \"updated_at\": \"2019-08-07T10:48:12.541Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
->>>>>>> Closes #121 Add admin configurable application settings
+      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"opal@lindgren.org\",\n      \"invitation_token\": \"qx7xWpDHTZaH2V5EPALb\",\n      \"sent_at\": \"2019-08-08T06:03:50.739Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-08-08T06:03:50.739Z\",\n      \"updated_at\": \"2019-08-08T06:03:50.739Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -57,25 +45,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-<<<<<<< HEAD
-        "ETag": "W/\"b88d5946989444252af88b5226d67b11\"",
-        "X-Request-Id": "398d5577-7433-4a0b-97f1-1d090b534344",
-        "X-Runtime": "0.058452",
+        "ETag": "W/\"6e1440abe1bc6dc01cf4fde627f36b1c\"",
+        "X-Request-Id": "fd369573-5320-4e14-917e-ebe039ac04c1",
+        "X-Runtime": "0.059463",
         "Vary": "Origin",
-        "Content-Length": "424"
+        "Content-Length": "410"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/invites\" -d '{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"geneanderson@murphyosinski.name\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 8b42715d9625d55b841021c08dfd367f21e7d15f76b607b15012d5b60ca3c1e4\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
-=======
-        "ETag": "W/\"1b03f8f71362d2bb562e0a6296b7008a\"",
-        "X-Request-Id": "d387de1c-534c-48cd-b1bf-47c8e094501e",
-        "X-Runtime": "0.075978",
-        "Vary": "Origin",
-        "Content-Length": "415"
-      },
-      "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/invites\" -d '{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"yajaira@robelbins.name\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 08b965f8fd7f41ea453957bc3bef41f14eb50a035a118b45aeeef38ed983f14c\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
->>>>>>> Closes #121 Add admin configurable application settings
+      "curl": "curl \"http://localhost:3000/api/v1/group/invites\" -d '{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"opal@lindgren.org\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 35c807ab2353b25cdd667ce115d3c4544f418159ce152c6232197f9bfe38aaae\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

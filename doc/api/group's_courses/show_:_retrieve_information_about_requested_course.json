@@ -19,11 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-<<<<<<< HEAD
-        "Authorization": "Bearer 45406f02ff7f31690443166ced8ab2c1297a8875aaef9a10fe10938b68f5a184",
-=======
-        "Authorization": "Bearer dba44c3933440e52f5802beba9e4d536ac2e8a05bd44dfd19af49e3d61344486",
->>>>>>> Closes #121 Add admin configurable application settings
+        "Authorization": "Bearer 8df8bc207382a19cdcbf8dc69cf2b425e10bfa84b8bb0225cc573f231c4e60c2",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -32,11 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-<<<<<<< HEAD
-      "response_body": "{\n  \"data\": {\n    \"id\": \"4\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-07T13:10:50.769Z\",\n      \"updated_at\": \"2019-08-07T13:10:50.769Z\",\n      \"title\": \"Possimus Quos.\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"2\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
-=======
-      "response_body": "{\n  \"data\": {\n    \"id\": \"4\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-07T10:48:12.207Z\",\n      \"updated_at\": \"2019-08-07T10:48:12.207Z\",\n      \"title\": \"Fugit Eius.\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"2\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
->>>>>>> Closes #121 Add admin configurable application settings
+      "response_body": "{\n  \"data\": {\n    \"id\": \"4\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-08T06:03:50.385Z\",\n      \"updated_at\": \"2019-08-08T06:03:50.385Z\",\n      \"title\": \"Deserunt Mollitia.\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"2\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -45,25 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-<<<<<<< HEAD
-        "ETag": "W/\"4baf779cf21e27a6b37e6b47c7b743d4\"",
-        "X-Request-Id": "65de15de-a2b5-4c3c-9592-8ca71d4efbfb",
-        "X-Runtime": "0.009858",
+        "ETag": "W/\"2dbe00396ca02930c623d85674c67129\"",
+        "X-Request-Id": "baeac976-9f16-4ef5-a191-6769037eb459",
+        "X-Runtime": "0.010412",
         "Vary": "Origin",
-        "Content-Length": "225"
+        "Content-Length": "229"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/courses/4\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 45406f02ff7f31690443166ced8ab2c1297a8875aaef9a10fe10938b68f5a184\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
-=======
-        "ETag": "W/\"4b4b7ff2766c4eeb5877172cc4560aa1\"",
-        "X-Request-Id": "0cde8609-77f9-464d-be20-984010931085",
-        "X-Runtime": "0.009727",
-        "Vary": "Origin",
-        "Content-Length": "222"
-      },
-      "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/courses/4\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer dba44c3933440e52f5802beba9e4d536ac2e8a05bd44dfd19af49e3d61344486\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
->>>>>>> Closes #121 Add admin configurable application settings
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/courses/4\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 8df8bc207382a19cdcbf8dc69cf2b425e10bfa84b8bb0225cc573f231c4e60c2\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

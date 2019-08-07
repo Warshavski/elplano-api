@@ -57,19 +57,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group/lecturers/10",
-<<<<<<< HEAD
-      "request_body": "{\"data\":{\"type\":\"lecturer\",\"attributes\":{\"first_name\":\"Edmund\",\"last_name\":\"MacGyver\",\"patronymic\":\"Ms.\",\"avatar\":\"{\\\"id\\\":\\\"7df4bf6ffbcf05b1dfb840b26fc156c1.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"},\"relationships\":{\"courses\":{\"data\":[{\"id\":12,\"type\":\"courses\"}]}}}}",
+      "request_body": "{\"data\":{\"type\":\"lecturer\",\"attributes\":{\"first_name\":\"Darin\",\"last_name\":\"Huel\",\"patronymic\":\"Dr.\",\"avatar\":\"{\\\"id\\\":\\\"7770f00d1a9986e47a2a23f211203581.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"},\"relationships\":{\"courses\":{\"data\":[{\"id\":12,\"type\":\"courses\"}]}}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 67a25097e40258485c94263df9a99795b1984c9465ddfd606eb65b476e17cda1",
-=======
-      "request_body": "{\"data\":{\"type\":\"lecturer\",\"attributes\":{\"first_name\":\"Ardella\",\"last_name\":\"Barton\",\"patronymic\":\"Mr.\",\"avatar\":\"{\\\"id\\\":\\\"44e0ae3fff9998ba1f34df6c090b5733.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"},\"relationships\":{\"courses\":{\"data\":[{\"id\":12,\"type\":\"courses\"}]}}}}",
-      "request_headers": {
-        "Accept": "application/vnd.api+json",
-        "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer e3bf64858bd828981c39554c9a9a195a5f56346b81a4ed497c67c4f232e88c52",
->>>>>>> Closes #121 Add admin configurable application settings
+        "Authorization": "Bearer 3184c155843420a239478feb3fb815fa8ddf738d3e99ee9adef629171ba100bd",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -78,11 +70,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-<<<<<<< HEAD
-      "response_body": "{\n  \"data\": {\n    \"id\": \"10\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-07T13:10:51.360Z\",\n      \"updated_at\": \"2019-08-07T13:10:51.408Z\",\n      \"first_name\": \"Edmund\",\n      \"last_name\": \"Macgyver\",\n      \"patronymic\": \"Ms.\",\n      \"avatar\": \"memory://7df4bf6ffbcf05b1dfb840b26fc156c1.png\"\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"12\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
-=======
-      "response_body": "{\n  \"data\": {\n    \"id\": \"10\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-07T10:48:12.783Z\",\n      \"updated_at\": \"2019-08-07T10:48:12.855Z\",\n      \"first_name\": \"Ardella\",\n      \"last_name\": \"Barton\",\n      \"patronymic\": \"Mr.\",\n      \"avatar\": \"memory://44e0ae3fff9998ba1f34df6c090b5733.png\"\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"12\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
->>>>>>> Closes #121 Add admin configurable application settings
+      "response_body": "{\n  \"data\": {\n    \"id\": \"10\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-08T06:03:50.972Z\",\n      \"updated_at\": \"2019-08-08T06:03:51.013Z\",\n      \"first_name\": \"Darin\",\n      \"last_name\": \"Huel\",\n      \"patronymic\": \"Dr.\",\n      \"avatar\": \"memory://7770f00d1a9986e47a2a23f211203581.png\"\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"12\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -91,24 +79,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-<<<<<<< HEAD
-        "ETag": "W/\"2047b6de70c7af3129725ddd9cbef299\"",
-        "X-Request-Id": "82ac1376-0b50-41b1-8aa2-f8e28585f14e",
-        "X-Runtime": "0.029226",
-=======
-        "ETag": "W/\"faf11b0605281e63a3d5eed12e4dbf35\"",
-        "X-Request-Id": "d5ee61c0-10a1-4e35-bb48-32997925a5ff",
-        "X-Runtime": "0.039241",
->>>>>>> Closes #121 Add admin configurable application settings
+        "ETag": "W/\"f04033d385c098d1ff98cdf20ce0bbcc\"",
+        "X-Request-Id": "0e9cb6fd-34a9-4abc-b427-f496cad2e71b",
+        "X-Runtime": "0.023765",
         "Vary": "Origin",
-        "Content-Length": "320"
+        "Content-Length": "316"
       },
       "response_content_type": "application/json; charset=utf-8",
-<<<<<<< HEAD
-      "curl": "curl \"http://localhost:3000/api/v1/group/lecturers/10\" -d '{\"data\":{\"type\":\"lecturer\",\"attributes\":{\"first_name\":\"Edmund\",\"last_name\":\"MacGyver\",\"patronymic\":\"Ms.\",\"avatar\":\"{\\\"id\\\":\\\"7df4bf6ffbcf05b1dfb840b26fc156c1.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"},\"relationships\":{\"courses\":{\"data\":[{\"id\":12,\"type\":\"courses\"}]}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 67a25097e40258485c94263df9a99795b1984c9465ddfd606eb65b476e17cda1\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
-=======
-      "curl": "curl \"http://localhost:3000/api/v1/group/lecturers/10\" -d '{\"data\":{\"type\":\"lecturer\",\"attributes\":{\"first_name\":\"Ardella\",\"last_name\":\"Barton\",\"patronymic\":\"Mr.\",\"avatar\":\"{\\\"id\\\":\\\"44e0ae3fff9998ba1f34df6c090b5733.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"},\"relationships\":{\"courses\":{\"data\":[{\"id\":12,\"type\":\"courses\"}]}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer e3bf64858bd828981c39554c9a9a195a5f56346b81a4ed497c67c4f232e88c52\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
->>>>>>> Closes #121 Add admin configurable application settings
+      "curl": "curl \"http://localhost:3000/api/v1/group/lecturers/10\" -d '{\"data\":{\"type\":\"lecturer\",\"attributes\":{\"first_name\":\"Darin\",\"last_name\":\"Huel\",\"patronymic\":\"Dr.\",\"avatar\":\"{\\\"id\\\":\\\"7770f00d1a9986e47a2a23f211203581.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"},\"relationships\":{\"courses\":{\"data\":[{\"id\":12,\"type\":\"courses\"}]}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 3184c155843420a239478feb3fb815fa8ddf738d3e99ee9adef629171ba100bd\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

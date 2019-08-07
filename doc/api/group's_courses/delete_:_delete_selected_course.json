@@ -19,11 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-<<<<<<< HEAD
-        "Authorization": "Bearer 4b10e6bf80de9465882f4474ef0f4c928a0085078eeea1cf632da5ea47f905be",
-=======
-        "Authorization": "Bearer 05ba820d568badb03c6dd5cad93a306d3ffd0f337e1080a7b21e0545d9363f5d",
->>>>>>> Closes #121 Add admin configurable application settings
+        "Authorization": "Bearer dd34743b8276f80570622476d359a08334073d45529275b4d1b63000719c33fd",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -40,21 +36,12 @@
         "X-Content-Type-Options": "nosniff",
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
-<<<<<<< HEAD
-        "X-Request-Id": "b6824b2f-34c3-4cc9-9b8c-f7239d1bb14b",
-        "X-Runtime": "0.014644",
+        "X-Request-Id": "8452bd31-0b47-47ae-b2d9-2d1a20b68536",
+        "X-Runtime": "0.014471",
         "Vary": "Origin"
       },
       "response_content_type": null,
-      "curl": "curl \"http://localhost:3000/api/v1/group/courses/7\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 4b10e6bf80de9465882f4474ef0f4c928a0085078eeea1cf632da5ea47f905be\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
-=======
-        "X-Request-Id": "3fc45bd6-acf6-4b30-b3b8-de7fb772480d",
-        "X-Runtime": "0.013519",
-        "Vary": "Origin"
-      },
-      "response_content_type": null,
-      "curl": "curl \"http://localhost:3000/api/v1/group/courses/7\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 05ba820d568badb03c6dd5cad93a306d3ffd0f337e1080a7b21e0545d9363f5d\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
->>>>>>> Closes #121 Add admin configurable application settings
+      "curl": "curl \"http://localhost:3000/api/v1/group/courses/7\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer dd34743b8276f80570622476d359a08334073d45529275b4d1b63000719c33fd\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

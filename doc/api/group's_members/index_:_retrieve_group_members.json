@@ -19,11 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-<<<<<<< HEAD
-        "Authorization": "Bearer b031df8562bc915b6b5ffc0e564efc045fd855af09dcaecd33a092c70f49e4c5",
-=======
-        "Authorization": "Bearer 0798a28d681fc1cf6812a881de384bc1841e38ba0083e97c14551c3289eccb53",
->>>>>>> Closes #121 Add admin configurable application settings
+        "Authorization": "Bearer 0dd816cadd980cc3ab30081ff39302955805c557a7bcb07befd651c832ab95f0",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -32,11 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-<<<<<<< HEAD
-      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"27\",\n      \"type\": \"student\",\n      \"attributes\": {\n        \"full_name\": \"Dr. Jewel Victor Runolfsdottir\",\n        \"email\": \"regankautzer@cummingsharber.biz\",\n        \"phone\": \"950.404.9847\",\n        \"about\": \"Tempore dolores distinctio. Aut inventore porro. Laudantium temporibus mollitia. Recusandae culpa sint. Exercitationem quas ad.\",\n        \"social_networks\": {\n          \"twitter\": \"http://twitter/erline\",\n          \"facebook\": \"http://facebook/tamekia_blanda\"\n        },\n        \"president\": false,\n        \"created_at\": \"2019-08-07T13:10:51.504Z\",\n        \"updated_at\": \"2019-08-07T13:10:51.504Z\"\n      },\n      \"relationships\": {\n        \"user\": {\n          \"data\": {\n            \"id\": \"28\",\n            \"type\": \"user\"\n          }\n        }\n      }\n    }\n  ]\n}",
-=======
-      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"27\",\n      \"type\": \"student\",\n      \"attributes\": {\n        \"full_name\": \"Mrs. Damian Williams Treutel\",\n        \"email\": \"nguyetreilly@pourosdaugherty.net\",\n        \"phone\": \"(754) 310-6017\",\n        \"about\": \"Ducimus consectetur aut. Necessitatibus est soluta. Tempore et facilis. Corrupti nobis officiis. Iusto voluptatem deleniti.\",\n        \"social_networks\": {\n          \"twitter\": \"http://twitter/janean\",\n          \"facebook\": \"http://facebook/phillip_lebsack\"\n        },\n        \"president\": false,\n        \"created_at\": \"2019-08-07T10:48:12.939Z\",\n        \"updated_at\": \"2019-08-07T10:48:12.939Z\"\n      },\n      \"relationships\": {\n        \"user\": {\n          \"data\": {\n            \"id\": \"29\",\n            \"type\": \"user\"\n          }\n        }\n      }\n    }\n  ]\n}",
->>>>>>> Closes #121 Add admin configurable application settings
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"27\",\n      \"type\": \"student\",\n      \"attributes\": {\n        \"full_name\": \"Cecille Noel Cassin\",\n        \"email\": \"garrettlarson@kaulkejast.com\",\n        \"phone\": \"298-392-0371\",\n        \"about\": \"Aliquam aut voluptas. Quod eum facilis. Quas eligendi consequatur. Maiores iste amet. Culpa voluptatum quo.\",\n        \"social_networks\": {\n          \"twitter\": \"http://twitter/bee\",\n          \"facebook\": \"http://facebook/steven_carroll\"\n        },\n        \"president\": false,\n        \"created_at\": \"2019-08-08T06:03:51.106Z\",\n        \"updated_at\": \"2019-08-08T06:03:51.106Z\"\n      },\n      \"relationships\": {\n        \"user\": {\n          \"data\": {\n            \"id\": \"29\",\n            \"type\": \"user\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -45,25 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-<<<<<<< HEAD
-        "ETag": "W/\"964397e62de5794f2da078c6010af3e7\"",
-        "X-Request-Id": "27488f2e-1f64-40b1-9d78-5e4f427e68cb",
-        "X-Runtime": "0.011963",
+        "ETag": "W/\"1c003aa33ccaaf7404936a3081c0f0a0\"",
+        "X-Request-Id": "f0d04a76-fe3b-4a89-88ea-799f30daf4d5",
+        "X-Runtime": "0.011640",
         "Vary": "Origin",
-        "Content-Length": "558"
+        "Content-Length": "521"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/students\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer b031df8562bc915b6b5ffc0e564efc045fd855af09dcaecd33a092c70f49e4c5\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
-=======
-        "ETag": "W/\"a2c173ca37aeae81ec0b9cbaff0317df\"",
-        "X-Request-Id": "5d2dc9e1-21cc-42d4-beb9-52e91d23ba83",
-        "X-Runtime": "0.011829",
-        "Vary": "Origin",
-        "Content-Length": "556"
-      },
-      "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/students\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 0798a28d681fc1cf6812a881de384bc1841e38ba0083e97c14551c3289eccb53\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
->>>>>>> Closes #121 Add admin configurable application settings
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/students\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 0dd816cadd980cc3ab30081ff39302955805c557a7bcb07befd651c832ab95f0\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

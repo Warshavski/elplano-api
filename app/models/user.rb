@@ -31,6 +31,11 @@ class User < ApplicationRecord
            foreign_key: :resource_owner_id,
            dependent: :delete_all
 
+  has_one :recent_access_token, -> { order(id: :desc) },
+          class_name: 'Doorkeeper::AccessToken',
+          foreign_key: :resource_owner_id,
+          dependent: :delete
+
   has_one :student, dependent: :destroy
 
   #

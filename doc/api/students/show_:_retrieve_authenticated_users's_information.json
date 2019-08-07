@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer d0d8321ab4a2c6d01934bf6efeaca02f636c22e48220447ac3f8dcf3dd176e36",
+        "Authorization": "Bearer 0f57e6ff1f3afababf89672d5568ffb50d6353299664b721b3c3c604ce2dd788",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"44\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Miss Akilah Lorilee Crist\",\n      \"email\": \"reggie@larsonkunde.com\",\n      \"phone\": \"(585) 078-6215\",\n      \"about\": \"Animi ut nihil. Quam suscipit ducimus. Qui nihil blanditiis. Non et nam. Magnam omnis alias.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/perry\",\n        \"facebook\": \"http://facebook/jerold.doyle\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-08-06T10:35:05.930Z\",\n      \"updated_at\": \"2019-08-06T10:35:05.930Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"28\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"46\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"44\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Giselle Scot Goodwin\",\n      \"email\": \"kareemmcdermott@funkking.info\",\n      \"phone\": \"936-186-6857\",\n      \"about\": \"Quia consequatur ipsa. Nobis numquam distinctio. Exercitationem ratione repudiandae. Repellendus est ut. Temporibus dolor a.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/chung\",\n        \"facebook\": \"http://facebook/francesco\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-08-07T13:10:52.003Z\",\n      \"updated_at\": \"2019-08-07T13:10:52.003Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"28\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"46\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"536b82b072068cf59a448c5897ffa057\"",
-        "X-Request-Id": "3929bbc4-f295-47d3-8109-014a77bde906",
-        "X-Runtime": "0.009649",
+        "ETag": "W/\"88ed9ad3574b2d51fe95ff551ebdd274\"",
+        "X-Request-Id": "be536224-6fae-4b28-8751-abc585f39af9",
+        "X-Runtime": "0.008908",
         "Vary": "Origin",
-        "Content-Length": "550"
+        "Content-Length": "579"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer d0d8321ab4a2c6d01934bf6efeaca02f636c22e48220447ac3f8dcf3dd176e36\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 0f57e6ff1f3afababf89672d5568ffb50d6353299664b721b3c3c604ce2dd788\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

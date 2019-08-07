@@ -32,11 +32,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group",
-      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Unde maiores in.\",\"number\":\"42430\"}}}",
+      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Cum similique aut.\",\"number\":\"78153\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 3764bed4f2818866a6a725721c283019e3da900b0e00b3d36605af0bc8841f30",
+        "Authorization": "Bearer 90ffb053dbbbb39f4c1f71ca7b166b126ce210d0c761f1bb1f384e31aae7b783",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -45,7 +45,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"22\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"42430\",\n      \"title\": \"Unde maiores in.\",\n      \"created_at\": \"2019-08-06T08:32:05.416Z\",\n      \"updated_at\": \"2019-08-06T08:32:05.416Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"31\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"22\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"78153\",\n      \"title\": \"Cum similique aut.\",\n      \"created_at\": \"2019-08-06T10:35:05.596Z\",\n      \"updated_at\": \"2019-08-06T10:35:05.596Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"31\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -54,14 +54,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"1503ac0d5a39bda0db43e97412eeeadc\"",
-        "X-Request-Id": "49b6d4ec-0b57-4db2-8927-d69aba5dbbaf",
-        "X-Runtime": "0.020083",
+        "ETag": "W/\"9d4bf6c828ca25389c183e6229f08909\"",
+        "X-Request-Id": "c09ac0a2-7bd0-4357-ad08-5bf1505ffd0d",
+        "X-Runtime": "0.015462",
         "Vary": "Origin",
-        "Content-Length": "243"
+        "Content-Length": "245"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Unde maiores in.\",\"number\":\"42430\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 3764bed4f2818866a6a725721c283019e3da900b0e00b3d36605af0bc8841f30\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Cum similique aut.\",\"number\":\"78153\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 90ffb053dbbbb39f4c1f71ca7b166b126ce210d0c761f1bb1f384e31aae7b783\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

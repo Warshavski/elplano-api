@@ -147,10 +147,14 @@ Response:
       "created_at": 1553666769,
     }
 
+&nbsp;
+
 #### `POST /oauth/revoke`
 
 Post here with client credentials (in basic auth or in params client_id and client_secret) to revoke an access/refresh token. 
 This corresponds to the token endpoint, using the OAuth 2.0 Token Revocation RFC (RFC 7009).
+
+&nbsp;
 
 #### REVOKE ACCESS
 

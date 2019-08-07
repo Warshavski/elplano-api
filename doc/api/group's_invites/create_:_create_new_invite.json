@@ -23,11 +23,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group/invites",
-      "request_body": "{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"thresa@klocko.io\"}}}",
+      "request_body": "{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"geneanderson@murphyosinski.name\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 43b67b33af5765fdc72fc752ece12bbc2be71c6e7c64d569677ef437976f06f8",
+        "Authorization": "Bearer 8b42715d9625d55b841021c08dfd367f21e7d15f76b607b15012d5b60ca3c1e4",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -36,7 +36,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"thresa@klocko.io\",\n      \"invitation_token\": \"W2HnZWbfn8Fodqxo-9zb\",\n      \"sent_at\": \"2019-08-06T10:35:05.124Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-08-06T10:35:05.124Z\",\n      \"updated_at\": \"2019-08-06T10:35:05.124Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"geneanderson@murphyosinski.name\",\n      \"invitation_token\": \"jFcPnZ1JqLocByYqbmem\",\n      \"sent_at\": \"2019-08-07T13:10:51.126Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-08-07T13:10:51.125Z\",\n      \"updated_at\": \"2019-08-07T13:10:51.125Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -45,14 +45,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"3c34fda859654b87c10e2b35364021f7\"",
-        "X-Request-Id": "ec7d9284-36d1-4885-b437-5de41c0020e6",
-        "X-Runtime": "0.058825",
+        "ETag": "W/\"b88d5946989444252af88b5226d67b11\"",
+        "X-Request-Id": "398d5577-7433-4a0b-97f1-1d090b534344",
+        "X-Runtime": "0.058452",
         "Vary": "Origin",
-        "Content-Length": "409"
+        "Content-Length": "424"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/invites\" -d '{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"thresa@klocko.io\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 43b67b33af5765fdc72fc752ece12bbc2be71c6e7c64d569677ef437976f06f8\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/invites\" -d '{\"data\":{\"type\":\"invite\",\"attributes\":{\"email\":\"geneanderson@murphyosinski.name\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 8b42715d9625d55b841021c08dfd367f21e7d15f76b607b15012d5b60ca3c1e4\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

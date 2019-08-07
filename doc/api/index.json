@@ -156,6 +156,26 @@
       ]
     },
     {
+      "name": "OAuth",
+      "explanation": "El Plano OAuth API.\n\nUsed to manage user's access tokens(claim, revoke)\n\nToken attributes :\n\n  - `access_token` - Represents access token(used to access API endpoints).\n  - `refresh_token` - Represents refresh token(used to update expired access token).\n  - `token_type` - Represents token type(always \"Bearer\").\n  - `expires_in` - Represents expiration access token expiration time.\n  - `created_at` - Represents access token creation date.\n\n<b>NOTE</b> : For more information see \"Authentication\" section in this documentation.\n",
+      "examples": [
+        {
+          "description": "CREATE : Claim access token",
+          "link": "oauth/create_:_claim_access_token.json",
+          "groups": "all",
+          "route": "oauth/token",
+          "method": "post"
+        },
+        {
+          "description": "CREATE : Revoke access token",
+          "link": "oauth/create_:_revoke_access_token.json",
+          "groups": "all",
+          "route": "oauth/revoke",
+          "method": "post"
+        }
+      ]
+    },
+    {
       "name": "Students",
       "explanation": "El Plano student's profile API.\n\nStudent attributes :\n\n  - `full_name` - Represents concatenated student's first, last and middle names.\n  - `email` - Represents email which is used to contact with the student.\n  - `phone` - Represents phone which is used to contact with the student.\n  - `about` - Represents some detailed information about student(BIO).\n  - `social_networks` - Represents a list of social networks.\n  - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).\n  - `timestamps`\n\nAlso, includes information about a group.\n\n  - `title` - Represents group human readable identity.\n  - `number` - Represents group main identity.\n  - `timestamps`\n",
       "examples": [

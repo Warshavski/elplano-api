@@ -13,18 +13,27 @@ RSpec.describe User, type: :model do
 
   describe 'associations' do
     it do
-      have_many(:access_grants)
+      should have_many(:access_grants)
         .class_name('Doorkeeper::AccessGrant')
         .with_foreign_key(:resource_owner_id)
         .dependent(:delete_all)
     end
 
     it do
-      have_many(:access_tokens)
+      should have_many(:access_tokens)
         .class_name('Doorkeeper::AccessToken')
         .with_foreign_key(:resource_owner_id)
         .dependent(:delete_all)
     end
+
+    it do
+      should have_one(:recent_access_token)
+        .class_name('Doorkeeper::AccessToken')
+        .dependent(:delete)
+        .order(id: :desc)
+    end
+
+    it { should have_one(:student).dependent(:destroy) }
   end
 
   describe 'user creation' do

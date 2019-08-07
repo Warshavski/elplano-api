@@ -1,0 +1,107 @@
+{
+  "resource": "Admin settings",
+  "resource_explanation": "El Plano administration: Application settings.\n\nSettings attributes :\n\n - `app_contact_username` - Represents contact person's name.\n - `app_contact_email` - Represents contact person's email.\n - `app_title` - Represents application title.\n - `app_short_description` - Represents application short description(may include HTML).\n - `app_description` - Represents application description(may include HTML).\n - `app_extended_description` - Represents application extended description(HTML).\n - `app_terms` - Represents application terms of use(HTML).\n",
+  "http_method": "PUT",
+  "route": "api/v1/admin/settings",
+  "description": "UPDATE : Updates application settings",
+  "explanation": "Updates application settings.\n",
+  "parameters": [
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "required": true,
+      "name": "app_contact_username",
+      "description": "Contact person's name"
+    },
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "required": true,
+      "name": "app_contact_email",
+      "description": "Contact person's email"
+    },
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "name": "app_title",
+      "description": "Application title"
+    },
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "name": "app_short_description",
+      "description": "Application short description(may include HTML)"
+    },
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "name": "app_description",
+      "description": "Application description(may include HTML)"
+    },
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "name": "app_extended_description",
+      "description": "Application extended description(HTML)"
+    },
+    {
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "name": "app_terms",
+      "description": "Application terms of use(HTML)"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "api/v1/admin/settings",
+      "request_body": "{\"data\":{\"type\":\"admin_settings\",\"attributes\":{\"app_contact_username\":\"username\",\"app_contact_email\":\"user@email.example\",\"app_title\":\"Application title\",\"app_short_description\":\"\\u003cb\\u003eApplication short description\\u003c/b\\u003e\",\"app_description\":\"\\u003cb\\u003eApplication description\\u003c/b\\u003e\",\"app_extended_description\":\"\\u003cb\\u003eApplication extended description\\u003c/b\\u003e\",\"app_terms\":\"\\u003cb\\u003eApplication terms of use\\u003c/b\\u003e\"}}}",
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer 7d69574f24b789ac558932eb47721618f7536a79e149d7f76119788f6aafb4f8",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"meta\": {\n    \"message\": \"Changes successfully saved!\"\n  }\n}",
+      "response_headers": {
+        "Page-Title": "El+Plano",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "max-age=0, private, must-revalidate, no-store",
+        "Pragma": "no-cache",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"275783c15567fb8a71f59dc3ad2ae834\"",
+        "X-Request-Id": "21f516e2-b273-4b2d-a0c9-d32d51aa3a3a",
+        "X-Runtime": "0.082544",
+        "Vary": "Origin",
+        "Content-Length": "50"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/api/v1/admin/settings\" -d '{\"data\":{\"type\":\"admin_settings\",\"attributes\":{\"app_contact_username\":\"username\",\"app_contact_email\":\"user@email.example\",\"app_title\":\"Application title\",\"app_short_description\":\"\\u003cb\\u003eApplication short description\\u003c/b\\u003e\",\"app_description\":\"\\u003cb\\u003eApplication description\\u003c/b\\u003e\",\"app_extended_description\":\"\\u003cb\\u003eApplication extended description\\u003c/b\\u003e\",\"app_terms\":\"\\u003cb\\u003eApplication terms of use\\u003c/b\\u003e\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 7d69574f24b789ac558932eb47721618f7536a79e149d7f76119788f6aafb4f8\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

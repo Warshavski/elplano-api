@@ -19,7 +19,11 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
+<<<<<<< HEAD
         "Authorization": "Bearer 572891ccf50087ea29aa59d3307e95a3f23cacc24ca4c1cbfad4571d03d841cd",
+=======
+        "Authorization": "Bearer 88c12503fa99561923dcff4fc08be29a8ecb437576dfab9395566beb720667ee",
+>>>>>>> Closes #121 Add admin configurable application settings
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +32,11 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
+<<<<<<< HEAD
       "response_body": "{\n  \"data\": {\n    \"id\": \"54\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"kendrickjohns@torporeilly.net\",\n      \"username\": \"anamaria_oberbrunner\",\n      \"admin\": false,\n      \"created_at\": \"2019-08-07T13:10:52.659Z\",\n      \"updated_at\": \"2019-08-07T13:10:52.659Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/ba62c3b6f48d2e68d7cc90e92dbfc147?s=200&d=identicon\",\n      \"confirmed\": true\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"48\",\n          \"type\": \"student\"\n        }\n      }\n    }\n  }\n}",
+=======
+      "response_body": "{\n  \"data\": {\n    \"id\": \"54\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"sharafunk@hartmann.biz\",\n      \"username\": \"dane\",\n      \"admin\": false,\n      \"created_at\": \"2019-08-07T10:48:14.003Z\",\n      \"updated_at\": \"2019-08-07T10:48:14.003Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/4d8cc1fe5827687e6bbc8055e922d3a5?s=200&d=identicon\",\n      \"confirmed\": true\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"48\",\n          \"type\": \"student\"\n        }\n      }\n    }\n  }\n}",
+>>>>>>> Closes #121 Add admin configurable application settings
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,6 +45,7 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
+<<<<<<< HEAD
         "ETag": "W/\"2c3ad47a1f224a1e95f2797ca4f4452b\"",
         "X-Request-Id": "aab24a35-61bf-40f6-99dc-964740a30db9",
         "X-Runtime": "0.012575",
@@ -45,6 +54,16 @@
       },
       "response_content_type": "application/json; charset=utf-8",
       "curl": "curl -g \"http://localhost:3000/api/v1/user\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 572891ccf50087ea29aa59d3307e95a3f23cacc24ca4c1cbfad4571d03d841cd\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+=======
+        "ETag": "W/\"dcdc18e3746d845eb5f4944919413411\"",
+        "X-Request-Id": "fa41a464-5a4a-4efd-babc-c63d68928da9",
+        "X-Runtime": "0.011754",
+        "Vary": "Origin",
+        "Content-Length": "380"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl -g \"http://localhost:3000/api/v1/user\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 88c12503fa99561923dcff4fc08be29a8ecb437576dfab9395566beb720667ee\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+>>>>>>> Closes #121 Add admin configurable application settings
     }
   ]
 }

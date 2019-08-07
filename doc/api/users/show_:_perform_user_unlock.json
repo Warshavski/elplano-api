@@ -41,8 +41,13 @@
         "Content-Type": "application/json; charset=utf-8",
         "ETag": "W/\"27b484a3962fb78cfb1710ed7ca75835\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
+<<<<<<< HEAD
         "X-Request-Id": "ebd6694f-b8b6-4733-a93b-f606a7565645",
         "X-Runtime": "0.015325",
+=======
+        "X-Request-Id": "f22db0d0-7038-4afd-94c3-f0da5468af94",
+        "X-Runtime": "0.021872",
+>>>>>>> Closes #121 Add admin configurable application settings
         "Vary": "Origin",
         "Content-Length": "95"
       },

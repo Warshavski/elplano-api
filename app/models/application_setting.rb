@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # ApplicationSetting
 #
 #   Used to store application-wide settings(RailsSettings Model)
@@ -9,7 +11,6 @@ class ApplicationSetting < RailsSettings::Base
   source Rails.root.join('config/elplano.yml')
 
   class << self
-
     def host_without_www(url)
       host(url).sub('www.', '')
     end

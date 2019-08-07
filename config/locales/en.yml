@@ -30,17 +30,23 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  generic:
+    messages:
+      saved: 'Changes successfully saved!'
   errors:
     messages:
       invalid_token: 'Invalid authorization token'
       access_denied: 'Action not allowed'
       not_found_endpoint: 'Endpoint does not exists'
       not_found_record: 'Record not found'
-      invalid_auth: 'Auth error %{param}'
       not_exists: 'does not exist'
       argument_missing: 'argument is missing or the value is empty: %{param}'
       student:
         already_in_group: 'already has a group!'
+      html:
+        invalid_markup: 'contains invalid HTML markup: %{error}'
+      timezone:
+        not_exist: 'does not exist'
   restify:
     errors:
       missing: 'Parameters does not present by JSON:API format. Missing %{key} key'

@@ -32,11 +32,19 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group",
+<<<<<<< HEAD
       "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Sint voluptatum repellat.\",\"number\":\"32693\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
         "Authorization": "Bearer 75c642cf7eb0108ee8740bc808f19acc99ab134af678b6829fa9b1176cc538be",
+=======
+      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Qui molestiae deleniti.\",\"number\":\"58356\"}}}",
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer b4b7b601c56b5eec2f4bfed9ac906ec5f15f21bf6c1a061a2c4026d6ea413e69",
+>>>>>>> Closes #121 Add admin configurable application settings
         "Host": "example.org",
         "Cookie": ""
       },
@@ -45,7 +53,11 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
+<<<<<<< HEAD
       "response_body": "{\n  \"data\": {\n    \"id\": \"23\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"32693\",\n      \"title\": \"Sint voluptatum repellat.\",\n      \"created_at\": \"2019-08-07T13:10:51.678Z\",\n      \"updated_at\": \"2019-08-07T13:10:51.696Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"32\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+=======
+      "response_body": "{\n  \"data\": {\n    \"id\": \"23\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"58356\",\n      \"title\": \"Qui molestiae deleniti.\",\n      \"created_at\": \"2019-08-07T10:48:13.099Z\",\n      \"updated_at\": \"2019-08-07T10:48:13.116Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"32\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+>>>>>>> Closes #121 Add admin configurable application settings
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -54,14 +66,24 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
+<<<<<<< HEAD
         "ETag": "W/\"5528689dd82334f6b99069d3aa169baf\"",
         "X-Request-Id": "c760e049-fcb9-4c2b-8eff-c2f6ab2fedb0",
         "X-Runtime": "0.012359",
+=======
+        "ETag": "W/\"df47ea15697f71ef2bc6c66215c9629b\"",
+        "X-Request-Id": "0bfead2b-ba18-4804-bdff-4a485d4a4ab4",
+        "X-Runtime": "0.020004",
+>>>>>>> Closes #121 Add admin configurable application settings
         "Vary": "Origin",
-        "Content-Length": "252"
+        "Content-Length": "250"
       },
       "response_content_type": "application/json; charset=utf-8",
+<<<<<<< HEAD
       "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Sint voluptatum repellat.\",\"number\":\"32693\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 75c642cf7eb0108ee8740bc808f19acc99ab134af678b6829fa9b1176cc538be\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+=======
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Qui molestiae deleniti.\",\"number\":\"58356\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer b4b7b601c56b5eec2f4bfed9ac906ec5f15f21bf6c1a061a2c4026d6ea413e69\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+>>>>>>> Closes #121 Add admin configurable application settings
     }
   ]
 }

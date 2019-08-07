@@ -25,6 +25,9 @@ Rails.application.routes.draw do
     namespace :v1 do
 
       namespace :admin do
+        #(see Admin::SettingsController)
+        resource :settings, only: :update
+
         namespace :system do
           # (see Admin::System::HealthController)
           resource :health, only: :show, controller: 'health'

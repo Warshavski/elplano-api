@@ -57,11 +57,19 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group/lecturers",
+<<<<<<< HEAD
       "request_body": "{\"data\":{\"type\":\"lecturer\",\"attributes\":{\"first_name\":\"Sina\",\"last_name\":\"Littel\",\"patronymic\":\"Dr.\",\"avatar\":\"{\\\"id\\\":\\\"c9a00728fc2748f739d4dc1d63604a77.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"},\"relationships\":{\"courses\":{\"data\":[{\"id\":10,\"type\":\"courses\"}]}}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
         "Authorization": "Bearer ecaffc57b2fb5f058e2c7b569f902f4dd758b08140f680fcdc26f3fc15565efa",
+=======
+      "request_body": "{\"data\":{\"type\":\"lecturer\",\"attributes\":{\"first_name\":\"Kieth\",\"last_name\":\"Langworth\",\"patronymic\":\"Mrs.\",\"avatar\":\"{\\\"id\\\":\\\"083ac70844137e31133a46feac88aa1f.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"},\"relationships\":{\"courses\":{\"data\":[{\"id\":10,\"type\":\"courses\"}]}}}}",
+      "request_headers": {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        "Authorization": "Bearer 5932a4a10c705832599d5644d7a1e43cd4848cebf836f1b27ac0718fe4e4e8a1",
+>>>>>>> Closes #121 Add admin configurable application settings
         "Host": "example.org",
         "Cookie": ""
       },
@@ -70,7 +78,11 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
+<<<<<<< HEAD
       "response_body": "{\n  \"data\": {\n    \"id\": \"9\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-07T13:10:51.324Z\",\n      \"updated_at\": \"2019-08-07T13:10:51.324Z\",\n      \"first_name\": \"Sina\",\n      \"last_name\": \"Littel\",\n      \"patronymic\": \"Dr.\",\n      \"avatar\": \"memory://c9a00728fc2748f739d4dc1d63604a77.png\"\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"10\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
+=======
+      "response_body": "{\n  \"data\": {\n    \"id\": \"9\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-07T10:48:12.757Z\",\n      \"updated_at\": \"2019-08-07T10:48:12.757Z\",\n      \"first_name\": \"Kieth\",\n      \"last_name\": \"Langworth\",\n      \"patronymic\": \"Mrs.\",\n      \"avatar\": \"memory://083ac70844137e31133a46feac88aa1f.png\"\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"10\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
+>>>>>>> Closes #121 Add admin configurable application settings
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -79,6 +91,7 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
+<<<<<<< HEAD
         "ETag": "W/\"2d3746eecfb1f7bbe373f7abf076c739\"",
         "X-Request-Id": "a56c8f9e-d08f-4270-b273-6c931be594a6",
         "X-Runtime": "0.030507",
@@ -87,6 +100,16 @@
       },
       "response_content_type": "application/json; charset=utf-8",
       "curl": "curl \"http://localhost:3000/api/v1/group/lecturers\" -d '{\"data\":{\"type\":\"lecturer\",\"attributes\":{\"first_name\":\"Sina\",\"last_name\":\"Littel\",\"patronymic\":\"Dr.\",\"avatar\":\"{\\\"id\\\":\\\"c9a00728fc2748f739d4dc1d63604a77.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"},\"relationships\":{\"courses\":{\"data\":[{\"id\":10,\"type\":\"courses\"}]}}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer ecaffc57b2fb5f058e2c7b569f902f4dd758b08140f680fcdc26f3fc15565efa\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+=======
+        "ETag": "W/\"c79a67561a3bdd2a115ea41aa21c264c\"",
+        "X-Request-Id": "3e6e6ef1-2339-418c-abeb-707d5bf0da9e",
+        "X-Runtime": "0.022855",
+        "Vary": "Origin",
+        "Content-Length": "321"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/api/v1/group/lecturers\" -d '{\"data\":{\"type\":\"lecturer\",\"attributes\":{\"first_name\":\"Kieth\",\"last_name\":\"Langworth\",\"patronymic\":\"Mrs.\",\"avatar\":\"{\\\"id\\\":\\\"083ac70844137e31133a46feac88aa1f.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"},\"relationships\":{\"courses\":{\"data\":[{\"id\":10,\"type\":\"courses\"}]}}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 5932a4a10c705832599d5644d7a1e43cd4848cebf836f1b27ac0718fe4e4e8a1\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+>>>>>>> Closes #121 Add admin configurable application settings
     }
   ]
 }

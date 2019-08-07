@@ -19,7 +19,11 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
+<<<<<<< HEAD
         "Authorization": "Bearer ac09f8c579f9d5b608725e1c8b9938c144160f1718fd806eeecf7bac7b0c644a",
+=======
+        "Authorization": "Bearer 0a8d37b059f8784105f391c9eb7d31723531db61af867192a23ef8609eeba553",
+>>>>>>> Closes #121 Add admin configurable application settings
         "Host": "example.org",
         "Cookie": ""
       },
@@ -36,12 +40,21 @@
         "X-Content-Type-Options": "nosniff",
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
+<<<<<<< HEAD
         "X-Request-Id": "935ce99c-c5d4-4e2a-9752-b75d6cfab5c3",
         "X-Runtime": "0.008516",
         "Vary": "Origin"
       },
       "response_content_type": null,
       "curl": "curl \"http://localhost:3000/api/v1/events/5\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer ac09f8c579f9d5b608725e1c8b9938c144160f1718fd806eeecf7bac7b0c644a\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+=======
+        "X-Request-Id": "53e7b310-22c4-4b49-a594-864141a75888",
+        "X-Runtime": "0.007970",
+        "Vary": "Origin"
+      },
+      "response_content_type": null,
+      "curl": "curl \"http://localhost:3000/api/v1/events/5\" -d '' -X DELETE \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 0a8d37b059f8784105f391c9eb7d31723531db61af867192a23ef8609eeba553\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+>>>>>>> Closes #121 Add admin configurable application settings
     }
   ]
 }

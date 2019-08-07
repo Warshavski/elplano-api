@@ -32,19 +32,32 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
+<<<<<<< HEAD
       "response_body": "{\n  \"data\": {\n    \"id\": \"50\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"tarahemard@barton.io\",\n      \"username\": \"domingo\",\n      \"admin\": false,\n      \"created_at\": \"2019-08-07T13:10:52.216Z\",\n      \"updated_at\": \"2019-08-07T13:10:52.234Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/586ff1c6d694486f29179eeb06c8b61c?s=200&d=identicon\",\n      \"confirmed\": true\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": null\n      }\n    }\n  },\n  \"meta\": {\n    \"message\": \"Your email address has been successfully confirmed.\"\n  }\n}",
+=======
+      "response_body": "{\n  \"data\": {\n    \"id\": \"50\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"sarina@smithmoriette.com\",\n      \"username\": \"martha\",\n      \"admin\": false,\n      \"created_at\": \"2019-08-07T10:48:13.565Z\",\n      \"updated_at\": \"2019-08-07T10:48:13.587Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/db70029e125e8eb864243ec31e532a3f?s=200&d=identicon\",\n      \"confirmed\": true\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": null\n      }\n    }\n  },\n  \"meta\": {\n    \"message\": \"Your email address has been successfully confirmed.\"\n  }\n}",
+>>>>>>> Closes #121 Add admin configurable application settings
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
+<<<<<<< HEAD
         "ETag": "W/\"57193d3e56392232d1022ca020814d18\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
         "X-Request-Id": "9b48deff-a004-4853-9493-556887ca7ea8",
         "X-Runtime": "0.026265",
         "Vary": "Origin",
         "Content-Length": "430"
+=======
+        "ETag": "W/\"2aeefce973e3b0e3838ea90984956db0\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "71566aac-31e0-4bfb-b4fa-4c6997fb144e",
+        "X-Runtime": "0.019235",
+        "Vary": "Origin",
+        "Content-Length": "433"
+>>>>>>> Closes #121 Add admin configurable application settings
       },
       "response_content_type": "application/json; charset=utf-8",
       "curl": "curl -g \"http://localhost:3000/api/v1/users/confirmation?confirmation_token=token\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""

@@ -14,12 +14,20 @@
   "requests": [
     {
       "request_method": "GET",
+<<<<<<< HEAD
       "request_path": "api/v1/invites/G-ksuRwMy1Z7eud39haS",
+=======
+      "request_path": "api/v1/invites/y7uRixh_H7qJr3xW1AFx",
+>>>>>>> Closes #121 Add admin configurable application settings
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
+<<<<<<< HEAD
         "Authorization": "Bearer 0a44f40b4168159c1a935847576fccc6b2edf4a8d357f45678bf718bd959c483",
+=======
+        "Authorization": "Bearer 2492e2db9767c25757bc74b58c78a417bf3c83e41bed5515dae6efdf9b962cab",
+>>>>>>> Closes #121 Add admin configurable application settings
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +36,11 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
+<<<<<<< HEAD
       "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"claie@quigley.com\",\n      \"invitation_token\": \"G-ksuRwMy1Z7eud39haS\",\n      \"sent_at\": \"2019-08-07T13:10:51.842Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-08-07T13:10:51.842Z\",\n      \"updated_at\": \"2019-08-07T13:10:51.842Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"38\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"26\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"26\",\n      \"type\": \"group\",\n      \"attributes\": {\n        \"number\": \"5292266837\",\n        \"title\": \"Quia tempore et.\",\n        \"created_at\": \"2019-08-07T13:10:51.838Z\",\n        \"updated_at\": \"2019-08-07T13:10:51.838Z\"\n      },\n      \"relationships\": {\n      }\n    }\n  ]\n}",
+=======
+      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"wiley@anderson.name\",\n      \"invitation_token\": \"y7uRixh_H7qJr3xW1AFx\",\n      \"sent_at\": \"2019-08-07T10:48:13.264Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-08-07T10:48:13.264Z\",\n      \"updated_at\": \"2019-08-07T10:48:13.264Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"38\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"26\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"26\",\n      \"type\": \"group\",\n      \"attributes\": {\n        \"number\": \"7873231940\",\n        \"title\": \"Labore voluptates modi.\",\n        \"created_at\": \"2019-08-07T10:48:13.260Z\",\n        \"updated_at\": \"2019-08-07T10:48:13.260Z\"\n      },\n      \"relationships\": {\n      }\n    }\n  ]\n}",
+>>>>>>> Closes #121 Add admin configurable application settings
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,6 +49,7 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
+<<<<<<< HEAD
         "ETag": "W/\"ee88b6baca366bd36db3be87be7b5298\"",
         "X-Request-Id": "9c3db354-523f-40a4-b477-d723c54295f0",
         "X-Runtime": "0.008975",
@@ -45,6 +58,16 @@
       },
       "response_content_type": "application/json; charset=utf-8",
       "curl": "curl -g \"http://localhost:3000/api/v1/invites/G-ksuRwMy1Z7eud39haS\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 0a44f40b4168159c1a935847576fccc6b2edf4a8d357f45678bf718bd959c483\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+=======
+        "ETag": "W/\"87a795caa1b46d44a9309ae07be188bd\"",
+        "X-Request-Id": "213b0285-3370-4990-a365-2a5f3d3371de",
+        "X-Runtime": "0.008209",
+        "Vary": "Origin",
+        "Content-Length": "622"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl -g \"http://localhost:3000/api/v1/invites/y7uRixh_H7qJr3xW1AFx\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 2492e2db9767c25757bc74b58c78a417bf3c83e41bed5515dae6efdf9b962cab\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+>>>>>>> Closes #121 Add admin configurable application settings
     }
   ]
 }

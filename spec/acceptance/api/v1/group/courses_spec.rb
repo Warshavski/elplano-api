@@ -62,21 +62,13 @@ resource "Group's courses" do
   end
 
   post 'api/v1/group/courses' do
-    with_options scope: %i[data attributes] do
+    with_options scope: %i[course] do
       parameter :title, 'Course title(human readable identity)', required: true
-      parameter :lecturers, 'Lecturers of the course. Included in "relationships" category'
+      parameter :lecturer_ids, 'Lecturers of the course.'
     end
 
     let(:raw_post) do
-      lecturer_params = {
-        relationships: {
-          lecturers: {
-            data: [{ id: lecturer.id, type: 'lecturer' }]
-          }
-        }
-      }
-
-      { data: build(:course_params).merge(lecturer_params) }.to_json
+      { course: build(:course_params).merge(lecturer_ids: [lecturer.id]) }.to_json
     end
 
     example 'CREATE : Create new course' do
@@ -96,21 +88,13 @@ resource "Group's courses" do
   end
 
   put 'api/v1/group/courses/:id' do
-    with_options scope: %i[data attributes] do
+    with_options scope: %i[course] do
       parameter :title, 'Course title(human readable identity)', required: true
-      parameter :lecturers, 'Lecturers of the course. Included in "relationships" category'
+      parameter :lecturer_ids, 'Lecturers of the course.'
     end
 
     let(:raw_post) do
-      lecturer_params = {
-        relationships: {
-          lecturers: {
-            data: [{ id: lecturer.id, type: 'lecturer' }]
-          }
-        }
-      }
-
-      { data: build(:course_params).merge(lecturer_params) }.to_json
+      { course: build(:course_params).merge(lecturer_ids: [lecturer.id]) }.to_json
     end
 
     example 'UPDATE : Update selected course information' do

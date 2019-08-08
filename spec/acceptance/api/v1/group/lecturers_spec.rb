@@ -67,29 +67,21 @@ resource "Group's lecturers" do
   end
 
   post 'api/v1/group/lecturers' do
-    with_options scope: %i[data attributes] do
+    with_options scope: %i[lecturer] do
       parameter :first_name, 'Lecturer first name', required: true
       parameter :last_name, 'Lecturer last name', required: true
       parameter :patronymic, 'Lecturer patronymic', required: true
-      parameter :courses, 'Courses of the lecturer. Included in "relationships" category'
+      parameter :course_ids, 'Courses of the lecturer'
       parameter :avatar, 'Uploaded file metadata received from `uploads` endpoint'
     end
 
     let(:raw_post) do
       core_params = build(:lecturer_params)
 
-      core_params.merge!(
-        {
-          relationships: {
-            courses: {
-              data: [{ id: course.id, type: 'courses' }]
-            }
-          }
-        })
+      core_params.merge!(course_ids: [course.id])
+      core_params.merge!(avatar: metadata.to_json)
 
-      core_params[:attributes].merge!(avatar: metadata.to_json)
-
-      { data: core_params }.to_json
+      { lecturer: core_params }.to_json
     end
 
     example 'CREATE : Create new lecturer' do
@@ -109,29 +101,21 @@ resource "Group's lecturers" do
   end
 
   put 'api/v1/group/lecturers/:id' do
-    with_options scope: %i[data attributes] do
+    with_options scope: %i[lecturer] do
       parameter :first_name, 'Lecturer first name', required: true
       parameter :last_name, 'Lecturer last name', required: true
       parameter :patronymic, 'Lecturer patronymic', required: true
-      parameter :courses, 'Courses of the lecturer. Included in "relationships" category'
+      parameter :course_ids, 'Courses of the lecturer'
       parameter :avatar, 'Uploaded file metadata received from `uploads` endpoint'
     end
 
     let(:raw_post) do
       core_params = build(:lecturer_params)
 
-      core_params.merge!(
-        {
-          relationships: {
-            courses: {
-              data: [{ id: course.id, type: 'courses' }]
-            }
-          }
-        })
+      core_params.merge!(course_ids: [course.id])
+      core_params.merge!(avatar: metadata.to_json)
 
-      core_params[:attributes].merge!(avatar: metadata.to_json)
-
-      { data: core_params }.to_json
+      { lecturer: core_params }.to_json
     end
 
     example 'UPDATE : Update selected lecturer information' do

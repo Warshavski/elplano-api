@@ -38,7 +38,7 @@ module Api
         end
 
         def sign_up_params
-          restify_param(:user)
+          params
             .require(:user)
             .permit(:username, :email, :password, :password_confirmation)
         end

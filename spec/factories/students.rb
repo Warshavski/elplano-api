@@ -38,15 +38,12 @@ FactoryBot.define do
   factory :student_params, class: Hash do
     initialize_with do
       {
-        type: 'student',
-        attributes: {
-          email: 'wat@wat.wat',
-          phone: '+8 983 47 89 312',
-          full_name: 'Sir Wat Name Yeah',
-          social_networks: {
-            'twitter' => 'https://twitter.com/watever',
-            'facebook' => 'https://facebook.com/watever'
-          }
+        email: 'wat@wat.wat',
+        phone: '+8 983 47 89 312',
+        full_name: 'Sir Wat Name Yeah',
+        social_networks: {
+          'twitter' => 'https://twitter.com/watever',
+          'facebook' => 'https://facebook.com/watever'
         }
       }
     end
@@ -55,13 +52,10 @@ FactoryBot.define do
   factory :invalid_student_params, class: Hash do
     initialize_with do
       {
-        type: 'group',
-        attributes: {
-          email: nil,
-          phone: nil,
-          full_name: nil,
-          social_networks: nil
-        }
+        email: nil,
+        phone: nil,
+        full_name: nil,
+        social_networks: nil
       }
     end
   end

@@ -7,8 +7,6 @@
 class ApplicationController < ActionController::API
   include ActionPolicy::Controller
 
-  include RestifyParams
-
   include Handlers::Exception
   include Handlers::Response
 

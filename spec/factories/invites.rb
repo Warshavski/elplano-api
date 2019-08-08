@@ -23,10 +23,7 @@ FactoryBot.define do
   factory :invite_params, class: Hash do
     initialize_with do
       {
-        type: 'invite',
-        attributes: {
-          email: Faker::Internet.email
-        }
+        email: Faker::Internet.email
       }
     end
   end
@@ -34,10 +31,7 @@ FactoryBot.define do
   factory :invalid_invite_params, class: Hash do
     initialize_with do
       {
-        type: 'invite',
-        attributes: {
-          email: nil
-        }
+        email: nil
       }
     end
   end

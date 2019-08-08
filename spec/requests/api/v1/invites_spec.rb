@@ -10,7 +10,7 @@ RSpec.describe Api::V1::EventsController, type: :request do
   let_it_be(:student) { create(:student, user: user) }
   let_it_be(:invite)  { create(:invite, :rnd_group, email: user.email) }
 
-  let(:request_params) { { data: nil } }
+  let(:request_params) { { invite: nil } }
 
   describe 'GET #index' do
     subject { get endpoint, headers: headers }
@@ -21,7 +21,7 @@ RSpec.describe Api::V1::EventsController, type: :request do
       bulletify { subject }
     end
 
-    context 'unsorted invites collection' do
+    context 'when invites collection is unsorted' do
       before(:each) { subject }
 
       it { expect(response).to have_http_status(:ok) }
@@ -35,7 +35,7 @@ RSpec.describe Api::V1::EventsController, type: :request do
 
     before(:each) { subject }
 
-    context 'valid request' do
+    context 'when request params are valid' do
       let(:endpoint) { "#{base}/#{invite.invitation_token}" }
 
       it { expect(response).to have_http_status(:ok) }
@@ -56,7 +56,7 @@ RSpec.describe Api::V1::EventsController, type: :request do
       end
     end
 
-    context 'not valid request' do
+    context 'when request params are not valid' do
       let(:endpoint) { "#{base}/wat_token" }
 
       it { expect(response).to have_http_status(:ok) }
@@ -70,7 +70,7 @@ RSpec.describe Api::V1::EventsController, type: :request do
 
     before(:each) { subject }
 
-    context 'valid request' do
+    context 'when request params are valid' do
       let(:endpoint) { "#{base}/#{invite.invitation_token}" }
 
       it { expect(response).to have_http_status(:ok) }
@@ -91,7 +91,7 @@ RSpec.describe Api::V1::EventsController, type: :request do
                        %w[sender recipient group]
     end
 
-    context 'not valid request' do
+    context 'when request params are not valid' do
       let(:endpoint) { "#{base}/wat_event?" }
 
       it { expect(response).to have_http_status(:not_found) }

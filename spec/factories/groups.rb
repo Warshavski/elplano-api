@@ -17,11 +17,8 @@ FactoryBot.define do
   factory :group_params, class: Hash do
     initialize_with do
       {
-        type: 'group',
-        attributes: {
-          title: Faker::Lorem.sentence(3),
-          number: Faker::Number.number(5)
-        }
+        title: Faker::Lorem.sentence(3),
+        number: Faker::Number.number(5)
       }
     end
   end
@@ -29,11 +26,8 @@ FactoryBot.define do
   factory :invalid_group_params, class: Hash do
     initialize_with do
       {
-        type: 'group',
-        attributes: {
-          title: nil,
-          number: nil
-        }
+        title: nil,
+        number: nil
       }
     end
   end

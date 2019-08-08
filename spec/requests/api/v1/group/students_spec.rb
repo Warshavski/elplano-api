@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Api::V1::Group::StudentsController, type: :request do
@@ -18,13 +20,13 @@ RSpec.describe Api::V1::Group::StudentsController, type: :request do
       bulletify { subject }
     end
 
-    context 'authorized user' do
+    context 'when user is authorized user' do
       it { expect(response).to have_http_status(:ok) }
 
       it { expect(json_data.count).to eq(1) }
     end
 
-    context 'anonymous user' do
+    context 'when user is anonymous' do
       let(:headers) { nil }
 
       it { expect(response).to have_http_status(:unauthorized) }
@@ -34,16 +36,14 @@ RSpec.describe Api::V1::Group::StudentsController, type: :request do
   describe 'GET #show' do
     let(:endpoint)  { "#{base}/#{student.id}" }
 
-    context 'anonymous user' do
+    context 'when user is anonymous' do
       let(:headers) { nil }
 
       it { expect(response).to have_http_status(:unauthorized) }
     end
 
-    context 'authorized user' do
-      it 'responds with a 200 status' do
-        expect(response).to have_http_status(:ok)
-      end
+    context 'when user is authorized user' do
+      it { expect(response).to have_http_status(:ok) }
 
       include_examples 'json:api examples',
                        %w[data included],
@@ -52,7 +52,7 @@ RSpec.describe Api::V1::Group::StudentsController, type: :request do
                        %w[user group]
 
 
-      context 'not existed group member' do
+      context 'when user not existed group member' do
         let(:user) { create(:student, :group_member).user }
         let(:endpoint) { "#{base}/0" }
 

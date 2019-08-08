@@ -8,8 +8,7 @@
   "parameters": [
     {
       "scope": [
-        "data",
-        "attributes"
+        "user"
       ],
       "required": true,
       "name": "email",
@@ -23,7 +22,7 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/users/unlock",
-      "request_body": "{\"data\":{\"type\":\"user\",\"attributes\":{\"login\":\"richardemmerich@sawayn.name\"}}}",
+      "request_body": "{\"user\":{\"login\":\"gene@hettinger.info\"}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
@@ -44,13 +43,13 @@
         "Content-Type": "application/json; charset=utf-8",
         "ETag": "W/\"3b72de2c94f438d4b01158d2e0b56e9c\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "e4f1c217-83b5-4303-bec2-0acb9840c2ee",
-        "X-Runtime": "0.002654",
+        "X-Request-Id": "14a8d858-341f-48cc-abd3-161a00da8bfe",
+        "X-Runtime": "0.002104",
         "Vary": "Origin",
         "Content-Length": "129"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/users/unlock\" -d '{\"data\":{\"type\":\"user\",\"attributes\":{\"login\":\"richardemmerich@sawayn.name\"}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/users/unlock\" -d '{\"user\":{\"login\":\"gene@hettinger.info\"}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

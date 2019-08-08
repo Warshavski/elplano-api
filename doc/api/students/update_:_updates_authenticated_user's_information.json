@@ -8,40 +8,35 @@
   "parameters": [
     {
       "scope": [
-        "data",
-        "attributes"
+        "student"
       ],
       "name": "full_name",
       "description": "Full name"
     },
     {
       "scope": [
-        "data",
-        "attributes"
+        "student"
       ],
       "name": "email",
       "description": "Contact email"
     },
     {
       "scope": [
-        "data",
-        "attributes"
+        "student"
       ],
       "name": "phone",
       "description": "Contact phone"
     },
     {
       "scope": [
-        "data",
-        "attributes"
+        "student"
       ],
       "name": "about",
       "description": "Detailed information(BIO)"
     },
     {
       "scope": [
-        "data",
-        "attributes"
+        "student"
       ],
       "name": "social_networks",
       "description": "List of the social networks(twitter, facebook, e.t.c."
@@ -54,11 +49,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/student",
-      "request_body": "{\"data\":{\"type\":\"student\",\"attributes\":{\"email\":\"wat@wat.wat\",\"phone\":\"+8 983 47 89 312\",\"full_name\":\"Sir Wat Name Yeah\",\"social_networks\":{\"twitter\":\"https://twitter.com/watever\",\"facebook\":\"https://facebook.com/watever\"}}}}",
+      "request_body": "{\"student\":{\"email\":\"wat@wat.wat\",\"phone\":\"+8 983 47 89 312\",\"full_name\":\"Sir Wat Name Yeah\",\"social_networks\":{\"twitter\":\"https://twitter.com/watever\",\"facebook\":\"https://facebook.com/watever\"}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 74f31ed25a2c736e9bbd284e882f59bfeb0b8794aeebe8e73088f9793c201bc3",
+        "Authorization": "Bearer 2c43019ff5d62df92aa1b87ad969ea8b49d22db049afb69a38762401f02ddc62",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -67,7 +62,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"46\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Sir Wat Name Yeah\",\n      \"email\": \"wat@wat.wat\",\n      \"phone\": \"+8 983 47 89 312\",\n      \"about\": \"Deleniti quibusdam veniam. Iure natus a. Officiis nam reiciendis. Quia illo non. Omnis nesciunt et.\",\n      \"social_networks\": {\n        \"twitter\": \"https://twitter.com/watever\",\n        \"facebook\": \"https://facebook.com/watever\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-08-08T06:03:51.588Z\",\n      \"updated_at\": \"2019-08-08T06:03:51.600Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"29\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"49\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"46\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Sir Wat Name Yeah\",\n      \"email\": \"wat@wat.wat\",\n      \"phone\": \"+8 983 47 89 312\",\n      \"about\": \"Quae earum sunt. Aliquid debitis culpa. Qui quae atque. Aperiam tempore quia. Mollitia quasi minima.\",\n      \"social_networks\": {\n        \"twitter\": \"https://twitter.com/watever\",\n        \"facebook\": \"https://facebook.com/watever\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-08-08T08:33:26.299Z\",\n      \"updated_at\": \"2019-08-08T08:33:26.313Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"29\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"49\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -76,14 +71,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"004305dcbc108e17b90ea114dfab9857\"",
-        "X-Request-Id": "0aa603f7-ee4a-4a7f-97ad-419c685f660e",
-        "X-Runtime": "0.009590",
+        "ETag": "W/\"c7cdd91e3d84e4dcd24f349e27199d88\"",
+        "X-Request-Id": "5eb3783e-291a-4bb3-9a34-3e6c096b0274",
+        "X-Runtime": "0.010629",
         "Vary": "Origin",
-        "Content-Length": "547"
+        "Content-Length": "548"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/student\" -d '{\"data\":{\"type\":\"student\",\"attributes\":{\"email\":\"wat@wat.wat\",\"phone\":\"+8 983 47 89 312\",\"full_name\":\"Sir Wat Name Yeah\",\"social_networks\":{\"twitter\":\"https://twitter.com/watever\",\"facebook\":\"https://facebook.com/watever\"}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 74f31ed25a2c736e9bbd284e882f59bfeb0b8794aeebe8e73088f9793c201bc3\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/student\" -d '{\"student\":{\"email\":\"wat@wat.wat\",\"phone\":\"+8 983 47 89 312\",\"full_name\":\"Sir Wat Name Yeah\",\"social_networks\":{\"twitter\":\"https://twitter.com/watever\",\"facebook\":\"https://facebook.com/watever\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 2c43019ff5d62df92aa1b87ad969ea8b49d22db049afb69a38762401f02ddc62\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

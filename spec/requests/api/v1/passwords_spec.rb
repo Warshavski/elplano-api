@@ -20,13 +20,10 @@ RSpec.describe Api::V1::PasswordsController, type: :request do
     context 'when all params are valid' do
       let_it_be(:params) do
         {
-          data: {
-            type: 'user',
-            attributes: {
-              current_password: '123456',
-              password: '654321',
-              password_confirmation: '654321'
-            }
+          user: {
+            current_password: '123456',
+            password: '654321',
+            password_confirmation: '654321'
           }
         }
       end
@@ -39,12 +36,9 @@ RSpec.describe Api::V1::PasswordsController, type: :request do
     context 'when password params is blank' do
       let_it_be(:params) do
         {
-          data: {
-            type: 'user',
-            attributes: {
-              current_password: '123456',
-              password_confirmation: '654321'
-            }
+          user: {
+            current_password: '123456',
+            password_confirmation: '654321'
           }
         }
       end
@@ -55,12 +49,9 @@ RSpec.describe Api::V1::PasswordsController, type: :request do
     context 'when current_password is blank' do
       let_it_be(:params) do
         {
-          data: {
-            type: 'user',
-            attributes: {
-              password: '654321',
-              password_confirmation: '654321'
-            }
+          user: {
+            password: '654321',
+            password_confirmation: '654321'
           }
         }
       end
@@ -71,12 +62,9 @@ RSpec.describe Api::V1::PasswordsController, type: :request do
     context 'when password_confirmation is blank' do
       let_it_be(:params) do
         {
-          data: {
-            type: 'user',
-            attributes: {
-              current_password: '123456',
-              password: '654321'
-            }
+          user: {
+            current_password: '123456',
+            password: '654321'
           }
         }
       end
@@ -87,13 +75,10 @@ RSpec.describe Api::V1::PasswordsController, type: :request do
     context 'when current_password is wrong' do
       let_it_be(:params) do
         {
-          data: {
-            type: 'user',
-            attributes: {
-              current_password: '654321',
-              password: '654321',
-              password_confirmation: '654321'
-            }
+          user: {
+            current_password: '654321',
+            password: '654321',
+            password_confirmation: '654321'
           }
         }
       end
@@ -104,13 +89,10 @@ RSpec.describe Api::V1::PasswordsController, type: :request do
     context 'when new password is not valid' do
       let_it_be(:params) do
         {
-          data: {
-            type: 'user',
-            attributes: {
-              current_password: '123456',
-              password: '123',
-              password_confirmation: '654321'
-            }
+          user: {
+            current_password: '123456',
+            password: '123',
+            password_confirmation: '654321'
           }
         }
       end
@@ -121,13 +103,10 @@ RSpec.describe Api::V1::PasswordsController, type: :request do
     context 'when password and password confirmation are not equal' do
       let_it_be(:params) do
         {
-          data: {
-            type: 'user',
-            attributes: {
-              current_password: '123456',
-              password: '654321',
-              password_confirmation: '123456'
-            }
+          user: {
+            current_password: '123456',
+            password: '654321',
+            password_confirmation: '123456'
           }
         }
       end

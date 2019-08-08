@@ -8,8 +8,7 @@
   "parameters": [
     {
       "scope": [
-        "data",
-        "attributes"
+        "course"
       ],
       "required": true,
       "name": "title",
@@ -17,11 +16,10 @@
     },
     {
       "scope": [
-        "data",
-        "attributes"
+        "course"
       ],
-      "name": "lecturers",
-      "description": "Lecturers of the course. Included in \"relationships\" category"
+      "name": "lecturer_ids",
+      "description": "Lecturers of the course."
     }
   ],
   "response_fields": [
@@ -31,11 +29,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group/courses/6",
-      "request_body": "{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Master of Business\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":5,\"type\":\"lecturer\"}]}}}}",
+      "request_body": "{\"course\":{\"title\":\"Associate Degree in Education\",\"lecturer_ids\":[5]}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 60bc95f996a420e2e8691ce35348b8725d136a730c43d153bd089136318036a3",
+        "Authorization": "Bearer e5cebe192b57a3dab02fe7a3bdac3b727464abd93eb41979eabcb4615d238183",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -44,7 +42,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-08T06:03:50.485Z\",\n      \"updated_at\": \"2019-08-08T06:03:50.520Z\",\n      \"title\": \"Master Of Business\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"5\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-08T08:33:25.186Z\",\n      \"updated_at\": \"2019-08-08T08:33:25.219Z\",\n      \"title\": \"Associate Degree In Education\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"5\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -53,14 +51,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"562a30aeb4d1fe96b657a59a575997b4\"",
-        "X-Request-Id": "f9dd26fd-770f-4905-8f1c-34f1fdbd4ebb",
-        "X-Runtime": "0.018604",
+        "ETag": "W/\"0ad3308fb910711a9e87a51052237720\"",
+        "X-Request-Id": "a3bf36e5-e615-4b9d-b85d-bec26508b7e8",
+        "X-Runtime": "0.017402",
         "Vary": "Origin",
-        "Content-Length": "229"
+        "Content-Length": "240"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/courses/6\" -d '{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Master of Business\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":5,\"type\":\"lecturer\"}]}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 60bc95f996a420e2e8691ce35348b8725d136a730c43d153bd089136318036a3\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/courses/6\" -d '{\"course\":{\"title\":\"Associate Degree in Education\",\"lecturer_ids\":[5]}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer e5cebe192b57a3dab02fe7a3bdac3b727464abd93eb41979eabcb4615d238183\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

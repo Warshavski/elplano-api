@@ -66,9 +66,7 @@ module Api
       private
 
       def group_params
-        restify_param(:group)
-          .require(:group)
-          .permit(:title, :number)
+        params.require(:group).permit(:title, :number)
       end
     end
   end

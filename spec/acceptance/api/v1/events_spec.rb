@@ -71,7 +71,7 @@ resource "User's events" do
   end
 
   post 'api/v1/events' do
-    with_options scope: %i[dta attributes] do
+    with_options scope: %i[event] do
       parameter :title, 'Event title(human readable identity)', required: true
       parameter :description, 'Detailed event description'
       # parameter :status, 'Event status', required: true
@@ -79,19 +79,11 @@ resource "User's events" do
       parameter :start_at, 'Event start date', required: true
       parameter :end_at, 'Event end date', required: true
       parameter :timezone, 'Event timezone', required: true
-      parameter :course, 'The course to which the event is attached. Included in "relationships" category'
+      parameter :course_id, 'The course identity to which the event is attached'
     end
 
     let(:raw_post) do
-      course_params = {
-        relationships: {
-          course: {
-            data: { id: course.id, type: 'course' }
-          }
-        }
-      }
-
-      { data: build(:event_params).merge(course_params) }.to_json
+      { event: build(:event_params).merge(course_id: course.id) }.to_json
     end
 
     example 'CREATE : Creates new event' do
@@ -111,7 +103,7 @@ resource "User's events" do
   end
 
   put 'api/v1/events/:id' do
-    with_options scope: %i[data attributes] do
+    with_options scope: %i[event] do
       parameter :title, 'Event title(human readable identity)', required: true
       parameter :description, 'Detailed event description'
       # parameter :status, 'Event status'
@@ -119,19 +111,11 @@ resource "User's events" do
       parameter :start_at, 'Event start date', required: true
       parameter :end_at, 'Event end date', required: true
       parameter :timezone, 'Event timezone', required: true
-      parameter :course, 'The course to which the event is attached. Included in "relationships" category'
+      parameter :course_id, 'The course identity to which the event is attached'
     end
 
     let(:raw_post) do
-      course_params = {
-        relationships: {
-          course: {
-            data: { id: course.id, type: 'course' }
-          }
-        }
-      }
-
-      { data: build(:event_params).merge(course_params) }.to_json
+      { event: build(:event_params).merge(course_id: course.id) }.to_json
     end
 
     example 'UPDATE : Updates selected event information' do
@@ -151,7 +135,7 @@ resource "User's events" do
   delete 'api/v1/events/:id' do
     example 'DELETE : Deletes selected event' do
       explanation <<~DESC
-        Deletes event.
+        Deletes an event.
       DESC
 
       do_request

@@ -7,7 +7,7 @@ resource 'About' do
   header 'Content-Type',  'application/vnd.api+json'
 
   let_it_be(:meta) do
-    build(:admin_setting_params)[:attributes].merge({ app_version: 1, app_revision: 'rev e0f21'})
+    build(:admin_setting_params).merge({ app_version: 1, app_revision: 'rev e0f21'})
   end
 
   before do

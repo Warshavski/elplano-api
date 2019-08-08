@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe Api::V1::StudentsController, type: :request do
@@ -8,20 +10,18 @@ describe Api::V1::StudentsController, type: :request do
   describe 'GET #show' do
     subject { get endpoint, headers: headers }
 
-    context 'anonymous user' do
-      let(:headers) { nil }
+    before(:each) { subject }
 
-      before(:each) { subject }
+    context 'when user is anonymous' do
+      let(:headers) { nil }
 
       it { expect(response).to have_http_status(:unauthorized) }
 
       it { expect(response.body).to eq("{\"errors\":[{\"status\":401,\"title\":\"Authorization error\",\"detail\":\"The access token is invalid\",\"source\":{\"pointer\":\"Authorization Header\"}}]}") }
     end
 
-    context 'authenticated user' do
+    context 'when user is authenticated user' do
       let_it_be(:student) { create(:student, user: user) }
-
-      before(:each) { subject }
 
       it { expect(response).to have_http_status(:ok) }
 
@@ -48,8 +48,8 @@ describe Api::V1::StudentsController, type: :request do
     let_it_be(:student) { create(:student, user: user) }
 
     let(:student_params) { build(:student_params) }
-    let(:request_params) { { data: student_params } }
-    let(:invalid_request_params) { { data: build(:invalid_student_params) } }
+    let(:request_params) { { student: student_params } }
+    let(:invalid_request_params) { { student: build(:invalid_student_params) } }
 
     before(:each) { subject }
 
@@ -65,7 +65,7 @@ describe Api::V1::StudentsController, type: :request do
 
     it 'returns updated student info' do
       actual_attributes = json_data[:attributes]
-      expected_attributes = student_params[:attributes]
+      expected_attributes = student_params
 
 
       expect(actual_attributes['full_name']).to       eq(expected_attributes[:full_name])

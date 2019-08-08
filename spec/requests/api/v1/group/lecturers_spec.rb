@@ -13,8 +13,8 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
 
   let(:lecturer_params)  { build(:lecturer_params) }
 
-  let(:request_params)          { { data: lecturer_params } }
-  let(:invalid_request_params)  { { data: build(:invalid_lecturer_params) } }
+  let(:request_params)          { { lecturer: lecturer_params } }
+  let(:invalid_request_params)  { { lecturer: build(:invalid_lecturer_params) } }
 
   describe 'GET #index' do
     subject { get base_endpoint, headers: headers }
@@ -89,7 +89,7 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
 
       it 'returns created model' do
         actual_title = json_data.dig(:attributes, :first_name)
-        expected_title = lecturer_params.dig(:attributes, :first_name)
+        expected_title = lecturer_params[:first_name]
 
         expect(actual_title).to eq(expected_title)
       end
@@ -104,9 +104,9 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
       let(:request_params) do
         core_params = build(:lecturer_params)
 
-        core_params[:attributes].merge!(avatar: metadata.to_json)
+        core_params.merge!(avatar: metadata.to_json)
 
-        { data: core_params }
+        { lecturer: core_params }
       end
 
       it { expect(response).to have_http_status(:created) }
@@ -115,7 +115,7 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
         let(:request_params) do
           core_params = build(:lecturer_params)
 
-          core_params[:attributes].merge!(
+          core_params.merge!(
             avatar: {
               id: "344f98a5e8c879851116c54e9eb5e610.jpg",
               storage:"cache",
@@ -126,7 +126,8 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
               }
             }.to_json
           )
-          { data: core_params }
+
+          { lecturer: core_params }
         end
 
         it { expect(response).to have_http_status(:bad_request) }
@@ -137,15 +138,7 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
       let_it_be(:course) { create(:course, group: student.group) }
 
       let(:lecturer_params) do
-        course_params = {
-          relationships: {
-            courses: {
-              data: [{ id: course.id, type: 'course' }]
-            }
-          }
-        }
-
-        build(:lecturer_params).merge(course_params)
+        build(:lecturer_params).merge(course_ids: [course.id])
       end
 
       it 'return created lecturer entity with reference to the course' do
@@ -174,7 +167,7 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
 
       it 'updates requested lecturer entity' do
         actual_title = lecturer.reload.first_name
-        expected_title = lecturer_params[:attributes][:first_name].downcase
+        expected_title = lecturer_params[:first_name].downcase
 
         expect(actual_title).to eq(expected_title)
       end
@@ -194,9 +187,9 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
         let(:request_params) do
           core_params = build(:lecturer_params)
 
-          core_params[:attributes].merge!(avatar: metadata.to_json)
+          core_params.merge!(avatar: metadata.to_json)
 
-          { data: core_params }
+          { lecturer: core_params }
         end
 
         it { expect(response).to have_http_status(:ok) }
@@ -205,7 +198,7 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
           let(:request_params) do
             core_params = build(:lecturer_params)
 
-            core_params[:attributes].merge!(
+            core_params.merge!(
               avatar: {
                 id: "344f98a5e8c879851116c54e9eb5e610.jpg",
                 storage:"cache",
@@ -216,7 +209,8 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
                 }
               }.to_json
             )
-            { data: core_params }
+
+            { lecturer: core_params }
           end
 
           it { expect(response).to have_http_status(:bad_request) }
@@ -227,15 +221,7 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
         let_it_be(:course) { create(:course, group: student.group) }
 
         let(:lecturer_params) do
-          course_params = {
-            relationships: {
-              courses: {
-                data: [{ id: course.id, type: 'course' }]
-              }
-            }
-          }
-
-          build(:lecturer_params).merge(course_params)
+          build(:lecturer_params).merge(course_ids: [course.id])
         end
 
         it 'return updated lecturer entity with reference to the course' do

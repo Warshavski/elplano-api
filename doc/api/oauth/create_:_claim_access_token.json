@@ -34,7 +34,7 @@
     {
       "request_method": "POST",
       "request_path": "oauth/token",
-      "request_body": "{\"grant_type\":\"password\",\"login\":\"lolita@haag.org\",\"password\":\"123456\"}",
+      "request_body": "{\"grant_type\":\"password\",\"login\":\"fabian@kiehnadams.co\",\"password\":\"123456\"}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
@@ -46,19 +46,19 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"access_token\": \"d08e29d1ec8a6cb71b72c07981330c5539b8351e72a2a0ad62b889b380f0ebac\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 3600,\n  \"refresh_token\": \"a5882063c66ef6d1c721e7fd1408c25bde8adc0c5bc92e0468ec3f088a05457c\",\n  \"created_at\": 1565244232\n}",
+      "response_body": "{\n  \"access_token\": \"a65dacecb1ca8b8ecef02c3efa2f8a86b6c3b0ecfa5fcb889056e267794c9f39\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 3600,\n  \"refresh_token\": \"c9c4dfe78ec2991feeab4697bac650c2f85bf57f4c680210ce3896ad01619ccb\",\n  \"created_at\": 1565253206\n}",
       "response_headers": {
         "Cache-Control": "private, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"172d68b1555bf90eb29c234600dd24f4\"",
-        "X-Request-Id": "7eb1385a-c447-4e8a-86c8-579b169aac0d",
-        "X-Runtime": "0.017807",
+        "ETag": "W/\"8a7bc32a4070502dce01302f80ebe13b\"",
+        "X-Request-Id": "31889377-f07f-446e-8973-e6e8afe02e92",
+        "X-Runtime": "0.017371",
         "Vary": "Origin",
         "Content-Length": "230"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/oauth/token\" -d '{\"grant_type\":\"password\",\"login\":\"lolita@haag.org\",\"password\":\"123456\"}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/oauth/token\" -d '{\"grant_type\":\"password\",\"login\":\"fabian@kiehnadams.co\",\"password\":\"123456\"}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

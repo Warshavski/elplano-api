@@ -30,7 +30,7 @@ module Api
       private
 
       def student_params
-        restify_param(:student)
+        params
           .require(:student)
           .permit(:full_name, :email, :phone, :about, social_networks: {})
       end

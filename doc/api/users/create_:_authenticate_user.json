@@ -30,7 +30,7 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/users/sign_in",
-      "request_body": "{\"user\":{\"login\":\"maxiedooley@streich.info\",\"password\":\"123456\"}}",
+      "request_body": "{\"user\":{\"login\":\"bryonschmeler@murphy.net\",\"password\":\"123456\"}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
@@ -42,22 +42,22 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"57\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"maxiedooley@streich.info\",\n      \"username\": \"era_hand\",\n      \"admin\": false,\n      \"locale\": null,\n      \"created_at\": \"2019-08-24T16:32:14.923Z\",\n      \"updated_at\": \"2019-08-24T16:32:14.950Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/102b6c86eaa132da38ed9799dde660ec?s=200&d=identicon\",\n      \"confirmed\": true,\n      \"banned\": false,\n      \"locked\": false\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"51\",\n          \"type\": \"student\"\n        }\n      },\n      \"recent_access_token\": {\n        \"data\": {\n          \"id\": \"36\",\n          \"type\": \"access_token\"\n        }\n      }\n    }\n  },\n  \"meta\": {\n    \"message\": \"Signed in successfully.\"\n  },\n  \"included\": [\n    {\n      \"id\": \"36\",\n      \"type\": \"access_token\",\n      \"attributes\": {\n        \"access_token\": \"167eee5a6aa115814cf6aa788a7a9495c224146c241f40175495f30a7a6ee24d\",\n        \"refresh_token\": \"2cfd9a5d347667aac84d399224eb26468c6a936f728000109cb05d5effad1758\",\n        \"token_type\": \"Bearer\",\n        \"expires_in\": 3600,\n        \"created_at\": 1566664334\n      }\n    },\n    {\n      \"id\": \"51\",\n      \"type\": \"student\",\n      \"attributes\": {\n        \"full_name\": \"Miss Nikita Erma Borer\",\n        \"email\": \"josephlarson@mante.name\",\n        \"phone\": \"584-402-3256\",\n        \"about\": \"Maiores totam dolore. Vel deserunt labore. Perspiciatis aut harum. Id beatae nesciunt. Ea sit fugiat.\",\n        \"social_networks\": {\n          \"twitter\": \"http://twitter/verdie_hackett\",\n          \"facebook\": \"http://facebook/kerry\"\n        },\n        \"president\": false,\n        \"created_at\": \"2019-08-24T16:32:14.927Z\",\n        \"updated_at\": \"2019-08-24T16:32:14.927Z\"\n      },\n      \"relationships\": {\n        \"group\": {\n          \"data\": null\n        },\n        \"user\": {\n          \"data\": {\n            \"id\": \"57\",\n            \"type\": \"user\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"59\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"bryonschmeler@murphy.net\",\n      \"username\": \"marion_strosin\",\n      \"admin\": false,\n      \"locale\": null,\n      \"created_at\": \"2019-08-26T12:59:07.100Z\",\n      \"updated_at\": \"2019-08-26T12:59:07.138Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/80045c795c492a686557c08ee1b4bdbb?s=200&d=identicon\",\n      \"confirmed\": true,\n      \"banned\": false,\n      \"locked\": false\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"53\",\n          \"type\": \"student\"\n        }\n      },\n      \"recent_access_token\": {\n        \"data\": {\n          \"id\": \"36\",\n          \"type\": \"access_token\"\n        }\n      }\n    }\n  },\n  \"meta\": {\n    \"message\": \"Signed in successfully.\"\n  },\n  \"included\": [\n    {\n      \"id\": \"36\",\n      \"type\": \"access_token\",\n      \"attributes\": {\n        \"access_token\": \"8127b2296efe21aaca653fdce10e9235f6edb6f60f01b4e6dda811221cebdbd9\",\n        \"refresh_token\": \"4ec7a409d0fa0225368659a82656756d5aa561099d36469772810b143dd051a0\",\n        \"token_type\": \"Bearer\",\n        \"expires_in\": 3600,\n        \"created_at\": 1566824347\n      }\n    },\n    {\n      \"id\": \"53\",\n      \"type\": \"student\",\n      \"attributes\": {\n        \"full_name\": \"Chu Cherelle Metz\",\n        \"email\": \"brittnybaumbach@hintz.io\",\n        \"phone\": \"412-647-4186\",\n        \"about\": \"Et aliquid qui. Officiis natus et. Sapiente veniam sed. Et eveniet quae. Corrupti est voluptates.\",\n        \"social_networks\": {\n          \"twitter\": \"http://twitter/johnathan.heel\",\n          \"facebook\": \"http://facebook/maryln.hansen\"\n        },\n        \"president\": false,\n        \"created_at\": \"2019-08-26T12:59:07.110Z\",\n        \"updated_at\": \"2019-08-26T12:59:07.110Z\"\n      },\n      \"relationships\": {\n        \"group\": {\n          \"data\": null\n        },\n        \"user\": {\n          \"data\": {\n            \"id\": \"59\",\n            \"type\": \"user\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"7ee3af74befd5124a2017be48a9b235a\"",
+        "ETag": "W/\"d1b271867994707df7808580e1f4b3b0\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "d8c9d2e2-6e71-44fe-9230-d4fb784d609d",
-        "X-Runtime": "0.028117",
+        "X-Request-Id": "b945fd7b-ec2f-420a-a67f-565928fe6a85",
+        "X-Runtime": "0.033782",
         "Vary": "Origin",
-        "Content-Length": "1358"
+        "Content-Length": "1364"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/users/sign_in\" -d '{\"user\":{\"login\":\"maxiedooley@streich.info\",\"password\":\"123456\"}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/users/sign_in\" -d '{\"user\":{\"login\":\"bryonschmeler@murphy.net\",\"password\":\"123456\"}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

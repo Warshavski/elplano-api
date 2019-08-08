@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_19_131702) do
+ActiveRecord::Schema.define(version: 2019_08_23_134243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,8 +38,12 @@ ActiveRecord::Schema.define(version: 2019_08_19_131702) do
     t.datetime "updated_at", null: false
     t.string "status", default: "confirmed", null: false
     t.bigint "course_id"
+    t.string "eventable_type", null: false
+    t.bigint "eventable_id", null: false
     t.index ["course_id"], name: "index_events_on_course_id"
     t.index ["creator_id"], name: "index_events_on_creator_id"
+    t.index ["eventable_id", "eventable_type"], name: "index_events_on_eventable_id_and_eventable_type"
+    t.index ["eventable_type", "eventable_id"], name: "index_events_on_eventable_type_and_eventable_id"
   end
 
   create_table "groups", force: :cascade do |t|

@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 51d0fa0ad519e56fef6ac19bb608a9e86e49a763f81b47ae2496e8e2a81a569b",
+        "Authorization": "Bearer 04f9461ba201ceb2922f7a346ff19b464d82f4d91329f70d99a2ba7b463b1a5e",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"59\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"barrie@orn.biz\",\n      \"username\": \"renetta.bode\",\n      \"admin\": false,\n      \"locale\": null,\n      \"created_at\": \"2019-08-24T16:32:15.140Z\",\n      \"updated_at\": \"2019-08-24T16:32:15.140Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/22e2b9ff9f3b9fcdcb89dab3ddba21eb?s=200&d=identicon\",\n      \"confirmed\": true,\n      \"banned\": false,\n      \"locked\": false\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"52\",\n          \"type\": \"student\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"52\",\n      \"type\": \"student\",\n      \"attributes\": {\n        \"full_name\": \"Julianne Reba Wiza\",\n        \"email\": \"marcellusdietrich@hudson.name\",\n        \"phone\": \"201.188.6260\",\n        \"about\": \"Aut delectus doloremque. Non est dolor. Voluptate deleniti consequatur. Et odio sed. In modi aut.\",\n        \"social_networks\": {\n          \"twitter\": \"http://twitter/owen\",\n          \"facebook\": \"http://facebook/murray\"\n        },\n        \"president\": false,\n        \"created_at\": \"2019-08-24T16:32:15.145Z\",\n        \"updated_at\": \"2019-08-24T16:32:15.145Z\"\n      },\n      \"relationships\": {\n        \"group\": {\n          \"data\": null\n        },\n        \"user\": {\n          \"data\": {\n            \"id\": \"59\",\n            \"type\": \"user\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"61\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"lynne@wisokyborer.info\",\n      \"username\": \"bobbie_parisian\",\n      \"admin\": false,\n      \"locale\": null,\n      \"created_at\": \"2019-08-26T12:59:07.332Z\",\n      \"updated_at\": \"2019-08-26T12:59:07.332Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/e0aa80cf99036e1dd0992a79337c9a85?s=200&d=identicon\",\n      \"confirmed\": true,\n      \"banned\": false,\n      \"locked\": false\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"54\",\n          \"type\": \"student\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"54\",\n      \"type\": \"student\",\n      \"attributes\": {\n        \"full_name\": \"Antonio Mina Gutkowski\",\n        \"email\": \"chelseakiehn@upton.net\",\n        \"phone\": \"(189) 528-8975\",\n        \"about\": \"Rerum id earum. Et ipsam delectus. Velit dolores dolorem. Amet tenetur repudiandae. Vero non vel.\",\n        \"social_networks\": {\n          \"twitter\": \"http://twitter/josefine_kiehn\",\n          \"facebook\": \"http://facebook/archie\"\n        },\n        \"president\": false,\n        \"created_at\": \"2019-08-26T12:59:07.345Z\",\n        \"updated_at\": \"2019-08-26T12:59:07.345Z\"\n      },\n      \"relationships\": {\n        \"group\": {\n          \"data\": null\n        },\n        \"user\": {\n          \"data\": {\n            \"id\": \"61\",\n            \"type\": \"user\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"345667d0037b33d0dad9eea84adaef11\"",
-        "X-Request-Id": "9a32ef66-1aa5-4756-b786-03355c1f15a4",
-        "X-Runtime": "0.008593",
+        "ETag": "W/\"91d6ac34d6e25311487b68ee621402b7\"",
+        "X-Request-Id": "b9c86626-1c6b-4af7-82a4-c665a841c993",
+        "X-Runtime": "0.009372",
         "Vary": "Origin",
-        "Content-Length": "953"
+        "Content-Length": "973"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/user\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 51d0fa0ad519e56fef6ac19bb608a9e86e49a763f81b47ae2496e8e2a81a569b\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/user\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 04f9461ba201ceb2922f7a346ff19b464d82f4d91329f70d99a2ba7b463b1a5e\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

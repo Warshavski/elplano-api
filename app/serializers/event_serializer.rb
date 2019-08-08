@@ -17,5 +17,7 @@ class EventSerializer
              serializer: StudentSerializer
 
   belongs_to :course, serializer: CourseSerializer
+
+  belongs_to :eventable, polymorphic: true
 end
 

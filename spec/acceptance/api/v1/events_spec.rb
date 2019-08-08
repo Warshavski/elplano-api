@@ -21,7 +21,7 @@ resource "User's events" do
      - `end_at` - Represents when event ends.
      - `timestamps`
   
-     Also, includes reference to the event creator and attached course.
+     Also, includes references to the event creator, attached course, and for whom the event was created.
   DESC
 
   let(:student) { create(:student, :group_member) }
@@ -31,7 +31,7 @@ resource "User's events" do
   let(:token) { create(:token, resource_owner_id: user.id).token }
   let(:authorization) { "Bearer #{token}" }
 
-  let(:event) { create(:event, title: 'some_new_event', creator: student) }
+  let!(:event) { create(:event, creator: student, eventable: student) }
   let(:id) { event.id }
 
   header 'Accept',        'application/vnd.api+json'
@@ -39,16 +39,16 @@ resource "User's events" do
   header 'Authorization', :authorization
 
   get 'api/v1/events' do
-    let!(:events) { create_list(:event, 1, creator: student) }
-
     example 'INDEX : Retrieve events created by authenticated user' do
       explanation <<~DESC
         Returns a list of the available events.
+
+        See model attributes description in the section description.
       DESC
 
       do_request
 
-      expected_body = EventSerializer.new(events).serialized_json
+      expected_body = EventSerializer.new([event]).serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -59,6 +59,8 @@ resource "User's events" do
     example 'SHOW : Retrieve information about requested event' do
       explanation <<~DESC
         Returns a single instance of the event.
+
+        See model attributes description in the section description.
       DESC
 
       do_request
@@ -80,21 +82,33 @@ resource "User's events" do
       parameter :end_at, 'Event end date', required: true
       parameter :timezone, 'Event timezone', required: true
       parameter :course_id, 'The course identity to which the event is attached'
+      parameter :eventable_type, 'The entity type to which the event is attached(Student, Group)', required: true
+      parameter :eventable_id, 'The entity identity to which the event is attached', required: true
     end
 
     let(:raw_post) do
-      { event: build(:event_params).merge(course_id: course.id) }.to_json
+      {
+        event: build(:event_params).merge(course_id: course.id, eventable_id: student.id)
+      }.to_json
     end
 
     example 'CREATE : Creates new event' do
       explanation <<~DESC
         Creates and returns created event.
+
+        <b>NOTE</b> :
+ 
+          - An authenticated user can create an event for a group or any group member <b>ONLY</b> in the case when the authenticated user is a group owner(group president).
+          - Any authenticated user can create events for himself.
+          - `start_at` should be after or on current date and time and before `end_at` and `end_at` should be after `start_at`
+
+        See model attributes description in the section description.
       DESC
 
       do_request
 
       expected_body = EventSerializer
-                        .new(student.created_events.reload.last)
+                        .new(student.created_events.last)
                         .serialized_json
 
       expect(status).to eq(201)
@@ -112,15 +126,25 @@ resource "User's events" do
       parameter :end_at, 'Event end date', required: true
       parameter :timezone, 'Event timezone', required: true
       parameter :course_id, 'The course identity to which the event is attached'
+      parameter :eventable_type, 'The entity type to which the event is attached(Student, Group)', required: true
+      parameter :eventable_id, 'The entity identity to which the event is attached', required: true
     end
 
     let(:raw_post) do
-      { event: build(:event_params).merge(course_id: course.id) }.to_json
+      {
+        event: build(:event_params).merge(course_id: course.id, eventable_id: student.id)
+      }.to_json
     end
 
     example 'UPDATE : Updates selected event information' do
       explanation <<~DESC
         Updates and returns updated event.
+
+        <b>NOTE</b> : 
+
+          - `start_at` should be after or on current date and time and before `end_at` and `end_at` should be after `start_at`
+
+        See model attributes description in the section description.
       DESC
 
       do_request

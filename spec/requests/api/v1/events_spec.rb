@@ -9,9 +9,12 @@ RSpec.describe Api::V1::EventsController, type: :request do
   let(:resource_endpoint) { "#{base_endpoint}/#{event.id}" }
 
   let_it_be(:student) { create(:student, :group_member, user: user) }
-  let_it_be(:event)   { create(:event, title: 'some_new_event', creator: student) }
 
-  let(:event_params)  { build(:event_params) }
+  let_it_be(:event) do
+    create(:event, title: 'some_new_event', creator: student, eventable: student)
+  end
+
+  let(:event_params)  { build(:event_params).merge(eventable_id: student.id) }
 
   let(:request_params) { { event: event_params } }
   let(:invalid_request_params) { { event: build(:invalid_event_params) } }
@@ -19,7 +22,9 @@ RSpec.describe Api::V1::EventsController, type: :request do
   describe 'GET #index' do
     subject { get base_endpoint, headers: headers }
 
-    let_it_be(:events) { create_list(:event, 2, creator: student) }
+    let_it_be(:events) do
+      create_list(:event, 2, creator: student, eventable: student)
+    end
 
     context 'N+1' do
       bulletify { subject }
@@ -47,7 +52,7 @@ RSpec.describe Api::V1::EventsController, type: :request do
                      %w[data],
                      %w[id type attributes relationships],
                      %w[title description status start_at end_at timezone recurrence created_at updated_at],
-                     %w[creator course]
+                     %w[creator course eventable]
 
     it 'returns correct expected data' do
       actual_title = json_data.dig(:attributes, :title)
@@ -76,7 +81,7 @@ RSpec.describe Api::V1::EventsController, type: :request do
                      %w[data],
                      %w[id type attributes relationships],
                      %w[title description status start_at end_at timezone recurrence created_at updated_at],
-                     %w[creator course]
+                     %w[creator course eventable]
 
     it 'returns created model' do
       actual_title = json_data.dig(:attributes, :title)
@@ -91,10 +96,10 @@ RSpec.describe Api::V1::EventsController, type: :request do
       let_it_be(:course) { create(:course, group: student.group) }
 
       let(:event_params) do
-        build(:event_params).merge(course_id: course.id)
+        build(:event_params).merge(course_id: course.id, eventable_id: student.id)
       end
 
-      it 'return created model with bound course' do
+      it 'returns created model with bound course' do
         actual_course_id = relationship_data(:course)[:id].to_i
 
         expect(actual_course_id).to eq(course.id)
@@ -122,7 +127,7 @@ RSpec.describe Api::V1::EventsController, type: :request do
                      %w[data],
                      %w[id type attributes relationships],
                      %w[title description status start_at end_at timezone recurrence created_at updated_at],
-                     %w[creator course]
+                     %w[creator course eventable]
 
     include_examples 'request errors examples'
 

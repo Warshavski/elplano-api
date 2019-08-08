@@ -18,6 +18,19 @@ es:
         invalid_markup: 'contiene código HTML no válido: %{error}'
       timezone:
         not_exist: 'no existe'
+      invalid_date: 'no es una fecha válida'
+      invalid_time: 'no es un tiempo valido'
+      invalid_datetime: 'no es una fecha y hora válida'
+      is_at: 'debe estar en %{restriction}'
+      before: 'debe ser antes %{restriction}'
+      on_or_before: 'debe estar en o antes %{restriction}'
+      after: 'debe ser después %{restriction}'
+      on_or_after: 'debe estar encendido o después %{restriction}'
+    validates_timeliness:
+      error_value_formats:
+        date: '%Y-%m-%d'
+        time: '%H:%M:%S'
+        datetime: '%Y-%m-%d %H:%M:%S'
   notifications:
     email:
       invite:
@@ -29,3 +42,9 @@ es:
   uploaders:
     errors:
       too_large: 'es demasiado largo (max es %{size} MB)'
+
+  activerecord:
+    attributes:
+      event:
+        start_at: 'Empieza en'
+        end_at: 'Termina en'

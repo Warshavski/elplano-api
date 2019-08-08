@@ -73,11 +73,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group/lecturers/10",
-      "request_body": "{\"lecturer\":{\"first_name\":\"Dalton\",\"last_name\":\"Dibbert\",\"patronymic\":\"Miss\",\"phone\":\"893.769.0498\",\"email\":\"elijahmertz@predovicdamore.co\",\"active\":true,\"course_ids\":[12],\"avatar\":\"{\\\"id\\\":\\\"97ea76536c4a0f58d0cd01a5a2ded871.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"}}",
+      "request_body": "{\"lecturer\":{\"first_name\":\"Oleta\",\"last_name\":\"Marvin\",\"patronymic\":\"Dr.\",\"phone\":\"324-868-4961\",\"email\":\"glen@abbott.com\",\"active\":true,\"course_ids\":[12],\"avatar\":\"{\\\"id\\\":\\\"c98bbc93e39464971be84b169f8fe72e.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer d2416109a00c6b81ed328b3d97dbbc75e145c97f830571d18481ec968ecbe01c",
+        "Authorization": "Bearer 6de751b88b8b19f082db72320a246978fd6c5bc8ed73fd28f10948f8e6a925dd",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -86,7 +86,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"10\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"email\": \"elijahmertz@predovicdamore.co\",\n      \"phone\": \"893.769.0498\",\n      \"active\": true,\n      \"created_at\": \"2019-08-24T16:32:14.042Z\",\n      \"updated_at\": \"2019-08-24T16:32:14.077Z\",\n      \"first_name\": \"Dalton\",\n      \"last_name\": \"Dibbert\",\n      \"patronymic\": \"Miss\",\n      \"avatar\": \"memory://97ea76536c4a0f58d0cd01a5a2ded871.png\"\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"12\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"10\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"email\": \"glen@abbott.com\",\n      \"phone\": \"324-868-4961\",\n      \"active\": true,\n      \"created_at\": \"2019-08-26T12:59:06.025Z\",\n      \"updated_at\": \"2019-08-26T12:59:06.079Z\",\n      \"first_name\": \"Oleta\",\n      \"last_name\": \"Marvin\",\n      \"patronymic\": \"Dr.\",\n      \"avatar\": \"memory://c98bbc93e39464971be84b169f8fe72e.png\"\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"12\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -95,14 +95,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"9cbd89334a18fd739fa31c734dd72d8e\"",
-        "X-Request-Id": "b05c3d54-0402-43f0-82e1-8c2fe9e539ff",
-        "X-Runtime": "0.019005",
+        "ETag": "W/\"cf05dfe7fd66b0c070907f67a0592f9e\"",
+        "X-Request-Id": "28692431-d928-4d33-869e-467d3f8ba2ab",
+        "X-Runtime": "0.027192",
         "Vary": "Origin",
-        "Content-Length": "398"
+        "Content-Length": "381"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/lecturers/10\" -d '{\"lecturer\":{\"first_name\":\"Dalton\",\"last_name\":\"Dibbert\",\"patronymic\":\"Miss\",\"phone\":\"893.769.0498\",\"email\":\"elijahmertz@predovicdamore.co\",\"active\":true,\"course_ids\":[12],\"avatar\":\"{\\\"id\\\":\\\"97ea76536c4a0f58d0cd01a5a2ded871.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer d2416109a00c6b81ed328b3d97dbbc75e145c97f830571d18481ec968ecbe01c\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/lecturers/10\" -d '{\"lecturer\":{\"first_name\":\"Oleta\",\"last_name\":\"Marvin\",\"patronymic\":\"Dr.\",\"phone\":\"324-868-4961\",\"email\":\"glen@abbott.com\",\"active\":true,\"course_ids\":[12],\"avatar\":\"{\\\"id\\\":\\\"c98bbc93e39464971be84b169f8fe72e.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 6de751b88b8b19f082db72320a246978fd6c5bc8ed73fd28f10948f8e6a925dd\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

@@ -9,6 +9,14 @@ RSpec.describe Student, type: :model do
     it { should belong_to(:group).optional }
 
     it do
+      should have_many(:classmates)
+         .class_name('Student')
+         .through(:group)
+         .source(:students)
+         .inverse_of(:group)
+    end
+
+    it do
       should have_one(:supervised_group)
         .class_name('Group')
         .with_foreign_key(:president_id)
@@ -34,6 +42,8 @@ RSpec.describe Student, type: :model do
         .with_foreign_key(:recipient_id)
         .dependent(:destroy)
     end
+
+    it { should have_many(:events).dependent(:destroy) }
   end
 
   describe 'validations' do

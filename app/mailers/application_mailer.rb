@@ -13,15 +13,15 @@ class ApplicationMailer < ActionMailer::Base
   private
 
   def default_sender_address
-    address = Mail::Address.new(core_config['email_from'])
-    address.display_name = core_config['email_display_name']
-    address
+    Mail::Address.new(core_config['email_from']).tap do |address|
+      address.display_name = core_config['email_display_name']
+    end
   end
 
   def default_reply_to_address
-    address = Mail::Address.new(core_config['email_reply_to'])
-    address.display_name = core_config['email_display_name']
-    address
+    Mail::Address.new(core_config['email_reply_to']).tap do |address|
+      address.display_name = core_config['email_display_name']
+    end
   end
 
   def core_config

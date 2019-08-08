@@ -31,11 +31,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group/courses",
-      "request_body": "{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Master of Architectural Technology\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":3,\"type\":\"lecturer\"}]}}}}",
+      "request_body": "{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Associate Degree in Criminology\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":3,\"type\":\"lecturer\"}]}}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 3d761a49f00e2c54801440ce9427c9b9dbe0425b117b099d96f12bfdebc5eb67",
+        "Authorization": "Bearer d18541e4e097771322a26f5a3398c03d5df526fa0bc7f9d91a92e3a344cee168",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -44,7 +44,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-07T13:10:50.849Z\",\n      \"updated_at\": \"2019-08-07T13:10:50.849Z\",\n      \"title\": \"Master Of Architectural Technology\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"3\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-08T06:03:50.456Z\",\n      \"updated_at\": \"2019-08-08T06:03:50.456Z\",\n      \"title\": \"Associate Degree In Criminology\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"3\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -53,14 +53,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"fe2452de9a66a524bf1ad66012c260d6\"",
-        "X-Request-Id": "4998e58d-4592-4724-96f9-589e824d5a80",
-        "X-Runtime": "0.030575",
+        "ETag": "W/\"36b3196850a3e25c62d01b2828b0cb73\"",
+        "X-Request-Id": "ab04f29b-6820-4698-a829-878e9cf79199",
+        "X-Runtime": "0.020498",
         "Vary": "Origin",
-        "Content-Length": "245"
+        "Content-Length": "242"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/courses\" -d '{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Master of Architectural Technology\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":3,\"type\":\"lecturer\"}]}}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 3d761a49f00e2c54801440ce9427c9b9dbe0425b117b099d96f12bfdebc5eb67\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/courses\" -d '{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Associate Degree in Criminology\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":3,\"type\":\"lecturer\"}]}}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer d18541e4e097771322a26f5a3398c03d5df526fa0bc7f9d91a92e3a344cee168\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

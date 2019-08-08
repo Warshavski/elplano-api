@@ -31,11 +31,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group/courses/6",
-      "request_body": "{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Master of Creative Arts\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":5,\"type\":\"lecturer\"}]}}}}",
+      "request_body": "{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Master of Business\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":5,\"type\":\"lecturer\"}]}}}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer d45988c05ced2b9ce33e7ddcd0d95432c5a25647b592ae33f43dcad244210bc7",
+        "Authorization": "Bearer 60bc95f996a420e2e8691ce35348b8725d136a730c43d153bd089136318036a3",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -44,7 +44,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-07T13:10:50.882Z\",\n      \"updated_at\": \"2019-08-07T13:10:50.924Z\",\n      \"title\": \"Master Of Creative Arts\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"5\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-08T06:03:50.485Z\",\n      \"updated_at\": \"2019-08-08T06:03:50.520Z\",\n      \"title\": \"Master Of Business\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"5\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -53,14 +53,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"2b7b79e5c138fa2395bb6f75efa87059\"",
-        "X-Request-Id": "ae2a12c0-5df6-4d17-9117-c64d17457c97",
-        "X-Runtime": "0.024441",
+        "ETag": "W/\"562a30aeb4d1fe96b657a59a575997b4\"",
+        "X-Request-Id": "f9dd26fd-770f-4905-8f1c-34f1fdbd4ebb",
+        "X-Runtime": "0.018604",
         "Vary": "Origin",
-        "Content-Length": "234"
+        "Content-Length": "229"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/courses/6\" -d '{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Master of Creative Arts\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":5,\"type\":\"lecturer\"}]}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer d45988c05ced2b9ce33e7ddcd0d95432c5a25647b592ae33f43dcad244210bc7\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/courses/6\" -d '{\"data\":{\"type\":\"course\",\"attributes\":{\"title\":\"Master of Business\"},\"relationships\":{\"lecturers\":{\"data\":[{\"id\":5,\"type\":\"lecturer\"}]}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 60bc95f996a420e2e8691ce35348b8725d136a730c43d153bd089136318036a3\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

@@ -18,12 +18,9 @@ FactoryBot.define do
   factory :lecturer_params, class: Hash do
     initialize_with do
       {
-        type: 'lecturer',
-        attributes: {
-          first_name: Faker::Name.first_name,
-          last_name: Faker::Name.last_name,
-          patronymic: Faker::Name.prefix
-        }
+        first_name: Faker::Name.first_name,
+        last_name: Faker::Name.last_name,
+        patronymic: Faker::Name.prefix
       }
     end
   end
@@ -31,12 +28,9 @@ FactoryBot.define do
   factory :invalid_lecturer_params, class: Hash do
     initialize_with do
       {
-        type: 'lecturer',
-        attributes: {
-          first_name: nil,
-          last_name: "",
-          patronymic: Faker::Lorem.sentence(20)
-        }
+        first_name: nil,
+        last_name: "",
+        patronymic: Faker::Lorem.sentence(20)
       }
     end
   end

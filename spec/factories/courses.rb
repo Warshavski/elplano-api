@@ -16,10 +16,7 @@ FactoryBot.define do
   factory :course_params, class: Hash do
     initialize_with do
       {
-        type: 'course',
-        attributes: {
-          title: Faker::Educator.course,
-        }
+        title: Faker::Educator.course
       }
     end
   end
@@ -27,10 +24,7 @@ FactoryBot.define do
   factory :invalid_course_params, class: Hash do
     initialize_with do
       {
-        type: 'course',
-        attributes: {
-          title: nil
-        }
+        title: nil
       }
     end
   end

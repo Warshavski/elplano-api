@@ -31,9 +31,7 @@ module Api
         end
 
         def settings_params
-          restify_param(:admin_settings)
-            .require(:admin_settings)
-            .permit(*AdminSetting::ATTRIBUTES)
+          params.require(:admin_settings).permit(*AdminSetting::ATTRIBUTES)
         end
       end
     end

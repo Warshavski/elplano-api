@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe Api::V1::Users::PasswordsController do
   let_it_be(:user) { create(:user, :reset_password) }
 
-  describe '#new' do
+  describe 'GET #new' do
     it 'responds with unauthorized' do
       get('/api/v1/users/password/new')
 
@@ -11,7 +13,7 @@ describe Api::V1::Users::PasswordsController do
     end
   end
 
-  describe '#edit' do
+  describe 'GET #edit' do
     it 'responds with unauthorized' do
       get('/api/v1/users/password/edit?reset_password_token=abcdef')
 
@@ -19,20 +21,17 @@ describe Api::V1::Users::PasswordsController do
     end
   end
 
-  describe '#update' do
+  describe 'PATCH #update' do
     let(:endpoint) { '/api/v1/users/password' }
 
-    before(:each) { patch endpoint, params: { data: user_params } }
+    before(:each) { patch endpoint, params: { user: user_params } }
 
-    context 'valid params' do
+    context 'when request params are valid' do
       let(:user_params) do
         {
-          type: 'User',
-          attributes: {
-            password: '123456',
-            password_confirmation: '123456',
-            reset_password_token: 'token'
-          }
+          password: '123456',
+          password_confirmation: '123456',
+          reset_password_token: 'token'
         }
       end
 
@@ -45,14 +44,11 @@ describe Api::V1::Users::PasswordsController do
                        %w[student]
     end
 
-    context 'invalid params' do
+    context 'when request params are not valid' do
       let(:user_params) do
         {
-          type: 'User',
-          attributes: {
-            pasword: '123',
-            pasword_confirmation: nil
-          }
+          pasword: '123',
+          pasword_confirmation: nil
         }
       end
 
@@ -67,19 +63,12 @@ describe Api::V1::Users::PasswordsController do
     end
   end
 
-  describe '#create' do
-    let(:user_params) do
-      {
-        type: 'User',
-        attributes: {
-          login: user.email
-        }
-      }
-    end
+  describe 'POST #create' do
+    let(:user_params) { { login: user.email } }
 
     let(:paranoid) { true }
 
-    subject { post '/api/v1/users/password', params: { data: user_params }  }
+    subject { post '/api/v1/users/password', params: { user: user_params }  }
 
     before do
       allow(Devise).to receive(:paranoid).and_return(paranoid)
@@ -87,13 +76,13 @@ describe Api::V1::Users::PasswordsController do
 
     before(:each) { subject }
 
-    context 'valid params' do
+    context 'when request params are valid' do
       it { expect(response).to have_http_status(:ok) }
 
       it { expect(body_as_json.keys).to match_array(['meta'])}
     end
 
-    context 'empty params' do
+    context 'when request params are empty' do
       let(:user_params) { nil }
 
       it { expect(response).to have_http_status(:bad_request) }
@@ -106,16 +95,16 @@ describe Api::V1::Users::PasswordsController do
       end
     end
 
-    context 'invalid params' do
+    context 'when request params are not valid' do
       let(:user_params) { build(:invalid_user_params) }
 
-      context 'paranoid mode on' do
+      context 'when paranoid mode is on' do
         let(:paranoid) { true }
 
         it { expect(response).to have_http_status(:ok) }
       end
 
-      context 'paranoid mode off' do
+      context 'when paranoid mode is off' do
         let(:paranoid) { false }
 
         it { expect(response).to have_http_status(:unprocessable_entity) }

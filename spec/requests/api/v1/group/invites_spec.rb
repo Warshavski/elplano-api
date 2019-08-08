@@ -14,8 +14,8 @@ RSpec.describe Api::V1::Group::InvitesController, type: :request do
 
   let(:invite_params) { build(:invite_params) }
 
-  let(:request_params)          { { data: invite_params } }
-  let(:invalid_request_params)  { { data: build(:invalid_invite_params) } }
+  let(:request_params)          { { invite: invite_params } }
+  let(:invalid_request_params)  { { invite: build(:invalid_invite_params) } }
 
   describe 'GET #index' do
     subject { get endpoint, headers: headers }
@@ -26,7 +26,7 @@ RSpec.describe Api::V1::Group::InvitesController, type: :request do
       bulletify { subject }
     end
 
-    context 'authorized' do
+    context 'when user is authorized' do
       before(:each) { subject }
 
       it {  expect(response).to have_http_status(:ok) }
@@ -34,7 +34,7 @@ RSpec.describe Api::V1::Group::InvitesController, type: :request do
       it { expect(json_data.count).to be(1) }
     end
 
-    context 'unauthorized' do
+    context 'when user is unauthorized' do
       before { group.update!(president: create(:student, :president)) }
 
       it 'responds with 403 status code' do
@@ -50,10 +50,10 @@ RSpec.describe Api::V1::Group::InvitesController, type: :request do
 
     let(:endpoint) { "#{base}/#{invite.id}" }
 
-    context 'authorized' do
+    context 'when user is authorized' do
       before(:each) { subject }
 
-      context 'valid request' do
+      context 'when request params are valid' do
         it { expect(response).to have_http_status(:ok) }
 
         it { expect(json_data['type']).to eq('invite') }
@@ -72,7 +72,7 @@ RSpec.describe Api::V1::Group::InvitesController, type: :request do
         end
       end
 
-      context 'not valid request' do
+      context 'when request params are not valid' do
         let(:endpoint) { "#{base}/0" }
 
         it { expect(response).to have_http_status(:not_found) }
@@ -81,7 +81,7 @@ RSpec.describe Api::V1::Group::InvitesController, type: :request do
       end
     end
 
-    context 'unauthorized' do
+    context 'when user is unauthorized' do
       before { group.update!(president: create(:student, :president)) }
 
       it 'responds with 403 status code' do
@@ -97,7 +97,7 @@ RSpec.describe Api::V1::Group::InvitesController, type: :request do
 
     let(:endpoint) { base }
 
-    context 'authorized' do
+    context 'when user is authorized' do
       before(:each) { subject }
 
       it { expect(response).to have_http_status(:created) }
@@ -112,7 +112,7 @@ RSpec.describe Api::V1::Group::InvitesController, type: :request do
 
       it 'returns created model' do
         actual_title = json_data.dig(:attributes, :email)
-        expected_title = invite_params[:attributes][:email]
+        expected_title = invite_params[:email]
 
         expect(actual_title).to eq(expected_title)
       end
@@ -120,7 +120,7 @@ RSpec.describe Api::V1::Group::InvitesController, type: :request do
       include_examples 'request errors examples'
     end
 
-    context 'unauthorized' do
+    context 'when user is unauthorized' do
       before { group.update!(president: create(:student, :president)) }
 
       it 'responds with 403 status code' do

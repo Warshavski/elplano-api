@@ -13,8 +13,8 @@ RSpec.describe Api::V1::Group::CoursesController, type: :request do
 
   let(:course_params) { build(:course_params) }
 
-  let(:request_params)          { { data: course_params } }
-  let(:invalid_request_params)  { { data: build(:invalid_course_params) } }
+  let(:request_params)          { { course: course_params } }
+  let(:invalid_request_params)  { { course: build(:invalid_course_params) } }
 
   describe 'GET #index' do
     subject { get base_endpoint, headers: headers }
@@ -87,7 +87,7 @@ RSpec.describe Api::V1::Group::CoursesController, type: :request do
 
       it 'returns created course entity' do
         actual_title = json_data.dig(:attributes, :title).downcase
-        expected_title = course_params.dig(:attributes, :title).downcase
+        expected_title = course_params[:title].downcase
 
         expect(actual_title).to eq(expected_title)
       end
@@ -96,18 +96,10 @@ RSpec.describe Api::V1::Group::CoursesController, type: :request do
         let_it_be(:lecturer) { create(:lecturer, group: student.group) }
 
         let(:course_params) do
-          lecturer_params = {
-            relationships: {
-              lecturers: {
-                data: [{ id: lecturer.id, type: 'lecturer' }]
-              }
-            }
-          }
-
-          build(:course_params).merge(lecturer_params)
+          build(:course_params).merge(lecturer_ids: [lecturer.id])
         end
 
-        it 'return created course entity with bound lecturer' do
+        it 'returns created course entity with bound lecturer' do
           actual_lecturer_ids = relationship_data(:lecturers).map { |l| l[:id].to_i }
 
           expect(actual_lecturer_ids).to include(lecturer.id)
@@ -134,7 +126,7 @@ RSpec.describe Api::V1::Group::CoursesController, type: :request do
 
       it 'updates a course model' do
         actual_title = course.reload.title
-        expected_title = course_params.dig(:attributes, :title).downcase
+        expected_title = course_params[:title].downcase
 
         expect(actual_title).to eq(expected_title)
       end
@@ -151,15 +143,7 @@ RSpec.describe Api::V1::Group::CoursesController, type: :request do
         let_it_be(:lecturer) { create(:lecturer, group: student.group) }
 
         let(:course_params) do
-          lecturer_params = {
-            relationships: {
-              lecturers: {
-                data: [{ id: lecturer.id, type: 'lecturer' }]
-              }
-            }
-          }
-
-          build(:course_params).merge(lecturer_params)
+          build(:course_params).merge(lecturer_ids: [lecturer.id])
         end
 
         it 'return created model with bound lecturer' do

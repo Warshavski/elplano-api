@@ -9,19 +9,12 @@ resource 'Users' do
   header 'Content-Type', 'application/vnd.api+json'
 
   post 'api/v1/users/password' do
-    with_options scope: %i[data attributes] do
+    with_options scope: %i[user] do
       parameter :login, 'Unique email that used to identify user in application or username.', required: true
     end
 
     let(:raw_post) do
-      {
-        data: {
-          type: 'user',
-          attributes: {
-            login: user.email
-          }
-        }
-      }.to_json
+      { user: { login: user.email } }.to_json
     end
 
     example 'CREATE : Send reset password instructions' do
@@ -43,7 +36,7 @@ resource 'Users' do
   end
 
   patch 'api/v1/users/password' do
-    with_options scope: %i[data attributes] do
+    with_options scope: %i[user] do
       parameter :password, 'Password that the user uses to log in', required: true
       parameter :password_confirmation, 'Password duplicate. Used to prevent typos when entering a password', required: true
       parameter :reset_password_token, 'Unique token from email', required: true
@@ -51,13 +44,10 @@ resource 'Users' do
 
     let(:raw_post) do
       {
-        data: {
-          type: 'user',
-          attributes: {
-            password: 'aA@123456',
-            password_confirmation: 'aA@123456',
-            reset_password_token: 'token'
-          }
+        user: {
+          password: 'aA@123456',
+          password_confirmation: 'aA@123456',
+          reset_password_token: 'token'
         }
       }.to_json
     end

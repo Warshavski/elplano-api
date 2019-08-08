@@ -45,12 +45,12 @@ resource "User's group" do
   post 'api/v1/group' do
     let_it_be(:student) { create(:student) }
 
-    with_options scope: %i[dta attributes] do
+    with_options scope: %i[group] do
       parameter :title, 'Human readable identity)', required: true
       parameter :number, 'Main group identity', required: true
     end
 
-    let(:raw_post) { { data: build(:group_params) }.to_json }
+    let(:raw_post) { { group: build(:group_params) }.to_json }
 
     example 'CREATE : Creates new group' do
       explanation <<~DESC
@@ -71,12 +71,12 @@ resource "User's group" do
   end
 
   put 'api/v1/group' do
-    with_options scope: %i[data attributes] do
+    with_options scope: %i[group] do
       parameter :title, 'Human readable identity)', required: true
       parameter :number, 'Main group identity', required: true
     end
 
-    let(:raw_post) { { data: build(:group_params) }.to_json }
+    let(:raw_post) { { group: build(:group_params) }.to_json }
 
     example 'UPDATE : Updates group information' do
       explanation <<~DESC
@@ -99,7 +99,7 @@ resource "User's group" do
   delete 'api/v1/group' do
     example "DELETE : Deletes user's group" do
       explanation <<~DESC
-        Deletes group.
+        Deletes a group.
 
         <b>NOTE</b> : This action allowed only for group owner user.
       DESC

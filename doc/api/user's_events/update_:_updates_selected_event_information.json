@@ -8,8 +8,7 @@
   "parameters": [
     {
       "scope": [
-        "data",
-        "attributes"
+        "event"
       ],
       "required": true,
       "name": "title",
@@ -17,24 +16,21 @@
     },
     {
       "scope": [
-        "data",
-        "attributes"
+        "event"
       ],
       "name": "description",
       "description": "Detailed event description"
     },
     {
       "scope": [
-        "data",
-        "attributes"
+        "event"
       ],
       "name": "recurrence",
       "description": "Recurrence rules if an event is recurrent"
     },
     {
       "scope": [
-        "data",
-        "attributes"
+        "event"
       ],
       "required": true,
       "name": "start_at",
@@ -42,8 +38,7 @@
     },
     {
       "scope": [
-        "data",
-        "attributes"
+        "event"
       ],
       "required": true,
       "name": "end_at",
@@ -51,8 +46,7 @@
     },
     {
       "scope": [
-        "data",
-        "attributes"
+        "event"
       ],
       "required": true,
       "name": "timezone",
@@ -60,11 +54,10 @@
     },
     {
       "scope": [
-        "data",
-        "attributes"
+        "event"
       ],
-      "name": "course",
-      "description": "The course to which the event is attached. Included in \"relationships\" category"
+      "name": "course_id",
+      "description": "The course identity to which the event is attached"
     }
   ],
   "response_fields": [
@@ -74,11 +67,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/events/4",
-      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Veritatis et laboriosam.\",\"description\":\"Totam ex animi. Vero voluptas impedit. Asperiores distinctio soluta. Corrupti animi esse. Rem qui aperiam.\",\"status\":\"cancelled\",\"start_at\":\"2019-08-07\",\"end_at\":\"2019-08-09\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":2,\"type\":\"course\"}}}}}",
+      "request_body": "{\"event\":{\"title\":\"Occaecati nostrum rem.\",\"description\":\"Fugiat est repellat. Ex perspiciatis doloremque. Ullam sit id. Voluptatibus architecto quaerat. Veritatis minima commodi.\",\"status\":\"cancelled\",\"start_at\":\"2019-08-07\",\"end_at\":\"2019-08-09\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"],\"course_id\":2}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer adb7f5ade009db2a4b42b0abe0b87fd5f45f64aa5a699f5371eaccebdf6f3437",
+        "Authorization": "Bearer 488fb17d0b75ffdf8404dc29276978d947d1cf7614858ee3f74cfa30cb14da38",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -87,7 +80,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"4\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Veritatis et laboriosam.\",\n      \"description\": \"Totam ex animi. Vero voluptas impedit. Asperiores distinctio soluta. Corrupti animi esse. Rem qui aperiam.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-08-07T00:00:00.000Z\",\n      \"end_at\": \"2019-08-09T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-08-08T06:03:50.218Z\",\n      \"updated_at\": \"2019-08-08T06:03:50.237Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"8\",\n          \"type\": \"student\"\n        }\n      },\n      \"course\": {\n        \"data\": {\n          \"id\": \"2\",\n          \"type\": \"course\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"4\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Occaecati nostrum rem.\",\n      \"description\": \"Fugiat est repellat. Ex perspiciatis doloremque. Ullam sit id. Voluptatibus architecto quaerat. Veritatis minima commodi.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-08-07T00:00:00.000Z\",\n      \"end_at\": \"2019-08-09T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-08-08T08:33:24.916Z\",\n      \"updated_at\": \"2019-08-08T08:33:24.933Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"8\",\n          \"type\": \"student\"\n        }\n      },\n      \"course\": {\n        \"data\": {\n          \"id\": \"2\",\n          \"type\": \"course\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -96,14 +89,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"990fae93dea1a60029f25ca62fe3e636\"",
-        "X-Request-Id": "f98c5b14-f16e-4592-b828-8248b36ee5cc",
-        "X-Runtime": "0.011753",
+        "ETag": "W/\"a032ffd1f12313f3264fbe9ae681a82b\"",
+        "X-Request-Id": "fc44877b-4019-4292-8bd7-c06283b80d80",
+        "X-Runtime": "0.010138",
         "Vary": "Origin",
-        "Content-Length": "642"
+        "Content-Length": "655"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/events/4\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Veritatis et laboriosam.\",\"description\":\"Totam ex animi. Vero voluptas impedit. Asperiores distinctio soluta. Corrupti animi esse. Rem qui aperiam.\",\"status\":\"cancelled\",\"start_at\":\"2019-08-07\",\"end_at\":\"2019-08-09\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":2,\"type\":\"course\"}}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer adb7f5ade009db2a4b42b0abe0b87fd5f45f64aa5a699f5371eaccebdf6f3437\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/events/4\" -d '{\"event\":{\"title\":\"Occaecati nostrum rem.\",\"description\":\"Fugiat est repellat. Ex perspiciatis doloremque. Ullam sit id. Voluptatibus architecto quaerat. Veritatis minima commodi.\",\"status\":\"cancelled\",\"start_at\":\"2019-08-07\",\"end_at\":\"2019-08-09\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"],\"course_id\":2}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 488fb17d0b75ffdf8404dc29276978d947d1cf7614858ee3f74cfa30cb14da38\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

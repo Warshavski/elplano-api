@@ -7,14 +7,14 @@ resource 'Users' do
   header 'Content-Type',  'application/vnd.api+json'
 
   post 'api/v1/users' do
-    with_options scope: %i[data attributes] do
+    with_options scope: %i[user] do
       parameter :username, 'Used as user name.', required: true
       parameter :email, 'Unique email that used to identify user in application', required: true
       parameter :password, 'Password that the user uses to log in', required: true
       parameter :password_confirmation, 'Password duplicate. Used to prevent typos when entering a password', required: true
     end
 
-    let(:raw_post) { { data: build(:user_params) }.to_json }
+    let(:raw_post) { { user: build(:user_params) }.to_json }
 
     example 'CREATE : Register new user' do
       explanation <<~DESC

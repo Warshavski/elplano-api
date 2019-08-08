@@ -91,7 +91,7 @@ module Api
         end
 
         def lecturer_params
-          restify_param(:lecturer)
+          params
             .require(:lecturer)
             .permit(:first_name, :last_name, :patronymic, :avatar, course_ids: [])
         end

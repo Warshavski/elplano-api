@@ -48,7 +48,7 @@ resource 'Students' do
   end
 
   put 'api/v1/student' do
-    with_options scope: %i[data attributes] do
+    with_options scope: %i[student] do
       parameter :full_name, 'Full name'
       parameter :email, 'Contact email'
       parameter :phone, 'Contact phone'
@@ -56,7 +56,7 @@ resource 'Students' do
       parameter :social_networks, 'List of the social networks(twitter, facebook, e.t.c.'
     end
 
-    let(:raw_post) { { data: build(:student_params) }.to_json }
+    let(:raw_post) { { student: build(:student_params) }.to_json }
 
     example "UPDATE : Updates authenticated user's information" do
       explanation <<~DESC
@@ -65,9 +65,7 @@ resource 'Students' do
 
       do_request
 
-      expected_body = StudentSerializer
-                        .new(student.reload)
-                        .serialized_json
+      expected_body = StudentSerializer.new(student.reload).serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe Api::V1::Users::UnlocksController do
   let_it_be(:user) { create(:user, locked_at: Time.now, unlock_token: 'wat') }
 
-  describe '#new' do
+  describe 'GET #new' do
     it 'responds with not found' do
       get('/api/v1/users/unlock/new')
 
@@ -11,10 +13,10 @@ describe Api::V1::Users::UnlocksController do
     end
   end
 
-  describe '#show' do
+  describe 'GET #show' do
     let(:unlock_url) { '/api/v1/users/unlock?unlock_token' }
 
-    context 'valid token' do
+    context 'when token is valid' do
       before { allow_any_instance_of(described_class).to receive(:unlock_access).and_return(user) }
 
       before(:each) { get "#{unlock_url}=#{user.unlock_token}" }
@@ -24,7 +26,7 @@ describe Api::V1::Users::UnlocksController do
       it { expect(body_as_json.keys).to match_array(['meta'])}
     end
 
-    context 'invalid token' do
+    context 'when token is not valid' do
       before(:each) { get "#{unlock_url}=so" }
 
       it { expect(response).to have_http_status(:unprocessable_entity) }
@@ -38,28 +40,21 @@ describe Api::V1::Users::UnlocksController do
     end
   end
 
-  describe '#create' do
-    let(:user_params) do
-      {
-        type: 'User',
-        attributes: {
-          email: user.email
-        }
-      }
-    end
+  describe 'POST #create' do
+    let(:user_params) { { email: user.email } }
 
-    context 'valid params' do
-      before(:each) { post '/api/v1/users/unlock', params: { data: user_params } }
+    context 'when request params is valid' do
+      before(:each) { post '/api/v1/users/unlock', params: { user: user_params } }
 
       it { expect(response).to have_http_status(:ok) }
 
       it { expect(body_as_json.keys).to match_array(['meta'])}
     end
 
-    context 'invalid params' do
+    context 'when request params are not valid' do
       before { allow_any_instance_of(described_class).to receive(:successfully_sent?).and_return(false) }
 
-      context 'bad request' do
+      context 'when request params are not provided' do
         before(:each) { post '/api/v1/users/unlock' }
 
         it { expect(response).to have_http_status(:bad_request) }
@@ -72,8 +67,8 @@ describe Api::V1::Users::UnlocksController do
         end
       end
 
-      context 'unprocessable entity' do
-        before(:each) { post '/api/v1/users/unlock', params: { data: user_params } }
+      context 'when not valid params are provided' do
+        before(:each) { post '/api/v1/users/unlock', params: { user: user_params } }
 
         it { expect(response).to have_http_status(:unprocessable_entity) }
       end

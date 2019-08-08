@@ -67,7 +67,7 @@ module Api
         end
 
         def resource_params
-          restify_param(:user)
+          params
             .require(:user)
             .permit(:login, :password, :password_confirmation, :reset_password_token)
         end

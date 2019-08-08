@@ -5,17 +5,17 @@ require 'rails_helper'
 RSpec.describe Api::V1::GroupsController, type: :request do
   include_context 'shared setup'
 
-  let(:group_url) { '/api/v1/group' }
+  let(:group_endpoint) { '/api/v1/group' }
 
   let(:group_params) { build(:group_params) }
 
-  let(:request_params) { { data: group_params } }
-  let(:invalid_request_params) { { data: build(:invalid_group_params) } }
+  let(:request_params) { { group: group_params } }
+  let(:invalid_request_params) { { group: build(:invalid_group_params) } }
 
   describe 'GET #show' do
     let_it_be(:student) { create(:student, :group_member, user: user) }
 
-    before(:each) { get group_url, headers: headers }
+    before(:each) { get group_endpoint, headers: headers }
 
     it { expect(response).to have_http_status(:ok) }
 
@@ -29,39 +29,29 @@ RSpec.describe Api::V1::GroupsController, type: :request do
   end
 
   describe 'POST #create' do
-    subject { post group_url, params: request_params, headers: headers }
+    subject { post group_endpoint, params: request_params, headers: headers }
 
-    context 'student with group' do
-      context 'simple group member' do
+    before(:each) { subject }
+
+    context 'when student already in the group' do
+      context 'when student is a regular group member' do
         let_it_be(:student) { create(:student, :group_member, user: user) }
 
-        before(:each) { subject }
-
-        it 'responds with 403 - forbidden' do
-          expect(response).to have_http_status(:forbidden)
-        end
+        it { expect(response).to have_http_status(:forbidden) }
       end
 
-      context 'group owner' do
+      context 'when student is a group owner' do
         let_it_be(:student) { create(:student, :group_supervisor, user: user) }
 
-        before(:each) { subject }
-
-        it 'responds with 403 - forbidden' do
-          expect(response).to have_http_status(:forbidden)
-        end
+        it { expect(response).to have_http_status(:forbidden) }
       end
     end
 
-    context 'student with no group' do
+    context 'when student have no group' do
       let_it_be(:student) { create(:student, user: user) }
 
-      before(:each) { subject }
-
-      context 'valid params' do
-        it 'responds with a 201 status' do
-          expect(response).to have_http_status(:created)
-        end
+      context 'when request params are valid' do
+        it {  expect(response).to have_http_status(:created) }
 
         include_examples 'json:api examples',
                          %w[data],
@@ -75,28 +65,24 @@ RSpec.describe Api::V1::GroupsController, type: :request do
   end
 
   describe 'PUT #update' do
-    subject { put group_url, params: request_params, headers: headers }
+    subject { put group_endpoint, params: request_params, headers: headers }
 
-    context 'simple group owner' do
+    before(:each) { subject }
+
+    context 'when student is a regular group member' do
       let_it_be(:student) { create(:student, :group_member, user: user) }
 
-      before(:each) { subject }
-
       it { expect(response).to have_http_status(:forbidden) }
     end
 
-    context 'student with no group' do
+    context 'when student have no group' do
       let_it_be(:student) { create(:student, user: user) }
 
-      before(:each) { subject }
-
       it { expect(response).to have_http_status(:forbidden) }
     end
 
-    context 'group owner' do
+    context 'when student is a group owner' do
       let_it_be(:student) { create(:student, :group_supervisor, user: user) }
-
-      before(:each) { subject }
 
       it { expect(response).to have_http_status(:ok) }
 
@@ -110,7 +96,7 @@ RSpec.describe Api::V1::GroupsController, type: :request do
 
       it 'updates a supervised group information' do
         actual_group_title = student.supervised_group.reload.title
-        expected_group_title = group_params[:attributes][:title]
+        expected_group_title = group_params[:title]
 
         expect(actual_group_title).to eq(expected_group_title)
       end
@@ -123,13 +109,13 @@ RSpec.describe Api::V1::GroupsController, type: :request do
     let_it_be(:student) { create(:student, :group_supervisor, user: user) }
 
     it 'responds with a 204 status' do
-      delete group_url, headers: headers
+      delete group_endpoint, headers: headers
 
       expect(response).to have_http_status(:no_content)
     end
 
-    it 'deletes group' do
-      expect { delete group_url, headers: headers }.to change(Group, :count).by(-1)
+    it 'deletes a group' do
+      expect { delete group_endpoint, headers: headers }.to change(Group, :count).by(-1)
     end
   end
 end

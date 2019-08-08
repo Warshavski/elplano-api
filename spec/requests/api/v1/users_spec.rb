@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe Api::V1::UsersController, type: :request do
@@ -8,7 +10,7 @@ describe Api::V1::UsersController, type: :request do
 
     before(:each) { subject }
 
-    context 'anonymous user' do
+    context 'when user is anonymous' do
       let(:headers) { nil }
 
       it { expect(response).to have_http_status(:unauthorized) }
@@ -16,7 +18,7 @@ describe Api::V1::UsersController, type: :request do
       it { expect(response.body).to eq("{\"errors\":[{\"status\":401,\"title\":\"Authorization error\",\"detail\":\"The access token is invalid\",\"source\":{\"pointer\":\"Authorization Header\"}}]}") }
     end
 
-    context 'authenticated user' do
+    context 'when user is authenticated user' do
       it { expect(response).to have_http_status(:ok) }
 
       it { expect(json_data['type']).to eq('user') }

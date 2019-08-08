@@ -27,19 +27,14 @@ resource "User's password" do
   let(:authorization) { "Bearer #{token.token}" }
 
   put 'api/v1/password' do
-    with_options scope: %i[data attributes] do
+    with_options scope: %i[user] do
       parameter :current_password, 'Current password', required: true
       parameter :password, 'New password', required: true
       parameter :password_confirmation, 'New password confirmation', required: true
     end
 
     let(:raw_post) do
-      {
-        data: {
-          type: 'user',
-          attributes: password_params
-        }
-      }.to_json
+      { user: password_params }.to_json
     end
 
     example "UPDATE : Updates user's password" do

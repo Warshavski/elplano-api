@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe Api::V1::Users::RegistrationsController do
-
-  describe '#cancel' do
+  describe 'GET #cancel' do
     it 'responds with not found' do
       get('/api/v1/users/cancel')
 
@@ -10,7 +11,7 @@ describe Api::V1::Users::RegistrationsController do
     end
   end
 
-  describe '#new' do
+  describe 'GET #new' do
     it 'responds with not found' do
       get('/api/v1/users/sign_up')
 
@@ -18,7 +19,7 @@ describe Api::V1::Users::RegistrationsController do
     end
   end
 
-  describe '#edit' do
+  describe 'GET #edit' do
     it 'responds with unauthorized' do
       get('/api/v1/users/edit')
 
@@ -26,7 +27,7 @@ describe Api::V1::Users::RegistrationsController do
     end
   end
 
-  describe '#update' do
+  describe 'PUT #update' do
     it 'responds with unauthorized' do
       put('/api/v1/users')
 
@@ -34,7 +35,7 @@ describe Api::V1::Users::RegistrationsController do
     end
   end
 
-  describe '#destroy' do
+  describe 'DELETE #destroy' do
     it 'responds with unauthorized' do
       delete('/api/v1/users')
 
@@ -42,12 +43,12 @@ describe Api::V1::Users::RegistrationsController do
     end
   end
 
-  describe '#create' do
+  describe 'POST #create' do
     let(:user_params) { build(:user_params) }
 
-    before(:each) { post '/api/v1/users', params: { data: user_params } }
+    before(:each) { post '/api/v1/users', params: { user: user_params } }
 
-    context 'valid params' do
+    context 'when request params are valid' do
       include_examples 'json:api examples',
                        %w[data meta],
                        %w[id type attributes relationships],
@@ -55,21 +56,20 @@ describe Api::V1::Users::RegistrationsController do
                        %w[student]
 
       it 'returns registered user' do
-        actual_username = body_as_json[:data][:attributes][:username]
-        expected_username = user_params[:attributes][:username]
+        actual_username = json_data.dig(:attributes, :username)
+        expected_username = user_params[:username]
 
         expect(actual_username).to eq(expected_username)
       end
 
       it 'returns unconfirmed user' do
-        confirmation_flag = body_as_json[:data][:attributes][:confirmed]
+        confirmation_flag = json_data.dig(:attributes, :confirmed)
 
         expect(confirmation_flag).to be false
       end
 
-
       it 'returns non admin user' do
-        admin_flag = body_as_json[:data][:attributes][:admin]
+        admin_flag = json_data.dig(:attributes, :admin)
 
         expect(admin_flag).to be false
       end
@@ -88,13 +88,13 @@ describe Api::V1::Users::RegistrationsController do
       # end
     end
 
-    context 'invalid params' do
+    context 'when request params are invalid' do
       let(:user_params) { build(:invalid_user_params) }
 
       it { expect(response).to have_http_status(:unprocessable_entity) }
     end
 
-    context 'empty params' do
+    context 'when request params are empty' do
       let(:user_params) { nil }
 
       it { expect(response).to have_http_status(:bad_request) }

@@ -32,19 +32,12 @@ resource 'Users' do
   end
 
   post 'api/v1/users/confirmation' do
-    with_options scope: %i[data attributes] do
-      parameter :email, 'Unique email that used to identify user in application', required: true
+    with_options scope: %i[user] do
+      parameter :login, 'Unique email that used to identify user in application', required: true
     end
 
     let(:raw_post) do
-      {
-        data: {
-          type: 'user',
-          attributes: {
-            login: user.email
-          }
-        }
-      }.to_json
+      { user: { login: user.email } }.to_json
     end
 
     example 'CREATE : Send confirmation instructions' do

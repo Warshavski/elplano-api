@@ -26,7 +26,7 @@ resource 'Admin settings' do
   header 'Authorization', :authorization
 
   put 'api/v1/admin/settings' do
-    with_options scope: %i[data attributes] do
+    with_options scope: %i[admin_settings] do
       parameter :app_contact_username, "Contact person's name", required: true
       parameter :app_contact_email, "Contact person's email", required: true
       parameter :app_title, 'Application title'
@@ -37,7 +37,7 @@ resource 'Admin settings' do
     end
 
     let(:raw_post) do
-      { data: build(:admin_setting_params) }.to_json
+      { admin_settings: build(:admin_setting_params) }.to_json
     end
 
     example 'UPDATE : Updates application settings' do

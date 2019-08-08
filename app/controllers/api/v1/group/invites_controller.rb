@@ -50,9 +50,7 @@ module Api
         end
 
         def invite_params
-          restify_param(:invite)
-            .require(:invite)
-            .permit(:email)
+          params.require(:invite).permit(:email)
         end
       end
     end

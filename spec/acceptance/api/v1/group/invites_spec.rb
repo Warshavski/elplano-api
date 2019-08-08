@@ -74,7 +74,7 @@ resource "Group's Invites" do
       parameter :email, 'Email where invite should be send', required: true
     end
 
-    let(:raw_post) { { data: build(:invite_params) }.to_json }
+    let(:raw_post) { { invite: build(:invite_params) }.to_json }
 
     example 'CREATE : Create new invite' do
       explanation <<~DESC

@@ -8,8 +8,7 @@
   "parameters": [
     {
       "scope": [
-        "dta",
-        "attributes"
+        "event"
       ],
       "required": true,
       "name": "title",
@@ -17,24 +16,21 @@
     },
     {
       "scope": [
-        "dta",
-        "attributes"
+        "event"
       ],
       "name": "description",
       "description": "Detailed event description"
     },
     {
       "scope": [
-        "dta",
-        "attributes"
+        "event"
       ],
       "name": "recurrence",
       "description": "Recurrence rules if an event is recurrent"
     },
     {
       "scope": [
-        "dta",
-        "attributes"
+        "event"
       ],
       "required": true,
       "name": "start_at",
@@ -42,8 +38,7 @@
     },
     {
       "scope": [
-        "dta",
-        "attributes"
+        "event"
       ],
       "required": true,
       "name": "end_at",
@@ -51,8 +46,7 @@
     },
     {
       "scope": [
-        "dta",
-        "attributes"
+        "event"
       ],
       "required": true,
       "name": "timezone",
@@ -60,11 +54,10 @@
     },
     {
       "scope": [
-        "dta",
-        "attributes"
+        "event"
       ],
-      "name": "course",
-      "description": "The course to which the event is attached. Included in \"relationships\" category"
+      "name": "course_id",
+      "description": "The course identity to which the event is attached"
     }
   ],
   "response_fields": [
@@ -74,11 +67,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/events",
-      "request_body": "{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Deleniti id illo.\",\"description\":\"In sed eum. Dolores tempore nam. Tenetur est in. Quisquam repellat quod. Voluptates provident cupiditate.\",\"status\":\"cancelled\",\"start_at\":\"2019-08-07\",\"end_at\":\"2019-08-09\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":1,\"type\":\"course\"}}}}}",
+      "request_body": "{\"event\":{\"title\":\"Aut magnam sit.\",\"description\":\"Aut voluptatem aspernatur. Recusandae dicta veritatis. Qui ut ad. Molestiae quia repellat. Laudantium totam et.\",\"status\":\"cancelled\",\"start_at\":\"2019-08-07\",\"end_at\":\"2019-08-09\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"],\"course_id\":1}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 9d98ac43c06030248860c1e0cdb9e5274a42df4b78b59d632675a3ad19f94954",
+        "Authorization": "Bearer d85efbd1ad4eaef08bc0607e68a34efd50f924008150de9e5027b05a88a6f696",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -87,7 +80,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Deleniti id illo.\",\n      \"description\": \"In sed eum. Dolores tempore nam. Tenetur est in. Quisquam repellat quod. Voluptates provident cupiditate.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-08-07T00:00:00.000Z\",\n      \"end_at\": \"2019-08-09T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-08-08T06:03:50.174Z\",\n      \"updated_at\": \"2019-08-08T06:03:50.174Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"6\",\n          \"type\": \"student\"\n        }\n      },\n      \"course\": {\n        \"data\": {\n          \"id\": \"1\",\n          \"type\": \"course\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Aut magnam sit.\",\n      \"description\": \"Aut voluptatem aspernatur. Recusandae dicta veritatis. Qui ut ad. Molestiae quia repellat. Laudantium totam et.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-08-07T00:00:00.000Z\",\n      \"end_at\": \"2019-08-09T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-08-08T08:33:24.886Z\",\n      \"updated_at\": \"2019-08-08T08:33:24.886Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"6\",\n          \"type\": \"student\"\n        }\n      },\n      \"course\": {\n        \"data\": {\n          \"id\": \"1\",\n          \"type\": \"course\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -96,14 +89,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"9b8f8a2b9066ba42dede8ad33e194e1e\"",
-        "X-Request-Id": "d4dceb57-1550-463b-8d9d-8bc8924fcd3a",
-        "X-Runtime": "0.011365",
+        "ETag": "W/\"06a358172dfc44620290223876be59f3\"",
+        "X-Request-Id": "b62e8b74-b8a4-423e-8fa9-3ecaac32333b",
+        "X-Runtime": "0.010421",
         "Vary": "Origin",
-        "Content-Length": "634"
+        "Content-Length": "638"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/events\" -d '{\"data\":{\"type\":\"event\",\"attributes\":{\"title\":\"Deleniti id illo.\",\"description\":\"In sed eum. Dolores tempore nam. Tenetur est in. Quisquam repellat quod. Voluptates provident cupiditate.\",\"status\":\"cancelled\",\"start_at\":\"2019-08-07\",\"end_at\":\"2019-08-09\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"]},\"relationships\":{\"course\":{\"data\":{\"id\":1,\"type\":\"course\"}}}}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 9d98ac43c06030248860c1e0cdb9e5274a42df4b78b59d632675a3ad19f94954\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/events\" -d '{\"event\":{\"title\":\"Aut magnam sit.\",\"description\":\"Aut voluptatem aspernatur. Recusandae dicta veritatis. Qui ut ad. Molestiae quia repellat. Laudantium totam et.\",\"status\":\"cancelled\",\"start_at\":\"2019-08-07\",\"end_at\":\"2019-08-09\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"],\"course_id\":1}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer d85efbd1ad4eaef08bc0607e68a34efd50f924008150de9e5027b05a88a6f696\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

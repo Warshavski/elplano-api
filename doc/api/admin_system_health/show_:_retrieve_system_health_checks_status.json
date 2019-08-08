@@ -23,7 +23,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer eb1b227f6c9fcccc8d5a4287d78d6c3a0289b03220509673693f5fe467989ce7",
+        "Authorization": "Bearer 02c884f60beaee8d492bc02fe32f2cd85ba70c7b856b1d75df66cae948bbe658",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -43,13 +43,13 @@
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
         "ETag": "W/\"af2b85fc020969e69b3b975d4c2796d4\"",
-        "X-Request-Id": "a58358bd-a5a7-41f1-8ecc-1905bbceca94",
-        "X-Runtime": "0.017593",
+        "X-Request-Id": "35193864-93c7-493d-8bb5-e2d7133db795",
+        "X-Runtime": "0.020840",
         "Vary": "Origin",
         "Content-Length": "244"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/admin/system/health?type=liveness\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer eb1b227f6c9fcccc8d5a4287d78d6c3a0289b03220509673693f5fe467989ce7\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/admin/system/health?type=liveness\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 02c884f60beaee8d492bc02fe32f2cd85ba70c7b856b1d75df66cae948bbe658\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

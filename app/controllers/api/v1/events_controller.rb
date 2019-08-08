@@ -72,7 +72,7 @@ module Api
       end
 
       def event_params
-        restify_param(:event)
+        params
           .require(:event)
           .permit(
             :title, :description, :status,

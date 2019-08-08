@@ -43,7 +43,7 @@ module DeviseJsonApi
     private
 
     def resource_params
-      restify_param(:user).require(:user).permit(:email)
+      params.require(:user).permit(:email)
     end
   end
 end

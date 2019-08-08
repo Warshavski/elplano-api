@@ -8,8 +8,7 @@
   "parameters": [
     {
       "scope": [
-        "data",
-        "attributes"
+        "group"
       ],
       "required": true,
       "name": "title",
@@ -17,8 +16,7 @@
     },
     {
       "scope": [
-        "data",
-        "attributes"
+        "group"
       ],
       "required": true,
       "name": "number",
@@ -32,11 +30,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group",
-      "request_body": "{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Alias ad aut.\",\"number\":\"92608\"}}}",
+      "request_body": "{\"group\":{\"title\":\"Sit occaecati modi.\",\"number\":\"18942\"}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 5aaa2869b335e561d4d0c6e6e0afe13c7a8c8af6fea601b37938f85ccae3e041",
+        "Authorization": "Bearer 65d41106ac0bb8d352686cb7d58a32231d9e4a42724aa0d715b6a9677bc0154a",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -45,7 +43,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"23\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"92608\",\n      \"title\": \"Alias ad aut.\",\n      \"created_at\": \"2019-08-08T06:03:51.258Z\",\n      \"updated_at\": \"2019-08-08T06:03:51.274Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"32\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"23\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"18942\",\n      \"title\": \"Sit occaecati modi.\",\n      \"created_at\": \"2019-08-08T08:33:25.946Z\",\n      \"updated_at\": \"2019-08-08T08:33:25.963Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"32\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -54,14 +52,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"a2ca1c55fa9db8e5a3df9def1e8a28dd\"",
-        "X-Request-Id": "b4bca778-1b2e-4ac3-92f5-3185ea75202f",
-        "X-Runtime": "0.013070",
+        "ETag": "W/\"f8bb7fb232f89680d228480d8586b8ee\"",
+        "X-Request-Id": "0041cbfb-90f8-4415-8251-f42d0defd250",
+        "X-Runtime": "0.014205",
         "Vary": "Origin",
-        "Content-Length": "240"
+        "Content-Length": "246"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"data\":{\"type\":\"group\",\"attributes\":{\"title\":\"Alias ad aut.\",\"number\":\"92608\"}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 5aaa2869b335e561d4d0c6e6e0afe13c7a8c8af6fea601b37938f85ccae3e041\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"group\":{\"title\":\"Sit occaecati modi.\",\"number\":\"18942\"}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 65d41106ac0bb8d352686cb7d58a32231d9e4a42724aa0d715b6a9677bc0154a\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

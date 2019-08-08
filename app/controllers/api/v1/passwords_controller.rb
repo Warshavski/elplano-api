@@ -28,7 +28,7 @@ module Api
       end
 
       def password_params
-        restify_param(:user)
+        params
           .require(:user)
           .permit(:current_password, :password, :password_confirmation)
       end

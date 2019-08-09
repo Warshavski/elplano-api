@@ -7,7 +7,8 @@ module Api
     #   Authenticated user password management
     #
     class PasswordsController < ApplicationController
-      before_action :validate_params!, only: :update
+      required_params! :current_password, :password, :password_confirmation,
+                       only: :update, scope: :user
 
       # PATCH/PUT api/v1/password
       #
@@ -20,12 +21,6 @@ module Api
       end
 
       private
-
-      def validate_params!
-        %i[current_password password password_confirmation].each do |key|
-          raise ActionController::ParameterMissing, key if password_params[key].blank?
-        end
-      end
 
       def password_params
         params

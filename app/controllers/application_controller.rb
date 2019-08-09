@@ -7,6 +7,8 @@
 class ApplicationController < ActionController::API
   include ActionPolicy::Controller
 
+  include ParamsRequirable
+
   include Handlers::Exception
   include Handlers::Response
 

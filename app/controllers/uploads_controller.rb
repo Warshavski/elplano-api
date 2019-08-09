@@ -7,7 +7,8 @@
 class UploadsController < ApplicationController
   skip_before_action :check_request_format
 
-  before_action :validate_params!
+  required_params! :file, :type,
+                   only: :create, scope: :upload
 
   # POST : uploads
   #
@@ -32,14 +33,6 @@ class UploadsController < ApplicationController
   end
 
   private
-
-  def validate_params!
-    upload_params.each do |key, value|
-      next if value.present?
-
-      raise ActionController::ParameterMissing, key
-    end
-  end
 
   def upload_params
     params.require(:upload).permit(:file, :type)

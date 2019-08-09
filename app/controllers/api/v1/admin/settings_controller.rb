@@ -8,7 +8,7 @@ module Api
       #   Application settings management
       #     (admin configurable application settings)
       #
-      class SettingsController < ApplicationController
+      class SettingsController < Admin::ApplicationController
 
         # PATCH/PUT : api/v1/admin/settings
         #

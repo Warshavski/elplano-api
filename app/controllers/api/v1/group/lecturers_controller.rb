@@ -20,7 +20,7 @@ module Api
       #     - delete particular lecturer
       #
       class LecturersController < ApplicationController
-        before_action :authorize!, only: %i[create update destroy]
+        authorize_with! Groups::LecturerPolicy, except: %i[index show]
 
         set_default_serializer LecturerSerializer
 

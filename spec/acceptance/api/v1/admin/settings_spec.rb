@@ -17,7 +17,7 @@ resource 'Admin settings' do
      - `app_terms` - Represents application terms of use(HTML).
   DESC
 
-  let(:user)  { create(:user) }
+  let(:user)  { create(:admin) }
   let(:token) { create(:token, resource_owner_id: user.id).token }
   let(:authorization) { "Bearer #{token}" }
 

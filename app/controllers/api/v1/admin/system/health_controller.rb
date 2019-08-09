@@ -8,7 +8,7 @@ module Api
         #
         #   Used to administrate system health status
         #
-        class HealthController < ApplicationController
+        class HealthController < Admin::ApplicationController
           # GET : api/v1/admin/system/health?type=
           #
           #   query parameters :

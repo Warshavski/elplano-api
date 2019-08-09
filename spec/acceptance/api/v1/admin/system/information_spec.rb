@@ -19,7 +19,7 @@ resource 'Admin system information' do
        - `mount_path` - Path of the mounted disk.
   DESC
 
-  let(:user)  { create(:user) }
+  let(:user)  { create(:admin) }
   let(:token) { create(:token, resource_owner_id: user.id).token }
   let(:authorization) { "Bearer #{token}" }
 

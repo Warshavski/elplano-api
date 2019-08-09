@@ -16,7 +16,7 @@ resource 'Admin system health' do
       - `labels`
   DESC
 
-  let(:user)  { create(:user) }
+  let(:user)  { create(:admin) }
   let(:token) { create(:token, resource_owner_id: user.id).token }
   let(:authorization) { "Bearer #{token}" }
 

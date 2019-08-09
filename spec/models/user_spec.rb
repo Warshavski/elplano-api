@@ -2,38 +2,34 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'associations' do
-    it { should have_one(:student) }
+    it do
+      should have_many(:access_grants)
+               .class_name('Doorkeeper::AccessGrant')
+               .with_foreign_key(:resource_owner_id)
+               .dependent(:delete_all)
+    end
+
+    it do
+      should have_many(:access_tokens)
+               .class_name('Doorkeeper::AccessToken')
+               .with_foreign_key(:resource_owner_id)
+               .dependent(:delete_all)
+    end
+
+    it do
+      should have_one(:recent_access_token)
+               .class_name('Doorkeeper::AccessToken')
+               .dependent(:delete)
+               .order(id: :desc)
+    end
+
+    it { should have_one(:student).dependent(:destroy) }
   end
 
   describe 'validations' do
     it { should validate_presence_of(:username) }
 
     it { should validate_uniqueness_of(:username) }
-  end
-
-  describe 'associations' do
-    it do
-      should have_many(:access_grants)
-        .class_name('Doorkeeper::AccessGrant')
-        .with_foreign_key(:resource_owner_id)
-        .dependent(:delete_all)
-    end
-
-    it do
-      should have_many(:access_tokens)
-        .class_name('Doorkeeper::AccessToken')
-        .with_foreign_key(:resource_owner_id)
-        .dependent(:delete_all)
-    end
-
-    it do
-      should have_one(:recent_access_token)
-        .class_name('Doorkeeper::AccessToken')
-        .dependent(:delete)
-        .order(id: :desc)
-    end
-
-    it { should have_one(:student).dependent(:destroy) }
   end
 
   describe 'user creation' do
@@ -218,6 +214,21 @@ RSpec.describe User, type: :model do
 
         expect(described_class.where_not_in([user2.id])).to eq([user1])
       end
+    end
+  end
+
+  context 'user availability' do
+    let_it_be(:user) { build_stubbed(:user, banned_at: '2019-08-09') }
+    describe '#banned?' do
+      subject { user.banned? }
+
+      it { is_expected.to be(true) }
+    end
+
+    describe '#active?' do
+      subject { user.active? }
+
+      it { is_expected.to be(false) }
     end
   end
 end

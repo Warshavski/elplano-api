@@ -20,7 +20,7 @@ module Api
       #     - delete particular course
       #
       class CoursesController < ApplicationController
-        before_action :authorize!, only: %i[create update destroy]
+        authorize_with! Groups::CoursePolicy, except: %i[index show]
 
         set_default_serializer CourseSerializer
 

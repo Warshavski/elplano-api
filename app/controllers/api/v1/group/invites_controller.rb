@@ -8,7 +8,7 @@ module Api
       #   Used to control group members invitations
       #
       class InvitesController < ApplicationController
-        before_action :authorize!
+        authorize_with! Groups::InvitePolicy
 
         set_default_serializer InviteSerializer
 

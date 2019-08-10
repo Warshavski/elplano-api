@@ -9,7 +9,7 @@ module Api
         #   Used to administrate system resources usage
         #     (get information about CPU, RAM and DISK)
         #
-        class InformationController < ApplicationController
+        class InformationController < Admin::ApplicationController
           # GET : api/v1/admin/systems
           #
           # Get usage information about CPU, RAM, and DISK

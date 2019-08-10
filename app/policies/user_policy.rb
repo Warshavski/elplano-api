@@ -2,9 +2,9 @@
 
 # UserPolicy
 #
-#   Authorization policy for all users
+#   A basic authorization policy for all users
 #
-class UserPolicy < ActionPolicy::Base
+class UserPolicy < ApplicationPolicy
   authorize :user
 
   # default rule for non matched methods
@@ -16,6 +16,6 @@ class UserPolicy < ActionPolicy::Base
   alias_rule :index?, :show?, :create?, :update?, :destroy?, to: :manage?
 
   def manage?
-    !record.banned?
+    user.active?
   end
 end

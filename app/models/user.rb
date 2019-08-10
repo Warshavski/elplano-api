@@ -111,6 +111,10 @@ class User < ApplicationRecord
     banned_at != nil
   end
 
+  def active?
+    !banned?
+  end
+
   #
   # Devise method overridden to allow send emails in background
   #

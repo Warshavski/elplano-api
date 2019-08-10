@@ -5,8 +5,7 @@
 #   Used as base controller
 #
 class ApplicationController < ActionController::API
-  include ActionPolicy::Controller
-
+  include Authorizable
   include ParamsRequirable
 
   include Handlers::Exception
@@ -91,7 +90,7 @@ class ApplicationController < ActionController::API
     #  otherwise, doorkeeper would render an error
     #
     if doorkeeper_authorize!.nil?
-      authorize!(current_user)
+      authorize! current_user, with: UserPolicy
     end
   end
 

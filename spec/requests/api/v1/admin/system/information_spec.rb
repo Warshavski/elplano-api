@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::Admin::System::InformationController, type: :request do
-  include_context 'shared setup'
+  include_context 'shared setup', :admin
 
   let_it_be(:endpoint) { '/api/v1/admin/system/information' }
 

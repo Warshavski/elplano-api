@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 387e52d7d70d0977f9e49a85d7b3e34b2e22718201765c47ff3ebf078e138ae6",
+        "Authorization": "Bearer 967b19424798ea7a3d0e3ba4cea769f497309acaecd1a1c5561262d32221e3a2",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"34\",\n      \"type\": \"student\",\n      \"attributes\": {\n        \"full_name\": \"Bernie Adalberto Balistreri IV\",\n        \"email\": \"deonbruen@erdman.info\",\n        \"phone\": \"1-338-524-9931\",\n        \"about\": \"Ab quidem assumenda. Velit voluptas voluptates. Est alias voluptas. Sed tempora voluptas. Illum dolores sunt.\",\n        \"social_networks\": {\n          \"twitter\": \"http://twitter/raleigh.murray\",\n          \"facebook\": \"http://facebook/ashanti.dooley\"\n        },\n        \"president\": false,\n        \"created_at\": \"2019-08-16T10:10:31.918Z\",\n        \"updated_at\": \"2019-08-16T10:10:31.918Z\"\n      },\n      \"relationships\": {\n        \"user\": {\n          \"data\": {\n            \"id\": \"36\",\n            \"type\": \"user\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"34\",\n      \"type\": \"student\",\n      \"attributes\": {\n        \"full_name\": \"Miss Gabriel George Bergnaum\",\n        \"email\": \"august@spencergreen.com\",\n        \"phone\": \"1-948-576-5479\",\n        \"about\": \"Enim amet hic. Necessitatibus consequatur cupiditate. Mollitia officiis dicta. Nesciunt eos incidunt. Ut quia sint.\",\n        \"social_networks\": {\n          \"twitter\": \"http://twitter/herman_hills\",\n          \"facebook\": \"http://facebook/rory\"\n        },\n        \"president\": false,\n        \"created_at\": \"2019-08-16T12:21:56.266Z\",\n        \"updated_at\": \"2019-08-16T12:21:56.266Z\"\n      },\n      \"relationships\": {\n        \"user\": {\n          \"data\": {\n            \"id\": \"36\",\n            \"type\": \"user\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"60fb3c7890bf1ad08c05d9ebbe9d97da\"",
-        "X-Request-Id": "b7b8985c-9c84-43b7-8697-f6c43118f52b",
-        "X-Runtime": "0.015757",
+        "ETag": "W/\"51d1166f51012236e454a6275a2d8f70\"",
+        "X-Request-Id": "949ea9ba-c2fc-4daa-a101-b50b72af5e3a",
+        "X-Runtime": "0.010450",
         "Vary": "Origin",
-        "Content-Length": "540"
+        "Content-Length": "534"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/students\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 387e52d7d70d0977f9e49a85d7b3e34b2e22718201765c47ff3ebf078e138ae6\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/students\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 967b19424798ea7a3d0e3ba4cea769f497309acaecd1a1c5561262d32221e3a2\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

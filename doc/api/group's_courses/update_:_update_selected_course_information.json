@@ -29,11 +29,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group/courses/6",
-      "request_body": "{\"course\":{\"title\":\"Associate Degree in Medicine\",\"lecturer_ids\":[5]}}",
+      "request_body": "{\"course\":{\"title\":\"Associate Degree in Nursing\",\"lecturer_ids\":[5]}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 0adf5e87f421f4e2a9cb541c7f9d11a8f93501488eb465bb83e932d47db8c2ed",
+        "Authorization": "Bearer 74ccac25bc65877d54bc20fd1c40e5e168b213025e7fea6fd03e49e60ca10f2f",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -42,7 +42,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-16T10:10:30.903Z\",\n      \"updated_at\": \"2019-08-16T10:10:30.935Z\",\n      \"title\": \"Associate Degree In Medicine\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"5\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-16T12:21:55.656Z\",\n      \"updated_at\": \"2019-08-16T12:21:55.698Z\",\n      \"title\": \"Associate Degree In Nursing\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"5\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -51,14 +51,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"f1e46886f0f546b12be113b3f6c1ac89\"",
-        "X-Request-Id": "6a611833-d6c4-4ba7-8a20-98d7fd9eda5e",
-        "X-Runtime": "0.015904",
+        "ETag": "W/\"9fe2079e5283c3045ba21c5c7d390871\"",
+        "X-Request-Id": "c4de8644-cc86-43dc-9b78-1dcf9272410a",
+        "X-Runtime": "0.021204",
         "Vary": "Origin",
-        "Content-Length": "239"
+        "Content-Length": "238"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/courses/6\" -d '{\"course\":{\"title\":\"Associate Degree in Medicine\",\"lecturer_ids\":[5]}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 0adf5e87f421f4e2a9cb541c7f9d11a8f93501488eb465bb83e932d47db8c2ed\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/courses/6\" -d '{\"course\":{\"title\":\"Associate Degree in Nursing\",\"lecturer_ids\":[5]}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 74ccac25bc65877d54bc20fd1c40e5e168b213025e7fea6fd03e49e60ca10f2f\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

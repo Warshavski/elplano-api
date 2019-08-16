@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer fec05218f41ccec545401d8773d0e89bb10e9dadc85fc482196735b3a88c43be",
+        "Authorization": "Bearer 0298502d6fb8ba0df3a3a2a17f6d200d66b279c655d5bcf9f666ccf5de83f0ec",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"36\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Rocky Shenika Walsh III\",\n      \"email\": \"xochitllind@bogan.co\",\n      \"phone\": \"898.444.8855\",\n      \"about\": \"Sint nostrum laboriosam. Ut libero doloribus. Veniam non non. Voluptatem possimus est. Rerum magni non.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/wenona_murazik\",\n        \"facebook\": \"http://facebook/cyrus\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-08-16T10:10:31.967Z\",\n      \"updated_at\": \"2019-08-16T10:10:31.967Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"38\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"38\",\n      \"type\": \"user\",\n      \"attributes\": {\n        \"email\": \"londaweimann@turner.io\",\n        \"username\": \"andy\",\n        \"admin\": false,\n        \"created_at\": \"2019-08-16T10:10:31.951Z\",\n        \"updated_at\": \"2019-08-16T10:10:31.951Z\",\n        \"avatar_url\": \"https://www.gravatar.com/avatar/e728aa427dee1629278e0c1bbe155c92?s=200&d=identicon\",\n        \"confirmed\": true,\n        \"banned\": false,\n        \"locked\": false\n      },\n      \"relationships\": {\n        \"student\": {\n          \"data\": {\n            \"id\": \"36\",\n            \"type\": \"student\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"36\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Zelma Sharda Jast\",\n      \"email\": \"michaelekrajcik@reichel.org\",\n      \"phone\": \"340.605.1958\",\n      \"about\": \"Esse consequatur et. Consequatur vitae aut. Quam dolor autem. Et sint voluptate. Et beatae atque.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/mason\",\n        \"facebook\": \"http://facebook/adam\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-08-16T12:21:56.308Z\",\n      \"updated_at\": \"2019-08-16T12:21:56.308Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"38\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"38\",\n      \"type\": \"user\",\n      \"attributes\": {\n        \"email\": \"devonberge@kshlerin.info\",\n        \"username\": \"cornelius_muller\",\n        \"admin\": false,\n        \"created_at\": \"2019-08-16T12:21:56.294Z\",\n        \"updated_at\": \"2019-08-16T12:21:56.294Z\",\n        \"avatar_url\": \"https://www.gravatar.com/avatar/05c8088e77d41128f2b47cdce3f39acf?s=200&d=identicon\",\n        \"confirmed\": true,\n        \"banned\": false,\n        \"locked\": false\n      },\n      \"relationships\": {\n        \"student\": {\n          \"data\": {\n            \"id\": \"36\",\n            \"type\": \"student\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"ea93a79cd6be0ebb742511b9d0ebdda4\"",
-        "X-Request-Id": "e8c46578-743f-460a-ac44-c0e91c0699d0",
-        "X-Runtime": "0.009855",
+        "ETag": "W/\"88a4c4e7fd698d2d62f1d66ff7509dc0\"",
+        "X-Request-Id": "83d8c27d-e89f-4f79-8af8-5fa85a1a011f",
+        "X-Runtime": "0.010122",
         "Vary": "Origin",
-        "Content-Length": "972"
+        "Content-Length": "971"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/students/36\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer fec05218f41ccec545401d8773d0e89bb10e9dadc85fc482196735b3a88c43be\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/students/36\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 0298502d6fb8ba0df3a3a2a17f6d200d66b279c655d5bcf9f666ccf5de83f0ec\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

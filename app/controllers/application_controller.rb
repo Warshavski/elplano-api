@@ -7,6 +7,7 @@
 class ApplicationController < ActionController::API
   include Authorizable
   include ParamsRequirable
+  include Localizable
 
   include Handlers::Exception
   include Handlers::Response
@@ -32,7 +33,7 @@ class ApplicationController < ActionController::API
   end
 
   def route_not_found
-    if current_user
+    if user_signed_in?
       not_found(I18n.t(:'errors.messages.not_found_endpoint'))
     else
       authorize_access!
@@ -56,7 +57,7 @@ class ApplicationController < ActionController::API
     headers['X-XSS-Protection'] = '1; mode=block'
     headers['X-Content-Type-Options'] = 'nosniff'
 
-    if current_user
+    if user_signed_in?
       #
       # Adds `no-store` to the DEFAULT_CACHE_CONTROL,
       # to prevent security concerns due to caching private data.
@@ -124,5 +125,9 @@ class ApplicationController < ActionController::API
 
   def supervised_group
     @supervised_group ||= current_student.supervised_group
+  end
+
+  def user_signed_in?
+    !current_user.nil?
   end
 end

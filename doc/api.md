@@ -94,7 +94,15 @@ The API supports Cross Origin Resource Sharing (CORS) for AJAX requests from any
 You can read the [CORS W3C Recommendation](https://www.w3.org/TR/cors/), or [this intro](https://code.google.com/archive/p/html5security/wikis/CrossOriginRequestSecurity.wiki) from the HTML 5 Security Guide.
 
 Work in progress...
-  
+
+### Localization
+The API supports different localizations(English, Espanol, Russian).
+Localization can be set via [HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language) or obtained from the user's settings(user locale field).
+
+Localization priority:
+
+User locale --> Request locale --> Default locale
+
 ## Authentication
 
 API authentication is based on [OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749)

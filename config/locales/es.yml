@@ -1,0 +1,31 @@
+---
+es:
+  generic:
+    messages:
+      saved: 'Cambios guardados exitosamente!'
+  errors:
+    messages:
+      invalid_token: 'Token de autorización inválido'
+      access_denied: 'Acción no permitida'
+      not_found_endpoint: 'la ruta no existe'
+      not_found_record: 'Registro no encontrado'
+      invalid_auth: 'Error de autorización'
+      not_exists: 'no existe'
+      argument_missing: 'falta el argumento o el valor está vacío: %{param}'
+      student:
+        already_in_group: 'ya tiene un grupo!'
+      html:
+        invalid_markup: 'contiene código HTML no válido: %{error}'
+      timezone:
+        not_exist: 'no existe'
+  notifications:
+    email:
+      invite:
+        subject: 'Se creó una invitación para ti.'
+        message: 'Recibirá un correo electrónico con instrucciones sobre cómo registrarse'
+        title: "Usted fue invitado al grupo: %{group}. Por: %{sender}"
+        content: 'Puede aceptar sus invitaciones a través del siguiente enlace:'
+        action: 'Aceptar invitación'
+  uploaders:
+    errors:
+      too_large: 'es demasiado largo (max es %{size} MB)'

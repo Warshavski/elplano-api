@@ -1,8 +1,5 @@
-<p>Welcome <%= @invite.email %>!</p>
+<p><%= t('notifications.email.invite.title', group: @invite.group.title, sender: @invite.sender.email) %></p>
 
-<p>You were invited to the group: <%= @invite.group.title %></p>
-<p>By: <%= @invite.sender.email %> </p>
+<p><%= t('notifications.email.invite.content') %></p>
 
-<p>You can accept your invitations through the link below:</p>
-
-<p><%= link_to 'Accept invite', "#{ENV['UI_HOST']}/accept-invite?invitation_token=#{@invite.invitation_token}" %></p>
+<p><%= link_to t('notifications.email.invite.action'), "#{ENV['UI_HOST']}/accept-invite?invitation_token=#{@invite.invitation_token}" %></p>

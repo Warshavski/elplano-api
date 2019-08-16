@@ -44,6 +44,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # https://github.com/doorkeeper-gem/doorkeeper
 gem 'doorkeeper', '>= 5.0.1'
 
+# Fishes out the Accept-Language header into an array.
+# https://github.com/iain/http_accept_language
+gem 'http_accept_language', '~> 2.1'
+
 # Simple, efficient background processing for Ruby
 # https://github.com/mperham/sidekiq
 gem 'sidekiq'

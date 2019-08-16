@@ -1,0 +1,31 @@
+---
+ru:
+  generic:
+    messages:
+      saved: 'Изменения успешно сохранены!'
+  errors:
+    messages:
+      invalid_token: 'Невалидный токен доступа'
+      access_denied: 'Действие не доступно'
+      not_found_endpoint: 'Путь не сушествует'
+      not_found_record: 'Запись не найдена'
+      invalid_auth: 'Ошибка авторизации'
+      not_exists: 'не существует'
+      argument_missing: 'аргумент отсутствует или значение пусто: %{param}'
+      student:
+        already_in_group: 'уже находится в группе!'
+      html:
+        invalid_markup: 'невалидная разметка HTML: %{error}'
+      timezone:
+        not_exist: 'не существует'
+  notifications:
+    email:
+      invite:
+        subject: 'Для Вас было создано приглашение'
+        message: 'Вы получите электронное письмо с инструкциями о том, как зарегистрироваться'
+        title: "Вы были приглажены в группу: %{group}. Пользователем: %{sender}"
+        content: 'Вы можете принять приглашение по следующей ссылке:'
+        action: 'Принять приглашение'
+  uploaders:
+    errors:
+      too_large: 'слишком большой (максимальный размер: %{size} MB)'

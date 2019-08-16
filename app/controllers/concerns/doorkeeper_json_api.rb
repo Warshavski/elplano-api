@@ -26,7 +26,7 @@ module DoorkeeperJsonApi
           errors: [
             {
               status: status,
-              title: 'Authorization error',
+              title: I18n.t('errors.messages.invalid_auth'),
               detail: message,
               source: {
                 pointer: 'Authorization Header'

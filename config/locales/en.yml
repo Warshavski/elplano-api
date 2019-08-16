@@ -39,6 +39,7 @@ en:
       access_denied: 'Action not allowed'
       not_found_endpoint: 'Endpoint does not exists'
       not_found_record: 'Record not found'
+      invalid_auth: 'Authorization error'
       not_exists: 'does not exist'
       argument_missing: 'argument is missing or the value is empty: %{param}'
       student:
@@ -55,6 +56,9 @@ en:
       invite:
         subject: 'Invite was created for you'
         message: 'You will receive an email with instructions for how to sign up'
+        title: "You were invited to the group: %{group}. By: %{sender}"
+        content: 'You can accept your invitations through the link below:'
+        action: 'Accept invite'
   uploaders:
     errors:
       too_large: 'is too large (max is %{size} MB)'

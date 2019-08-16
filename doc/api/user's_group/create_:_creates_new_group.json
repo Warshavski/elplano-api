@@ -30,11 +30,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group",
-      "request_body": "{\"group\":{\"title\":\"Quas magni iste.\",\"number\":\"81823\"}}",
+      "request_body": "{\"group\":{\"title\":\"Consectetur sed possimus.\",\"number\":\"98882\"}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 45df945059cdbd344773ba2ccc68b99ee3f0d33cccce8ed49f6e2b50dff32626",
+        "Authorization": "Bearer f5c0293dbce890a9937b20a0eb72018911592404655f9490ac4965b890726bfb",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -43,7 +43,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"22\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"81823\",\n      \"title\": \"Quas magni iste.\",\n      \"created_at\": \"2019-08-16T09:00:35.835Z\",\n      \"updated_at\": \"2019-08-16T09:00:35.835Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"31\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"22\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"98882\",\n      \"title\": \"Consectetur sed possimus.\",\n      \"created_at\": \"2019-08-16T10:10:32.064Z\",\n      \"updated_at\": \"2019-08-16T10:10:32.064Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"38\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -52,14 +52,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"cbb0dc0c36d16e264a4e4e51f93dca10\"",
-        "X-Request-Id": "44e58686-9e51-492b-afc9-123161bdd52c",
-        "X-Runtime": "0.012472",
+        "ETag": "W/\"deb82e8d7e2a9e1ede5a1eec19d28ecc\"",
+        "X-Request-Id": "81175a1c-8716-46cb-88f0-9cea0b214454",
+        "X-Runtime": "0.022163",
         "Vary": "Origin",
-        "Content-Length": "243"
+        "Content-Length": "252"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"group\":{\"title\":\"Quas magni iste.\",\"number\":\"81823\"}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 45df945059cdbd344773ba2ccc68b99ee3f0d33cccce8ed49f6e2b50dff32626\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"group\":{\"title\":\"Consectetur sed possimus.\",\"number\":\"98882\"}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer f5c0293dbce890a9937b20a0eb72018911592404655f9490ac4965b890726bfb\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

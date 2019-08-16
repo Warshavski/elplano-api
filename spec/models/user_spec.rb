@@ -231,4 +231,54 @@ RSpec.describe User, type: :model do
       it { is_expected.to be(false) }
     end
   end
+
+  describe '.search' do
+    subject { described_class.search(query) }
+
+    context 'when user without profile' do
+      let_it_be(:user) { create(:user, username: 'watusername', email: 'email@example.com') }
+
+      context 'with a matching email' do
+        let(:query) { user.email }
+
+        it { is_expected.to eq([user]) }
+      end
+
+      context 'with a partially matching email' do
+        let(:query) { user.email[0..2] }
+
+        it { is_expected.to eq([user]) }
+      end
+
+      context 'with a matching email regardless of the casting' do
+        let(:query) { user.email.upcase }
+
+        it { is_expected.to eq([user]) }
+      end
+
+      context 'with a matching username' do
+        let(:query) { user.username }
+
+        it { is_expected.to eq([user]) }
+      end
+
+      context 'with a partially matching username' do
+        let(:query) { user.username[0..2] }
+
+        it { is_expected.to eq([user]) }
+      end
+
+      context 'with a matching username regardless of the casting' do
+        let(:query) { user.username.upcase }
+
+        it { is_expected.to eq([user]) }
+      end
+
+      context 'with a blank query' do
+        let(:query) { '' }
+
+        it { is_expected.to eq([]) }
+      end
+    end
+  end
 end

@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 1351b4c70b78721fd69b7fa58936d1bff682a432374154559e7f46da6be4ede0",
+        "Authorization": "Bearer 2ace53f0f7f9a2b04f7c081f3d946321b667eca8ab6c1a9484be2369f7a14d24",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"44\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Francina Gerry Batz\",\n      \"email\": \"deweykerluke@keebler.name\",\n      \"phone\": \"340-110-2507\",\n      \"about\": \"Quis excepturi temporibus. A recusandae quis. Tenetur eius asperiores. Et sit voluptatem. Aut corrupti autem.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/berry_mayer\",\n        \"facebook\": \"http://facebook/sanford\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-08-16T09:00:36.155Z\",\n      \"updated_at\": \"2019-08-16T09:00:36.155Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"28\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"47\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"51\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Cierra Shoshana Kutch\",\n      \"email\": \"jolie@trantowveum.com\",\n      \"phone\": \"(821) 462-6102\",\n      \"about\": \"Sequi eos dolores. Distinctio et ratione. Dolor dolor sunt. Quas explicabo et. Impedit blanditiis nihil.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/cristobal.klocko\",\n        \"facebook\": \"http://facebook/faustino\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-08-16T10:10:32.440Z\",\n      \"updated_at\": \"2019-08-16T10:10:32.440Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"28\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"54\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"4b50254179f1e5259ed4cde387564a35\"",
-        "X-Request-Id": "e66adf5e-f712-47bf-bc6a-84bafc85546f",
-        "X-Runtime": "0.014771",
+        "ETag": "W/\"8bb7a97abe453344bc08dbd50120f7c3\"",
+        "X-Request-Id": "94d290b4-ec56-4a91-b9de-790d35313134",
+        "X-Runtime": "0.013587",
         "Vary": "Origin",
-        "Content-Length": "563"
+        "Content-Length": "564"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 1351b4c70b78721fd69b7fa58936d1bff682a432374154559e7f46da6be4ede0\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/student\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 2ace53f0f7f9a2b04f7c081f3d946321b667eca8ab6c1a9484be2369f7a14d24\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

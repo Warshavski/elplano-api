@@ -6,6 +6,7 @@
 #
 class User < ApplicationRecord
   include CaseSensible
+  include Searchable
 
   #
   # Include default devise modules. Others available are:
@@ -104,6 +105,25 @@ class User < ApplicationRecord
 
     def find_by_username!(username)
       by_username(username).take!
+    end
+
+    # Search users with the given query
+    #
+    # @param query [String] - The search query as a String
+    #
+    # @note This method uses ILIKE on PostgreSQL
+    #
+    # @return [ActiveRecord::Relation]
+    #
+    def search(query)
+      return none if query.blank?
+
+      query = query.downcase
+
+      where(
+        fuzzy_arel_match(:username, query, lower_exact_match: true)
+          .or(fuzzy_arel_match(:email, query, lower_exact_match: true))
+      )
     end
   end
 

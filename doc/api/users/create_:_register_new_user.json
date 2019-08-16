@@ -4,7 +4,7 @@
   "http_method": "POST",
   "route": "api/v1/users",
   "description": "CREATE : Register new user",
-  "explanation": "Performs user registration and returns registered user.\n\nAlso, it sends an email with instructions for confirming the user.\n\nUsers attributes :\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Represents used's user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - `avatar_url` - Represents user's avatar.\n  - `timestamps`\n\nAlso, includes relationship to the student\n",
+  "explanation": "Performs user registration and returns registered user.\n\nAlso, it sends an email with instructions for confirming the user.\n\nUsers attributes :\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Represents used's user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - `banned` - `true` if the user had been locked via admin ban action otherwise `true`.\n  - `locked` - `true` if the user had been locked via login failed attempt otherwise `false`.\n  - `avatar_url` - Represents user's avatar.\n  - `timestamps`\n\nAlso, includes relationship to the student.\n",
   "parameters": [
     {
       "scope": [
@@ -67,8 +67,8 @@
         "Content-Type": "application/json; charset=utf-8",
         "ETag": "W/\"cc858452f01ed75c267606f0b0d67851\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "b83d6ce2-55ba-4fe9-98f3-d8434d198b9c",
-        "X-Runtime": "0.020332",
+        "X-Request-Id": "cf6dc757-7305-4a5a-9a14-9356191a5d33",
+        "X-Runtime": "0.035798",
         "Vary": "Origin",
         "Content-Length": "143"
       },

@@ -53,6 +53,40 @@
       ]
     },
     {
+      "name": "Admin users",
+      "explanation": "El Plano administration: Users.\n\nUsers attributes :\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Represents used's user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - `banned` - `true` if the user had been locked via admin ban action otherwise `true`.\n  - `locked` - `true` if the user had been locked via login failed attempt otherwise `false`.\n  - `avatar_url` - Represents user's avatar.\n  - `timestamps`\n\n  Also, include reference to student profile(additional user info)\n",
+      "examples": [
+        {
+          "description": "DELETE : Delete selected user",
+          "link": "admin_users/delete_:_delete_selected_user.json",
+          "groups": "all",
+          "route": "api/v1/admin/users/:id",
+          "method": "delete"
+        },
+        {
+          "description": "INDEX : Retrieve a list of users",
+          "link": "admin_users/index_:_retrieve_a_list_of_users.json",
+          "groups": "all",
+          "route": "api/v1/admin/users",
+          "method": "get"
+        },
+        {
+          "description": "SHOW : Retrieve information about requested user",
+          "link": "admin_users/show_:_retrieve_information_about_requested_user.json",
+          "groups": "all",
+          "route": "api/v1/admin/users/:id",
+          "method": "get"
+        },
+        {
+          "description": "UPDATE : Updates selected user state",
+          "link": "admin_users/update_:_updates_selected_user_state.json",
+          "groups": "all",
+          "route": "api/v1/admin/users/:id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
       "name": "Group's Invites",
       "explanation": "El Plano group's invites API.\n\nInvite attributes :\n\n- `email` - Represents email where invite was sent.\n- `invitation_token` - Represents token.\n- `status` - Represents invite current status.\n  - `accepted` - The invite was accepted by the recipient.\n  - `pending` - The invite was not accepted by the recipient. Default status.\n- `sent_at` - Date and time when the invite was sent.\n- `accepted_at` - Date and time when the invite was accepted by recipient.\n- `timestamps`\n\nAlso, includes reference to the sender, recipient.\n\n<b>NOTE</b> : This endpoint allowed only for the group owner user.\n",
       "examples": [

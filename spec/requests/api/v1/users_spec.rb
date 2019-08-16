@@ -26,7 +26,7 @@ describe Api::V1::UsersController, type: :request do
       include_examples 'json:api examples',
                        %w[data],
                        %w[id type attributes relationships],
-                       %w[email username avatar_url admin confirmed created_at updated_at],
+                       %w[email username avatar_url admin confirmed banned locked created_at updated_at],
                        %w[student]
 
       it 'returns token owner' do

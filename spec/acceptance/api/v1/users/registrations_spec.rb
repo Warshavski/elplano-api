@@ -36,16 +36,14 @@ resource 'Users' do
 
       do_request
 
-      options = {
+      expected_meta = {
         meta: {
           message: 'A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.'
         }
       }
 
-      expected_body = UserSerializer.new(User.last, options).serialized_json
-
       expect(status).to eq(201)
-      expect(response_body).to eq(expected_body)
+      expect(response_body).to eq(expected_meta.to_json)
     end
   end
 end

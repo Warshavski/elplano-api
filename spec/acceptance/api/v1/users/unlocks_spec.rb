@@ -35,7 +35,7 @@ resource 'Users' do
     end
 
     let(:raw_post) do
-      { user: { login: user.email} }.to_json
+      { user: { email: user.email} }.to_json
     end
 
     example 'CREATE : Send unlock instructions' do

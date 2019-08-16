@@ -23,24 +23,12 @@ module Api
         def create
           user = ::Users::Register.call { build_resource(sign_up_params) }
 
-          handle_auth(user)
-        end
-
-        private
-
-        def handle_auth(user)
           #
           # Success but activation required
           #
           message = find_message(:"signed_up_but_#{user.inactive_message}", {})
 
-          render_resource user, meta: { message: message }, status: :created
-        end
-
-        def sign_up_params
-          params
-            .require(:user)
-            .permit(:username, :email, :password, :password_confirmation)
+          render_meta({ message: message }, status: :created)
         end
       end
     end

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe Api::V1::Users::UnlocksController do
+describe Api::V1::Users::UnlocksController, type: :request do
   let_it_be(:user) { create(:user, locked_at: Time.now, unlock_token: 'wat') }
 
   describe 'GET #new' do
@@ -43,34 +43,46 @@ describe Api::V1::Users::UnlocksController do
   describe 'POST #create' do
     let(:user_params) { { email: user.email } }
 
-    context 'when request params is valid' do
+    context 'request execution' do
       before(:each) { post '/api/v1/users/unlock', params: { user: user_params } }
 
-      it { expect(response).to have_http_status(:ok) }
+      context 'when request params is valid' do
 
-      it { expect(body_as_json.keys).to match_array(['meta'])}
-    end
 
-    context 'when request params are not valid' do
-      before { allow_any_instance_of(described_class).to receive(:successfully_sent?).and_return(false) }
+        it { expect(response).to have_http_status(:ok) }
 
-      context 'when request params are not provided' do
-        before(:each) { post '/api/v1/users/unlock' }
-
-        it { expect(response).to have_http_status(:bad_request) }
-
-        it 'responds with errors' do
-          actual_keys = body_as_json[:errors].first.keys
-          expected_keys = %w[status source detail]
-
-          expect(actual_keys).to match_array(expected_keys)
-        end
+        it { expect(body_as_json.keys).to match_array(['meta'])}
       end
 
-      context 'when not valid params are provided' do
-        before(:each) { post '/api/v1/users/unlock', params: { user: user_params } }
+      context 'when request params are not valid' do
+        before { allow_any_instance_of(described_class).to receive(:successfully_sent?).and_return(false) }
 
-        it { expect(response).to have_http_status(:unprocessable_entity) }
+        context 'when request params are not provided' do
+          before(:each) { post '/api/v1/users/unlock' }
+
+          it { expect(response).to have_http_status(:unprocessable_entity) }
+
+          it 'responds with errors' do
+            actual_keys = body_as_json[:errors].first.keys
+            expected_keys = %w[status source detail]
+
+            expect(actual_keys).to match_array(expected_keys)
+          end
+        end
+
+        context 'when not valid params are provided' do
+          before(:each) { post '/api/v1/users/unlock', params: { user: user_params } }
+
+          it { expect(response).to have_http_status(:unprocessable_entity) }
+        end
+      end
+    end
+
+    context 'email sending' do
+      subject { post '/api/v1/users/unlock', params: { user: user_params }  }
+
+      it 'enqueues unlock account email send' do
+        expect { subject }.to(have_enqueued_job(ActionMailer::DeliveryJob))
       end
     end
   end

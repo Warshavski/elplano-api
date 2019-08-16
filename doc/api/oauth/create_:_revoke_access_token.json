@@ -19,7 +19,7 @@
     {
       "request_method": "POST",
       "request_path": "oauth/revoke",
-      "request_body": "{\"token\":\"a65dacecb1ca8b8ecef02c3efa2f8a86b6c3b0ecfa5fcb889056e267794c9f39\"}",
+      "request_body": "{\"token\":\"66ab1ac3072a4c0e4336dac5330a90c0e5eaeb79f8ce7afdb06a59382289a3e3\"}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
@@ -36,13 +36,13 @@
         "Content-Type": "application/json; charset=utf-8",
         "ETag": "W/\"44136fa355b3678a1146ad16f7e8649e\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "42d4cb3f-b4dc-478f-9e75-9d074a5fdae8",
-        "X-Runtime": "0.002899",
+        "X-Request-Id": "75cb1da5-51bc-41bd-b665-7babdf5f76bc",
+        "X-Runtime": "0.002337",
         "Vary": "Origin",
         "Content-Length": "2"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/oauth/revoke\" -d '{\"token\":\"a65dacecb1ca8b8ecef02c3efa2f8a86b6c3b0ecfa5fcb889056e267794c9f39\"}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/oauth/revoke\" -d '{\"token\":\"66ab1ac3072a4c0e4336dac5330a90c0e5eaeb79f8ce7afdb06a59382289a3e3\"}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

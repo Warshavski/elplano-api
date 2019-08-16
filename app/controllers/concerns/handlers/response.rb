@@ -28,8 +28,8 @@ module Handlers
         render json: data, status: status
       end
 
-      def render_meta(data)
-        render json: { meta: data }, status: :ok
+      def render_meta(data, status: :ok)
+        render json: { meta: data }, status: status
       end
 
       private

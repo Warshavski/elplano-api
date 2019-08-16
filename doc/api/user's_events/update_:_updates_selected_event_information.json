@@ -67,11 +67,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/events/4",
-      "request_body": "{\"event\":{\"title\":\"Occaecati nostrum rem.\",\"description\":\"Fugiat est repellat. Ex perspiciatis doloremque. Ullam sit id. Voluptatibus architecto quaerat. Veritatis minima commodi.\",\"status\":\"cancelled\",\"start_at\":\"2019-08-07\",\"end_at\":\"2019-08-09\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"],\"course_id\":2}}",
+      "request_body": "{\"event\":{\"title\":\"Ut corrupti iure.\",\"description\":\"Voluptatibus totam quos. Enim soluta autem. Sit aperiam minima. Perferendis dignissimos ea. Ut explicabo animi.\",\"status\":\"cancelled\",\"start_at\":\"2019-08-15\",\"end_at\":\"2019-08-17\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"],\"course_id\":2}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 488fb17d0b75ffdf8404dc29276978d947d1cf7614858ee3f74cfa30cb14da38",
+        "Authorization": "Bearer 56d71adb0c531b68253cdfe244b813a579723721ebfa1fcb811f24a59ad60cf8",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -80,7 +80,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"4\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Occaecati nostrum rem.\",\n      \"description\": \"Fugiat est repellat. Ex perspiciatis doloremque. Ullam sit id. Voluptatibus architecto quaerat. Veritatis minima commodi.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-08-07T00:00:00.000Z\",\n      \"end_at\": \"2019-08-09T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-08-08T08:33:24.916Z\",\n      \"updated_at\": \"2019-08-08T08:33:24.933Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"8\",\n          \"type\": \"student\"\n        }\n      },\n      \"course\": {\n        \"data\": {\n          \"id\": \"2\",\n          \"type\": \"course\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"4\",\n    \"type\": \"event\",\n    \"attributes\": {\n      \"title\": \"Ut corrupti iure.\",\n      \"description\": \"Voluptatibus totam quos. Enim soluta autem. Sit aperiam minima. Perferendis dignissimos ea. Ut explicabo animi.\",\n      \"status\": \"cancelled\",\n      \"recurrence\": [\n        \"EXDATE;VALUE=DATE:20150610\",\n        \"RDATE;VALUE=DATE:20150609,20150611\",\n        \"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"\n      ],\n      \"start_at\": \"2019-08-15T00:00:00.000Z\",\n      \"end_at\": \"2019-08-17T00:00:00.000Z\",\n      \"timezone\": \"Etc/GMT+12\",\n      \"created_at\": \"2019-08-16T09:00:34.879Z\",\n      \"updated_at\": \"2019-08-16T09:00:34.895Z\"\n    },\n    \"relationships\": {\n      \"creator\": {\n        \"data\": {\n          \"id\": \"8\",\n          \"type\": \"student\"\n        }\n      },\n      \"course\": {\n        \"data\": {\n          \"id\": \"2\",\n          \"type\": \"course\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -89,14 +89,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"a032ffd1f12313f3264fbe9ae681a82b\"",
-        "X-Request-Id": "fc44877b-4019-4292-8bd7-c06283b80d80",
-        "X-Runtime": "0.010138",
+        "ETag": "W/\"4d1ecbc159671b8e46cb93ff0bd9b54c\"",
+        "X-Request-Id": "1853c3de-2285-4d0a-84b1-3e15b097759b",
+        "X-Runtime": "0.009541",
         "Vary": "Origin",
-        "Content-Length": "655"
+        "Content-Length": "640"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/events/4\" -d '{\"event\":{\"title\":\"Occaecati nostrum rem.\",\"description\":\"Fugiat est repellat. Ex perspiciatis doloremque. Ullam sit id. Voluptatibus architecto quaerat. Veritatis minima commodi.\",\"status\":\"cancelled\",\"start_at\":\"2019-08-07\",\"end_at\":\"2019-08-09\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"],\"course_id\":2}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 488fb17d0b75ffdf8404dc29276978d947d1cf7614858ee3f74cfa30cb14da38\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/events/4\" -d '{\"event\":{\"title\":\"Ut corrupti iure.\",\"description\":\"Voluptatibus totam quos. Enim soluta autem. Sit aperiam minima. Perferendis dignissimos ea. Ut explicabo animi.\",\"status\":\"cancelled\",\"start_at\":\"2019-08-15\",\"end_at\":\"2019-08-17\",\"timezone\":\"Etc/GMT+12\",\"recurrence\":[\"EXDATE;VALUE=DATE:20150610\",\"RDATE;VALUE=DATE:20150609,20150611\",\"RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3\"],\"course_id\":2}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 56d71adb0c531b68253cdfe244b813a579723721ebfa1fcb811f24a59ad60cf8\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

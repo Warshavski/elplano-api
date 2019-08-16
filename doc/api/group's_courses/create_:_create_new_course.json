@@ -29,11 +29,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group/courses",
-      "request_body": "{\"course\":{\"title\":\"Bachelor of Communications\",\"lecturer_ids\":[3]}}",
+      "request_body": "{\"course\":{\"title\":\"Master of Nursing\",\"lecturer_ids\":[3]}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 8d89b6ad02ac342fdca926816f5e8b840406eaa7df31cb7ba7eadcda18335543",
+        "Authorization": "Bearer ad41ddf87c9c5f23eceb4ee60b547848c35075ac42437a911c516d10588deedd",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -42,7 +42,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-08T08:33:25.158Z\",\n      \"updated_at\": \"2019-08-08T08:33:25.158Z\",\n      \"title\": \"Bachelor Of Communications\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"3\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-16T09:00:35.111Z\",\n      \"updated_at\": \"2019-08-16T09:00:35.111Z\",\n      \"title\": \"Master Of Nursing\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"3\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -51,14 +51,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"bc292e868887bea464f4b9a67c569a6f\"",
-        "X-Request-Id": "2727dbc1-6360-475f-a174-907cf38c79f6",
-        "X-Runtime": "0.020069",
+        "ETag": "W/\"5b6f3366315647f95a28626dbf7e3fc8\"",
+        "X-Request-Id": "c9525da1-4135-41be-a6fc-f11fc105c572",
+        "X-Runtime": "0.017893",
         "Vary": "Origin",
-        "Content-Length": "237"
+        "Content-Length": "228"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/courses\" -d '{\"course\":{\"title\":\"Bachelor of Communications\",\"lecturer_ids\":[3]}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 8d89b6ad02ac342fdca926816f5e8b840406eaa7df31cb7ba7eadcda18335543\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/courses\" -d '{\"course\":{\"title\":\"Master of Nursing\",\"lecturer_ids\":[3]}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer ad41ddf87c9c5f23eceb4ee60b547848c35075ac42437a911c516d10588deedd\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

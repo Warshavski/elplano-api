@@ -30,7 +30,7 @@ module Api
           if resource.errors.empty?
             message = find_message(:confirmed, {})
 
-            render_resource resource, meta: { message: message }, status: :ok
+            render_meta message: message
           else
             process_error(resource)
           end

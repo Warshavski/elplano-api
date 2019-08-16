@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe Api::V1::Users::PasswordsController do
+describe Api::V1::Users::PasswordsController, type: :request do
   let_it_be(:user) { create(:user, :reset_password) }
 
   describe 'GET #new' do
@@ -37,11 +37,7 @@ describe Api::V1::Users::PasswordsController do
 
       it { expect(response).to have_http_status(:ok) }
 
-      include_examples 'json:api examples',
-                       %w[data meta],
-                       %w[id type attributes relationships],
-                       %w[email username avatar_url admin confirmed created_at updated_at],
-                       %w[student]
+      it { expect(body_as_json.keys).to eq(['meta']) }
     end
 
     context 'when request params are not valid' do
@@ -64,7 +60,7 @@ describe Api::V1::Users::PasswordsController do
   end
 
   describe 'POST #create' do
-    let(:user_params) { { login: user.email } }
+    let(:user_params) { { email: user.email } }
 
     let(:paranoid) { true }
 
@@ -74,40 +70,43 @@ describe Api::V1::Users::PasswordsController do
       allow(Devise).to receive(:paranoid).and_return(paranoid)
     end
 
-    before(:each) { subject }
+    context 'request execution' do
+      before(:each) { subject }
 
-    context 'when request params are valid' do
-      it { expect(response).to have_http_status(:ok) }
+      context 'when request params are valid' do
+        it { expect(response).to have_http_status(:ok) }
 
-      it { expect(body_as_json.keys).to match_array(['meta'])}
-    end
-
-    context 'when request params are empty' do
-      let(:user_params) { nil }
-
-      it { expect(response).to have_http_status(:bad_request) }
-
-      it 'responds with errors' do
-        actual_keys = body_as_json[:errors].first.keys
-        expected_keys = %w[status source detail]
-
-        expect(actual_keys).to match_array(expected_keys)
+        it { expect(body_as_json.keys).to match_array(['meta'])}
       end
-    end
 
-    context 'when request params are not valid' do
-      let(:user_params) { build(:invalid_user_params) }
-
-      context 'when paranoid mode is on' do
-        let(:paranoid) { true }
+      context 'when request params are empty' do
+        let(:user_params) { nil }
 
         it { expect(response).to have_http_status(:ok) }
+
+        it { expect(body_as_json.keys).to match_array(['meta'])}
       end
 
-      context 'when paranoid mode is off' do
-        let(:paranoid) { false }
+      context 'when request params are not valid' do
+        let(:user_params) { build(:invalid_user_params) }
 
-        it { expect(response).to have_http_status(:unprocessable_entity) }
+        context 'when paranoid mode is on' do
+          let(:paranoid) { true }
+
+          it { expect(response).to have_http_status(:ok) }
+        end
+
+        context 'when paranoid mode is off' do
+          let(:paranoid) { false }
+
+          it { expect(response).to have_http_status(:unprocessable_entity) }
+        end
+      end
+    end
+
+    context 'email sending' do
+      it 'enqueues reset password email send' do
+        expect { subject }.to(have_enqueued_job(ActionMailer::DeliveryJob))
       end
     end
   end

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe Api::V1::Users::ConfirmationsController do
+describe Api::V1::Users::ConfirmationsController, type: :request do
   let_it_be(:user) { create(:user, confirmation_token: 'wat', confirmed_at: nil) }
 
   describe 'GET #new' do
@@ -21,11 +21,7 @@ describe Api::V1::Users::ConfirmationsController do
 
       it { expect(response).to have_http_status(:ok) }
 
-      include_examples 'json:api examples',
-                       %w[data meta],
-                       %w[id type attributes relationships],
-                       %w[email username avatar_url admin confirmed created_at updated_at],
-                       %w[student]
+      it { expect(body_as_json.keys).to eq(['meta']) }
 
       it 'confirms user registration' do
         expect(user.reload.confirmed_at).to_not be_nil
@@ -47,16 +43,33 @@ describe Api::V1::Users::ConfirmationsController do
   end
 
   describe 'POST #create' do
-    let(:user_params) do
-      { login: user.email }
-    end
+    let(:user_params) { { email: user.email } }
 
     context 'when request params are valid' do
-      before(:each) { post '/api/v1/users/confirmation', params: { user: user_params } }
+      subject { post '/api/v1/users/confirmation', params: { user: user_params } }
 
-      it { expect(response).to have_http_status(:ok) }
+      context 'request performing' do
+        before(:each) { subject }
 
-      it { expect(body_as_json.keys).to match_array(['meta'])}
+        it { expect(response).to have_http_status(:ok) }
+
+        it { expect(body_as_json.keys).to match_array(['meta'])}
+      end
+
+      context 'email sending' do
+        it 'enqueues confirmation email send' do
+          expected_params = [
+            'DeviseMailer',
+            'confirmation_instructions',
+            'deliver_now',
+            user,
+            'wat',
+            {}
+          ]
+
+          expect { subject }.to(have_enqueued_job(ActionMailer::DeliveryJob).with(*expected_params))
+        end
+      end
     end
 
     context 'when request params are not valid' do
@@ -65,7 +78,7 @@ describe Api::V1::Users::ConfirmationsController do
       context 'when no params are not provided' do
         before(:each) { post '/api/v1/users/confirmation' }
 
-        it { expect(response).to have_http_status(:bad_request) }
+        it { expect(response).to have_http_status(:unprocessable_entity) }
 
         it 'responds with errors' do
           actual_keys = body_as_json[:errors].first.keys

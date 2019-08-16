@@ -10,11 +10,11 @@ resource 'Users' do
 
   post 'api/v1/users/password' do
     with_options scope: %i[user] do
-      parameter :login, 'Unique email that used to identify user in application or username.', required: true
+      parameter :email, 'Unique email that used to identify user in application or username.', required: true
     end
 
     let(:raw_post) do
-      { user: { login: user.email } }.to_json
+      { user: { email: user.email } }.to_json
     end
 
     example 'CREATE : Send reset password instructions' do
@@ -59,16 +59,14 @@ resource 'Users' do
 
       do_request
 
-      options = {
+      expected_meta = {
         meta: {
           message: 'Your password has been changed successfully.'
         }
       }
 
-      expected_body = UserSerializer.new(user.reload, options).serialized_json
-
       expect(status).to eq(200)
-      expect(response_body).to eq(expected_body)
+      expect(response_body).to eq(expected_meta.to_json)
     end
   end
 end

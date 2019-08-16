@@ -39,11 +39,5 @@ module DeviseJsonApi
         :send_instructions
       end
     end
-
-    private
-
-    def resource_params
-      params.require(:user).permit(:email)
-    end
   end
 end

@@ -68,6 +68,8 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each(&method(:require))
 Dir[Rails.root.join('spec/support/helpers/*.rb')].each(&method(:require))
 
 RSpec.configure do |config|
+  config.include ActiveJob::TestHelper
+
   config.include RestifyHelper
 
   config.include FactoryBot::Syntax::Methods

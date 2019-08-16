@@ -52,11 +52,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group/lecturers",
-      "request_body": "{\"lecturer\":{\"first_name\":\"Matthew\",\"last_name\":\"Hills\",\"patronymic\":\"Mrs.\",\"course_ids\":[10],\"avatar\":\"{\\\"id\\\":\\\"9c41401971c35f629b89232ceeb43250.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"}}",
+      "request_body": "{\"lecturer\":{\"first_name\":\"Barney\",\"last_name\":\"Kuhn\",\"patronymic\":\"Ms.\",\"course_ids\":[10],\"avatar\":\"{\\\"id\\\":\\\"45eab4e2a5f5eca579edd0ba524db305.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer c3cca7404a772c8c39b6f1ef1013a1d8e990b362b9f46c684f371f65e33b9dd4",
+        "Authorization": "Bearer 325e967574e9157b5a0050efed4b69abe7cd1b33820ed7031df5ae1d36142a8c",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -65,7 +65,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"9\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-08T08:33:25.640Z\",\n      \"updated_at\": \"2019-08-08T08:33:25.640Z\",\n      \"first_name\": \"Matthew\",\n      \"last_name\": \"Hills\",\n      \"patronymic\": \"Mrs.\",\n      \"avatar\": \"memory://9c41401971c35f629b89232ceeb43250.png\"\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"10\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"9\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-16T09:00:35.554Z\",\n      \"updated_at\": \"2019-08-16T09:00:35.554Z\",\n      \"first_name\": \"Barney\",\n      \"last_name\": \"Kuhn\",\n      \"patronymic\": \"Ms.\",\n      \"avatar\": \"memory://45eab4e2a5f5eca579edd0ba524db305.png\"\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"10\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -74,14 +74,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"f7f435249d4d0c8c044f3571e5f26ca2\"",
-        "X-Request-Id": "32adb599-9a0a-4184-bad5-a21ee7f6eb16",
-        "X-Runtime": "0.025931",
+        "ETag": "W/\"cc13f89aa8143be764e55944366d17b4\"",
+        "X-Request-Id": "e8d16b72-f46f-4b68-8b57-cb68a10e7467",
+        "X-Runtime": "0.022514",
         "Vary": "Origin",
-        "Content-Length": "319"
+        "Content-Length": "316"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/lecturers\" -d '{\"lecturer\":{\"first_name\":\"Matthew\",\"last_name\":\"Hills\",\"patronymic\":\"Mrs.\",\"course_ids\":[10],\"avatar\":\"{\\\"id\\\":\\\"9c41401971c35f629b89232ceeb43250.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer c3cca7404a772c8c39b6f1ef1013a1d8e990b362b9f46c684f371f65e33b9dd4\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/lecturers\" -d '{\"lecturer\":{\"first_name\":\"Barney\",\"last_name\":\"Kuhn\",\"patronymic\":\"Ms.\",\"course_ids\":[10],\"avatar\":\"{\\\"id\\\":\\\"45eab4e2a5f5eca579edd0ba524db305.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 325e967574e9157b5a0050efed4b69abe7cd1b33820ed7031df5ae1d36142a8c\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

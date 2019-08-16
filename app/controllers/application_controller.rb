@@ -20,6 +20,8 @@ class ApplicationController < ActionController::API
   before_action :set_page_title_header
   before_action :set_default_headers
 
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
   prepend_before_action :authorize_access!
 
   authorize :user, through: :current_user
@@ -95,6 +97,10 @@ class ApplicationController < ActionController::API
   end
 
   private
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[email username])
+  end
 
   def destroy_session
     request.session_options[:skip] = true

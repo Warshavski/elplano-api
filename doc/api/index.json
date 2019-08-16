@@ -401,6 +401,13 @@
       "explanation": null,
       "examples": [
         {
+          "description": "CREATE : Authenticate user",
+          "link": "users/create_:_authenticate_user.json",
+          "groups": "all",
+          "route": "api/v1/users/sign_in",
+          "method": "post"
+        },
+        {
           "description": "CREATE : Register new user",
           "link": "users/create_:_register_new_user.json",
           "groups": "all",

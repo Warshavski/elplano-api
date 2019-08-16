@@ -30,11 +30,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group",
-      "request_body": "{\"group\":{\"title\":\"Rerum mollitia voluptate.\",\"number\":\"70611\"}}",
+      "request_body": "{\"group\":{\"title\":\"Eum sapiente consequuntur.\",\"number\":\"18670\"}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 9522a2fc9967c116b0658b14b850b98f92297409043c2dd7ae810eee8076f73c",
+        "Authorization": "Bearer 23506f91349ab17d6624593e798845dfb10061c5c82140cd016d13d643309440",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -43,7 +43,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"23\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"70611\",\n      \"title\": \"Rerum mollitia voluptate.\",\n      \"created_at\": \"2019-08-16T10:10:32.088Z\",\n      \"updated_at\": \"2019-08-16T10:10:32.105Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"39\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"23\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"18670\",\n      \"title\": \"Eum sapiente consequuntur.\",\n      \"created_at\": \"2019-08-16T12:21:56.417Z\",\n      \"updated_at\": \"2019-08-16T12:21:56.431Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"39\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -52,14 +52,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"af77e18f42810a178b2a76ca7abc1dfa\"",
-        "X-Request-Id": "a3596d24-7026-492e-b8b1-3f4833f7f5c1",
-        "X-Runtime": "0.010924",
+        "ETag": "W/\"3cebe1bf0d3c5113a748cc0b0e27c4d2\"",
+        "X-Request-Id": "91310c79-806a-4462-8b26-e981983aee23",
+        "X-Runtime": "0.010462",
         "Vary": "Origin",
-        "Content-Length": "252"
+        "Content-Length": "253"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"group\":{\"title\":\"Rerum mollitia voluptate.\",\"number\":\"70611\"}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 9522a2fc9967c116b0658b14b850b98f92297409043c2dd7ae810eee8076f73c\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"group\":{\"title\":\"Eum sapiente consequuntur.\",\"number\":\"18670\"}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 23506f91349ab17d6624593e798845dfb10061c5c82140cd016d13d643309440\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

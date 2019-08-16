@@ -34,7 +34,7 @@
     {
       "request_method": "POST",
       "request_path": "oauth/token",
-      "request_body": "{\"grant_type\":\"password\",\"login\":\"toragusikowski@hintzernser.com\",\"password\":\"123456\"}",
+      "request_body": "{\"grant_type\":\"password\",\"login\":\"constance@wymanpadberg.net\",\"password\":\"123456\"}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
@@ -46,19 +46,19 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"access_token\": \"e9eae48cc635a3339fbc563e6f11afafc4e581a3a0c4e4fd1c16c17e180bd633\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 3600,\n  \"refresh_token\": \"df3daf35992541485918ce8cce0a2f371a82f54818c97e273ad0eb43dd06902d\",\n  \"created_at\": 1565950233\n}",
+      "response_body": "{\n  \"access_token\": \"877f80a995a2528a1b452445751b954685705aaefdefb965c9d13fba5d88f367\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 3600,\n  \"refresh_token\": \"9046f9dee987f7da31e878823e82b67345f64020cbce4c986e0135e9ee3c35ba\",\n  \"created_at\": 1565958117\n}",
       "response_headers": {
         "Cache-Control": "private, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"e17ba78f2c9205d786294b7266ad31c7\"",
-        "X-Request-Id": "188c1e88-74f7-493b-b9f5-9e5b903182b6",
-        "X-Runtime": "0.025609",
+        "ETag": "W/\"06c08b939c2129bf6c7c9c2c7b9d256d\"",
+        "X-Request-Id": "acb09091-1130-4d5f-9f5c-8c14a8d5de9a",
+        "X-Runtime": "0.015857",
         "Vary": "Origin",
         "Content-Length": "230"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/oauth/token\" -d '{\"grant_type\":\"password\",\"login\":\"toragusikowski@hintzernser.com\",\"password\":\"123456\"}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/oauth/token\" -d '{\"grant_type\":\"password\",\"login\":\"constance@wymanpadberg.net\",\"password\":\"123456\"}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

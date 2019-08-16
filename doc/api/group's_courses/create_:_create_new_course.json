@@ -29,11 +29,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group/courses",
-      "request_body": "{\"course\":{\"title\":\"Associate Degree in Creative Arts\",\"lecturer_ids\":[3]}}",
+      "request_body": "{\"course\":{\"title\":\"Associate Degree in Arts\",\"lecturer_ids\":[3]}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer f42cd26819d546077cd3c01aa04161cbfd87ed6a0b307c9475012b05c42a27dc",
+        "Authorization": "Bearer c1e394ab59244c0ff7d0dc8889d189400c93b18863fde758613a8b19c71d6869",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -42,7 +42,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-16T10:10:30.876Z\",\n      \"updated_at\": \"2019-08-16T10:10:30.876Z\",\n      \"title\": \"Associate Degree In Creative Arts\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"3\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-16T12:21:55.630Z\",\n      \"updated_at\": \"2019-08-16T12:21:55.630Z\",\n      \"title\": \"Associate Degree In Arts\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"3\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -51,14 +51,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"0b0db51600625591413c358fa2cff975\"",
-        "X-Request-Id": "430c1f92-c074-4ae3-a879-a24e5a563d55",
-        "X-Runtime": "0.020920",
+        "ETag": "W/\"ea5cb0db3c949fc85f34c60d7014cdc1\"",
+        "X-Request-Id": "6547faf1-d58f-48de-92b4-f9064b7abce4",
+        "X-Runtime": "0.017145",
         "Vary": "Origin",
-        "Content-Length": "244"
+        "Content-Length": "235"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/courses\" -d '{\"course\":{\"title\":\"Associate Degree in Creative Arts\",\"lecturer_ids\":[3]}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer f42cd26819d546077cd3c01aa04161cbfd87ed6a0b307c9475012b05c42a27dc\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/courses\" -d '{\"course\":{\"title\":\"Associate Degree in Arts\",\"lecturer_ids\":[3]}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer c1e394ab59244c0ff7d0dc8889d189400c93b18863fde758613a8b19c71d6869\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

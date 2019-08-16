@@ -15,9 +15,9 @@ Rails.application.routes.draw do
                    registrations: 'api/v1/users/registrations',
                    confirmations: 'api/v1/users/confirmations',
                    passwords:     'api/v1/users/passwords',
-                   unlocks:       'api/v1/users/unlocks'
-                 },
-                 skip: %i[sessions]
+                   unlocks:       'api/v1/users/unlocks',
+                   sessions:      'api/v1/users/sessions'
+                 }
     end
   end
 

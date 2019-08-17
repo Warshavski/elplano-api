@@ -9,7 +9,7 @@ class UserSerializer
 
   set_type :user
 
-  attributes :email, :username, :admin, :created_at, :updated_at
+  attributes :email, :username, :admin, :locale, :created_at, :updated_at
 
   #
   # just stub for the first time

@@ -62,6 +62,24 @@ FactoryBot.define do
     end
   end
 
+  factory :profile_params, class: Hash do
+    initialize_with do
+      {
+        locale: 'en',
+        student_attributes: build(:student_params)
+      }
+    end
+  end
+
+  factory :invalid_profile_params, class: Hash do
+    initialize_with do
+      {
+        locale: 'en',
+        student_attributes: build(:invalid_student_params)
+      }
+    end
+  end
+
   factory :invalid_user_params, class: Hash do
     initialize_with do
       {

@@ -35,6 +35,7 @@ resource 'Users' do
           - `confirmed` - `false` if the user did not confirm his address otherwise `true`.
           - `banned` - `true` if the user had been locked via admin ban action otherwise `true`.
           - `locked` - `true` if the user had been locked via login failed attempt otherwise `false`.
+          - `locale` - Represents user's locale.
           - `avatar_url` - Represents user's avatar.
           - `timestamps`
 

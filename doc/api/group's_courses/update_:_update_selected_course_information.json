@@ -29,11 +29,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group/courses/6",
-      "request_body": "{\"course\":{\"title\":\"Associate Degree in Nursing\",\"lecturer_ids\":[5]}}",
+      "request_body": "{\"course\":{\"title\":\"Associate Degree in Criminology\",\"lecturer_ids\":[5]}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 74ccac25bc65877d54bc20fd1c40e5e168b213025e7fea6fd03e49e60ca10f2f",
+        "Authorization": "Bearer a83cfa272fda317703479cbdafe1a582038167697a9cf8f41b6a091cc23ba351",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -42,7 +42,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-16T12:21:55.656Z\",\n      \"updated_at\": \"2019-08-16T12:21:55.698Z\",\n      \"title\": \"Associate Degree In Nursing\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"5\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-17T20:10:14.003Z\",\n      \"updated_at\": \"2019-08-17T20:10:14.043Z\",\n      \"title\": \"Associate Degree In Criminology\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"5\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -51,14 +51,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"9fe2079e5283c3045ba21c5c7d390871\"",
-        "X-Request-Id": "c4de8644-cc86-43dc-9b78-1dcf9272410a",
-        "X-Runtime": "0.021204",
+        "ETag": "W/\"3a73d04f8f6bb89e210a2b32f1380a88\"",
+        "X-Request-Id": "d379c47a-e325-463a-9cf2-0eb227a6e875",
+        "X-Runtime": "0.019543",
         "Vary": "Origin",
-        "Content-Length": "238"
+        "Content-Length": "242"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/courses/6\" -d '{\"course\":{\"title\":\"Associate Degree in Nursing\",\"lecturer_ids\":[5]}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 74ccac25bc65877d54bc20fd1c40e5e168b213025e7fea6fd03e49e60ca10f2f\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/courses/6\" -d '{\"course\":{\"title\":\"Associate Degree in Criminology\",\"lecturer_ids\":[5]}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer a83cfa272fda317703479cbdafe1a582038167697a9cf8f41b6a091cc23ba351\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

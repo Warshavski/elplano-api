@@ -39,6 +39,8 @@ class User < ApplicationRecord
 
   has_one :student, dependent: :destroy
 
+  accepts_nested_attributes_for :student
+
   #
   # Validations
   #

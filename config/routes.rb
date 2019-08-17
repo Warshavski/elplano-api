@@ -66,11 +66,8 @@ Rails.application.routes.draw do
       # (see PasswordsController)
       resource :password, only: :update
 
-      # (see StudentsController)
-      resource :student, only: %i[show update]
-
       # (see UsersController)
-      resource :user, only: :show
+      resource :user, only: %i[show update]
     end
   end
 

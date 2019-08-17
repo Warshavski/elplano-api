@@ -1,10 +1,10 @@
 {
   "resource": "User's profile",
-  "resource_explanation": null,
+  "resource_explanation": "El Plano user's profile API\n\nUsers attributes :\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Represents used's user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - `avatar_url` - Represents user's avatar.\n  - `banned` - `true` if the user had been locked via admin ban action otherwise `true`.\n  - `locked` - `true` if the user had been locked via login failed attempt otherwise `false`.\n  - `locale` - Represents user's locale\n  - `timestamps`\n \nStudent attributes :\n\n  - `full_name` - Represents concatenated student's first, last and middle names.\n  - `email` - Represents email which is used to contact with the student.\n  - `phone` - Represents phone which is used to contact with the student.\n  - `about` - Represents some detailed information about student(BIO).\n  - `social_networks` - Represents a list of social networks.\n  - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).\n  - `timestamps`\n\nAlso, includes relationship to the student's group\n",
   "http_method": "GET",
   "route": "api/v1/user",
   "description": "SHOW : Retrieve authenticated users's profile",
-  "explanation": "Returns detailed information about user.\n\nUsers attributes :\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Represents used's user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - `avatar_url` - Represents user's avatar.\n  - `timestamps`\n\nAlso, includes relationship to the student\n",
+  "explanation": "Returns detailed information about user.\n\nSee attributes description in the section description.\n",
   "parameters": [
 
   ],
@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer e38d235c7becdcaa6a93a9ade327c576688572f36b5ca293b65bb03825f1a283",
+        "Authorization": "Bearer 8345fc1dbc2c2ee8d9a01911cdd37801460b25491b0166ffa9c4478832f071b5",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"63\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"leah@watsica.com\",\n      \"username\": \"shaunte\",\n      \"admin\": false,\n      \"created_at\": \"2019-08-16T12:21:57.448Z\",\n      \"updated_at\": \"2019-08-16T12:21:57.448Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/5deae37e8f6828500e0e40978374e1ed?s=200&d=identicon\",\n      \"confirmed\": true,\n      \"banned\": false,\n      \"locked\": false\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"56\",\n          \"type\": \"student\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"59\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"laurette@bosco.com\",\n      \"username\": \"catrina_rutherford\",\n      \"admin\": false,\n      \"locale\": null,\n      \"created_at\": \"2019-08-17T20:10:15.749Z\",\n      \"updated_at\": \"2019-08-17T20:10:15.749Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/4d5c06609c8203a2eeee1580670423a1?s=200&d=identicon\",\n      \"confirmed\": true,\n      \"banned\": false,\n      \"locked\": false\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"52\",\n          \"type\": \"student\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"52\",\n      \"type\": \"student\",\n      \"attributes\": {\n        \"full_name\": \"Miss Chieko Janessa Sauer\",\n        \"email\": \"debrajohnson@kshlerin.net\",\n        \"phone\": \"1-243-656-1859\",\n        \"about\": \"Nobis nostrum autem. Et voluptate in. Odio quaerat minus. Fugiat esse earum. Cupiditate aut ipsum.\",\n        \"social_networks\": {\n          \"twitter\": \"http://twitter/zachery_prosacco\",\n          \"facebook\": \"http://facebook/aretha\"\n        },\n        \"president\": false,\n        \"created_at\": \"2019-08-17T20:10:15.754Z\",\n        \"updated_at\": \"2019-08-17T20:10:15.754Z\"\n      },\n      \"relationships\": {\n        \"group\": {\n          \"data\": null\n        },\n        \"user\": {\n          \"data\": {\n            \"id\": \"59\",\n            \"type\": \"user\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"975296e04ec56b58018f61df8db5260c\"",
-        "X-Request-Id": "66f5d001-645c-4bbe-9e07-307e0badb139",
-        "X-Runtime": "0.009043",
+        "ETag": "W/\"f400352bd48a46b5d6cd521955d82ae4\"",
+        "X-Request-Id": "4cfe1207-61f7-433e-bfcb-42f4d59efa41",
+        "X-Runtime": "0.016872",
         "Vary": "Origin",
-        "Content-Length": "407"
+        "Content-Length": "981"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/user\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer e38d235c7becdcaa6a93a9ade327c576688572f36b5ca293b65bb03825f1a283\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/user\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 8345fc1dbc2c2ee8d9a01911cdd37801460b25491b0166ffa9c4478832f071b5\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

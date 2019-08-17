@@ -236,26 +236,6 @@
       ]
     },
     {
-      "name": "Students",
-      "explanation": "El Plano student's profile API.\n\nStudent attributes :\n\n  - `full_name` - Represents concatenated student's first, last and middle names.\n  - `email` - Represents email which is used to contact with the student.\n  - `phone` - Represents phone which is used to contact with the student.\n  - `about` - Represents some detailed information about student(BIO).\n  - `social_networks` - Represents a list of social networks.\n  - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).\n  - `timestamps`\n\nAlso, includes information about a group.\n\n  - `title` - Represents group human readable identity.\n  - `number` - Represents group main identity.\n  - `timestamps`\n",
-      "examples": [
-        {
-          "description": "SHOW : Retrieve Authenticated Users's  information",
-          "link": "students/show_:_retrieve_authenticated_users's_information.json",
-          "groups": "all",
-          "route": "api/v1/student",
-          "method": "get"
-        },
-        {
-          "description": "UPDATE : Updates authenticated user's information",
-          "link": "students/update_:_updates_authenticated_user's_information.json",
-          "groups": "all",
-          "route": "api/v1/student",
-          "method": "put"
-        }
-      ]
-    },
-    {
       "name": "Uploads",
       "explanation": null,
       "examples": [
@@ -385,7 +365,7 @@
     },
     {
       "name": "User's profile",
-      "explanation": null,
+      "explanation": "El Plano user's profile API\n\nUsers attributes :\n\n  - `email` - Represents email that was used to register a user in the application(unique in application scope).\n  - `username` - Represents used's user name.\n  - `admin` - `false` if regular user `true`, if the user has access to application settings.\n  - `confirmed` - `false` if the user did not confirm his address otherwise `true`.\n  - `avatar_url` - Represents user's avatar.\n  - `banned` - `true` if the user had been locked via admin ban action otherwise `true`.\n  - `locked` - `true` if the user had been locked via login failed attempt otherwise `false`.\n  - `locale` - Represents user's locale\n  - `timestamps`\n \nStudent attributes :\n\n  - `full_name` - Represents concatenated student's first, last and middle names.\n  - `email` - Represents email which is used to contact with the student.\n  - `phone` - Represents phone which is used to contact with the student.\n  - `about` - Represents some detailed information about student(BIO).\n  - `social_networks` - Represents a list of social networks.\n  - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).\n  - `timestamps`\n\nAlso, includes relationship to the student's group\n",
       "examples": [
         {
           "description": "SHOW : Retrieve authenticated users's profile",
@@ -393,6 +373,13 @@
           "groups": "all",
           "route": "api/v1/user",
           "method": "get"
+        },
+        {
+          "description": "UPDATE : Updates authenticated user's information",
+          "link": "user's_profile/update_:_updates_authenticated_user's_information.json",
+          "groups": "all",
+          "route": "api/v1/user",
+          "method": "put"
         }
       ]
     },

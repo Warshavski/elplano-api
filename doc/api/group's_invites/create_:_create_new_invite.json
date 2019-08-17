@@ -23,11 +23,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group/invites",
-      "request_body": "{\"invite\":{\"email\":\"sammiefeil@daniel.org\"}}",
+      "request_body": "{\"invite\":{\"email\":\"manuelhane@wolff.name\"}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer cf95091ab34d00ebf2f5354399620f34f1aa795517439e7e0aa2273ec7fda3a0",
+        "Authorization": "Bearer df11f7f09c7ee12acf1dae3481a55b72ebf7f4fe005890f6198b346715f05bc4",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -36,7 +36,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"sammiefeil@daniel.org\",\n      \"invitation_token\": \"TGRyvuBYysyP3s_xmzYP\",\n      \"sent_at\": \"2019-08-16T12:21:55.896Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-08-16T12:21:55.896Z\",\n      \"updated_at\": \"2019-08-16T12:21:55.896Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"27\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"manuelhane@wolff.name\",\n      \"invitation_token\": \"RiqcbLuSzCNBsz7r_3n4\",\n      \"sent_at\": \"2019-08-17T20:10:14.263Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-08-17T20:10:14.263Z\",\n      \"updated_at\": \"2019-08-17T20:10:14.263Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"27\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -45,14 +45,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"8935a6294ecdae55c404ea010632fd51\"",
-        "X-Request-Id": "ecd63273-fefd-4a41-a158-25f3ab928a38",
-        "X-Runtime": "0.070443",
+        "ETag": "W/\"bc2096291f2d1569083929dbff7641e9\"",
+        "X-Request-Id": "e5b020ad-4c3a-4515-b20b-794e06d2019b",
+        "X-Runtime": "0.063646",
         "Vary": "Origin",
         "Content-Length": "414"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/invites\" -d '{\"invite\":{\"email\":\"sammiefeil@daniel.org\"}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer cf95091ab34d00ebf2f5354399620f34f1aa795517439e7e0aa2273ec7fda3a0\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/invites\" -d '{\"invite\":{\"email\":\"manuelhane@wolff.name\"}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer df11f7f09c7ee12acf1dae3481a55b72ebf7f4fe005890f6198b346715f05bc4\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

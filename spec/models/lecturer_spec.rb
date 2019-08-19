@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Lecturer, type: :model do
@@ -29,12 +31,20 @@ RSpec.describe Lecturer, type: :model do
                .scoped_to(%i[first_name last_name patronymic])
                .case_insensitive
     end
+
+    describe '#email' do
+      it { should allow_values('wat@email.com').for(:email) }
+
+      it { should allow_values(nil).for(:email) }
+
+      it { should_not allow_values('', 'wat', 'local.wat').for(:email) }
+    end
   end
 
   context 'callbacks' do
     describe 'before_validation' do
       let_it_be(:subject) do
-        create(:lecturer, first_name: 'lOoK', last_name: 'MA', patronymic: 'DiFFeReNt_CasE')
+        create(:lecturer, first_name: 'lOoK', last_name: 'MA', patronymic: 'DiFFeReNt_CasE', email: 'StraNgE@eMAil')
       end
 
       it { expect(subject.first_name).to eq('look') }
@@ -42,6 +52,8 @@ RSpec.describe Lecturer, type: :model do
       it { expect(subject.last_name).to eq('ma') }
 
       it { expect(subject.patronymic).to eq('different_case') }
+
+      it { expect(subject.email).to eq('strange@email') }
     end
   end
 end

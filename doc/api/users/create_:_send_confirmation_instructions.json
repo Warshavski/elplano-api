@@ -22,7 +22,7 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/users/confirmation",
-      "request_body": "{\"user\":{\"email\":\"chriy@botsfordthiel.biz\"}}",
+      "request_body": "{\"user\":{\"email\":\"philipkihn@prohaska.info\"}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
@@ -43,13 +43,13 @@
         "Content-Type": "application/json; charset=utf-8",
         "ETag": "W/\"f09f4232db7afe28489911394ecb758a\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "7e4caa78-f959-4312-9d9e-e9d081af5c54",
-        "X-Runtime": "0.009815",
+        "X-Request-Id": "3d9f98fb-164a-47c9-aec2-0932dfb6a130",
+        "X-Runtime": "0.006130",
         "Vary": "Origin",
         "Content-Length": "168"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/users/confirmation\" -d '{\"user\":{\"email\":\"chriy@botsfordthiel.biz\"}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/users/confirmation\" -d '{\"user\":{\"email\":\"philipkihn@prohaska.info\"}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

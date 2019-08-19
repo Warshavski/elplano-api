@@ -156,7 +156,7 @@
     },
     {
       "name": "Group's lecturers",
-      "explanation": "El Plano group's lecturers API(created for the group by group owner).\n\nCourse attributes :\n\n - `first_name` - Represents lecturer first name\n - `last_name` - Represents lecturer last name\n - `patronymic` - Represents lecturer patronymic \n - `timestamps`\n\nAlso, includes reference to the courses.\n",
+      "explanation": "El Plano group's lecturers API(created for the group by group owner).\n\nCourse attributes :\n\n - `first_name` - Represents lecturer first name\n - `last_name` - Represents lecturer last name\n - `patronymic` - Represents lecturer patronymic \n - `email` - Represents lecturer contact email address.\n - `phone` - Represents lecturer contact phone number.\n - `timestamps`\n\nAlso, includes reference to the courses.\n",
       "examples": [
         {
           "description": "CREATE : Create new lecturer",

@@ -23,7 +23,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 6d7af65b66de9559851ec8d2f7c6193ac60799d0aa7afe7bfdd4a6db42bad3e1",
+        "Authorization": "Bearer 9075c7d434c93dadd045a48ba58a2860d686d2adeb2c20767d1bbf0a10ace96c",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -32,7 +32,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"7\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"mariella@lefflerroob.info\",\n      \"username\": \"carroll_grimes\",\n      \"admin\": false,\n      \"locale\": null,\n      \"created_at\": \"2019-08-17T20:10:13.362Z\",\n      \"updated_at\": \"2019-08-17T20:10:13.396Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/94f90ff82d25746c6f0abbec97904489?s=200&d=identicon\",\n      \"confirmed\": true,\n      \"banned\": true,\n      \"locked\": false\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"4\",\n          \"type\": \"student\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"7\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"rudolfdibbert@haley.com\",\n      \"username\": \"wilton_gottlieb\",\n      \"admin\": false,\n      \"locale\": null,\n      \"created_at\": \"2019-08-19T12:56:56.654Z\",\n      \"updated_at\": \"2019-08-19T12:56:56.685Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/59d1496afc86e0be2b10907c8a33aaac?s=200&d=identicon\",\n      \"confirmed\": true,\n      \"banned\": true,\n      \"locked\": false\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"4\",\n          \"type\": \"student\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -41,14 +41,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"fcafcbebf76b64ad3271589e0a892e1e\"",
-        "X-Request-Id": "c45994eb-d532-4d00-90c1-693884bd69f6",
-        "X-Runtime": "0.015432",
+        "ETag": "W/\"74ea5eeea00fb6b2da6c94a99ef1d520\"",
+        "X-Request-Id": "a9279962-391e-4f49-9e83-f907beeaef1d",
+        "X-Runtime": "0.013089",
         "Vary": "Origin",
-        "Content-Length": "434"
+        "Content-Length": "433"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/admin/users/7\" -d '{\"action_type\":\"ban\"}' -X PATCH \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 6d7af65b66de9559851ec8d2f7c6193ac60799d0aa7afe7bfdd4a6db42bad3e1\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/admin/users/7\" -d '{\"action_type\":\"ban\"}' -X PATCH \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 9075c7d434c93dadd045a48ba58a2860d686d2adeb2c20767d1bbf0a10ace96c\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

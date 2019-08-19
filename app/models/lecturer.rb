@@ -18,6 +18,8 @@ class Lecturer < ApplicationRecord
 
   validates :first_name, :last_name, :patronymic, presence: true, length: { maximum: 40 }
 
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_nil: true
+
   validates :group, presence: true
 
   validates :group_id,
@@ -26,11 +28,11 @@ class Lecturer < ApplicationRecord
               scope: %i[first_name last_name patronymic]
             }
 
-  before_validation :downcase_names!
+  before_validation :downcase_attributes!
 
-  def downcase_names!
-    first_name&.downcase!
-    last_name&.downcase!
-    patronymic&.downcase!
+  def downcase_attributes!
+    %i[first_name last_name patronymic email].each do |accessor|
+      public_send(accessor)&.downcase!
+    end
   end
 end

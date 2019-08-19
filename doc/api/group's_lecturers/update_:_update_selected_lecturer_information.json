@@ -1,10 +1,10 @@
 {
   "resource": "Group's lecturers",
-  "resource_explanation": "El Plano group's lecturers API(created for the group by group owner).\n\nCourse attributes :\n\n - `first_name` - Represents lecturer first name\n - `last_name` - Represents lecturer last name\n - `patronymic` - Represents lecturer patronymic \n - `timestamps`\n\nAlso, includes reference to the courses.\n",
+  "resource_explanation": "El Plano group's lecturers API(created for the group by group owner).\n\nCourse attributes :\n\n - `first_name` - Represents lecturer first name\n - `last_name` - Represents lecturer last name\n - `patronymic` - Represents lecturer patronymic \n - `email` - Represents lecturer contact email address.\n - `phone` - Represents lecturer contact phone number.\n - `timestamps`\n\nAlso, includes reference to the courses.\n",
   "http_method": "PUT",
   "route": "api/v1/group/lecturers/:id",
   "description": "UPDATE : Update selected lecturer information",
-  "explanation": "Updates and returns updated lecturer.\n\n<b>NOTE</b> : This action allowed only for group owner user.\n",
+  "explanation": "Updates and returns updated lecturer.\n\nSee model attributes description in section description.\n\n<b>NOTE</b> : This action allowed only for group owner user.\n",
   "parameters": [
     {
       "scope": [
@@ -34,6 +34,20 @@
       "scope": [
         "lecturer"
       ],
+      "name": "email",
+      "description": "Lecturer contact email"
+    },
+    {
+      "scope": [
+        "lecturer"
+      ],
+      "name": "phone",
+      "description": "Lecturer contact phone number"
+    },
+    {
+      "scope": [
+        "lecturer"
+      ],
       "name": "course_ids",
       "description": "Courses of the lecturer"
     },
@@ -52,11 +66,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group/lecturers/10",
-      "request_body": "{\"lecturer\":{\"first_name\":\"Adan\",\"last_name\":\"Walker\",\"patronymic\":\"Miss\",\"course_ids\":[12],\"avatar\":\"{\\\"id\\\":\\\"e1528295a4d28103081e2dc3fe43a134.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"}}",
+      "request_body": "{\"lecturer\":{\"first_name\":\"Yong\",\"last_name\":\"Miller\",\"patronymic\":\"Ms.\",\"phone\":\"722-430-3059\",\"email\":\"salvadorwatsica@kautzer.net\",\"course_ids\":[12],\"avatar\":\"{\\\"id\\\":\\\"e84d45037683d4ac8084eab9789b5725.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 99654cd300e6b0024793c3994d7dc0f5cf89cea46e89e389c7e35439fba4303a",
+        "Authorization": "Bearer 28a3b8c5cc0c1f048fcaf9a9772b65f38d6288743580ec5dfe49732318a6f00e",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -65,7 +79,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"10\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-17T20:10:14.526Z\",\n      \"updated_at\": \"2019-08-17T20:10:14.573Z\",\n      \"first_name\": \"Adan\",\n      \"last_name\": \"Walker\",\n      \"patronymic\": \"Miss\",\n      \"avatar\": \"memory://e1528295a4d28103081e2dc3fe43a134.png\"\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"12\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"10\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"email\": \"salvadorwatsica@kautzer.net\",\n      \"phone\": \"722-430-3059\",\n      \"created_at\": \"2019-08-19T12:56:57.697Z\",\n      \"updated_at\": \"2019-08-19T12:56:57.800Z\",\n      \"first_name\": \"Yong\",\n      \"last_name\": \"Miller\",\n      \"patronymic\": \"Ms.\",\n      \"avatar\": \"memory://e84d45037683d4ac8084eab9789b5725.png\"\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"12\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -74,14 +88,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"ed1d918046466c66d2ee5ddc5872a7ce\"",
-        "X-Request-Id": "5080d7dc-fab5-47d5-aeda-1238be0510f7",
-        "X-Runtime": "0.029558",
+        "ETag": "W/\"b8993927e1e9cc512f7bcccaf10255fe\"",
+        "X-Request-Id": "9487ef7f-7b5a-4bd7-a35d-238c703a2e50",
+        "X-Runtime": "0.073684",
         "Vary": "Origin",
-        "Content-Length": "318"
+        "Content-Length": "378"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/lecturers/10\" -d '{\"lecturer\":{\"first_name\":\"Adan\",\"last_name\":\"Walker\",\"patronymic\":\"Miss\",\"course_ids\":[12],\"avatar\":\"{\\\"id\\\":\\\"e1528295a4d28103081e2dc3fe43a134.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 99654cd300e6b0024793c3994d7dc0f5cf89cea46e89e389c7e35439fba4303a\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/lecturers/10\" -d '{\"lecturer\":{\"first_name\":\"Yong\",\"last_name\":\"Miller\",\"patronymic\":\"Ms.\",\"phone\":\"722-430-3059\",\"email\":\"salvadorwatsica@kautzer.net\",\"course_ids\":[12],\"avatar\":\"{\\\"id\\\":\\\"e84d45037683d4ac8084eab9789b5725.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 28a3b8c5cc0c1f048fcaf9a9772b65f38d6288743580ec5dfe49732318a6f00e\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

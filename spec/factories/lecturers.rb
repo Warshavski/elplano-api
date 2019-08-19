@@ -20,7 +20,9 @@ FactoryBot.define do
       {
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
-        patronymic: Faker::Name.prefix
+        patronymic: Faker::Name.prefix,
+        phone: Faker::PhoneNumber.cell_phone,
+        email: Faker::Internet.email
       }
     end
   end
@@ -29,8 +31,9 @@ FactoryBot.define do
     initialize_with do
       {
         first_name: nil,
-        last_name: "",
-        patronymic: Faker::Lorem.sentence(20)
+        last_name: '',
+        patronymic: Faker::Lorem.sentence(20),
+        email: 'wat.email'
       }
     end
   end

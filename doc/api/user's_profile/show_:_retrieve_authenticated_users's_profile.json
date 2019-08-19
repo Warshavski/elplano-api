@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 8345fc1dbc2c2ee8d9a01911cdd37801460b25491b0166ffa9c4478832f071b5",
+        "Authorization": "Bearer 2b1dec96ee4e1116d0879a09eba37d4b7b51328bca2db7fffedc984034e6cb12",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"59\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"laurette@bosco.com\",\n      \"username\": \"catrina_rutherford\",\n      \"admin\": false,\n      \"locale\": null,\n      \"created_at\": \"2019-08-17T20:10:15.749Z\",\n      \"updated_at\": \"2019-08-17T20:10:15.749Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/4d5c06609c8203a2eeee1580670423a1?s=200&d=identicon\",\n      \"confirmed\": true,\n      \"banned\": false,\n      \"locked\": false\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"52\",\n          \"type\": \"student\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"52\",\n      \"type\": \"student\",\n      \"attributes\": {\n        \"full_name\": \"Miss Chieko Janessa Sauer\",\n        \"email\": \"debrajohnson@kshlerin.net\",\n        \"phone\": \"1-243-656-1859\",\n        \"about\": \"Nobis nostrum autem. Et voluptate in. Odio quaerat minus. Fugiat esse earum. Cupiditate aut ipsum.\",\n        \"social_networks\": {\n          \"twitter\": \"http://twitter/zachery_prosacco\",\n          \"facebook\": \"http://facebook/aretha\"\n        },\n        \"president\": false,\n        \"created_at\": \"2019-08-17T20:10:15.754Z\",\n        \"updated_at\": \"2019-08-17T20:10:15.754Z\"\n      },\n      \"relationships\": {\n        \"group\": {\n          \"data\": null\n        },\n        \"user\": {\n          \"data\": {\n            \"id\": \"59\",\n            \"type\": \"user\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"59\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"alva@fayjacobson.biz\",\n      \"username\": \"emanuel.shanahan\",\n      \"admin\": false,\n      \"locale\": null,\n      \"created_at\": \"2019-08-19T12:56:58.959Z\",\n      \"updated_at\": \"2019-08-19T12:56:58.959Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/aa8eb540f499967db2d410993ae33184?s=200&d=identicon\",\n      \"confirmed\": true,\n      \"banned\": false,\n      \"locked\": false\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"52\",\n          \"type\": \"student\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"52\",\n      \"type\": \"student\",\n      \"attributes\": {\n        \"full_name\": \"Roger Kendal Barrows\",\n        \"email\": \"dawna@kaulkepurdy.io\",\n        \"phone\": \"280.086.6024\",\n        \"about\": \"Ad quo sit. Aliquid aut quia. Ut porro qui. Iure rerum quae. Officia porro autem.\",\n        \"social_networks\": {\n          \"twitter\": \"http://twitter/santo.kling\",\n          \"facebook\": \"http://facebook/jeneva.gusikowski\"\n        },\n        \"president\": false,\n        \"created_at\": \"2019-08-19T12:56:58.963Z\",\n        \"updated_at\": \"2019-08-19T12:56:58.963Z\"\n      },\n      \"relationships\": {\n        \"group\": {\n          \"data\": null\n        },\n        \"user\": {\n          \"data\": {\n            \"id\": \"59\",\n            \"type\": \"user\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"f400352bd48a46b5d6cd521955d82ae4\"",
-        "X-Request-Id": "4cfe1207-61f7-433e-bfcb-42f4d59efa41",
-        "X-Runtime": "0.016872",
+        "ETag": "W/\"886527c07cba69caa140ab7afc085d43\"",
+        "X-Request-Id": "c633698c-b93e-42d6-b63e-021c3fdff2f7",
+        "X-Runtime": "0.009381",
         "Vary": "Origin",
-        "Content-Length": "981"
+        "Content-Length": "958"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/user\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 8345fc1dbc2c2ee8d9a01911cdd37801460b25491b0166ffa9c4478832f071b5\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/user\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 2b1dec96ee4e1116d0879a09eba37d4b7b51328bca2db7fffedc984034e6cb12\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

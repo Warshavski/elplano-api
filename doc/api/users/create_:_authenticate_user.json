@@ -30,7 +30,7 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/users/sign_in",
-      "request_body": "{\"user\":{\"login\":\"ronaparisian@boscogrant.name\",\"password\":\"123456\"}}",
+      "request_body": "{\"user\":{\"login\":\"royal@leuschke.net\",\"password\":\"123456\"}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
@@ -42,22 +42,22 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"57\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"ronaparisian@boscogrant.name\",\n      \"username\": \"cay\",\n      \"admin\": false,\n      \"locale\": null,\n      \"created_at\": \"2019-08-17T20:10:15.513Z\",\n      \"updated_at\": \"2019-08-17T20:10:15.547Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/b232b3dc5914dca69d2a2c72545bc9d7?s=200&d=identicon\",\n      \"confirmed\": true,\n      \"banned\": false,\n      \"locked\": false\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"51\",\n          \"type\": \"student\"\n        }\n      },\n      \"recent_access_token\": {\n        \"data\": {\n          \"id\": \"36\",\n          \"type\": \"access_token\"\n        }\n      }\n    }\n  },\n  \"meta\": {\n    \"message\": \"Signed in successfully.\"\n  },\n  \"included\": [\n    {\n      \"id\": \"36\",\n      \"type\": \"access_token\",\n      \"attributes\": {\n        \"access_token\": \"53dec0bb6954f6f1df78784c493d56db332c8c60de5fc386ebe9c122cd1bfff7\",\n        \"refresh_token\": \"dd4848cff395add37eb30998962701be6fdb47b1ec9a9eb18946d33ae09b1f5c\",\n        \"token_type\": \"Bearer\",\n        \"expires_in\": 3600,\n        \"created_at\": 1566072615\n      }\n    },\n    {\n      \"id\": \"51\",\n      \"type\": \"student\",\n      \"attributes\": {\n        \"full_name\": \"Terence Krysta Mueller\",\n        \"email\": \"lelah@deckow.name\",\n        \"phone\": \"475-372-6109\",\n        \"about\": \"Laudantium nesciunt sed. Dicta error nemo. Eum illo ullam. Odit laboriosam repellendus. Excepturi eaque illum.\",\n        \"social_networks\": {\n          \"twitter\": \"http://twitter/babara\",\n          \"facebook\": \"http://facebook/estefana\"\n        },\n        \"president\": false,\n        \"created_at\": \"2019-08-17T20:10:15.519Z\",\n        \"updated_at\": \"2019-08-17T20:10:15.519Z\"\n      },\n      \"relationships\": {\n        \"group\": {\n          \"data\": null\n        },\n        \"user\": {\n          \"data\": {\n            \"id\": \"57\",\n            \"type\": \"user\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"57\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"royal@leuschke.net\",\n      \"username\": \"minh\",\n      \"admin\": false,\n      \"locale\": null,\n      \"created_at\": \"2019-08-19T12:56:58.732Z\",\n      \"updated_at\": \"2019-08-19T12:56:58.762Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/a6b4b4a5e6c0925c85209b85d1695d8b?s=200&d=identicon\",\n      \"confirmed\": true,\n      \"banned\": false,\n      \"locked\": false\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"51\",\n          \"type\": \"student\"\n        }\n      },\n      \"recent_access_token\": {\n        \"data\": {\n          \"id\": \"36\",\n          \"type\": \"access_token\"\n        }\n      }\n    }\n  },\n  \"meta\": {\n    \"message\": \"Signed in successfully.\"\n  },\n  \"included\": [\n    {\n      \"id\": \"36\",\n      \"type\": \"access_token\",\n      \"attributes\": {\n        \"access_token\": \"1371f30293baec388e77a2b179d94931039024496e64cf4357e5567f68aed5eb\",\n        \"refresh_token\": \"7f6290fdd23ef440e7931b0f75f833063f58f19b0f412cf2e768df97bc19c41c\",\n        \"token_type\": \"Bearer\",\n        \"expires_in\": 3600,\n        \"created_at\": 1566219418\n      }\n    },\n    {\n      \"id\": \"51\",\n      \"type\": \"student\",\n      \"attributes\": {\n        \"full_name\": \"Indira Miyoko Tremblay\",\n        \"email\": \"rodolfo@stark.biz\",\n        \"phone\": \"(867) 419-7146\",\n        \"about\": \"Dolorum adipisci vero. Provident autem qui. Repellat reprehenderit et. Ducimus tempore numquam. Velit voluptatem aliquid.\",\n        \"social_networks\": {\n          \"twitter\": \"http://twitter/devon_funk\",\n          \"facebook\": \"http://facebook/randal_mayert\"\n        },\n        \"president\": false,\n        \"created_at\": \"2019-08-19T12:56:58.738Z\",\n        \"updated_at\": \"2019-08-19T12:56:58.738Z\"\n      },\n      \"relationships\": {\n        \"group\": {\n          \"data\": null\n        },\n        \"user\": {\n          \"data\": {\n            \"id\": \"57\",\n            \"type\": \"user\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"86f97782a3a741bb077fc8c35d0edea7\"",
+        "ETag": "W/\"701475662960f6da58d1737902344a68\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "1787dc34-423b-4b11-8c17-5523ffac3300",
-        "X-Runtime": "0.034076",
+        "X-Request-Id": "1b8fc936-d571-4cd1-a7e9-f7ae3bdbf071",
+        "X-Runtime": "0.030597",
         "Vary": "Origin",
-        "Content-Length": "1355"
+        "Content-Length": "1368"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/users/sign_in\" -d '{\"user\":{\"login\":\"ronaparisian@boscogrant.name\",\"password\":\"123456\"}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/users/sign_in\" -d '{\"user\":{\"login\":\"royal@leuschke.net\",\"password\":\"123456\"}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

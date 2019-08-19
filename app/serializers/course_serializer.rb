@@ -9,7 +9,7 @@ class CourseSerializer
 
   set_type :course
 
-  attributes :created_at, :updated_at
+  attributes :active, :created_at, :updated_at
 
   attribute :title do |object|
     object.title.titleize

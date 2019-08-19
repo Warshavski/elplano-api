@@ -1,6 +1,6 @@
 {
   "resource": "Group's lecturers",
-  "resource_explanation": "El Plano group's lecturers API(created for the group by group owner).\n\nCourse attributes :\n\n - `first_name` - Represents lecturer first name\n - `last_name` - Represents lecturer last name\n - `patronymic` - Represents lecturer patronymic \n - `email` - Represents lecturer contact email address.\n - `phone` - Represents lecturer contact phone number.\n - `timestamps`\n\nAlso, includes reference to the courses.\n",
+  "resource_explanation": "El Plano group's lecturers API(created for the group by group owner).\n\nCourse attributes :\n\n - `first_name` - Represents lecturer first name\n - `last_name` - Represents lecturer last name\n - `patronymic` - Represents lecturer patronymic \n - `email` - Represents lecturer contact email address.\n - `phone` - Represents lecturer contact phone number.\n - `active` - `true` if lecturer is available in current time(can ), otherwise `false`\n - `timestamps`\n\nAlso, includes reference to the courses.\n",
   "http_method": "GET",
   "route": "api/v1/group/lecturers/:id",
   "description": "SHOW : Retrieve information about requested lecturer",
@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 0486cc35828004cac4d5cdc85134132a99249aecf0bf0c731f6528bbc284573f",
+        "Authorization": "Bearer 9596403ed7bbc81a2f9c78e602795608fa2828409f71d8826e884a4aa4f78f04",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"8\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"email\": null,\n      \"phone\": null,\n      \"created_at\": \"2019-08-19T12:56:57.596Z\",\n      \"updated_at\": \"2019-08-19T12:56:57.596Z\",\n      \"first_name\": \"Deloris\",\n      \"last_name\": \"Walker\",\n      \"patronymic\": \"Dds\",\n      \"avatar\": null\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"9\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"8\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"email\": null,\n      \"phone\": null,\n      \"active\": true,\n      \"created_at\": \"2019-08-19T14:17:08.821Z\",\n      \"updated_at\": \"2019-08-19T14:17:08.821Z\",\n      \"first_name\": \"Murray\",\n      \"last_name\": \"Weber\",\n      \"patronymic\": \"Sr.\",\n      \"avatar\": null\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"9\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"ab45a1511b70591d5b880cc209a07528\"",
-        "X-Request-Id": "67c34dd8-66db-48ca-8a89-f9e030fcc53d",
-        "X-Runtime": "0.008733",
+        "ETag": "W/\"b62f9e97a6269ded4fe5b724eb75418d\"",
+        "X-Request-Id": "aaa73911-0373-4146-9a13-496018aa6537",
+        "X-Runtime": "0.008814",
         "Vary": "Origin",
-        "Content-Length": "301"
+        "Content-Length": "313"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/lecturers/8\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 0486cc35828004cac4d5cdc85134132a99249aecf0bf0c731f6528bbc284573f\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/lecturers/8\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 9596403ed7bbc81a2f9c78e602795608fa2828409f71d8826e884a4aa4f78f04\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

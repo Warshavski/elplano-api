@@ -1,10 +1,10 @@
 {
   "resource": "Group's courses",
-  "resource_explanation": "El Plano courses API(created for group by group owner).\n\nCourse attributes :\n\n - `title` - Represents course name(human readable identity).\n - `timestamps`\n\n Also, includes reference to the course lecturer.\n",
+  "resource_explanation": "El Plano courses API(created for group by group owner).\n\nCourse attributes :\n\n - `title` - Represents course name(human readable identity).\n - `active` - `true` if course is available in current time(not archived course), otherwise `false`\n - `timestamps`\n\n Also, includes reference to the course lecturer.\n",
   "http_method": "PUT",
   "route": "api/v1/group/courses/:id",
   "description": "UPDATE : Update selected course information",
-  "explanation": "Updates and return updated course.\n\n<b>NOTE</b> : This action allowed only for group owner user.\n",
+  "explanation": "Updates and return updated course.\n\nSee model attribute description in section description.\n\n<b>NOTE</b> : This action allowed only for group owner user.\n",
   "parameters": [
     {
       "scope": [
@@ -13,6 +13,13 @@
       "required": true,
       "name": "title",
       "description": "Course title(human readable identity)"
+    },
+    {
+      "scope": [
+        "course"
+      ],
+      "name": "active",
+      "description": "Course actuality flag(not archived course) default: true"
     },
     {
       "scope": [
@@ -29,11 +36,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group/courses/6",
-      "request_body": "{\"course\":{\"title\":\"Master of Arts\",\"lecturer_ids\":[5]}}",
+      "request_body": "{\"course\":{\"title\":\"Associate Degree in Communications\",\"active\":true,\"lecturer_ids\":[5]}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 82a9db0a21012f9a67f6fdd0fe943d71886c2a9137532dac8288aa6ac40565b8",
+        "Authorization": "Bearer a9f009465fb3411b7b8a5ab870c854d826b428839f0b923a6fe040e7ef9c0499",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -42,7 +49,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-19T12:56:57.247Z\",\n      \"updated_at\": \"2019-08-19T12:56:57.281Z\",\n      \"title\": \"Master Of Arts\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"5\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"active\": true,\n      \"created_at\": \"2019-08-19T14:17:08.443Z\",\n      \"updated_at\": \"2019-08-19T14:17:08.477Z\",\n      \"title\": \"Associate Degree In Communications\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"5\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -51,14 +58,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"528416440547204596feb21c5e500ed8\"",
-        "X-Request-Id": "5b2612da-6257-49b2-bb22-e413c7feddf5",
-        "X-Runtime": "0.016788",
+        "ETag": "W/\"a1afb3bc689aaeb7024a488df0267e41\"",
+        "X-Request-Id": "d9aa5509-b42e-4055-af41-ef6a5cbecd35",
+        "X-Runtime": "0.016733",
         "Vary": "Origin",
-        "Content-Length": "225"
+        "Content-Length": "259"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/courses/6\" -d '{\"course\":{\"title\":\"Master of Arts\",\"lecturer_ids\":[5]}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 82a9db0a21012f9a67f6fdd0fe943d71886c2a9137532dac8288aa6ac40565b8\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/courses/6\" -d '{\"course\":{\"title\":\"Associate Degree in Communications\",\"active\":true,\"lecturer_ids\":[5]}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer a9f009465fb3411b7b8a5ab870c854d826b428839f0b923a6fe040e7ef9c0499\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

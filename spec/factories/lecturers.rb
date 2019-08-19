@@ -6,6 +6,8 @@ FactoryBot.define do
     last_name   { Faker::Name.last_name }
     patronymic  { Faker::Name.suffix }
 
+    active { true }
+
     group
 
     trait :with_courses do
@@ -22,7 +24,8 @@ FactoryBot.define do
         last_name: Faker::Name.last_name,
         patronymic: Faker::Name.prefix,
         phone: Faker::PhoneNumber.cell_phone,
-        email: Faker::Internet.email
+        email: Faker::Internet.email,
+        active: true
       }
     end
   end

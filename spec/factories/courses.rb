@@ -4,6 +4,8 @@ FactoryBot.define do
   factory :course, class: Course do
     title  { Faker::Lorem.sentence(2) }
 
+    active { true }
+
     group
 
     trait :with_lecturers do
@@ -16,7 +18,8 @@ FactoryBot.define do
   factory :course_params, class: Hash do
     initialize_with do
       {
-        title: Faker::Educator.course
+        title: Faker::Educator.course,
+        active: true
       }
     end
   end

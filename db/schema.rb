@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_19_122934) do
+ActiveRecord::Schema.define(version: 2019_08_19_131702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2019_08_19_122934) do
     t.bigint "group_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "active", default: true, null: false
+    t.index ["active"], name: "index_courses_on_active", where: "(active = true)"
     t.index ["group_id", "title"], name: "index_courses_on_group_id_and_title", unique: true
     t.index ["group_id"], name: "index_courses_on_group_id"
   end
@@ -76,6 +78,8 @@ ActiveRecord::Schema.define(version: 2019_08_19_122934) do
     t.text "avatar_data"
     t.string "email"
     t.string "phone"
+    t.boolean "active", default: true, null: false
+    t.index ["active"], name: "index_lecturers_on_active", where: "(active = true)"
     t.index ["group_id", "first_name", "last_name", "patronymic"], name: "index_lecturers_on_full_name_and_group", unique: true
     t.index ["group_id"], name: "index_lecturers_on_group_id"
   end

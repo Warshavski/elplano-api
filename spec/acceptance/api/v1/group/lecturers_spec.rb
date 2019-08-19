@@ -13,6 +13,7 @@ resource "Group's lecturers" do
      - `patronymic` - Represents lecturer patronymic 
      - `email` - Represents lecturer contact email address.
      - `phone` - Represents lecturer contact phone number.
+     - `active` - `true` if lecturer is available in current time(can ), otherwise `false`
      - `timestamps`
   
     Also, includes reference to the courses.
@@ -81,6 +82,7 @@ resource "Group's lecturers" do
       parameter :phone, 'Lecturer contact phone number'
       parameter :course_ids, 'Courses of the lecturer'
       parameter :avatar, 'Uploaded file metadata received from `uploads` endpoint'
+      parameter :active, 'Lecturer availability flag(currently available lecturer) default: true'
     end
 
     let(:raw_post) do
@@ -119,6 +121,7 @@ resource "Group's lecturers" do
       parameter :phone, 'Lecturer contact phone number'
       parameter :course_ids, 'Courses of the lecturer'
       parameter :avatar, 'Uploaded file metadata received from `uploads` endpoint'
+      parameter :active, 'Lecturer availability flag(currently available lecturer) default: true'
     end
 
     let(:raw_post) do

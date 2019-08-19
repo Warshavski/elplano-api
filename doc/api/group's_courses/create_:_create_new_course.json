@@ -1,10 +1,10 @@
 {
   "resource": "Group's courses",
-  "resource_explanation": "El Plano courses API(created for group by group owner).\n\nCourse attributes :\n\n - `title` - Represents course name(human readable identity).\n - `timestamps`\n\n Also, includes reference to the course lecturer.\n",
+  "resource_explanation": "El Plano courses API(created for group by group owner).\n\nCourse attributes :\n\n - `title` - Represents course name(human readable identity).\n - `active` - `true` if course is available in current time(not archived course), otherwise `false`\n - `timestamps`\n\n Also, includes reference to the course lecturer.\n",
   "http_method": "POST",
   "route": "api/v1/group/courses",
   "description": "CREATE : Create new course",
-  "explanation": "Creates and returns created course.\n\n<b>NOTE</b> : This action allowed only for group owner user.\n",
+  "explanation": "Creates and returns created course.\n\nSee model attribute description in section description.\n\n<b>NOTE</b> : This action allowed only for group owner user.\n",
   "parameters": [
     {
       "scope": [
@@ -13,6 +13,13 @@
       "required": true,
       "name": "title",
       "description": "Course title(human readable identity)"
+    },
+    {
+      "scope": [
+        "course"
+      ],
+      "name": "active",
+      "description": "Course actuality flag(not archived course) default: true"
     },
     {
       "scope": [
@@ -29,11 +36,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group/courses",
-      "request_body": "{\"course\":{\"title\":\"Bachelor of Biological Science\",\"lecturer_ids\":[3]}}",
+      "request_body": "{\"course\":{\"title\":\"Associate Degree in Health Science\",\"active\":true,\"lecturer_ids\":[3]}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer a569f16435c5655aec8a89d920b61a4387786d184551e57416d9711472a5c662",
+        "Authorization": "Bearer c6fb2639fd686713707e9ee11e1af9a2fca17a590d535be6f84b02dadb094d39",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -42,7 +49,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-19T12:56:57.218Z\",\n      \"updated_at\": \"2019-08-19T12:56:57.218Z\",\n      \"title\": \"Bachelor Of Biological Science\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"3\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"active\": true,\n      \"created_at\": \"2019-08-19T14:17:08.415Z\",\n      \"updated_at\": \"2019-08-19T14:17:08.415Z\",\n      \"title\": \"Associate Degree In Health Science\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"3\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -51,14 +58,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"e8aa29f156d64a60be5aecb063d41fe2\"",
-        "X-Request-Id": "abe3dbae-40ee-47e5-9002-3bf7f012b1aa",
-        "X-Runtime": "0.020514",
+        "ETag": "W/\"80e868c595082d22c5dd372f89fc2e17\"",
+        "X-Request-Id": "9b316a3b-8de9-48ce-b0f4-a46b0004e37d",
+        "X-Runtime": "0.016795",
         "Vary": "Origin",
-        "Content-Length": "241"
+        "Content-Length": "259"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/courses\" -d '{\"course\":{\"title\":\"Bachelor of Biological Science\",\"lecturer_ids\":[3]}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer a569f16435c5655aec8a89d920b61a4387786d184551e57416d9711472a5c662\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/courses\" -d '{\"course\":{\"title\":\"Associate Degree in Health Science\",\"active\":true,\"lecturer_ids\":[3]}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer c6fb2639fd686713707e9ee11e1af9a2fca17a590d535be6f84b02dadb094d39\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

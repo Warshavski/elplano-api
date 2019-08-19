@@ -56,4 +56,6 @@ RSpec.describe Lecturer, type: :model do
       it { expect(subject.email).to eq('strange@email') }
     end
   end
+
+  it_behaves_like 'deactivatable'
 end

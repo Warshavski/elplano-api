@@ -9,6 +9,7 @@ resource "Group's courses" do
     Course attributes :
 
      - `title` - Represents course name(human readable identity).
+     - `active` - `true` if course is available in current time(not archived course), otherwise `false`
      - `timestamps`
   
      Also, includes reference to the course lecturer.
@@ -35,6 +36,8 @@ resource "Group's courses" do
     example 'INDEX : Retrieve courses created by authenticated user' do
       explanation <<~DESC
         Returns a list of the available courses.
+
+        See model attribute description in section description.
       DESC
 
       do_request
@@ -50,6 +53,8 @@ resource "Group's courses" do
     example 'SHOW : Retrieve information about requested course' do
       explanation <<~DESC
         Returns a single instance of the course.
+
+        See model attribute description in section description.
       DESC
 
       do_request
@@ -64,6 +69,7 @@ resource "Group's courses" do
   post 'api/v1/group/courses' do
     with_options scope: %i[course] do
       parameter :title, 'Course title(human readable identity)', required: true
+      parameter :active, 'Course actuality flag(not archived course) default: true'
       parameter :lecturer_ids, 'Lecturers of the course.'
     end
 
@@ -74,6 +80,8 @@ resource "Group's courses" do
     example 'CREATE : Create new course' do
       explanation <<~DESC
         Creates and returns created course.
+
+        See model attribute description in section description.
 
         <b>NOTE</b> : This action allowed only for group owner user.
       DESC
@@ -90,6 +98,7 @@ resource "Group's courses" do
   put 'api/v1/group/courses/:id' do
     with_options scope: %i[course] do
       parameter :title, 'Course title(human readable identity)', required: true
+      parameter :active, 'Course actuality flag(not archived course) default: true'
       parameter :lecturer_ids, 'Lecturers of the course.'
     end
 
@@ -100,6 +109,8 @@ resource "Group's courses" do
     example 'UPDATE : Update selected course information' do
       explanation <<~DESC
         Updates and return updated course.
+
+        See model attribute description in section description.
 
         <b>NOTE</b> : This action allowed only for group owner user.
       DESC

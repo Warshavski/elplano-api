@@ -10,6 +10,8 @@
 class Lecturer < ApplicationRecord
   include AvatarUploader[:avatar]
 
+  include Deactivatable
+
   belongs_to :group
 
   has_many :lectures, dependent: :delete_all

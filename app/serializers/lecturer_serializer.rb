@@ -9,7 +9,7 @@ class LecturerSerializer
 
   set_type :lecturer
 
-  attributes :email, :phone, :created_at, :updated_at
+  attributes :email, :phone, :active, :created_at, :updated_at
 
   attribute :first_name do |object|
     object.first_name.titleize

@@ -22,7 +22,7 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/users/unlock",
-      "request_body": "{\"user\":{\"email\":\"erminiathompson@kunde.biz\"}}",
+      "request_body": "{\"user\":{\"email\":\"enid@pouros.com\"}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
@@ -43,13 +43,13 @@
         "Content-Type": "application/json; charset=utf-8",
         "ETag": "W/\"3b72de2c94f438d4b01158d2e0b56e9c\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "b2983eb8-f7cd-4904-924b-0d39dddb5e29",
-        "X-Runtime": "0.007335",
+        "X-Request-Id": "aafa046d-8a6a-4ab8-940a-d97c79368411",
+        "X-Runtime": "0.006017",
         "Vary": "Origin",
         "Content-Length": "129"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/users/unlock\" -d '{\"user\":{\"email\":\"erminiathompson@kunde.biz\"}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/users/unlock\" -d '{\"user\":{\"email\":\"enid@pouros.com\"}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

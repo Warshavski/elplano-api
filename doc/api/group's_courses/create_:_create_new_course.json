@@ -29,11 +29,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group/courses",
-      "request_body": "{\"course\":{\"title\":\"Bachelor of Applied Science (Psychology)\",\"lecturer_ids\":[3]}}",
+      "request_body": "{\"course\":{\"title\":\"Bachelor of Biological Science\",\"lecturer_ids\":[3]}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer f866c9077a9edad6464d2daf5fb50c691fbe0bcb5f40b7e0d5d9c3b9cf739f55",
+        "Authorization": "Bearer a569f16435c5655aec8a89d920b61a4387786d184551e57416d9711472a5c662",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -42,7 +42,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-17T20:10:13.972Z\",\n      \"updated_at\": \"2019-08-17T20:10:13.972Z\",\n      \"title\": \"Bachelor Of Applied Science (Psychology)\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"3\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-19T12:56:57.218Z\",\n      \"updated_at\": \"2019-08-19T12:56:57.218Z\",\n      \"title\": \"Bachelor Of Biological Science\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"3\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -51,14 +51,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"dbd3a04f18d8c8d9c6472faa3f70dbc1\"",
-        "X-Request-Id": "ec414210-6e8d-4562-a738-c467f97914e7",
-        "X-Runtime": "0.018421",
+        "ETag": "W/\"e8aa29f156d64a60be5aecb063d41fe2\"",
+        "X-Request-Id": "abe3dbae-40ee-47e5-9002-3bf7f012b1aa",
+        "X-Runtime": "0.020514",
         "Vary": "Origin",
-        "Content-Length": "251"
+        "Content-Length": "241"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/courses\" -d '{\"course\":{\"title\":\"Bachelor of Applied Science (Psychology)\",\"lecturer_ids\":[3]}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer f866c9077a9edad6464d2daf5fb50c691fbe0bcb5f40b7e0d5d9c3b9cf739f55\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/courses\" -d '{\"course\":{\"title\":\"Bachelor of Biological Science\",\"lecturer_ids\":[3]}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer a569f16435c5655aec8a89d920b61a4387786d184551e57416d9711472a5c662\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

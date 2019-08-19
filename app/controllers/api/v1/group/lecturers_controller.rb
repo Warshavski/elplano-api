@@ -77,9 +77,7 @@ module Api
         # Delete lecturer
         #
         def destroy
-          lecturer = filter_lecturers.find(params[:id])
-
-          lecturer.destroy!
+          filter_lecturers.find(params[:id]).tap(&:destroy!)
 
           head :no_content
         end
@@ -91,9 +89,9 @@ module Api
         end
 
         def lecturer_params
-          params
-            .require(:lecturer)
-            .permit(:first_name, :last_name, :patronymic, :avatar, course_ids: [])
+          attributes = [:first_name, :last_name, :patronymic, :avatar, :email, :phone, course_ids: []]
+
+          params.require(:lecturer).permit(*attributes)
         end
       end
     end

@@ -54,7 +54,7 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
     include_examples 'json:api examples',
                      %w[data],
                      %w[id type attributes relationships],
-                     %w[avatar first_name last_name patronymic created_at updated_at],
+                     %w[avatar first_name last_name patronymic email phone created_at updated_at],
                      %w[courses]
 
     it 'returns correct expected data' do
@@ -84,7 +84,7 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
       include_examples 'json:api examples',
                        %w[data],
                        %w[id type attributes relationships],
-                       %w[avatar first_name last_name patronymic created_at updated_at],
+                       %w[avatar first_name last_name patronymic email phone created_at updated_at],
                        %w[courses]
 
       it 'returns created model' do
@@ -175,7 +175,7 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
       include_examples 'json:api examples',
                        %w[data],
                        %w[id type attributes relationships],
-                       %w[avatar first_name last_name patronymic created_at updated_at],
+                       %w[avatar first_name last_name patronymic email phone created_at updated_at],
                        %w[courses]
 
       include_examples 'request errors examples'

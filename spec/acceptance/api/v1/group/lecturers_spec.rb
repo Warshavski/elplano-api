@@ -11,6 +11,8 @@ resource "Group's lecturers" do
      - `first_name` - Represents lecturer first name
      - `last_name` - Represents lecturer last name
      - `patronymic` - Represents lecturer patronymic 
+     - `email` - Represents lecturer contact email address.
+     - `phone` - Represents lecturer contact phone number.
      - `timestamps`
   
     Also, includes reference to the courses.
@@ -40,6 +42,8 @@ resource "Group's lecturers" do
     example 'INDEX : Retrieve lecturers created by authenticated user' do
       explanation <<~DESC
         Returns a list of the available lecturers.
+
+        See model attributes description in section description.
       DESC
 
       do_request
@@ -55,6 +59,8 @@ resource "Group's lecturers" do
     example 'SHOW : Retrieve information about requested lecturer' do
       explanation <<~DESC
         Returns a single instance of the lecturer.
+
+        See model attributes description in section description.
       DESC
 
       do_request
@@ -71,6 +77,8 @@ resource "Group's lecturers" do
       parameter :first_name, 'Lecturer first name', required: true
       parameter :last_name, 'Lecturer last name', required: true
       parameter :patronymic, 'Lecturer patronymic', required: true
+      parameter :email, 'Lecturer contact email'
+      parameter :phone, 'Lecturer contact phone number'
       parameter :course_ids, 'Courses of the lecturer'
       parameter :avatar, 'Uploaded file metadata received from `uploads` endpoint'
     end
@@ -87,6 +95,8 @@ resource "Group's lecturers" do
     example 'CREATE : Create new lecturer' do
       explanation <<~DESC
         Creates and returns created lecturer.
+
+        See model attributes description in section description.
 
         <b>NOTE</b> : This action allowed only for group owner user.
       DESC
@@ -105,6 +115,8 @@ resource "Group's lecturers" do
       parameter :first_name, 'Lecturer first name', required: true
       parameter :last_name, 'Lecturer last name', required: true
       parameter :patronymic, 'Lecturer patronymic', required: true
+      parameter :email, 'Lecturer contact email'
+      parameter :phone, 'Lecturer contact phone number'
       parameter :course_ids, 'Courses of the lecturer'
       parameter :avatar, 'Uploaded file metadata received from `uploads` endpoint'
     end
@@ -121,6 +133,8 @@ resource "Group's lecturers" do
     example 'UPDATE : Update selected lecturer information' do
       explanation <<~DESC
         Updates and returns updated lecturer.
+
+        See model attributes description in section description.
 
         <b>NOTE</b> : This action allowed only for group owner user.
       DESC

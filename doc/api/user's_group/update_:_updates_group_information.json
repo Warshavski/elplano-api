@@ -30,11 +30,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group",
-      "request_body": "{\"group\":{\"title\":\"Qui ut non.\",\"number\":\"30897\"}}",
+      "request_body": "{\"group\":{\"title\":\"Excepturi sed deleniti.\",\"number\":\"11623\"}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer eb68dc04c9cb1de48be0d57c6600422ff9ac092b6183bc470ff33be5f6585fae",
+        "Authorization": "Bearer ea09ed74ae74ede9c0f25e24a734916489ab119103baef5a9ca007432e19ed14",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -43,7 +43,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"23\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"30897\",\n      \"title\": \"Qui ut non.\",\n      \"created_at\": \"2019-08-17T20:10:14.821Z\",\n      \"updated_at\": \"2019-08-17T20:10:14.838Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"39\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"23\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"11623\",\n      \"title\": \"Excepturi sed deleniti.\",\n      \"created_at\": \"2019-08-19T12:56:58.037Z\",\n      \"updated_at\": \"2019-08-19T12:56:58.054Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"39\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -52,14 +52,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"de8b82ba8ce35363eac6cee0eb3b3369\"",
-        "X-Request-Id": "fbf80605-334c-46a4-8577-d91fe4da6841",
-        "X-Runtime": "0.013238",
+        "ETag": "W/\"1dc23fdbd16e24504da8d0ef85851088\"",
+        "X-Request-Id": "6e8bfb1a-03e4-4e6b-b3fc-bb0a32ddfda8",
+        "X-Runtime": "0.013594",
         "Vary": "Origin",
-        "Content-Length": "238"
+        "Content-Length": "250"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"group\":{\"title\":\"Qui ut non.\",\"number\":\"30897\"}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer eb68dc04c9cb1de48be0d57c6600422ff9ac092b6183bc470ff33be5f6585fae\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"group\":{\"title\":\"Excepturi sed deleniti.\",\"number\":\"11623\"}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer ea09ed74ae74ede9c0f25e24a734916489ab119103baef5a9ca007432e19ed14\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

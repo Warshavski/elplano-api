@@ -7,6 +7,8 @@
 #   NOTE : Each group has its own list of courses and they can't cross with another group.
 #
 class Course < ApplicationRecord
+  include Deactivatable
+
   belongs_to :group
 
   has_many :lectures, dependent: :delete_all

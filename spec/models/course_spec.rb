@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Course, type: :model do
@@ -32,4 +34,6 @@ RSpec.describe Course, type: :model do
       it { expect(subject.title).to eq('look ma different_case') }
     end
   end
+
+  it_behaves_like 'deactivatable'
 end

@@ -1,10 +1,10 @@
 {
   "resource": "Group's courses",
-  "resource_explanation": "El Plano courses API(created for group by group owner).\n\nCourse attributes :\n\n - `title` - Represents course name(human readable identity).\n - `timestamps`\n\n Also, includes reference to the course lecturer.\n",
+  "resource_explanation": "El Plano courses API(created for group by group owner).\n\nCourse attributes :\n\n - `title` - Represents course name(human readable identity).\n - `active` - `true` if course is available in current time(not archived course), otherwise `false`\n - `timestamps`\n\n Also, includes reference to the course lecturer.\n",
   "http_method": "GET",
   "route": "api/v1/group/courses",
   "description": "INDEX : Retrieve courses created by authenticated user",
-  "explanation": "Returns a list of the available courses.\n",
+  "explanation": "Returns a list of the available courses.\n\nSee model attribute description in section description.\n",
   "parameters": [
 
   ],
@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 68649e970a1aba9c2cf6300fb13a9a925cdfa11a85c1880ad64d6046435f942a",
+        "Authorization": "Bearer 85fb5faab6531bb7bf3373d13e6dec174b8f32ac738b1e22943aff01f78e46e3",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"3\",\n      \"type\": \"course\",\n      \"attributes\": {\n        \"created_at\": \"2019-08-19T12:56:57.061Z\",\n        \"updated_at\": \"2019-08-19T12:56:57.061Z\",\n        \"title\": \"Est Tempore.\"\n      },\n      \"relationships\": {\n        \"lecturers\": {\n          \"data\": [\n            {\n              \"id\": \"1\",\n              \"type\": \"lecturer\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"3\",\n      \"type\": \"course\",\n      \"attributes\": {\n        \"active\": true,\n        \"created_at\": \"2019-08-19T14:17:08.269Z\",\n        \"updated_at\": \"2019-08-19T14:17:08.269Z\",\n        \"title\": \"Beatae Ut.\"\n      },\n      \"relationships\": {\n        \"lecturers\": {\n          \"data\": [\n            {\n              \"id\": \"1\",\n              \"type\": \"lecturer\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"7756e94ffe819c8bb78f0c77257a1099\"",
-        "X-Request-Id": "c10ee291-0a6f-4c74-9701-1b2459d7ae50",
-        "X-Runtime": "0.013125",
+        "ETag": "W/\"05cbdfc72f6a0e30350081828018b1bb\"",
+        "X-Request-Id": "20fbcb45-4756-47fe-a970-ad6df53298c9",
+        "X-Runtime": "0.014052",
         "Vary": "Origin",
-        "Content-Length": "225"
+        "Content-Length": "237"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/courses\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 68649e970a1aba9c2cf6300fb13a9a925cdfa11a85c1880ad64d6046435f942a\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/courses\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 85fb5faab6531bb7bf3373d13e6dec174b8f32ac738b1e22943aff01f78e46e3\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

@@ -1,10 +1,10 @@
 {
   "resource": "Group's courses",
-  "resource_explanation": "El Plano courses API(created for group by group owner).\n\nCourse attributes :\n\n - `title` - Represents course name(human readable identity).\n - `timestamps`\n\n Also, includes reference to the course lecturer.\n",
+  "resource_explanation": "El Plano courses API(created for group by group owner).\n\nCourse attributes :\n\n - `title` - Represents course name(human readable identity).\n - `active` - `true` if course is available in current time(not archived course), otherwise `false`\n - `timestamps`\n\n Also, includes reference to the course lecturer.\n",
   "http_method": "GET",
   "route": "api/v1/group/courses/:id",
   "description": "SHOW : Retrieve information about requested course",
-  "explanation": "Returns a single instance of the course.\n",
+  "explanation": "Returns a single instance of the course.\n\nSee model attribute description in section description.\n",
   "parameters": [
 
   ],
@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 949587d5725354f7053f9fcbb9d214c4b163eab595345fdbbb3308fd9226b825",
+        "Authorization": "Bearer 5c5f581b8c9bdae4d46e87d1a4fafd055ea15baa5e037a956fdaa877a7ebd64a",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"4\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"created_at\": \"2019-08-19T12:56:57.150Z\",\n      \"updated_at\": \"2019-08-19T12:56:57.150Z\",\n      \"title\": \"Corporis Qui.\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"2\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"4\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"active\": true,\n      \"created_at\": \"2019-08-19T14:17:08.350Z\",\n      \"updated_at\": \"2019-08-19T14:17:08.350Z\",\n      \"title\": \"Dolore Blanditiis.\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"2\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"25ecea79d97e8cc952c2e42a4b6e7dcc\"",
-        "X-Request-Id": "a7e13e6f-0865-4120-840a-55e9b6f73065",
-        "X-Runtime": "0.009948",
+        "ETag": "W/\"45b9cacc768bc4864ee787c8271effe2\"",
+        "X-Request-Id": "742754b1-b582-40b0-8531-65ec95477806",
+        "X-Runtime": "0.011815",
         "Vary": "Origin",
-        "Content-Length": "224"
+        "Content-Length": "243"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/courses/4\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 949587d5725354f7053f9fcbb9d214c4b163eab595345fdbbb3308fd9226b825\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/courses/4\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 5c5f581b8c9bdae4d46e87d1a4fafd055ea15baa5e037a956fdaa877a7ebd64a\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

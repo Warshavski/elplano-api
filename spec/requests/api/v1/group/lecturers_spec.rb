@@ -54,7 +54,7 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
     include_examples 'json:api examples',
                      %w[data],
                      %w[id type attributes relationships],
-                     %w[avatar first_name last_name patronymic email phone created_at updated_at],
+                     %w[avatar first_name last_name patronymic email phone active created_at updated_at],
                      %w[courses]
 
     it 'returns correct expected data' do
@@ -84,7 +84,7 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
       include_examples 'json:api examples',
                        %w[data],
                        %w[id type attributes relationships],
-                       %w[avatar first_name last_name patronymic email phone created_at updated_at],
+                       %w[avatar first_name last_name patronymic email phone active created_at updated_at],
                        %w[courses]
 
       it 'returns created model' do
@@ -175,7 +175,7 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
       include_examples 'json:api examples',
                        %w[data],
                        %w[id type attributes relationships],
-                       %w[avatar first_name last_name patronymic email phone created_at updated_at],
+                       %w[avatar first_name last_name patronymic email phone active created_at updated_at],
                        %w[courses]
 
       include_examples 'request errors examples'
@@ -229,6 +229,14 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
 
           expect(actual_course_ids).to include(course.id)
         end
+      end
+
+      context 'when only deactivation is performed' do
+        let_it_be(:request_params) { { lecturer: { active: false } } }
+
+        it { expect(json_data.dig(:attributes, :active)).to be(false) }
+
+        it { expect(lecturer.reload.active).to be(false) }
       end
 
       context 'when request params are not valid' do

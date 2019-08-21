@@ -54,7 +54,7 @@ RSpec.describe Api::V1::Group::CoursesController, type: :request do
     include_examples 'json:api examples',
                      %w[data],
                      %w[id type attributes relationships],
-                     %w[title created_at updated_at],
+                     %w[title active created_at updated_at],
                      %w[lecturers]
 
     it 'returns requested course entity' do
@@ -82,7 +82,7 @@ RSpec.describe Api::V1::Group::CoursesController, type: :request do
       include_examples 'json:api examples',
                        %w[data],
                        %w[id type attributes relationships],
-                       %w[title created_at updated_at],
+                       %w[title active created_at updated_at],
                        %w[lecturers]
 
       it 'returns created course entity' do
@@ -134,7 +134,7 @@ RSpec.describe Api::V1::Group::CoursesController, type: :request do
       include_examples 'json:api examples',
                        %w[data],
                        %w[id type attributes relationships],
-                       %w[title created_at updated_at],
+                       %w[title active created_at updated_at],
                        %w[lecturers]
 
       include_examples 'request errors examples'
@@ -164,6 +164,14 @@ RSpec.describe Api::V1::Group::CoursesController, type: :request do
       let_it_be(:student) { create(:student, :group_member, user: user) }
 
       it { expect(response).to have_http_status(:forbidden) }
+    end
+
+    context 'when only deactivation is performed' do
+      let_it_be(:request_params) { { course: { active: false } } }
+
+      it { expect(json_data.dig(:attributes, :active)).to be(false) }
+
+      it { expect(course.reload.active).to be(false) }
     end
   end
 

@@ -1,6 +1,6 @@
 {
   "resource": "Group's lecturers",
-  "resource_explanation": "El Plano group's lecturers API(created for the group by group owner).\n\nCourse attributes :\n\n - `first_name` - Represents lecturer first name\n - `last_name` - Represents lecturer last name\n - `patronymic` - Represents lecturer patronymic \n - `email` - Represents lecturer contact email address.\n - `phone` - Represents lecturer contact phone number.\n - `timestamps`\n\nAlso, includes reference to the courses.\n",
+  "resource_explanation": "El Plano group's lecturers API(created for the group by group owner).\n\nCourse attributes :\n\n - `first_name` - Represents lecturer first name\n - `last_name` - Represents lecturer last name\n - `patronymic` - Represents lecturer patronymic \n - `email` - Represents lecturer contact email address.\n - `phone` - Represents lecturer contact phone number.\n - `active` - `true` if lecturer is available in current time(can ), otherwise `false`\n - `timestamps`\n\nAlso, includes reference to the courses.\n",
   "http_method": "POST",
   "route": "api/v1/group/lecturers",
   "description": "CREATE : Create new lecturer",
@@ -57,6 +57,13 @@
       ],
       "name": "avatar",
       "description": "Uploaded file metadata received from `uploads` endpoint"
+    },
+    {
+      "scope": [
+        "lecturer"
+      ],
+      "name": "active",
+      "description": "Lecturer availability flag(currently available lecturer) default: true"
     }
   ],
   "response_fields": [
@@ -66,11 +73,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group/lecturers",
-      "request_body": "{\"lecturer\":{\"first_name\":\"Kimberley\",\"last_name\":\"Watsica\",\"patronymic\":\"Miss\",\"phone\":\"104.382.0909\",\"email\":\"mandyullrich@nolan.org\",\"course_ids\":[10],\"avatar\":\"{\\\"id\\\":\\\"d3e1af72c191a95cbeb19ade8d102b00.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"}}",
+      "request_body": "{\"lecturer\":{\"first_name\":\"Ron\",\"last_name\":\"Hansen\",\"patronymic\":\"Miss\",\"phone\":\"234-759-6419\",\"email\":\"patricia@walkerdicki.biz\",\"active\":true,\"course_ids\":[10],\"avatar\":\"{\\\"id\\\":\\\"62ab8e927fb39b049afc76a8f36fd082.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 2eb185bec9366e40200b4159b37546a613ab366ea78ed92be9019c6bd6872edc",
+        "Authorization": "Bearer 1f70753ac495e239b40fb6b55b89202ad90a5b2a9ce4d716175878a944f10d93",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -79,7 +86,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"9\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"email\": \"mandyullrich@nolan.org\",\n      \"phone\": \"104.382.0909\",\n      \"created_at\": \"2019-08-19T12:56:57.661Z\",\n      \"updated_at\": \"2019-08-19T12:56:57.661Z\",\n      \"first_name\": \"Kimberley\",\n      \"last_name\": \"Watsica\",\n      \"patronymic\": \"Miss\",\n      \"avatar\": \"memory://d3e1af72c191a95cbeb19ade8d102b00.png\"\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"10\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"9\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"email\": \"patricia@walkerdicki.biz\",\n      \"phone\": \"234-759-6419\",\n      \"active\": true,\n      \"created_at\": \"2019-08-19T14:17:08.891Z\",\n      \"updated_at\": \"2019-08-19T14:17:08.891Z\",\n      \"first_name\": \"Ron\",\n      \"last_name\": \"Hansen\",\n      \"patronymic\": \"Miss\",\n      \"avatar\": \"memory://62ab8e927fb39b049afc76a8f36fd082.png\"\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"10\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -88,14 +95,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"fd21f5d9cfe9ce928a85d42b3daf7a29\"",
-        "X-Request-Id": "a23f7876-5e20-4215-ac6d-bbfb8d4cc548",
-        "X-Runtime": "0.023548",
+        "ETag": "W/\"1ef65347c10c23c849264067e7416204\"",
+        "X-Request-Id": "cd145395-9a3e-490d-babb-eb946b39338d",
+        "X-Runtime": "0.022253",
         "Vary": "Origin",
-        "Content-Length": "379"
+        "Content-Length": "388"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/lecturers\" -d '{\"lecturer\":{\"first_name\":\"Kimberley\",\"last_name\":\"Watsica\",\"patronymic\":\"Miss\",\"phone\":\"104.382.0909\",\"email\":\"mandyullrich@nolan.org\",\"course_ids\":[10],\"avatar\":\"{\\\"id\\\":\\\"d3e1af72c191a95cbeb19ade8d102b00.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 2eb185bec9366e40200b4159b37546a613ab366ea78ed92be9019c6bd6872edc\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/lecturers\" -d '{\"lecturer\":{\"first_name\":\"Ron\",\"last_name\":\"Hansen\",\"patronymic\":\"Miss\",\"phone\":\"234-759-6419\",\"email\":\"patricia@walkerdicki.biz\",\"active\":true,\"course_ids\":[10],\"avatar\":\"{\\\"id\\\":\\\"62ab8e927fb39b049afc76a8f36fd082.png\\\",\\\"storage\\\":\\\"cache\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"dk.png\\\",\\\"size\\\":1062,\\\"mime_type\\\":\\\"image/png\\\"}}\"}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 1f70753ac495e239b40fb6b55b89202ad90a5b2a9ce4d716175878a944f10d93\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

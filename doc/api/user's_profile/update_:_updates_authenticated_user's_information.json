@@ -60,7 +60,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 2409d05fad2bfa77d2711ba6d2bcdf5a26d5eb982f3858f1c153e3eaea2081e4",
+        "Authorization": "Bearer 276144e254d52990c5448b3b14e7f0b694c119be895bcf3420a9edbaf2a7e554",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -69,7 +69,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"60\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"marg@farrell.io\",\n      \"username\": \"truman.lang\",\n      \"admin\": false,\n      \"locale\": \"en\",\n      \"created_at\": \"2019-08-19T12:56:58.990Z\",\n      \"updated_at\": \"2019-08-19T12:56:59.010Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/b078249c72fd803ec3cd977fdf7acaa2?s=200&d=identicon\",\n      \"confirmed\": true,\n      \"banned\": false,\n      \"locked\": false\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"53\",\n          \"type\": \"student\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"53\",\n      \"type\": \"student\",\n      \"attributes\": {\n        \"full_name\": \"Sir Wat Name Yeah\",\n        \"email\": \"wat@wat.wat\",\n        \"phone\": \"+8 983 47 89 312\",\n        \"about\": \"Et in repellendus. Aliquid veritatis sunt. Veniam eos fugit. Expedita dolor sunt. Nemo praesentium dolorum.\",\n        \"social_networks\": {\n          \"twitter\": \"https://twitter.com/watever\",\n          \"facebook\": \"https://facebook.com/watever\"\n        },\n        \"president\": false,\n        \"created_at\": \"2019-08-19T12:56:58.994Z\",\n        \"updated_at\": \"2019-08-19T12:56:59.011Z\"\n      },\n      \"relationships\": {\n        \"group\": {\n          \"data\": null\n        },\n        \"user\": {\n          \"data\": {\n            \"id\": \"60\",\n            \"type\": \"user\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"60\",\n    \"type\": \"user\",\n    \"attributes\": {\n      \"email\": \"seymourweimann@morar.com\",\n      \"username\": \"travis\",\n      \"admin\": false,\n      \"locale\": \"en\",\n      \"created_at\": \"2019-08-19T14:17:10.197Z\",\n      \"updated_at\": \"2019-08-19T14:17:10.215Z\",\n      \"avatar_url\": \"https://www.gravatar.com/avatar/3bb39d935636facaf32a9cb783eb46be?s=200&d=identicon\",\n      \"confirmed\": true,\n      \"banned\": false,\n      \"locked\": false\n    },\n    \"relationships\": {\n      \"student\": {\n        \"data\": {\n          \"id\": \"53\",\n          \"type\": \"student\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"53\",\n      \"type\": \"student\",\n      \"attributes\": {\n        \"full_name\": \"Sir Wat Name Yeah\",\n        \"email\": \"wat@wat.wat\",\n        \"phone\": \"+8 983 47 89 312\",\n        \"about\": \"Est soluta qui. Ea quia eos. Amet vel voluptate. Eum reprehenderit facere. Quia laudantium qui.\",\n        \"social_networks\": {\n          \"twitter\": \"https://twitter.com/watever\",\n          \"facebook\": \"https://facebook.com/watever\"\n        },\n        \"president\": false,\n        \"created_at\": \"2019-08-19T14:17:10.202Z\",\n        \"updated_at\": \"2019-08-19T14:17:10.217Z\"\n      },\n      \"relationships\": {\n        \"group\": {\n          \"data\": null\n        },\n        \"user\": {\n          \"data\": {\n            \"id\": \"60\",\n            \"type\": \"user\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -78,14 +78,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"cc6d01b4c8bde464a4329199de14aa13\"",
-        "X-Request-Id": "32e738d0-eda2-407c-814b-10a4d2eef65b",
-        "X-Runtime": "0.013488",
+        "ETag": "W/\"aba96dee7e4ba75f8232909b26dd6a03\"",
+        "X-Request-Id": "eed27f9e-b4a0-42f8-9407-6b09d473061c",
+        "X-Runtime": "0.013105",
         "Vary": "Origin",
-        "Content-Length": "962"
+        "Content-Length": "954"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/user\" -d '{\"user\":{\"locale\":\"en\",\"student_attributes\":{\"email\":\"wat@wat.wat\",\"phone\":\"+8 983 47 89 312\",\"full_name\":\"Sir Wat Name Yeah\",\"social_networks\":{\"twitter\":\"https://twitter.com/watever\",\"facebook\":\"https://facebook.com/watever\"}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 2409d05fad2bfa77d2711ba6d2bcdf5a26d5eb982f3858f1c153e3eaea2081e4\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/user\" -d '{\"user\":{\"locale\":\"en\",\"student_attributes\":{\"email\":\"wat@wat.wat\",\"phone\":\"+8 983 47 89 312\",\"full_name\":\"Sir Wat Name Yeah\",\"social_networks\":{\"twitter\":\"https://twitter.com/watever\",\"facebook\":\"https://facebook.com/watever\"}}}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 276144e254d52990c5448b3b14e7f0b694c119be895bcf3420a9edbaf2a7e554\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

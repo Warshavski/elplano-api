@@ -36,11 +36,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group/courses/6",
-      "request_body": "{\"course\":{\"title\":\"Associate Degree in Communications\",\"active\":true,\"lecturer_ids\":[5]}}",
+      "request_body": "{\"course\":{\"title\":\"Associate Degree in Nursing\",\"active\":true,\"lecturer_ids\":[5]}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer a9f009465fb3411b7b8a5ab870c854d826b428839f0b923a6fe040e7ef9c0499",
+        "Authorization": "Bearer a7ae8d0a4c5cfb835b73805466bd093153a3e1c74522bd63f02856a8d4d46421",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -49,7 +49,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"active\": true,\n      \"created_at\": \"2019-08-19T14:17:08.443Z\",\n      \"updated_at\": \"2019-08-19T14:17:08.477Z\",\n      \"title\": \"Associate Degree In Communications\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"5\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"active\": true,\n      \"created_at\": \"2019-08-24T16:32:13.597Z\",\n      \"updated_at\": \"2019-08-24T16:32:13.630Z\",\n      \"title\": \"Associate Degree In Nursing\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"5\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -58,14 +58,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"a1afb3bc689aaeb7024a488df0267e41\"",
-        "X-Request-Id": "d9aa5509-b42e-4055-af41-ef6a5cbecd35",
-        "X-Runtime": "0.016733",
+        "ETag": "W/\"6c68806594141596fc27f03de20427ef\"",
+        "X-Request-Id": "51240d56-ee09-40cf-931e-8e81d9626bf3",
+        "X-Runtime": "0.016291",
         "Vary": "Origin",
-        "Content-Length": "259"
+        "Content-Length": "252"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/courses/6\" -d '{\"course\":{\"title\":\"Associate Degree in Communications\",\"active\":true,\"lecturer_ids\":[5]}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer a9f009465fb3411b7b8a5ab870c854d826b428839f0b923a6fe040e7ef9c0499\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/courses/6\" -d '{\"course\":{\"title\":\"Associate Degree in Nursing\",\"active\":true,\"lecturer_ids\":[5]}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer a7ae8d0a4c5cfb835b73805466bd093153a3e1c74522bd63f02856a8d4d46421\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

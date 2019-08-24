@@ -14,9 +14,12 @@ module Api
       # Get list of user's invites
       #
       def index
-        invitations = filter_invites
+        invitations = filter_invites.eager_load(:group)
 
-        render_resource invitations, status: :ok
+        render_resource invitations,
+                        include: [:group],
+                        params: { exclude: [:students] },
+                        status: :ok
       end
 
       # GET : api/v1/invites/{:id}

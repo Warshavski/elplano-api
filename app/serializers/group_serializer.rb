@@ -17,5 +17,6 @@ class GroupSerializer
 
   has_many :students,
            serializer: StudentSerializer,
+           lazy_load_data: true,
            if: EXCLUDE_STUDENTS
 end

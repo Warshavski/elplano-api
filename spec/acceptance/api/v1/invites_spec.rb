@@ -17,6 +17,12 @@ resource "User's Invites" do
     - `accepted_at` - Date and time when the invite was accepted by recipient.
     - `timestamps`
 
+    Group attributes: 
+
+      - `title` - Represents human readable group identity.
+      - `number` - Represents main group identity.
+      - `timestamps`
+
     Also, includes reference to the sender, recipient.
   DESC
 
@@ -39,11 +45,15 @@ resource "User's Invites" do
     example 'INDEX : Retrieve invites for authenticated user' do
       explanation <<~DESC
         Returns a list of invitations to the different groups.
+
+        See model attributes description in the section description.
       DESC
 
       do_request
 
-      expected_body = InviteSerializer.new(invites).serialized_json
+      expected_body = InviteSerializer
+                        .new(invites, include: [:group], params: { exclude: [:students] })
+                        .serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -54,6 +64,8 @@ resource "User's Invites" do
     example 'SHOW : Retrieve information about requested invite' do
       explanation <<~DESC
         Returns a single instance of the invite.
+s
+        See model attributes description in the section description.
       DESC
 
       do_request
@@ -71,6 +83,8 @@ resource "User's Invites" do
     example 'UPDATE : Accept selected invite' do
       explanation <<~DESC
         Accepts and returns accepted invite.
+
+        See model attributes description in the section description.
       DESC
 
       do_request

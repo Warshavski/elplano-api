@@ -23,11 +23,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group/invites",
-      "request_body": "{\"invite\":{\"email\":\"timothy@borer.co\"}}",
+      "request_body": "{\"invite\":{\"email\":\"mattie@johns.info\"}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 2a60f0c25b7e4d5063d753286cf936f4b03b226fd5b05d3a305925f3cc1abcf5",
+        "Authorization": "Bearer eb81586aaa2e5586df8d2ab47bf7d54d509c13681a05d91503dbe8e8d678ad11",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -36,7 +36,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"timothy@borer.co\",\n      \"invitation_token\": \"bbZcXs2TNH5sG613RLWj\",\n      \"sent_at\": \"2019-08-19T14:17:08.680Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-08-19T14:17:08.680Z\",\n      \"updated_at\": \"2019-08-19T14:17:08.680Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"27\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"3\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"mattie@johns.info\",\n      \"invitation_token\": \"6qij1zAP-px4-zYzSuh-\",\n      \"sent_at\": \"2019-08-24T16:32:13.815Z\",\n      \"accepted_at\": null,\n      \"created_at\": \"2019-08-24T16:32:13.815Z\",\n      \"updated_at\": \"2019-08-24T16:32:13.815Z\",\n      \"status\": \"pending\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"27\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": null\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"13\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -45,14 +45,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"64e028666a506ecb3e65d370803896d3\"",
-        "X-Request-Id": "ba7f3afa-a21c-4bb2-8b9b-1252e5df2032",
-        "X-Runtime": "0.068855",
+        "ETag": "W/\"83ebf6c5f53989cc751f0fb3fcc4c943\"",
+        "X-Request-Id": "5060e450-196e-4018-ab44-10a52a2eeff9",
+        "X-Runtime": "0.054778",
         "Vary": "Origin",
-        "Content-Length": "409"
+        "Content-Length": "410"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/invites\" -d '{\"invite\":{\"email\":\"timothy@borer.co\"}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 2a60f0c25b7e4d5063d753286cf936f4b03b226fd5b05d3a305925f3cc1abcf5\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/invites\" -d '{\"invite\":{\"email\":\"mattie@johns.info\"}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer eb81586aaa2e5586df8d2ab47bf7d54d509c13681a05d91503dbe8e8d678ad11\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

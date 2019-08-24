@@ -30,11 +30,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group",
-      "request_body": "{\"group\":{\"title\":\"Saepe commodi non.\",\"number\":\"79316\"}}",
+      "request_body": "{\"group\":{\"title\":\"Consectetur mollitia quia.\",\"number\":\"82013\"}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 72c543ee4117b48acf58d9ab04b862f0ab9a3075035f22c2b8db0377d8425953",
+        "Authorization": "Bearer c48dff22ab402cbb3553c0d2845ec03bf6c41960b8c9d8ec5fe54089c480a66d",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -43,7 +43,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"22\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"79316\",\n      \"title\": \"Saepe commodi non.\",\n      \"created_at\": \"2019-08-19T14:17:09.182Z\",\n      \"updated_at\": \"2019-08-19T14:17:09.182Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"38\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"22\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"82013\",\n      \"title\": \"Consectetur mollitia quia.\",\n      \"created_at\": \"2019-08-24T16:32:14.271Z\",\n      \"updated_at\": \"2019-08-24T16:32:14.271Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -52,14 +52,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"5c7a5254892e5d83d694f8a578460d01\"",
-        "X-Request-Id": "c27e5b1e-b783-4583-9eba-394180527731",
-        "X-Runtime": "0.015045",
+        "ETag": "W/\"0d1c82add099ae6224e4be8d1ebac6ad\"",
+        "X-Request-Id": "07a4b1f6-8fcc-4cba-97de-0d190332f44c",
+        "X-Runtime": "0.011168",
         "Vary": "Origin",
-        "Content-Length": "245"
+        "Content-Length": "216"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"group\":{\"title\":\"Saepe commodi non.\",\"number\":\"79316\"}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 72c543ee4117b48acf58d9ab04b862f0ab9a3075035f22c2b8db0377d8425953\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"group\":{\"title\":\"Consectetur mollitia quia.\",\"number\":\"82013\"}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer c48dff22ab402cbb3553c0d2845ec03bf6c41960b8c9d8ec5fe54089c480a66d\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

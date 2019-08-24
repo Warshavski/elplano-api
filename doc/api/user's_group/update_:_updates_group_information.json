@@ -30,11 +30,11 @@
     {
       "request_method": "PUT",
       "request_path": "api/v1/group",
-      "request_body": "{\"group\":{\"title\":\"Magni voluptatem laboriosam.\",\"number\":\"37823\"}}",
+      "request_body": "{\"group\":{\"title\":\"Hic neque veritatis.\",\"number\":\"22881\"}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 6b66dd6a864c09df7541e5ce98c2c2854edadd82d37675aaa47a8bc657944aca",
+        "Authorization": "Bearer fa826ad7889a933ca6efa3f52a4ebcb58772f545b017738b201e37ac3d42494b",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -43,7 +43,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"23\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"37823\",\n      \"title\": \"Magni voluptatem laboriosam.\",\n      \"created_at\": \"2019-08-19T14:17:09.204Z\",\n      \"updated_at\": \"2019-08-19T14:17:09.220Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n        \"data\": [\n          {\n            \"id\": \"39\",\n            \"type\": \"student\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"23\",\n    \"type\": \"group\",\n    \"attributes\": {\n      \"number\": \"22881\",\n      \"title\": \"Hic neque veritatis.\",\n      \"created_at\": \"2019-08-24T16:32:14.292Z\",\n      \"updated_at\": \"2019-08-24T16:32:14.307Z\"\n    },\n    \"relationships\": {\n      \"students\": {\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -52,14 +52,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"f1afe03a0a3a094943007a1114ebcc79\"",
-        "X-Request-Id": "ca8e73e0-a6e2-4d45-abd7-f4dd45dc2f46",
-        "X-Runtime": "0.010783",
+        "ETag": "W/\"6e1d9afd0d6541070d88d5166b254cf0\"",
+        "X-Request-Id": "732e036f-dba1-40dd-a683-6771c095a87a",
+        "X-Runtime": "0.008697",
         "Vary": "Origin",
-        "Content-Length": "255"
+        "Content-Length": "210"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"group\":{\"title\":\"Magni voluptatem laboriosam.\",\"number\":\"37823\"}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 6b66dd6a864c09df7541e5ce98c2c2854edadd82d37675aaa47a8bc657944aca\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group\" -d '{\"group\":{\"title\":\"Hic neque veritatis.\",\"number\":\"22881\"}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer fa826ad7889a933ca6efa3f52a4ebcb58772f545b017738b201e37ac3d42494b\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

@@ -13,7 +13,7 @@ gem 'devise', '>= 4.6.1'
 
 # https://github.com/Netflix/fast_jsonapi
 # A lightning fast JSON:API serializer for Ruby Objects.
-gem 'fast_jsonapi'
+gem 'fast_jsonapi', '>= 1.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'

@@ -1,10 +1,10 @@
 {
   "resource": "User's Invites",
-  "resource_explanation": "El Plano user's invites API.\n\nInvite attributes :\n\n- `email` - Represents email where invite was sent.\n- `invitation_token` - Represents token.\n- `status` - Represents invite current status.\n  - `accepted` - The invite was accepted by the recipient.\n  - `pending` - The invite was not accepted by the recipient. Default status.\n- `sent_at` - Date and time when the invite was sent.\n- `accepted_at` - Date and time when the invite was accepted by recipient.\n- `timestamps`\n\nAlso, includes reference to the sender, recipient.\n",
+  "resource_explanation": "El Plano user's invites API.\n\nInvite attributes :\n\n- `email` - Represents email where invite was sent.\n- `invitation_token` - Represents token.\n- `status` - Represents invite current status.\n  - `accepted` - The invite was accepted by the recipient.\n  - `pending` - The invite was not accepted by the recipient. Default status.\n- `sent_at` - Date and time when the invite was sent.\n- `accepted_at` - Date and time when the invite was accepted by recipient.\n- `timestamps`\n\nGroup attributes: \n\n  - `title` - Represents human readable group identity.\n  - `number` - Represents main group identity.\n  - `timestamps`\n\nAlso, includes reference to the sender, recipient.\n",
   "http_method": "PATCH",
   "route": "api/v1/invites/:token",
   "description": "UPDATE : Accept selected invite",
-  "explanation": "Accepts and returns accepted invite.\n",
+  "explanation": "Accepts and returns accepted invite.\n\nSee model attributes description in the section description.\n",
   "parameters": [
 
   ],
@@ -14,12 +14,12 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "api/v1/invites/JPHHMJpgeL6ToX_yHy1t",
+      "request_path": "api/v1/invites/kbnmsCN3T4y6PdBq6B8M",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer afadcbb1a98a2bd8d9c4c453388b78483ffa57fd3aff90edd196d7d9417ee048",
+        "Authorization": "Bearer 59e2c3efa009c41ea4eeaf504ac44f6c0f38fa950a314e0192a2f3aa6e19ddb5",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"roryzulauf@hegmann.biz\",\n      \"invitation_token\": null,\n      \"sent_at\": \"2019-08-19T14:17:09.454Z\",\n      \"accepted_at\": \"2019-08-19T14:17:09.468Z\",\n      \"created_at\": \"2019-08-19T14:17:09.454Z\",\n      \"updated_at\": \"2019-08-19T14:17:09.471Z\",\n      \"status\": \"accepted\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"48\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": {\n          \"id\": \"47\",\n          \"type\": \"student\"\n        }\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"27\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"sheryl@marvin.com\",\n      \"invitation_token\": null,\n      \"sent_at\": \"2019-08-24T16:32:14.491Z\",\n      \"accepted_at\": \"2019-08-24T16:32:14.502Z\",\n      \"created_at\": \"2019-08-24T16:32:14.491Z\",\n      \"updated_at\": \"2019-08-24T16:32:14.505Z\",\n      \"status\": \"accepted\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"48\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": {\n          \"id\": \"47\",\n          \"type\": \"student\"\n        }\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"27\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"0beb6e6e61b684e76fae72a502c66c0a\"",
-        "X-Request-Id": "489ca84b-9494-4746-b137-ad301bbafd16",
-        "X-Runtime": "0.016025",
+        "ETag": "W/\"c6a5d7bbfaa12a3a4125083fbf084ab1\"",
+        "X-Request-Id": "95a3af21-35ef-4ff1-a386-bbbc44b7182e",
+        "X-Runtime": "0.013855",
         "Vary": "Origin",
-        "Content-Length": "444"
+        "Content-Length": "439"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/invites/JPHHMJpgeL6ToX_yHy1t\" -d '' -X PATCH \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer afadcbb1a98a2bd8d9c4c453388b78483ffa57fd3aff90edd196d7d9417ee048\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/invites/kbnmsCN3T4y6PdBq6B8M\" -d '' -X PATCH \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 59e2c3efa009c41ea4eeaf504ac44f6c0f38fa950a314e0192a2f3aa6e19ddb5\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

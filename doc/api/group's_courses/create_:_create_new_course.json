@@ -36,11 +36,11 @@
     {
       "request_method": "POST",
       "request_path": "api/v1/group/courses",
-      "request_body": "{\"course\":{\"title\":\"Associate Degree in Health Science\",\"active\":true,\"lecturer_ids\":[3]}}",
+      "request_body": "{\"course\":{\"title\":\"Master of Information Systems\",\"active\":true,\"lecturer_ids\":[3]}}",
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer c6fb2639fd686713707e9ee11e1af9a2fca17a590d535be6f84b02dadb094d39",
+        "Authorization": "Bearer 378a4d208b5b249ade04372d7b97798b0e40f922e482503cdbdbc3f417822016",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -49,7 +49,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"active\": true,\n      \"created_at\": \"2019-08-19T14:17:08.415Z\",\n      \"updated_at\": \"2019-08-19T14:17:08.415Z\",\n      \"title\": \"Associate Degree In Health Science\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"3\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"5\",\n    \"type\": \"course\",\n    \"attributes\": {\n      \"active\": true,\n      \"created_at\": \"2019-08-24T16:32:13.572Z\",\n      \"updated_at\": \"2019-08-24T16:32:13.572Z\",\n      \"title\": \"Master Of Information Systems\"\n    },\n    \"relationships\": {\n      \"lecturers\": {\n        \"data\": [\n          {\n            \"id\": \"3\",\n            \"type\": \"lecturer\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -58,14 +58,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"80e868c595082d22c5dd372f89fc2e17\"",
-        "X-Request-Id": "9b316a3b-8de9-48ce-b0f4-a46b0004e37d",
-        "X-Runtime": "0.016795",
+        "ETag": "W/\"eb812659608daf1c21787fccaed3f836\"",
+        "X-Request-Id": "0475f1a0-4fed-4a8e-bb41-13b89e9f6e61",
+        "X-Runtime": "0.017806",
         "Vary": "Origin",
-        "Content-Length": "259"
+        "Content-Length": "254"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/group/courses\" -d '{\"course\":{\"title\":\"Associate Degree in Health Science\",\"active\":true,\"lecturer_ids\":[3]}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer c6fb2639fd686713707e9ee11e1af9a2fca17a590d535be6f84b02dadb094d39\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/group/courses\" -d '{\"course\":{\"title\":\"Master of Information Systems\",\"active\":true,\"lecturer_ids\":[3]}}' -X POST \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 378a4d208b5b249ade04372d7b97798b0e40f922e482503cdbdbc3f417822016\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

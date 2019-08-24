@@ -69,7 +69,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer aa5e5b331bf204dc3e9f3fe312f40dc7100ce8780cce3833e5752472df42e91e",
+        "Authorization": "Bearer 09b3e83f12fb322df3582d9e4867768f1f5a3f25736b12aff4ace09284dba2fd",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -88,13 +88,13 @@
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
         "ETag": "W/\"275783c15567fb8a71f59dc3ad2ae834\"",
-        "X-Request-Id": "df5982f8-c11f-426d-a4dd-cc5c81c3cfc9",
-        "X-Runtime": "0.061036",
+        "X-Request-Id": "b096ec3a-360f-456a-8f47-0c973ae0a1be",
+        "X-Runtime": "0.060530",
         "Vary": "Origin",
         "Content-Length": "50"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/admin/settings\" -d '{\"admin_settings\":{\"app_contact_username\":\"username\",\"app_contact_email\":\"user@email.example\",\"app_title\":\"Application title\",\"app_short_description\":\"\\u003cb\\u003eApplication short description\\u003c/b\\u003e\",\"app_description\":\"\\u003cb\\u003eApplication description\\u003c/b\\u003e\",\"app_extended_description\":\"\\u003cb\\u003eApplication extended description\\u003c/b\\u003e\",\"app_terms\":\"\\u003cb\\u003eApplication terms of use\\u003c/b\\u003e\"}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer aa5e5b331bf204dc3e9f3fe312f40dc7100ce8780cce3833e5752472df42e91e\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/admin/settings\" -d '{\"admin_settings\":{\"app_contact_username\":\"username\",\"app_contact_email\":\"user@email.example\",\"app_title\":\"Application title\",\"app_short_description\":\"\\u003cb\\u003eApplication short description\\u003c/b\\u003e\",\"app_description\":\"\\u003cb\\u003eApplication description\\u003c/b\\u003e\",\"app_extended_description\":\"\\u003cb\\u003eApplication extended description\\u003c/b\\u003e\",\"app_terms\":\"\\u003cb\\u003eApplication terms of use\\u003c/b\\u003e\"}}' -X PUT \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 09b3e83f12fb322df3582d9e4867768f1f5a3f25736b12aff4ace09284dba2fd\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

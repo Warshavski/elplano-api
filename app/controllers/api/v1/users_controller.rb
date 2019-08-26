@@ -38,8 +38,8 @@ module Api
         student_attributes = [:full_name, :email, :phone, :about, social_networks: {}]
 
         permitted = params
-          .require(:user)
-          .permit(*user_attributes, { student_attributes: student_attributes })
+                    .require(:user)
+                    .permit(*user_attributes, student_attributes: student_attributes)
 
         permitted.tap { |p| p.dig(:student_attributes)&.merge!(id: current_student.id) }
       end

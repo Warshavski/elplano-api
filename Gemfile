@@ -127,7 +127,7 @@ group :test do
   gem 'rspec_junit_formatter'
   gem 'shoulda-matchers', '>= 4.0.0'
   gem 'shrine-memory'
-  gem 'simplecov', require: false
+  gem 'simplecov'
   gem 'webmock'
 
   # Ruby Tests Profiling Toolbox

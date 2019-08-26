@@ -10,6 +10,10 @@ services:
 cache:
   - bundler
 
+env:
+  global:
+    - REVISION=$(git rev-parse --short HEAD 2> /dev/null); if [ $REVISION ]; then echo $REVISION; else echo 'unknown'; fi
+
 branches:
   only:
     - release
@@ -28,7 +32,9 @@ jobs:
 
       script:
         - bundle exec rails db:migrate RAILS_ENV=test
+        - bundle exec rails docs:generate
         - bundle exec rspec
+        - "echo $REVISION > REVISION"
 
       after_success:
         - bundle exec codeclimate-test-reporter
@@ -39,6 +45,7 @@ jobs:
         provider: heroku
         api_key:
           secure: FxtsCynVCUO3drhU9Dy7BzFz3XM4wDQqAX0cUu0w83IIZ64ptIN01aCfNTMwnIr16q4jyBgPXBqY4DwI+zrXVhWQwMIBkIJcfNoR1LHFLX+nlrv0mO3OFJOujlHDPU/xEPRMIKnRtgXjpjdhCgXt70qiatPbo5q33Le1IazxjO+BAaTjJzyW6WBdYI9yfKZ2F9KtpPoCZC+jgOVpTyWYF/oHy0GqrBMvTJFGr405e1RVD3D/13WcZnm7hdbkWnWkBAMFpT4ZK5vPA5QU3KKmm7Lkw6v3o49umpvXst/wgjqXZdMZj3zIVhAqlOCo+9PfACJQMyXKVwcgn1RBRu4q3WemT0WMz55q7QKl3/rVYzYRXwPyD7FBDbKAOdMPo7b1VnZCAUiXz3SGnCPBY3QnpedkyerIuZZJp/fD70MOpnTaFFkys/b0t9OpYWmFJeG300ahOqcN5bxgkBBxpKPIoZtes3jjVnbxHiXdD4h0TweoQ5SkgChJg0zg96Bv4f3TD309/b7RRQVLTlRFH0KTIbwccP+68l3Ihf9rKgtCCOkhRwQl2u1XmitcYF9/HQN6vRPDPZ47v+xetSR4oegXuZUTNrFEAb2rR2xEAqMkw6G+kY202Y9pdDmvIMxIITySJ3Kk1RMB1SJe0Cs5oIb7r9nrKVF+jzKHgRcV/ucDsro=
+        skip_cleanup: true
         app:
           develop: elplano-api
         on:

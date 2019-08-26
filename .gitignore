@@ -33,3 +33,6 @@ coverage
 
 .env
 REVISION
+
+# Ignore generated API documentation
+/doc/api

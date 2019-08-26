@@ -46,3 +46,4 @@ jobs:
             - develop
         run:
           - "rake db:migrate"
+          - "bundle exec rspec spec/acceptance --format RspecApiDocumentation::ApiFormatter"

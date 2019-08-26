@@ -8,6 +8,12 @@ class Student < ApplicationRecord
   belongs_to :user
   belongs_to :group, optional: true
 
+  has_many :classmates,
+           class_name: 'Student',
+           through: :group,
+           source: :students,
+           inverse_of: :group
+
   has_one :supervised_group,
           class_name: 'Group',
           inverse_of: :president,
@@ -31,6 +37,8 @@ class Student < ApplicationRecord
            foreign_key: :sender_id,
            inverse_of: :sender,
            dependent: :destroy
+
+  has_many :events, as: :eventable, dependent: :destroy
 
   validates :full_name, length: { maximum: 200 }
   validates :email,     length: { maximum: 100 }

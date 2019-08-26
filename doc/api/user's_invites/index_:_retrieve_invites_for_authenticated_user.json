@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer fc0d4f390c641ce5fc5400698653c371f76655e6d619386c5683f16cf661d75b",
+        "Authorization": "Bearer b79bf43f7eb67982fe1bb5a58e4a8421bac4e5fa03e883e6676e59a90d6eedec",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"4\",\n      \"type\": \"invite\",\n      \"attributes\": {\n        \"email\": \"donaldhermann@blanda.com\",\n        \"invitation_token\": \"DWhjABVMkTScbddyNC5_\",\n        \"sent_at\": \"2019-08-24T16:32:14.385Z\",\n        \"accepted_at\": null,\n        \"created_at\": \"2019-08-24T16:32:14.385Z\",\n        \"updated_at\": \"2019-08-24T16:32:14.385Z\",\n        \"status\": \"pending\"\n      },\n      \"relationships\": {\n        \"sender\": {\n          \"data\": {\n            \"id\": \"42\",\n            \"type\": \"student\"\n          }\n        },\n        \"recipient\": {\n          \"data\": null\n        },\n        \"group\": {\n          \"data\": {\n            \"id\": \"25\",\n            \"type\": \"group\"\n          }\n        }\n      }\n    }\n  ],\n  \"included\": [\n    {\n      \"id\": \"25\",\n      \"type\": \"group\",\n      \"attributes\": {\n        \"number\": \"3419727413\",\n        \"title\": \"Sit sed ex.\",\n        \"created_at\": \"2019-08-24T16:32:14.380Z\",\n        \"updated_at\": \"2019-08-24T16:32:14.380Z\"\n      },\n      \"relationships\": {\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"4\",\n      \"type\": \"invite\",\n      \"attributes\": {\n        \"email\": \"boyd@bradtke.io\",\n        \"invitation_token\": \"xoU5Z4Dz-5Dt7XdfkWMt\",\n        \"sent_at\": \"2019-08-26T12:59:06.445Z\",\n        \"accepted_at\": null,\n        \"created_at\": \"2019-08-26T12:59:06.444Z\",\n        \"updated_at\": \"2019-08-26T12:59:06.444Z\",\n        \"status\": \"pending\"\n      },\n      \"relationships\": {\n        \"sender\": {\n          \"data\": {\n            \"id\": \"44\",\n            \"type\": \"student\"\n          }\n        },\n        \"recipient\": {\n          \"data\": null\n        },\n        \"group\": {\n          \"data\": {\n            \"id\": \"25\",\n            \"type\": \"group\"\n          }\n        }\n      }\n    }\n  ],\n  \"included\": [\n    {\n      \"id\": \"25\",\n      \"type\": \"group\",\n      \"attributes\": {\n        \"number\": \"9007277911\",\n        \"title\": \"Nihil ut sed.\",\n        \"created_at\": \"2019-08-26T12:59:06.441Z\",\n        \"updated_at\": \"2019-08-26T12:59:06.441Z\"\n      },\n      \"relationships\": {\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"845d6625431d7abbaafbeb6ffd440b80\"",
-        "X-Request-Id": "7b88875c-367d-4e72-9cf0-97c2d2f979b8",
-        "X-Runtime": "0.008729",
+        "ETag": "W/\"804b644955f39c3a04e6991637d7da0b\"",
+        "X-Request-Id": "c2015698-0cb0-4239-b338-5cdf489ad9fd",
+        "X-Runtime": "0.010213",
         "Vary": "Origin",
-        "Content-Length": "617"
+        "Content-Length": "610"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/invites\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer fc0d4f390c641ce5fc5400698653c371f76655e6d619386c5683f16cf661d75b\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/invites\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer b79bf43f7eb67982fe1bb5a58e4a8421bac4e5fa03e883e6676e59a90d6eedec\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

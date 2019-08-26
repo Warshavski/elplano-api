@@ -64,6 +64,9 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
+RSpec::Matchers.define_negated_matcher :not_change, :change
+RSpec::Matchers.define_negated_matcher :not_yield_control, :yield_control
+
 Dir[Rails.root.join('spec/support/**/*.rb')].each(&method(:require))
 Dir[Rails.root.join('spec/support/helpers/*.rb')].each(&method(:require))
 

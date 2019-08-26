@@ -19,7 +19,7 @@
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 334125d10f60e05ae24724202038872298754b92215085247e45b01a22e62e7b",
+        "Authorization": "Bearer 360d4f33c02efc5e0f0915014cc50f1ef3ff023cb6aacaad23618b3b0c8c5e8d",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"8\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"email\": null,\n      \"phone\": null,\n      \"active\": true,\n      \"created_at\": \"2019-08-24T16:32:13.936Z\",\n      \"updated_at\": \"2019-08-24T16:32:13.936Z\",\n      \"first_name\": \"Sarah\",\n      \"last_name\": \"Aufderhar\",\n      \"patronymic\": \"Dvm\",\n      \"avatar\": null\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"9\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"8\",\n    \"type\": \"lecturer\",\n    \"attributes\": {\n      \"email\": null,\n      \"phone\": null,\n      \"active\": true,\n      \"created_at\": \"2019-08-26T12:59:05.910Z\",\n      \"updated_at\": \"2019-08-26T12:59:05.910Z\",\n      \"first_name\": \"Geraldo\",\n      \"last_name\": \"Farrell\",\n      \"patronymic\": \"Ii\",\n      \"avatar\": null\n    },\n    \"relationships\": {\n      \"courses\": {\n        \"data\": [\n          {\n            \"id\": \"9\",\n            \"type\": \"course\"\n          }\n        ]\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"f8863bb65f05d873c39b9ae04fd2649e\"",
-        "X-Request-Id": "3e2745e3-84ac-4994-b4ab-925a175a030b",
-        "X-Runtime": "0.008050",
+        "ETag": "W/\"2363812e6a80e59e5d5123b26f101a48\"",
+        "X-Request-Id": "62ce73f0-ddd9-441a-88e2-ffebe7e760c7",
+        "X-Runtime": "0.010150",
         "Vary": "Origin",
-        "Content-Length": "316"
+        "Content-Length": "315"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/lecturers/8\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 334125d10f60e05ae24724202038872298754b92215085247e45b01a22e62e7b\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/lecturers/8\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 360d4f33c02efc5e0f0915014cc50f1ef3ff023cb6aacaad23618b3b0c8c5e8d\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

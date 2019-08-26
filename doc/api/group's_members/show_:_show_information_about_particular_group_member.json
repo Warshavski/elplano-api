@@ -14,12 +14,12 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "api/v1/group/students/36",
+      "request_path": "api/v1/group/students/38",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 764a9ab5e07dd3eb90bed04dcba5945205b5ed8b81b84ddc7005b75584f32005",
+        "Authorization": "Bearer 5901d2c7ab092e0ae2bbf044970df5a348d9483e83e6cdd2fd16657511c34697",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"36\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Dr. Kent Shona Bauch\",\n      \"email\": \"brittani@macejkovic.io\",\n      \"phone\": \"345-300-6084\",\n      \"about\": \"At cum quia. Enim et modi. Exercitationem inventore laudantium. Nisi et dolor. Maxime nulla alias.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/whitley.gottlieb\",\n        \"facebook\": \"http://facebook/damien\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-08-24T16:32:14.197Z\",\n      \"updated_at\": \"2019-08-24T16:32:14.197Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"38\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"38\",\n      \"type\": \"user\",\n      \"attributes\": {\n        \"email\": \"jacinda@dietrich.org\",\n        \"username\": \"zack\",\n        \"admin\": false,\n        \"locale\": null,\n        \"created_at\": \"2019-08-24T16:32:14.183Z\",\n        \"updated_at\": \"2019-08-24T16:32:14.183Z\",\n        \"avatar_url\": \"https://www.gravatar.com/avatar/2ae98104b5dbe3bae91e51a6c8825e72?s=200&d=identicon\",\n        \"confirmed\": true,\n        \"banned\": false,\n        \"locked\": false\n      },\n      \"relationships\": {\n        \"student\": {\n          \"data\": {\n            \"id\": \"36\",\n            \"type\": \"student\"\n          }\n        }\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"38\",\n    \"type\": \"student\",\n    \"attributes\": {\n      \"full_name\": \"Ms. Stewart Phoebe Kling\",\n      \"email\": \"glenn@donnellystark.net\",\n      \"phone\": \"713.366.4518\",\n      \"about\": \"Ut facilis nisi. Corrupti dolores et. Sunt quas at. Sit quis et. Ducimus sint velit.\",\n      \"social_networks\": {\n        \"twitter\": \"http://twitter/jacinta.spencer\",\n        \"facebook\": \"http://facebook/mack_ruecker\"\n      },\n      \"president\": false,\n      \"created_at\": \"2019-08-26T12:59:06.209Z\",\n      \"updated_at\": \"2019-08-26T12:59:06.209Z\"\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"20\",\n          \"type\": \"group\"\n        }\n      },\n      \"user\": {\n        \"data\": {\n          \"id\": \"40\",\n          \"type\": \"user\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"40\",\n      \"type\": \"user\",\n      \"attributes\": {\n        \"email\": \"leopoldo@zieme.biz\",\n        \"username\": \"peter\",\n        \"admin\": false,\n        \"locale\": null,\n        \"created_at\": \"2019-08-26T12:59:06.196Z\",\n        \"updated_at\": \"2019-08-26T12:59:06.196Z\",\n        \"avatar_url\": \"https://www.gravatar.com/avatar/e41a26611a908da62cb03ef853e49963?s=200&d=identicon\",\n        \"confirmed\": true,\n        \"banned\": false,\n        \"locked\": false\n      },\n      \"relationships\": {\n        \"student\": {\n          \"data\": {\n            \"id\": \"38\",\n            \"type\": \"student\"\n          }\n        }\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"693f9c071109d12c62ec955df37217b7\"",
-        "X-Request-Id": "4dcff695-ac24-4c0e-8905-f140c5363e08",
-        "X-Runtime": "0.011696",
+        "ETag": "W/\"8164d9b2ce2c4fa831dfd45122d832d4\"",
+        "X-Request-Id": "2e9604d8-1f76-4dd6-b47b-3a4eb0d1e2aa",
+        "X-Runtime": "0.010900",
         "Vary": "Origin",
-        "Content-Length": "981"
+        "Content-Length": "976"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/group/students/36\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 764a9ab5e07dd3eb90bed04dcba5945205b5ed8b81b84ddc7005b75584f32005\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/group/students/38\" -X GET \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 5901d2c7ab092e0ae2bbf044970df5a348d9483e83e6cdd2fd16657511c34697\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Group, type: :model do
@@ -9,6 +11,8 @@ RSpec.describe Group, type: :model do
     it { should have_many(:invites).dependent(:destroy) }
 
     it { should have_many(:lecturers).dependent(:destroy) }
+
+    it { should have_many(:events).dependent(:destroy) }
   end
 
   describe 'validations' do

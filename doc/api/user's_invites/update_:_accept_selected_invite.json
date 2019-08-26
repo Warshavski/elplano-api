@@ -14,12 +14,12 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "api/v1/invites/kbnmsCN3T4y6PdBq6B8M",
+      "request_path": "api/v1/invites/yxPUz-HuwHoZgWYu4nrW",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
-        "Authorization": "Bearer 59e2c3efa009c41ea4eeaf504ac44f6c0f38fa950a314e0192a2f3aa6e19ddb5",
+        "Authorization": "Bearer 45748254cf7db0930387056f21590c106b2be2115b08ba86c760f44dcd24c601",
         "Host": "example.org",
         "Cookie": ""
       },
@@ -28,7 +28,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"sheryl@marvin.com\",\n      \"invitation_token\": null,\n      \"sent_at\": \"2019-08-24T16:32:14.491Z\",\n      \"accepted_at\": \"2019-08-24T16:32:14.502Z\",\n      \"created_at\": \"2019-08-24T16:32:14.491Z\",\n      \"updated_at\": \"2019-08-24T16:32:14.505Z\",\n      \"status\": \"accepted\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"48\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": {\n          \"id\": \"47\",\n          \"type\": \"student\"\n        }\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"27\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"6\",\n    \"type\": \"invite\",\n    \"attributes\": {\n      \"email\": \"jose@hilpertrunolfon.info\",\n      \"invitation_token\": null,\n      \"sent_at\": \"2019-08-26T12:59:06.579Z\",\n      \"accepted_at\": \"2019-08-26T12:59:06.591Z\",\n      \"created_at\": \"2019-08-26T12:59:06.579Z\",\n      \"updated_at\": \"2019-08-26T12:59:06.594Z\",\n      \"status\": \"accepted\"\n    },\n    \"relationships\": {\n      \"sender\": {\n        \"data\": {\n          \"id\": \"50\",\n          \"type\": \"student\"\n        }\n      },\n      \"recipient\": {\n        \"data\": {\n          \"id\": \"49\",\n          \"type\": \"student\"\n        }\n      },\n      \"group\": {\n        \"data\": {\n          \"id\": \"27\",\n          \"type\": \"group\"\n        }\n      }\n    }\n  }\n}",
       "response_headers": {
         "Page-Title": "El+Plano",
         "X-Frame-Options": "DENY",
@@ -37,14 +37,14 @@
         "Cache-Control": "max-age=0, private, must-revalidate, no-store",
         "Pragma": "no-cache",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"c6a5d7bbfaa12a3a4125083fbf084ab1\"",
-        "X-Request-Id": "95a3af21-35ef-4ff1-a386-bbbc44b7182e",
-        "X-Runtime": "0.013855",
+        "ETag": "W/\"590fea0765b7bb678f1c0e08de076fa7\"",
+        "X-Request-Id": "9b10fbbc-e4ae-49f3-93c1-7379ee384c84",
+        "X-Runtime": "0.014501",
         "Vary": "Origin",
-        "Content-Length": "439"
+        "Content-Length": "447"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/invites/kbnmsCN3T4y6PdBq6B8M\" -d '' -X PATCH \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 59e2c3efa009c41ea4eeaf504ac44f6c0f38fa950a314e0192a2f3aa6e19ddb5\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/invites/yxPUz-HuwHoZgWYu4nrW\" -d '' -X PATCH \\\n\t-H \"Accept: application/vnd.api+json\" \\\n\t-H \"Content-Type: application/vnd.api+json\" \\\n\t-H \"Authorization: Bearer 45748254cf7db0930387056f21590c106b2be2115b08ba86c760f44dcd24c601\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

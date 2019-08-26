@@ -18,6 +18,19 @@ ru:
         invalid_markup: 'невалидная разметка HTML: %{error}'
       timezone:
         not_exist: 'не существует'
+      invalid_date: 'невалидная дата'
+      invalid_time: 'не является валидным временем'
+      invalid_datetime: 'не является валидной датой и временем'
+      is_at: 'должно быть в %{restriction}'
+      before: 'должно быть раньше %{restriction}'
+      on_or_before: 'должно быть в или раньше %{restriction}'
+      after: 'должно быть после %{restriction}'
+      on_or_after: 'должно быть в или после %{restriction}'
+    validates_timeliness:
+      error_value_formats:
+        date: '%Y-%m-%d'
+        time: '%H:%M:%S'
+        datetime: '%Y-%m-%d %H:%M:%S'
   notifications:
     email:
       invite:
@@ -29,3 +42,9 @@ ru:
   uploaders:
     errors:
       too_large: 'слишком большой (максимальный размер: %{size} MB)'
+
+  activerecord:
+    attributes:
+      event:
+        start_at: 'Начало'
+        end_at: 'Конец'

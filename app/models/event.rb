@@ -84,8 +84,18 @@ class Event < ApplicationRecord
 
   belongs_to :course, optional: true
 
-  validates :creator, :start_at, :timezone, presence: true
+  belongs_to :eventable, polymorphic: true
+
+  validates :creator, :timezone, presence: true
   validates :title, presence: true, length: { in: 3..250 }
+
+  validates :start_at,
+            presence: true,
+            timeliness: { on_or_after: -> { Time.current } }
+
+  validates :end_at,
+            allow_nil: true,
+            timeliness: { on_or_after: :start_at }
 
   validates :timezone, timezone_existence: true
 end

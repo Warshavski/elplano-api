@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api
   module V1
     # Api::V1::EventsController
@@ -36,7 +38,9 @@ module Api
       # Creates(schedule) new event
       #
       def create
-        event = current_student.created_events.create!(event_params)
+        event = ::Events::Create.call(current_student, event_params) do |e|
+          authorize! e
+        end
 
         render_resource event, status: :created
       end
@@ -58,16 +62,14 @@ module Api
       # Deletes scheduled event
       #
       def destroy
-        event = filter_events.find(params[:id])
-
-        event.destroy!
+        filter_events.find(params[:id]).tap(&:destroy!)
 
         head :no_content
       end
 
       private
 
-      def filter_events(filters = {})
+      def filter_events(_filters = {})
         current_student.created_events
       end
 
@@ -77,7 +79,7 @@ module Api
           .permit(
             :title, :description, :status,
             :start_at, :end_at, :timezone,
-            :course_id,
+            :course_id, :eventable_id, :eventable_type,
             recurrence: []
           )
       end

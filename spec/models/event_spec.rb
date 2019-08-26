@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
@@ -5,6 +7,8 @@ RSpec.describe Event, type: :model do
     it { should belong_to(:creator).class_name('Student') }
 
     it { should belong_to(:course).optional }
+
+    it { should belong_to(:eventable) }
   end
 
   describe 'validations' do

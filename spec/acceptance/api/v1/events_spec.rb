@@ -43,6 +43,21 @@ resource "User's events" do
       explanation <<~DESC
         Returns a list of the available events.
 
+        <b>NOTE<b>:
+
+        - by default, this endpoint returns all appointed events(personal + group)
+        - be default, this endpoint returns sorts events by recently created
+
+        <b>Optional query params:</b>
+
+          - `?scope=authored` - Filter by event scope:
+            - `authored` - created by current authenticated student
+            - `appointed` - created for current authenticated student
+
+          - `?type=personal` - Filter by event type(eventable type):
+            - `group` - created for everyone in current student's group
+            - `personal` - create only for current user(self event and personal events from group owner)
+
         See model attributes description in the section description.
       DESC
 
@@ -142,7 +157,8 @@ resource "User's events" do
 
         <b>NOTE</b> : 
 
-          - `start_at` should be after or on current date and time and before `end_at` and `end_at` should be after `start_at`
+          - update allowed only for events created by current authenticated student.
+          - `start_at` should be after or on current date and time and before `end_at` and `end_at` should be after `start_at`.
 
         See model attributes description in the section description.
       DESC
@@ -160,6 +176,10 @@ resource "User's events" do
     example 'DELETE : Deletes selected event' do
       explanation <<~DESC
         Deletes an event.
+
+        <b>NOTE</b> :
+
+          - delete allowed only for events created by current authenticated student.
       DESC
 
       do_request

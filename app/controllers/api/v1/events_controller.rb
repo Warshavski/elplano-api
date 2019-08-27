@@ -4,23 +4,49 @@ module Api
   module V1
     # Api::V1::EventsController
     #
-    #   Used to control events in scope of current user
+    #   Used to manage events.
     #
-    #     - list created events
-    #     - get information about particular event(detailed information)
-    #     - create a new event(schedule event)
-    #     - update information about event
-    #     - delete event
+    #   Actions available for every student(group member):
+    #
+    #     - Get list of the student's events.
+    #     - Get information about particular event(detailed information).
+    #     - Create a new personal event for himself(schedule event).
+    #     - Update a personal event(created for himself).
+    #     - Delete a personal event(created for himself).
+    #
+    #   Actions available for group owner(group president):
+    #
+    #     - Create a new group event or personal event for any group member.
+    #     - Update information about any created event(group and personal for any member).
+    #     - Delete event any created event(group and personal for any member).
     #
     class EventsController < ApplicationController
       set_default_serializer EventSerializer
 
       # GET : api/v1/events
       #
-      # Get list of events
+      #   optional query parameters :
+      #
+      #     - scope   filter by event scope:
+      #
+      #                 - authored - created by current student
+      #                 - appointed - created for current student
+      #
+      #                @example: ?scope=authored
+      #
+      #     - type   filter by event type:
+      #
+      #                 - group - created for whole current student's group
+      #                 - personal - create only for current user
+      #
+      #                @example: ?type=personal
+      #
+      # Get list of student's events
       #
       def index
-        render_resource filter_events, status: :ok
+        events = filter_events(filter_params).preload(:eventable)
+
+        render_resource events, status: :ok
       end
 
       # GET : api/v1/events/{:id}
@@ -28,7 +54,9 @@ module Api
       # Get detailed information about event
       #
       def show
-        event = filter_events.find(params[:id])
+        scope = filter_events.or(filter_events(scope: 'authored'))
+
+        event = scope.find(params[:id])
 
         render_resource event, status: :ok
       end
@@ -50,9 +78,9 @@ module Api
       # Updates/renew information about scheduled event
       #
       def update
-        event = filter_events.find(params[:id])
-
-        event.update!(event_params)
+        event = find_and_perform!(params[:id]) do |e|
+          e.update!(event_params)
+        end
 
         render_resource event, status: :ok
       end
@@ -62,15 +90,28 @@ module Api
       # Deletes scheduled event
       #
       def destroy
-        filter_events.find(params[:id]).tap(&:destroy!)
+        find_and_perform!(params[:id], &:destroy!)
 
         head :no_content
       end
 
       private
 
-      def filter_events(_filters = {})
-        current_student.created_events
+      def filter_events(filters = {})
+        EventsFinder.new(current_student, filters).execute
+      end
+
+      def filter_params
+        params.permit(:scope, :type)
+      end
+
+      def find_and_perform!(id)
+        scope = filter_events(scope: 'authored')
+
+        scope.find(id).tap do |event|
+          authorize! event
+          yield(event)
+        end
       end
 
       def event_params

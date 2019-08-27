@@ -22,8 +22,12 @@ RSpec.describe Api::V1::EventsController, type: :request do
   describe 'GET #index' do
     subject { get base_endpoint, headers: headers }
 
+    let_it_be(:president) do
+      create(:student, :group_supervisor, group: student.group)
+    end
+
     let_it_be(:events) do
-      create_list(:event, 2, creator: student, eventable: student)
+      create_list(:event, 2, creator: president, eventable: student)
     end
 
     context 'N+1' do
@@ -36,6 +40,26 @@ RSpec.describe Api::V1::EventsController, type: :request do
       it { expect(response).to have_http_status(:ok) }
 
       it { expect(json_data.count).to be(3) }
+    end
+
+    context 'when type filter param is provided' do
+      subject { get "#{base_endpoint}?type=group", headers: headers }
+
+      before(:each) { subject }
+
+      it { expect(response).to have_http_status(:ok) }
+
+      it { expect(json_data.count).to be(0) }
+    end
+
+    context 'when scope filter param is provided' do
+      subject { get "#{base_endpoint}?scope=authored", headers: headers }
+
+      before(:each) { subject }
+
+      it { expect(response).to have_http_status(:ok) }
+
+      it { expect(json_data.count).to be(1) }
     end
   end
 

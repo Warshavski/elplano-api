@@ -86,6 +86,11 @@ class Event < ApplicationRecord
 
   belongs_to :eventable, polymorphic: true
 
+  scope :personal, -> { where(eventable_type: 'Student') }
+  scope :groups,   -> { where(eventable_type: 'Group') }
+
+  scope :personal_or_group, -> { groups.or(personal) }
+
   validates :creator, :timezone, presence: true
   validates :title, presence: true, length: { in: 3..250 }
 
@@ -98,4 +103,17 @@ class Event < ApplicationRecord
             timeliness: { on_or_after: :start_at }
 
   validates :timezone, timezone_existence: true
+
+  def self.filter(filter_name)
+    case filter_name.to_s
+    when 'group'
+      groups
+    when 'personal'
+      personal
+    when ''
+      personal_or_group
+    else
+      none
+    end
+  end
 end

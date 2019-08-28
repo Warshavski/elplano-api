@@ -12,7 +12,7 @@ class ApplicationController < ActionController::API
   include Handlers::Exception
   include Handlers::Response
 
-  include DoorkeeperJsonApi
+  include JsonApi::DoorkeeperConcern
 
   DEFAULT_CACHE_CONTROL = "#{ActionDispatch::Http::Cache::Response::DEFAULT_CACHE_CONTROL}, no-store"
 

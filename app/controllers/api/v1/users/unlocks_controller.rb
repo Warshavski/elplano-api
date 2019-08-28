@@ -11,7 +11,7 @@ module Api
       #     - unlock user by link from letter
       #
       class UnlocksController < Devise::UnlocksController
-        include DeviseJsonApi
+        include JsonApi::DeviseConcern
 
         skip_before_action :authorize_access!
 

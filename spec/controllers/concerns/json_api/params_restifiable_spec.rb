@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-describe RestifyParams do
+describe JsonApi::ParamsRestifiable do
   before do
     class FakesController < ActionController::API
-      include RestifyParams
+      include JsonApi::ParamsRestifiable
     end
 
     allow(object).to receive(:params).and_return(ActionController::Parameters.new(jsonapi_params))

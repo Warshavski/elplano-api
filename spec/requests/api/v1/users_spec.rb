@@ -71,4 +71,67 @@ describe Api::V1::UsersController, type: :request do
 
     include_examples 'request errors examples'
   end
+
+  describe 'DELETE #destroy' do
+    let_it_be(:user)  { create(:user, password: '123456') }
+    let_it_be(:token) { create(:token, resource_owner_id: user.id) }
+
+    let(:headers) { { 'Authorization' => "Bearer #{token.token}" } }
+
+    context 'when params are valid' do
+      let_it_be(:params) { { user: { password: '123456' } } }
+
+      it 'responds with a 204 status' do
+        delete endpoint, headers: headers, params: params
+
+        expect(response).to have_http_status(:no_content)
+      end
+
+      it 'deletes a group' do
+        expect { delete endpoint, headers: headers, params: params }.to change(User, :count).by(-1)
+      end
+    end
+
+    context 'when params are valid' do
+      context 'when params is not provided at all' do
+        let_it_be(:params) { {} }
+
+        it 'returns error with 400(bad request)' do
+          delete endpoint, headers: headers, params: params
+
+          expect(response).to have_http_status(:bad_request)
+        end
+      end
+
+      context 'when password is not provided' do
+        let_it_be(:params) { { user: {} } }
+
+        it 'returns error with 400(bad request)' do
+          delete endpoint, headers: headers, params: params
+
+          expect(response).to have_http_status(:bad_request)
+        end
+      end
+
+      context 'when nil password is provided' do
+        let_it_be(:params) { { user: { password: nil } } }
+
+        it 'returns error with 400(bad request)' do
+          delete endpoint, headers: headers, params: params
+
+          expect(response).to have_http_status(:bad_request)
+        end
+      end
+
+      context 'when password is not valid' do
+        let_it_be(:params) { { user: { password: 'wat_password?' } } }
+
+        it 'returns error with 400(bad request)' do
+          delete endpoint, headers: headers, params: params
+
+          expect(response).to have_http_status(:forbidden)
+        end
+      end
+    end
+  end
 end

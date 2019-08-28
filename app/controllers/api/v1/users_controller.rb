@@ -33,6 +33,19 @@ module Api
                         status: :ok
       end
 
+      # DELETE : api/v1/user
+      #
+      # Delete user with all related data
+      #   (PERMANENT ACTION)
+      #
+      def destroy
+        authorize! owner_params[:password], with: PasswordPolicy
+
+        current_user.destroy!
+
+        head :no_content
+      end
+
       private
 
       def user_params
@@ -44,6 +57,10 @@ module Api
                     .permit(*user_attributes, student_attributes: student_attributes)
 
         permitted.tap { |p| p.dig(:student_attributes)&.merge!(id: current_student.id) }
+      end
+
+      def owner_params
+        validate_with(::Users::DestroyContract.new, params[:user])
       end
     end
   end

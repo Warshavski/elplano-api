@@ -29,7 +29,7 @@ module Handlers
       #
       rescue_from ActiveRecord::RecordNotFound do |e|
         handle_error(e, :not_found) do
-          [{ status: 404, detail: e.message }]
+          [{ status: 404, detail: I18n.t('errors.messages.not_found_record') }]
         end
       end
 

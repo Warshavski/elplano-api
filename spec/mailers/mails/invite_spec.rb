@@ -9,10 +9,10 @@ RSpec.describe Emails::Invite, type: :mailer do
     allow_any_instance_of(Notify).to receive(:default_sender_address).and_return(address)
   end
 
-  describe "#new_invite" do
+  describe "#invitation" do
     let(:invite) { create(:invite, :rnd_group) }
 
-    subject { Notify.new_invite(invite.id) }
+    subject { Notify.invitation(invite.id) }
 
     it { expect(subject.subject).to eq('Invite was created for you') }
 

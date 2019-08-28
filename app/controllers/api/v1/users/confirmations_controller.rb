@@ -11,7 +11,7 @@ module Api
       #     - generate new confirmation token
       #
       class ConfirmationsController < Devise::ConfirmationsController
-        include DeviseJsonApi
+        include JsonApi::DeviseConcern
 
         skip_before_action :authorize_access!
 

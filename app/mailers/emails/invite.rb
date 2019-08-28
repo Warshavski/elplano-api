@@ -11,7 +11,7 @@ module Emails
     #
     # @param [Integer] invite_id - Invite ID
     #
-    def new_invite(invite_id)
+    def invitation(invite_id)
       @invite = ::Invite.find(invite_id)
 
       mail(

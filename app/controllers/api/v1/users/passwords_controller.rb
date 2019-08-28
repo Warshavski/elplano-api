@@ -8,7 +8,7 @@ module Api
       #   Used to reset user's password
       #
       class PasswordsController < Devise::PasswordsController
-        include DeviseJsonApi
+        include JsonApi::DeviseConcern
 
         skip_before_action :authorize_access!
 

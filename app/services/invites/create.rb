@@ -59,7 +59,7 @@ module Invites
     end
 
     def notify_about(invite)
-      Notify.new_invite(invite.id).deliver_later
+      Notify.invitation(invite.id).deliver_later
     end
   end
 end

@@ -40,6 +40,8 @@ ru:
         description: 'описание'
         timezone: 'часовой пояс'
         recurrence: 'настройки рекуррентности'
+        foreground_color: 'цвет переднего плана'
+        background_color: 'фоновый цвет'
       course:
         title: 'заголовок'
       group:
@@ -195,6 +197,8 @@ ru:
         invalid_markup: 'невалидная разметка HTML: %{error}'
       timezone:
         not_exist: 'не существует'
+      color:
+        invalid_format: 'не является допустимым шестнадцатеричным цветом'
       invalid_date: 'невалидная дата'
       invalid_time: 'не является валидным временем'
       invalid_datetime: 'не является валидной датой и временем'

@@ -19,6 +19,8 @@ resource "User's events" do
      - `timezone` - Timezone settings.
      - `start_at` - Represents when event starts.
      - `end_at` - Represents when event ends.
+     - `background_color` - Represents the background color.
+     - `foreground_color` - Represents the foreground color that can be used to write on top of a background with 'background' color.
      - `timestamps`
   
      Also, includes references to the event creator, attached course, and for whom the event was created.
@@ -99,6 +101,8 @@ resource "User's events" do
       parameter :course_id, 'The course identity to which the event is attached'
       parameter :eventable_type, 'The entity type to which the event is attached(Student, Group)', required: true
       parameter :eventable_id, 'The entity identity to which the event is attached', required: true
+      parameter :background_color, 'The background color (HEX)'
+      parameter :foreground_color, "The foreground color that can be used to write on top of a background with 'background' color (HEX)"
     end
 
     let(:raw_post) do
@@ -143,6 +147,8 @@ resource "User's events" do
       parameter :course_id, 'The course identity to which the event is attached'
       parameter :eventable_type, 'The entity type to which the event is attached(Student, Group)', required: true
       parameter :eventable_id, 'The entity identity to which the event is attached', required: true
+      parameter :background_color, 'The background color (HEX)'
+      parameter :foreground_color, "The foreground color that can be used to write on top of a background with 'background' color (HEX)"
     end
 
     let(:raw_post) do

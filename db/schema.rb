@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_23_134243) do
+ActiveRecord::Schema.define(version: 2019_08_28_141408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 2019_08_23_134243) do
     t.bigint "course_id"
     t.string "eventable_type", null: false
     t.bigint "eventable_id", null: false
+    t.string "foreground_color", limit: 7
+    t.string "background_color", limit: 7
     t.index ["course_id"], name: "index_events_on_course_id"
     t.index ["creator_id"], name: "index_events_on_creator_id"
     t.index ["eventable_id", "eventable_type"], name: "index_events_on_eventable_id_and_eventable_type"

@@ -120,6 +120,7 @@ module Api
           .permit(
             :title, :description, :status,
             :start_at, :end_at, :timezone,
+            :background_color, :foreground_color,
             :course_id, :eventable_id, :eventable_type,
             recurrence: []
           )

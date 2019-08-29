@@ -10,6 +10,8 @@ module Api
       #
       class ApplicationController < ::ApplicationController
         authorize_with! ::Admin::UserPolicy
+
+        denote_title_header 'Admin'
       end
     end
   end

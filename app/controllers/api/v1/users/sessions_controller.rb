@@ -9,10 +9,12 @@ module Api
       #     (SignIn, SignOut)
       #
       class SessionsController < Devise::SessionsController
-        set_default_serializer ::Auth::UserSerializer
-
         skip_before_action :authorize_access!, only: %i[new create]
         skip_before_action :verify_signed_out_user
+
+        set_default_serializer ::Auth::UserSerializer
+
+        denote_title_header 'Users'
 
         # GET :  api/v1/users/sign_in
         def new

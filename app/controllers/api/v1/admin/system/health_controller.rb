@@ -9,6 +9,8 @@ module Api
         #   Used to administrate system health status
         #
         class HealthController < Admin::ApplicationController
+          denote_title_header 'System', 'Health'
+
           # GET : api/v1/admin/system/health?type=
           #
           #   query parameters :

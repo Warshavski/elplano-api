@@ -10,6 +10,8 @@ class UploadsController < ApplicationController
   required_params! :file, :type,
                    only: :create, scope: :upload
 
+  denote_title_header 'Uploads'
+
   # POST : uploads
   #
   # Upload and save file in cache storage

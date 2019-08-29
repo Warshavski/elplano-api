@@ -6,6 +6,7 @@
 #
 class ApplicationController < ActionController::API
   include Authorizable
+  include Denotable
   include ParamsRequirable
   include Localizable
 
@@ -18,12 +19,13 @@ class ApplicationController < ActionController::API
 
   before_action :destroy_session
   before_action :check_request_format
-  before_action :set_page_title_header
   before_action :set_default_headers
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   prepend_before_action :authorize_access!
+
+  denote_title_header 'El Plano'
 
   authorize :user, through: :current_user
   authorize :student, through: :current_student
@@ -65,26 +67,6 @@ class ApplicationController < ActionController::API
       headers['Cache-Control'] = DEFAULT_CACHE_CONTROL
       headers['Pragma'] = 'no-cache' # HTTP 1.0 compatibility
     end
-  end
-
-  def set_page_title_header
-    #
-    # Per https://tools.ietf.org/html/rfc5987, headers need to be ISO-8859-1, not UTF-8
-    #
-    response.headers['Page-Title'] = CGI.escape(page_title('El Plano'))
-  end
-
-  def page_title(*titles)
-    @page_title ||= []
-
-    @page_title.push(*titles.compact) if titles.any?
-
-    if titles.any? && !defined?(@breadcrumb_title)
-      @breadcrumb_title = @page_title.last
-    end
-
-    # Segments are separated by middot
-    @page_title.join(' · ')
   end
 
   def authorize_access!

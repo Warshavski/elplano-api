@@ -9,6 +9,8 @@ module Api
     class UsersController < ApplicationController
       set_default_serializer UserSerializer
 
+      denote_title_header 'User'
+
       # GET : api/v1/user
       #
       # Get information about current user

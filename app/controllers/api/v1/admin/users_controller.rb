@@ -10,6 +10,8 @@ module Api
       class UsersController < Admin::ApplicationController
         set_default_serializer UserSerializer
 
+        denote_title_header 'Users'
+
         # GET : api/v1/admin/users
         #
         #   optional query parameters :

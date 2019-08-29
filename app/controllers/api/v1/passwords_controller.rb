@@ -10,6 +10,8 @@ module Api
       required_params! :current_password, :password, :password_confirmation,
                        only: :update, scope: :user
 
+      denote_title_header 'Password'
+
       # PATCH/PUT api/v1/password
       #
       # Update current password with a new one

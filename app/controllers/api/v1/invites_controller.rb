@@ -9,6 +9,8 @@ module Api
     class InvitesController < ApplicationController
       set_default_serializer InviteSerializer
 
+      denote_title_header 'Invites'
+
       # GET : api/v1/invites
       #
       # Get list of user's invites

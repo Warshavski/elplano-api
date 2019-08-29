@@ -24,6 +24,8 @@ module Api
 
         set_default_serializer CourseSerializer
 
+        denote_title_header 'Group', 'Courses'
+
         # GET : api/v1/group/courses
         #
         # Get list of courses

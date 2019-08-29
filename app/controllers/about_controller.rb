@@ -7,6 +7,8 @@
 class AboutController < ApplicationController
   skip_before_action :authorize_access!
 
+  denote_title_header 'About'
+
   # GET : /
   #
   # Show app information

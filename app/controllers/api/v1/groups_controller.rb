@@ -25,6 +25,8 @@ module Api
 
       set_default_serializer GroupSerializer
 
+      denote_title_header 'Group'
+
       # GET : api/v1/group
       #
       # Get detailed information about current user's group

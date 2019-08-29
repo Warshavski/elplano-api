@@ -15,6 +15,8 @@ module Api
 
         skip_before_action :authorize_access!
 
+        denote_title_header 'Users', 'Unlock'
+
         # GET :  api/v1/users/unlock/new
         def new
           route_not_found

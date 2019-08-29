@@ -12,6 +12,8 @@ module Api
 
         set_default_serializer InviteSerializer
 
+        denote_title_header 'Group', 'Invites'
+
         # GET : api/v1/group/invites
         #
         # Get list of group invites

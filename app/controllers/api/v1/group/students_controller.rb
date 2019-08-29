@@ -13,6 +13,8 @@ module Api
       class StudentsController < ApplicationController
         set_default_serializer StudentSerializer
 
+        denote_title_header 'Group', 'Students'
+
         # GET : api/v1/group/students
         #
         # Get list of group members

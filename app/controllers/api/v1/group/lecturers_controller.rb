@@ -24,6 +24,8 @@ module Api
 
         set_default_serializer LecturerSerializer
 
+        denote_title_header 'Group', 'Lecturers'
+
         rescue_from Errno::ENOENT, KeyError do |e|
           handle_error(e, :bad_request) do
             [{ status: 400, detail: e.message, source: { pointer: '/data/attributes/avatar' } }]

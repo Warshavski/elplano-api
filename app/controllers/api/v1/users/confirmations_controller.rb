@@ -15,6 +15,8 @@ module Api
 
         skip_before_action :authorize_access!
 
+        denote_title_header 'Users', 'Confirmation'
+
         # GET : api/v1/users/confirmation/new
         def new
           route_not_found

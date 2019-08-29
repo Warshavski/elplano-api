@@ -23,6 +23,8 @@ module Api
     class EventsController < ApplicationController
       set_default_serializer EventSerializer
 
+      denote_title_header 'Events'
+
       # GET : api/v1/events
       #
       #   optional query parameters :

@@ -8,9 +8,11 @@ module Api
       #   Used to handle new user registration
       #
       class RegistrationsController < Devise::RegistrationsController
+        skip_before_action :authorize_access!
+
         set_default_serializer UserSerializer
 
-        skip_before_action :authorize_access!
+        denote_title_header 'Users'
 
         %i[cancel new edit update destroy].each do |method|
           define_method(method) { route_not_found }

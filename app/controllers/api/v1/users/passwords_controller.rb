@@ -12,7 +12,9 @@ module Api
 
         skip_before_action :authorize_access!
 
-        # GET : api/v1/accounts/password/new
+        denote_title_header 'Users', 'Password'
+
+        # GET : api/v1/users/password/new
         def new
           route_not_found
         end

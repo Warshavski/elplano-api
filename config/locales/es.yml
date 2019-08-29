@@ -40,6 +40,8 @@ es:
         description: 'descripción'
         timezone: 'zona horaria'
         recurrence: 'recurrencia'
+        foreground_color: 'color de primer plano'
+        background_color: 'color de fondo'
       course:
         title: 'titulo'
       group:
@@ -171,6 +173,8 @@ es:
         invalid_markup: 'contiene código HTML no válido: %{error}'
       timezone:
         not_exist: 'no existe'
+      color:
+        invalid_format: 'no es un color hexadecimal válido'
       invalid_date: 'no es una fecha válida'
       invalid_time: 'no es un tiempo valido'
       invalid_datetime: 'no es una fecha y hora válida'

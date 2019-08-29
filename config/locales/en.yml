@@ -48,6 +48,8 @@ en:
         invalid_markup: 'contains invalid HTML markup: %{error}'
       timezone:
         not_exist: 'does not exist'
+      color:
+        invalid_format: 'is not a valid hexadecimal color'
       invalid_date: "is not a valid date"
       invalid_time: "is not a valid time"
       invalid_datetime: "is not a valid datetime"

@@ -48,6 +48,13 @@ module Events
     # @option params [String] :eventable_type -
     #   The entity identity to which the event is attached
     #
+    # @option params [String] :background_color -
+    #   The background color presented by HEX
+    #
+    # @option params [String] :foreground_color -
+    #   The foreground color that can be used to write on top of
+    #   a background with 'background' color presented by HEX
+    #
     # @option params [Array<String>] :recurrence -
     #   Recurrence rules if an event is recurrent
     #

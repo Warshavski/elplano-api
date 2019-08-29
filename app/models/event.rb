@@ -104,6 +104,8 @@ class Event < ApplicationRecord
 
   validates :timezone, timezone_existence: true
 
+  validates :foreground_color, :background_color, allow_nil: true, color: true
+
   def self.filter(filter_name)
     case filter_name.to_s
     when 'group'

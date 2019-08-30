@@ -5,15 +5,15 @@
 #   Used as base controller
 #
 class ApplicationController < ActionController::API
-  include Authorizable
-  include Denotable
-  include ParamsRequirable
-  include Localizable
-
   include Handlers::Exception
   include Handlers::Response
 
   include JsonApi::DoorkeeperConcern
+
+  include Authorizable
+  include Denotable
+  include Localizable
+  include Validatable
 
   DEFAULT_CACHE_CONTROL = "#{ActionDispatch::Http::Cache::Response::DEFAULT_CACHE_CONTROL}, no-store"
 
@@ -87,6 +87,33 @@ class ApplicationController < ActionController::API
 
   def destroy_session
     request.session_options[:skip] = true
+  end
+
+  # Optional filter parameters :
+  #
+  #   - search - filter by given term(pattern)
+  #
+  #   - pagination
+  #       - last_id       - Identity of the last record in previous chunk
+  #       - limit         - Quantity of the records in requested chuck
+  #       - direction     - Records sort direction(asc - ascending, desc - descending)
+  #       - field         - Name of the sortable field
+  #       - field_value   - Value of the sortable field
+  #
+  #   @example:
+  #     {
+  #       "filters": {
+  #         "last_id": 15,
+  #         "limit": 10,
+  #         "direction": "desc",
+  #         "field_name": "email",
+  #         "field_value": "wat@email.huh",
+  #         "search": "search term"
+  #       }
+  #     }
+  #
+  def filter_params
+    validate_with(FilterContract.new, params[:filters])
   end
 
   def current_resource_owner

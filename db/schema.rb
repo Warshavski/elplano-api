@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_28_141408) do
+ActiveRecord::Schema.define(version: 2019_08_30_140235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -193,10 +193,16 @@ ActiveRecord::Schema.define(version: 2019_08_28_141408) do
     t.datetime "updated_at", null: false
     t.string "locale"
     t.index ["admin"], name: "index_users_on_admin"
+    t.index ["banned_at", "id"], name: "index_users_on_banned_at_and_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["confirmed_at", "id"], name: "index_users_on_confirmed_at_and_id"
+    t.index ["created_at", "id"], name: "index_users_on_created_at_and_id"
+    t.index ["email", "id"], name: "index_users_on_email_and_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
+    t.index ["updated_at", "id"], name: "index_users_on_updated_at_and_id"
+    t.index ["username", "id"], name: "index_users_on_username_and_id"
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 

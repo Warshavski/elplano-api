@@ -15,18 +15,29 @@
 #     @option params [String]   :field        - Name of the sortable field
 #     @option params [String]   :field_value  - Value of the sortable field
 #
-# @note Any previous sort options will be overwritten with defined in this concern.
+# @note
+#
+#   - Any previous sort options will be overwritten with defined in this concern.
+#   - By default returns records limited by 15.
+#   - By default returns records sorted by recently created.
 #
 module Paginatable
   COMPARATORS = { asc: '>', desc: '<' }.freeze
 
   DEFAULT_DIRECTION = 'desc'
+  DEFAULT_LIMIT = 15
 
-  private_constant :COMPARATORS, :DEFAULT_DIRECTION
+  DIRECTIONS = %w[asc desc].freeze
 
-  # @param scope [ActiveRecord::Relation]
+  MAX_LIMIT = 100
+  MIN_LIMIT = 1
+
+  private_constant :COMPARATORS,
+                   :DEFAULT_DIRECTION, :DEFAULT_LIMIT
+
+  # @param scope [ActiveRecord::Relation<ApplicationRecord>]
   #
-  # @return [ActiveRecord::Relation]
+  # @return [ActiveRecord::Relation<ApplicationRecord>]
   #
   def paginate(scope)
     scope = filter_by_field(scope)
@@ -69,7 +80,7 @@ module Paginatable
   end
 
   def limit_items(items)
-    items.limit(params[:limit])
+    items.limit(params.fetch(:limit) { DEFAULT_LIMIT })
   end
 
   def sort(items)

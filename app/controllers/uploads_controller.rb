@@ -7,9 +7,6 @@
 class UploadsController < ApplicationController
   skip_before_action :check_request_format
 
-  required_params! :file, :type,
-                   only: :create, scope: :upload
-
   denote_title_header 'Uploads'
 
   # POST : uploads
@@ -37,6 +34,6 @@ class UploadsController < ApplicationController
   private
 
   def upload_params
-    params.require(:upload).permit(:file, :type)
+    validate_with(UploadContract.new, params[:upload])
   end
 end

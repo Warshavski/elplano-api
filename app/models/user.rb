@@ -8,6 +8,8 @@ class User < ApplicationRecord
   include CaseSensible
   include Searchable
 
+  STATUSES = %w[active confirmed banned].freeze
+
   #
   # Include default devise modules. Others available are:
   #

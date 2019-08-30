@@ -36,15 +36,29 @@ resource 'Admin users' do
       explanation <<~DESC
         Returns a list of the application users.
 
-        <b>Optional query params</b> :
+        <b>Optional filter params</b> :
 
-        - `?status=confirmed` - Returns users filtered by one of the status(`active`, `confirmed`, `banned`).
-        - `?search=part_of_the_username_or_email` - Returns users founded by provided search term(email, username).
+        - `"status": "confirmed"` - Returns users filtered by one of the status(`active`, `confirmed`, `banned`).
+        - `"search": "part_of_the_username_or_email"` - Returns users founded by provided search term(email, username).
+
+        Example: 
+
+        <pre>
+        {
+          "filters": {
+            "status": "active",
+            "search": "wat@email_or_username"
+          }
+        }
+        </pre>
+
+        For more details see "Filters" and "Pagination" sections in the README section. 
 
         <b>NOTE:<b>
 
           - By default, this endpoint returns users sorted by recently created.
           - By default, this endpoint returns users without status assumptions.
+          - By default, this endpoint returns users limited by 15
 
         See user attributes description in the section description.
       DESC

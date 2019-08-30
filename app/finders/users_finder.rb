@@ -9,6 +9,8 @@
 #   params: optional search, filter and sort parameters
 #
 class UsersFinder
+  include Paginatable
+
   attr_reader :params
 
   # @param params [Hash] - (optional, default: {}) filter and sort parameters
@@ -27,13 +29,15 @@ class UsersFinder
   #
   # @note by default all records are sorted by recently created
   #
+  # @return [ActiveRecord::Relation]
+  #
   def execute
     collection = User
 
     collection = filter_by_status(collection)
     collection = perform_search(collection)
 
-    sort(collection)
+    paginate(collection)
   end
 
   private
@@ -44,9 +48,5 @@ class UsersFinder
 
   def perform_search(items)
     params[:search].blank? ? items : items.search(params[:search])
-  end
-
-  def sort(items)
-    params[:sort].blank? ? items.reorder(id: :desc) : items.order_by(params[:sort])
   end
 end

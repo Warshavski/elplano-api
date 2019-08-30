@@ -11,6 +11,10 @@ gem 'aws-sdk-s3'
 # Flexible authentication solution for Rails with Warden.
 gem 'devise', '>= 4.6.1'
 
+# https://github.com/dry-rb/dry-validation
+# Validation library with type-safe schemas and rules https://dry-rb.org/gems/dry-validation
+gem 'dry-validation', '>=1.3.0'
+
 # https://github.com/Netflix/fast_jsonapi
 # A lightning fast JSON:API serializer for Ruby Objects.
 gem 'fast_jsonapi', '>= 1.5'

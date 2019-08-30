@@ -11,7 +11,9 @@ RSpec.describe Api::V1::Admin::UsersController, type: :request do
   let_it_be(:resource_endpoint) { "#{base_endpoint}/#{random_user.id}" }
 
   describe 'GET #index' do
-    subject { get base_endpoint, headers: headers }
+    subject { get base_endpoint, headers: headers, params: params }
+
+    let_it_be(:params) { {} }
 
     before(:each) { subject }
 
@@ -26,7 +28,13 @@ RSpec.describe Api::V1::Admin::UsersController, type: :request do
     end
 
     context 'when status filter is provided' do
-      subject { get "#{base_endpoint}?status=banned", headers: headers }
+      let_it_be(:params) do
+        {
+          filters: {
+            status: 'banned'
+          }
+        }
+      end
 
       let_it_be(:banned_user) { create(:user, :banned) }
 
@@ -36,7 +44,13 @@ RSpec.describe Api::V1::Admin::UsersController, type: :request do
     end
 
     context 'when search filter is provided' do
-      subject { get "#{base_endpoint}?search=#{random_user.email}", headers: headers }
+      let_it_be(:params) do
+        {
+          filters: {
+            search: random_user.email
+          }
+        }
+      end
 
       it { expect(response).to have_http_status(:ok) }
 

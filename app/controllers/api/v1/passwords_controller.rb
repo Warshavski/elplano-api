@@ -7,9 +7,6 @@ module Api
     #   Authenticated user password management
     #
     class PasswordsController < ApplicationController
-      required_params! :current_password, :password, :password_confirmation,
-                       only: :update, scope: :user
-
       denote_title_header 'Password'
 
       # PATCH/PUT api/v1/password
@@ -25,9 +22,7 @@ module Api
       private
 
       def password_params
-        params
-          .require(:user)
-          .permit(:current_password, :password, :password_confirmation)
+        validate_with(PasswordContract.new, params[:user])
       end
     end
   end

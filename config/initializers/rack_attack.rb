@@ -3,6 +3,7 @@ relative_root_url = Rails.application.config.relative_url_root
 protected_paths = %W(
   #{relative_root_url}/oauth/token
   #{relative_root_url}/api/v1/users
+  #{relative_root_url}/api/v1/users/sign_in
   #{relative_root_url}/api/v1/users/password
   #{relative_root_url}/api/v1/users/unlock
   #{relative_root_url}/api/v1/users/confirmation

@@ -103,6 +103,48 @@ Localization priority:
 
 User locale --> Request locale --> Default locale
 
+### Collections
+
+Collection resources provide access to information about a list of objects of the same type. 
+For example, you can use a collection resource to access information about a list of events. 
+Collection resources are paged and may be sorted and filtered(depending on availability) - and will always return an list.
+
+<b>NOTE</b> : All collections endpoints available via GET request. 
+
+&nbsp;
+
+#### Filters
+
+Some collections support the ability to filter the results. 
+Filtering a collection resource is conducted via the filters parameter using the following notation:
+
+
+    {
+      "filters": {
+        "search": "search term",
+        "status": "cancelled"
+      }
+    }
+
+<b>NOTE</b> : All filters should be presented in the request's body via JSON object.
+
+&nbsp;
+
+#### Pagination
+
+Pagination uses filters notation and provides the ability to limit records with cursor-like style.
+
+    {
+      "filters": {
+        "last_id": 15,
+        "limit": 10,
+        "direction": "desc",
+        "field_name": "email",
+        "fiend_value": "wat@email.huh"
+      }
+    }
+
+
 ## Authentication
 
 API authentication is based on [OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749)

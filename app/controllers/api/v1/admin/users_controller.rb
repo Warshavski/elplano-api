@@ -14,13 +14,12 @@ module Api
 
         # GET : api/v1/admin/users
         #
-        #   optional query parameters :
+        #   optional filter parameters :
         #
-        #     - status - filter by the user status(active, confirmed, banned)
-        #                 @example: ?status=active
+        #     - status - Filter by the user status(active, confirmed, banned)
+        #     - search - Filter by search term(email, username)
         #
-        #     - search - filter by search term(email, username)
-        #                 @example: ?search=email_or_username_term
+        # @see #filter_params
         #
         # Get filtered list of users
         #
@@ -75,7 +74,7 @@ module Api
         end
 
         def filter_params
-          params.permit(:status, :search)
+          validate_with(::Admin::Users::IndexContract.new, params[:filters])
         end
       end
     end

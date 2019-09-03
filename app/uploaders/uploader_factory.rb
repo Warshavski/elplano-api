@@ -3,7 +3,7 @@
 #   Used to initialize uploader with proper storage
 #
 class UploaderFactory
-  TYPES = { avatar: AvatarUploader }.freeze
+  UPLOADERS = HashWithIndifferentAccess.new(avatar: AvatarUploader).freeze
 
   class << self
     # Create new uploader instance
@@ -22,7 +22,7 @@ class UploaderFactory
       check_args!(uploader_type, storage_type)
       check_presence!(uploader_type)
 
-      TYPES[uploader_type].new(storage_type)
+      UPLOADERS[uploader_type].new(storage_type)
     end
 
     private
@@ -32,7 +32,7 @@ class UploaderFactory
     end
 
     def check_presence!(uploader_type)
-      return if TYPES.key?(uploader_type)
+      return if UPLOADERS.key?(uploader_type)
 
       raise Api::ArgumentMissing, uploader_type
     end

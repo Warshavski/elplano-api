@@ -144,6 +144,7 @@ Pagination uses filters notation and provides the ability to limit records with 
       }
     }
 
+<b>NOTE</b> : Default chuck size is equal 15, minimum size is equal 1 and maximum size is equal 100.
 
 ## Authentication
 

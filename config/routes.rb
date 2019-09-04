@@ -1,3 +1,6 @@
+require 'sidekiq/web'
+require 'sidekiq-scheduler/web'
+
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -9,6 +12,8 @@ Rails.application.routes.draw do
   root to: 'about#show', defaults: { format: 'json' }
 
   scope :api, defaults: { format: 'json' } do
+    mount Sidekiq::Web => '/sidekiq'
+
     scope :v1 do
       devise_for :users,
                  controllers: {

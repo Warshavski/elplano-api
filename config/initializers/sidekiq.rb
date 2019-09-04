@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+require 'sidekiq/web'
+
 #
 # Custom Queues configuration
 #

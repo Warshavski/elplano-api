@@ -3,7 +3,7 @@
 require 'acceptance_helper'
 
 resource "User's profile" do
-  let(:user)  { create(:user, :student) }
+  let(:user)  { create(:user, :student, password: '123456') }
   let(:token) { create(:token, resource_owner_id: user.id).token }
 
   let(:authorization) { "Bearer #{token}" }
@@ -80,6 +80,32 @@ resource "User's profile" do
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
+    end
+  end
+
+  delete 'api/v1/user' do
+    with_options scope: %i[user] do
+      parameter :password, "Authenticated user's password. Used to confirm action", required: true
+    end
+
+    let(:raw_post) { { user: { password: '123456' } }.to_json }
+
+    example "DELETE : Deletes user's profile" do
+      explanation <<~DESC
+        Deletes a authenticated user's profile with all related data
+
+        <b>NOTE</b> : 
+
+          - this action requires authenticated user's password confirmation.
+         
+        <b>WARNING</b> 
+
+          - this action CANNOT be undone.
+      DESC
+
+      do_request
+
+      expect(status).to eq(204)
     end
   end
 end

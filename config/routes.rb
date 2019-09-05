@@ -72,7 +72,7 @@ Rails.application.routes.draw do
       resource :password, only: :update
 
       # (see UsersController)
-      resource :user, only: %i[show update]
+      resource :user, only: %i[show update destroy]
     end
   end
 

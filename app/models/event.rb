@@ -106,6 +106,8 @@ class Event < ApplicationRecord
 
   validates :foreground_color, :background_color, allow_nil: true, color: true
 
+  before_validation -> { self.eventable_type = eventable_type&.classify }
+
   def self.filter(filter_name)
     case filter_name.to_s
     when 'group'

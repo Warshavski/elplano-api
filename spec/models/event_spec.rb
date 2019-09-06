@@ -168,4 +168,42 @@ RSpec.describe Event, type: :model do
       expect(described_class.filter('personal')).to eq([event])
     end
   end
+
+  context 'callbacks' do
+    describe 'before_validation' do
+      before(:each) { model.valid? }
+
+      context 'when eventable type is nil' do
+        let_it_be(:model) { described_class.new(eventable_type: nil) }
+
+        it 'leaves eventable type nil' do
+          expect(model.eventable_type).to be(nil)
+        end
+      end
+
+      context 'when eventable type is a string in downcase' do
+        let_it_be(:model) { described_class.new(eventable_type: 'student') }
+
+        it 'makes eventable type classy like string' do
+          expect(model.eventable_type).to eq('Student')
+        end
+      end
+
+      context 'when eventable type is a string in uppercase' do
+        let_it_be(:model) { described_class.new(eventable_type: 'STUDENT') }
+
+        it 'keeps eventable type as an uppercase string' do
+          expect(model.eventable_type).to eq('STUDENT')
+        end
+      end
+
+      context 'when eventable type is a classy like string' do
+        let_it_be(:model) { described_class.new(eventable_type: 'Student') }
+
+        it 'keeps eventable type as a classy like string' do
+          expect(model.eventable_type).to eq('Student')
+        end
+      end
+    end
+  end
 end

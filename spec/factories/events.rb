@@ -35,7 +35,7 @@ FactoryBot.define do
           'RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3'
         ],
         eventable_id: create(:student).id,
-        eventable_type: 'Student',
+        eventable_type: 'student',
         background_color: Faker::Color.hex_color,
         foreground_color: Faker::Color.hex_color
       }

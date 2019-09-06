@@ -99,7 +99,7 @@ resource "User's events" do
       parameter :end_at, 'Event end date', required: true
       parameter :timezone, 'Event timezone', required: true
       parameter :course_id, 'The course identity to which the event is attached'
-      parameter :eventable_type, 'The entity type to which the event is attached(Student, Group)', required: true
+      parameter :eventable_type, 'The entity type to which the event is attached(student, group)', required: true
       parameter :eventable_id, 'The entity identity to which the event is attached', required: true
       parameter :background_color, 'The background color (HEX)'
       parameter :foreground_color, "The foreground color that can be used to write on top of a background with 'background' color (HEX)"
@@ -145,7 +145,7 @@ resource "User's events" do
       parameter :end_at, 'Event end date', required: true
       parameter :timezone, 'Event timezone', required: true
       parameter :course_id, 'The course identity to which the event is attached'
-      parameter :eventable_type, 'The entity type to which the event is attached(Student, Group)', required: true
+      parameter :eventable_type, 'The entity type to which the event is attached(student, group)', required: true
       parameter :eventable_id, 'The entity identity to which the event is attached', required: true
       parameter :background_color, 'The background color (HEX)'
       parameter :foreground_color, "The foreground color that can be used to write on top of a background with 'background' color (HEX)"

@@ -6,7 +6,7 @@ module Events
   #   Used to create an event
   #
   class Create
-    ALLOWED_TYPES = %w[Student Group].freeze
+    ALLOWED_TYPES = %w[student group].freeze
 
     # see #execute
     def self.call(author, params, &block)
@@ -77,10 +77,12 @@ module Events
       event = author.created_events.build(params)
 
       event.tap do |e|
-        unless ALLOWED_TYPES.include?(e.eventable_type)
-          e.eventable_type = nil
-        end
+        e.eventable_type = nil unless type_allowed?(e.eventable_type)
       end
+    end
+
+    def type_allowed?(type)
+      ALLOWED_TYPES.include?(type)
     end
   end
 end

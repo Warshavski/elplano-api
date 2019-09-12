@@ -9,7 +9,7 @@ gem 'aws-sdk-s3'
 
 # https://github.com/plataformatec/devise
 # Flexible authentication solution for Rails with Warden.
-gem 'devise', '>= 4.6.1'
+gem 'devise', '>= 4.7.1'
 
 # https://github.com/dry-rb/dry-validation
 # Validation library with type-safe schemas and rules https://dry-rb.org/gems/dry-validation

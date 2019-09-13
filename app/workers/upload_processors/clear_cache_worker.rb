@@ -3,7 +3,7 @@
 module UploadProcessors
   # UploadProcessors::ClearCacheWorker
   #
-  #   [DESCRIPTION]
+  #   Used to perform removal of the cached images
   #
   class ClearCacheWorker
     include Sidekiq::Worker

@@ -5,7 +5,7 @@ module Elplano
     module Redis
       # Elplano::HealthChecks::Redis::CacheCheck
       #
-      #   [DESCRIPTION]
+      #   Used to check health of the cache storage
       #
       class CacheCheck
         extend AbstractCheck

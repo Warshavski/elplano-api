@@ -3,7 +3,7 @@
 module Uploads
   # Uploads::Create
   #
-  #   [DESCRIPTION]
+  #   Used to upload and store uploaded file in the cache storage
   #
   class Cache
     attr_reader :upload_type

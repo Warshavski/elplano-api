@@ -3,7 +3,7 @@
 module Timeliness
   # Timeliness::Converter
   #
-  #   [DESCRIPTION]
+  #   Used to validate time(timeline) values
   #
   class Converter
     DEFAULT_TIMEZONE = :utc

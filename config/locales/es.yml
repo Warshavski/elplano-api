@@ -160,6 +160,7 @@ es:
   errors:
     format: "%{attribute} %{message}"
     messages:
+      throttled: 'Demasiadas solicitudes Por favor, inténtelo de nuevo más tarde.'
       invalid_token: 'Token de autorización inválido'
       access_denied: 'Acción no permitida'
       not_found_endpoint: 'la ruta no existe'

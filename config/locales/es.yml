@@ -24,38 +24,38 @@ es:
           has_one: No se puede eliminar el registro porque existe un %{record} dependiente
           has_many: No se puede eliminar el registro porque existen %{record} dependientes
     models:
-      event: 'acontecimiento'
-      course: 'por supuesto'
-      group: 'grupo'
-      invite: 'invitar'
-      lecturer: 'profesor'
-      lecture: 'conferencia'
-      student: 'estudiante'
-      user: 'usuario'
+      event: 'Acontecimiento'
+      course: 'Por supuesto'
+      group: 'Grupo'
+      invite: 'Invitar'
+      lecturer: 'Profesor'
+      lecture: 'Conferencia'
+      student: 'Estudiante'
+      user: 'Usuario'
     attributes:
       event:
         start_at: 'Empieza en'
         end_at: 'Termina en'
-        title: 'titulo'
-        description: 'descripción'
-        timezone: 'zona horaria'
-        recurrence: 'recurrencia'
-        foreground_color: 'color de primer plano'
-        background_color: 'color de fondo'
+        title: 'Titulo'
+        description: 'Descripción'
+        timezone: 'Zona horaria'
+        recurrence: 'Recurrencia'
+        foreground_color: 'Color de primer plano'
+        background_color: 'Color de fondo'
       course:
-        title: 'titulo'
+        title: 'Titulo'
       group:
-        number: 'numero'
-        title: 'titulo'
+        number: 'Numero'
+        title: 'Titulo'
       invite:
-        email: 'correo electronico'
-        sent_at: 'enviado a'
+        email: 'Crreo electronico'
+        sent_at: 'Enviado a'
       lecturer:
-        first_name: 'primer nombre'
-        last_name: 'apellido'
-        patronymic: 'patronímico'
+        first_name: 'Primer nombre'
+        last_name: 'Apellido'
+        patronymic: 'Patronímico'
       student:
-        social_networks: 'redes sociales'
+        social_networks: 'Redes sociales'
       user:
         email: 'Correo electronico'
         username: 'Nombre de usuario'

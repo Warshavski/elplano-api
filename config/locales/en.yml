@@ -35,6 +35,7 @@ en:
       saved: 'Changes successfully saved!'
   errors:
     messages:
+      throttled: 'Too many requests. Please, try again later.'
       invalid_token: 'Invalid authorization token'
       access_denied: 'Action not allowed'
       not_found_endpoint: 'Endpoint does not exists'

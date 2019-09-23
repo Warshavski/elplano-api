@@ -184,6 +184,7 @@ ru:
   errors:
     format: "%{attribute} %{message}"
     messages:
+      throttled: 'Слишком много запросов. Пожалуйста, повторите попытку позже.'
       invalid_token: 'Невалидный токен доступа'
       access_denied: 'Действие не доступно'
       not_found_endpoint: 'Путь не сушествует'

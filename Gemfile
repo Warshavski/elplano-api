@@ -46,7 +46,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # OAuth 2 provider for Ruby on Rails / Grape.
 # https://github.com/doorkeeper-gem/doorkeeper
-gem 'doorkeeper', '>= 5.0.1'
+gem 'doorkeeper', '>= 5.2.1'
 
 # Fishes out the Accept-Language header into an array.
 # https://github.com/iain/http_accept_language

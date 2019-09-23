@@ -57,7 +57,10 @@ es:
       student:
         social_networks: 'redes sociales'
       user:
-        email: 'correo electronico'
+        email: 'Correo electronico'
+        username: 'Nombre de usuario'
+        password: 'Contraseña'
+        password_confirmation: 'Confirmación de contraseña'
   date:
     abbr_day_names:
       - dom

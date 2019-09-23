@@ -57,7 +57,10 @@ ru:
       student:
         social_networks: 'социальные сети'
       user:
-        email: 'электронный адрес'
+        email: 'Электронный адрес'
+        username: 'Имя пользователя'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
   date:
     abbr_day_names:
       - Вс

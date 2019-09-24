@@ -42,20 +42,33 @@ es:
         recurrence: 'Recurrencia'
         foreground_color: 'Color de primer plano'
         background_color: 'Color de fondo'
+        creator: 'Autor del eventoя'
+        eventable: 'Cita del evento'
+        status: 'Estado'
       course:
         title: 'Titulo'
+        group: 'Grupo de estudiantes'
       group:
         number: 'Numero'
         title: 'Titulo'
+        president: 'Presidente del grupo'
       invite:
         email: 'Crreo electronico'
         sent_at: 'Enviado a'
+        group: 'Grupo de estudiantes'
+        sender: 'Remitente'
+      lecture:
+        group: 'Grupo de estudiantes'
+        course: 'Por supuesto'
       lecturer:
         first_name: 'Primer nombre'
         last_name: 'Apellido'
         patronymic: 'Patronímico'
+        group: 'Grupo de estudiantes'
       student:
         social_networks: 'Redes sociales'
+        email: 'Correo electronico'
+        user: 'Usuario'
       user:
         email: 'Correo electronico'
         username: 'Nombre de usuario'

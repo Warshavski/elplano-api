@@ -42,20 +42,33 @@ ru:
         recurrence: 'Настройки рекуррентности'
         foreground_color: 'Цвет переднего плана'
         background_color: 'Фоновый цвет'
+        creator: 'Автор мероприятия'
+        eventable: 'Назначение мероприятия'
+        status: 'Статус'
       course:
         title: 'Зголовок'
+        group: 'Студенческая группа'
       group:
         number: 'Номер'
         title: 'Заголовок'
+        president: 'Староста группы'
       invite:
         email: 'Электронный адрес'
         sent_at: 'Отправлено в'
+        group: 'Студенческая группа'
+        sender: 'Отправитель'
+      lecture:
+        group: 'Студенческая группа'
+        course: 'Курс'
       lecturer:
         first_name: 'Имя'
         last_name: 'Фамилия'
         patronymic: 'Отчество'
+        group: 'Студенческая группа'
       student:
         social_networks: 'Социальные сети'
+        email: 'Электронный адрес'
+        user: 'Пользователь'
       user:
         email: 'Электронный адрес'
         username: 'Имя пользователя'

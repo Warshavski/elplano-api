@@ -59,10 +59,12 @@ resource 'OAuth' do
   end
 
   post 'oauth/revoke' do
+    let_it_be(:token) { create(:token, resource_owner_id: user.id) }
+
     parameter :token, 'Access token to be revoked', required: true
 
     let(:raw_post) do
-      { token: user.recent_access_token.token }.to_json
+      { token: token.token }.to_json
     end
 
     example 'CREATE : Revoke access token' do

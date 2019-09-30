@@ -6,7 +6,10 @@ resource 'Users' do
   header 'Accept',        'application/vnd.api+json'
   header 'Content-Type',  'application/vnd.api+json'
 
-  let_it_be(:user) { create(:user, :student, password: '123456') }
+  let(:user)  { create(:user, :student, password: '123456') }
+  let(:token) { create(:token, resource_owner_id: user.id) }
+
+  let(:authorization) { "Bearer #{token.token}" }
 
   post 'api/v1/users/sign_in' do
     with_options scope: %i[user] do
@@ -73,6 +76,29 @@ resource 'Users' do
 
       expect(status).to eq(201)
       expect(response_body).to eq(expected_body)
+    end
+  end
+
+  delete 'api/v1/users/sign_out' do
+    header 'Authorization', :authorization
+
+    example 'DELETE : Revoke access token' do
+      explanation <<~DESC
+        Performs access token revoke.
+
+        <b>NOTE</b> : Allowed only for authenticated user.
+      DESC
+
+      do_request
+
+      expected_body = {
+        meta: {
+          message: 'Signed out successfully.'
+        }
+      }
+
+      expect(status).to eq(200)
+      expect(response_body).to eq(expected_body.to_json)
     end
   end
 end

@@ -39,10 +39,12 @@ module Api
 
         # DELETE : api/v1/users/sign_out
         #
-        # TODO : implement sign out
+        # Perform access token revoke for authenticated user
         #
         def destroy
-          route_not_found
+          Doorkeeper::AccessToken.revoke_all_for(nil, current_user)
+
+          render_meta message: I18n.t('devise.sessions.signed_out')
         end
       end
     end

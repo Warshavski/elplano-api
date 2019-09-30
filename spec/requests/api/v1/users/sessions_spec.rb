@@ -12,11 +12,18 @@ describe Api::V1::Users::SessionsController, type: :request do
   end
 
   describe 'DELETE #destroy' do
-    it 'responds with unauthorized' do
-      delete('/api/v1/users/sign_out')
+    let_it_be(:user)  { create(:user) }
+    let_it_be(:token) { create(:token, resource_owner_id: user.id) }
 
-      expect(response).to have_http_status(:unauthorized)
-    end
+    let(:headers) { { 'Authorization' => "Bearer #{token.token}" } }
+
+    subject { delete '/api/v1/users/sign_out', headers: headers }
+
+    before { subject }
+
+    it { expect(response).to have_http_status(:ok) }
+
+    it { expect(token.reload.revoked_at).not_to be(nil) }
   end
 
   describe 'POST #create' do

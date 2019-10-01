@@ -42,6 +42,10 @@ class Student < ApplicationRecord
 
   has_many :events, as: :eventable, dependent: :destroy
 
+  has_many :courses, through: :group
+
+  has_many :assignments, through: :courses
+
   validates :full_name, length: { maximum: 200 }
   validates :email,     length: { maximum: 100 }
   validates :phone,     length: { maximum: 50 }

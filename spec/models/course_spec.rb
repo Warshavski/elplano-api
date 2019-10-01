@@ -11,6 +11,8 @@ RSpec.describe Course, type: :model do
     it { should have_many(:lecturers).through(:lectures) }
 
     it { should have_many(:events).dependent(:nullify) }
+
+    it { should have_many(:assignments).dependent(:destroy) }
   end
 
   describe 'validations' do

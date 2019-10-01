@@ -72,6 +72,9 @@ Rails.application.routes.draw do
         resources :users, except: %i[new edit create]
       end
 
+      # (see AssignmentsController)
+      resources :assignments, except: %i[new edit]
+
       # (see ClassmatesController)
       resources :classmates, only: %i[index show]
 

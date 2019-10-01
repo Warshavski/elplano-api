@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :student, class: Student, aliases: [:creator] do
+  factory :student, class: Student, aliases: %i[creator author] do
     full_name { Faker::Name.name_with_middle }
     email     { Faker::Internet.email }
     phone     { Faker::PhoneNumber.cell_phone }

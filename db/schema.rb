@@ -46,6 +46,21 @@ ActiveRecord::Schema.define(version: 2020_02_01_120849) do
     t.index ["updated_at", "id"], name: "index_bug_reports_on_updated_at_and_id"
   end
 
+  create_table "assignments", force: :cascade do |t|
+    t.bigint "author_id", null: false
+    t.bigint "course_id", null: false
+    t.string "title", null: false
+    t.text "description"
+    t.datetime "expired_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_assignments_on_author_id"
+    t.index ["course_id"], name: "index_assignments_on_course_id"
+    t.index ["created_at", "id"], name: "index_assignments_on_created_at_and_id"
+    t.index ["expired_at", "id"], name: "index_assignments_on_expired_at_and_id"
+    t.index ["updated_at", "id"], name: "index_assignments_on_updated_at_and_id"
+  end
+
   create_table "courses", force: :cascade do |t|
     t.string "title", limit: 200, null: false
     t.bigint "group_id", null: false
@@ -273,6 +288,8 @@ ActiveRecord::Schema.define(version: 2020_02_01_120849) do
   add_foreign_key "abuse_reports", "users"
   add_foreign_key "abuse_reports", "users", column: "reporter_id"
   add_foreign_key "bug_reports", "users", column: "reporter_id"
+  add_foreign_key "assignments", "courses"
+  add_foreign_key "assignments", "students", column: "author_id"
   add_foreign_key "courses", "groups"
   add_foreign_key "events", "courses"
   add_foreign_key "events", "students", column: "creator_id"

@@ -17,6 +17,8 @@ class Course < ApplicationRecord
 
   has_many :events, dependent: :nullify
 
+  has_many :assignments, dependent: :destroy
+
   validates :group, presence: true
 
   validates :title,

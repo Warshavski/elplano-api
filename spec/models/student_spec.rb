@@ -44,6 +44,10 @@ RSpec.describe Student, type: :model do
     end
 
     it { should have_many(:events).dependent(:destroy) }
+
+    it { should have_many(:courses).through(:group) }
+
+    it { should have_many(:assignments).through(:courses) }
   end
 
   describe 'validations' do

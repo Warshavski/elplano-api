@@ -44,6 +44,24 @@ RSpec.describe Student, type: :model do
     end
 
     it { should have_many(:events).dependent(:destroy) }
+
+    it { should have_many(:courses).through(:group) }
+
+    it { should have_many(:assignments).dependent(:delete_all) }
+
+    it do
+      should have_many(:authored_tasks)
+               .class_name('Task')
+               .with_foreign_key(:author_id)
+               .inverse_of(:author)
+               .dependent(:destroy)
+    end
+    
+    it do
+      should have_many(:appointed_tasks)
+               .through(:assignments)
+               .source(:task)
+    end
   end
 
   describe 'validations' do

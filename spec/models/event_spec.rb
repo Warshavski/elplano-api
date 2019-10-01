@@ -13,6 +13,8 @@ RSpec.describe Event, type: :model do
     it { should have_many(:label_links).dependent(:delete_all) }
 
     it { should have_many(:labels).through(:label_links) }
+
+    it { should have_many(:tasks).dependent(:destroy) }
   end
 
   describe 'validations' do

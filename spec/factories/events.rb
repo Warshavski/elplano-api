@@ -17,7 +17,11 @@ FactoryBot.define do
     background_color { Faker::Color.hex_color }
     foreground_color { Faker::Color.hex_color }
 
-    creator
+    association :eventable, factory: :group
+
+    after :build do |event, _|
+      event.creator = event.eventable.president if event.eventable_type == 'Group'
+    end
   end
 
   factory :event_params, class: Hash do

@@ -77,6 +77,12 @@ class ApplicationController < ActionController::API
     authorize! current_user, with: UserPolicy if doorkeeper_authorize!.nil?
   end
 
+  def authorize_action!(entity)
+    authorize! entity
+
+    yield(entity) if block_given?
+  end
+
   private
 
   def configure_permitted_parameters

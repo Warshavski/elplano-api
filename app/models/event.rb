@@ -89,6 +89,8 @@ class Event < ApplicationRecord
   has_many :label_links, as: :target, dependent: :delete_all
   has_many :labels, through: :label_links
 
+  has_many :tasks, dependent: :destroy
+
   scope :personal, -> { where(eventable_type: 'Student') }
   scope :groups,   -> { where(eventable_type: 'Group') }
 

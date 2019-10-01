@@ -34,11 +34,9 @@ Shrine.plugin :cached_attachment_data
 #
 Shrine.plugin :determine_mime_type
 
-#
-# Automatically logs processing, storing and deleting, with a configurable format.
-# https://github.com/shrinerb/shrine/blob/v2.16.0/doc/plugins/logging.md#readme
-#
-Shrine.plugin :logging, logger: Rails.logger
+Shrine.plugin :instrumentation
+
+Shrine.logger = Rails.logger
 
 #
 # Re-extracts cached file's metadata on model assignment.

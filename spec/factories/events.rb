@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :event, class: Event do
     title     { Faker::Lorem.sentence }
     timezone  { 'Etc/GMT+12' }
-    start_at  { Faker::Date.forward(1) }
+    start_at  { Faker::Date.forward(days: 1) }
 
     recurrence {
       [
@@ -23,11 +23,11 @@ FactoryBot.define do
   factory :event_params, class: Hash do
     initialize_with do
       {
-        title: Faker::Lorem.sentence(3),
-        description: Faker::Lorem.paragraph(5),
+        title: Faker::Lorem.sentence(word_count: 3),
+        description: Faker::Lorem.paragraph(sentence_count: 5),
         status: 'cancelled',
-        start_at: Faker::Date.forward(1),
-        end_at: Faker::Date.forward(2),
+        start_at: Faker::Date.forward(days: 1),
+        end_at: Faker::Date.forward(days: 2),
         timezone: 'Etc/GMT+12',
         recurrence: [
           'EXDATE;VALUE=DATE:20150610',

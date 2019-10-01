@@ -35,7 +35,7 @@ FactoryBot.define do
       {
         first_name: nil,
         last_name: '',
-        patronymic: Faker::Lorem.sentence(20),
+        patronymic: Faker::Lorem.sentence(word_count: 20),
         email: 'wat.email'
       }
     end

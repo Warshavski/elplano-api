@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :group, class: Group do
     number  { Faker::Number.number }
-    title   { Faker::Lorem.sentence(3) }
+    title   { Faker::Lorem.sentence(word_count: 3) }
 
     president
 
@@ -17,8 +17,8 @@ FactoryBot.define do
   factory :group_params, class: Hash do
     initialize_with do
       {
-        title: Faker::Lorem.sentence(3),
-        number: Faker::Number.number(5)
+        title: Faker::Lorem.sentence(word_count: 3),
+        number: Faker::Number.number(digits: 5)
       }
     end
   end

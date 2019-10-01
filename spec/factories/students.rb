@@ -5,12 +5,12 @@ FactoryBot.define do
     full_name { Faker::Name.name_with_middle }
     email     { Faker::Internet.email }
     phone     { Faker::PhoneNumber.cell_phone }
-    about     { Faker::Lorem.paragraph(5) }
+    about     { Faker::Lorem.paragraph(sentence_count: 5) }
 
     social_networks do
       {
-        'twitter' => Faker::Internet.url('twitter'),
-        'facebook' => Faker::Internet.url('facebook')
+        'twitter' => Faker::Internet.url(host: 'twitter'),
+        'facebook' => Faker::Internet.url(host:'facebook')
       }
     end
 

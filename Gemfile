@@ -66,7 +66,7 @@ gem 'shrine', '~> 2.0'
 
 # Settings is a plugin that makes managing a table of global key, value pairs easy.
 # https://github.com/huacnlee/rails-settings-cached
-gem 'rails-settings-cached'
+gem 'rails-settings-cached', '~> 0.7.2'
 
 # Rack middleware for blocking & throttling
 # https://github.com/kickstarter/rack-attack

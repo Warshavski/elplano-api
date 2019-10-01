@@ -20,7 +20,7 @@ RSpec.describe AvatarUploader do
       it 'fals with type validation error' do
         subject
 
-        expect(lecturer.errors[:avatar].to_s).to include("isn't of allowed type")
+        expect(lecturer.errors[:avatar].to_s).to include("type must be one of")
       end
     end
 

@@ -53,7 +53,7 @@ Apitome.setup do |config|
   # You can setup the docs to be loaded from a remote URL if they are
   # not available in the application environment. This defaults to
   # false.
-  config.remote_docs = false
+  # config.remote_docs = false
 
   # If the remote_docs is set to true, this URL is used as the base for
   # the doc location. This should be the root of the doc location, where

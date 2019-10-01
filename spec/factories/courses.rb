@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :course, class: Course do
-    title  { Faker::Lorem.sentence(2) }
+    title  { Faker::Lorem.sentence(word_count: 2) }
 
     active { true }
 

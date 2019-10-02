@@ -2,9 +2,9 @@
 
 require 'acceptance_helper'
 
-resource "Group's members" do
+resource "User's classmates" do
   explanation <<~DESC
-    El Plano group members API.
+    El Plano classmates API.
 
     Student attributes :
 
@@ -14,7 +14,7 @@ resource "Group's members" do
       - `about` - Represents some detailed information about student(BIO).
       - `social_networks` - Represents a list of social networks.
       - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).
-      - timestamps
+      - `timestamps`
   
       Also, includes information about a user and relationships to the group and user.
   
@@ -37,16 +37,16 @@ resource "Group's members" do
   header 'Content-Type',  'application/vnd.api+json'
   header 'Authorization', :authorization
 
-  get 'api/v1/group/students' do
-    example 'INDEX : Retrieve group members' do
+  get 'api/v1/classmates' do
+    example 'INDEX : Retrieve classmates list' do
       explanation <<~DESC
-        Returns a list of the group's members.
+        Returns a list of the users's classmates.
       DESC
 
       do_request
 
       expected_body = StudentSerializer
-                        .new(student.group.students, params: { exclude: [:group] })
+                        .new(student.group.students)
                         .serialized_json
 
       expect(status).to eq(200)
@@ -54,10 +54,10 @@ resource "Group's members" do
     end
   end
 
-  get 'api/v1/group/students/:id' do
-    example "SHOW : Show information about particular group member" do
+  get 'api/v1/classmates/:id' do
+    example "SHOW : Information about particular classmate" do
       explanation <<~DESC
-        Returns a single instance of the group member.
+        Returns a single instance of the user's classmate(detailed information).
       DESC
 
       do_request

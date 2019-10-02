@@ -7,6 +7,10 @@
 class AssignmentSerializer
   include FastJsonapi::ObjectSerializer
 
+  INCLUDE_ATTACHMENTS = proc do |_, params|
+    !params[:exclude]&.include?(:attachments)
+  end
+
   set_type :assignment
 
   attributes :title, :description,
@@ -14,5 +18,11 @@ class AssignmentSerializer
 
   attribute :outdated, &:outdated?
 
+  attribute :accomplished, &:accomplished?
+
   belongs_to :course, serializer: CourseSerializer
+
+  has_many :attachments,
+           if: INCLUDE_ATTACHMENTS,
+           serializer: AttachmentSerializer
 end

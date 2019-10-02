@@ -73,7 +73,10 @@ Rails.application.routes.draw do
       end
 
       # (see AssignmentsController)
-      resources :assignments, except: %i[new edit]
+      resources :assignments, except: %i[new edit] do
+        # (see AccomplishmentsController)
+        resource :accomplishment, only: %i[create destroy]
+      end
 
       # (see ClassmatesController)
       resources :classmates, only: %i[index show]

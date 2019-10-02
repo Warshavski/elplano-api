@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(version: 2020_02_01_120849) do
     t.index ["updated_at", "id"], name: "index_bug_reports_on_updated_at_and_id"
   end
 
+  create_table "accomplishments", force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "assignment_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["assignment_id"], name: "index_accomplishments_on_assignment_id"
+    t.index ["student_id", "assignment_id"], name: "index_accomplishments_on_student_id_and_assignment_id", unique: true
+    t.index ["student_id"], name: "index_accomplishments_on_student_id"
+  end
+
   create_table "assignments", force: :cascade do |t|
     t.bigint "author_id", null: false
     t.bigint "course_id", null: false
@@ -59,6 +69,18 @@ ActiveRecord::Schema.define(version: 2020_02_01_120849) do
     t.index ["created_at", "id"], name: "index_assignments_on_created_at_and_id"
     t.index ["expired_at", "id"], name: "index_assignments_on_expired_at_and_id"
     t.index ["updated_at", "id"], name: "index_assignments_on_updated_at_and_id"
+  end
+
+  create_table "attachments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "attachable_type", null: false
+    t.bigint "attachable_id", null: false
+    t.jsonb "attachment_data", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attachable_id", "attachable_type"], name: "index_attachments_on_attachable_id_and_attachable_type"
+    t.index ["attachable_type", "attachable_id"], name: "index_attachments_on_attachable_type_and_attachable_id"
+    t.index ["user_id"], name: "index_attachments_on_user_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -288,8 +310,11 @@ ActiveRecord::Schema.define(version: 2020_02_01_120849) do
   add_foreign_key "abuse_reports", "users"
   add_foreign_key "abuse_reports", "users", column: "reporter_id"
   add_foreign_key "bug_reports", "users", column: "reporter_id"
+  add_foreign_key "accomplishments", "assignments"
+  add_foreign_key "accomplishments", "students"
   add_foreign_key "assignments", "courses"
   add_foreign_key "assignments", "students", column: "author_id"
+  add_foreign_key "attachments", "users"
   add_foreign_key "courses", "groups"
   add_foreign_key "events", "courses"
   add_foreign_key "events", "students", column: "creator_id"

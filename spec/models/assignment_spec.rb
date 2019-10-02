@@ -4,7 +4,13 @@ require 'rails_helper'
 
 RSpec.describe Assignment, type: :model do
   describe 'associations' do
+    it { should belong_to(:author).class_name('Student').with_foreign_key(:author_id) }
+
     it { should belong_to(:course) }
+
+    it { should have_many(:accomplishments).dependent(:destroy) }
+
+    it { should have_many(:attachments).dependent(:destroy) }
   end
 
   describe 'validations' do
@@ -21,7 +27,7 @@ RSpec.describe Assignment, type: :model do
       end
 
       let_it_be(:active) do
-        create(:assignment, course: course, author: student, expired_at: '2019-10-02')
+        create(:assignment, :skip_validation, course: course, author: student, expired_at: '2019-10-02')
       end
 
       let_it_be(:without_expiration) do

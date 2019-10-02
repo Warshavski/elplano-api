@@ -47,6 +47,11 @@ RSpec.describe User, type: :model do
                .inverse_of(:user)
                .with_foreign_key(:user_id)
                .dependent(:destroy)
+
+      should have_many(:uploads)
+               .dependent(:destroy)
+               .class_name('Attachment')
+               .inverse_of(:author)
     end
 
     it { should have_many(:identities).dependent(:destroy) }

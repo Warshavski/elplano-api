@@ -17,7 +17,7 @@ RSpec.describe AssignmentsFinder do
     let_it_be(:extra_course) { create(:course) }
 
     let_it_be(:active_assignment)  do
-      create(:assignment, author: author, course: course, expired_at: '2019-10-02')
+      create(:assignment, :skip_validation, author: author, course: course, expired_at: '2019-10-02')
     end
 
     let_it_be(:outdated_assignment) do

@@ -46,7 +46,7 @@ RSpec.describe Api::V1::AssignmentsController, type: :request do
 
         expect(assignment_data['type']).to eq('assignment')
         expect(assignment_data['attributes'].keys).to(
-          match_array(%w[title description outdated expired_at created_at updated_at])
+          match_array(%w[title description outdated accomplished expired_at created_at updated_at])
         )
       end
     end
@@ -64,8 +64,8 @@ RSpec.describe Api::V1::AssignmentsController, type: :request do
     include_examples 'json:api examples',
                      %w[data included],
                      %w[id type attributes relationships],
-                     %w[title description outdated expired_at created_at updated_at],
-                     %w[course]
+                     %w[title description outdated accomplished expired_at created_at updated_at],
+                     %w[course attachments]
 
     it 'returns requested assignment entity' do
       actual_title = json_data.dig(:attributes, :title)
@@ -86,14 +86,23 @@ RSpec.describe Api::V1::AssignmentsController, type: :request do
 
     before(:each) { subject }
 
+    let(:file) { fixture_file_upload('spec/fixtures/files/dk.png') }
+    let(:metadata) { AvatarUploader.new(:cache).upload(file) }
+
+    let(:request_params) do
+      params = assignment_params.merge(course_id: course.id, attachments: [metadata.to_json])
+
+      { assignment: params }
+    end
+
     context 'when user is a group owner' do
       it { expect(response).to have_http_status(:created) }
 
       include_examples 'json:api examples',
                        %w[data included],
                        %w[id type attributes relationships],
-                       %w[title description outdated expired_at created_at updated_at],
-                       %w[course]
+                       %w[title description outdated accomplished expired_at created_at updated_at],
+                       %w[course attachments]
 
       it { expect(course.id.to_s).to eq(relationship_data(:course)[:id]) }
 
@@ -132,8 +141,8 @@ RSpec.describe Api::V1::AssignmentsController, type: :request do
       include_examples 'json:api examples',
                        %w[data included],
                        %w[id type attributes relationships],
-                       %w[title description outdated expired_at created_at updated_at],
-                       %w[course]
+                       %w[title description outdated accomplished expired_at created_at updated_at],
+                       %w[course attachments]
 
       include_examples 'request errors examples'
 

@@ -9,6 +9,7 @@ module Assignments
     params do
       optional(:course_id).filled(:int?)
       optional(:outdated).filled(:bool?)
+      optional(:accomplished).filled(:bool?)
     end
   end
 end

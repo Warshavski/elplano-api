@@ -31,6 +31,9 @@ class AssignmentsFinder
   # @option params [Boolean] :outdated
   #   Outdated flag(true/false)
   #
+  # @option params [Boolean] :accomplished
+  #   Accomplished flag(true/false)
+  #
   def initialize(student, params = {})
     @student = student
     @params = params
@@ -39,13 +42,30 @@ class AssignmentsFinder
   # Perform assignment filtration and sort
   #
   def execute
-    collection = filter_by_course(student.assignments)
+    collection = init_collection(student)
+
+    collection = filter_by_course(collection)
     collection = filter_by_expiration(collection)
+    collection = filter_by_accomplishment(collection)
 
     paginate(collection)
   end
 
   private
+
+  def init_collection(student)
+    scope = student.assignments
+
+    attributes = [
+      :id, :author_id, :course_id,
+      :title, :description,
+      :expired_at, :created_at, :updated_at,
+      'accomplishments.id as accomplishment_id'
+    ]
+
+    # Anyway we need information if an assignment is accomplished or not
+    scope.select(*attributes).left_joins(:accomplishments)
+  end
 
   def filter_by_course(items)
     params[:course_id].blank? ? items : items.where(course_id: params[:course_id])
@@ -59,6 +79,19 @@ class AssignmentsFinder
       items.outdated
     when false
       items.active
+    else
+      Assignment.none
+    end
+  end
+
+  def filter_by_accomplishment(items)
+    case params[:accomplished]
+    when nil
+      items
+    when false
+      items.merge(Accomplishment.where(id: nil))
+    when true
+      items.merge(Accomplishment.where.not(id: nil))
     else
       Assignment.none
     end

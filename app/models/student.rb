@@ -46,6 +46,8 @@ class Student < ApplicationRecord
 
   has_many :assignments, through: :courses
 
+  has_many :accomplishments, dependent: :destroy
+
   validates :full_name, length: { maximum: 200 }
   validates :email,     length: { maximum: 100 }
   validates :phone,     length: { maximum: 50 }

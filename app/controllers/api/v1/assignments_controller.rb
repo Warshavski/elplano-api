@@ -17,8 +17,9 @@ module Api
       #
       #   optional filter parameters :
       #
-      #     - course_id - Filter by course identity
-      #     - outdated  - Filter by outdated flag(true/false)
+      #     - course_id     - Filter by course identity
+      #     - outdated      - Filter by outdated flag(true/false)
+      #     - accomplished  - Filter by accomplished flag(true/false)
       #
       # @see #filter_params
       #
@@ -26,6 +27,7 @@ module Api
       #
       def index
         render_resource filter_assignments(filter_params),
+                        params: { exclude: [:attachments] },
                         status: :ok
       end
 
@@ -34,8 +36,10 @@ module Api
       # Get details information about assignment
       #
       def show
-        render_resource find_assignment(params[:id]),
-                        include: [:course],
+        assignment = find_assignment(params[:id])
+
+        render_resource assignment,
+                        include: %i[course attachments],
                         status: :ok
       end
 
@@ -47,7 +51,7 @@ module Api
         assignment = Assignments::Create.call(current_student, assignment_params)
 
         render_resource assignment,
-                        include: [:course],
+                        include: %i[course attachments],
                         status: :created
       end
 
@@ -63,7 +67,7 @@ module Api
         end
 
         render_resource assignment,
-                        include: [:course],
+                        include: %i[course attachments],
                         status: :ok
       end
 
@@ -100,7 +104,9 @@ module Api
       end
 
       def assignment_params
-        params.require(:assignment).permit(:title, :description, :expired_at, :course_id)
+        params
+          .require(:assignment)
+          .permit(:title, :description, :expired_at, :course_id, attachments: [])
       end
     end
   end

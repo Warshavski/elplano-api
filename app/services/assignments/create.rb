@@ -32,6 +32,9 @@ module Assignments
     # @option params [Integer] :course_id
     #   Assignment course(for what course this assignment is)
     #
+    # @option params [Array<String>] :attachments
+    #   Collection of attachable files metadata
+    #
     # @raise [ActiveRecord::RecordInvalid, ActiveRecord::RecordNotFound]
     #
     # @return [Assignment]
@@ -39,7 +42,11 @@ module Assignments
     def execute(author, params)
       attributes = Compose.call(author, params)
 
-      Assignment.create!(attributes)
+      Assignment.transaction do
+        Assignment.create!(attributes).tap do |assignment|
+          ::Attachments::Create.call(author.user, assignment, params.fetch(:attachments) { [] })
+        end
+      end
     end
   end
 end

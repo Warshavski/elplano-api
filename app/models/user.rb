@@ -63,6 +63,11 @@ class User < ApplicationRecord
 
   has_many :identities, dependent: :destroy
 
+  has_many :uploads,
+           class_name: 'Attachment',
+           inverse_of: :author,
+           dependent: :destroy
+
   accepts_nested_attributes_for :student
 
   #

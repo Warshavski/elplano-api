@@ -9,7 +9,7 @@ module Api
       #
       #   Regular group member's actions:
       #
-      #     - list available courses
+      #     - get list available courses
       #     - get information about particular course
       #
       #   Group owner actions:
@@ -28,10 +28,16 @@ module Api
 
         # GET : api/v1/group/courses
         #
+        #   optional filter parameters :
+        #
+        #     - active - Filter by availability flag(true/false)
+        #
+        # @see #filter_params
+        #
         # Get list of courses
         #
         def index
-          courses = filter_courses.eager_load(:lecturers)
+          courses = filter_courses(filter_params)
 
           render_resource courses, status: :ok
         end
@@ -41,9 +47,11 @@ module Api
         # Get course by id (information about course)
         #
         def show
-          course = filter_courses.find(params[:id])
+          course = find_course(params[:id])
 
-          render_resource course, status: :ok
+          render_resource course,
+                          include: [:lecturers],
+                          status: :ok
         end
 
         # POST : api/v1/group/courses
@@ -53,7 +61,9 @@ module Api
         def create
           course = current_group.courses.create!(course_params)
 
-          render_resource course, status: :created
+          render_resource course,
+                          include: [:lecturers],
+                          status: :created
         end
 
         # PATCH/PUT : api/v1/group/courses/{:id}
@@ -61,11 +71,13 @@ module Api
         # Update course(information about course)
         #
         def update
-          course = filter_courses.find(params[:id])
+          course = find_course(params[:id])
 
           course.update!(course_params)
 
-          render_resource course, status: :ok
+          render_resource course,
+                          include: [:lecturers],
+                          status: :ok
         end
 
         # DELETE : api/v1/group/courses/{:id}
@@ -73,17 +85,23 @@ module Api
         # Delete course
         #
         def destroy
-          course = filter_courses.find(params[:id])
-
-          course.destroy!
+          find_course(params[:id]).tap(&:destroy!)
 
           head :no_content
         end
 
         private
 
-        def filter_courses
-          current_group&.courses || Course.none
+        def find_course(id)
+          filter_courses.find(id)
+        end
+
+        def filter_courses(filters = {})
+          CoursesFinder.new(current_group, filters).execute
+        end
+
+        def filter_params
+          validate_with(::Courses::IndexContract.new, params[:filters])
         end
 
         def course_params

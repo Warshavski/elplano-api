@@ -6,7 +6,7 @@ resource "Group's lecturers" do
   explanation <<~DESC
     El Plano group's lecturers API(created for the group by group owner).
 
-    Course attributes :
+    Lecturer attributes :
 
      - `first_name` - Represents lecturer first name
      - `last_name` - Represents lecturer last name

@@ -4,7 +4,7 @@ require 'acceptance_helper'
 
 resource "Group's courses" do
   explanation <<~DESC
-    El Plano courses API(created for group by group owner).
+    El Plano courses API(created in the scope of the students group by group owner).
 
     Course attributes :
 
@@ -12,6 +12,17 @@ resource "Group's courses" do
      - `active` - `true` if course is available in current time(not archived course), otherwise `false`
      - `timestamps`
   
+    Lecturer attributes :
+    
+     - `first_name` - Represents lecturer first name
+     - `last_name` - Represents lecturer last name
+     - `patronymic` - Represents lecturer patronymic 
+     - `email` - Represents lecturer contact email address.
+     - `phone` - Represents lecturer contact phone number.
+     - `active` - `true` if lecturer is available in current time(can ), otherwise `false`
+     - `avatar` - Represents lecturer photo
+     - `timestamps` 
+
      Also, includes reference to the course lecturer.
   DESC
 
@@ -35,14 +46,36 @@ resource "Group's courses" do
 
     example 'INDEX : Retrieve courses created by authenticated user' do
       explanation <<~DESC
-        Returns a list of the available courses.
+        Returns a list of the group's courses.
+
+        <b>Optional filter params</b> :
+
+        - `"active": "false"` - Returns courses filtered by availability flag(`true`, `false`).
+
+        Example: 
+
+        <pre>
+        {
+          "filters": {
+            "active": true
+          }
+        }
+        </pre>
+
+        For more details see "Filters" and "Pagination" sections in the README section. 
+
+        <b>NOTE:<b>
+
+          - By default, this endpoint returns courses sorted by recently created.
+          - By default, this endpoint returns courses without availability assumptions.
+          - By default, this endpoint returns courses limited by 15
 
         See model attribute description in section description.
       DESC
 
       do_request
 
-      expected_body = CourseSerializer.new(group.courses).serialized_json.to_s
+      expected_body = CourseSerializer.new(group.courses).serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -54,12 +87,16 @@ resource "Group's courses" do
       explanation <<~DESC
         Returns a single instance of the course.
 
+        Also, includes information about lecturers.
+
         See model attribute description in section description.
       DESC
 
       do_request
 
-      expected_body = CourseSerializer.new(course).serialized_json.to_s
+      expected_body = CourseSerializer
+                        .new(course, include: [:lecturers])
+                        .serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -81,6 +118,8 @@ resource "Group's courses" do
       explanation <<~DESC
         Creates and returns created course.
 
+         Also, includes information about lecturers.
+
         See model attribute description in section description.
 
         <b>NOTE</b> : This action allowed only for group owner user.
@@ -88,7 +127,9 @@ resource "Group's courses" do
 
       do_request
 
-      expected_body = CourseSerializer.new(group.courses.last).serialized_json.to_s
+      expected_body = CourseSerializer
+                        .new(group.courses.last, include: [:lecturers])
+                        .serialized_json
 
       expect(status).to eq(201)
       expect(response_body).to eq(expected_body)
@@ -110,6 +151,8 @@ resource "Group's courses" do
       explanation <<~DESC
         Updates and return updated course.
 
+         Also, includes information about lecturers.
+
         See model attribute description in section description.
 
         <b>NOTE</b> : This action allowed only for group owner user.
@@ -117,7 +160,9 @@ resource "Group's courses" do
 
       do_request
 
-      expected_body = CourseSerializer.new(course.reload).serialized_json.to_s
+      expected_body = CourseSerializer
+                        .new(course.reload, include: [:lecturers])
+                        .serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

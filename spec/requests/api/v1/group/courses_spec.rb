@@ -52,7 +52,7 @@ RSpec.describe Api::V1::Group::CoursesController, type: :request do
     it { expect(json_data['type']).to eq('course') }
 
     include_examples 'json:api examples',
-                     %w[data],
+                     %w[data included],
                      %w[id type attributes relationships],
                      %w[title active created_at updated_at],
                      %w[lecturers]
@@ -80,7 +80,7 @@ RSpec.describe Api::V1::Group::CoursesController, type: :request do
       it { expect(response).to have_http_status(:created) }
 
       include_examples 'json:api examples',
-                       %w[data],
+                       %w[data included],
                        %w[id type attributes relationships],
                        %w[title active created_at updated_at],
                        %w[lecturers]
@@ -132,7 +132,7 @@ RSpec.describe Api::V1::Group::CoursesController, type: :request do
       end
 
       include_examples 'json:api examples',
-                       %w[data],
+                       %w[data included],
                        %w[id type attributes relationships],
                        %w[title active created_at updated_at],
                        %w[lecturers]
@@ -189,7 +189,7 @@ RSpec.describe Api::V1::Group::CoursesController, type: :request do
         expect(response).to have_http_status(:not_found)
       end
 
-      it 'deletes publisher' do
+      it 'deletes course' do
         expect { delete resource_endpoint, headers: headers }.to change(Course, :count).by(-1)
       end
     end

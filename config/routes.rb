@@ -45,6 +45,9 @@ Rails.application.routes.draw do
         resources :users, except: %i[new edit create]
       end
 
+      # (see ClassmatesController)
+      resources :classmates, only: %i[index show]
+
       # (see EventsController)
       resources :events, except: %i[new edit]
 
@@ -60,9 +63,6 @@ Rails.application.routes.draw do
 
         # (see Group::LecturersController)
         resources :lecturers, except: %i[new edit]
-
-        # (see Group::StudentsController)
-        resources :students, only: %i[index show]
       end
 
       # (see InvitesController)

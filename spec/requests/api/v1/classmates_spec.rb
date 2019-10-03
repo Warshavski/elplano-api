@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-RSpec.describe Api::V1::Group::StudentsController, type: :request do
+RSpec.describe Api::V1::ClassmatesController, type: :request do
   include_context 'shared setup'
 
-  let(:base) { '/api/v1/group/students' }
+  let(:base) { '/api/v1/classmates' }
 
   let_it_be(:student)   { create(:student, :group_member, user: user) }
 

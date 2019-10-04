@@ -3,6 +3,7 @@ ru:
   generic:
     messages:
       saved: 'Изменения успешно сохранены!'
+      received: 'Спасибо, Ваш отчет был зарегистрирован.'
 
   notifications:
     email:
@@ -32,6 +33,7 @@ ru:
       lecture: 'Лекция'
       student: 'Студент'
       user: 'Пользователь'
+      bug_report: 'Сообщение об ошибке'
     attributes:
       event:
         start_at: 'Начало'
@@ -74,6 +76,8 @@ ru:
         username: 'Имя пользователя'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
+      bug_report:
+        message: 'Сообщение'
   date:
     abbr_day_names:
       - Вс

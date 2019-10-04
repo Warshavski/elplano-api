@@ -3,6 +3,7 @@ es:
   generic:
     messages:
       saved: 'Cambios guardados exitosamente!'
+      received: 'Gracias, su informe ha sido registrado.'
 
   notifications:
     email:
@@ -32,6 +33,7 @@ es:
       lecture: 'Conferencia'
       student: 'Estudiante'
       user: 'Usuario'
+      bug_report: 'Informe de error'
     attributes:
       event:
         start_at: 'Empieza en'
@@ -74,6 +76,8 @@ es:
         username: 'Nombre de usuario'
         password: 'Contraseña'
         password_confirmation: 'Confirmación de contraseña'
+      bug_report:
+        message: 'Mensaje'
   date:
     abbr_day_names:
       - dom

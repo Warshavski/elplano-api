@@ -11,11 +11,14 @@ RSpec.shared_examples 'json:api examples' do |root, body, attributes, relationsh
     expect(actual_keys).to match_array(body)
   end
 
-  it 'responds with correct relationships' do
-    actual_keys = body_as_json[:data][:relationships].keys
+  if relationships.present?
+    it 'responds with correct relationships' do
+      actual_keys = json_data[:relationships].keys
 
-    expect(actual_keys).to match_array(relationships)
+      expect(actual_keys).to match_array(relationships)
+    end
   end
+
 
   it 'returns correct data format' do
     actual_keys = body_as_json[:data][:attributes].keys

@@ -3,7 +3,7 @@
 include ActionDispatch::TestProcess
 
 FactoryBot.define do
-  factory :user, class: User do
+  factory :user, class: User, aliases: [:reporter] do
     email     { Faker::Internet.email }
     username  { Faker::Internet.username }
     password  { '12345678' }

@@ -41,6 +41,12 @@ class User < ApplicationRecord
 
   has_one :student, dependent: :destroy
 
+  has_many :reported_bugs,
+           class_name: 'BugReport',
+           foreign_key: :reporter_id,
+           inverse_of: :reporter,
+           dependent: :delete_all
+
   accepts_nested_attributes_for :student
 
   #

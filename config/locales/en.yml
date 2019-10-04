@@ -33,6 +33,7 @@ en:
   generic:
     messages:
       saved: 'Changes successfully saved!'
+      received: 'Thank you, your report has been registered.'
   errors:
     messages:
       throttled: 'Too many requests. Please, try again later.'

@@ -30,6 +30,11 @@ Rails.application.routes.draw do
     namespace :v1 do
 
       namespace :admin do
+        namespace :reports do
+          # (see Admin::Reports::BugsController)
+          resources :bugs, only: %i[index show destroy]
+        end
+
         #(see Admin::SettingsController)
         resource :settings, only: :update
 
@@ -70,6 +75,11 @@ Rails.application.routes.draw do
 
       # (see PasswordsController)
       resource :password, only: :update
+
+      namespace :reports do
+        # (see Reports::BugsController)
+        resources :bugs, only: :create
+      end
 
       # (see UsersController)
       resource :user, only: %i[show update destroy]

@@ -24,6 +24,13 @@ RSpec.describe User, type: :model do
     end
 
     it { should have_one(:student).dependent(:destroy) }
+
+    it do
+      should have_many(:reported_bugs)
+               .class_name('BugReport')
+               .inverse_of(:reporter)
+               .dependent(:delete_all)
+    end
   end
 
   describe 'validations' do

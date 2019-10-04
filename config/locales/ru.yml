@@ -34,6 +34,7 @@ ru:
       student: 'Студент'
       user: 'Пользователь'
       bug_report: 'Сообщение об ошибке'
+      announcement: 'Объявление'
     attributes:
       event:
         start_at: 'Начало'
@@ -78,6 +79,12 @@ ru:
         password_confirmation: 'Подтверждение пароля'
       bug_report:
         message: 'Сообщение'
+      announcement:
+        message: 'Сообщение'
+        start_at: 'Начинается в'
+        end_at: 'Заканчивается в'
+        foreground_color: 'Цвет переднего плана'
+        background_color: 'Фоновый цвет'
   date:
     abbr_day_names:
       - Вс

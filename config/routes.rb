@@ -28,8 +28,13 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
+      # (see AnnouncementsController)
+      resources :announcements, only: :index
 
       namespace :admin do
+        # (see Admin::AnnouncementsController)
+        resources :announcements, except: %i[new edit]
+
         namespace :reports do
           # (see Admin::Reports::BugsController)
           resources :bugs, only: %i[index show destroy]

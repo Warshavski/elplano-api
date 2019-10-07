@@ -40,7 +40,7 @@ describe Api::V1::Users::SessionsController, type: :request do
         include_examples 'json:api examples',
                          %w[data meta included],
                          %w[id type attributes relationships],
-                         %w[email username avatar_url admin confirmed banned locked locale created_at updated_at],
+                         %w[email username avatar admin confirmed banned locked locale created_at updated_at],
                          %w[student recent_access_token]
       end
 

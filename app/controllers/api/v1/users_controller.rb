@@ -11,6 +11,12 @@ module Api
 
       denote_title_header 'User'
 
+      rescue_from Errno::ENOENT, KeyError do |e|
+        handle_error(e, :bad_request) do
+          [{ status: 400, detail: e.message, source: { pointer: '/data/attributes/avatar' } }]
+        end
+      end
+
       # GET : api/v1/user
       #
       # Get information about current user

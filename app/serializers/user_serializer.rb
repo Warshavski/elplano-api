@@ -14,8 +14,12 @@ class UserSerializer
   #
   # just stub for the first time
   #
-  attribute :avatar_url do |object|
-    Users::Gravatar.call(email: object.email, size: 100, username: object.username)
+  attribute :avatar do |object|
+    if object.avatar_data.nil?
+      Users::Gravatar.call(email: object.email, size: 100, username: object.username)
+    else
+      object.avatar_url
+    end
   end
 
   attribute :confirmed, &:confirmed?

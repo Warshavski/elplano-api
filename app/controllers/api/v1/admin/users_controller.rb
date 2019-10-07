@@ -24,9 +24,11 @@ module Api
         # Get filtered list of users
         #
         def index
-          users = filter_users(filter_params)
+          users = filter_users(filter_params).preload(:student)
 
-          render_resource users, status: :ok
+          render_resource users,
+                          include: [:student],
+                          status: :ok
         end
 
         # GET : api/v1/admin/users/{:id}
@@ -36,7 +38,9 @@ module Api
         def show
           user = find_user(params[:id])
 
-          render_resource user, status: :ok
+          render_resource user,
+                          include: [:student],
+                          status: :ok
         end
 
         # GET : api/v1/admin/users
@@ -48,7 +52,9 @@ module Api
             ::Admin::Users::Manage.call(u, params[:action_type])
           end
 
-          render_resource user, status: :ok
+          render_resource user,
+                          include: [:student],
+                          status: :ok
         end
 
         # DELETE : api/v1/admin/users/{:id}

@@ -37,7 +37,7 @@ module Api
         # Get list of lecturers
         #
         def index
-          lecturers = filter_lecturers.eager_load(:courses)
+          lecturers = filter_lecturers.preload(:courses)
 
           render_resource lecturers, status: :ok
         end

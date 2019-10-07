@@ -14,7 +14,7 @@ resource 'Admin users' do
       - `confirmed` - `false` if the user did not confirm his address otherwise `true`.
       - `banned` - `true` if the user had been locked via admin ban action otherwise `true`.
       - `locked` - `true` if the user had been locked via login failed attempt otherwise `false`.
-      - `avatar_url` - Represents user's avatar.
+      - `avatar` - Represents user's avatar.
       - `timestamps`
 
       Also, include reference to student profile(additional user info)
@@ -65,7 +65,9 @@ resource 'Admin users' do
 
       do_request
 
-      expected_body = UserSerializer.new([user]).serialized_json
+      expected_body = UserSerializer
+                        .new([user], include: [:student])
+                        .serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -82,7 +84,9 @@ resource 'Admin users' do
 
       do_request
 
-      expected_body = UserSerializer.new(random_user).serialized_json
+      expected_body = UserSerializer
+                        .new(random_user, include: [:student])
+                        .serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -112,7 +116,9 @@ resource 'Admin users' do
 
       do_request
 
-      expected_body = UserSerializer.new(random_user.reload).serialized_json
+      expected_body = UserSerializer
+                        .new(random_user.reload, include: [:student])
+                        .serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

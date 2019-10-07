@@ -7,16 +7,7 @@
 class GroupSerializer
   include FastJsonapi::ObjectSerializer
 
-  EXCLUDE_STUDENTS = proc do |_record, params|
-    !params[:exclude]&.include?(:students)
-  end
-
   set_type :group
 
   attributes :number, :title, :created_at, :updated_at
-
-  has_many :students,
-           serializer: StudentSerializer,
-           lazy_load_data: true,
-           if: EXCLUDE_STUDENTS
 end

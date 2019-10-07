@@ -11,8 +11,6 @@ resource "User's group" do
       - `title` - Human readable group identity.
       - `number` - Main group identity.
       - `timestamps`
-
-    Also, returns information about group members in relationships.
   DESC
 
   let(:student) { create(:student, :group_supervisor) }

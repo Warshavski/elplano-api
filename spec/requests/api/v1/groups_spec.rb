@@ -23,9 +23,8 @@ RSpec.describe Api::V1::GroupsController, type: :request do
 
     include_examples 'json:api examples',
                      %w[data],
-                     %w[id type attributes relationships],
-                     %w[title number created_at updated_at],
-                     %w[students]
+                     %w[id type attributes],
+                     %w[title number created_at updated_at]
   end
 
   describe 'POST #create' do
@@ -55,9 +54,8 @@ RSpec.describe Api::V1::GroupsController, type: :request do
 
         include_examples 'json:api examples',
                          %w[data],
-                         %w[id type attributes relationships],
-                         %w[title number created_at updated_at],
-                         %w[students]
+                         %w[id type attributes],
+                         %w[title number created_at updated_at]
       end
 
       include_examples 'request errors examples'
@@ -90,9 +88,8 @@ RSpec.describe Api::V1::GroupsController, type: :request do
 
       include_examples 'json:api examples',
                        %w[data],
-                       %w[id type attributes relationships],
-                       %w[title number created_at updated_at],
-                       %w[students]
+                       %w[id type attributes],
+                       %w[title number created_at updated_at]
 
       it 'updates a supervised group information' do
         actual_group_title = student.supervised_group.reload.title

@@ -70,7 +70,7 @@ RSpec.describe Api::V1::Admin::UsersController, type: :request do
     it { expect(json_data['type']).to eq('user') }
 
     include_examples 'json:api examples',
-                     %w[data],
+                     %w[data included],
                      %w[id type attributes relationships],
                      %w[email username admin avatar confirmed banned locked locale created_at updated_at],
                      %w[student]
@@ -98,7 +98,7 @@ RSpec.describe Api::V1::Admin::UsersController, type: :request do
     it { expect(json_data['type']).to eq('user') }
 
     include_examples 'json:api examples',
-                     %w[data],
+                     %w[data included],
                      %w[id type attributes relationships],
                      %w[email username admin avatar confirmed banned locked locale created_at updated_at],
                      %w[student]

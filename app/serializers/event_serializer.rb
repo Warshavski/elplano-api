@@ -1,8 +1,8 @@
-# frozen_string_literal: true.
+# frozen_string_literal: true
 
 # EventSerializer
 #
-#   Used for the user data representation
+#   Used for the event data representation
 #
 class EventSerializer
   include FastJsonapi::ObjectSerializer
@@ -10,6 +10,7 @@ class EventSerializer
   set_type :event
 
   attributes :title, :description, :status, :recurrence,
+             :background_color, :foreground_color,
              :start_at, :end_at, :timezone, :created_at, :updated_at
 
   belongs_to :creator,
@@ -20,4 +21,3 @@ class EventSerializer
 
   belongs_to :eventable, polymorphic: true
 end
-

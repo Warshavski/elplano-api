@@ -75,7 +75,7 @@ RSpec.describe Api::V1::EventsController, type: :request do
     include_examples 'json:api examples',
                      %w[data],
                      %w[id type attributes relationships],
-                     %w[title description status start_at end_at timezone recurrence created_at updated_at],
+                     %w[title description background_color foreground_color status start_at end_at timezone recurrence created_at updated_at],
                      %w[creator course eventable]
 
     it 'returns correct expected data' do
@@ -104,7 +104,7 @@ RSpec.describe Api::V1::EventsController, type: :request do
     include_examples 'json:api examples',
                      %w[data],
                      %w[id type attributes relationships],
-                     %w[title description status start_at end_at timezone recurrence created_at updated_at],
+                     %w[title description background_color foreground_color status start_at end_at timezone recurrence created_at updated_at],
                      %w[creator course eventable]
 
     it 'returns created model' do
@@ -150,7 +150,7 @@ RSpec.describe Api::V1::EventsController, type: :request do
     include_examples 'json:api examples',
                      %w[data],
                      %w[id type attributes relationships],
-                     %w[title description status start_at end_at timezone recurrence created_at updated_at],
+                     %w[title description background_color foreground_color status start_at end_at timezone recurrence created_at updated_at],
                      %w[creator course eventable]
 
     include_examples 'request errors examples'

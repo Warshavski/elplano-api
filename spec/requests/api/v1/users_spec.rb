@@ -28,7 +28,7 @@ describe Api::V1::UsersController, type: :request do
       include_examples 'json:api examples',
                        %w[data included],
                        %w[id type attributes relationships],
-                       %w[email username avatar_url admin confirmed banned locked locale created_at updated_at],
+                       %w[email username avatar admin confirmed banned locked locale created_at updated_at],
                        %w[student]
 
       it 'returns token owner' do
@@ -58,7 +58,7 @@ describe Api::V1::UsersController, type: :request do
     include_examples 'json:api examples',
                      %w[data included],
                      %w[id type attributes relationships],
-                     %w[email username avatar_url admin confirmed banned locked locale created_at updated_at],
+                     %w[email username avatar admin confirmed banned locked locale created_at updated_at],
                      %w[student]
 
     it 'returns updated student info' do
@@ -70,6 +70,43 @@ describe Api::V1::UsersController, type: :request do
     end
 
     include_examples 'request errors examples'
+
+    context 'when avatar is present' do
+      let(:file)      { fixture_file_upload('spec/fixtures/files/dk.png') }
+      let(:metadata)  { AvatarUploader.new(:cache).upload(file) }
+
+      let(:request_params) do
+        core_params = build(:profile_params)
+
+        core_params.merge!(avatar: metadata.to_json)
+
+        { user: core_params }
+      end
+
+      it { expect(response).to have_http_status(:ok) }
+
+      context 'when avatar metadata is not valid' do
+        let(:request_params) do
+          core_params = build(:profile_params)
+
+          core_params.merge!(
+            avatar: {
+              id: "344f98a5e8c879851116c54e9eb5e610.jpg",
+              storage:"cache",
+              metadata:{
+                filename:"KMZxXr_1.jpg",
+                size:187165,
+                mime_type:"image/jpeg"
+              }
+            }.to_json
+          )
+
+          { user: core_params }
+        end
+
+        it { expect(response).to have_http_status(:bad_request) }
+      end
+    end
   end
 
   describe 'DELETE #destroy' do

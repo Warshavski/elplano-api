@@ -5,6 +5,8 @@
 #   Represents a registered user
 #
 class User < ApplicationRecord
+  include AvatarUploader[:avatar]
+
   include CaseSensible
   include Searchable
 

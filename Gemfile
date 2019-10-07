@@ -80,6 +80,10 @@ gem 'rack-cors', require: 'rack/cors'
 # https://github.com/rollbar/rollbar-gem
 gem 'rollbar'
 
+# Per-request global storage for Rack.
+# https://github.com/steveklabnik/request_store
+gem 'request_store'
+
 # Cache
 gem 'connection_pool'
 gem 'redis'

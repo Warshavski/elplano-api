@@ -60,7 +60,7 @@ module Api
       # Deletes current user's supervised group
       #
       def destroy
-        supervised_group.destroy!
+        ::Groups::Destroy.call(supervised_group, current_user)
 
         head :no_content
       end

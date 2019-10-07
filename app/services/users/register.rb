@@ -9,6 +9,8 @@ module Users
   #     - creates new student for new user
   #
   class Register
+    include Loggable
+
     attr_accessor :params
 
     # Create(register) new user
@@ -67,7 +69,9 @@ module Users
           Student.create!(user: u, email: u.email)
         end
 
-        user
+        user.tap do |u|
+          log_info("User - \"#{u.username}\" (#{u.email}) was registered")
+        end
       end
     end
   end

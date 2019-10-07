@@ -35,6 +35,9 @@ Rails.application.routes.draw do
         # (see Admin::AnnouncementsController)
         resources :announcements, except: %i[new edit]
 
+        # (see Admin::LogsController)
+        resource :logs, only: :show
+
         namespace :reports do
           # (see Admin::Reports::BugsController)
           resources :bugs, only: %i[index show destroy]

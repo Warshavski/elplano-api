@@ -123,6 +123,10 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :transaction
   end
 
+  config.before(:example, :request_store) do
+    RequestStore.begin!
+  end
+
   config.around(:each) do |example|
     DatabaseCleaner.cleaning { example.run }
   end
@@ -142,6 +146,11 @@ RSpec.configure do |config|
     example.run
 
     redis_cache_cleanup!
+  end
+
+  config.after(:example, :request_store) do
+    RequestStore.end!
+    RequestStore.clear!
   end
 
   config.after(:suite) do

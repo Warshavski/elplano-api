@@ -47,7 +47,7 @@ module Api
       def destroy
         authorize! owner_params[:password], with: PasswordPolicy
 
-        current_user.destroy!
+        ::Users::Destroy.call(current_user)
 
         head :no_content
       end

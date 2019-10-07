@@ -34,6 +34,7 @@ es:
       student: 'Estudiante'
       user: 'Usuario'
       bug_report: 'Informe de error'
+      announcement: 'Anuncio'
     attributes:
       event:
         start_at: 'Empieza en'
@@ -78,6 +79,12 @@ es:
         password_confirmation: 'Confirmación de contraseña'
       bug_report:
         message: 'Mensaje'
+      announcement:
+        message: 'Mensaje'
+        start_at: 'Empieza en'
+        end_at: 'Termina en'
+        foreground_color: 'Color de primer plano'
+        background_color: 'Color de fondo'
   date:
     abbr_day_names:
       - dom

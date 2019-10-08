@@ -46,6 +46,9 @@ Rails.application.routes.draw do
         #(see Admin::SettingsController)
         resource :settings, only: :update
 
+        # (see Admin::StatisticsController)
+        resource :statistics, only: :show
+
         namespace :system do
           # (see Admin::System::HealthController)
           resource :health, only: :show, controller: 'health'

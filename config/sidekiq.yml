@@ -8,5 +8,6 @@
 :schedule:
   clear_tokens:
     cron: '0 0 0 * * 0' # At 00:00 on Sunday.
-    class: ClearTokensWorker
+    description: 'Deletes all revoked and expired access tokens.'
+    class: Users::Tokens::ClearWorker
 

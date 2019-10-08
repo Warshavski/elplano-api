@@ -11,3 +11,8 @@
     description: 'Deletes all revoked and expired access tokens.'
     class: Users::Tokens::ClearWorker
 
+  clear_uploads_cache:
+    cron: '0 10 0 * * *' # Each day at 00.15.00
+    description: 'Deletes all uploads from cache storage.'
+    class: Uploads::ClearCache
+

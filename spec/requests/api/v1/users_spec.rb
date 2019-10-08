@@ -124,7 +124,7 @@ describe Api::V1::UsersController, type: :request do
         expect(response).to have_http_status(:no_content)
       end
 
-      it 'deletes a group' do
+      it 'deletes a user' do
         expect { delete endpoint, headers: headers, params: params }.to change(User, :count).by(-1)
       end
     end

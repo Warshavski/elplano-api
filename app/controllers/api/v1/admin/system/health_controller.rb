@@ -11,14 +11,9 @@ module Api
         class HealthController < Admin::ApplicationController
           denote_title_header 'System', 'Health'
 
-          # GET : api/v1/admin/system/health?type=
+          # GET : api/v1/admin/system/health/{:type}
           #
-          #   query parameters :
-          #
-          #     - type  system health check type
-          #              @example: ?type=readiness
-          #
-          # Get system health status
+          # Get system health status by one of the types(readiness, liveness)
           #
           def show
             render_meta ::System::Health.call(params[:type])

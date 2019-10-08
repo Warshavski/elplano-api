@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Api::V1::Admin::System::HealthController, type: :request do
   include_context 'shared setup', :admin
 
-  let_it_be(:endpoint) { '/api/v1/admin/system/health?type=liveness' }
+  let_it_be(:endpoint) { '/api/v1/admin/system/health/liveness' }
 
   let_it_be(:meta) do
     {

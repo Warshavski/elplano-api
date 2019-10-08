@@ -24,7 +24,9 @@ resource 'Admin system health' do
   header 'Content-Type',  'application/vnd.api+json'
   header 'Authorization', :authorization
 
-  get 'api/v1/admin/system/health?type=liveness' do
+  let(:type) { 'liveness' }
+
+  get 'api/v1/admin/system/health/:type' do
     parameter :type, 'Health check type identity(`liveness`, `readiness`)', required: true
 
     let_it_be(:meta) do

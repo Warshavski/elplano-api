@@ -51,7 +51,7 @@ Rails.application.routes.draw do
 
         namespace :system do
           # (see Admin::System::HealthController)
-          resource :health, only: :show, controller: 'health'
+          resources :health, only: :show, controller: 'health', param: :type
 
           # (see Admin::System::InformationController)
           resource :information, only: :show, controller: 'information'

@@ -9,8 +9,7 @@ module UploadProcessors
     include Sidekiq::Worker
 
     def perform
-      cache_storage = Shrine.storages[:cache]
-      cache_storage.clear! { |object| object.last_modified < Time.utc.now - 1.day }
+      ::Uploads::ClearCache.call
     end
   end
 end

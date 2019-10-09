@@ -126,8 +126,6 @@ Filtering a collection resource is conducted via the filters parameter using the
       }
     }
 
-<b>NOTE</b> : All filters should be presented in the request's body via JSON object.
-
 &nbsp;
 
 #### Pagination
@@ -144,7 +142,14 @@ Pagination uses filters notation and provides the ability to limit records with 
       }
     }
 
-<b>NOTE</b> : Default chuck size is equal 15, minimum size is equal 1 and maximum size is equal 100.
+<b>NOTE</b> : 
+
+- Default chuck size is equal 15, minimum size is equal 1 and maximum size is equal 100.
+- Filters should be url encoded and passed as optional query parameters.
+
+<b>EXAMPLE</b> : 
+
+<code>?filters=%7B%22last_id%22%3A1%2C%22direction%22%3A%22asc%22%7D</code>
 
 ## Authentication
 

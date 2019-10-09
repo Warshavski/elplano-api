@@ -32,7 +32,7 @@ RSpec.describe Api::V1::Admin::UsersController, type: :request do
         {
           filters: {
             status: 'banned'
-          }
+          }.to_json
         }
       end
 
@@ -48,7 +48,7 @@ RSpec.describe Api::V1::Admin::UsersController, type: :request do
         {
           filters: {
             search: random_user.email
-          }
+          }.to_json
         }
       end
 

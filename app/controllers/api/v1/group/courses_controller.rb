@@ -101,7 +101,7 @@ module Api
         end
 
         def filter_params
-          validate_with(::Courses::IndexContract.new, params[:filters])
+          super(::Courses::IndexContract)
         end
 
         def course_params

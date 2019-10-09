@@ -112,8 +112,10 @@ class ApplicationController < ActionController::API
   #       }
   #     }
   #
-  def filter_params
-    validate_with(FilterContract.new, params[:filters])
+  def filter_params(contract = FilterContract)
+    filters = params[:filters].blank? ? {} : JSON.parse(params[:filters])
+
+    validate_with(contract.new, filters)
   end
 
   def current_resource_owner

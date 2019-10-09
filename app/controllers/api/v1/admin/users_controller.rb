@@ -80,7 +80,7 @@ module Api
         end
 
         def filter_params
-          validate_with(::Admin::Users::IndexContract.new, params[:filters])
+          super(::Admin::Users::IndexContract)
         end
       end
     end

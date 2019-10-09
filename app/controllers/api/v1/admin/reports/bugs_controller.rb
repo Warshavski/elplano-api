@@ -56,7 +56,7 @@ module Api
           end
 
           def filter_params
-            validate_with(::Admin::Reports::Bugs::IndexContract.new, params[:filters])
+            super(::Admin::Reports::Bugs::IndexContract)
           end
         end
       end

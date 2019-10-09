@@ -38,6 +38,9 @@ Rails.application.routes.draw do
         # (see Admin::LogsController)
         resource :logs, only: :show
 
+        # (see Admin::EmailsController)
+        resources :emails, only: :create
+
         namespace :emails do
           # (see Admin::Emails::MetricsController)
           resource :metrics, only: :show

@@ -4,6 +4,7 @@ es:
     messages:
       saved: 'Cambios guardados exitosamente!'
       received: 'Gracias, su informe ha sido registrado.'
+      sent: 'Un correo electrónico fue enviado con éxito!'
 
   notifications:
     email:

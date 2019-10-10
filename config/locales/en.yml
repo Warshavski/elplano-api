@@ -34,6 +34,8 @@ en:
     messages:
       saved: 'Changes successfully saved!'
       received: 'Thank you, your report has been registered.'
+      sent: 'An email was successfully sent!'
+
   errors:
     messages:
       throttled: 'Too many requests. Please, try again later.'

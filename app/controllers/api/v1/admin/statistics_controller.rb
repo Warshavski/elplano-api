@@ -20,6 +20,7 @@ module Api
 
         private
 
+        # TODO : create common caching logic
         def fetch_statistics
           cache_key         = 'statistics_counters'
           cache_expiration  = 15.minutes

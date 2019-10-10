@@ -52,6 +52,10 @@ gem 'doorkeeper', '>= 5.2.1'
 # https://github.com/iain/http_accept_language
 gem 'http_accept_language', '~> 2.1'
 
+# The Official SendGrid Led, Community Driven Ruby API Library
+# https://github.com/sendgrid/sendgrid-ruby
+gem 'sendgrid-ruby'
+
 # Simple, efficient background processing for Ruby
 # https://github.com/mperham/sidekiq
 gem 'sidekiq'

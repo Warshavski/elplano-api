@@ -48,6 +48,8 @@ en:
       argument_missing: 'argument is missing or the value is empty: %{param}'
       student:
         already_in_group: 'already has a group!'
+      user:
+        already_reported: 'has already been reported'
       html:
         invalid_markup: 'contains invalid HTML markup: %{error}'
       timezone:

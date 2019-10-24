@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
@@ -30,6 +32,21 @@ RSpec.describe User, type: :model do
                .class_name('BugReport')
                .inverse_of(:reporter)
                .dependent(:delete_all)
+    end
+
+    it do
+      should have_many(:reported_abuses)
+               .class_name('AbuseReport')
+               .inverse_of(:reporter)
+               .with_foreign_key(:reporter_id)
+               .dependent(:destroy)
+    end
+
+    it do
+      should have_one(:abuse_report)
+               .inverse_of(:user)
+               .with_foreign_key(:user_id)
+               .dependent(:destroy)
     end
   end
 

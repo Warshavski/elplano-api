@@ -198,6 +198,8 @@ es:
       argument_missing: 'falta el argumento o el valor está vacío: %{param}'
       student:
         already_in_group: 'ya tiene un grupo!'
+      user:
+        already_reported: 'ya ha sido reportado'
       html:
         invalid_markup: 'contiene código HTML no válido: %{error}'
       timezone:

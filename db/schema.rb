@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_07_082241) do
+ActiveRecord::Schema.define(version: 2019_10_09_133544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "abuse_reports", force: :cascade do |t|
+    t.bigint "reporter_id", null: false
+    t.bigint "user_id", null: false
+    t.text "message", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reporter_id"], name: "index_abuse_reports_on_reporter_id"
+    t.index ["user_id"], name: "index_abuse_reports_on_user_id", unique: true
+  end
 
   create_table "announcements", force: :cascade do |t|
     t.text "message", null: false
@@ -227,6 +237,8 @@ ActiveRecord::Schema.define(version: 2019_10_07_082241) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "abuse_reports", "users"
+  add_foreign_key "abuse_reports", "users", column: "reporter_id"
   add_foreign_key "bug_reports", "users", column: "reporter_id"
   add_foreign_key "courses", "groups"
   add_foreign_key "events", "courses"

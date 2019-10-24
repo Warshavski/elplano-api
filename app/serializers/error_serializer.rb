@@ -5,6 +5,8 @@
 #   Used for the errors serialization
 #
 class ErrorSerializer
+  ERROR_STATUS_CODE = 422
+
   def initialize(resource)
     @resource = resource
   end
@@ -14,16 +16,16 @@ class ErrorSerializer
 
     errors.messages.each_with_object([]) do |(field, messages), result|
       messages.each do |error_message|
-        result << compose_error(field, 422, error_message)
+        result << compose_error(field, error_message)
       end
     end
   end
 
   private
 
-  def compose_error(attribute, status, message)
+  def compose_error(attribute, message)
     {
-      status: status,
+      status: ERROR_STATUS_CODE,
       source: generate_source(attribute),
       detail: generate_message(attribute, message)
     }
@@ -39,9 +41,12 @@ class ErrorSerializer
     attr_name = attribute.to_s.tr('.', '_').humanize
     attr_name = @resource.class.human_attribute_name(attribute, default: attr_name)
 
-    I18n.t(:"errors.format",
-           default: '%{attribute} %{message}',
-           attribute: attr_name,
-           message: message)
+    localization_options = {
+      default: '%{attribute} %{message}',
+      attribute: attr_name,
+      message: message
+    }
+
+    I18n.t(:'errors.format', localization_options)
   end
 end

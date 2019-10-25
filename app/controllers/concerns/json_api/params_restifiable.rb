@@ -7,6 +7,8 @@ module JsonApi
   #
   #   TODO : REFACTOR ASAP!
   #
+  # DEPRECATED
+  #
   module ParamsRestifiable
     extend ActiveSupport::Concern
 

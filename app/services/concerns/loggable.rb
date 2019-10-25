@@ -2,7 +2,7 @@
 
 # Loggable
 #
-#   [DESCRIPTION]
+#   Application logging additions
 #
 module Loggable
 

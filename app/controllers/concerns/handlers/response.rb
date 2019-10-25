@@ -9,12 +9,12 @@ module Handlers
     extend ActiveSupport::Concern
 
     included do
-      def self.set_default_serializer(serializer)
-        @default_serializer = serializer
-      end
+      class << self
+        attr_reader :default_serializer
 
-      def self.default_serializer
-        @default_serializer
+        def set_default_serializer(serializer)
+          @default_serializer = serializer
+        end
       end
 
       def render_resource(resource, options = {})

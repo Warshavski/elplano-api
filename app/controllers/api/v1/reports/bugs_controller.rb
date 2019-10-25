@@ -5,7 +5,7 @@ module Api
     module Reports
       # Api::V1::BugReportsController
       #
-      #   [DESCRIPTION]
+      #   Bugs reporting by user
       #
       class BugsController < ApplicationController
         denote_title_header 'Reports', 'Bugs'

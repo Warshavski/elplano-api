@@ -222,6 +222,8 @@ ru:
       argument_missing: 'аргумент отсутствует или значение пусто: %{param}'
       student:
         already_in_group: 'уже находится в группе!'
+      user:
+        already_reported: 'уже был зарегистрирован'
       html:
         invalid_markup: 'невалидная разметка HTML: %{error}'
       timezone:

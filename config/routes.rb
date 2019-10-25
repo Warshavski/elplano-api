@@ -47,6 +47,9 @@ Rails.application.routes.draw do
         end
 
         namespace :reports do
+          # (see admin::Reports::AbusesController)
+          resources :abuses, only: %i[index show destroy]
+
           # (see Admin::Reports::BugsController)
           resources :bugs, only: %i[index show destroy]
         end
@@ -96,6 +99,9 @@ Rails.application.routes.draw do
       resource :password, only: :update
 
       namespace :reports do
+        # (see Reports::AbusesController)
+        resources :abuses, only: :create
+
         # (see Reports::BugsController)
         resources :bugs, only: :create
       end

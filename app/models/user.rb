@@ -50,6 +50,17 @@ class User < ApplicationRecord
            inverse_of: :reporter,
            dependent: :delete_all
 
+  has_one :abuse_report,
+          foreign_key: :user_id,
+          inverse_of: :user,
+          dependent: :destroy
+
+  has_many :reported_abuses,
+           foreign_key: :reporter_id,
+           class_name: 'AbuseReport',
+           inverse_of: :reporter,
+           dependent: :destroy
+
   accepts_nested_attributes_for :student
 
   #

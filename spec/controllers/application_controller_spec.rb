@@ -7,6 +7,39 @@ describe ApplicationController do
 
   let_it_be(:token) { create(:token, resource_owner_id: user.id) }
 
+  describe 'service error' do
+    controller(described_class) do
+      def index
+        raise StandardError, 'Whoops!'
+      end
+    end
+
+    before do
+      allow(controller).to receive(:doorkeeper_token) { token }
+    end
+
+    it 'returns 500 response' do
+      request.headers.merge('Content-Type' => 'application/vnd.api+json')
+
+      get :index, format: :json
+
+      expected_body = {
+        errors:[
+          {
+            status: 500,
+            detail: "(ノಠ益ಠ)ノ彡┻━┻",
+            source: {
+              pointer: "server"
+            }
+          }
+        ]
+      }
+
+      expect(response).to have_http_status(:server_error)
+      expect(response.body).to eq(expected_body.to_json)
+    end
+  end
+
   describe 'response format' do
     controller(described_class) do
       def index

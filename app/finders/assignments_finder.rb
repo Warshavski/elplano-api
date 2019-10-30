@@ -42,13 +42,9 @@ class AssignmentsFinder
   # Perform assignment filtration and sort
   #
   def execute
-    collection = init_collection(student)
-
-    collection = filter_by_course(collection)
-    collection = filter_by_expiration(collection)
-    collection = filter_by_accomplishment(collection)
-
-    paginate(collection)
+    init_collection(student)
+      .yield_self(&method(:perform_filtration))
+      .yield_self(&method(:paginate))
   end
 
   private
@@ -65,6 +61,13 @@ class AssignmentsFinder
 
     # Anyway we need information if an assignment is accomplished or not
     scope.select(*attributes).left_joins(:accomplishments)
+  end
+
+  def perform_filtration(collection)
+    collection
+      .yield_self(&method(:filter_by_course))
+      .yield_self(&method(:filter_by_expiration))
+      .yield_self(&method(:filter_by_accomplishment))
   end
 
   def filter_by_course(items)

@@ -34,9 +34,7 @@ class BugReportsFinder
   # @return [ActiveRecord::Relation]
   #
   def execute
-    collection = filter_by_user(BugReport)
-
-    paginate(collection)
+    filter_by_user(BugReport).then(&method(:paginate))
   end
 
   private

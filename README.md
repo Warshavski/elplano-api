@@ -14,8 +14,8 @@ El Plano is a self hosted class schedule management REST API server built with R
 
 #### Requirements
 
-- Ruby 2.5.3
-- Rails 5.2.2
+- Ruby 2.6.5
+- Rails 5.2.2+
 - Postgresql 9.5+
 - Redis 2.8+
 

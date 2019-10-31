@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.3'
+ruby '2.6.5'
 
 # The official AWS SDK for Ruby
 # https://github.com/aws/aws-sdk-ruby/tree/master/gems/aws-sdk-s3

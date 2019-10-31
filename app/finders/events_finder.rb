@@ -2,11 +2,11 @@
 
 # EventsFinder
 #
-#   Used to search, filter, and sort the collection of student's events
+#   Used to search, filter_by, and sort the collection of student's events
 #
 # Arguments:
 #
-#   params: optional search, filter and sort parameters
+#   params: optional search, filter_by and sort parameters
 #
 # NOTE :
 #
@@ -18,7 +18,7 @@ class EventsFinder
 
   # @param student [Student] -
   #
-  # @param params [Hash] - (optional, default: {}) filter and sort parameters
+  # @param params [Hash] - (optional, default: {}) filter_by and sort parameters
   #
   # @option params [String, Symbol] :scope -
   #   One of the events scope(appointed, authored)
@@ -37,9 +37,7 @@ class EventsFinder
   #   sorted by recently created
   #
   def execute
-    collection = perform_filtration
-
-    sort(collection)
+    perform_filtration.then(&method(:sort))
   end
 
   private
@@ -54,14 +52,14 @@ class EventsFinder
   end
 
   def filter_authored
-    student.created_events.filter(params[:type])
+    student.created_events.filter_by(params[:type])
   end
 
   def filter_appointed
     filters = {
-      'group' => Event.filter('group')
+      'group' => Event.filter_by('group')
                       .where(eventable_id: student.group_id),
-      'personal' => Event.filter('personal')
+      'personal' => Event.filter_by('personal')
                          .where(eventable_id: student.id)
     }
 

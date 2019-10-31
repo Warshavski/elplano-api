@@ -143,29 +143,29 @@ RSpec.describe Event, type: :model do
     end
   end
 
-  describe '.filter' do
+  describe '.filter_by' do
     let_it_be(:event) { double }
 
     it 'returns none with not existed filter name' do
-      expect(described_class.filter('wat')).to eq([])
+      expect(described_class.filter_by('wat')).to eq([])
     end
 
     it 'filters by default group and personal events' do
       expect(described_class).to receive(:personal_or_group).and_return([event])
 
-      expect(described_class.filter(nil)).to eq([event])
+      expect(described_class.filter_by(nil)).to eq([event])
     end
 
     it 'filters by group events' do
       expect(described_class).to receive(:groups).and_return([event])
 
-      expect(described_class.filter('group')).to eq([event])
+      expect(described_class.filter_by('group')).to eq([event])
     end
 
     it 'filters by personal events' do
       expect(described_class).to receive(:personal).and_return([event])
 
-      expect(described_class.filter('personal')).to eq([event])
+      expect(described_class.filter_by('personal')).to eq([event])
     end
   end
 

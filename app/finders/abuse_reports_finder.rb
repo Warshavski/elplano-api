@@ -34,16 +34,15 @@ class AbuseReportsFinder
   # @return [ActiveRecord::Relation]
   #
   def execute
-    perform_filtration(AbuseReport)
-      .yield_self(&method(:paginate))
+    perform_filtration(AbuseReport).then(&method(:paginate))
   end
 
   private
 
   def perform_filtration(collection)
     collection
-      .yield_self { |ar| filter_by(:user_id, ar) }
-      .yield_self { |ar| filter_by(:reporter_id, ar) }
+      .then { |ar| filter_by(:user_id, ar) }
+      .then { |ar| filter_by(:reporter_id, ar) }
   end
 
   def filter_by(key, items)

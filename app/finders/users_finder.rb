@@ -32,15 +32,15 @@ class UsersFinder
   # @return [ActiveRecord::Relation]
   #
   def execute
-    paginate(perform_filtration)
+    perform_filtration.then(&method(:paginate))
   end
 
   private
 
   def perform_filtration
     User
-      .yield_self(&method(:filter_by_status))
-      .yield_self(&method(:perform_search))
+      .then(&method(:filter_by_status))
+      .then(&method(:perform_search))
   end
 
   def filter_by_status(items)

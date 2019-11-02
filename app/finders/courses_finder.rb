@@ -41,9 +41,7 @@ class CoursesFinder
   def execute
     return Course.none if group.nil?
 
-    collection = filter_by_availability(group.courses)
-
-    paginate(collection)
+    filter_by_availability(group.courses).then(&method(:paginate))
   end
 
   private

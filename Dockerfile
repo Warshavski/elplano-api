@@ -1,4 +1,4 @@
-FROM ruby:2.5.3-alpine as Builder
+FROM ruby:2.6.5-alpine as Builder
 
 ARG FOLDERS_TO_REMOVE
 ARG BUNDLE_WITHOUT
@@ -32,7 +32,7 @@ ADD . /app
 # Remove folders not needed in resulting image
 RUN rm -rf $FOLDERS_TO_REMOVE
 
-FROM ruby:2.5.3-alpine
+FROM ruby:2.6.5-alpine
 LABEL maintainer="p.warshavski@gmail.com"
 
 ARG ADDITIONAL_PACKAGES

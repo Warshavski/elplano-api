@@ -3,6 +3,17 @@
 require 'rails_helper'
 
 RSpec.describe Admin::Statistics::Compose do
+  before do
+    allow(Date).to(
+      receive_message_chain(:current, :beginning_of_week).and_return(Date.parse('2019-10-07'))
+    )
+
+    allow(Date).to(
+      receive_message_chain(:current, :beginning_of_month).and_return(Date.parse('2019-10-01'))
+    )
+  end
+
+
   describe '.call' do
     subject { described_class.call }
 
@@ -23,7 +34,7 @@ RSpec.describe Admin::Statistics::Compose do
         },
         group: {
           total_count: 2,
-          week_count: 1,
+          week_count: 2,
           month_count: 2
         }
       }

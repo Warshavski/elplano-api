@@ -25,7 +25,7 @@ module Validatable
     def compose_error(attribute, status, message)
       {
         status: status,
-        source: { pointer: attribute },
+        source: { parameter: attribute },
         detail: message
       }
     end

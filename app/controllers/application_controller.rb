@@ -113,7 +113,8 @@ class ApplicationController < ActionController::API
   #     }
   #
   def filter_params(contract = FilterContract)
-    filters = params[:filters].blank? ? {} : JSON.parse(params[:filters])
+    # Try to parse filter params and in case of error just ignore them
+    filters = params[:filters].blank? ? {} : JSON.parse(params[:filters]) rescue {}
 
     validate_with(contract.new, filters)
   end

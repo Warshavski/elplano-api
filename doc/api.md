@@ -65,9 +65,10 @@ An error object have the following members:
 - `status` - The HTTP status code applicable to this problem, expressed as a string value.
 - `source` - An object containing references to the source of the error, optionally including any of the following members:
     - `pointer` - A JSON Pointer [RFC6901](https://tools.ietf.org/html/rfc6901) to the associated entity in the request document [e.g. "/data" for a primary data object, or "/data/attributes/title" for a specific attribute].
+    - `parameter` - A string indicating which URI query parameter caused the error.
 - `detail` - A human-readable explanation specific to this occurrence of the problem.
 
-Response example:
+Response example(model validation):
 
     {
         "errors": [
@@ -88,6 +89,19 @@ Response example:
         ]
     }
 
+Response example(parameter validation)
+
+    {
+        "errors": [
+            {
+                "status": 400,
+                "source": {
+                    "parameter": "last_id"
+                },
+                "detail": "must be an integer"
+            }
+        ]
+    }
 
 ### Cross origin resource sharing
 The API supports Cross Origin Resource Sharing (CORS) for AJAX requests from any origin. 

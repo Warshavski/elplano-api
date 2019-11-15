@@ -5,6 +5,8 @@
 #   Represents student
 #
 class Student < ApplicationRecord
+  include Searchable
+
   belongs_to :user
   belongs_to :group, optional: true
 
@@ -47,6 +49,28 @@ class Student < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   scope :presidents, -> { where(president: true) }
+
+  class << self
+    # Search students with the given query
+    #
+    # @param query [String] - The search query as a String
+    #
+    # @note This method uses ILIKE on PostgreSQL
+    #
+    # @return [ActiveRecord::Relation]
+    #
+    def search(query)
+      return none if query.blank?
+
+      term = query.downcase
+
+      where(
+        fuzzy_arel_match(:full_name, term, lower_exact_match: true)
+          .or(fuzzy_arel_match(:email, term, lower_exact_match: true)
+                .or(fuzzy_arel_match(:phone, term, lower_exact_match: true)))
+      )
+    end
+  end
 
   def any_group?
     !supervised_group.nil? || !group.nil?

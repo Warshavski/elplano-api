@@ -41,6 +41,28 @@ resource "User's classmates" do
     example 'INDEX : Retrieve classmates list' do
       explanation <<~DESC
         Returns a list of the users's classmates.
+
+        <b>Optional filter params</b> :
+
+        - `"search": "part_of_the_fullname_or_email"` - Returns classmates founded by provided search term(email, full name or phone).
+
+        Example: 
+
+        <pre>
+        {
+          "filters": {
+            "search": "wat@email_or_username"
+          }
+        }
+        </pre>
+
+        For more details see "Filters" and "Pagination" sections in the README section. 
+
+        <b>NOTE:<b>
+
+          - By default, this endpoint returns users sorted by recently created.
+
+        See user attributes description in the section description.
       DESC
 
       do_request

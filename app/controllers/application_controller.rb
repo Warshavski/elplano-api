@@ -74,9 +74,7 @@ class ApplicationController < ActionController::API
     # This means that doorkeeper authorization was successful
     #  otherwise, doorkeeper would render an error
     #
-    if doorkeeper_authorize!.nil?
-      authorize! current_user, with: UserPolicy
-    end
+    authorize! current_user, with: UserPolicy if doorkeeper_authorize!.nil?
   end
 
   private
@@ -114,7 +112,11 @@ class ApplicationController < ActionController::API
   #
   def filter_params(contract = FilterContract)
     # Try to parse filter params and in case of error just ignore them
-    filters = params[:filters].blank? ? {} : JSON.parse(params[:filters]) rescue {}
+    filters = begin
+                params[:filters].blank? ? {} : JSON.parse(params[:filters])
+              rescue StandardError
+                {}
+              end
 
     validate_with(contract.new, filters)
   end

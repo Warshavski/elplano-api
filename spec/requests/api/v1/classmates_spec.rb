@@ -7,9 +7,14 @@ RSpec.describe Api::V1::ClassmatesController, type: :request do
 
   let(:base) { '/api/v1/classmates' }
 
-  let_it_be(:student)   { create(:student, :group_member, user: user) }
+  let_it_be(:random_student) { create(:student) }
+  let_it_be(:student) { create(:student, user: user) }
 
-  subject { get endpoint, headers: headers }
+  let_it_be(:group) { create(:group, students: [student, random_student]) }
+
+  subject { get endpoint, headers: headers, params: params }
+
+  let(:params) { {} }
 
   before(:each) { subject }
 
@@ -21,9 +26,25 @@ RSpec.describe Api::V1::ClassmatesController, type: :request do
     end
 
     context 'when user is authorized user' do
-      it { expect(response).to have_http_status(:ok) }
+      context 'when no request params are provided' do
+        it { expect(response).to have_http_status(:ok) }
 
-      it { expect(json_data.count).to eq(1) }
+        it { expect(json_data.count).to be(2) }
+      end
+
+      context 'when search filter is provided' do
+        let(:params) do
+          {
+            filters: {
+              search: random_student.email
+            }.to_json
+          }
+        end
+
+        it { expect(response).to have_http_status(:ok) }
+
+        it { expect(json_data.map { |e| e[:id].to_i }).to eq([random_student.id]) }
+      end
     end
 
     context 'when user is anonymous' do

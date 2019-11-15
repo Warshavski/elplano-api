@@ -17,10 +17,17 @@ module Api
 
       # GET : api/v1/classmates
       #
+      #
+      #   optional filter parameters :
+      #
+      #     - search - Filter by search term(email, full_name, phone)
+      #
+      # @see #filter_params
+      #
       # Get list of group members
       #
       def index
-        render_resource filter_students, status: :ok
+        render_resource filter_students(filter_params), status: :ok
       end
 
       # GET : api/v1/classmates/{:id}
@@ -35,8 +42,8 @@ module Api
 
       private
 
-      def filter_students
-        current_group.students
+      def filter_students(filters = {})
+        StudentsFinder.new(current_group, filters).execute
       end
     end
   end

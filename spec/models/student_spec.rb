@@ -64,7 +64,7 @@ RSpec.describe Student, type: :model do
     describe '.presidents' do
       let_it_be(:student) { create(:student) }
 
-      it 'returns only user with president privileges' do
+      it 'returns only student with president privileges' do
         president = create(:president)
 
         expect(described_class.presidents).to eq([president])
@@ -73,6 +73,68 @@ RSpec.describe Student, type: :model do
       it 'returns nothing if presidents not present' do
         expect(described_class.presidents).to eq([])
       end
+    end
+  end
+
+  describe '.search' do
+    subject { described_class.search(query) }
+
+    let_it_be(:student) do
+      create(:student, phone: '8993242', email: 'email@example.com', full_name: 'fffuuuu')
+    end
+
+    context 'with a matching email' do
+      let(:query) { student.email }
+
+      it { is_expected.to eq([student]) }
+    end
+
+    context 'with a partially matching email' do
+      let(:query) { student.email[0..2] }
+
+      it { is_expected.to eq([student]) }
+    end
+
+    context 'with a matching email regardless of the casting' do
+      let(:query) { student.email.upcase }
+
+      it { is_expected.to eq([student]) }
+    end
+
+    context 'with a matching full_name' do
+      let(:query) { student.full_name }
+
+      it { is_expected.to eq([student]) }
+    end
+
+    context 'with a partially matching full_name' do
+      let(:query) { student.full_name[0..2] }
+
+      it { is_expected.to eq([student]) }
+    end
+
+    context 'with a matching full_name regardless of the casting' do
+      let(:query) { student.full_name.upcase }
+
+      it { is_expected.to eq([student]) }
+    end
+
+    context 'with a matching phone' do
+      let(:query) { student.phone }
+
+      it { is_expected.to eq([student]) }
+    end
+
+    context 'with a partially matching phone' do
+      let(:query) { student.phone[0..2] }
+
+      it { is_expected.to eq([student]) }
+    end
+
+    context 'with a blank query' do
+      let(:query) { '' }
+
+      it { is_expected.to eq([]) }
     end
   end
 

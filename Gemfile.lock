@@ -213,7 +213,8 @@ GEM
     rack (2.0.7)
     rack-attack (6.2.1)
       rack (>= 1.0, < 3)
-    rack-cors (1.0.3)
+    rack-cors (1.0.6)
+      rack (>= 1.6.0)
     rack-protection (2.0.7)
       rack
     rack-test (1.1.0)
@@ -399,7 +400,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.11)
   rack-attack
-  rack-cors
+  rack-cors (>= 1.0.6)
   rails (~> 5.2.2)
   rails-settings-cached (~> 0.7.2)
   redis

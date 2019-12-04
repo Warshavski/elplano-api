@@ -68,6 +68,10 @@ gem 'sidekiq-scheduler'
 # https://github.com/shrinerb/shrine
 gem 'shrine', '~> 2.0'
 
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator
+# https://github.com/kaminari/kaminari
+gem 'kaminari'
+
 # Settings is a plugin that makes managing a table of global key, value pairs easy.
 # https://github.com/huacnlee/rails-settings-cached
 gem 'rails-settings-cached', '~> 0.7.2'

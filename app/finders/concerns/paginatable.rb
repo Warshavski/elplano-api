@@ -14,6 +14,7 @@
 #     @option params [String]   :direction    - Records sort direction(asc - ascending, desc - descending)
 #     @option params [String]   :field        - Name of the sortable field
 #     @option params [String]   :field_value  - Value of the sortable field
+#     @option params [Integer]  :page         - Page number for page based pagination
 #
 # @note
 #
@@ -40,15 +41,29 @@ module Paginatable
   # @return [ActiveRecord::Relation<ApplicationRecord>]
   #
   def paginate(scope)
-    scope = filter_by_field(scope)
-    scope = filter_by_last_id(scope)
-
-    scope = limit_items(scope)
+    scope = if params[:page].blank?
+              perform_cursor_pagination(scope)
+            else
+              perform_default_pagination(scope)
+            end
 
     sort(scope)
   end
 
   private
+
+  def perform_default_pagination(scope)
+    return items if params[:page].blank?
+
+    scope.page(params[:page]).per(params[:limit] || DEFAULT_LIMIT)
+  end
+
+  def perform_cursor_pagination(scope)
+    scope
+      .then(&method(:filter_by_field))
+      .then(&method(:filter_by_last_id))
+      .then(&method(:limit_items))
+  end
 
   def filter_by_field(items)
     if params[:field] && params[:field_value]

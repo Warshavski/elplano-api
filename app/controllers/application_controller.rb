@@ -97,6 +97,7 @@ class ApplicationController < ActionController::API
   #       - direction     - Records sort direction(asc - ascending, desc - descending)
   #       - field         - Name of the sortable field
   #       - field_value   - Value of the sortable field
+  #       - page          - Page number
   #
   #   @example:
   #     {
@@ -107,6 +108,7 @@ class ApplicationController < ActionController::API
   #         "field_name": "email",
   #         "field_value": "wat@email.huh",
   #         "search": "search term"
+  #         "page": 2
   #       }
   #     }
   #

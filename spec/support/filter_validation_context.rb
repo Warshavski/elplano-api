@@ -9,7 +9,8 @@ RSpec.shared_context :filter_validation do
       last_id: 1,
       direction: 'asc',
       field: 'any_field',
-      field_value: 'wat'
+      field_value: 'wat',
+      page: 1
     }
   end
 
@@ -21,6 +22,7 @@ RSpec.shared_context :filter_validation do
   it_behaves_like :valid, without: :field
   it_behaves_like :valid, without: :field_value
   it_behaves_like :valid, without: :search
+  it_behaves_like :valid, without: :page
 
   it_behaves_like :invalid, with: { limit: 0 }
   it_behaves_like :invalid, with: { limit: 101 }
@@ -32,4 +34,6 @@ RSpec.shared_context :filter_validation do
   it_behaves_like :invalid, with: { search: 123 }
   it_behaves_like :invalid, with: { search: '' }
   it_behaves_like :invalid, with: { search: nil }
+  it_behaves_like :invalid, with: { page: 0 }
+  it_behaves_like :invalid, with: { page: 'wat' }
 end

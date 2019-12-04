@@ -15,6 +15,9 @@ class FilterContract < Dry::Validation::Contract
     optional(:last_id)
       .filled(:int?, gteq?: 0)
 
+    optional(:page)
+      .filled(:int?, gteq?: 1)
+
     optional(:field).filled(:str?)
     optional(:field_value).filled(:str?)
     optional(:search).filled(:str?)

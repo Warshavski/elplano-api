@@ -88,4 +88,18 @@ RSpec.describe Paginatable do
 
     it { is_expected.to eq [first_expected_user, second_expected_user] }
   end
+
+  context 'when page is defined' do
+    let_it_be(:first_user)   { create :user, created_at: 1.day.ago }
+    let_it_be(:second_user)  { create :user, created_at: Time.current }
+
+    let(:params) do
+      {
+        limit: 1,
+        page: 2,
+      }
+    end
+
+    it { is_expected.to eq [first_user] }
+  end
 end

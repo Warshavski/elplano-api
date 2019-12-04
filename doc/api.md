@@ -165,6 +165,19 @@ Pagination uses filters notation and provides the ability to limit records with 
 
 <code>?filters=%7B%22last_id%22%3A1%2C%22direction%22%3A%22asc%22%7D</code>
 
+To perform page based pagination filters must contains page parameter
+
+    {
+      "filters": {
+        "page": 2,
+        "limit": 10
+      }
+    }
+
+<b>EXAMPLE</b> :
+
+<code>?filters=%7B%22page%22%3A2%2C%22limit%22%3A10%7D</code>
+
 ## Authentication
 
 API authentication is based on [OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749)

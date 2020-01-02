@@ -22,9 +22,6 @@ Layout/EmptyLineAfterMagicComment:
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: space
 
-Metrics/LineLength:
+Layout/LineLength:
   AllowURI: true
   Enabled: false
-
-Rails:
-  Enabled: true

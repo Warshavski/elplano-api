@@ -134,15 +134,15 @@ class ApplicationController < ActionController::API
   alias current_user current_resource_owner
 
   def current_student
-    @current_student ||= current_user.student
+    @current_student ||= current_user&.student
   end
 
   def current_group
-    @current_group ||= current_student.group
+    @current_group ||= current_student&.group
   end
 
   def supervised_group
-    @supervised_group ||= current_student.supervised_group
+    @supervised_group ||= current_student&.supervised_group
   end
 
   def user_signed_in?

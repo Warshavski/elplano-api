@@ -28,11 +28,13 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
     before(:each) { subject }
 
     context 'when user is a student without group' do
-      let_it_be(:student) { create(:student, user: user) }
+      let!(:user)  { create(:user, :student) }
+      let!(:token) { create(:token, resource_owner_id: user.id) }
 
-      it { expect(response).to have_http_status(:ok) }
-
-      it { expect(json_data).to eq([]) }
+      it 'is expected to respond with empty data' do
+        expect(response).to have_http_status(:ok)
+        expect(json_data).to eq([])
+      end
     end
 
     context 'when no sort or filter params are present' do
@@ -77,10 +79,6 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
     before(:each) { subject }
 
     context 'when user is a group owner' do
-      it { expect(response).to have_http_status(:created) }
-
-      it { expect(json_data['type']).to eq('lecturer') }
-
       include_examples 'json:api examples',
                        %w[data],
                        %w[id type attributes relationships],
@@ -88,6 +86,9 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
                        %w[courses]
 
       it 'returns created model' do
+        expect(response).to have_http_status(:created)
+        expect(json_data['type']).to eq('lecturer')
+
         actual_title = json_data.dig(:attributes, :first_name)
         expected_title = lecturer_params[:first_name]
 
@@ -97,7 +98,7 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
       include_examples 'request errors examples'
     end
 
-    context 'when avatar is present' do
+    context 'when avatar presented' do
       let(:file)      { fixture_file_upload('spec/fixtures/files/dk.png') }
       let(:metadata)  { AvatarUploader.new(:cache).upload(file) }
 
@@ -149,7 +150,8 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
     end
 
     context 'when user is a regular group member' do
-      let_it_be(:student) { create(:student, :group_member, user: user) }
+      let!(:user)  { create(:user, :student) }
+      let!(:token) { create(:token, resource_owner_id: user.id) }
 
       it { expect(response).to have_http_status(:forbidden) }
     end
@@ -247,7 +249,9 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
     end
 
     context 'when user is a regular group member' do
-      let_it_be(:student) { create(:student, :group_member, user: user) }
+      let!(:group)  { create(:group, students: [user.student]) }
+      let!(:user)   { create(:user, :student) }
+      let!(:token)  { create(:token, resource_owner_id: user.id) }
 
       it { expect(response).to have_http_status(:forbidden) }
     end
@@ -273,7 +277,9 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
     end
 
     context 'when user is a regular group member' do
-      let_it_be(:student) { create(:student, :group_member, user: user) }
+      let!(:group)  { create(:group, students: [user.student]) }
+      let!(:user)   { create(:user, :student) }
+      let!(:token)  { create(:token, resource_owner_id: user.id) }
 
       it 'responds with 403 - forbidden' do
         delete resource_endpoint, headers: headers

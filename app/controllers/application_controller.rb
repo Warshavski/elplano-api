@@ -77,6 +77,15 @@ class ApplicationController < ActionController::API
     authorize! current_user, with: UserPolicy if doorkeeper_authorize!.nil?
   end
 
+  protected
+
+  # NOTE : for the first time generate eta only for page-based pagination
+  def pagination_metadata(resources)
+    return {} if filter_params[:page].blank?
+
+    ::Pagination::Meta.new(request, resources, filter_params).call
+  end
+
   private
 
   def configure_permitted_parameters

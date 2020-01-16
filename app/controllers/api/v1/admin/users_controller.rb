@@ -26,9 +26,12 @@ module Api
         def index
           users = filter_users(filter_params).preload(:student)
 
-          render_resource users,
-                          include: [:student],
-                          status: :ok
+          options = pagination_metadata(users).merge(
+            include: [:student],
+            status: :ok
+          )
+
+          render_resource users, options
         end
 
         # GET : api/v1/admin/users/{:id}

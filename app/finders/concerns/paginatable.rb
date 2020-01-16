@@ -27,14 +27,14 @@ module Paginatable
 
   DEFAULT_DIRECTION = 'desc'
   DEFAULT_LIMIT = 15
+  DEFAULT_PAGE = 1
 
   DIRECTIONS = %w[asc desc].freeze
 
   MAX_LIMIT = 100
   MIN_LIMIT = 1
 
-  private_constant :COMPARATORS,
-                   :DEFAULT_DIRECTION, :DEFAULT_LIMIT
+  private_constant :COMPARATORS, :DEFAULT_DIRECTION
 
   # @param scope [ActiveRecord::Relation<ApplicationRecord>]
   #

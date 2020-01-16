@@ -178,6 +178,22 @@ To perform page based pagination filters must contains page parameter
 
 <code>?filters=%7B%22page%22%3A2%2C%22limit%22%3A10%7D</code>
 
+In the case of page-based pagination additional pagination metadata is provided:
+
+    {
+      "meta": {
+        "current_page": 2,
+        "total_pages": 3
+      },
+      "links": {
+        "self": "https://api.elplano.app/api/v1/users?limit=1&page=2",
+        "first": "https://api.elplano.app/api/v1/users?limit=1&page=1",
+        "prev": "https://api.elplano.app/api/v1/users?limit=1&page=1",
+        "next": "https://api.elplano.app/api/v1/users?limit=1&page=3",
+        "last": "https://api.elplano.app/api/v1/users?limit=1&page=3"
+      }
+    }
+
 ## Authentication
 
 API authentication is based on [OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749)

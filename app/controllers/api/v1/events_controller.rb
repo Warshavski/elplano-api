@@ -48,7 +48,7 @@ module Api
       def index
         events = filter_events(filter_params).preload(:eventable)
 
-        render_resource events, status: :ok
+        render_collection events, status: :ok
       end
 
       # GET : api/v1/events/{:id}

@@ -24,7 +24,7 @@ module Api
           # Filter list of bug reports
           #
           def index
-            render_resource filter_reports(filter_params), status: :ok
+            render_collection filter_reports(filter_params), status: :ok
           end
 
           # GET : api/v1/admin/reports/bugs/{:id}

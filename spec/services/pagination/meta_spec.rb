@@ -33,7 +33,6 @@ RSpec.describe Pagination::Meta do
     context 'when filters are set' do
       let(:filters) { { page: 2, limit: 1, range: 'so' } }
 
-      it 'is expected to set values from filter params'
       it { expect(subject.limit).to be(1) }
 
       it { expect(subject.page).to be(2) }

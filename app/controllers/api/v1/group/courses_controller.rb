@@ -39,7 +39,7 @@ module Api
         def index
           courses = filter_courses(filter_params)
 
-          render_resource courses, status: :ok
+          render_collection courses, status: :ok
         end
 
         # GET : api/v1/group/courses/{:id}

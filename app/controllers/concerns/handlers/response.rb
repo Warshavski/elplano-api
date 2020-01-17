@@ -17,6 +17,10 @@ module Handlers
         end
       end
 
+      def render_collection(collection, options = {})
+        render_resource(collection, pagination_meta(collection).merge!(options))
+      end
+
       def render_resource(resource, options = {})
         serializer, status = process_render_options(options)
         serializer_options = process_serializer_options(options)
@@ -33,6 +37,13 @@ module Handlers
       end
 
       private
+
+      # NOTE : for the first time generate eta only for page-based pagination
+      def pagination_meta(resources)
+        return {} if filter_params[:page].blank?
+
+        ::Pagination::Meta.new(request, resources, filter_params).call
+      end
 
       def process_serializer_options(options)
         options_keys = %i[fields meta links is_collection params include]

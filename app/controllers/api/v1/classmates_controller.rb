@@ -27,7 +27,7 @@ module Api
       # Get list of group members
       #
       def index
-        render_resource filter_students(filter_params), status: :ok
+        render_collection filter_students(filter_params), status: :ok
       end
 
       # GET : api/v1/classmates/{:id}

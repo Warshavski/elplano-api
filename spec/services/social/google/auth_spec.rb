@@ -4,23 +4,24 @@ require 'rails_helper'
 
 RSpec.describe Social::Google::Auth do
   let(:email)     { Faker::Internet.email }
-  let(:name)      { Faker::Name.name }
   let(:google_id) { Faker::Omniauth.google[:uid] }
   let(:token)     { SecureRandom.hex(30) }
+  let(:audience)  { 'secret' }
 
   let(:user_data) do
     {
-      'sub' => google_id,
-      'email' => email,
-      'name' => name,
-      'exp' => Time.current + 30.minutes
+      user_id: google_id,
+      email: email,
+      expires_in: Time.current + 30.minutes,
+      audience: audience
     }
   end
 
   let(:validator) { spy }
 
   before do
-    allow(validator).to receive(:check).and_return user_data
+    stub = double('validator', user_data)
+    allow(validator).to receive(:tokeninfo).and_return stub
   end
 
   subject { described_class.new(validator).execute(token) }
@@ -81,7 +82,7 @@ RSpec.describe Social::Google::Auth do
   end
 
   context 'when provider respond without email' do
-    let(:user_data) { { 'sub' => google_id } }
+    let(:user_data) { { user_id: google_id, email: nil } }
 
     it 'is expected to raise an error' do
       expect { subject }.to raise_error(Api::UnprocessableAuth)
@@ -91,10 +92,10 @@ RSpec.describe Social::Google::Auth do
   context 'when token is expired' do
     let(:user_data) do
       {
-        'sub' => google_id,
-        'email' => email,
-        'name' => name,
-        'exp' => Time.current - 30.minutes
+        user_id: google_id,
+        email: email,
+        expires_in: Time.current - 30.minutes,
+        audience: audience
       }
     end
 
@@ -105,7 +106,10 @@ RSpec.describe Social::Google::Auth do
 
   context 'when provider request raises an error' do
     before do
-      allow(validator).to receive(:check).and_raise GoogleIDToken::SignatureError
+      allow(validator).to(
+        receive(:tokeninfo).with(access_token: token)
+          .and_raise ::Google::Apis::ClientError.new('err')
+      )
     end
 
     it 'is expected to reraise an api error' do

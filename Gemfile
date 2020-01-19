@@ -48,9 +48,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # https://github.com/doorkeeper-gem/doorkeeper
 gem 'doorkeeper', '>= 5.2.1'
 
-# Automatically exported from code.google.com/p/google-id-token
-# https://github.com/google/google-id-token
-gem 'google-id-token'
+# REST client for Google APIs
+# https://github.com/googleapis/google-api-ruby-client
+gem 'google-api-client', '~> 0.34'
 
 # Fishes out the Accept-Language header into an array.
 # https://github.com/iain/http_accept_language

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'google/apis/oauth2_v2'
+
 module Social
   module Google
     # Social::Google::Auth
@@ -13,7 +15,7 @@ module Social
         new.execute(code)
       end
 
-      def initialize(validator = GoogleIDToken::Validator.new)
+      def initialize(validator = ::Google::Apis::Oauth2V2::Oauth2Service.new)
         @validator = validator
       end
 
@@ -27,32 +29,42 @@ module Social
       private
 
       def fetch_user_data(code)
-        audience = ENV['GOOGLE_CLIENT_ID']
+        result = validator.tokeninfo(access_token: code)
 
-        begin
-          result = validator.check(code, audience)
-          raise Api::UnprocessableAuth, :email if result['email'].blank?
-          raise Api::UnprocessableAuth, :expired if Time.at(result['exp']).past?
+        raise Api::UnprocessableAuth, :email if invalid_payload?(result)
+        raise Api::UnprocessableAuth, :expired if expired?(result)
+        raise Api::UnprocessableAuth, :audience if audience_mismatch?(result)
 
-          result
-        rescue GoogleIDToken::SignatureError
-          raise Api::UnprocessableAuth, :code
-        end
+        result
+      rescue ::Google::Apis::ClientError
+        raise Api::UnprocessableAuth, :code
+      end
+
+      def invalid_payload?(result)
+        result.email.blank?
+      end
+
+      def expired?(result)
+        Time.at(result.expires_in).past?
+      end
+
+      def audience_mismatch?(result)
+        ENV['GOOGLE_CLIENT_ID'] == result.audience
       end
 
       def find_identity(user_data)
-        Identity.google.find_by(uid: user_data['sub'])
+        Identity.google.find_by(uid: user_data.user_id)
       end
 
       def perform_registration(user_data)
         user_params = {
-          email: user_data['email'],
-          username: user_data['email']
+          email: user_data.email,
+          username: user_data.email
         }
 
         User.transaction do
           find_or_register_user(user_params).then do |user|
-            user.identities.google.create!(uid: user_data['sub'])
+            user.identities.google.create!(uid: user_data.user_id)
           end
         end
       end

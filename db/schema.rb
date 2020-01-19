@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_09_133544) do
+ActiveRecord::Schema.define(version: 2020_01_18_172358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,17 @@ ActiveRecord::Schema.define(version: 2019_10_09_133544) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["president_id"], name: "index_groups_on_president_id"
+  end
+
+  create_table "identities", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "uid", null: false
+    t.integer "provider", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["uid"], name: "index_identities_on_uid"
+    t.index ["user_id", "provider"], name: "index_identities_on_user_id_and_provider", unique: true
+    t.index ["user_id"], name: "index_identities_on_user_id"
   end
 
   create_table "invites", force: :cascade do |t|
@@ -244,6 +255,7 @@ ActiveRecord::Schema.define(version: 2019_10_09_133544) do
   add_foreign_key "events", "courses"
   add_foreign_key "events", "students", column: "creator_id"
   add_foreign_key "groups", "students", column: "president_id"
+  add_foreign_key "identities", "users"
   add_foreign_key "invites", "groups"
   add_foreign_key "invites", "students", column: "recipient_id"
   add_foreign_key "invites", "students", column: "sender_id"

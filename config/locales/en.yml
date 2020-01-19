@@ -38,6 +38,7 @@ en:
 
   errors:
     messages:
+      unprocessable_auth: 'Invalid authorization params'
       throttled: 'Too many requests. Please, try again later.'
       invalid_token: 'Invalid authorization token'
       access_denied: 'Action not allowed'

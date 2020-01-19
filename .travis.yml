@@ -1,56 +1,50 @@
 dist: trusty
 language: ruby
 rvm:
-  - 2.6.5
+- 2.6.5
 addons:
   postgresql: 9.6
 services:
-  - redis-server
-
+- redis-server
 cache:
-  - bundler
-
+- bundler
 env:
   global:
-    - REVISION=$(git rev-parse --short HEAD 2> /dev/null); if [ $REVISION ]; then echo $REVISION; else echo 'unknown'; fi
-
+  - REVISION=$(git rev-parse --short HEAD 2> /dev/null); if [ $REVISION ]; then echo
+    $REVISION; else echo 'unknown'; fi
 branches:
   only:
-    - release
-    - develop
-
+  - release
+  - develop
 jobs:
   include:
-    - stage: test
-      before_script:
-        - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
-          > ./cc-test-reporter
-        - chmod +x ./cc-test-reporter
-        - "./cc-test-reporter before-build"
-        - cp config/database.yml.travis config/database.yml
-        - psql -c 'create database travis_ci_test;' -U postgres
-
-      script:
-        - bundle exec rails db:migrate RAILS_ENV=test
-        - bundle exec rails docs:generate
-        - bundle exec rspec
-        - "echo $REVISION > REVISION"
-
-      after_success:
-        - bundle exec codeclimate-test-reporter
-
-      after_script:
-        - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
-      deploy:
-        provider: heroku
-        api_key:
-          secure: FxtsCynVCUO3drhU9Dy7BzFz3XM4wDQqAX0cUu0w83IIZ64ptIN01aCfNTMwnIr16q4jyBgPXBqY4DwI+zrXVhWQwMIBkIJcfNoR1LHFLX+nlrv0mO3OFJOujlHDPU/xEPRMIKnRtgXjpjdhCgXt70qiatPbo5q33Le1IazxjO+BAaTjJzyW6WBdYI9yfKZ2F9KtpPoCZC+jgOVpTyWYF/oHy0GqrBMvTJFGr405e1RVD3D/13WcZnm7hdbkWnWkBAMFpT4ZK5vPA5QU3KKmm7Lkw6v3o49umpvXst/wgjqXZdMZj3zIVhAqlOCo+9PfACJQMyXKVwcgn1RBRu4q3WemT0WMz55q7QKl3/rVYzYRXwPyD7FBDbKAOdMPo7b1VnZCAUiXz3SGnCPBY3QnpedkyerIuZZJp/fD70MOpnTaFFkys/b0t9OpYWmFJeG300ahOqcN5bxgkBBxpKPIoZtes3jjVnbxHiXdD4h0TweoQ5SkgChJg0zg96Bv4f3TD309/b7RRQVLTlRFH0KTIbwccP+68l3Ihf9rKgtCCOkhRwQl2u1XmitcYF9/HQN6vRPDPZ47v+xetSR4oegXuZUTNrFEAb2rR2xEAqMkw6G+kY202Y9pdDmvIMxIITySJ3Kk1RMB1SJe0Cs5oIb7r9nrKVF+jzKHgRcV/ucDsro=
-        skip_cleanup: true
-        app:
-          develop: elplano-api
-        on:
-          branches:
-            - develop
-        run:
-          - "rake db:migrate"
-          - "rake db:seed"
+  - stage: test
+    before_script:
+    - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+      > ./cc-test-reporter
+    - chmod +x ./cc-test-reporter
+    - "./cc-test-reporter before-build"
+    - cp config/database.yml.travis config/database.yml
+    - psql -c 'create database travis_ci_test;' -U postgres
+    script:
+    - bundle exec rails db:migrate RAILS_ENV=test
+    - bundle exec rails docs:generate
+    - bundle exec rspec
+    - echo $REVISION > REVISION
+    after_success:
+    - bundle exec codeclimate-test-reporter
+    after_script:
+    - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+    deploy:
+      provider: heroku
+      api_key:
+        secure: ZYrc5Q9j9BMTJ+oOpTILALfIYq+yqcVOmd/4IejUasq1+SJBCucZGV9Ushyql0xBK8dAZ6ADYdtGynwygbFqTBmI9uAi3dhigCOL7BWI+JDmm/qmMy6/jXcUyDigckzSdFVWFYPvDvdmi4VB2iXew58FqovIiuxx24OvN/a+ZJc7E+LJNIgcytHX5hX6onIrLurpATDyTDZ0eTexrZ5n96BgQcB1TpXGTYvnZ7hm0Lef/Pogd2aL5YYJDGiTLtdhGakbQJ3QV35gW+ykLujK0RjXvkwXZMqmxjbng6ml7BxgOUsTKxjzWNdh9nOOr/GJwbdaOYsgcJSt2J4mB8DORjsYEGF/LYp5uYXG14ey/7h80zY5jXaO55YPa50NwHS1adNkT2lcsk313iiqS1NXGGoyExlTp9sXV9TGTy/o19vELzsniw/ihc2F1+5xsUDXsWu8MMy4ACWv2AIeVgSGqELQK3r3pUL6tRILatUS7YBKsAb9dA0qSR9DwW/ROkB1LJ/a5CrRiIjHixsQuF91kN0ADA4t2DMXDq9nXcXmTaJAlsrcCcWg3+FaIuiHYFv7gRhCkVE5JfHRZRHGicVfHpovECZCfopuRNYw5JA7kAXbhJsQ5mrAZroOItzn76K9ZnB/7GADwsZC+aHSxyr1+DO53kXAHwB+G7kGXS9mdpw=
+      skip_cleanup: true
+      app:
+        develop: elplano-api
+      on:
+        branches:
+        - develop
+      run:
+      - rake db:migrate
+      - rake db:seed

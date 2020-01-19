@@ -212,7 +212,7 @@ ru:
   errors:
     format: "%{attribute} %{message}"
     messages:
-      unprocessable_auth: 'Невалидные параметры аутентификации'
+      unprocessable_auth: 'Невалидные параметры для провайдера аутентификации'
       throttled: 'Слишком много запросов. Пожалуйста, повторите попытку позже.'
       invalid_token: 'Невалидный токен доступа'
       access_denied: 'Действие не доступно'

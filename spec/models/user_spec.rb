@@ -48,6 +48,8 @@ RSpec.describe User, type: :model do
                .with_foreign_key(:user_id)
                .dependent(:destroy)
     end
+
+    it { should have_many(:identities).dependent(:destroy) }
   end
 
   describe 'validations' do

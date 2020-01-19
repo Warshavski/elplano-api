@@ -61,6 +61,8 @@ class User < ApplicationRecord
            inverse_of: :reporter,
            dependent: :destroy
 
+  has_many :identities, dependent: :destroy
+
   accepts_nested_attributes_for :student
 
   #

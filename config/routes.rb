@@ -108,6 +108,11 @@ Rails.application.routes.draw do
 
       # (see UsersController)
       resource :user, only: %i[show update destroy]
+
+      namespace :users do
+        # (see IdentitiesController)
+        resources :identities, only: :create
+      end
     end
   end
 

@@ -188,6 +188,7 @@ es:
   errors:
     format: "%{attribute} %{message}"
     messages:
+      unprocessable_auth: 'Parámetros de autorización no válidos'
       throttled: 'Demasiadas solicitudes Por favor, inténtelo de nuevo más tarde.'
       invalid_token: 'Token de autorización inválido'
       access_denied: 'Acción no permitida'

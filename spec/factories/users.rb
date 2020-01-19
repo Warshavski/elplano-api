@@ -28,6 +28,10 @@ FactoryBot.define do
       after(:create) { |user, _| create(:student, user: user) }
     end
 
+    trait :with_identity do
+      after(:create) { |user, _| create(:identity, user: user) }
+    end
+
     trait :reset_password do
       after(:build) do |user, _|
         user.reset_password_token = Devise.token_generator.digest(user, :reset_password_token, 'token')

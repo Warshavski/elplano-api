@@ -22,6 +22,7 @@ RSpec.describe Social::Google::Auth do
   before do
     stub = double('validator', user_data)
     allow(validator).to receive(:tokeninfo).and_return stub
+    allow(ENV).to receive(:[]).with('GOOGLE_CLIENT_ID').and_return(audience)
   end
 
   subject { described_class.new(validator).execute(token) }
@@ -83,6 +84,21 @@ RSpec.describe Social::Google::Auth do
 
   context 'when provider respond without email' do
     let(:user_data) { { user_id: google_id, email: nil } }
+
+    it 'is expected to raise an error' do
+      expect { subject }.to raise_error(Api::UnprocessableAuth)
+    end
+  end
+
+  context 'when provider respond with not expected audience' do
+    let(:user_data) do
+      {
+        user_id: google_id,
+        email: email,
+        expires_in: Time.current + 30.minutes,
+        audience: 'war audience'
+      }
+    end
 
     it 'is expected to raise an error' do
       expect { subject }.to raise_error(Api::UnprocessableAuth)

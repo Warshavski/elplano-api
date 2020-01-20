@@ -49,7 +49,7 @@ module Social
       end
 
       def audience_mismatch?(result)
-        ENV['GOOGLE_CLIENT_ID'] == result.audience
+        ENV['GOOGLE_CLIENT_ID'] != result.audience
       end
 
       def find_identity(user_data)

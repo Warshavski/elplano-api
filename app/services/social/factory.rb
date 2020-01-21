@@ -6,7 +6,10 @@ module Social
   #   Used to fabricate social auth services
   #
   class Factory
-    PROVIDERS = HashWithIndifferentAccess.new(google: Social::Google::Auth).freeze
+    PROVIDERS = HashWithIndifferentAccess.new(
+      google: Social::Google::Auth,
+      vk: Social::Vk::Auth
+    ).freeze
 
     def self.call(provide_type)
       new.fabricate(provide_type)

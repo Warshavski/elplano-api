@@ -2,30 +2,33 @@
 
 require 'rails_helper'
 
-RSpec.describe Social::Google::Auth do
-  let(:email)     { Faker::Internet.email }
-  let(:google_id) { Faker::Omniauth.google[:uid] }
-  let(:token)     { SecureRandom.hex(30) }
-  let(:audience)  { 'secret' }
+RSpec.describe Social::Vk::Auth do
+  let(:email)         { Faker::Internet.email }
+  let(:vk_id)         { Faker::Omniauth.facebook[:uid] }
+  let(:token)         { SecureRandom.hex(30) }
+  let(:redirect_uri)  { Faker::Internet.url }
 
   let(:user_data) do
     {
-      user_id: google_id,
+      user_id: vk_id,
       email: email,
-      expires_in: Time.current + 30.minutes,
-      audience: audience
+      expires_at: Time.current + 30.minutes
     }
   end
 
   let(:validator) { spy }
 
   before do
-    stub = double('validator', user_data)
-    allow(validator).to receive(:tokeninfo).and_return stub
-    allow(ENV).to receive(:[]).with('GOOGLE_CLIENT_ID').and_return(audience)
+    allow(validator).to(
+      receive(:authorize)
+        .with(code: token, redirect_uri: redirect_uri)
+        .and_return(double('validator', user_data))
+    )
   end
 
-  subject { described_class.new(validator).execute(code: token) }
+  subject do
+    described_class.new(validator).execute(code: token, redirect_uri: redirect_uri)
+  end
 
   context 'user registration' do
     it 'is expected to create a new user' do
@@ -67,7 +70,7 @@ RSpec.describe Social::Google::Auth do
 
   context 'when user and identity is already exist' do
     let!(:user)      { create(:user, :student, email: email) }
-    let!(:identity)  { create(:identity, provider: :google, uid: google_id) }
+    let!(:identity)  { create(:identity, provider: :vk, uid: vk_id) }
 
     it 'is expected to not create a new user' do
       expect { subject }.not_to change(User, :count)
@@ -83,37 +86,7 @@ RSpec.describe Social::Google::Auth do
   end
 
   context 'when provider respond without email' do
-    let(:user_data) { { user_id: google_id, email: nil } }
-
-    it 'is expected to raise an error' do
-      expect { subject }.to raise_error(Api::UnprocessableAuth)
-    end
-  end
-
-  context 'when provider respond with not expected audience' do
-    let(:user_data) do
-      {
-        user_id: google_id,
-        email: email,
-        expires_in: Time.current + 30.minutes,
-        audience: 'war audience'
-      }
-    end
-
-    it 'is expected to raise an error' do
-      expect { subject }.to raise_error(Api::UnprocessableAuth)
-    end
-  end
-
-  context 'when token is expired' do
-    let(:user_data) do
-      {
-        user_id: google_id,
-        email: email,
-        expires_in: Time.current - 30.minutes,
-        audience: audience
-      }
-    end
+    let(:user_data) { { user_id: vk_id, email: nil } }
 
     it 'is expected to raise an error' do
       expect { subject }.to raise_error(Api::UnprocessableAuth)
@@ -122,9 +95,18 @@ RSpec.describe Social::Google::Auth do
 
   context 'when provider request raises an error' do
     before do
+      error_data = {
+        error_code: 400,
+        error_msg: 'error',
+        captcha_sid: 'sid',
+        captcha_img: 'img',
+        request_params: {},
+        redirect_uri: redirect_uri
+      }
+
       allow(validator).to(
-        receive(:tokeninfo).with(access_token: token)
-          .and_raise ::Google::Apis::ClientError.new('err')
+        receive(:authorize).with(code: token, redirect_uri: redirect_uri)
+          .and_raise ::VkontakteApi::Error.new(double('data', error_data))
       )
     end
 

@@ -9,21 +9,22 @@ module Social
     #   Used to perform auth via google provider
     #
     class Auth
+      include Social::Concerns::Registrable
+
       attr_reader :validator
 
-      def self.call(code)
-        new.execute(code)
+      def self.call(params)
+        new.execute(params)
       end
 
       def initialize(validator = ::Google::Apis::Oauth2V2::Oauth2Service.new)
         @validator = validator
       end
 
-      def execute(code)
-        user_data = fetch_user_data(code)
-        return unless user_data
-
-        find_identity(user_data) || perform_registration(user_data)
+      def execute(params)
+        fetch_user_data(params[:code]).then do |user_data|
+          authenticate(user_id: user_data.user_id, email: user_data.email)
+        end
       end
 
       private
@@ -52,35 +53,8 @@ module Social
         ENV['GOOGLE_CLIENT_ID'] != result.audience
       end
 
-      def find_identity(user_data)
-        Identity.google.find_by(uid: user_data.user_id)
-      end
-
-      def perform_registration(user_data)
-        user_params = {
-          email: user_data.email,
-          username: user_data.email
-        }
-
-        User.transaction do
-          find_or_register_user(user_params).then do |user|
-            user.identities.google.create!(uid: user_data.user_id)
-          end
-        end
-      end
-
-      def find_or_register_user(params)
-        user = User.by_login(params[:email])
-
-        user ||= ::Users::Register.call do
-          User.new(params.merge(password: temp_password), &:skip_confirmation!)
-        end
-
-        user
-      end
-
-      def temp_password
-        SecureRandom.hex(10)
+      def provider
+        :google
       end
     end
   end

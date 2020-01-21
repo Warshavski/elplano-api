@@ -28,7 +28,7 @@ module Api
         #
         def create
           user = fabricate_provider
-                 .then { |provider| provider.call(provider_params[:code]) }
+                 .then { |provider| provider.call(provider_params) }
                  .then { |identity| perform_sign_in(identity) }
 
           render_resource user,
@@ -47,7 +47,7 @@ module Api
         end
 
         def provider_params
-          params.require(:identity).permit(:code, :provider)
+          params.require(:identity).permit(:code, :provider, :redirect_uri)
         end
       end
     end

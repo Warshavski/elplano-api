@@ -9,7 +9,8 @@ class Identity < ApplicationRecord
 
   enum provider: {
     google: 10,
-    facebook: 20
+    facebook: 20,
+    vk: 30
   }
 
   validates :provider, presence: true

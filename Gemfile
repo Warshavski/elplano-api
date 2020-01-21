@@ -107,6 +107,11 @@ gem 'redis-rails'
 # A focused and fast library to gather memory, cpu, network, load avg and disk information
 # https://github.com/threez/ruby-vmstat
 gem 'vmstat'
+
+# For social login via VK
+# https://github.com/7even/vkontakte_api
+gem 'vkontakte_api', '~> 1.4'
+
 #
 # A Ruby library for getting filesystem information
 # https://github.com/djberg96/sys-filesystem

@@ -10,13 +10,15 @@ resource 'Users' do
     with_options scope: %i[identity] do
       parameter :code, 'Access token returned by social provider', required: true
       parameter :provider, 'Type of social login provider', required: true
+      parameter :redirect_uri, 'Address to redirect user after authorization. Same as used by client', required: true
     end
 
     let(:raw_post) do
       {
         identity: {
           provider: 'google',
-          code: code
+          code: code,
+          redirect_uri: Faker::Internet.url
         }
       }.to_json
     end
@@ -25,7 +27,7 @@ resource 'Users' do
     let(:identity) { create(:identity) }
 
     before do
-      allow(Social::Google::Auth).to receive(:call).with(code).and_return(identity)
+      allow(Social::Google::Auth).to receive(:call).and_return(identity)
     end
 
     example 'CREATE : Authenticate user via social provider' do

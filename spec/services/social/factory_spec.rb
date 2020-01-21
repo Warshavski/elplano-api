@@ -18,10 +18,16 @@ RSpec.describe Social::Factory do
       end
     end
 
-    context 'when input is valid' do
+    context 'when input is google' do
       let(:provider_type) { :google }
 
       it { is_expected.to eq(Social::Google::Auth) }
+    end
+
+    context 'when input is vk' do
+      let(:provider_type) { :vk }
+
+      it { is_expected.to eq(Social::Vk::Auth) }
     end
   end
 end

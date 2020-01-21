@@ -16,7 +16,7 @@ RSpec.describe Identity, type: :model do
 
     it do
       should define_enum_for(:provider)
-               .with_values(google: 10, facebook: 20)
+               .with_values(google: 10, facebook: 20, vk: 30)
                .backed_by_column_of_type(:integer)
     end
   end

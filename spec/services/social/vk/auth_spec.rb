@@ -5,29 +5,29 @@ require 'rails_helper'
 RSpec.describe Social::Vk::Auth do
   let(:email)         { Faker::Internet.email }
   let(:vk_id)         { Faker::Omniauth.facebook[:uid] }
-  let(:token)         { SecureRandom.hex(30) }
+  let(:code)          { SecureRandom.hex(30) }
   let(:redirect_uri)  { Faker::Internet.url }
 
   let(:user_data) do
     {
-      user_id: vk_id,
-      email: email,
-      expires_at: Time.current + 30.minutes
+      'user_id' => vk_id,
+      'email' => email,
+      'expires_at' => Time.current + 30.minutes
     }
   end
 
-  let(:validator) { spy }
+  let(:oauth_client) { spy }
 
   before do
-    allow(validator).to(
-      receive(:authorize)
-        .with(code: token, redirect_uri: redirect_uri)
-        .and_return(double('validator', user_data))
+    allow(oauth_client).to(
+      receive_message_chain(:auth_code, :get_token)
+        .with(code, redirect_uri: redirect_uri)
+        .and_return(double('oauth_client', params: user_data))
     )
   end
 
   subject do
-    described_class.new(validator).execute(code: token, redirect_uri: redirect_uri)
+    described_class.new(oauth_client).execute(code: code, redirect_uri: redirect_uri)
   end
 
   context 'user registration' do
@@ -95,18 +95,10 @@ RSpec.describe Social::Vk::Auth do
 
   context 'when provider request raises an error' do
     before do
-      error_data = {
-        error_code: 400,
-        error_msg: 'error',
-        captcha_sid: 'sid',
-        captcha_img: 'img',
-        request_params: {},
-        redirect_uri: redirect_uri
-      }
-
-      allow(validator).to(
-        receive(:authorize).with(code: token, redirect_uri: redirect_uri)
-          .and_raise ::VkontakteApi::Error.new(double('data', error_data))
+      allow(oauth_client).to(
+        receive_message_chain(:auth_code, :get_token)
+          .with(code, redirect_uri: redirect_uri)
+          .and_raise OAuth2::Error.new(double('response', 'error=': {}, parsed: {}, body: '{}'))
       )
     end
 

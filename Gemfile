@@ -48,13 +48,13 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # https://github.com/doorkeeper-gem/doorkeeper
 gem 'doorkeeper', '>= 5.2.1'
 
-# REST client for Google APIs
-# https://github.com/googleapis/google-api-ruby-client
-gem 'google-api-client', '~> 0.34'
-
 # Fishes out the Accept-Language header into an array.
 # https://github.com/iain/http_accept_language
 gem 'http_accept_language', '~> 2.1'
+
+# A Ruby wrapper for the OAuth 2.0 specification.
+# https://github.com/oauth-xx/oauth2
+gem 'oauth2'
 
 # The Official SendGrid Led, Community Driven Ruby API Library
 # https://github.com/sendgrid/sendgrid-ruby
@@ -107,10 +107,6 @@ gem 'redis-rails'
 # A focused and fast library to gather memory, cpu, network, load avg and disk information
 # https://github.com/threez/ruby-vmstat
 gem 'vmstat'
-
-# For social login via VK
-# https://github.com/7even/vkontakte_api
-gem 'vkontakte_api', '~> 1.4'
 
 #
 # A Ruby library for getting filesystem information

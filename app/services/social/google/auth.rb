@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'google/apis/oauth2_v2'
-
 module Social
   module Google
     # Social::Google::Auth
@@ -11,46 +9,47 @@ module Social
     class Auth
       include Social::Concerns::Registrable
 
-      attr_reader :validator
+      USER_INFO_ENDPOINT = 'https://openidconnect.googleapis.com/v1/userinfo'
+
+      OAUTH2_OPTIONS = {
+        site: 'https://oauth2.googleapis.com',
+        token_url: '/token'
+      }.freeze
+
+      attr_reader :oauth_client
 
       def self.call(params)
         new.execute(params)
       end
 
-      def initialize(validator = ::Google::Apis::Oauth2V2::Oauth2Service.new)
-        @validator = validator
+      def initialize(oauth_client = OAuth2::Client)
+        @oauth_client = oauth_client.new(
+          ENV['GOOGLE_CLIENT_ID'],
+          ENV['GOOGLE_CLIENT_SECRET'],
+          OAUTH2_OPTIONS
+        )
       end
 
       def execute(params)
         fetch_user_data(params[:code]).then do |user_data|
-          authenticate(user_id: user_data.user_id, email: user_data.email)
+          authenticate(user_id: user_data['sub'], email: user_data['email'])
         end
       end
 
       private
 
       def fetch_user_data(code)
-        result = validator.tokeninfo(access_token: code)
+        token = oauth_client.auth_code.get_token(code, redirect_uri: 'postmessage')
 
-        raise Api::UnprocessableAuth, :email if invalid_payload?(result)
-        raise Api::UnprocessableAuth, :expired if expired?(result)
-        raise Api::UnprocessableAuth, :audience if audience_mismatch?(result)
+        raise Api::UnprocessableAuth, :token unless valid_token?(token)
 
-        result
-      rescue ::Google::Apis::ClientError
+        token.get(USER_INFO_ENDPOINT).then(&:parsed)
+      rescue OAuth2::Error
         raise Api::UnprocessableAuth, :code
       end
 
-      def invalid_payload?(result)
-        result.email.blank?
-      end
-
-      def expired?(result)
-        Time.at(result.expires_in).past?
-      end
-
-      def audience_mismatch?(result)
-        ENV['GOOGLE_CLIENT_ID'] != result.audience
+      def valid_token?(access_token)
+        !access_token.token.nil?
       end
 
       def provider

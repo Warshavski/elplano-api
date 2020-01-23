@@ -47,7 +47,7 @@ module Api
         end
 
         def provider_params
-          params.require(:identity).permit(:code, :provider, :redirect_uri)
+          validate_with(Identities::CreateContract.new, params[:identity])
         end
       end
     end

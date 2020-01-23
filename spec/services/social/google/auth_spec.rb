@@ -5,27 +5,28 @@ require 'rails_helper'
 RSpec.describe Social::Google::Auth do
   let(:email)     { Faker::Internet.email }
   let(:google_id) { Faker::Omniauth.google[:uid] }
-  let(:token)     { SecureRandom.hex(30) }
-  let(:audience)  { 'secret' }
+  let(:code)     { SecureRandom.hex(30) }
+
+  let(:redirect_uri) { 'postmessage' }
 
   let(:user_data) do
     {
-      user_id: google_id,
-      email: email,
-      expires_in: Time.current + 30.minutes,
-      audience: audience
+      'sub' => google_id,
+      'email' => email,
     }
   end
 
-  let(:validator) { spy }
+  let(:oauth_client) { spy }
 
   before do
-    stub = double('validator', user_data)
-    allow(validator).to receive(:tokeninfo).and_return stub
-    allow(ENV).to receive(:[]).with('GOOGLE_CLIENT_ID').and_return(audience)
+    allow(oauth_client).to(
+      receive_message_chain(:auth_code, :get_token)
+        .with(code, redirect_uri: redirect_uri)
+        .and_return(double('oauth_client', token: 'code', get: double(:code, parsed: user_data)))
+    )
   end
 
-  subject { described_class.new(validator).execute(code: token) }
+  subject { described_class.new(oauth_client).execute(code: code) }
 
   context 'user registration' do
     it 'is expected to create a new user' do
@@ -82,49 +83,12 @@ RSpec.describe Social::Google::Auth do
     end
   end
 
-  context 'when provider respond without email' do
-    let(:user_data) { { user_id: google_id, email: nil } }
-
-    it 'is expected to raise an error' do
-      expect { subject }.to raise_error(Api::UnprocessableAuth)
-    end
-  end
-
-  context 'when provider respond with not expected audience' do
-    let(:user_data) do
-      {
-        user_id: google_id,
-        email: email,
-        expires_in: Time.current + 30.minutes,
-        audience: 'war audience'
-      }
-    end
-
-    it 'is expected to raise an error' do
-      expect { subject }.to raise_error(Api::UnprocessableAuth)
-    end
-  end
-
-  context 'when token is expired' do
-    let(:user_data) do
-      {
-        user_id: google_id,
-        email: email,
-        expires_in: Time.current - 30.minutes,
-        audience: audience
-      }
-    end
-
-    it 'is expected to raise an error' do
-      expect { subject }.to raise_error(Api::UnprocessableAuth)
-    end
-  end
-
   context 'when provider request raises an error' do
     before do
-      allow(validator).to(
-        receive(:tokeninfo).with(access_token: token)
-          .and_raise ::Google::Apis::ClientError.new('err')
+      allow(oauth_client).to(
+        receive_message_chain(:auth_code, :get_token)
+          .with(code, redirect_uri: redirect_uri)
+          .and_raise OAuth2::Error.new(double('response', 'error=': {}, parsed: {}, body: '{}'))
       )
     end
 

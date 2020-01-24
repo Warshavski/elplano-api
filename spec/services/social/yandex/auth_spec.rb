@@ -2,22 +2,18 @@
 
 require 'rails_helper'
 
-RSpec.describe Social::Vk::Auth do
+RSpec.describe Social::Yandex::Auth do
   let(:email)         { Faker::Internet.email }
   let(:user_id)       { Faker::Omniauth.facebook[:uid] }
   let(:code)          { SecureRandom.hex(30) }
   let(:redirect_uri)  { Faker::Internet.url }
 
   let(:user_data) do
-    {
-      'user_id' => user_id,
-      'email' => email,
-      'expires_at' => Time.current + 30.minutes
-    }
+    { 'id' => user_id, 'login' => email }
   end
 
   let(:existed_user)      { create(:user, :student, email: email) }
-  let(:existed_identity)  { create(:identity, provider: :vk, uid: user_id) }
+  let(:existed_identity)  { create(:identity, provider: :yandex, uid: user_id) }
 
   let(:oauth_client) { spy }
 
@@ -25,7 +21,7 @@ RSpec.describe Social::Vk::Auth do
     allow(oauth_client).to(
       receive_message_chain(:auth_code, :get_token)
         .with(code, redirect_uri: redirect_uri)
-        .and_return(double('oauth_client', params: user_data))
+        .and_return(double('oauth_client', token: 'code', get: double(:code, parsed: user_data)))
     )
   end
 

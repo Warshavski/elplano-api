@@ -8,7 +8,8 @@ module Social
   class Factory
     PROVIDERS = HashWithIndifferentAccess.new(
       google: Social::Google::Auth,
-      vk: Social::Vk::Auth
+      vk: Social::Vk::Auth,
+      yandex: Social::Yandex::Auth
     ).freeze
 
     def self.call(provide_type)

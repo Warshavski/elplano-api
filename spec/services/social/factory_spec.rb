@@ -29,5 +29,11 @@ RSpec.describe Social::Factory do
 
       it { is_expected.to eq(Social::Vk::Auth) }
     end
+
+    context 'when input is yandex' do
+      let(:provider_type) { :yandex }
+
+      it { is_expected.to eq(Social::Yandex::Auth) }
+    end
   end
 end

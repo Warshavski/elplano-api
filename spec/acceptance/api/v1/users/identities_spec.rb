@@ -8,9 +8,14 @@ resource 'Users' do
 
   post 'api/v1/users/identities' do
     with_options scope: %i[identity] do
-      parameter :code, 'Access token returned by social provider', required: true
-      parameter :provider, 'Type of social login provider', required: true
-      parameter :redirect_uri, 'Address to redirect user after authorization. Same as used by client', required: true
+      parameter :code, 'Access token returned by social provider',
+                required: true
+
+      parameter :provider, "Type of social login provider: #{Identity.providers.keys}",
+                required: true
+
+      parameter :redirect_uri, 'Address to redirect user after authorization. Same as used by client',
+                required: true
     end
 
     let(:raw_post) do

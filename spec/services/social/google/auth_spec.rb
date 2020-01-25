@@ -3,6 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe Social::Google::Auth do
+  subject do
+    described_class.new(oauth_client).execute(code: code, redirect_uri: redirect_uri)
+  end
+
   let(:email)         { Faker::Internet.email }
   let(:user_id)       { Faker::Omniauth.google[:uid] }
   let(:code)          { SecureRandom.hex(30) }

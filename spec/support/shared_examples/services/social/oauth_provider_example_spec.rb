@@ -1,8 +1,4 @@
 RSpec.shared_examples 'oauth login provider' do
-  subject do
-    described_class.new(oauth_client).execute(code: code, redirect_uri: redirect_uri)
-  end
-
   context 'user registration' do
     it 'is expected to create a new user' do
       expect { subject }.to change(User, :count).by(1)

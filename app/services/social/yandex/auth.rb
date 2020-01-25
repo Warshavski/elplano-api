@@ -31,25 +31,29 @@ module Social
       end
 
       def execute(params)
-        fetch_user_data(params[:code], params[:redirect_uri]).then do |user_data|
-          authenticate(user_id: user_data['id'], email: user_data['login'])
+        fetch_user_data!(params[:code], params[:redirect_uri]).then do |user_data|
+          authenticate(user_id: user_data['id'], email: user_data['default_email'])
         end
       end
 
       private
 
-      def fetch_user_data(code, redirect_uri)
-        token = oauth_client.auth_code.get_token(code, redirect_uri: redirect_uri)
-
-        raise Api::UnprocessableAuth, :token unless valid_token?(token)
-
-        token.get(USER_INFO_ENDPOINT).parsed
+      def fetch_user_data!(code, redirect_uri)
+        request_access_token!(code, redirect_uri).then(&method(:request_user_info!))
       rescue OAuth2::Error
         raise Api::UnprocessableAuth, :code
       end
 
-      def valid_token?(access_token)
-        !access_token.token.nil?
+      def request_access_token!(code, redirect_uri)
+        oauth_client.auth_code.get_token(code, redirect_uri: redirect_uri).tap do |access_token|
+          raise Api::UnprocessableAuth, :token if access_token.token.nil?
+        end
+      end
+
+      def request_user_info!(token)
+        token.get(USER_INFO_ENDPOINT).parsed.tap do |payload|
+          raise Api::UnprocessableAuth, :scope if payload['default_email'].blank?
+        end
       end
 
       def provider

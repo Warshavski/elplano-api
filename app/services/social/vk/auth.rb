@@ -15,13 +15,15 @@ module Social
         token_url: '/access_token'
       }.freeze
 
-      attr_reader :oauth_client
+      attr_reader :oauth_client, :authenticated_user
 
-      def self.call(params)
-        new.execute(params)
+      def self.call(params, user: nil)
+        new(user: user).execute(params)
       end
 
-      def initialize(oauth_client = OAuth2::Client)
+      def initialize(oauth_client = OAuth2::Client, user: nil)
+        @authenticated_user = user
+
         @oauth_client =
           oauth_client.new(ENV['VK_CLIENT_ID'], ENV['VK_CLIENT_SECRET'], OPTIONS)
       end

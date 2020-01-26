@@ -54,6 +54,22 @@ RSpec.shared_examples 'oauth login provider' do
     end
   end
 
+  context 'when user link oauth provider' do
+    let_it_be(:authenticated_user) { create(:user, :student) }
+
+    it 'is expected to link identity to user' do
+      expect(subject.user).to eq(authenticated_user)
+    end
+
+    it 'is expected to not create a new user' do
+      expect { subject }.not_to change(User, :count)
+    end
+
+    it 'is expected to create a new identity' do
+      expect { subject }.to change(Identity, :count).by(1)
+    end
+  end
+
   context 'when provider request raises an error' do
     before do
       allow(oauth_client).to(

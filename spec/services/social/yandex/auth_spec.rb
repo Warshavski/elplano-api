@@ -4,8 +4,12 @@ require 'rails_helper'
 
 RSpec.describe Social::Yandex::Auth do
   subject do
-    described_class.new(oauth_client).execute(code: code, redirect_uri: redirect_uri)
+    described_class
+      .new(oauth_client, user: authenticated_user)
+      .execute(code: code, redirect_uri: redirect_uri)
   end
+
+  let(:authenticated_user) { nil }
 
   let(:email)         { Faker::Internet.email }
   let(:user_id)       { Faker::Omniauth.facebook[:uid] }

@@ -111,7 +111,7 @@ Rails.application.routes.draw do
 
       namespace :users do
         # (see IdentitiesController)
-        resources :identities, only: :create
+        resources :identities, only: %i[index create destroy]
       end
     end
   end

@@ -8,7 +8,7 @@ module Api
       #   Used to perform login through third party providers
       #
       class IdentitiesController < ApplicationController
-        skip_before_action :authorize_access!, only: %i[new create]
+        skip_before_action :authorize_access!, only: :create
 
         set_default_serializer ::Auth::UserSerializer
 
@@ -22,18 +22,38 @@ module Api
           end
         end
 
-        # POST : api/v1/users/identity
+        # GET : api/v1/users/identities
         #
-        #   Perform sign in via social provider
+        #   Get a list of linked(connected) oauth providers
+        #
+        def index
+          render_collection current_user.identities,
+                            serializer: IdentitySerializer,
+                            status: :ok
+        end
+
+        # POST : api/v1/users/identities
+        #
+        #   Perform sign in via oauth provider and link oauth provider
         #
         def create
           user = fabricate_provider
-                 .then { |provider| provider.call(provider_params) }
+                 .then { |provider| provider.call(provider_params, user: current_user) }
                  .then { |identity| perform_sign_in(identity) }
 
           render_resource user,
                           include: %i[recent_access_token student],
                           status: :ok
+        end
+
+        # DELETE : api/v1/users/identities/:id
+        #
+        #   Destroy(unlink) oauth provider from current user's profile
+        #
+        def destroy
+          find_provider!.then(&:destroy!)
+
+          head :no_content
         end
 
         private
@@ -44,6 +64,10 @@ module Api
 
         def perform_sign_in(identity)
           ::Users::SignIn.call { sign_in(identity.user) }
+        end
+
+        def find_provider!
+          current_user.identities.find(params[:id])
         end
 
         def provider_params

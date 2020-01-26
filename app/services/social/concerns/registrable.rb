@@ -24,7 +24,7 @@ module Social
       end
 
       def find_or_register_user(email)
-        user = User.by_login(email)
+        user = authenticated_user || User.by_login(email)
 
         return user unless user.nil?
 

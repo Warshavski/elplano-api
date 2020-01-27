@@ -33,7 +33,7 @@ RSpec.describe Social::Vk::Auth do
     allow(oauth_client).to(
       receive_message_chain(:auth_code, :get_token)
         .with(code, redirect_uri: redirect_uri)
-        .and_return(double('oauth_client', params: user_data))
+        .and_return(double('oauth_client', token: {}, params: user_data))
     )
   end
 

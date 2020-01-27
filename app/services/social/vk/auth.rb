@@ -6,48 +6,26 @@ module Social
     #
     #   Used to perform auth via vkontakte provider
     #
-    class Auth
-      include Social::Concerns::Registrable
-
-      OPTIONS = {
-        site: 'https://oauth.vk.com',
-        authorize_url: '/authorize',
-        token_url: '/access_token'
-      }.freeze
-
-      attr_reader :oauth_client, :authenticated_user
-
-      def self.call(params, user: nil)
-        new(user: user).execute(params)
-      end
-
-      def initialize(oauth_client = OAuth2::Client, user: nil)
-        @authenticated_user = user
-
-        @oauth_client =
-          oauth_client.new(ENV['VK_CLIENT_ID'], ENV['VK_CLIENT_SECRET'], OPTIONS)
-      end
-
-      def execute(params)
-        fetch_user_data(params[:code], params[:redirect_uri]).then do |user_data|
-          authenticate(user_id: user_data['user_id'], email: user_data['email'])
-        end
-      end
+    class Auth < Social::Oauth
 
       private
 
-      def fetch_user_data(code, redirect_uri)
-        token = oauth_client.auth_code.get_token(code, redirect_uri: redirect_uri)
+      def configure_oauth_client(oauth_client)
+        options = {
+          site: 'https://oauth.vk.com',
+          authorize_url: '/authorize',
+          token_url: '/access_token'
+        }
 
-        raise Api::UnprocessableAuth, :email if invalid_token?(token)
-
-        token.params
-      rescue OAuth2::Error
-        raise Api::UnprocessableAuth, :code
+        oauth_client.new(ENV['VK_CLIENT_ID'], ENV['VK_CLIENT_SECRET'], options)
       end
 
-      def invalid_token?(client)
-        client.params['email'].nil?
+      def request_user_info!(token)
+        payload = token.params
+
+        raise Api::UnprocessableAuth, :email if payload['email'].blank?
+
+        { user_id: payload['user_id'], email: payload['email'] }
       end
 
       def provider

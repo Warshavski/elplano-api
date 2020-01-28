@@ -9,7 +9,8 @@ module Social
     PROVIDERS = HashWithIndifferentAccess.new(
       google: Social::Google::Auth,
       vk: Social::Vk::Auth,
-      yandex: Social::Yandex::Auth
+      yandex: Social::Yandex::Auth,
+      facebook: Social::Facebook::Auth
     ).freeze
 
     def self.call(provide_type)

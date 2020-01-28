@@ -118,14 +118,9 @@ resource 'Users' do
   delete 'api/v1/users/identities/:id' do
     header 'Authorization', :authorization
 
-    example "INDEX : Get user's oauth providers list" do
+    example "DELETE : Remove(unlink) user's oauth identity" do
       explanation <<~DESC
-        Performs user authentication and returns authenticated user information.
-
-        Identity attributes :
-    
-          - `provider` - Represents oauth provider name: #{Identity.providers.keys}
-          - `timestamps`
+        Remove(unlink) OAuth provider identity
       DESC
 
       do_request

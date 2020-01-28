@@ -68,9 +68,25 @@ RSpec.shared_examples 'oauth login provider' do
     it 'is expected to create a new identity' do
       expect { subject }.to change(Identity, :count).by(1)
     end
+
+    context 'when identity was connected to another account' do
+      let!(:identity)  { existed_identity }
+
+      it 'is expected to not create a new user' do
+        expect { subject }.not_to change(User, :count)
+      end
+
+      it 'is expected to not create a new identity' do
+        expect { subject }.not_to change(Identity, :count)
+      end
+
+      it 'is expected to return identity instance' do
+        is_expected.to be_instance_of(Identity)
+      end
+    end
   end
 
-  context 'when provider request raises an error' do
+  context 'when oauth provider request raises an error' do
     before do
       allow(oauth_client).to(
         receive_message_chain(:auth_code, :get_token)

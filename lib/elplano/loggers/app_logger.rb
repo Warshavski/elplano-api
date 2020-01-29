@@ -6,9 +6,13 @@ module Elplano
     #
     #   Logger for the application events
     #
-    class AppLogger < Elplano::Logger
-      def self.file_name_noext
-        'application'
+    class AppLogger < ::Elplano::Logger
+      class << self
+        attr_writer :file_name_noext
+
+        def file_name_noext
+          @file_name_noext || 'application'
+        end
       end
 
       def format_message(severity, timestamp, progname, msg)

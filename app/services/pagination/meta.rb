@@ -13,17 +13,41 @@ module Pagination
     attr_accessor :url
     attr_reader :limit, :page, :total_pages, :filters
 
-    def initialize(request, resources, opts = {})
+    # see #execute
+    #
+    def self.call(request, collection, opts = {})
+      new(request, collection, opts).execute
+    end
+
+    # @param request [] -
+    #   Object that represents all information about endpoint request
+    #
+    # @param collection [ActiveRecord::Relation] -
+    #   Collection of the paginated resource objects
+    #
+    # @param opts [Hash] - (optional, default: {}) filter and sort parameters
+    #
+    def initialize(request, collection, opts = {})
       @url = "#{request.base_url}#{request.path}"
 
       @filters = opts.dup
-      @total_pages = resources.total_pages
+      @total_pages = collection.total_pages
 
       @page   = (filters.delete(:page) || Paginatable::DEFAULT_PAGE).to_i
       @limit  = (filters.delete(:limit) || Paginatable::DEFAULT_LIMIT).to_i
     end
 
-    def call
+    # Perform metadata build
+    #
+    # @return meta [Hash] - Pagination metadata
+    #
+    # @option meta [Hash] :links -
+    #   Urls for current, previous, next, first and last chunks
+    #
+    # @option meta [Hash] :meta -
+    #   Current page number and total pages counter
+    #
+    def execute
       @metadata = nil
 
       metadata.tap do

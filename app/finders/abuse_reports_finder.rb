@@ -13,14 +13,7 @@ class AbuseReportsFinder
 
   attr_reader :params
 
-  # @param params [Hash] - (optional, default: {}) filter and sort parameters
-  #
-  # @option params [Integer] :user_id
-  #   Identity of the user suspected in abuse
-  #
-  # @option params [Integer] :reporter_id
-  #   Identity of the abuse reporter
-  #
+
   def initialize(params = {})
     @params = params
   end

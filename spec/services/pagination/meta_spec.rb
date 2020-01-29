@@ -41,8 +41,8 @@ RSpec.describe Pagination::Meta do
     end
   end
 
-  describe '#call' do
-    subject { described_class.new(request, resources, filters).call }
+  describe '#execute' do
+    subject { described_class.new(request, resources, filters).execute }
 
     context 'when total_pages equal 1' do
       let(:total_pages) { 1 }

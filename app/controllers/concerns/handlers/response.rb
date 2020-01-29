@@ -42,7 +42,7 @@ module Handlers
       def pagination_meta(resources)
         return {} if filter_params[:page].blank?
 
-        ::Pagination::Meta.new(request, resources, filter_params).call
+        ::Pagination::Meta.call(request, resources, filter_params)
       end
 
       def process_serializer_options(options)

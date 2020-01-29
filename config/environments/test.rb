@@ -45,4 +45,6 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  ::Elplano::Loggers::AppLogger.file_name_noext = 'application.test'
 end

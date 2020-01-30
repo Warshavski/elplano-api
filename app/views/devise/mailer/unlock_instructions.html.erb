@@ -1,5 +1,7 @@
 <p><%= t('devise.mailer.unlock_instructions.title', email: @resource.email )%>!</p>
 
+</br>
+
 <p><%= t('devise.mailer.unlock_instructions.content') %></p>
 
 <p><%= link_to t('devise.mailer.unlock_instructions.action'), "#{ENV['UI_HOST']}/unlock-account?unlock_token=#{@token}" %></p>

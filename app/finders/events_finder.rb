@@ -26,6 +26,9 @@ class EventsFinder
   # @option params [String, Symbol] :type -
   #   One of the eventable types(group, personal).
   #
+  # @option params [Array<String>] :labels -
+  #   Collection of the labels attached to the event
+  #
   def initialize(student, params = {})
     @student = student
     @params = params
@@ -43,6 +46,10 @@ class EventsFinder
   private
 
   def perform_filtration
+    resolve_scope.then(&method(:filter_by_labels))
+  end
+
+  def resolve_scope
     filters = {
       'appointed' => filter_appointed,
       'authored' => filter_authored
@@ -64,6 +71,14 @@ class EventsFinder
     }
 
     filters.fetch(params[:type]) { filters.values.inject(&:or) }
+  end
+
+  def filter_by_labels(items)
+    return items if params[:labels].blank?
+
+    label_ids = params[:labels].split(',')
+
+    items.joins(:labels).where(labels: { id: label_ids }).distinct
   end
 
   def sort(items)

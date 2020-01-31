@@ -86,6 +86,9 @@ class Event < ApplicationRecord
 
   belongs_to :eventable, polymorphic: true
 
+  has_many :label_links, as: :target, dependent: :delete_all
+  has_many :labels, through: :label_links
+
   scope :personal, -> { where(eventable_type: 'Student') }
   scope :groups,   -> { where(eventable_type: 'Group') }
 

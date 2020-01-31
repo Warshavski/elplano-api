@@ -13,6 +13,8 @@ RSpec.describe Group, type: :model do
     it { should have_many(:lecturers).dependent(:destroy) }
 
     it { should have_many(:events).dependent(:destroy) }
+
+    it { should have_many(:labels).dependent(:destroy) }
   end
 
   describe 'validations' do

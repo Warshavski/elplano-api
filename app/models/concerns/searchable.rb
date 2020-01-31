@@ -28,8 +28,11 @@ module Searchable
 
     # Perform fuzzy matching by the given query against given column
     #
-    # @param [String] query   - The text to search for.
-    # @param [String] columns - The columns names to search in.
+    # @param [String] query
+    #   The text to search for.
+    #
+    # @param [Array<String>, Array<Symbol>] columns
+    #   The columns names to search in.
     #
     def fuzzy_search(query, columns)
       matches = columns.map { |col| fuzzy_arel_match(col, query) }.compact.reduce(:or)

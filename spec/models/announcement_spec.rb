@@ -8,91 +8,15 @@ describe Announcement, type: :model do
 
     it { is_expected.to be_valid }
 
-    it { should allow_value('#1f1f1F').for(:background_color) }
-
-    it { should allow_value('#AFAFAF').for(:background_color) }
-
-    it { should allow_value('#222fff').for(:background_color) }
-
-    it { should allow_value('#F00').for(:background_color) }
-
-    it { should allow_value('#1AFFa1').for(:background_color) }
-
-    it { should allow_value('#000000').for(:background_color) }
-
-    it { should allow_value('#ea00FF').for(:background_color) }
-
-    it { should allow_value('#eb0').for(:background_color) }
-
-    it { should allow_value(nil).for(:background_color) }
-
-    it { should_not allow_value('123456').for(:background_color) }
-
-    it { should_not allow_value('#afafah').for(:background_color) }
-
-    it { should_not allow_value('#123abce').for(:background_color) }
-
-    it { should_not allow_value('aFaE3f').for(:background_color) }
-
-    it { should_not allow_value('F00').for(:background_color) }
-
-    it { should_not allow_value('#afaf').for(:background_color) }
-
-    it { should_not allow_value('#afaf').for(:background_color) }
-
-    it { should_not allow_value('#F0h').for(:background_color) }
-
-    it { should_not allow_value('').for(:background_color) }
-
-    it { should_not allow_value(0).for(:background_color) }
-
-    it { should_not allow_value('#1f1f1F1f1f1F').for(:background_color) }
-
-    it { should allow_value('#1f1f1F').for(:foreground_color) }
-
-    it { should allow_value('#AFAFAF').for(:foreground_color) }
-
-    it { should allow_value('#222fff').for(:foreground_color) }
-
-    it { should allow_value('#F00').for(:foreground_color) }
-
-    it { should allow_value('#1AFFa1').for(:foreground_color) }
-
-    it { should allow_value('#000000').for(:foreground_color) }
-
-    it { should allow_value('#ea00FF').for(:foreground_color) }
-
-    it { should allow_value('#eb0').for(:foreground_color) }
-
-    it { should allow_value(nil).for(:foreground_color) }
-
-    it { should_not allow_value('123456').for(:foreground_color) }
-
-    it { should_not allow_value('#afafah').for(:foreground_color) }
-
-    it { should_not allow_value('#123abce').for(:foreground_color) }
-
-    it { should_not allow_value('aFaE3f').for(:foreground_color) }
-
-    it { should_not allow_value('F00').for(:foreground_color) }
-
-    it { should_not allow_value('#afaf').for(:foreground_color) }
-
-    it { should_not allow_value('#afaf').for(:foreground_color) }
-
-    it { should_not allow_value('#F0h').for(:foreground_color) }
-
-    it { should_not allow_value('').for(:foreground_color) }
-
-    it { should_not allow_value(0).for(:foreground_color) }
-
-    it { should_not allow_value('#1f1f1F1f1f1F').for(:foreground_color) }
-
     it { should validate_presence_of(:message) }
 
     it { should validate_presence_of(:start_at) }
 
     it { should validate_presence_of(:end_at) }
+
+    it_should_behave_like 'color validatable', :background_color
+
+    it_should_behave_like 'color validatable', :foreground_color
   end
 
   describe '.current', :use_clean_rails_memory_store_caching do

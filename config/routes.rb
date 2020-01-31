@@ -95,6 +95,9 @@ Rails.application.routes.draw do
       # (see InvitesController)
       resources :invites, only: %i[index show update], param: :token
 
+      # (see LabelsController)
+      resources :labels, except: %i[new edit]
+
       # (see PasswordsController)
       resource :password, only: :update
 

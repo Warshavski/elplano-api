@@ -10,12 +10,14 @@ RSpec.describe EventsFinder do
     create(:group, president: president, students: [president, member])
   end
 
+  let_it_be(:labels) { create_list(:label, 2, group: group) }
+
   let_it_be(:personal_event) do
     create(:event, creator: president, eventable: member)
   end
 
   let_it_be(:group_event) do
-    create(:event, creator: president, eventable: president.group)
+    create(:event, creator: president, eventable: president.group, labels: labels)
   end
 
   describe '#execute' do
@@ -134,6 +136,12 @@ RSpec.describe EventsFinder do
         let_it_be(:params) { { type: 'group', scope: 'authored' } }
 
         it { is_expected.to eq([]) }
+      end
+
+      context 'when labels param is set' do
+        let_it_be(:params) { { labels: labels.map(&:id).join(',') } }
+
+        it { is_expected.to eq([group_event]) }
       end
     end
   end

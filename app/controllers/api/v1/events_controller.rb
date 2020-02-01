@@ -43,6 +43,10 @@ module Api
       #
       #                @example: ?type=personal
       #
+      #     - labels filter by labels attached to the event
+      #
+      #                 @example: ?labels=wat,so,label
+      #
       # Get list of student's events
       #
       def index
@@ -60,7 +64,7 @@ module Api
 
         event = scope.find(params[:id])
 
-        render_resource event, status: :ok
+        render_resource event, include: [:labels], status: :ok
       end
 
       # POST : api/v1/events
@@ -72,7 +76,7 @@ module Api
           authorize! e
         end
 
-        render_resource event, status: :created
+        render_resource event, include: [:labels], status: :created
       end
 
       # PATCH/PUT : api/v1/events/{:id]}
@@ -84,7 +88,7 @@ module Api
           e.update!(event_params)
         end
 
-        render_resource event, status: :ok
+        render_resource event, include: [:labels], status: :ok
       end
 
       # DELETE : api/v1/events/{:id}
@@ -104,7 +108,7 @@ module Api
       end
 
       def filter_params
-        params.permit(:scope, :type)
+        params.permit(:scope, :type, :labels)
       end
 
       def find_and_perform!(id)
@@ -124,7 +128,7 @@ module Api
             :start_at, :end_at, :timezone,
             :background_color, :foreground_color,
             :course_id, :eventable_id, :eventable_type,
-            recurrence: []
+            recurrence: [], label_ids: []
           )
       end
     end

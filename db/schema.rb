@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_18_172358) do
+ActiveRecord::Schema.define(version: 2020_02_01_120849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -114,6 +114,28 @@ ActiveRecord::Schema.define(version: 2020_01_18_172358) do
     t.index ["invitation_token"], name: "index_invites_on_invitation_token", unique: true
     t.index ["recipient_id"], name: "index_invites_on_recipient_id"
     t.index ["sender_id"], name: "index_invites_on_sender_id"
+  end
+
+  create_table "label_links", id: false, force: :cascade do |t|
+    t.string "target_type", null: false
+    t.bigint "target_id", null: false
+    t.bigint "label_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["label_id"], name: "index_label_links_on_label_id"
+    t.index ["target_type", "target_id"], name: "index_label_links_on_target_type_and_target_id"
+  end
+
+  create_table "labels", force: :cascade do |t|
+    t.bigint "group_id", null: false
+    t.string "title", limit: 255, null: false
+    t.string "color", limit: 7, null: false
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id", "title"], name: "index_labels_on_group_id_and_title", unique: true
+    t.index ["group_id"], name: "index_labels_on_group_id"
+    t.index ["title"], name: "index_labels_on_title"
   end
 
   create_table "lecturers", force: :cascade do |t|
@@ -259,6 +281,8 @@ ActiveRecord::Schema.define(version: 2020_01_18_172358) do
   add_foreign_key "invites", "groups"
   add_foreign_key "invites", "students", column: "recipient_id"
   add_foreign_key "invites", "students", column: "sender_id"
+  add_foreign_key "label_links", "labels"
+  add_foreign_key "labels", "groups"
   add_foreign_key "lecturers", "groups"
   add_foreign_key "lectures", "courses"
   add_foreign_key "lectures", "lecturers"

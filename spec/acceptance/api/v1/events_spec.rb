@@ -26,15 +26,17 @@ resource "User's events" do
      Also, includes references to the event creator, attached course, and for whom the event was created.
   DESC
 
-  let(:student) { create(:student, :group_member) }
-  let(:course)  { create(:course, group: student.group) }
+  let_it_be(:student) { create(:student, :group_member) }
+  let_it_be(:course)  { create(:course, group: student.group) }
+  let_it_be(:label)   { create(:label, group: student.group) }
 
-  let(:user) { student.user }
-  let(:token) { create(:token, resource_owner_id: user.id).token }
-  let(:authorization) { "Bearer #{token}" }
+  let_it_be(:user) { student.user }
+  let_it_be(:token) { create(:token, resource_owner_id: user.id).token }
+  let_it_be(:authorization) { "Bearer #{token}" }
 
-  let!(:event) { create(:event, creator: student, eventable: student) }
-  let(:id) { event.id }
+  let_it_be(:event) { create(:event, creator: student, eventable: student, labels: [label]) }
+
+  let_it_be(:id) { event.id }
 
   header 'Accept',        'application/vnd.api+json'
   header 'Content-Type',  'application/vnd.api+json'
@@ -60,6 +62,8 @@ resource "User's events" do
             - `group` - created for everyone in current student's group
             - `personal` - create only for current user(self event and personal events from group owner)
 
+         - `?labels=1,2,3` - Filter by labels attached to the event
+
         See model attributes description in the section description.
       DESC
 
@@ -77,12 +81,22 @@ resource "User's events" do
       explanation <<~DESC
         Returns a single instance of the event.
 
+        In addition includes labels attached to event
+
+        Label attributes :
+    
+          - `title` - Represents email that was used to register a label in the application(unique in application scope).
+          - `description` - Represents used's label name.
+          - `color` - `false` if regular label `true`, if the label has access to application settings.
+          - `text_color` - `false` if the label did not confirm his address otherwise `true`.
+          - `timestamps`
+
         See model attributes description in the section description.
       DESC
 
       do_request
 
-      expected_body = EventSerializer.new(event).serialized_json
+      expected_body = EventSerializer.new(event, include: [:labels]).serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -103,6 +117,7 @@ resource "User's events" do
       parameter :eventable_id, 'The entity identity to which the event is attached', required: true
       parameter :background_color, 'The background color (HEX)'
       parameter :foreground_color, "The foreground color that can be used to write on top of a background with 'background' color (HEX)"
+      parameter :label_ids, "Collection of the labels ids attached to event"
     end
 
     let(:raw_post) do
@@ -114,6 +129,16 @@ resource "User's events" do
     example 'CREATE : Creates new event' do
       explanation <<~DESC
         Creates and returns created event.
+
+        In addition includes labels attached to event
+
+        Label attributes :
+
+          - `title` - Represents email that was used to register a label in the application(unique in application scope).
+          - `description` - Represents used's label name.
+          - `color` - `false` if regular label `true`, if the label has access to application settings.
+          - `text_color` - `false` if the label did not confirm his address otherwise `true`.
+          - `timestamps`
 
         <b>NOTE</b> :
  
@@ -127,7 +152,7 @@ resource "User's events" do
       do_request
 
       expected_body = EventSerializer
-                        .new(student.created_events.last)
+                        .new(student.created_events.last, include: [:labels])
                         .serialized_json
 
       expect(status).to eq(201)
@@ -161,6 +186,16 @@ resource "User's events" do
       explanation <<~DESC
         Updates and returns updated event.
 
+        In addition includes labels attached to event
+
+        Label attributes :
+
+          - `title` - Represents email that was used to register a label in the application(unique in application scope).
+          - `description` - Represents used's label name.
+          - `color` - `false` if regular label `true`, if the label has access to application settings.
+          - `text_color` - `false` if the label did not confirm his address otherwise `true`.
+          - `timestamps`
+
         <b>NOTE</b> : 
 
           - update allowed only for events created by current authenticated student.
@@ -171,7 +206,7 @@ resource "User's events" do
 
       do_request
 
-      expected_body = EventSerializer.new(event.reload).serialized_json
+      expected_body = EventSerializer.new(event.reload, include: [:labels]).serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

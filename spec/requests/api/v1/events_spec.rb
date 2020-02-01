@@ -19,6 +19,10 @@ RSpec.describe Api::V1::EventsController, type: :request do
   let(:request_params) { { event: event_params } }
   let(:invalid_request_params) { { event: build(:invalid_event_params) } }
 
+  let_it_be(:labels) { create_list(:label, 2, group: student.group) }
+
+  let_it_be(:label_ids) { labels.map(&:id) }
+
   describe 'GET #index' do
     subject { get base_endpoint, headers: headers }
 
@@ -30,6 +34,10 @@ RSpec.describe Api::V1::EventsController, type: :request do
       create_list(:event, 2, creator: president, eventable: student)
     end
 
+    let_it_be(:labeled_event) do
+      create(:event, creator: president, eventable: student, labels: labels)
+    end
+
     context 'N+1' do
       bulletify { subject }
     end
@@ -39,7 +47,7 @@ RSpec.describe Api::V1::EventsController, type: :request do
 
       it { expect(response).to have_http_status(:ok) }
 
-      it { expect(json_data.count).to be(3) }
+      it { expect(json_data.count).to be(4) }
     end
 
     context 'when type filter param is provided' do
@@ -61,6 +69,18 @@ RSpec.describe Api::V1::EventsController, type: :request do
 
       it { expect(json_data.count).to be(1) }
     end
+
+    context 'when scope filter param is provided' do
+      subject { get "#{base_endpoint}?labels=#{labels.map(&:id).join(',')}", headers: headers }
+
+      before(:each) { subject }
+
+      it 'is expected to respond with events filtered by label' do
+        expect(response).to have_http_status(:ok)
+        expect(json_data.count).to be(1)
+        expect(json_data.first['id']).to eq(labeled_event.id.to_s)
+      end
+    end
   end
 
   describe 'GET #show' do
@@ -73,10 +93,10 @@ RSpec.describe Api::V1::EventsController, type: :request do
     it { expect(json_data['type']).to eq('event') }
 
     include_examples 'json:api examples',
-                     %w[data],
+                     %w[data included],
                      %w[id type attributes relationships],
                      %w[title description background_color foreground_color status start_at end_at timezone recurrence created_at updated_at],
-                     %w[creator course eventable]
+                     %w[creator course eventable labels]
 
     it 'returns correct expected data' do
       actual_title = json_data.dig(:attributes, :title)
@@ -97,22 +117,21 @@ RSpec.describe Api::V1::EventsController, type: :request do
 
     before(:each) { subject }
 
-    it { expect(response).to have_http_status(:created) }
+    it 'is expected to respond with created event' do
+      expect(response).to have_http_status(:created)
+      expect(json_data['type']).to eq('event')
 
-    it { expect(json_data['type']).to eq('event') }
-
-    include_examples 'json:api examples',
-                     %w[data],
-                     %w[id type attributes relationships],
-                     %w[title description background_color foreground_color status start_at end_at timezone recurrence created_at updated_at],
-                     %w[creator course eventable]
-
-    it 'returns created model' do
       actual_title = json_data.dig(:attributes, :title)
       expected_title = event_params[:title]
 
       expect(actual_title).to eq(expected_title)
     end
+
+    include_examples 'json:api examples',
+                     %w[data included],
+                     %w[id type attributes relationships],
+                     %w[title description background_color foreground_color status start_at end_at timezone recurrence created_at updated_at],
+                     %w[creator course eventable labels]
 
     include_examples 'request errors examples'
 
@@ -124,9 +143,24 @@ RSpec.describe Api::V1::EventsController, type: :request do
       end
 
       it 'returns created model with bound course' do
+        expect(response).to have_http_status(:created)
+
         actual_course_id = relationship_data(:course)[:id].to_i
 
         expect(actual_course_id).to eq(course.id)
+      end
+    end
+
+    context 'when the event is created with reference to the labels' do
+      let(:event_params) do
+        build(:event_params).merge(label_ids: label_ids, eventable_id: student.id)
+      end
+
+      it 'returns created model with attached labels' do
+        expect(response).to have_http_status(:created)
+
+        actual_label_ids = relationship_data(:labels).map { |r| r[:id].to_i }
+        expect(actual_label_ids).to eq(label_ids)
       end
     end
   end
@@ -136,11 +170,10 @@ RSpec.describe Api::V1::EventsController, type: :request do
 
     before(:each) { subject }
 
-    it { expect(response).to have_http_status(:ok) }
+    it 'is expected to update event and respond with updated event' do
+      expect(response).to have_http_status(:ok)
+      expect(json_data['type']).to eq('event')
 
-    it { expect(json_data['type']).to eq('event') }
-
-    it 'updates a event model' do
       actual_title = event.reload.title
       expected_title = event_params[:title]
 
@@ -148,10 +181,10 @@ RSpec.describe Api::V1::EventsController, type: :request do
     end
 
     include_examples 'json:api examples',
-                     %w[data],
+                     %w[data included],
                      %w[id type attributes relationships],
                      %w[title description background_color foreground_color status start_at end_at timezone recurrence created_at updated_at],
-                     %w[creator course eventable]
+                     %w[creator course eventable labels]
 
     include_examples 'request errors examples'
 
@@ -166,6 +199,19 @@ RSpec.describe Api::V1::EventsController, type: :request do
         actual_course_id = relationship_data(:course)[:id].to_i
 
         expect(actual_course_id).to eq(course.id)
+      end
+    end
+
+    context 'when the event is updated with reference to the labels' do
+      let(:event_params) do
+        build(:event_params).merge(label_ids: label_ids, eventable_id: student.id)
+      end
+
+      it 'returns created model with attached labels' do
+        expect(response).to have_http_status(:ok)
+
+        actual_label_ids = relationship_data(:labels).map { |r| r[:id].to_i }
+        expect(actual_label_ids).to eq(label_ids)
       end
     end
 

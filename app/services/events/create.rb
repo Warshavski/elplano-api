@@ -58,13 +58,16 @@ module Events
     # @option params [Array<String>] :recurrence -
     #   Recurrence rules if an event is recurrent
     #
+    # @option params [Array<Integer>] :label_ids -
+    #   Collection of the labels ids
+    #
     # @yield - Additional logic such as authorization
     #
     # @raise [ActiveRecord::RecordInvalid]
     # @return [Event, Array<Event>]
     #
     def execute(author, params)
-      event = build_event(author, params)
+      event = build_event(author, params.dup)
 
       yield(event) if event.valid? && block_given?
 

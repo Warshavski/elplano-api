@@ -36,6 +36,7 @@ ru:
       user: 'Пользователь'
       bug_report: 'Сообщение об ошибке'
       announcement: 'Объявление'
+      label: 'Метка'
     attributes:
       event:
         start_at: 'Начало'
@@ -86,6 +87,10 @@ ru:
         end_at: 'Заканчивается в'
         foreground_color: 'Цвет переднего плана'
         background_color: 'Фоновый цвет'
+      label:
+        title: 'Титул'
+        color: 'Цвет'
+        description: 'Описание'
   date:
     abbr_day_names:
       - Вс

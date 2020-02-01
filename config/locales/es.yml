@@ -36,6 +36,7 @@ es:
       user: 'Usuario'
       bug_report: 'Informe de error'
       announcement: 'Anuncio'
+      label: 'Etiqueta'
     attributes:
       event:
         start_at: 'Empieza en'
@@ -86,6 +87,10 @@ es:
         end_at: 'Termina en'
         foreground_color: 'Color de primer plano'
         background_color: 'Color de fondo'
+      label:
+        title: 'Titulo'
+        color: 'Color'
+        description: 'Descripción'
   date:
     abbr_day_names:
       - dom

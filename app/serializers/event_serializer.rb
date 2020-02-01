@@ -20,4 +20,6 @@ class EventSerializer
   belongs_to :course, serializer: CourseSerializer
 
   belongs_to :eventable, polymorphic: true
+
+  has_many :labels, serializer: LabelSerializer
 end

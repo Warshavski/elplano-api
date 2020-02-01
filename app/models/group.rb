@@ -19,6 +19,8 @@ class Group < ApplicationRecord
 
   has_many :events, as: :eventable, dependent: :destroy
 
+  has_many :labels, dependent: :destroy
+
   validates :number, presence: true, length: { maximum: 25 }
   validates :title, length: { maximum: 200 }
 end

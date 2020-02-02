@@ -97,9 +97,7 @@ class Event < ApplicationRecord
   validates :creator, :timezone, presence: true
   validates :title, presence: true, length: { in: 3..250 }
 
-  validates :start_at,
-            presence: true,
-            timeliness: { on_or_after: -> { Time.current } }
+  validates :start_at, presence: true
 
   validates :end_at,
             allow_nil: true,

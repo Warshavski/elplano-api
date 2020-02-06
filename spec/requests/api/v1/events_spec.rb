@@ -24,7 +24,7 @@ RSpec.describe Api::V1::EventsController, type: :request do
   let_it_be(:label_ids) { labels.map(&:id) }
 
   describe 'GET #index' do
-    subject { get base_endpoint, headers: headers }
+    subject { get base_endpoint, headers: headers, params: params }
 
     let_it_be(:president) do
       create(:student, :group_supervisor, group: student.group)
@@ -39,46 +39,61 @@ RSpec.describe Api::V1::EventsController, type: :request do
     end
 
     context 'N+1' do
+      let(:params) { {} }
+
       bulletify { subject }
     end
 
-    context 'when no filter params are provided' do
+    context 'collection filtering' do
       before(:each) { subject }
 
-      it { expect(response).to have_http_status(:ok) }
+      context 'when no filter params are provided' do
+        let(:params) { {} }
 
-      it { expect(json_data.count).to be(4) }
-    end
+        it 'is expected to respond with all events' do
+          expect(response).to have_http_status(:ok)
+          expect(json_data.count).to be(4)
+        end
+      end
 
-    context 'when type filter param is provided' do
-      subject { get "#{base_endpoint}?type=group", headers: headers }
+      context 'when type filter param is provided' do
+        let(:params) do
+          {
+            filters: { type: 'group' }.to_json
+          }
+        end
 
-      before(:each) { subject }
+        it 'is expected to respond with events filtered by type' do
+          expect(response).to have_http_status(:ok)
+          expect(json_data.count).to be(0)
+        end
+      end
 
-      it { expect(response).to have_http_status(:ok) }
+      context 'when scope filter param is provided' do
+        let(:params) do
+          {
+            filters: { scope: 'authored' }.to_json
+          }
+        end
 
-      it { expect(json_data.count).to be(0) }
-    end
+        it 'is expected to respond with events filtered by scope' do
+          expect(response).to have_http_status(:ok)
+          expect(json_data.count).to be(1)
+        end
+      end
 
-    context 'when scope filter param is provided' do
-      subject { get "#{base_endpoint}?scope=authored", headers: headers }
+      context 'when scope filter param is provided' do
+        let(:params) do
+          {
+            filters: { labels: labels.map(&:id).join(',') }.to_json
+          }
+        end
 
-      before(:each) { subject }
-
-      it { expect(response).to have_http_status(:ok) }
-
-      it { expect(json_data.count).to be(1) }
-    end
-
-    context 'when scope filter param is provided' do
-      subject { get "#{base_endpoint}?labels=#{labels.map(&:id).join(',')}", headers: headers }
-
-      before(:each) { subject }
-
-      it 'is expected to respond with events filtered by label' do
-        expect(response).to have_http_status(:ok)
-        expect(json_data.count).to be(1)
-        expect(json_data.first['id']).to eq(labeled_event.id.to_s)
+        it 'is expected to respond with events filtered by label' do
+          expect(response).to have_http_status(:ok)
+          expect(json_data.count).to be(1)
+          expect(json_data.first['id']).to eq(labeled_event.id.to_s)
+        end
       end
     end
   end

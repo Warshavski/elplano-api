@@ -108,7 +108,7 @@ module Api
       end
 
       def filter_params
-        params.permit(:scope, :type, :labels)
+        super(::Events::IndexContract)
       end
 
       def find_and_perform!(id)

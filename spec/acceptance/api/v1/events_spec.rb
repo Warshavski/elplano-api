@@ -47,22 +47,36 @@ resource "User's events" do
       explanation <<~DESC
         Returns a list of the available events.
 
+        <b>Optional query params:</b>
+
+          - `"scope": "authored"` - Filter by event scope:
+            - `authored` - created by current authenticated student
+            - `appointed` - created for current authenticated student
+
+          - `"type": "personal"` - Filter by event type(eventable type):
+            - `group` - created for everyone in current student's group
+            - `personal` - create only for current user(self event and personal events from group owner)
+
+           - `"labels": "wat,so,hey"` - Filter by labels attached to the event
+
+        Example: 
+
+        <pre>
+        {
+          "filters": {
+            "scope": "authored",
+            "type": "group",
+            "labels": "so,wat"
+          }
+        }
+        </pre>
+
+        For more details see "Filters" and "Pagination" sections in the README section. 
+
         <b>NOTE<b>:
 
         - by default, this endpoint returns all appointed events(personal + group)
         - be default, this endpoint returns sorts events by recently created
-
-        <b>Optional query params:</b>
-
-          - `?scope=authored` - Filter by event scope:
-            - `authored` - created by current authenticated student
-            - `appointed` - created for current authenticated student
-
-          - `?type=personal` - Filter by event type(eventable type):
-            - `group` - created for everyone in current student's group
-            - `personal` - create only for current user(self event and personal events from group owner)
-
-         - `?labels=1,2,3` - Filter by labels attached to the event
 
         See model attributes description in the section description.
       DESC

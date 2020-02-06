@@ -36,9 +36,7 @@ class Label < ApplicationRecord
     # @return [ActiveRecord::Relation]
     #
     def search(query)
-      return none if query.blank?
-
-      fuzzy_search(query.downcase, %i[title description])
+      fuzzy_search(query, %i[title description])
     end
   end
 

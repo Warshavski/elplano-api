@@ -142,14 +142,7 @@ class User < ApplicationRecord
     # @return [ActiveRecord::Relation]
     #
     def search(query)
-      return none if query.blank?
-
-      query = query.downcase
-
-      where(
-        fuzzy_arel_match(:username, query, lower_exact_match: true)
-          .or(fuzzy_arel_match(:email, query, lower_exact_match: true))
-      )
+      fuzzy_search(query, %i[username email])
     end
   end
 

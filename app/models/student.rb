@@ -60,15 +60,7 @@ class Student < ApplicationRecord
     # @return [ActiveRecord::Relation]
     #
     def search(query)
-      return none if query.blank?
-
-      term = query.downcase
-
-      where(
-        fuzzy_arel_match(:full_name, term, lower_exact_match: true)
-          .or(fuzzy_arel_match(:email, term, lower_exact_match: true)
-                .or(fuzzy_arel_match(:phone, term, lower_exact_match: true)))
-      )
+      fuzzy_search(query, %i[full_name email phone])
     end
   end
 

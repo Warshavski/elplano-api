@@ -21,29 +21,29 @@ El Plano is a self hosted class schedule management REST API server built with R
 
 #### Installation
 
-**Clone the repo.**
+Clone the repo.
 ```bash
 git clone https://github.com/warshavski/elplano-api.git
 ```
 
-**Move into the project directory and install the requirements.**
+Move into the project directory and install the requirements.
 ```bash
 cd elplano-api && bundle install
 ```
 
-**Create and configure .env file.**
+Create and configure .env file.
 ```bash
 mv .env.example .env
 ```
 
-**Set up the database.**
+Set up the database.
 ```bash
 rake db:create 
 rake db:migrate 
 rake db:seed
 ```
 
-**Start the application development server**
+Start the application development server.
 ```bash
 rails s
 ```
@@ -51,36 +51,36 @@ rails s
 #### Docker
 Install [docker-compose](https://docs.docker.com/compose/).
 
-**Create and configure .env file.**
+Create and configure .env file.
 ```bash
 mv .env.example .env
 ```
 
-**Move into the project directory and start app via docker-compose.**
+Move into the project directory and start app via docker-compose.
 ```bash
 cd elplano-api && docker-compose up -d
 ```
 
 #### Running tests
 
-**Running all tests.**
+Running all tests.
 ```bash
 bundle exec rspec
 ```
 
-**Running a specific test file.**
+Running a specific test file.
 ```bash
 bundle exec rspec ./spec/path/to/file
 ```
 
 #### Documentation
 
-**Generate/Update API documentation.**
+Generate/Update API documentation.
 ```bash
 bundle exec rspec spec/acceptance --format RspecApiDocumentation::ApiFormatter
 ```
 
-**See API documentation.**
+See API documentation.
 ```bash
-[api host]/documentation
+/documentation
 ```

@@ -12,7 +12,7 @@ module Handlers
       # Return 500 - Internal Server Error
       #
       rescue_from StandardError do |e|
-        handle_error(e, :internal_server_error) do
+        handle_error(e, :internal_server_error, send_report: true) do
           [{ status: 500, detail: '(ノಠ益ಠ)ノ彡┻━┻', source: { pointer: 'server' } }]
         end
       end
@@ -52,8 +52,8 @@ module Handlers
 
     private
 
-    def handle_error(error, status)
-      log_exception(error)
+    def handle_error(error, status, send_report: false)
+      log_exception(error, send_report: send_report)
 
       render_error(yield, status)
     end
@@ -62,7 +62,7 @@ module Handlers
       render json: { errors: representation }, status: status
     end
 
-    def log_exception(exception)
+    def log_exception(exception, send_report: false)
       application_trace = ActionDispatch::ExceptionWrapper
                           .new(ActiveSupport::BacktraceCleaner.new, exception)
                           .application_trace
@@ -70,6 +70,8 @@ module Handlers
       application_trace.map! { |t| "  #{t}\n" }
 
       logger.error "\n#{exception.class.name} (#{exception.message}):\n#{application_trace.join}"
+
+      Rollbar.error(exception) if send_report
     end
   end
 end

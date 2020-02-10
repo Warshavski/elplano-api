@@ -23,7 +23,15 @@ resource "User's events" do
      - `foreground_color` - Represents the foreground color that can be used to write on top of a background with 'background' color.
      - `timestamps`
   
-     Also, includes references to the event creator, attached course, and for whom the event was created.
+    Label attributes :
+
+      - `title` - Represents label title (unique in student's group scope).
+      - `description` - Represents label detailed description.
+      - `color` - Represents label's background color.
+      - `text_color` - Represents label's text color(Generates automatically and based on background color).
+      - `timestamps`
+
+     Also, includes references to the event creator, attached course, labels and for whom the event was created.
   DESC
 
   let_it_be(:student) { create(:student, :group_member) }
@@ -83,7 +91,8 @@ resource "User's events" do
 
       do_request
 
-      expected_body = EventSerializer.new([event]).serialized_json
+      options = { include: [:labels] }
+      expected_body = EventSerializer.new([event], options).serialized_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -99,10 +108,10 @@ resource "User's events" do
 
         Label attributes :
     
-          - `title` - Represents email that was used to register a label in the application(unique in application scope).
-          - `description` - Represents used's label name.
-          - `color` - `false` if regular label `true`, if the label has access to application settings.
-          - `text_color` - `false` if the label did not confirm his address otherwise `true`.
+          - `title` - Represents label title (unique in student's group scope).
+          - `description` - Represents label detailed description.
+          - `color` - Represents label's background color.
+          - `text_color` - Represents label's text color(Generates automatically and based on background color).
           - `timestamps`
 
         See model attributes description in the section description.
@@ -147,12 +156,13 @@ resource "User's events" do
         In addition includes labels attached to event
 
         Label attributes :
-
-          - `title` - Represents email that was used to register a label in the application(unique in application scope).
-          - `description` - Represents used's label name.
-          - `color` - `false` if regular label `true`, if the label has access to application settings.
-          - `text_color` - `false` if the label did not confirm his address otherwise `true`.
+    
+          - `title` - Represents label title (unique in student's group scope).
+          - `description` - Represents label detailed description.
+          - `color` - Represents label's background color.
+          - `text_color` - Represents label's text color(Generates automatically and based on background color).
           - `timestamps`
+
 
         <b>NOTE</b> :
  
@@ -203,11 +213,11 @@ resource "User's events" do
         In addition includes labels attached to event
 
         Label attributes :
-
-          - `title` - Represents email that was used to register a label in the application(unique in application scope).
-          - `description` - Represents used's label name.
-          - `color` - `false` if regular label `true`, if the label has access to application settings.
-          - `text_color` - `false` if the label did not confirm his address otherwise `true`.
+    
+          - `title` - Represents label title (unique in student's group scope).
+          - `description` - Represents label detailed description.
+          - `color` - Represents label's background color.
+          - `text_color` - Represents label's text color(Generates automatically and based on background color).
           - `timestamps`
 
         <b>NOTE</b> : 

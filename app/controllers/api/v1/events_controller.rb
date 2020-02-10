@@ -50,9 +50,9 @@ module Api
       # Get list of student's events
       #
       def index
-        events = filter_events(filter_params).preload(:eventable)
+        events = filter_events(filter_params).preload(:eventable, :labels)
 
-        render_collection events, status: :ok
+        render_collection events, include: [:labels], status: :ok
       end
 
       # GET : api/v1/events/{:id}

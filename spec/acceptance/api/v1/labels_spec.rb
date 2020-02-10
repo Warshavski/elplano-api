@@ -8,11 +8,12 @@ resource 'Labels' do
     
     Label attributes :
 
-      - `title` - Represents email that was used to register a label in the application(unique in application scope).
-      - `description` - Represents used's label name.
-      - `color` - `false` if regular label `true`, if the label has access to application settings.
-      - `text_color` - `false` if the label did not confirm his address otherwise `true`.
+      - `title` - Represents label title (unique in student's group scope).
+      - `description` - Represents label detailed description.
+      - `color` - Represents label's background color.
+      - `text_color` - Represents label's text color(Generates automatically and based on background color).
       - `timestamps`
+
   DESC
 
   let_it_be(:student)  { create(:student, :group_supervisor) }

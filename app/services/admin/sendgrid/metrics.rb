@@ -16,6 +16,10 @@ module Admin
     # @see https://sendgrid.com/docs/api-reference/
     #
     class Metrics
+      include Cacheable
+
+      cache_options key: 'emails_metrics', expires_in: 5.minutes
+
       # @see #execute
       def self.call
         new.execute

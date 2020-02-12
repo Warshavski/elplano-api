@@ -7,9 +7,13 @@ module Admin
     #   Used to prepare application statistics data
     #
     class Compose
+      include Cacheable
+
       MODELS = [User, Group].freeze
 
       private_constant :MODELS
+
+      cache_options key: 'statistics_counters', expires_in: 15.minutes
 
       # @see #execute
       def self.call

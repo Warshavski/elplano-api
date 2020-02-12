@@ -95,7 +95,7 @@ resource 'Admin emails - metrics' do
   end
 
   before do
-    allow(::Admin::Sendgrid::Metrics).to receive(:call).and_return(expected_metrics)
+    allow(::Admin::Sendgrid::Metrics).to receive(:cached_call).and_return(expected_metrics)
   end
 
   get 'api/v1/admin/emails/metrics' do

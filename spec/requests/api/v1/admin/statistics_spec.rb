@@ -23,7 +23,7 @@ RSpec.describe Api::V1::Admin::StatisticsController, type: :request do
   end
 
   before do
-    allow(Admin::Statistics::Compose).to receive(:call).and_return(stats)
+    allow(Admin::Statistics::Compose).to receive(:cached_call).and_return(stats)
   end
 
   describe 'GET #show' do

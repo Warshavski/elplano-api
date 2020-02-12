@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.shared_examples 'request errors examples' do
   context 'responds with a 400 status on request with empty params' do
     let(:request_params) { nil }

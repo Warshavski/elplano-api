@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.shared_examples 'oauth login provider' do
   context 'user registration' do
     it 'is expected to create a new user' do

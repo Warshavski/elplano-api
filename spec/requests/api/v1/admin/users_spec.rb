@@ -56,8 +56,6 @@ RSpec.describe Api::V1::Admin::UsersController, type: :request do
 
       it { expect(json_data.map { |e| e[:id].to_i }).to eq([random_user.id]) }
     end
-
-    include_examples 'admin examples'
   end
 
   describe 'GET #show' do
@@ -82,8 +80,6 @@ RSpec.describe Api::V1::Admin::UsersController, type: :request do
 
       it { expect(response).to have_http_status(:not_found) }
     end
-
-    include_examples 'admin examples'
   end
 
   describe 'PATCH #update' do
@@ -112,8 +108,6 @@ RSpec.describe Api::V1::Admin::UsersController, type: :request do
 
       it { expect(response).to have_http_status(:not_found) }
     end
-
-    include_examples 'admin examples'
   end
 
   describe 'DELETE #destroy' do
@@ -134,7 +128,5 @@ RSpec.describe Api::V1::Admin::UsersController, type: :request do
     it 'deletes user' do
       expect { delete resource_endpoint, headers: headers }.to change(User, :count).by(-1)
     end
-
-    include_examples 'admin examples'
   end
 end

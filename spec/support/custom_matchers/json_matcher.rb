@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# frozen_string_literal: true.
-
 # Helper methods for the JSON data specs
 #
 RSpec::Matchers.define :look_like_json do |_expected|

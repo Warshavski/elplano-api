@@ -4,21 +4,22 @@ require 'simplecov'
 SimpleCov.start do
   add_filter 'spec/factories'
 
-  add_filter 'spec/support/helpers/stub_env.rb'
-  add_filter 'spec/support/redis/redis_helpers.rb'
-  add_filter 'spec/support/bullet_context.rb'
+  add_filter 'spec/support/helpers/redis_helpers.rb'
+  add_filter 'spec/support/shared_contexts/bullet_context.rb'
 
   add_filter 'config/initializers/doorkeeper.rb'
   add_filter 'config/initializers/sidekiq.rb'
   add_filter 'config/initializers/shrine.rb'
   add_filter 'config/initializers/rack_attack.rb'
   add_filter 'config/initializers/rack_attack_logging.rb'
+  add_filter 'config/initializers/rack_attack_response.rb'
 end
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'database_cleaner'
 require 'spec_helper'
-require 'support/restify_helper'
+require 'support/helpers/restify_helpers'
+require 'support/helpers/redis_helpers'
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
@@ -73,7 +74,8 @@ Dir[Rails.root.join('spec/support/helpers/*.rb')].each(&method(:require))
 RSpec.configure do |config|
   config.include ActiveJob::TestHelper
 
-  config.include RestifyHelper
+  config.include RestifyHelpers
+  config.include RedisHelpers
 
   config.include FactoryBot::Syntax::Methods
   config.include Devise::Test::ControllerHelpers, type: :controller
@@ -140,7 +142,7 @@ RSpec.configure do |config|
     Rails.cache = caching_store
   end
 
-  config.around(:each, :clean_booky_redis_cache) do |example|
+  config.around(:each, :clean_elplano_redis_cache) do |example|
     redis_cache_cleanup!
 
     example.run

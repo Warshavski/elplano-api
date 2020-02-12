@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.shared_examples 'color validatable' do |attribute, default_value: false|
   it { should allow_value('#1f1f1F').for(attribute) }
 

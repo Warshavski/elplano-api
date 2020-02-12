@@ -15,19 +15,7 @@ module Api
         # Get application statistics data
         #
         def show
-          render_meta fetch_statistics
-        end
-
-        private
-
-        # TODO : create common caching logic
-        def fetch_statistics
-          cache_key         = 'statistics_counters'
-          cache_expiration  = 15.minutes
-
-          Rails.cache.fetch(cache_key, expires_in: cache_expiration) do
-            ::Admin::Statistics::Compose.call
-          end
+          render_meta ::Admin::Statistics::Compose.cached_call
         end
       end
     end

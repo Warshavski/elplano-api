@@ -56,7 +56,7 @@ resource 'Admin statistics' do
   end
 
   before do
-    allow(::Admin::Statistics::Compose).to receive(:call).and_return(expected_stats)
+    allow(::Admin::Statistics::Compose).to receive(:cached_call).and_return(expected_stats)
   end
 
   get 'api/v1/admin/statistics' do

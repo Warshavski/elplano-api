@@ -34,7 +34,7 @@ RSpec.describe Api::V1::Admin::Emails::MetricsController, type: :request do
   end
 
   before do
-    allow(::Admin::Sendgrid::Metrics).to receive(:call).and_return(metrics)
+    allow(::Admin::Sendgrid::Metrics).to receive(:cached_call).and_return(metrics)
   end
 
   describe 'GET #show' do

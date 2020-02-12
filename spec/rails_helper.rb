@@ -30,6 +30,8 @@ require 'rspec/rails'
 require 'rspec-parameterized'
 # Add additional requires below this line. Rails is not loaded until this point!
 
+require 'sidekiq/testing'
+
 require 'test_prof/recipes/rspec/before_all'
 require 'test_prof/recipes/rspec/let_it_be'
 require 'test_prof/recipes/rspec/factory_all_stub'
@@ -64,6 +66,8 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+Sidekiq::Testing.fake!
 
 RSpec::Matchers.define_negated_matcher :not_change, :change
 RSpec::Matchers.define_negated_matcher :not_yield_control, :yield_control

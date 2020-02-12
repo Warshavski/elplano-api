@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.shared_context 'bullet', bullet: true do
   before(:each) do
     Bullet.enable = true

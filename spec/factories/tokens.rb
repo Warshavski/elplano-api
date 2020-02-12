@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'doorkeeper/orm/active_record/application'
 
 FactoryBot.define do

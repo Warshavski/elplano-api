@@ -1,3 +1,9 @@
+# frozen_string_literal: true
+
+# RedisHelpers
+#
+#   Provides spec helpers for redis(cleanup)
+#
 module RedisHelpers
   #
   # Usage: performance enhancement

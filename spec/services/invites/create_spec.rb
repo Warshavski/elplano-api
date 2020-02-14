@@ -60,7 +60,7 @@ RSpec.describe Invites::Create do
           }
         end
 
-        it { expect { subject }.to raise_error(ArgumentError) }
+        it { expect { subject }.to raise_error(Api::ArgumentMissing) }
       end
     end
   end

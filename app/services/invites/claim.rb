@@ -16,6 +16,7 @@ module Invites
     # @param [String] invitation_token -
     #   A unique token used to find and confirm the invitation
     #
+    # @raise [Api::ArgumentMissing, ActiveRecord::RecordNotFound]
     # @return [Invite]
     #
     def self.call(student, invitation_token)
@@ -36,6 +37,7 @@ module Invites
     # @param [String] invitation_token -
     #   A unique token used to find and confirm the invitation
     #
+    # @raise [Api::ArgumentMissing, ActiveRecord::RecordNotFound]
     # @return [Invite]
     #
     def execute(invitation_token)
@@ -49,7 +51,7 @@ module Invites
     private
 
     def check_args!(*args)
-      args.each { |a| raise ArgumentError, a if a.nil? }
+      args.each { |a| raise Api::ArgumentMissing, a if a.nil? }
     end
 
     def find_invite(token)

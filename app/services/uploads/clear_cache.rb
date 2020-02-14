@@ -34,7 +34,7 @@ module Uploads
     end
 
     def resolve_threshold
-      Time.now.utc - 1.day
+      Time.current - 1.day
     end
   end
 end

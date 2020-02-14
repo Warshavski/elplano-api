@@ -58,7 +58,7 @@ module Admin
       def resolve_scope(klass, period)
         return klass if period == :total
 
-        klass.where('created_at >= ?', resolve_start_point(period))
+        klass.where(klass.arel_table[:created_at].gteq(resolve_start_point(period)))
       end
 
       def resolve_start_point(period)

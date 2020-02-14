@@ -11,14 +11,19 @@ module Cacheable
     class << self
       def cache_options(options)
         @cache_key          = options[:key]
-        @expires_in         = options[:expires_in]
-        @race_condition_ttl = options[:race_condition_ttl]
+        @expires_in         = options[:expires_in] || 5.minutes
+        @race_condition_ttl = options[:race_condition_ttl] || 5.seconds
       end
 
       # Execute command and cache it's results
       #
       def cached_call(*args)
-        cache_provider.fetch(cache_key, expires_in: expires_in) { call(*args) }
+        options = {
+          race_condition_ttl: race_condition_ttl,
+          expires_in: expires_in
+        }
+
+        cache_provider.fetch(cache_key, options) { call(*args) }
       end
 
       # Clear cache

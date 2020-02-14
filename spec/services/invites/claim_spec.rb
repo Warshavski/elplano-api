@@ -36,7 +36,7 @@ RSpec.describe Invites::Claim do
       context 'nil token' do
         let(:token) { nil }
 
-        it { expect { subject }.to raise_error(ArgumentError) }
+        it { expect { subject }.to raise_error(Api::ArgumentMissing) }
       end
 
       context 'not existed token' do
@@ -54,7 +54,7 @@ RSpec.describe Invites::Claim do
       context 'nil student' do
         let(:student) { nil }
 
-        it { expect { subject }.to raise_error(ArgumentError) }
+        it { expect { subject }.to raise_error(Api::ArgumentMissing) }
       end
 
       context 'student not from invite' do

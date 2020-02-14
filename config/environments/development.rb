@@ -46,4 +46,6 @@ Rails.application.configure do
     Bullet.bullet_logger = true
     Bullet.rails_logger = true
   end
+
+  ::Elplano::Loggers::AppLogger.file_name_noext = 'application.development'
 end

@@ -55,7 +55,7 @@ module Api
           end
 
           def filter_reports(filters = {})
-            AbuseReportsFinder.new(filters).execute
+            AbuseReportsFinder.call(filters)
           end
 
           def filter_params

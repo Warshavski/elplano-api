@@ -8,7 +8,7 @@
 #
 #   params: optional search, filter and sort parameters
 #
-class StudentsFinder
+class StudentsFinder < Finder
   attr_reader :params, :current_group
 
   # @param params [Hash] - (optional, default: {}) filter and sort parameters

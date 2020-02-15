@@ -8,10 +8,13 @@
 #
 #   params: optional search, filter and sort parameters
 #
-class BugReportsFinder
-  include Paginatable
-
+class BugReportsFinder < Finder
   attr_reader :params
+
+  # @see #execute
+  def self.call(params = {})
+    new(params).execute
+  end
 
   # @param params [Hash] - (optional, default: {}) filter and sort parameters
   #

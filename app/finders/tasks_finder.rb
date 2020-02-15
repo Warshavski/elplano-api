@@ -15,8 +15,7 @@
 #   - by default returns tasks by chunks(15)
 #   - by default returns authored tasks(tasks created by current student)
 #
-class TasksFinder
-  include Paginatable
+class TasksFinder < Finder
 
   attr_reader :params, :current_student
 

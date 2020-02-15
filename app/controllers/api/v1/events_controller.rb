@@ -104,7 +104,7 @@ module Api
       private
 
       def filter_events(filters = {})
-        EventsFinder.new(current_student, filters).execute
+        EventsFinder.call(current_student, filters)
       end
 
       def filter_params

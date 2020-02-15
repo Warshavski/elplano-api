@@ -8,11 +8,8 @@
 #
 #   params: optional search, filter and sort parameters
 #
-class AbuseReportsFinder
-  include Paginatable
-
+class AbuseReportsFinder < Finder
   attr_reader :params
-
 
   def initialize(params = {})
     @params = params

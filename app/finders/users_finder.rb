@@ -8,9 +8,7 @@
 #
 #   params: optional search, filter and sort parameters
 #
-class UsersFinder
-  include Paginatable
-
+class UsersFinder < Finder
   attr_reader :params
 
   # @param params [Hash] - (optional, default: {}) filter and sort parameters

@@ -3,7 +3,10 @@
 #   Used to initialize uploader with proper storage
 #
 class UploaderFactory
-  UPLOADERS = HashWithIndifferentAccess.new(avatar: AvatarUploader).freeze
+  UPLOADERS = HashWithIndifferentAccess.new(
+    avatar: AvatarUploader,
+    attachment: AttachmentUploader
+  ).freeze
 
   class << self
     # Create new uploader instance

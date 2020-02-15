@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_01_120849) do
+ActiveRecord::Schema.define(version: 2020_02_03_171507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,31 @@ ActiveRecord::Schema.define(version: 2020_02_01_120849) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["start_at", "end_at"], name: "index_announcements_on_start_at_and_end_at"
+  end
+
+  create_table "assignments", force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "task_id", null: false
+    t.boolean "accomplished", default: false, null: false
+    t.text "report"
+    t.jsonb "extra_links"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id", "task_id"], name: "index_assignments_on_student_id_and_task_id", unique: true
+    t.index ["student_id"], name: "index_assignments_on_student_id"
+    t.index ["task_id"], name: "index_assignments_on_task_id"
+  end
+
+  create_table "attachments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "attachable_type", null: false
+    t.bigint "attachable_id", null: false
+    t.jsonb "attachment_data", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attachable_id", "attachable_type"], name: "index_attachments_on_attachable_id_and_attachable_type"
+    t.index ["attachable_type", "attachable_id"], name: "index_attachments_on_attachable_type_and_attachable_id"
+    t.index ["user_id"], name: "index_attachments_on_user_id"
   end
 
   create_table "bug_reports", force: :cascade do |t|
@@ -231,6 +256,22 @@ ActiveRecord::Schema.define(version: 2020_02_01_120849) do
     t.index ["user_id"], name: "index_students_on_user_id"
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.bigint "author_id", null: false
+    t.bigint "event_id", null: false
+    t.string "title", null: false
+    t.text "description"
+    t.jsonb "extra_links"
+    t.datetime "expired_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_tasks_on_author_id"
+    t.index ["created_at", "id"], name: "index_tasks_on_created_at_and_id"
+    t.index ["event_id"], name: "index_tasks_on_event_id"
+    t.index ["expired_at", "id"], name: "index_tasks_on_expired_at_and_id"
+    t.index ["updated_at", "id"], name: "index_tasks_on_updated_at_and_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.text "avatar_data"
@@ -272,6 +313,9 @@ ActiveRecord::Schema.define(version: 2020_02_01_120849) do
 
   add_foreign_key "abuse_reports", "users"
   add_foreign_key "abuse_reports", "users", column: "reporter_id"
+  add_foreign_key "assignments", "students"
+  add_foreign_key "assignments", "tasks"
+  add_foreign_key "attachments", "users"
   add_foreign_key "bug_reports", "users", column: "reporter_id"
   add_foreign_key "courses", "groups"
   add_foreign_key "events", "courses"
@@ -292,4 +336,6 @@ ActiveRecord::Schema.define(version: 2020_02_01_120849) do
   add_foreign_key "oauth_access_tokens", "users", column: "resource_owner_id"
   add_foreign_key "students", "groups"
   add_foreign_key "students", "users"
+  add_foreign_key "tasks", "events"
+  add_foreign_key "tasks", "students", column: "author_id"
 end

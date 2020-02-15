@@ -42,6 +42,18 @@ class Student < ApplicationRecord
 
   has_many :events, as: :eventable, dependent: :destroy
 
+  has_many :courses, through: :group
+
+  has_many :authored_tasks,
+           class_name: 'Task',
+           foreign_key: :author_id,
+           inverse_of: :author,
+           dependent: :destroy
+
+  has_many :assignments, dependent: :delete_all
+
+  has_many :appointed_tasks, through: :assignments, source: :task
+
   validates :full_name, length: { maximum: 200 }
   validates :email,     length: { maximum: 100 }
   validates :phone,     length: { maximum: 50 }

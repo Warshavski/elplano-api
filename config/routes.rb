@@ -109,6 +109,12 @@ Rails.application.routes.draw do
         resources :bugs, only: :create
       end
 
+      # (see TasksController)
+      resources :tasks, except: %i[new edit] do
+        # (see AssignmentsController)
+        resource :assignment, only: %i[show update]
+      end
+
       # (see UsersController)
       resource :user, only: %i[show update destroy]
 

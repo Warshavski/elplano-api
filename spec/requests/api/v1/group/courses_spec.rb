@@ -100,12 +100,6 @@ RSpec.describe Api::V1::Group::CoursesController, type: :request do
         let(:course_params) do
           build(:course_params).merge(lecturer_ids: [lecturer.id])
         end
-
-        it 'returns created course entity with bound lecturer' do
-          actual_lecturer_ids = relationship_data(:lecturers).map { |l| l[:id].to_i }
-
-          expect(actual_lecturer_ids).to include(lecturer.id)
-        end
       end
 
       include_examples 'request errors examples'
@@ -148,12 +142,6 @@ RSpec.describe Api::V1::Group::CoursesController, type: :request do
 
         let(:course_params) do
           build(:course_params).merge(lecturer_ids: [lecturer.id])
-        end
-
-        it 'return created model with bound lecturer' do
-          actual_lecturer_ids = relationship_data(:lecturers).map { |l| l[:id].to_i }
-
-          expect(actual_lecturer_ids).to include(lecturer.id)
         end
       end
 

@@ -9,9 +9,7 @@
 #
 #   params: optional search, filter and sort parameters
 #
-class LabelsFinder
-  include Paginatable
-
+class LabelsFinder < Finder
   attr_reader :owner, :params
 
   # @param group [Group] -

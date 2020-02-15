@@ -13,7 +13,7 @@
 #   - by default returns events sorted by recently added.
 #   - by default returns all appointed events(personal + group events).
 #
-class EventsFinder
+class EventsFinder < Finder
   attr_reader :params, :student
 
   # @param student [Student] -

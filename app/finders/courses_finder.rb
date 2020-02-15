@@ -14,9 +14,7 @@
 #   - by default returns all courses(active and not active).
 #   - by default returns paginated chunks(15 records per chunk)
 #
-class CoursesFinder
-  include Paginatable
-
+class CoursesFinder < Finder
   attr_reader :group, :params
 
   # @param group [Group]

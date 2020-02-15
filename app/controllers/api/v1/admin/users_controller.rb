@@ -76,7 +76,7 @@ module Api
         end
 
         def filter_users(filters = {})
-          UsersFinder.new(filters).execute
+          UsersFinder.call(filters)
         end
 
         def filter_params

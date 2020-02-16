@@ -15,7 +15,5 @@ class CourseSerializer
     object.title.titleize
   end
 
-  has_many :lecturers,
-           lazy_load_data: true,
-           serializer: LecturerSerializer
+  has_many :lecturers, serializer: LecturerSerializer
 end

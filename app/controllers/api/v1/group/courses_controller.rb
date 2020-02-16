@@ -37,7 +37,7 @@ module Api
         # Get list of courses
         #
         def index
-          courses = filter_courses(filter_params)
+          courses = filter_courses(filter_params).preload(:lecturers)
 
           render_collection courses, status: :ok
         end

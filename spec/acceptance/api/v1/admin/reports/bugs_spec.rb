@@ -28,7 +28,7 @@ resource 'Admin reports bugs' do
       explanation <<~DESC
         Returns a list of the bug reports.
 
-        <b>Optional filter params</b> :
+        <b>OPTIONAL FILTERS</b> :
 
         - `"user_id": 1` - Returns bug reports filtered by reporter(user).
 
@@ -42,14 +42,15 @@ resource 'Admin reports bugs' do
         }
         </pre>
 
-        For more details see "Filters" and "Pagination" sections in the README section. 
+        <b>MORE INFORMATION</b> :
+
+          - See user attributes description in the section description.
+          - See "Filters" and "Pagination" sections in the README section. 
 
         <b>NOTE:<b>
 
           - By default, this endpoint returns bug reports sorted by recently created.
           - By default, this endpoint returns bug reports limited by 15.
-
-        See user attributes description in the section description.
       DESC
 
       do_request

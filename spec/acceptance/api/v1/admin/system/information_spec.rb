@@ -54,7 +54,9 @@ resource 'Admin system information' do
       explanation <<~DESC
         Returns meta-information about used system resources.
 
-        <b>NOTE</b> : Returns `null` or `[]` in case if information can not be received.
+        <b>NOTE</b> : 
+
+          - Returns `null` or `[]` in case if information can not be received.
       DESC
 
       do_request

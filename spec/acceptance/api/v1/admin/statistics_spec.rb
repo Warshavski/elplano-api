@@ -64,7 +64,9 @@ resource 'Admin statistics' do
       explanation <<~DESC
         Returns a metadata with different counters.
 
-        <b>NOTE</b> : Because of the heavy calculations, results are CACHED for 15 minutes.
+        <b>NOTES</b> : 
+
+          - Because of the heavy calculations, results are CACHED for 15 minutes.
       DESC
 
       do_request

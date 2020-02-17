@@ -13,7 +13,6 @@ resource 'Labels' do
       - `color` - Represents label's background color.
       - `text_color` - Represents label's text color(Generates automatically and based on background color).
       - `timestamps`
-
   DESC
 
   let_it_be(:student)  { create(:student, :group_supervisor) }
@@ -34,7 +33,7 @@ resource 'Labels' do
       explanation <<~DESC
         Returns a list of labels created by authenticated student.
 
-        <b>Optional filter params</b> :
+        <b>OPTIONAL FILTERS</b> :
 
         - `"search": "part_of_the_title_or_description"` - Returns labels founded by provided search term(title, description).
 
@@ -48,14 +47,15 @@ resource 'Labels' do
         }
         </pre>
 
-        For more details see "Filters" and "Pagination" sections in the README section. 
+        <b>MORE INFORMATION</b> :
 
-        <b>NOTE:<b>
+          - See label attributes description in the section description.
+          - See "Filters" and "Pagination" sections in the README section. 
+
+        <b>NOTES<b> :
 
           - By default, this endpoint returns labels sorted by recently created.
           - By default, this endpoint returns labels limited by 15
-
-        See label attributes description in the section description.
       DESC
 
       do_request
@@ -72,7 +72,9 @@ resource 'Labels' do
       explanation <<~DESC
         Returns a single instance of the label.
 
-        See label attributes description in the section description.
+        <b>MORE INFORMATION</b> :
+        
+          - See label attributes description in the section description.
       DESC
 
       do_request
@@ -102,6 +104,10 @@ resource 'Labels' do
     example 'CREATE : Creates a new label' do
       explanation <<~DESC
         Creates and returns created label.
+
+        <b>MORE INFORMATION</b> :
+        
+          - See label attributes description in the section description.
       DESC
 
       do_request
@@ -133,7 +139,9 @@ resource 'Labels' do
       explanation <<~DESC
         Updates label returns updated label.
 
-        See label attributes description in the section description.
+        <b>MORE INFORMATION</b> :
+        
+          - See label attributes description in the section description.
       DESC
 
       do_request

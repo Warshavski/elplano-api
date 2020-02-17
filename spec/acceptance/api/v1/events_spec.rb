@@ -55,7 +55,7 @@ resource "User's events" do
       explanation <<~DESC
         Returns a list of the available events.
 
-        <b>Optional query params:</b>
+        <b>OPTIONAL FILTERS</b> :
 
           - `"scope": "authored"` - Filter by event scope:
             - `authored` - created by current authenticated student
@@ -79,14 +79,15 @@ resource "User's events" do
         }
         </pre>
 
-        For more details see "Filters" and "Pagination" sections in the README section. 
+        <b>MORE INFORMATION</b> :
 
-        <b>NOTE<b>:
+          - See "Filters" and "Pagination" sections in the README section. 
+          - See model attributes description in the section description.
 
-        - by default, this endpoint returns all appointed events(personal + group)
-        - be default, this endpoint returns sorts events by recently created
+        <b>NOTES<b>:
 
-        See model attributes description in the section description.
+        - by default, this endpoint returns all appointed events(personal + group).
+        - be default, this endpoint returns sorts events by recently created.
       DESC
 
       do_request
@@ -104,17 +105,13 @@ resource "User's events" do
       explanation <<~DESC
         Returns a single instance of the event.
 
-        In addition includes labels attached to event
+        <b>MORE INFORMATION</b>
+        
+          - See model attributes description in the section description.
 
-        Label attributes :
-    
-          - `title` - Represents label title (unique in student's group scope).
-          - `description` - Represents label detailed description.
-          - `color` - Represents label's background color.
-          - `text_color` - Represents label's text color(Generates automatically and based on background color).
-          - `timestamps`
+        <b>NOTES</b> :
 
-        See model attributes description in the section description.
+          - In addition includes labels attached to event
       DESC
 
       do_request
@@ -153,24 +150,16 @@ resource "User's events" do
       explanation <<~DESC
         Creates and returns created event.
 
-        In addition includes labels attached to event
+        <b>MORE INFORMATION</b>
+        
+          - See model attributes description in the section description.
 
-        Label attributes :
-    
-          - `title` - Represents label title (unique in student's group scope).
-          - `description` - Represents label detailed description.
-          - `color` - Represents label's background color.
-          - `text_color` - Represents label's text color(Generates automatically and based on background color).
-          - `timestamps`
-
-
-        <b>NOTE</b> :
+        <b>NOTES</b> :
  
+          - In addition includes labels attached to event
           - An authenticated user can create an event for a group or any group member <b>ONLY</b> in the case when the authenticated user is a group owner(group president).
           - Any authenticated user can create events for himself.
           - `start_at` should be after or on current date and time and before `end_at` and `end_at` should be after `start_at`
-
-        See model attributes description in the section description.
       DESC
 
       do_request
@@ -210,22 +199,15 @@ resource "User's events" do
       explanation <<~DESC
         Updates and returns updated event.
 
-        In addition includes labels attached to event
+        <b>MORE INFORMATION</b>
+        
+          - See model attributes description in the section description.
 
-        Label attributes :
-    
-          - `title` - Represents label title (unique in student's group scope).
-          - `description` - Represents label detailed description.
-          - `color` - Represents label's background color.
-          - `text_color` - Represents label's text color(Generates automatically and based on background color).
-          - `timestamps`
+        <b>NOTES</b> : 
 
-        <b>NOTE</b> : 
-
-          - update allowed only for events created by current authenticated student.
+          - In addition includes labels attached to event
+          - Update allowed only for events created by current authenticated student.
           - `start_at` should be after or on current date and time and before `end_at` and `end_at` should be after `start_at`.
-
-        See model attributes description in the section description.
       DESC
 
       do_request
@@ -242,7 +224,7 @@ resource "User's events" do
       explanation <<~DESC
         Deletes an event.
 
-        <b>NOTE</b> :
+        <b>NOTES</b> :
 
           - delete allowed only for events created by current authenticated student.
       DESC

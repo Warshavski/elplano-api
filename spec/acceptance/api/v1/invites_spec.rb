@@ -23,7 +23,9 @@ resource "User's Invites" do
       - `number` - Represents main group identity.
       - `timestamps`
 
-    Also, includes reference to the sender, recipient.
+    <b>NOTES</b> :
+
+      - Also, includes reference to the sender, recipient.
   DESC
 
   let(:user)  { student.user }
@@ -46,7 +48,9 @@ resource "User's Invites" do
       explanation <<~DESC
         Returns a list of invitations to the different groups.
 
-        See model attributes description in the section description.
+        <b>MORE INFORMATION</b> :
+        
+          - See invite attributes description in the section description.
       DESC
 
       do_request
@@ -64,8 +68,10 @@ resource "User's Invites" do
     example 'SHOW : Retrieve information about requested invite' do
       explanation <<~DESC
         Returns a single instance of the invite.
-s
-        See model attributes description in the section description.
+        
+        <b>MORE INFORMATION</b> :
+        
+          - See invite attributes description in the section description.
       DESC
 
       do_request
@@ -84,7 +90,9 @@ s
       explanation <<~DESC
         Accepts and returns accepted invite.
 
-        See model attributes description in the section description.
+        <b>MORE INFORMATION</b> :
+        
+          - See invite attributes description in the section description.
       DESC
 
       do_request

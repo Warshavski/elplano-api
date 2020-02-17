@@ -31,6 +31,10 @@ resource 'Announcements' do
     example 'INDEX : Retrieve announcements list' do
       explanation <<~DESC
         Returns a list of the current application announcements.
+
+        <b>MORE INFORMATION</b>
+
+          - See model attributes description in the section description.
       DESC
 
       do_request

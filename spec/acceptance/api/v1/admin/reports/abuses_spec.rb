@@ -28,7 +28,7 @@ resource 'Admin reports abuses' do
       explanation <<~DESC
         Returns a list of the abuse reports.
 
-        <b>Optional filter params</b> :
+        <b>OPTIONAL FILTERS</b> :
 
         - `"user_id": 1` - Returns abuse reports filtered by reported user.
         - `"reporter_id": 2` - Returns abuse reports filtered by reporter(user).
@@ -44,14 +44,15 @@ resource 'Admin reports abuses' do
         }
         </pre>
 
-        For more details see "Filters" and "Pagination" sections in the README section. 
+        <b>MORE INFORMATION</b> :
 
-        <b>NOTE:<b>
+          - See user attributes description in the section description.
+          - See "Filters" and "Pagination" sections in the README section. 
+
+        <b>NOTES<b> :
 
           - By default, this endpoint returns abuse reports sorted by recently created.
           - By default, this endpoint returns abuse reports limited by 15.
-
-        See user attributes description in the section description.
       DESC
 
       do_request
@@ -67,10 +68,14 @@ resource 'Admin reports abuses' do
     example 'SHOW : Retrieve single abuse report' do
       explanation <<~DESC
         Returns a single instance of the abuse report.
-      
-        Also, includes information about reporter and reported user.
 
-        See user attributes description in the section description.
+        <b>MORE INFORMATION</b> :
+
+          - See user attributes description in the section description.
+
+        <b>NOTES</b> :
+
+          - Also, includes information about reporter and reported user.
       DESC
 
       do_request

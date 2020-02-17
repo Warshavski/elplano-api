@@ -42,7 +42,7 @@ resource "User's classmates" do
       explanation <<~DESC
         Returns a list of the users's classmates.
 
-        <b>Optional filter params</b> :
+        <b>OPTIONAL FILTERS</b> :
 
         - `"search": "part_of_the_fullname_or_email"` - Returns classmates founded by provided search term(email, full name or phone).
 
@@ -56,13 +56,14 @@ resource "User's classmates" do
         }
         </pre>
 
-        For more details see "Filters" and "Pagination" sections in the README section. 
+        <b>MORE INFORMATION</b>
+
+          - See "Filters" and "Pagination" sections in the README section.
+          - See model attributes description in the section description. 
 
         <b>NOTE:<b>
 
           - By default, this endpoint returns users sorted by recently created.
-
-        See user attributes description in the section description.
       DESC
 
       do_request
@@ -80,6 +81,10 @@ resource "User's classmates" do
     example "SHOW : Information about particular classmate" do
       explanation <<~DESC
         Returns a single instance of the user's classmate(detailed information).
+
+        <b>MORE INFORMATION</b>
+
+          - See model attributes description in the section description.
       DESC
 
       do_request

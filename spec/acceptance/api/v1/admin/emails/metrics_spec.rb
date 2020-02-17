@@ -103,9 +103,13 @@ resource 'Admin emails - metrics' do
       explanation <<~DESC
         This endpoint allows you to retrieve all of your global email statistics in the range of the last month.
 
-        <b>NOTE</b> : Results are CACHED for 5 minutes.
+        <b>MORE INFORMATION</b> :
 
-        See response description in the section description.
+          - See response description in the section description.
+
+        <b>NOTES</b> : 
+
+          - Results are CACHED for 5 minutes.
       DESC
 
       do_request

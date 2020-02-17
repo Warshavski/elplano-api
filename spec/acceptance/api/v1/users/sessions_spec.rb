@@ -60,7 +60,9 @@ resource 'Users' do
           - `expires_in` - Represents expiration access token expiration time.
           - `created_at` - Represents access token creation date.
 
-        Also, includes meta block and relationship to the student's group.
+        <b>NOTES</b> :
+
+          - Also, includes meta block and relationship to the student's group.
       DESC
 
       do_request
@@ -86,7 +88,9 @@ resource 'Users' do
       explanation <<~DESC
         Performs access token revoke.
 
-        <b>NOTE</b> : Allowed only for authenticated user.
+        <b>NOTES</b> : 
+
+          - Allowed only for authenticated user.
       DESC
 
       do_request

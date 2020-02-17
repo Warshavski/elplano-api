@@ -46,7 +46,9 @@ resource 'Admin system health' do
       explanation <<~DESC
         Returns meta-information about system components health status.
 
-        <b>NOTE</b> : Returns `{}` in case if information can not be received.
+        <b>NOTES</b> : 
+
+          - Returns `{}` in case if information can not be received.
       DESC
 
       do_request

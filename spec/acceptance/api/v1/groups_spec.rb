@@ -29,6 +29,10 @@ resource "User's group" do
     example "SHOW : Retrieve information about user's group" do
       explanation <<~DESC
         Returns detailed information about user's group.
+        
+        <b>MORE INFORMATION</b> :
+        
+          - See group attributes description in the section description.
       DESC
 
       do_request
@@ -54,7 +58,13 @@ resource "User's group" do
       explanation <<~DESC
         Creates and returns created group.
 
-        <b>NOTE</b> : This action allowed only for non-group owner user's or for a user that has no group membership.
+        <b>MORE INFORMATION</b> :
+        
+          - See group attributes description in the section description.
+
+        <b>NOTES</b> : 
+
+          - This action allowed only for non-group owner user's or for a user that has no group membership.
       DESC
 
       do_request
@@ -80,7 +90,13 @@ resource "User's group" do
       explanation <<~DESC
         Updates and returns updated group.
 
-        <b>NOTE</b> : This action allowed only for group owner user.
+        <b>MORE INFORMATION</b> :
+        
+          - See group attributes description in the section description.
+
+        <b>NOTES</b> : 
+
+          - This action allowed only for group owner user.
       DESC
 
       do_request
@@ -99,7 +115,9 @@ resource "User's group" do
       explanation <<~DESC
         Deletes a group.
 
-        <b>NOTE</b> : This action allowed only for group owner user.
+        <b>NOTES</b> : 
+
+          - This action allowed only for group owner user.
       DESC
 
       do_request

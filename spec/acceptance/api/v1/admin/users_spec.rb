@@ -17,7 +17,9 @@ resource 'Admin users' do
       - `avatar` - Represents user's avatar.
       - `timestamps`
 
-      Also, include reference to student profile(additional user info)
+    <b>NOTES</b> :
+
+      - Also, include reference to student profile(additional user info)
   DESC
 
   let(:user)  { create(:admin, :student) }
@@ -36,7 +38,7 @@ resource 'Admin users' do
       explanation <<~DESC
         Returns a list of the application users.
 
-        <b>Optional filter params</b> :
+        <b>OPTIONAL FILTERS</b> :
 
         - `"status": "confirmed"` - Returns users filtered by one of the status(`active`, `confirmed`, `banned`).
         - `"search": "part_of_the_username_or_email"` - Returns users founded by provided search term(email, username).
@@ -52,15 +54,16 @@ resource 'Admin users' do
         }
         </pre>
 
-        For more details see "Filters" and "Pagination" sections in the README section. 
+        <b>MORE INFORMATION</b> :
+
+          - See user attributes description in the section description.
+          - See "Filters" and "Pagination" sections in the README section. 
 
         <b>NOTE:<b>
 
           - By default, this endpoint returns users sorted by recently created.
           - By default, this endpoint returns users without status assumptions.
-          - By default, this endpoint returns users limited by 15
-
-        See user attributes description in the section description.
+          - By default, this endpoint returns users limited by 15.
       DESC
 
       do_request
@@ -79,7 +82,9 @@ resource 'Admin users' do
       explanation <<~DESC
         Returns a single instance of the user.
 
-        See user attributes description in the section description.
+        <b>MORE INFORMATION</b> :
+
+          - See user attributes description in the section description.
       DESC
 
       do_request
@@ -111,7 +116,9 @@ resource 'Admin users' do
           - `unlock` - Remove lock caused by wrong password input.
           - `confirm` - Confirm user account.
 
-        See user attributes description in the section description.
+        <b>MORE INFORMATION</b> :
+
+          - See user attributes description in the section description.
       DESC
 
       do_request

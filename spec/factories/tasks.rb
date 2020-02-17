@@ -22,7 +22,7 @@ FactoryBot.define do
     initialize_with do
       {
         title: Faker::Lorem.sentence(word_count: 3),
-        description: Faker::Lorem.sentences(number: 3),
+        description: Faker::Lorem.paragraph(sentence_count: 6),
         expired_at: Time.current + 1.day
       }
     end

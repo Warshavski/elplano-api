@@ -2,7 +2,9 @@
 
 FactoryBot.define do
   factory :event, class: Event do
-    title     { Faker::Lorem.sentence }
+    title       { Faker::Lorem.sentence }
+    description { Faker::Lorem.paragraph(sentence_count: 3) }
+
     timezone  { 'Etc/GMT+12' }
     start_at  { Faker::Date.forward(days: 1) }
 

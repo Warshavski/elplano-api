@@ -45,12 +45,15 @@ resource "User's event tasks" do
       - `accomplished` - `true` if assignment is accomplished(done), otherwise `false`.
       - `extra_links` - Represents links(URL) to extra attachments on external storage(Google drive, for example)
       - `timestamps`
-
-     Also, includes reference to the event.
   DESC
 
   let_it_be(:student) { create(:student, :group_supervisor) }
-  let_it_be(:event)   { create(:event, eventable: student.group, creator: student) }
+  let_it_be(:course)  { create(:course, group: student.group) }
+  let_it_be(:labels)  { [create(:label)] }
+
+  let_it_be(:event) do
+    create(:event, eventable: student.group, labels: labels, creator: student, course: course)
+  end
 
   let_it_be(:task)        { create(:task, event: event, author: student)}
   let_it_be(:assignment)  { create(:assignment, student: student, task: task) }
@@ -77,7 +80,7 @@ resource "User's event tasks" do
       explanation <<~DESC
         Returns a list of the available tasks.
 
-        <b>Optional filter params</b> :
+        <b>OPTIONAL FILTERS</b> :
 
           - `"event_id": 1` - Returns tasks for the selected event.
           - `"outdated": true/false` - Returns outdated or active tasks.
@@ -91,14 +94,18 @@ resource "User's event tasks" do
           "filters": {
             "event_id": 1,
             "outdated": true,
+            "appointed": false,
             "accomplished": false
           }
         }
         </pre>
 
-        For more details see "Filters" and "Pagination" sections in the README section. 
+        <b>MORE INFORMATION</b> :
+        
+          - See model attribute description in section description.
+          - See "Filters" and "Pagination" sections in the README section for more details. 
 
-        <b>NOTE:<b>
+        <b>NOTES<b> :
 
           - By default, this endpoint returns tasks sorted by recently created.
           - By default, this endpoint returns tasks without expiration date assumptions.
@@ -106,8 +113,6 @@ resource "User's event tasks" do
           - By default, this endpoint returns tasks limited by 15
           - Accomplishment filter can be applied only to appointed tasks
             (in the case when only "accomplished" filter set with value "true" this endpoint will return appointed tasks)
-
-        See model attribute description in section description.
       DESC
 
       do_request
@@ -126,9 +131,13 @@ resource "User's event tasks" do
       explanation <<~DESC
         Returns a single instance of the task.
 
-        Also, includes information about related event and attachments.
+        <b>MORE INFORMATION</b> :
 
-        See model attribute description in section description.
+          - See model attribute description in section description.
+
+        <b>NOTES</b> :
+
+           - Also, includes information about related event and attachments.
       DESC
 
       do_request
@@ -152,8 +161,9 @@ resource "User's event tasks" do
     end
 
     let(:raw_post) do
-      params = build(:task_params)
-                 .merge(event_id: event.id, attachments: [metadata.to_json])
+      params = build(:task_params).merge(
+        event_id: event.id, attachments: [metadata.to_json]
+      )
 
       { task:  params }.to_json
     end
@@ -161,14 +171,16 @@ resource "User's event tasks" do
     example 'CREATE : Create a new event task' do
       explanation <<~DESC
         Creates and returns created event task.
-
-        Also, includes information about related event and attachments.
-
-        See model attribute description in section description.
         
-        See `uploads` endpoint description for more info.
+        <b>MORE INFORMATION</b> :
+        
+          - See model attribute description in section description.
+          - See `uploads` endpoint description for more info.
 
-        <b>NOTE</b> : This action allowed only for group owner user.
+        <b>NOTES</b> :
+ 
+          - This action allowed only for group owner user.
+          - Also, includes information about related event and attachments.
       DESC
 
       do_request
@@ -198,11 +210,14 @@ resource "User's event tasks" do
       explanation <<~DESC
         Updates and return updated task.
 
-        Also, includes information about related event and attachments.
+        <b>MORE INFORMATION</b> :
 
-        See model attribute description in section description.
+          - See model attribute description in section description.
 
-        <b>NOTE</b> : This action allowed only for group owner user.
+        <b>NOTES</b> :
+ 
+          - This action allowed only for group owner user.
+          - Also, includes information about related event and attachments.
       DESC
 
       do_request
@@ -221,7 +236,9 @@ resource "User's event tasks" do
       explanation <<~DESC
         Deletes event task.
 
-        <b>NOTE</b> : This action allowed only for group owner user.
+        <b>NOTES</b> :
+
+          - This action allowed only for group owner user.
       DESC
 
       do_request
@@ -231,16 +248,13 @@ resource "User's event tasks" do
   end
 
   get 'api/v1/tasks/:id/assignment' do
-    example 'GET : Show assignment information' do
+    example 'SHOW : Show assignment information' do
       explanation <<~DESC
         Get detailed information about task assignment
 
-        Assignment attributes :
+        <b>MORE INFORMATION</b> :
 
-          - `report` - Represents detailed task accomplishment description.
-          - `accomplished` - `true` if assignment is accomplished(done), otherwise `false`.
-          - `extra_links` - Represents links(URL) to extra attachments on external storage(Google drive, for example)
-          - `timestamps`
+          - See model attribute description in section description.
       DESC
 
       do_request
@@ -272,9 +286,13 @@ resource "User's event tasks" do
       }.to_json
     end
 
-    example 'PUT : Accomplish event task' do
+    example 'UPDATE : Accomplish event task' do
       explanation <<~DESC
         Mark event task as accomplished and create report about accomplishment.
+
+        <b>MORE INFORMATION</b> :
+
+          - See model attribute description in section description.
       DESC
 
       do_request

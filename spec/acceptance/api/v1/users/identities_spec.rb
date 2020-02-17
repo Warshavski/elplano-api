@@ -101,7 +101,9 @@ resource 'Users' do
           - `expires_in` - Represents expiration access token expiration time.
           - `created_at` - Represents access token creation date.
 
-        Also, includes relationship to the student's group.
+        <b>NOTES</b>
+
+          - Also, includes relationship to the student's group.
       DESC
 
       do_request

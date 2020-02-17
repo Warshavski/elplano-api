@@ -16,7 +16,9 @@ resource "Group's lecturers" do
      - `active` - `true` if lecturer is available in current time(can ), otherwise `false`
      - `timestamps`
   
-    Also, includes reference to the courses.
+    <b>NOTES</b> :
+
+      - Also, includes reference to the courses.
   DESC
 
   let(:student) { create(:student, :group_supervisor) }
@@ -44,7 +46,9 @@ resource "Group's lecturers" do
       explanation <<~DESC
         Returns a list of the available lecturers.
 
-        See model attributes description in section description.
+        <b>MORE INFORMATION</b> :
+
+          - See model attributes description in the section description.
       DESC
 
       do_request
@@ -61,7 +65,9 @@ resource "Group's lecturers" do
       explanation <<~DESC
         Returns a single instance of the lecturer.
 
-        See model attributes description in section description.
+        <b>MORE INFORMATION</b> :
+
+          - See model attributes description in the section description.
       DESC
 
       do_request
@@ -98,9 +104,13 @@ resource "Group's lecturers" do
       explanation <<~DESC
         Creates and returns created lecturer.
 
-        See model attributes description in section description.
+        <b>MORE INFORMATION</b> :
 
-        <b>NOTE</b> : This action allowed only for group owner user.
+          - See model attributes description in the section description.
+
+        <b>NOTES</b> : 
+
+          - This action allowed only for group owner user.
       DESC
 
       do_request
@@ -137,9 +147,13 @@ resource "Group's lecturers" do
       explanation <<~DESC
         Updates and returns updated lecturer.
 
-        See model attributes description in section description.
+        <b>MORE INFORMATION</b> :
 
-        <b>NOTE</b> : This action allowed only for group owner user.
+          - See model attributes description in the section description.
+
+        <b>NOTES</b> : 
+
+          - This action allowed only for group owner user.
       DESC
 
       do_request
@@ -156,7 +170,9 @@ resource "Group's lecturers" do
       explanation <<~DESC
         Delete lecturer.
 
-        <b>NOTE</b> : This action allowed only for group owner user.
+        <b>NOTES</b> : 
+
+          - This action allowed only for group owner user.
       DESC
 
       do_request

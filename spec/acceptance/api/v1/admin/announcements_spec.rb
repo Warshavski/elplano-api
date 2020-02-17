@@ -32,11 +32,13 @@ resource 'Admin announcements' do
       explanation <<~DESC
         Returns a list of the application announcements.
 
-        <b>NOTE:<b>
+        <b>MORE INFORMATION</b>
+
+          - See user attributes description in the section description.
+  
+        <b>NOTES:<b>
 
           - By default, this endpoint returns announcement sorted by end date(closest ones).
-          
-        See user attributes description in the section description.
       DESC
 
       do_request
@@ -55,7 +57,9 @@ resource 'Admin announcements' do
       explanation <<~DESC
         Returns a single instance of the application announcement.
 
-        See user attributes description in the section description.
+        <b>MORE INFORMATION</b>
+
+          - See user attributes description in the section description.
       DESC
 
       do_request
@@ -86,7 +90,9 @@ resource 'Admin announcements' do
       explanation <<~DESC
         Creates announcement and returns created announcement.
 
-        See user attributes description in the section description.
+        <b>MORE INFORMATION</b>
+
+          - See user attributes description in the section description.
       DESC
 
       do_request
@@ -117,7 +123,9 @@ resource 'Admin announcements' do
       explanation <<~DESC
         Updates announcement information and returns updated announcement.
 
-        See user attributes description in the section description.
+        <b>MORE INFORMATION</b>
+
+          - See user attributes description in the section description.
       DESC
 
       do_request

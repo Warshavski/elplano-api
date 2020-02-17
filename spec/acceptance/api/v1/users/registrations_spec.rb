@@ -33,7 +33,9 @@ resource 'Users' do
           - `avatar_url` - Represents user's avatar.
           - `timestamps`
 
-        Also, includes relationship to the student.
+        <b>NOTES</b> :
+
+          - Also, includes relationship to the student.
       DESC
 
       do_request

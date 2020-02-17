@@ -16,7 +16,9 @@ resource 'OAuth' do
       - `expires_in` - Represents expiration access token expiration time.
       - `created_at` - Represents access token creation date.
 
-    <b>NOTE</b> : For more information see "Authentication" section in this documentation.
+    <b>MORE INFORMATION</b> : 
+
+      - For more information see "Authentication" section in this documentation.
   DESC
 
   let_it_be(:user)  { create(:user, password: '123456') }
@@ -41,6 +43,10 @@ resource 'OAuth' do
     example "CREATE : Claim access token" do
       explanation <<~DESC
         Claims access and refresh tokens to access application.
+
+        <b>MORE INFORMATION</b> : 
+
+          - See attributes description in the section description.
       DESC
 
       do_request
@@ -73,7 +79,9 @@ resource 'OAuth' do
       explanation <<~DESC
         Revokes access token.
   
-        <b>NOTE</b> : After this action user can not access application with this access token.
+        <b>NOTE</b> : 
+
+          - After this action user can not access application with this access token.
       DESC
 
       do_request

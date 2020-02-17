@@ -17,9 +17,10 @@ resource "Group's Invites" do
     - `accepted_at` - Date and time when the invite was accepted by recipient.
     - `timestamps`
 
-    Also, includes reference to the sender, recipient.
+    <b>NOTES</b> : 
 
-    <b>NOTE</b> : This endpoint allowed only for the group owner user.
+      - This endpoint allowed only for the group owner user.
+      - Also, includes reference to the sender, recipient.
   DESC
 
   let!(:group) { create(:group, president: student, students: [student]) }
@@ -42,7 +43,11 @@ resource "Group's Invites" do
 
     example "INDEX : Retrieve user's group invitations" do
       explanation <<~DESC
-        Returns a list of the user group invitations
+        Returns a list of the user group invitations.
+
+        <b>MORE INFORMATION</b> :
+
+          - See model attributes description in the section description.
       DESC
 
       do_request
@@ -58,6 +63,10 @@ resource "Group's Invites" do
     example 'SHOW : Retrieve information about requested invite' do
       explanation <<~DESC
         Returns a single instance of the invite.
+
+        <b>MORE INFORMATION</b> :
+
+          - See model attributes description in the section description.
       DESC
 
       do_request
@@ -79,6 +88,10 @@ resource "Group's Invites" do
     example 'CREATE : Create new invite' do
       explanation <<~DESC
         Creates and returns created invite.
+
+        <b>MORE INFORMATION</b> :
+
+          - See model attributes description in the section description.
       DESC
 
       do_request

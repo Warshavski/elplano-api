@@ -23,7 +23,9 @@ resource "Group's courses" do
      - `avatar` - Represents lecturer photo
      - `timestamps` 
 
-     Also, includes reference to the course lecturer.
+    <b>NOTES</b> :
+
+      - Also, includes reference to the course lecturer.
   DESC
 
   let(:student) { create(:student, :group_supervisor) }
@@ -48,7 +50,7 @@ resource "Group's courses" do
       explanation <<~DESC
         Returns a list of the group's courses.
 
-        <b>Optional filter params</b> :
+        <b>OPTIONAL FILTERS</b> :
 
         - `"active": "false"` - Returns courses filtered by availability flag(`true`, `false`).
 
@@ -62,15 +64,16 @@ resource "Group's courses" do
         }
         </pre>
 
-        For more details see "Filters" and "Pagination" sections in the README section. 
+        <b>MORE INFORMATION</b> :
+        
+          - See model attributes description in the section description.
+          - See "Filters" and "Pagination" sections in the README section. 
 
         <b>NOTE:<b>
 
           - By default, this endpoint returns courses sorted by recently created.
           - By default, this endpoint returns courses without availability assumptions.
-          - By default, this endpoint returns courses limited by 15
-
-        See model attribute description in section description.
+          - By default, this endpoint returns courses limited by 15.
       DESC
 
       do_request
@@ -87,9 +90,13 @@ resource "Group's courses" do
       explanation <<~DESC
         Returns a single instance of the course.
 
-        Also, includes information about lecturers.
+        <b>MORE INFORMATION</b> :
+        
+          - See model attributes description in the section description.
 
-        See model attribute description in section description.
+        <b>NOTES</b> :
+
+          - Also, includes information about lecturers.
       DESC
 
       do_request
@@ -118,11 +125,14 @@ resource "Group's courses" do
       explanation <<~DESC
         Creates and returns created course.
 
-         Also, includes information about lecturers.
+        <b>MORE INFORMATION</b> :
+        
+          - See model attributes description in the section description.
 
-        See model attribute description in section description.
+        <b>NOTES</b> :
 
-        <b>NOTE</b> : This action allowed only for group owner user.
+          - This action allowed only for group owner user.
+          - Also, includes information about lecturers.
       DESC
 
       do_request
@@ -151,11 +161,14 @@ resource "Group's courses" do
       explanation <<~DESC
         Updates and return updated course.
 
-         Also, includes information about lecturers.
+        <b>MORE INFORMATION</b> :
 
-        See model attribute description in section description.
+          - See model attributes description in the section description.
 
-        <b>NOTE</b> : This action allowed only for group owner user.
+        <b>NOTES</b> :
+
+          - This action allowed only for group owner user.
+          - Also, includes information about lecturers.
       DESC
 
       do_request
@@ -174,7 +187,9 @@ resource "Group's courses" do
       explanation <<~DESC
         Deletes course.
         
-        <b>NOTE</b> : This action allowed only for group owner user.
+        <b>NOTES</b> : 
+
+          - This action allowed only for group owner user.
       DESC
 
       do_request

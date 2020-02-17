@@ -33,7 +33,13 @@ resource "Users's reports bugs" do
       explanation <<~DESC
         Report bug(create a new bug report)
 
-        See model attributes description in the section description.
+        <b>MORE INFORMATION</b> :
+        
+          - See model attributes description in the section description.
+
+        <b>NOTES</b> :
+
+          - Also, include meta with operation status message
       DESC
 
       do_request

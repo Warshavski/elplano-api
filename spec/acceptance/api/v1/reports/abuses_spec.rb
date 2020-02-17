@@ -42,7 +42,13 @@ resource "Users's reports abuses" do
       explanation <<~DESC
         Report abuse(create a new abuse report)
 
-        See model attributes description in the section description.
+        <b>MORE INFORMATION</b> :
+        
+          - See model attributes description in the section description.
+
+        <b>NOTES</b> :
+
+          - Also, include meta with operation status message
       DESC
 
       do_request

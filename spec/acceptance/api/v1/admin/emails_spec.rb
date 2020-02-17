@@ -34,7 +34,7 @@ resource 'Admin emails' do
       explanation <<~DESC
         This endpoint allows you to send confirmation or unlock instructions to a specific user.
 
-        <b>NOTE</b> : 
+        <b>NOTES</b> : 
 
           - An email will be sent only in case if a user is unconfirmed or locked(depends on the type of mailing).
       DESC

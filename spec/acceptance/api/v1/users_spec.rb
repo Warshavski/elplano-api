@@ -40,7 +40,9 @@ resource "User's profile" do
       - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).
       - `timestamps`
     
-    Also, includes relationship to the student's group
+    <b>NOTES</b :
+
+      - Also, includes relationship to the student's group
   DESC
 
   get 'api/v1/user' do
@@ -48,7 +50,9 @@ resource "User's profile" do
       explanation <<~DESC
         Returns detailed information about user.
 
-        See attributes description in the section description.
+        <b>MORE INFORMATION</b>
+
+          - See attributes description in the section description.
       DESC
 
       do_request
@@ -84,7 +88,9 @@ resource "User's profile" do
       explanation <<~DESC
         Updates and returns user specific information.
 
-        See attributes description in the section description.
+        <b>MORE INFORMATION</b>
+
+          - See attributes description in the section description.
       DESC
 
       do_request
@@ -109,11 +115,11 @@ resource "User's profile" do
 
         <b>NOTE</b> : 
 
-          - this action requires authenticated user's password confirmation.
+          - This action requires authenticated user's password confirmation.
          
         <b>WARNING</b> 
 
-          - this action CANNOT be undone.
+          - This action CANNOT be undone.
       DESC
 
       do_request

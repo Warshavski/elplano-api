@@ -41,7 +41,7 @@ resource 'Admin users' do
         <b>OPTIONAL FILTERS</b> :
 
         - `"status": "confirmed"` - Returns users filtered by one of the status(`active`, `confirmed`, `banned`).
-        - `"search": "part_of_the_username_or_email"` - Returns users founded by provided search term(email, username).
+        - `"search": "part_of_the_username_or_email"` - Returns users found by provided search term(email, username).
 
         Example: 
 

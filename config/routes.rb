@@ -35,9 +35,6 @@ Rails.application.routes.draw do
         # (see Admin::AnnouncementsController)
         resources :announcements, except: %i[new edit]
 
-        # (see Admin::LogsController)
-        resource :logs, only: :show
-
         # (see Admin::EmailsController)
         resources :emails, only: :create
 
@@ -45,6 +42,12 @@ Rails.application.routes.draw do
           # (see Admin::Emails::MetricsController)
           resource :metrics, only: :show
         end
+
+        # (see Admin::GroupsController)
+        resources :groups, only: %i[index show]
+
+        # (see Admin::LogsController)
+        resource :logs, only: :show
 
         namespace :reports do
           # (see admin::Reports::AbusesController)

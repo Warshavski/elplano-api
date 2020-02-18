@@ -44,7 +44,7 @@ resource "User's classmates" do
 
         <b>OPTIONAL FILTERS</b> :
 
-        - `"search": "part_of_the_fullname_or_email"` - Returns classmates founded by provided search term(email, full name or phone).
+        - `"search": "part_of_the_fullname_or_email"` - Returns classmates found by provided search term(email, full name or phone).
 
         Example: 
 

@@ -63,7 +63,7 @@ module Api
         end
 
         def perform_sign_in(identity)
-          ::Users::SignIn.call { sign_in(identity.user) }
+          ::Users::SignIn.call(with: provider_params[:provider]) { sign_in(identity.user) }
         end
 
         def find_provider!

@@ -55,6 +55,12 @@ RSpec.describe User, type: :model do
     end
 
     it { should have_many(:identities).dependent(:destroy) }
+
+    it do
+      should have_many(:audit_events)
+               .with_foreign_key(:author_id)
+               .dependent(:delete_all)
+    end
   end
 
   describe 'validations' do

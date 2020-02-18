@@ -27,7 +27,9 @@ module Api
         #   (claim access token and return detailed user info)
         #
         def create
-          self.resource = ::Users::SignIn.call { warden.authenticate!(auth_options) }
+          self.resource = ::Users::SignIn.call(with: :standard) do
+            warden.authenticate!(auth_options)
+          end
 
           message = find_message(:signed_in, {})
 

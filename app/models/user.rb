@@ -68,6 +68,8 @@ class User < ApplicationRecord
            inverse_of: :author,
            dependent: :destroy
 
+  has_many :audit_events, foreign_key: :author_id, dependent: :delete_all
+
   accepts_nested_attributes_for :student
 
   #

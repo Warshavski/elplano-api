@@ -35,7 +35,7 @@ resource 'Labels' do
 
         <b>OPTIONAL FILTERS</b> :
 
-        - `"search": "part_of_the_title_or_description"` - Returns labels founded by provided search term(title, description).
+        - `"search": "part_of_the_title_or_description"` - Returns labels found by provided search term(title, description).
 
         Example: 
 

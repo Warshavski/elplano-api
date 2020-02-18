@@ -75,6 +75,11 @@ Rails.application.routes.draw do
         resources :users, except: %i[new edit create]
       end
 
+      namespace :audit do
+        # (see Audit::EventsController)
+        resources :events, only: :index
+      end
+
       # (see ClassmatesController)
       resources :classmates, only: %i[index show]
 

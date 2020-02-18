@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_03_171507) do
+ActiveRecord::Schema.define(version: 2020_02_16_113451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,21 @@ ActiveRecord::Schema.define(version: 2020_02_03_171507) do
     t.index ["attachable_id", "attachable_type"], name: "index_attachments_on_attachable_id_and_attachable_type"
     t.index ["attachable_type", "attachable_id"], name: "index_attachments_on_attachable_type_and_attachable_id"
     t.index ["user_id"], name: "index_attachments_on_user_id"
+  end
+
+  create_table "audit_events", force: :cascade do |t|
+    t.bigint "author_id", null: false
+    t.string "entity_type", null: false
+    t.bigint "entity_id", null: false
+    t.integer "audit_type", null: false
+    t.jsonb "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["audit_type"], name: "index_audit_events_on_audit_type"
+    t.index ["author_id"], name: "index_audit_events_on_author_id"
+    t.index ["created_at", "author_id"], name: "index_audit_events_on_created_at_and_author_id"
+    t.index ["entity_id", "entity_type", "id"], name: "index_audit_events_on_entity_id_and_entity_type_and_id", order: { id: :desc }
+    t.index ["entity_type", "entity_id"], name: "index_audit_events_on_entity_type_and_entity_id"
   end
 
   create_table "bug_reports", force: :cascade do |t|
@@ -316,6 +331,7 @@ ActiveRecord::Schema.define(version: 2020_02_03_171507) do
   add_foreign_key "assignments", "students"
   add_foreign_key "assignments", "tasks"
   add_foreign_key "attachments", "users"
+  add_foreign_key "audit_events", "users", column: "author_id"
   add_foreign_key "bug_reports", "users", column: "reporter_id"
   add_foreign_key "courses", "groups"
   add_foreign_key "events", "courses"

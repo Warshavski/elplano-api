@@ -7,10 +7,15 @@ module Users
   #     (user auth and token claim)
   #
   class SignIn
-
     # see #execute
-    def self.call(&block)
-      new.execute(&block)
+    def self.call(details, &block)
+      new.execute(details, &block)
+    end
+
+    attr_reader :audit_logger
+
+    def initialize(audit_logger = AuditEvents::Log)
+      @audit_logger = audit_logger
     end
 
     # Perform authentication and access token claim
@@ -20,8 +25,10 @@ module Users
     # @raise [ActiveRecord::RecordInvalid]
     # @return [User]
     #
-    def execute
-      yield.tap { |resource| claim_access_token!(resource) }
+    def execute(details = {})
+      yield.tap do |resource|
+        claim_access_token!(resource).then { |token| log_audit_event(token, details) }
+      end
     end
 
     private
@@ -33,7 +40,11 @@ module Users
         use_refresh_token: Doorkeeper.configuration.refresh_token_enabled?
       }
 
-      Doorkeeper::AccessToken.create!(params)
+      AccessToken.create!(params)
+    end
+
+    def log_audit_event(token, details)
+      audit_logger.call(:authentication, token.owner, token.owner, details)
     end
   end
 end

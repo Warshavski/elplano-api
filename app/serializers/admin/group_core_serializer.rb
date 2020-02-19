@@ -9,6 +9,8 @@ module Admin
   class GroupCoreSerializer < ::GroupSerializer
     set_type :group
 
-    belongs_to :president, serializer: StudentSerializer
+    belongs_to :president,
+               record_type: :student,
+               serializer: StudentSerializer
   end
 end

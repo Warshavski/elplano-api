@@ -7,8 +7,9 @@
 class ApplicationMailer < ActionMailer::Base
   attr_accessor :current_user
 
-  default from:     -> { default_sender_address.format }
-  default reply_to: -> { default_reply_to_address.format }
+  # If case of devise usage lambda defined with optional argument
+  default from:     ->(_) { default_sender_address.format }
+  default reply_to: ->(_) { default_reply_to_address.format }
 
   private
 
@@ -25,6 +26,6 @@ class ApplicationMailer < ActionMailer::Base
   end
 
   def core_config
-    @config ||= Elplano.config.core
+    @core_config ||= Elplano.config.core
   end
 end

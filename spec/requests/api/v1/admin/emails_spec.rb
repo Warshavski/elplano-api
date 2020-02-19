@@ -28,7 +28,7 @@ describe Api::V1::Admin::EmailsController, type: :request do
       context 'email sending' do
         it 'enqueues confirmation email send' do
           expected_params = [
-            'DeviseMailer',
+            'Devise::Mailer',
             'confirmation_instructions',
             'deliver_now',
             random_user,

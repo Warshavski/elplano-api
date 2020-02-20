@@ -211,49 +211,6 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe '.find_by_username' do
-    it 'returns nil if not found' do
-      expect(described_class.find_by_username('JohnDoe')).to be_nil
-    end
-
-    it 'is case-insensitive' do
-      user = create(:user, username: 'JohnDoe')
-
-      expect(described_class.find_by_username('JOHNDOE')).to eq(user)
-    end
-  end
-
-  describe '.find_by_username!' do
-    it 'raises RecordNotFound' do
-      expect { described_class.find_by_username!('JohnDoe') }.to raise_error(ActiveRecord::RecordNotFound)
-    end
-
-    it 'is case-insensitive' do
-      user = create(:user, username: 'JohnDoe')
-
-      expect(described_class.find_by_username!('JOHNDOE')).to eq user
-    end
-  end
-
-  describe '.where_not_in' do
-    context 'without an argument' do
-      it 'returns the current relation' do
-        user = create(:user)
-
-        expect(described_class.where_not_in).to eq([user])
-      end
-    end
-
-    context 'using a list of user IDs' do
-      it 'excludes the users from the returned relation' do
-        user1 = create(:user)
-        user2 = create(:user)
-
-        expect(described_class.where_not_in([user2.id])).to eq([user1])
-      end
-    end
-  end
-
   context 'user availability' do
     let_it_be(:user) { build_stubbed(:user, banned_at: '2019-08-09') }
     describe '#banned?' do

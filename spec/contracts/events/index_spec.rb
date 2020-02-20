@@ -18,8 +18,8 @@ RSpec.describe Events::IndexContract do
   it_behaves_like :valid, without: :scope
   it_behaves_like :valid, without: :labels
 
-  %w[authored appointed].each { |status| it_behaves_like :valid, with: { scope: status } }
-  %w[group personal].each { |status| it_behaves_like :valid, with: { type: status } }
+  Event::SCOPES.each { |status| it_behaves_like :valid, with: { scope: status } }
+  Event::TYPES.each { |status| it_behaves_like :valid, with: { type: status } }
 
   it_behaves_like :invalid, with: { scope: 'wat' }
   it_behaves_like :invalid, with: { scope: '' }

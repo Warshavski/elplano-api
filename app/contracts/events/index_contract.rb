@@ -8,8 +8,8 @@ module Events
   class IndexContract < FilterContract
     params do
       optional(:labels).filled(:str?)
-      optional(:scope).filled(:str?, included_in?: %w[authored appointed])
-      optional(:type).filled(:str?, included_in?: %w[group personal])
+      optional(:scope).filled(:str?, included_in?: Event::SCOPES)
+      optional(:type).filled(:str?, included_in?: Event::TYPES)
     end
   end
 end

@@ -115,6 +115,7 @@ resource 'Admin users' do
           - `unban` - Remove application access block.
           - `unlock` - Remove lock caused by wrong password input.
           - `confirm` - Confirm user account.
+          - `logout` - Revoke all access tokens.
 
         <b>MORE INFORMATION</b> :
 

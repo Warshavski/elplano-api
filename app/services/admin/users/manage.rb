@@ -7,6 +7,8 @@ module Admin
     #   Used to manage user state
     #
     class Manage
+      include Loggable
+
       class << self
         attr_reader :actions
 
@@ -28,6 +30,12 @@ module Admin
 
       action(:confirm) { |user| user.confirm }
 
+      action(:logout) do |user|
+        Doorkeeper::AccessToken.revoke_all_for(nil, user)
+      end
+
+      # TODO : add current user for logger and permissions check?
+      #
       # Perform action execution
       #
       # @param user [User] -
@@ -40,13 +48,21 @@ module Admin
       #     - unban - remove application access block
       #     - unlock - remove lock caused by wrong password input
       #     - confirm - confirm user account
+      #     - logout - perform user's access tokens revocation
       #
       # @raise [ActiveRecord::RecordInvalid]
       #
       # @return [User]
       #
       def execute(user, action_type)
-        user.tap { |u| self.class.actions[action_type.to_sym]&.call(u) }
+        user.tap do |u|
+          action = self.class.actions[action_type.to_sym]
+
+          if action
+            action.call(u)
+            log_info("User - \"#{u.username}\" (#{u.email}) was \"#{action_type}\"")
+          end
+        end
       end
     end
   end

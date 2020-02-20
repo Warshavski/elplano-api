@@ -21,6 +21,7 @@ RSpec.describe Admin::Users::Manage do
       it { is_expected.to eq(user) }
 
       it 'sets banned at date' do
+
         expect(user.banned_at).to eq('2019-08-14')
       end
     end
@@ -57,6 +58,19 @@ RSpec.describe Admin::Users::Manage do
       it 'unlocks user access and remove locked at date' do
         expect(user.access_locked?).to be(false)
         expect(user.locked_at).to be(nil)
+      end
+    end
+
+    context 'when action is logout' do
+      let_it_be(:user)    { create(:user) }
+      let_it_be(:tokens)  { create_list(:token, 2, resource_owner_id: user.id) }
+
+      let(:action) { :logout }
+
+      it 'revokes all access tokens for user' do
+        tokens.each do |token|
+          expect(token.reload.revoked?).to be(true)
+        end
       end
     end
   end

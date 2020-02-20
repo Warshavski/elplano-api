@@ -74,6 +74,9 @@
 #         recurrence: ['RRULE:FREQ=WEEKLY;COUNT=5;BYDAY=TU,FR']
 #
 class Event < ApplicationRecord
+  SCOPES = %w[authored appointed].freeze
+  TYPES =  %w[group personal].freeze
+
   enum status: {
     confirmed: 'confirmed',
     tentative: 'tentative',

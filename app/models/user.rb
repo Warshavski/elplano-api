@@ -114,14 +114,6 @@ class User < ApplicationRecord
       end
     end
 
-    # Limits the result set to users _not_ in the given query/list of IDs.
-    #
-    # users - The list of users to ignore. This can be an `ActiveRecord::Relation`, or an Array.
-    #
-    def where_not_in(users = nil)
-      users ? where.not(id: users) : all
-    end
-
     def by_login(login)
       return nil unless login
 
@@ -130,14 +122,6 @@ class User < ApplicationRecord
       else
         unscoped.iwhere(username: login).take
       end
-    end
-
-    def find_by_username(username)
-      by_username(username).take
-    end
-
-    def find_by_username!(username)
-      by_username(username).take!
     end
 
     # Search users with the given query

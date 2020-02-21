@@ -124,6 +124,11 @@ gem 'apitome'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+
+  # Help to kill N+1 queries and unused eager loading
+  # https://github.com/flyerhzm/bullet
+  gem 'bullet'
+
   gem 'rspec-rails'
   gem 'rspec-parameterized', require: false
 
@@ -133,9 +138,6 @@ group :development, :test do
 end
 
 group :development do
-  # Help to kill N+1 queries and unused eager loading
-  # https://github.com/flyerhzm/bullet
-  gem 'bullet'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'pry-rails'
 end

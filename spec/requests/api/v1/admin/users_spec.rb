@@ -70,7 +70,7 @@ RSpec.describe Api::V1::Admin::UsersController, type: :request do
     include_examples 'json:api examples',
                      %w[data included],
                      %w[id type attributes relationships],
-                     %w[email username admin avatar confirmed banned locked locale created_at updated_at],
+                     %w[email username settings admin avatar confirmed banned locked locale created_at updated_at],
                      %w[student]
 
     it { expect(json_data['id']).to eq(random_user.id.to_s) }
@@ -96,7 +96,7 @@ RSpec.describe Api::V1::Admin::UsersController, type: :request do
     include_examples 'json:api examples',
                      %w[data included],
                      %w[id type attributes relationships],
-                     %w[email username admin avatar confirmed banned locked locale created_at updated_at],
+                     %w[email username settings admin avatar confirmed banned locked locale created_at updated_at],
                      %w[student]
 
     it { expect(json_data['id']).to eq(random_user.id.to_s) }

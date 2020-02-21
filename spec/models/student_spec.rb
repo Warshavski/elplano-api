@@ -70,6 +70,12 @@ RSpec.describe Student, type: :model do
     it { validate_length_of(:email).is_at_most(100) }
 
     it { validate_length_of(:phone).is_at_most(50) }
+
+    it do
+      should define_enum_for(:gender)
+               .with_values(female: 0, male: 1, other: 2)
+               .backed_by_column_of_type(:integer)
+    end
   end
 
   describe '#email' do

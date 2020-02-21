@@ -7,6 +7,9 @@ FactoryBot.define do
     phone     { Faker::PhoneNumber.cell_phone }
     about     { Faker::Lorem.paragraph(sentence_count: 5) }
 
+    birthday  { Faker::Date.birthday }
+    gender    { Faker::Gender.binary_type.downcase }
+
     social_networks do
       {
         'twitter' => Faker::Internet.url(host: 'twitter'),

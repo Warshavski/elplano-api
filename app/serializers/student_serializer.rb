@@ -9,9 +9,8 @@ class StudentSerializer
 
   set_type :student
 
-  attributes :full_name, :email, :phone,
-             :about, :social_networks, :president,
-             :created_at, :updated_at
+  attributes :full_name, :email, :phone, :birthday, :gender,
+             :about, :social_networks, :president, :created_at, :updated_at
 
   belongs_to :group,  serializer: GroupSerializer
   belongs_to :user,   serializer: UserSerializer

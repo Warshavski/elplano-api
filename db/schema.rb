@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_16_113451) do
+ActiveRecord::Schema.define(version: 2020_02_21_182145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -267,6 +267,8 @@ ActiveRecord::Schema.define(version: 2020_02_16_113451) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "group_id"
+    t.date "birthday"
+    t.integer "gender"
     t.index ["group_id"], name: "index_students_on_group_id"
     t.index ["user_id"], name: "index_students_on_user_id"
   end
@@ -312,6 +314,7 @@ ActiveRecord::Schema.define(version: 2020_02_16_113451) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "locale"
+    t.jsonb "settings", default: {}, null: false
     t.index ["admin"], name: "index_users_on_admin"
     t.index ["banned_at", "id"], name: "index_users_on_banned_at_and_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

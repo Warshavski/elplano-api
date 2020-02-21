@@ -38,6 +38,8 @@ resource "User's profile" do
       - `about` - Represents some detailed information about student(BIO).
       - `social_networks` - Represents a list of social networks.
       - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).
+      - `birthday` - Represents student's date of birth
+      - `gender` - Represents student's gender (Male, Female, Other)
       - `timestamps`
     
     <b>NOTES</b :
@@ -66,12 +68,15 @@ resource "User's profile" do
     with_options scope: :user do
       parameter :avatar, 'Uploaded file metadata received from `uploads` endpoint'
       parameter :locale, 'Preferred application localization'
+      parameter :settings, 'Custom user related settings(theme...)'
 
       with_options scope: %i[user student_attributes] do
         parameter :full_name, 'Full name'
         parameter :email, 'Contact email'
         parameter :phone, 'Contact phone'
         parameter :about, 'Detailed information(BIO)'
+        parameter :birthday, 'Date of birthday'
+        parameter :gender, "#{Student.genders.keys}"
         parameter :social_networks, 'List of the social networks(twitter, facebook, e.t.c.'
       end
     end

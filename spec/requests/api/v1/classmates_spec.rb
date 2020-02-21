@@ -69,7 +69,7 @@ RSpec.describe Api::V1::ClassmatesController, type: :request do
       include_examples 'json:api examples',
                        %w[data included],
                        %w[id type attributes relationships],
-                       %w[full_name email phone about president social_networks created_at updated_at],
+                       %w[full_name email gender birthday phone about president social_networks created_at updated_at],
                        %w[user group]
 
 

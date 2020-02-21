@@ -31,6 +31,8 @@ resource 'Admin groups' do
       - `about` - Represents some detailed information about student(BIO).
       - `social_networks` - Represents a list of social networks.
       - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).
+      - `birthday` - Represents student's date of birth.
+      - `gender` - Represents student's gender (Male, Female, Other).
       - `timestamps`
   DESC
 

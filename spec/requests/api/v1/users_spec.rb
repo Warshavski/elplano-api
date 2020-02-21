@@ -28,7 +28,7 @@ describe Api::V1::UsersController, type: :request do
       include_examples 'json:api examples',
                        %w[data included],
                        %w[id type attributes relationships],
-                       %w[email username avatar admin confirmed banned locked locale created_at updated_at],
+                       %w[email settings username avatar admin confirmed banned locked locale created_at updated_at],
                        %w[student]
 
       it 'returns token owner' do
@@ -58,7 +58,7 @@ describe Api::V1::UsersController, type: :request do
     include_examples 'json:api examples',
                      %w[data included],
                      %w[id type attributes relationships],
-                     %w[email username avatar admin confirmed banned locked locale created_at updated_at],
+                     %w[email settings username avatar admin confirmed banned locked locale created_at updated_at],
                      %w[student]
 
     it 'returns updated student info' do

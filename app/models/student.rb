@@ -7,6 +7,8 @@
 class Student < ApplicationRecord
   include Searchable
 
+  enum gender: { female: 0, male: 1, other: 2 }
+
   belongs_to :user
   belongs_to :group, optional: true
 
@@ -59,6 +61,9 @@ class Student < ApplicationRecord
   validates :phone,     length: { maximum: 50 }
 
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+
+  validates :birthday,
+            timeliness: { before: -> { Time.current }, allow_nil: true }
 
   scope :presidents, -> { where(president: true) }
 

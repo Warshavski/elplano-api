@@ -53,7 +53,9 @@ module Social
     end
 
     def request_access_token!(code, redirect_uri)
-      oauth_client.auth_code.get_token(code, redirect_uri: redirect_uri).tap do |access_token|
+      authorization_strategy = oauth_client.auth_code
+
+      authorization_strategy.get_token(code, redirect_uri: redirect_uri).tap do |access_token|
         raise Api::UnprocessableAuth, :token if access_token.token.nil?
       end
     end

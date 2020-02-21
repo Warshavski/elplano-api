@@ -40,9 +40,7 @@ module Uploads
     def execute(file)
       check_args!(file)
 
-      uploader = resolve_uploader
-
-      uploader.upload(file)
+      resolve_uploader.upload(file)
     end
 
     private

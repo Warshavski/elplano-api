@@ -310,6 +310,16 @@ module Descriptions
             </pre>
         DESC
       end
+
+      def activity_event
+        <<~DESC
+          Activity event attributes :
+      
+            - `action` - Represents action of the activity(#{ActivityEvent.actions.keys}).
+            - `details` - Represents additional details information(json).
+            - `timestamps`
+        DESC
+      end
     end
   end
 end

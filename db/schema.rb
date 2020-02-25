@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_21_182145) do
+ActiveRecord::Schema.define(version: 2020_02_23_093842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,21 @@ ActiveRecord::Schema.define(version: 2020_02_21_182145) do
     t.datetime "updated_at", null: false
     t.index ["reporter_id"], name: "index_abuse_reports_on_reporter_id"
     t.index ["user_id"], name: "index_abuse_reports_on_user_id", unique: true
+  end
+
+  create_table "activity_events", force: :cascade do |t|
+    t.bigint "author_id", null: false
+    t.string "target_type", null: false
+    t.bigint "target_id", null: false
+    t.integer "action", limit: 2, null: false
+    t.jsonb "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["action"], name: "index_activity_events_on_action"
+    t.index ["author_id"], name: "index_activity_events_on_author_id"
+    t.index ["created_at", "author_id"], name: "index_activity_events_on_created_at_and_author_id"
+    t.index ["target_id", "target_type", "id"], name: "index_activity_events_on_target_id_and_target_type_and_id", order: { id: :desc }
+    t.index ["target_type", "target_id"], name: "index_activity_events_on_target_type_and_target_id"
   end
 
   create_table "announcements", force: :cascade do |t|
@@ -331,6 +346,7 @@ ActiveRecord::Schema.define(version: 2020_02_21_182145) do
 
   add_foreign_key "abuse_reports", "users"
   add_foreign_key "abuse_reports", "users", column: "reporter_id"
+  add_foreign_key "activity_events", "users", column: "author_id"
   add_foreign_key "assignments", "students"
   add_foreign_key "assignments", "tasks"
   add_foreign_key "attachments", "users"

@@ -70,6 +70,8 @@ class User < ApplicationRecord
 
   has_many :audit_events, foreign_key: :author_id, dependent: :delete_all
 
+  has_many :activity_events, foreign_key: :author_id, dependent: :delete_all
+
   accepts_nested_attributes_for :student
 
   #

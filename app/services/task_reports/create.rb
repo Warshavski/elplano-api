@@ -6,6 +6,8 @@ module TaskReports
   #   Used to create assignment report(task accomplishment)
   #
   class Create
+    include Loggable
+
     # @see #execute
     def self.call(student, assignment, params)
       new.execute(student, assignment, params)
@@ -43,6 +45,7 @@ module TaskReports
       ApplicationRecord.transaction do
         assignment.tap do
           assignment.update!(assignment_params)
+          log_activity!(:updated, student.user, assignment)
           Attachments::Create.call(student.user, assignment, attachments_meta)
         end
       end

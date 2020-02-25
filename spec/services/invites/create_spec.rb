@@ -30,7 +30,12 @@ RSpec.describe Invites::Create do
       end
 
       context 'invite presence' do
-        it { expect { subject }.to change(Invite, :count).by(1) }
+        it 'is expected to create invite and log activity' do
+          expect { subject }.to(
+            change(Invite, :count).by(1)
+              .and(change(ActivityEvent, :count).by(1))
+          )
+        end
       end
 
       # HA! tricky things down here

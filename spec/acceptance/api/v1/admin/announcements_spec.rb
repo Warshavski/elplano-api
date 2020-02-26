@@ -6,14 +6,7 @@ resource 'Admin announcements' do
   explanation <<~DESC
     El Plano administration: Application announcements.
     
-    Announcement attributes :
-
-      - `message` - Represents application announcement message.
-      - `background_color` - Represents the background color.
-      - `foreground_color` - Represents the foreground color that can be used to write on top of a background with 'background' color.
-      - `start_at` - Represents time when announcement should appear.
-      - `end_at` - Represents time when announcement should disappear.
-      - `timestamps`
+    #{Descriptions::Model.announcement}
   DESC
 
   let(:user)  { create(:admin) }

@@ -6,10 +6,7 @@ resource "Users's reports bugs" do
   explanation <<~DESC
     El Plano bugs reports API.
     
-    Bug report attributes :
-
-     - `message` - Represents bug report message.
-     - `timestamps`
+    #{Descriptions::Model.bug_report}
   DESC
 
   let(:user)  { create(:user) }

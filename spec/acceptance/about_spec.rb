@@ -19,17 +19,7 @@ resource 'About' do
       explanation <<~DESC
         Returns application information
 
-        Application information meta attributes :
-
-          - `app_version` - Represents application version.
-          - `app_revision` - Represents application revision(build).
-          - `app_contact_username` - Represents contact person's name.
-          - `app_contact_email` - Represents contact person's email.
-          - `app_title` - Represents application title.
-          - `app_short_description` - Represents application short description(may include HTML).
-          - `app_description` - Represents application description(may include HTML).
-          - `app_extended_description` - Represents application extended description(HTML).
-          - `app_terms` - Represents application terms of use(HTML).
+        #{Descriptions::Model.application_meta}
       DESC
 
       do_request

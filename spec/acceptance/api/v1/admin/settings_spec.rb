@@ -6,15 +6,7 @@ resource 'Admin settings' do
   explanation <<~DESC
     El Plano administration: Application settings.
     
-    Settings attributes :
-
-     - `app_contact_username` - Represents contact person's name.
-     - `app_contact_email` - Represents contact person's email.
-     - `app_title` - Represents application title.
-     - `app_short_description` - Represents application short description(may include HTML).
-     - `app_description` - Represents application description(may include HTML).
-     - `app_extended_description` - Represents application extended description(HTML).
-     - `app_terms` - Represents application terms of use(HTML).
+    #{Descriptions::Model.settings}
   DESC
 
   let(:user)  { create(:admin) }

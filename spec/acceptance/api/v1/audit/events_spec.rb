@@ -17,12 +17,7 @@ resource "Users's audit events" do
   explanation <<~DESC
     El Plano audit events API
     
-    Audit event attributes :
-
-      - `audit_type` - Represents type of the audit event(scope of the event).
-      - `details` - Represents additional details information(json).
-      - `timestamps`
-
+    #{Descriptions::Model.audit_event}
   DESC
 
   get 'api/v1/audit/events' do

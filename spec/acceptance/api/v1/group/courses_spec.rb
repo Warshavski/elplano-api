@@ -6,22 +6,9 @@ resource "Group's courses" do
   explanation <<~DESC
     El Plano courses API(created in the scope of the students group by group owner).
 
-    Course attributes :
-
-     - `title` - Represents course name(human readable identity).
-     - `active` - `true` if course is available in current time(not archived course), otherwise `false`
-     - `timestamps`
+    #{Descriptions::Model.course}
   
-    Lecturer attributes :
-    
-     - `first_name` - Represents lecturer first name
-     - `last_name` - Represents lecturer last name
-     - `patronymic` - Represents lecturer patronymic 
-     - `email` - Represents lecturer contact email address.
-     - `phone` - Represents lecturer contact phone number.
-     - `active` - `true` if lecturer is available in current time(can ), otherwise `false`
-     - `avatar` - Represents lecturer photo
-     - `timestamps` 
+    #{Descriptions::Model.lecturer} 
 
     <b>NOTES</b> :
 

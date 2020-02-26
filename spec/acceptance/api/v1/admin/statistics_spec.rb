@@ -6,30 +6,7 @@ resource 'Admin statistics' do
   explanation <<~DESC
     El Plano administration: Application statistics.
     
-    Meta entity attributes :
-
-     - `total_count` - Represents the number of records created for all time.
-     - `week_count` - Represents the number of records created for the last week.
-     - `month_count` - Represents the number of records created for the last month.
-     
-    Example:
-
-    <pre>
-    {
-      "meta": {
-        "user": {
-          "total_count": 10,
-          "week_count": 1,
-          "month_count": 5
-        },
-        "group": {
-          "total_count": 5,
-          "week_count": 1,
-          "month_count": 2
-        }
-      }
-    }
-    </pre>
+    #{Descriptions::Model.statistics_meta}
   DESC
 
   let(:user)  { create(:admin) }

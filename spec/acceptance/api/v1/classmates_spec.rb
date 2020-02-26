@@ -6,26 +6,11 @@ resource "User's classmates" do
   explanation <<~DESC
     El Plano classmates API.
 
-    Student attributes :
+    #{Descriptions::Model.student}
 
-      - `full_name` - Represents concatenated student's first, last and middle names.
-      - `email` - Represents email which is used to contact with the student.
-      - `phone` - Represents phone which is used to contact with the student.
-      - `about` - Represents some detailed information about student(BIO).
-      - `social_networks` - Represents a list of social networks.
-      - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).
-      - `birthday` - Represents student's date of birth.
-      - `gender` - Represents student's gender (Male, Female, Other).
-      - `timestamps`
+    #{Descriptions::Model.user}
   
-      Also, includes information about a user and relationships to the group and user.
-  
-      - `email` - Represents email that was used to register a user in the application(unique in application scope).
-      - `username` - Used as user name.
-      - `admin` - `false` if regular user `true`, if the user has access to application settings.
-      - `confirmed` - `false` if the user did not confirm his address otherwise `true`.
-      - `avatar_url` - User's avatar URL.
-      - `timestamps`
+     Also, includes information about a user and relationships to the group and user.
   DESC
 
   let(:user)  { student.user }

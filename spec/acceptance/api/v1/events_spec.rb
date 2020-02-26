@@ -6,30 +6,9 @@ resource "User's events" do
   explanation <<~DESC
     El Plano user's events API(event created by user).
     
-    Event attributes :
-
-     - `title` - Represents event name.
-     - `description` - Represents event detailed description.
-     - `status` - Represents event current status.
-       - `confirmed` - The event is confirmed. This is the default status.
-       - `tentative` - The event is tentatively confirmed.
-       - `cancelled` - The event is cancelled (deleted).
+    #{Descriptions::Model.event}
   
-     - `recurrence` - Represents recurrence rules.
-     - `timezone` - Timezone settings.
-     - `start_at` - Represents when event starts.
-     - `end_at` - Represents when event ends.
-     - `background_color` - Represents the background color.
-     - `foreground_color` - Represents the foreground color that can be used to write on top of a background with 'background' color.
-     - `timestamps`
-  
-    Label attributes :
-
-      - `title` - Represents label title (unique in student's group scope).
-      - `description` - Represents label detailed description.
-      - `color` - Represents label's background color.
-      - `text_color` - Represents label's text color(Generates automatically and based on background color).
-      - `timestamps`
+    #{Descriptions::Model.label}
 
      Also, includes references to the event creator, attached course, labels and for whom the event was created.
   DESC

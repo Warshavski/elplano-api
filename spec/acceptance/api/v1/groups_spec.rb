@@ -6,11 +6,7 @@ resource "User's group" do
   explanation <<~DESC
     El Plano user's group API'.
 
-    Group attributes: 
-
-      - `title` - Human readable group identity.
-      - `number` - Main group identity.
-      - `timestamps`
+    #{Descriptions::Model.group}
   DESC
 
   let(:student) { create(:student, :group_supervisor) }

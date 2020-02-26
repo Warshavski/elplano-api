@@ -6,10 +6,7 @@ resource 'Admin reports abuses' do
   explanation <<~DESC
     El Plano administration: Abuse reports.
     
-    Abuse report attributes :
-
-      - `message` - Represents abuse report message.
-      - `timestamps`
+    #{Descriptions::Model.abuse_report}
   DESC
 
   let(:user)  { create(:admin) }

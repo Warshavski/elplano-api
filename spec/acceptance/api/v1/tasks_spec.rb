@@ -6,45 +6,13 @@ resource "User's event tasks" do
   explanation <<~DESC
     El Plano event tasks API(creates for group event by group owner).
 
-    Task attributes :
-
-      - `title` - Represents task name(human readable identity).
-      - `description` - Represents task description.
-      - `outdated` - `true` if task is available in current time(not expired task), otherwise `false`.
-      - `expired_at` - Represents expiration time(task completion deadline).
-      - `timestamps`
+    #{Descriptions::Model.task}
   
-    Attachment attributes :
+    #{Descriptions::Model.attachment}
 
-      - `filename` - Represents original file name.
-      - `size` - Represents file size(bytes).
-      - `mime_type` - Represents file type(https://www.freeformatter.com/mime-types-list.html).
-      - `url` - Represents url to download file.
-      - `timestamps`
+    #{Descriptions::Model.event}
 
-    Event attributes :
-
-     - `title` - Represents event name.
-     - `description` - Represents event detailed description.
-     - `status` - Represents event current status.
-       - `confirmed` - The event is confirmed. This is the default status.
-       - `tentative` - The event is tentatively confirmed.
-       - `cancelled` - The event is cancelled (deleted).
-  
-     - `recurrence` - Represents recurrence rules.
-     - `timezone` - Timezone settings.
-     - `start_at` - Represents when event starts.
-     - `end_at` - Represents when event ends.
-     - `background_color` - Represents the background color.
-     - `foreground_color` - Represents the foreground color that can be used to write on top of a background with 'background' color.
-     - `timestamps`
-
-    Assignment attributes :
-
-      - `report` - Represents detailed task accomplishment description.
-      - `accomplished` - `true` if assignment is accomplished(done), otherwise `false`.
-      - `extra_links` - Represents links(URL) to extra attachments on external storage(Google drive, for example)
-      - `timestamps`
+    #{Descriptions::Model.assignment}
   DESC
 
   let_it_be(:student) { create(:student, :group_supervisor) }

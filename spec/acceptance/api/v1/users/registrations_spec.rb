@@ -22,16 +22,7 @@ resource 'Users' do
 
         Also, it sends an email with instructions for confirming the user.
 
-        Users attributes :
-    
-          - `email` - Represents email that was used to register a user in the application(unique in application scope).
-          - `username` - Represents used's user name.
-          - `admin` - `false` if regular user `true`, if the user has access to application settings.
-          - `confirmed` - `false` if the user did not confirm his address otherwise `true`.
-          - `banned` - `true` if the user had been locked via admin ban action otherwise `true`.
-          - `locked` - `true` if the user had been locked via login failed attempt otherwise `false`.
-          - `avatar_url` - Represents user's avatar.
-          - `timestamps`
+        #{Descriptions::Model.user}
 
         <b>NOTES</b> :
 

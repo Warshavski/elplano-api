@@ -6,15 +6,7 @@ resource "Group's lecturers" do
   explanation <<~DESC
     El Plano group's lecturers API(created for the group by group owner).
 
-    Lecturer attributes :
-
-     - `first_name` - Represents lecturer first name
-     - `last_name` - Represents lecturer last name
-     - `patronymic` - Represents lecturer patronymic 
-     - `email` - Represents lecturer contact email address.
-     - `phone` - Represents lecturer contact phone number.
-     - `active` - `true` if lecturer is available in current time(can ), otherwise `false`
-     - `timestamps`
+    #{Descriptions::Model.lecturer}
   
     <b>NOTES</b> :
 

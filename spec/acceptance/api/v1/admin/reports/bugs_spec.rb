@@ -6,10 +6,7 @@ resource 'Admin reports bugs' do
   explanation <<~DESC
     El Plano administration: Bug reports.
     
-    Bug report attributes :
-
-      - `message` - Represents bug report message.
-      - `timestamps`
+    #{Descriptions::Model.bug_report}
   DESC
 
   let(:user)  { create(:admin) }

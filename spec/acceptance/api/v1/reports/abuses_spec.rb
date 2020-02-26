@@ -6,11 +6,7 @@ resource "Users's reports abuses" do
   explanation <<~DESC
     El Plano abuses reports API.
     
-    Abuse report attributes :
-
-     - `message` - Represents abuse report message.
-     - `user_id` - Represents reported users identity
-     - `timestamps`
+    #{Descriptions::Model.abuse_report}
   DESC
 
   let(:user)  { create(:user) }

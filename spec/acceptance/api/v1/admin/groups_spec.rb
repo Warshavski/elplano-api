@@ -70,7 +70,7 @@ resource 'Admin groups' do
 
         <b>MORE INFORMATION</b> :
 
-          - See models attributes description in the section description.
+          - See descriptions attributes description in the section description.
           - See "Filters" and "Pagination" sections in the README section. 
 
         <b>NOTE:<b>
@@ -99,12 +99,12 @@ resource 'Admin groups' do
 
         <b>MORE INFORMATION</b> :
 
-          - See models attributes description in the section description.
+          - See descriptions attributes description in the section description.
 
         <b>NOTES</b> :
 
           - Also, includes information about group president(relation to the president model)
-          - Also, includes information about group members(relation to the students models)
+          - Also, includes information about group members(relation to the students descriptions)
       DESC
 
       do_request

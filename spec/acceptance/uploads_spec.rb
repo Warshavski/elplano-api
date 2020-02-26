@@ -49,14 +49,7 @@ resource 'Uploads' do
       explanation <<~DESC
         Returns uploaded file identity and its metadata
 
-        Uploaded file metadata attributes :
-
-          - `id` - Represents unique uploaded file identity.
-          - `storage` - Represents file storage type.
-          - `metadata` - Represents uploaded file metadata(name, size, e.t.c.).
-            - `filename` - Represents name of the uploaded file.
-            - `size` - Represents size of the uploaded file(bytes).
-            - `mime_type` - Represents MIME(Multipurpose Internet Mail Extensions or MIME) type of the uploaded file.
+        #{Descriptions::Model.upload_meta}
       DESC
 
       do_request

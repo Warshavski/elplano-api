@@ -6,13 +6,7 @@ resource 'Labels' do
   explanation <<~DESC
     El Plano labels API.
     
-    Label attributes :
-
-      - `title` - Represents label title (unique in student's group scope).
-      - `description` - Represents label detailed description.
-      - `color` - Represents label's background color.
-      - `text_color` - Represents label's text color(Generates automatically and based on background color).
-      - `timestamps`
+    #{Descriptions::Model.label}
   DESC
 
   let_it_be(:student)  { create(:student, :group_supervisor) }

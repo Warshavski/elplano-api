@@ -6,27 +6,7 @@ resource 'Admin logs' do
   explanation <<~DESC
     El Plano administration: Logs management.
     
-    Meta entity attributes :
-
-     - `file_name` - Represents file name that contains logs.
-     - `logs` - Represents last 2000 log rows.
-     
-    Example: 
-
-      <pre>
-        {
-          "meta": [
-            {
-              "file_name": "application.log",
-              "logs": [
-                "# Logfile created on 2019-10-07 17:08:07 +0300 by logger.rb/61378",
-                "I, [2019-10-07T17:16:44.449328 #1022]  INFO -- : hello world",
-                "E, [2019-10-07T17:16:44.449940 #1022] ERROR -- : hello again"
-              ]
-            }
-          ]
-        }
-      </pre>
+    #{Descriptions::Model.application_logs}
   DESC
 
   let(:user)  { create(:admin) }

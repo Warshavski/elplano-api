@@ -6,16 +6,7 @@ resource "Group's Invites" do
   explanation <<~DESC
     El Plano group's invites API.
 
-    Invite attributes :
-
-    - `email` - Represents email where invite was sent.
-    - `invitation_token` - Represents token.
-    - `status` - Represents invite current status.
-      - `accepted` - The invite was accepted by the recipient.
-      - `pending` - The invite was not accepted by the recipient. Default status.
-    - `sent_at` - Date and time when the invite was sent.
-    - `accepted_at` - Date and time when the invite was accepted by recipient.
-    - `timestamps`
+    #{Descriptions::Model.invite}
 
     <b>NOTES</b> : 
 

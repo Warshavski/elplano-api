@@ -20,27 +20,9 @@ resource "User's profile" do
     
     Users attributes :
 
-      - `email` - Represents email that was used to register a user in the application(unique in application scope).
-      - `username` - Represents used's user name.
-      - `admin` - `false` if regular user `true`, if the user has access to application settings.
-      - `confirmed` - `false` if the user did not confirm his address otherwise `true`.
-      - `avatar` - Represents user's avatar.
-      - `banned` - `true` if the user had been locked via admin ban action otherwise `true`.
-      - `locked` - `true` if the user had been locked via login failed attempt otherwise `false`.
-      - `locale` - Represents user's locale
-      - `timestamps`
+    #{Descriptions::Model.user}
      
-    Student attributes :
-  
-      - `full_name` - Represents concatenated student's first, last and middle names.
-      - `email` - Represents email which is used to contact with the student.
-      - `phone` - Represents phone which is used to contact with the student.
-      - `about` - Represents some detailed information about student(BIO).
-      - `social_networks` - Represents a list of social networks.
-      - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).
-      - `birthday` - Represents student's date of birth
-      - `gender` - Represents student's gender (Male, Female, Other)
-      - `timestamps`
+    #{Descriptions::Model.student}
     
     <b>NOTES</b :
 

@@ -8,13 +8,7 @@ resource 'OAuth' do
     
     Used to manage user's access tokens(claim, revoke)
 
-    Token attributes :
-
-      - `access_token` - Represents access token(used to access API endpoints).
-      - `refresh_token` - Represents refresh token(used to update expired access token).
-      - `token_type` - Represents token type(always "Bearer").
-      - `expires_in` - Represents expiration access token expiration time.
-      - `created_at` - Represents access token creation date.
+    #{Descriptions::Model.access_token}
 
     <b>MORE INFORMATION</b> : 
 

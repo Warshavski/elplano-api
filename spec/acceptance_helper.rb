@@ -8,6 +8,8 @@ require 'test_prof/recipes/rspec/before_all'
 require 'test_prof/recipes/rspec/let_it_be'
 require 'test_prof/recipes/rspec/factory_all_stub'
 
+require 'acceptance/descriptions/model'
+
 RspecApiDocumentation.configure do |config|
   config.api_name = 'El Plano API'
 

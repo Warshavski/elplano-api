@@ -6,6 +6,8 @@ module Invites
   #   Used to create(issue) new invite
   #
   class Create
+    include Loggable
+
     attr_reader :sender
 
     # Create and send invite
@@ -49,7 +51,12 @@ module Invites
     # @return [Invite]
     #
     def execute(params)
-      create_invite!(params).tap { |invite| notify_about(invite) }
+      ApplicationRecord.transaction do
+        create_invite!(params).tap do |invite|
+          log_activity!(:created, sender.user, invite)
+          notify_about(invite)
+        end
+      end
     end
 
     private

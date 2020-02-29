@@ -28,8 +28,10 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
-      # (see AnnouncementsController)
-      resources :announcements, only: :index
+      namespace :activity do
+        # (see Activity::EventsController)
+        resources :events, only: :index
+      end
 
       namespace :admin do
         # (see Admin::AnnouncementsController)
@@ -74,6 +76,9 @@ Rails.application.routes.draw do
         # (see Admin::UsersController)
         resources :users, except: %i[new edit create]
       end
+
+      # (see AnnouncementsController)
+      resources :announcements, only: :index
 
       namespace :audit do
         # (see Audit::EventsController)

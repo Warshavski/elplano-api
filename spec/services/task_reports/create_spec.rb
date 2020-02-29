@@ -37,6 +37,8 @@ RSpec.describe TaskReports::Create do
 
     it { expect { subject }.to change(Attachment, :count).by(1) }
 
+    it { expect { subject }.to change(ActivityEvent, :count).by(1) }
+
     context 'when attachments are not presented' do
       let_it_be(:params) { { attachments: [] } }
 

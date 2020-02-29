@@ -61,6 +61,12 @@ RSpec.describe User, type: :model do
                .with_foreign_key(:author_id)
                .dependent(:delete_all)
     end
+
+    it do
+      should have_many(:activity_events)
+               .with_foreign_key(:author_id)
+               .dependent(:delete_all)
+    end
   end
 
   describe 'validations' do

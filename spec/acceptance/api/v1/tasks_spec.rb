@@ -15,9 +15,10 @@ resource "User's event tasks" do
     #{Descriptions::Model.assignment}
   DESC
 
-  let_it_be(:student) { create(:student, :group_supervisor) }
-  let_it_be(:course)  { create(:course, group: student.group) }
-  let_it_be(:labels)  { [create(:label)] }
+  let_it_be(:student)   { create(:student, :group_supervisor) }
+  let_it_be(:classmate) { create(:student, group: student.group) }
+  let_it_be(:course)    { create(:course, group: student.group) }
+  let_it_be(:labels)    { [create(:label)] }
 
   let_it_be(:event) do
     create(:event, eventable: student.group, labels: labels, creator: student, course: course)
@@ -121,16 +122,26 @@ resource "User's event tasks" do
 
   post 'api/v1/tasks' do
     with_options scope: %i[task] do
-      parameter :title, 'Task title(human readable identity)', required: true
+      parameter :title, 'Task title(human readable identity)',
+                required: true
+
       parameter :description, 'Task detailed description or assigment itself'
       parameter :expired_at, 'Task expiration timestamp'
-      parameter :event_id, '', required: true
+
+      parameter :event_id, 'Event which task is attached to',
+                required: true
+
       parameter :attachments, 'Uploaded files metadata(collection) received from `uploads` endpoint'
+
+      parameter :student_ids, 'Collection of the students who are assigned to the task',
+                required: true
     end
 
     let(:raw_post) do
       params = build(:task_params).merge(
-        event_id: event.id, attachments: [metadata.to_json]
+        event_id: event.id,
+        attachments: [metadata.to_json],
+        student_ids: [classmate.id]
       )
 
       { task:  params }.to_json
@@ -164,14 +175,21 @@ resource "User's event tasks" do
 
   put 'api/v1/tasks/:id' do
     with_options scope: %i[task] do
-      parameter :title, 'Task title(human readable identity)', required: true
+      parameter :title, 'Task title(human readable identity)',
+                required: true
+
       parameter :description, 'Task detailed description or assigment itself'
       parameter :expired_at, 'Task expiration timestamp'
-      parameter :event_id, '', required: true
+
+      parameter :event_id, 'Event which task is attached to',
+                required: true
+
+      parameter :student_ids, 'Collection of the students who are assigned to the task',
+                required: true
     end
 
     let(:raw_post) do
-      { task: build(:task_params).merge(event_id: event.id) }.to_json
+      { task: build(:task_params).merge(event_id: event.id, student_ids: [classmate.id]) }.to_json
     end
 
     example 'UPDATE : Update selected task information' do

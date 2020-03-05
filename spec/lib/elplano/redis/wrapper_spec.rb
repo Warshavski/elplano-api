@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe Elplano::Redis::Wrapper do
+RSpec.describe Elplano::Redis::Wrapper do
   include_examples 'redis_shared_examples'
 
   describe '.config_file_path' do

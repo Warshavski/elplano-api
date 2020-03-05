@@ -14,11 +14,15 @@ module Elplano
     #   [...description...]
     #
     class Wrapper
-      DEFAULT_REDIS_URL = 'redis://localhost:6379'
-      REDIS_CONFIG_ENV_VAR_NAME = 'ELPLANO_REDIS_CONFIG_FILE'
-
       class << self
         delegate :params, :url, to: :new
+
+        def options
+          @options ||= {
+            config_env_var_name: 'ELPLANO_REDIS_CONFIG_FILE',
+            default_url: 'redis://localhost:6379'
+          }
+        end
 
         def with
           @pool ||= ConnectionPool.new(size: pool_size) { ::Redis.new(params) }
@@ -26,10 +30,11 @@ module Elplano
         end
 
         def pool_size
-          #
           # heuristic constant 5 should be a config setting somewhere -- related to CPU count?
-          #
-          5
+          size = 5
+          size += Elplano::Runtime.max_threads if Elplano::Runtime.multi_threaded?
+
+          size
         end
 
         def _raw_config
@@ -47,7 +52,11 @@ module Elplano
         end
 
         def default_url
-          DEFAULT_REDIS_URL
+          options[:default_url]
+        end
+
+        def namespace
+          options[:namespace]
         end
 
         #
@@ -62,9 +71,28 @@ module Elplano
 
         def config_file_name
           #
+          # if ENV set for this class, use it even if it points to a file does not exist
+          #
+          file_name = ENV[options[:config_file_name].to_s]
+          return file_name if file_name
+
+          #
+          # otherwise, if config files exists for this class, use it
+          #
+          file_name = config_file_path(options[:yaml_file_name])
+          return file_name if File.file?(file_name)
+
+          #
+          # this will force use of DEFAULT_REDIS_SHARED_STATE_URL when config file is absent
+
+          default_config_file_name
+        end
+
+        def default_config_file_name
+          #
           # if ENV set for wrapper class, use it even if it points to a file does not exist
           #
-          file_name = ENV[REDIS_CONFIG_ENV_VAR_NAME]
+          file_name = ENV['ELPLANO_REDIS_CONFIG_FILE']
           return file_name unless file_name.nil?
 
           #

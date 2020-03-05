@@ -320,6 +320,21 @@ module Descriptions
             - `timestamps`
         DESC
       end
+
+      def active_token
+        <<~DESC
+          Active token attributes :
+      
+            - `ip_address` - Represents IP address.
+            - `browser` - Represents browser name used to claim token(Mobile safari..).
+            - `os` - Represents operation system name(Windows, iOS, Linux...).
+            - `device_name` - Represents name of the device(iPhone 6..).
+            - `device_type` - Represents type of the device(tablet, smartphone...).
+            - `timestamps`
+
+          Issued token presented by `id` property
+        DESC
+      end
     end
   end
 end

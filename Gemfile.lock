@@ -90,6 +90,7 @@ GEM
       safe_yaml (~> 1.0.0)
     crass (1.0.5)
     database_cleaner (1.7.0)
+    device_detector (1.0.0)
     devise (4.7.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -412,6 +413,7 @@ DEPENDENCIES
   byebug
   connection_pool
   database_cleaner
+  device_detector
   devise (>= 4.7.1)
   doorkeeper (~> 5.2.1)
   dotenv-rails

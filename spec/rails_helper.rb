@@ -156,6 +156,14 @@ RSpec.configure do |config|
     redis_cache_cleanup!
   end
 
+  config.around(:each, :clean_elplano_redis_sessions) do |example|
+    redis_sessions_cleanup!
+
+    example.run
+
+    redis_sessions_cleanup!
+  end
+
   config.after(:example, :request_store) do
     RequestStore.end!
     RequestStore.clear!
@@ -164,7 +172,7 @@ RSpec.configure do |config|
   config.after(:suite) do
     # ...
     ApplicationSetting.thing_scoped.each do |r|
-      key = "#{Elplano::Redis::Cache::CACHE_NAMESPACE}:rails_settings_cached/#{r.var}"
+      key = "#{Elplano::Redis::Cache.namespace}:rails_settings_cached/#{r.var}"
       Rails.cache.delete(key)
     end
   end

@@ -26,6 +26,7 @@ module Elplano
     require_relative Rails.root.join('lib/elplano/middleware/health_check')
     require_relative Rails.root.join('lib/elplano/redis/wrapper')
     require_relative Rails.root.join('lib/elplano/redis/cache')
+    require_relative Rails.root.join('lib/elplano/runtime')
 
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
@@ -60,7 +61,12 @@ module Elplano
     # Use caching across all environments
     #
     caching_config_hash = ::Elplano::Redis::Cache.params
-    caching_config_hash[:namespace] = ::Elplano::Redis::Cache::CACHE_NAMESPACE
+    caching_config_hash[:namespace] = ::Elplano::Redis::Cache.namespace
+
+    if Elplano::Runtime.multi_threaded?
+      caching_config_hash[:pool_size] = Elplano::Redis::Cache.pool_size
+      caching_config_hash[:pool_timeout] = 1
+    end
 
     #
     # Limit cache grow

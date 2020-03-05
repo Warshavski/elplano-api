@@ -18,4 +18,9 @@ module RedisHelpers
   def redis_queues_cleanup!
     Elplano::Redis::Queues.with(&:flushall)
   end
+
+  # Usage: session state
+  def redis_sessions_cleanup!
+    Elplano::Redis::Sessions.with(&:flushall)
+  end
 end

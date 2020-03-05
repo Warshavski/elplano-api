@@ -44,6 +44,10 @@ gem 'action_policy'
 # https://github.com/Shopify/bootsnap
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# User agent parsing
+# https://github.com/podigee/device_detector
+gem 'device_detector'
+
 # OAuth 2 provider for Ruby on Rails / Grape.
 # https://github.com/doorkeeper-gem/doorkeeper
 gem 'doorkeeper', '~> 5.2.1'

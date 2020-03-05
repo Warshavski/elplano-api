@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-#
-# please require all dependencies below:
-#
-require_relative 'wrapper' unless defined?(::Rails) && ::Rails.root.present?
-
 module Elplano
   module Redis
     # Elplano::Redis::Cache
@@ -12,32 +7,14 @@ module Elplano
     #   [...description...]
     #
     class Cache < ::Elplano::Redis::Wrapper
-      CACHE_NAMESPACE = 'cache:elplano'
-      DEFAULT_REDIS_CACHE_URL = 'redis://localhost:6380'
-      REDIS_CACHE_CONFIG_ENV_VAR_NAME = 'ELPLANO_REDIS_CACHE_CONFIG_FILE'
-
-      module ClassMethods
-        def default_url
-          DEFAULT_REDIS_CACHE_URL
-        end
-
-        def config_file_name
-          #
-          # if ENV set for this class, use it even if it points to a file does not exist
-          #
-          file_name = ENV[REDIS_CACHE_CONFIG_ENV_VAR_NAME]
-          return file_name unless file_name.nil?
-
-          #
-          # otherwise, if config files exists for this class, use it
-          #
-          file_name = config_file_path('redis.cache.yml')
-          return file_name if File.file?(file_name)
-
-          #
-          # this will force use of DEFAULT_REDIS_QUEUES_URL when config file is absent
-          #
-          super
+      class << self
+        def options
+          @options ||= {
+            config_env_var_name: 'ELPLANO_REDIS_CACHE_CONFIG_FILE',
+            yaml_file_name: 'redis.cache.yml',
+            namespace: 'cache:elplano',
+            default_url: 'redis://localhost:6379/10'
+          }
         end
       end
     end

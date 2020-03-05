@@ -70,11 +70,15 @@ class ApplicationController < ActionController::API
   end
 
   def authorize_access!
-    #
-    # This means that doorkeeper authorization was successful
-    #  otherwise, doorkeeper would render an error
-    #
-    authorize! current_user, with: UserPolicy if doorkeeper_authorize!.nil?
+    auth = doorkeeper_authorize!
+
+    return unless auth.nil?
+
+    options = { event: :fetch, token: doorkeeper_token }
+
+    warden.set_user(current_user, options).then do |user|
+      authorize! user, with: UserPolicy
+    end
   end
 
   def authorize_action!(entity)

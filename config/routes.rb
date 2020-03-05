@@ -31,6 +31,9 @@ Rails.application.routes.draw do
       namespace :activity do
         # (see Activity::EventsController)
         resources :events, only: :index
+
+        # (see Activity::TokensController)
+        resources :tokens, only: :index
       end
 
       namespace :admin do

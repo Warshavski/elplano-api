@@ -6,7 +6,7 @@ require 'sidekiq/web'
 # Custom Queues configuration
 #
 queues_config_hash = Elplano::Redis::Queues.params
-queues_config_hash[:namespace] = Elplano::Redis::Queues::SIDEKIQ_NAMESPACE
+queues_config_hash[:namespace] = Elplano::Redis::Queues.namespace
 
 #
 # Default is to retry 25 times with exponential backoff.

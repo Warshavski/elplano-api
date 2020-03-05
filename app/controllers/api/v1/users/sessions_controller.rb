@@ -28,7 +28,7 @@ module Api
         #
         def create
           self.resource = ::Users::SignIn.call(with: :standard) do
-            warden.authenticate!(auth_options)
+            warden.authenticate!(auth_options).tap { |user| sign_in(user) }
           end
 
           message = find_message(:signed_in, {})
@@ -44,7 +44,8 @@ module Api
         # Perform access token revoke for authenticated user
         #
         def destroy
-          Doorkeeper::AccessToken.revoke_all_for(nil, current_user)
+          sign_out(resource_name)
+          doorkeeper_token.revoke
 
           render_meta message: I18n.t('devise.sessions.signed_out')
         end

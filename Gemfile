@@ -28,7 +28,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 
 # Use Puma as the app server
 # https://github.com/puma/puma
-gem 'puma', '>= 3.12.2'
+gem 'puma', '>= 4.3.3'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

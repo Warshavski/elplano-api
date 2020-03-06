@@ -10,7 +10,8 @@ module System
       Elplano::HealthChecks::DbCheck,
       Elplano::HealthChecks::RedisCheck,
       Elplano::HealthChecks::Redis::CacheCheck,
-      Elplano::HealthChecks::Redis::QueuesCheck
+      Elplano::HealthChecks::Redis::QueuesCheck,
+      Elplano::HealthChecks::Redis::SessionsCheck
     ].freeze
 
     CHECK_TYPES = %i[liveness readiness].freeze

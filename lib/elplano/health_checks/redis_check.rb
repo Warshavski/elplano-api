@@ -31,6 +31,10 @@ module Elplano
         def check_up_queues
           ::Elplano::HealthChecks::Redis::QueuesCheck.check_up
         end
+
+        def check_up_sessions
+          ::Elplano::HealthChecks::Redis::Sessions.check_up
+        end
       end
     end
   end

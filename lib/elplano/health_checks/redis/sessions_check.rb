@@ -3,11 +3,11 @@
 module Elplano
   module HealthChecks
     module Redis
-      # Elplano::HealthChecks::Redis::QueuesCheck
+      # Elplano::HealthChecks::Redis::SessionsCheck
       #
-      #   Used to check redis health for Queues
+      #   Used to check redis health for sessions
       #
-      class QueuesCheck
+      class SessionsCheck
         extend AbstractCheck
 
         class << self
@@ -18,7 +18,7 @@ module Elplano
           private
 
           def metric_prefix
-            'redis_queues_ping'
+            'redis_sessions_ping'
           end
 
           def successful?(result)
@@ -26,7 +26,7 @@ module Elplano
           end
 
           def check
-            catch_timeout(DEFAULT_TIMEOUT) { Elplano::Redis::Queues.with(&:ping) }
+            catch_timeout(DEFAULT_TIMEOUT) { Elplano::Redis::Sessions.with(&:ping) }
           end
         end
       end

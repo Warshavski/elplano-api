@@ -82,9 +82,6 @@ module Elplano
           file_name = config_file_path(options[:yaml_file_name])
           return file_name if File.file?(file_name)
 
-          #
-          # this will force use of DEFAULT_REDIS_SHARED_STATE_URL when config file is absent
-
           default_config_file_name
         end
 

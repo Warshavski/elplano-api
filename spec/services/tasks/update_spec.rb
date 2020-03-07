@@ -81,5 +81,41 @@ RSpec.describe Tasks::Update do
         expect(subject.students).to eq([])
       end
     end
+
+    context 'when author is not a group owner' do
+      subject { described_class.call(task, regular_member, params) }
+
+      let_it_be(:regular_member) { create(:student, group: student.group) }
+      let_it_be(:event) { create(:event, eventable: regular_member, creator: regular_member) }
+      let_it_be(:task) { create(:task, author: regular_member) }
+
+      let(:params) do
+        {
+          title: 'wat_title',
+          description: 'wat_description',
+          expired_at: Time.current + 1.day,
+          event_id: event.id,
+          student_ids: classmate_ids
+        }
+      end
+
+      context 'when task is self assigned' do
+        let(:classmate_ids) { [regular_member] }
+
+        it 'is expected to update self assigned task' do
+          is_expected.to eq(task)
+
+          expect(task.title).to eq(params[:title])
+          expect(task.description).to eq(params[:description])
+          expect(task.students).to match_array([regular_member])
+        end
+      end
+
+      context 'when task is not self assigned' do
+        let(:classmate_ids) { [student.id] }
+
+        it { expect { subject }.to raise_error(ActiveRecord::RecordInvalid) }
+      end
+    end
   end
 end

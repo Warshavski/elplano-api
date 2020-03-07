@@ -209,7 +209,31 @@ RSpec.describe Api::V1::TasksController, type: :request do
       let_it_be(:student) { create(:student, :group_member) }
       let_it_be(:token)   { create(:token, resource_owner_id: student.user.id) }
 
-      it { expect(response).to have_http_status(:forbidden) }
+      it { expect(response).to have_http_status(:not_found) }
+
+      context 'when group member create self assigned task' do
+        let_it_be(:event)   { create(:event, eventable: student, creator: student) }
+
+        let(:request_params) do
+          params = task_params.merge(
+            student_ids: [student.id],
+            event_id: event.id,
+            attachments: [metadata.to_json]
+          )
+
+          { task: params }
+        end
+
+        it 'returns created task entity' do
+          expect(response).to have_http_status(:created)
+
+          actual_title = json_data.dig(:attributes, :title)
+          expected_title = task_params[:title]
+
+          expect(actual_title).to eq(expected_title)
+          expect(event.id.to_s).to eq(relationship_data(:event)[:id])
+        end
+      end
     end
   end
 
@@ -249,6 +273,24 @@ RSpec.describe Api::V1::TasksController, type: :request do
       let_it_be(:token)   { create(:token, resource_owner_id: member.user.id) }
 
       it { expect(response).to have_http_status(:not_found) }
+
+      context 'when group member updates self assigned task' do
+        let_it_be(:event)   { create(:event, eventable: member, creator: member) }
+
+        let_it_be(:task) do
+          create(:task, event: event, author: member)
+        end
+
+        it 'returns updates task entity' do
+          expect(response).to have_http_status(:ok)
+
+          actual_title = task.reload.title
+          expected_title = task_params[:title]
+
+          expect(actual_title).to eq(expected_title)
+          expect(event.id.to_s).to eq(relationship_data(:event)[:id])
+        end
+      end
     end
   end
 
@@ -279,6 +321,16 @@ RSpec.describe Api::V1::TasksController, type: :request do
         delete resource_endpoint, headers: headers
 
         expect(response).to have_http_status(:not_found)
+      end
+
+      context 'when group member deletes self assigned task' do
+        let_it_be(:event)   { create(:event, eventable: member, creator: member) }
+
+        let_it_be(:task) do
+          create(:task, event: event, author: member)
+        end
+
+        it { expect { delete resource_endpoint, headers: headers }.to change(Task, :count).by(-1) }
       end
     end
   end

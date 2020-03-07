@@ -25,6 +25,11 @@ ru:
         restrict_dependent_destroy:
           has_one: 'Невозможно удалить запись, так как существует зависимость: %{record}'
           has_many: 'Невозможно удалить запись, так как существуют зависимости: %{record}'
+      models:
+        task:
+          attributes:
+            students:
+              invalid_assignment: 'невозможно выбрать в качестве исполнителей'
     models:
       event: 'Мероприятие'
       course: 'Курс'
@@ -37,6 +42,7 @@ ru:
       bug_report: 'Сообщение об ошибке'
       announcement: 'Объявление'
       label: 'Метка'
+      task: 'Задание'
     attributes:
       event:
         start_at: 'Начало'
@@ -91,6 +97,9 @@ ru:
         title: 'Титул'
         color: 'Цвет'
         description: 'Описание'
+      task:
+        students: 'Студенты'
+        expired_at: 'Крайний срок выполнения задания'
   date:
     abbr_day_names:
       - Вс

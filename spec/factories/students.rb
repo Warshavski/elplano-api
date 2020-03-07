@@ -36,6 +36,7 @@ FactoryBot.define do
     end
 
     factory :president, traits: [:president]
+    factory :group_supervisor, traits: [:group_supervisor]
   end
 
   factory :student_params, class: Hash do

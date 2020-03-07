@@ -26,20 +26,4 @@ RSpec.describe TaskPolicy do
       it { is_expected.to eq(false) }
     end
   end
-
-  describe '#create?' do
-    subject { policy.apply(:create?) }
-
-    context 'when user is a group owner' do
-      let_it_be(:context) { { student: group_owner, user: group_owner.user } }
-
-      it { is_expected.to eq(true) }
-    end
-
-    context 'when user is a regular group member' do
-      let_it_be(:context) { { student: regular_member, user: regular_member.user } }
-
-      it { is_expected.to eq(false) }
-    end
-  end
 end

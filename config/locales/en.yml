@@ -85,3 +85,15 @@ en:
   uploaders:
     errors:
       too_large: 'is too large (max is %{size} MB)'
+
+  activerecord:
+    errors:
+      models:
+        task:
+          attributes:
+            students:
+              invalid_assignment: 'cannot be selected as performers'
+
+    attributes:
+      task:
+        expired_at: 'Task deadline'

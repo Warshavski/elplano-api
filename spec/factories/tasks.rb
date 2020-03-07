@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :task, class: Task do
     title  { Faker::Lorem.sentence(word_count: 2) }
 
-    author
+    association :author, factory: :group_supervisor
     event
 
     trait :skip_validation do

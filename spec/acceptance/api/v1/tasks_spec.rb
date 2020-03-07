@@ -158,7 +158,9 @@ resource "User's event tasks" do
 
         <b>NOTES</b> :
  
-          - This action allowed only for group owner user.
+          - This action allowed for any student, but regular group member can 
+            create only self-assigned tasks for own events(self-assigned events)
+            Group owner(group president) doesn't have such restrictions).
           - Also, includes information about related event and attachments.
       DESC
 
@@ -202,7 +204,7 @@ resource "User's event tasks" do
 
         <b>NOTES</b> :
  
-          - This action allowed only for group owner user.
+          - This action allowed only for authored tasks.
           - Also, includes information about related event and attachments.
       DESC
 
@@ -224,7 +226,7 @@ resource "User's event tasks" do
 
         <b>NOTES</b> :
 
-          - This action allowed only for group owner user.
+          - This action allowed only for authored tasks.
       DESC
 
       do_request

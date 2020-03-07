@@ -28,6 +28,18 @@ class Task < ApplicationRecord
             allow_nil: true,
             timeliness: { after: -> { Time.current } }
 
+  validate do
+    errors.add(:students, :invalid_assignment) if assigned? && (!author.group_owner? && !self_assigned?)
+  end
+
+  def self_assigned?
+    student_ids == [author.id]
+  end
+
+  def assigned?
+    student_ids.present?
+  end
+
   def outdated?
     expired_at.nil? ? false : (expired_at < Time.current)
   end

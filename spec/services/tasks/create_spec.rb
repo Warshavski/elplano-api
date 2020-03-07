@@ -9,7 +9,7 @@ RSpec.describe Tasks::Create do
   let_it_be(:file)      { fixture_file_upload('spec/fixtures/files/pdf_sample.pdf') }
   let_it_be(:metadata)  { AttachmentUploader.new(:cache).upload(file) }
 
-  let_it_be(:valid_params) { { title: 'wat_title', event_id: event.id, attachments: [metadata.to_json] } }
+  let(:valid_params) { { title: 'wat_title', event_id: event.id, attachments: [metadata.to_json] } }
 
   describe '.call' do
     subject { described_class.call(student, params) }
@@ -78,6 +78,36 @@ RSpec.describe Tasks::Create do
       it { expect { subject }.to change(Task, :count).by(1) }
 
       it { expect { subject }.not_to change(Assignment, :count) }
+    end
+
+    context 'when author is not a group owner' do
+      subject { described_class.call(regular_member, params) }
+
+      let_it_be(:regular_member) { create(:student, group: student.group) }
+      let_it_be(:event) { create(:event, eventable: regular_member, creator: regular_member) }
+
+      let(:params) do
+        {
+          title: 'wat_title',
+          event_id: event.id,
+          attachments: [metadata.to_json],
+          student_ids: classmates_ids
+        }
+      end
+
+      context 'when task is self assigned' do
+        let(:classmates_ids) { [regular_member] }
+
+        it { expect { subject }.to change(Task, :count).by(1) }
+
+        it { expect { subject }.to change(Assignment, :count).by(classmates_ids.size) }
+      end
+
+      context 'when task is not self assigned' do
+        let(:classmates_ids) { [student.id] }
+
+        it { expect { subject }.to raise_error(ActiveRecord::RecordInvalid) }
+      end
     end
   end
 end

@@ -7,8 +7,6 @@ module Api
     #   Used to manage authenticated user's(student) tasks
     #
     class TasksController < ApplicationController
-      authorize_with! ::TaskPolicy, only: :create
-
       set_default_serializer ::TaskSerializer
 
       denote_title_header 'Tasks'

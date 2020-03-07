@@ -25,6 +25,11 @@ es:
         restrict_dependent_destroy:
           has_one: No se puede eliminar el registro porque existe un %{record} dependiente
           has_many: No se puede eliminar el registro porque existen %{record} dependientes
+      models:
+        task:
+          attributes:
+            students:
+              invalid_assignment: 'imposible de elegir como intérpretes'
     models:
       event: 'Acontecimiento'
       course: 'Por supuesto'
@@ -37,6 +42,7 @@ es:
       bug_report: 'Informe de error'
       announcement: 'Anuncio'
       label: 'Etiqueta'
+      task: 'Tarea'
     attributes:
       event:
         start_at: 'Empieza en'
@@ -91,6 +97,9 @@ es:
         title: 'Titulo'
         color: 'Color'
         description: 'Descripción'
+      task:
+        students: 'Estudiantes'
+        expired_at: 'Tarea fecha límite'
   date:
     abbr_day_names:
       - dom

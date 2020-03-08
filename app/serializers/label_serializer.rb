@@ -4,9 +4,7 @@
 #
 #   Used for label data representation
 #
-class LabelSerializer
-  include FastJsonapi::ObjectSerializer
-
+class LabelSerializer < ApplicationSerializer
   set_type :label
 
   attributes :title, :description,

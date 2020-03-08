@@ -26,7 +26,6 @@ module Api
       #
       def index
         render_collection filter_tasks(filter_params),
-                          params: { exclude: [:attachments] },
                           status: :ok
       end
 

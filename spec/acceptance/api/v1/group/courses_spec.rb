@@ -65,7 +65,7 @@ resource "Group's courses" do
 
       do_request
 
-      expected_body = CourseSerializer.new(group.courses).serialized_json
+      expected_body = CourseSerializer.new(group.courses).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -90,7 +90,7 @@ resource "Group's courses" do
 
       expected_body = CourseSerializer
                         .new(course, include: [:lecturers])
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -126,7 +126,7 @@ resource "Group's courses" do
 
       expected_body = CourseSerializer
                         .new(group.courses.last, include: [:lecturers])
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(201)
       expect(response_body).to eq(expected_body)
@@ -162,7 +162,7 @@ resource "Group's courses" do
 
       expected_body = CourseSerializer
                         .new(course.reload, include: [:lecturers])
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

@@ -57,7 +57,7 @@ resource "User's classmates" do
 
       expected_body = StudentSerializer
                         .new(student.group.students)
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -78,7 +78,7 @@ resource "User's classmates" do
 
       expected_body = StudentSerializer
                         .new(student, include: [:user])
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

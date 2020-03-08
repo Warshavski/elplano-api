@@ -27,7 +27,7 @@ module Handlers
 
         data = serializer
                .new(resource, serializer_options)
-               .serialized_json
+               .to_json
 
         render json: data, status: status
       end

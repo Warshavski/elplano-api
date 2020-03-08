@@ -64,7 +64,7 @@ resource "Users's activity events" do
 
       expected_data = ActivityEventSerializer
                         .new([activity_event], include: [:target])
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_data)

@@ -28,7 +28,7 @@ resource 'Users' do
 
       do_request
 
-      expected_body = ::IdentitySerializer.new(identities).serialized_json
+      expected_body = ::IdentitySerializer.new(identities).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -83,7 +83,7 @@ resource 'Users' do
 
       options = { include: %i[recent_access_token student] }
 
-      expected_body = ::Auth::UserSerializer.new(identity.user, options).serialized_json
+      expected_body = ::Auth::UserSerializer.new(identity.user, options).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

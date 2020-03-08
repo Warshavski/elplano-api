@@ -52,7 +52,7 @@ resource 'Admin reports bugs' do
 
       do_request
 
-      expected_body = BugReportSerializer.new([bug_report]).serialized_json
+      expected_body = BugReportSerializer.new([bug_report]).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -69,7 +69,7 @@ resource 'Admin reports bugs' do
 
       do_request
 
-      expected_body = BugReportSerializer.new(bug_report).serialized_json
+      expected_body = BugReportSerializer.new(bug_report).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

@@ -4,9 +4,7 @@
 #
 #   Used for attachment data representation
 #
-class AttachmentSerializer
-  include FastJsonapi::ObjectSerializer
-
+class AttachmentSerializer < ApplicationSerializer
   set_type :attachment
 
   attribute :filename do |object|

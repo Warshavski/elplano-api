@@ -33,7 +33,7 @@ resource "User's group" do
 
       do_request
 
-      expected_body = GroupSerializer.new(group).serialized_json
+      expected_body = GroupSerializer.new(group).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -67,7 +67,7 @@ resource "User's group" do
 
       expected_body = GroupSerializer
                         .new(student.reload.group)
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(201)
       expect(response_body).to eq(expected_body)
@@ -99,7 +99,7 @@ resource "User's group" do
 
       expected_body = GroupSerializer
                         .new(student.reload.group)
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

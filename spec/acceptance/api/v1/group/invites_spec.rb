@@ -43,7 +43,7 @@ resource "Group's Invites" do
 
       do_request
 
-      expected_body = InviteSerializer.new(invites).serialized_json
+      expected_body = InviteSerializer.new(invites).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -62,7 +62,7 @@ resource "Group's Invites" do
 
       do_request
 
-      expected_body = InviteSerializer.new(invite).serialized_json
+      expected_body = InviteSerializer.new(invite).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -87,7 +87,7 @@ resource "Group's Invites" do
 
       do_request
 
-      expected_body = InviteSerializer.new(Invite.first).serialized_json
+      expected_body = InviteSerializer.new(Invite.first).to_json
 
       expect(status).to eq(201)
       expect(response_body).to eq(expected_body)

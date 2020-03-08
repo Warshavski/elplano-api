@@ -4,9 +4,7 @@
 #
 #   Used for lecturer data representation
 #
-class LecturerSerializer
-  include FastJsonapi::ObjectSerializer
-
+class LecturerSerializer < ApplicationSerializer
   set_type :lecturer
 
   attributes :email, :phone, :active, :created_at, :updated_at

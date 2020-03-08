@@ -4,9 +4,7 @@
 #
 #   Used for application announcement data representation
 #
-class AnnouncementSerializer
-  include FastJsonapi::ObjectSerializer
-
+class AnnouncementSerializer < ApplicationSerializer
   set_type :announcement
 
   attributes :message, :background_color, :foreground_color,

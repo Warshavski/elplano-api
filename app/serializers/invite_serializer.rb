@@ -4,9 +4,7 @@
 #
 #   Used for invite data representation
 #
-class InviteSerializer
-  include FastJsonapi::ObjectSerializer
-
+class InviteSerializer < ApplicationSerializer
   set_type :invite
 
   attributes :email, :invitation_token,

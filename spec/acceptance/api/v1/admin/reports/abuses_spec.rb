@@ -54,7 +54,7 @@ resource 'Admin reports abuses' do
 
       do_request
 
-      expected_body = AbuseReportSerializer.new([abuse_report]).serialized_json
+      expected_body = AbuseReportSerializer.new([abuse_report]).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -79,7 +79,7 @@ resource 'Admin reports abuses' do
 
       expected_body = AbuseReportSerializer
                         .new(abuse_report, include: %i[reporter user])
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

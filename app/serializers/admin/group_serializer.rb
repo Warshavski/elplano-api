@@ -1,16 +1,20 @@
 # frozen_string_literal: true
 
 module Admin
-  # Admin::GroupCoreSerializer
+  # Admin::GroupSerializer
   #
   #   Used for the group of students data representation
-  #     ("index" data)
+  #     (admin section)
   #
-  class GroupCoreSerializer < ::GroupSerializer
+  class GroupSerializer < ::GroupSerializer
     set_type :group
 
     belongs_to :president,
                record_type: :student,
                serializer: StudentSerializer
+
+    has_many :students,
+             lazy_load_data: true,
+             serializer: StudentSerializer
   end
 end

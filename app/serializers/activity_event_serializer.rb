@@ -4,9 +4,7 @@
 #
 #   Used for activity event data representation
 #
-class ActivityEventSerializer
-  include FastJsonapi::ObjectSerializer
-
+class ActivityEventSerializer < ApplicationSerializer
   set_type :activity_event
 
   attributes :action, :details, :created_at, :updated_at

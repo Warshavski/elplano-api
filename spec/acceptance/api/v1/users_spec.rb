@@ -42,7 +42,7 @@ resource "User's profile" do
       do_request
 
       expect(status).to eq(200)
-      expect(response_body).to eq(UserSerializer.new(user, include: [:student]).serialized_json)
+      expect(response_body).to eq(UserSerializer.new(user, include: [:student]).to_json)
     end
   end
 
@@ -82,7 +82,7 @@ resource "User's profile" do
 
       do_request
 
-      expected_body = UserSerializer.new(user.reload, include: [:student]).serialized_json
+      expected_body = UserSerializer.new(user.reload, include: [:student]).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

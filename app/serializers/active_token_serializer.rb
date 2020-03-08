@@ -4,10 +4,9 @@
 #
 #   Used for active token data representation
 #
-class ActiveTokenSerializer
-  include FastJsonapi::ObjectSerializer
-
+class ActiveTokenSerializer < ApplicationSerializer
   set_type :active_token
+
   set_id :token
 
   attributes :ip_address, :browser, :os,

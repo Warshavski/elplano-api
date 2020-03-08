@@ -4,9 +4,7 @@
 #
 #   Used for abuse report data representation
 #
-class AbuseReportSerializer
-  include FastJsonapi::ObjectSerializer
-
+class AbuseReportSerializer < ApplicationSerializer
   set_type :abuse_report
 
   attributes :message, :created_at, :updated_at

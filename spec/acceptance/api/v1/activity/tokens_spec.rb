@@ -46,7 +46,7 @@ resource "Users's activity tokens" do
 
       do_request
 
-      expected_data = ActiveTokenSerializer.new(tokens_list).serialized_json
+      expected_data = ActiveTokenSerializer.new(tokens_list).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_data)

@@ -61,7 +61,7 @@ resource 'Admin users' do
 
       expected_body = UserSerializer
                         .new([user], include: [:student])
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -82,7 +82,7 @@ resource 'Admin users' do
 
       expected_body = UserSerializer
                         .new(random_user, include: [:student])
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -117,7 +117,7 @@ resource 'Admin users' do
 
       expected_body = UserSerializer
                         .new(random_user.reload, include: [:student])
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

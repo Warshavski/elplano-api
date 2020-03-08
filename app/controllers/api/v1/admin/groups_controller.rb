@@ -10,6 +10,8 @@ module Api
       class GroupsController < Admin::ApplicationController
         denote_title_header 'Groups'
 
+        set_default_serializer ::Admin::GroupSerializer
+
         # GET : api/v1/admin/groups
         #
         #   optional filter parameters :
@@ -24,7 +26,6 @@ module Api
           users = filter_groups(filter_params).preload(president: :user)
 
           render_collection users,
-                            serializer: ::Admin::GroupCoreSerializer,
                             include: %i[president.user],
                             status: :ok
         end
@@ -37,7 +38,6 @@ module Api
           group = filter_groups.preload(students: :user).find(params[:id])
 
           render_resource group,
-                          serializer: ::Admin::GroupDetailedSerializer,
                           include: %i[president.user students.user],
                           status: :ok
         end

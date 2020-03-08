@@ -6,34 +6,11 @@ resource 'Admin groups' do
   explanation <<~DESC
     El Plano administration: Groups.
     
-    Group attributes: 
+    #{Descriptions::Model.group}
 
-      - `title` - Human readable group identity.
-      - `number` - Main group identity.
-      - `timestamps`
+    #{Descriptions::Model.user}
 
-    Users attributes :
-
-      - `email` - Represents email that was used to register a user in the application(unique in application scope).
-      - `username` - Represents used's user name.
-      - `admin` - `false` if regular user `true`, if the user has access to application settings.
-      - `confirmed` - `false` if the user did not confirm his address otherwise `true`.
-      - `banned` - `true` if the user had been locked via admin ban action otherwise `true`.
-      - `locked` - `true` if the user had been locked via login failed attempt otherwise `false`.
-      - `avatar` - Represents user's avatar.
-      - `timestamps`
-
-    Student attributes :
-  
-      - `full_name` - Represents concatenated student's first, last and middle names.
-      - `email` - Represents email which is used to contact with the student.
-      - `phone` - Represents phone which is used to contact with the student.
-      - `about` - Represents some detailed information about student(BIO).
-      - `social_networks` - Represents a list of social networks.
-      - `president` - `true` if the user has the right to administer the group, otherwise `false`(regular group member).
-      - `birthday` - Represents student's date of birth.
-      - `gender` - Represents student's gender (Male, Female, Other).
-      - `timestamps`
+    #{Descriptions::Model.student}
   DESC
 
   let_it_be(:user)  { create(:admin, :student) }
@@ -83,9 +60,9 @@ resource 'Admin groups' do
 
       do_request
 
-      expected_body = Admin::GroupCoreSerializer
+      expected_body = Admin::GroupSerializer
                         .new([group], include: %i[president.user])
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -109,9 +86,9 @@ resource 'Admin groups' do
 
       do_request
 
-      expected_body = Admin::GroupDetailedSerializer
+      expected_body = Admin::GroupSerializer
                         .new(group, include: %i[president.user students.user])
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

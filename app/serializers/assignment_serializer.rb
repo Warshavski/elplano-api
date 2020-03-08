@@ -4,9 +4,7 @@
 #
 #   Used for task assignment data representation
 #
-class AssignmentSerializer
-  include FastJsonapi::ObjectSerializer
-
+class AssignmentSerializer < ApplicationSerializer
   set_type :assignment
 
   attributes :accomplished, :report, :extra_links, :created_at, :updated_at

@@ -4,9 +4,7 @@
 #
 #   Used for the student data representation in scope of current user
 #
-class StudentSerializer
-  include FastJsonapi::ObjectSerializer
-
+class StudentSerializer < ApplicationSerializer
   set_type :student
 
   attributes :full_name, :email, :phone, :birthday, :gender,

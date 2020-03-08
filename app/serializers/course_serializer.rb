@@ -4,9 +4,7 @@
 #
 #   Used for course data representation
 #
-class CourseSerializer
-  include FastJsonapi::ObjectSerializer
-
+class CourseSerializer < ApplicationSerializer
   set_type :course
 
   attributes :active, :created_at, :updated_at

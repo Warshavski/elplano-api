@@ -54,7 +54,7 @@ resource 'Labels' do
 
       do_request
 
-      expected_body = LabelSerializer.new([label]).serialized_json
+      expected_body = LabelSerializer.new([label]).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -73,7 +73,7 @@ resource 'Labels' do
 
       do_request
 
-      expected_body = LabelSerializer.new(label).serialized_json
+      expected_body = LabelSerializer.new(label).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -108,7 +108,7 @@ resource 'Labels' do
 
       created_label = student.group.labels.order(id: :asc).last
 
-      expected_body = LabelSerializer.new(created_label).serialized_json
+      expected_body = LabelSerializer.new(created_label).to_json
 
       expect(status).to eq(201)
       expect(response_body).to eq(expected_body)
@@ -140,7 +140,7 @@ resource 'Labels' do
 
       do_request
 
-      expected_body = LabelSerializer.new(label.reload).serialized_json
+      expected_body = LabelSerializer.new(label.reload).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

@@ -50,7 +50,7 @@ resource 'Users' do
         }
       }
 
-      expected_body = ::Auth::UserSerializer.new(user.reload, options).serialized_json
+      expected_body = ::Auth::UserSerializer.new(user.reload, options).to_json
 
       expect(status).to eq(201)
       expect(response_body).to eq(expected_body)

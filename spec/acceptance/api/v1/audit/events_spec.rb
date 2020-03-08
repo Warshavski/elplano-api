@@ -53,7 +53,7 @@ resource "Users's audit events" do
 
       do_request
 
-      expected_data = AuditEventSerializer.new([audit_event]).serialized_json
+      expected_data = AuditEventSerializer.new([audit_event]).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_data)

@@ -4,9 +4,7 @@
 #
 #   Used for the event data representation
 #
-class EventSerializer
-  include FastJsonapi::ObjectSerializer
-
+class EventSerializer < ApplicationSerializer
   set_type :event
 
   attributes :title, :description, :status, :recurrence,

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -17,7 +18,7 @@ gem 'dry-validation', '>=1.3.0'
 
 # https://github.com/Netflix/fast_jsonapi
 # A lightning fast JSON:API serializer for Ruby Objects.
-gem 'fast_jsonapi', '>= 1.5'
+gem 'fast_jsonapi', '>= 1.5', git: 'https://github.com/fast-jsonapi/fast_jsonapi.git'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
@@ -59,6 +60,10 @@ gem 'http_accept_language', '~> 2.1'
 # A Ruby wrapper for the OAuth 2.0 specification.
 # https://github.com/oauth-xx/oauth2
 gem 'oauth2'
+
+# A fast JSON parser and Object marshaller as a Ruby gem.
+# https://github.com/ohler55/oj
+gem 'oj'
 
 # The Official SendGrid Led, Community Driven Ruby API Library
 # https://github.com/sendgrid/sendgrid-ruby

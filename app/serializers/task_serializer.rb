@@ -4,13 +4,7 @@
 #
 #   Used for course task(assignment) data representation
 #
-class TaskSerializer
-  include FastJsonapi::ObjectSerializer
-
-  INCLUDE_ATTACHMENTS = proc do |_, params|
-    !params[:exclude]&.include?(:attachments)
-  end
-
+class TaskSerializer < ApplicationSerializer
   set_type :task
 
   attributes :title, :description,
@@ -21,6 +15,6 @@ class TaskSerializer
   belongs_to :event, serializer: EventSerializer
 
   has_many :attachments,
-           if: INCLUDE_ATTACHMENTS,
+           lazy_load_data: true,
            serializer: AttachmentSerializer
 end

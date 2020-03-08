@@ -88,7 +88,7 @@ resource "User's event tasks" do
 
       expected_body = TaskSerializer
                         .new([task], params: { exclude: [:attachments] })
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -113,7 +113,7 @@ resource "User's event tasks" do
 
       expected_body = TaskSerializer
                         .new(task, include: %i[event attachments])
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -168,7 +168,7 @@ resource "User's event tasks" do
 
       expected_body = TaskSerializer
                         .new(event.tasks.last, include: %i[event attachments])
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(201)
       expect(response_body).to eq(expected_body)
@@ -212,7 +212,7 @@ resource "User's event tasks" do
 
       expected_body = TaskSerializer
                         .new(task.reload, include: %i[event attachments])
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -247,7 +247,7 @@ resource "User's event tasks" do
 
       do_request
 
-      expected_data = AssignmentSerializer.new(assignment).serialized_json
+      expected_data = AssignmentSerializer.new(assignment).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_data)
@@ -285,7 +285,7 @@ resource "User's event tasks" do
 
       do_request
 
-      expected_data = AssignmentSerializer.new(assignment.reload).serialized_json
+      expected_data = AssignmentSerializer.new(assignment.reload).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_data)

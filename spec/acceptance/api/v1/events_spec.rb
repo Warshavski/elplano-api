@@ -72,7 +72,7 @@ resource "User's events" do
       do_request
 
       options = { include: [:labels] }
-      expected_body = EventSerializer.new([event], options).serialized_json
+      expected_body = EventSerializer.new([event], options).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -95,7 +95,7 @@ resource "User's events" do
 
       do_request
 
-      expected_body = EventSerializer.new(event, include: [:labels]).serialized_json
+      expected_body = EventSerializer.new(event, include: [:labels]).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -145,7 +145,7 @@ resource "User's events" do
 
       expected_body = EventSerializer
                         .new(student.created_events.last, include: [:labels])
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(201)
       expect(response_body).to eq(expected_body)
@@ -191,7 +191,7 @@ resource "User's events" do
 
       do_request
 
-      expected_body = EventSerializer.new(event.reload, include: [:labels]).serialized_json
+      expected_body = EventSerializer.new(event.reload, include: [:labels]).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

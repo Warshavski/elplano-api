@@ -44,7 +44,7 @@ resource "User's Invites" do
 
       expected_body = InviteSerializer
                         .new(invites, include: [:group], params: { exclude: [:students] })
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -65,7 +65,7 @@ resource "User's Invites" do
 
       expected_body = InviteSerializer
                         .new(invite, include: [:group], params: { exclude: [:students] })
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -84,7 +84,7 @@ resource "User's Invites" do
 
       do_request
 
-      expected_body = InviteSerializer.new(invite.reload).serialized_json
+      expected_body = InviteSerializer.new(invite.reload).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

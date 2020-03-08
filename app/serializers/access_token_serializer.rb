@@ -4,9 +4,7 @@
 #
 #   Used for the access token data representation
 #
-class AccessTokenSerializer
-  include FastJsonapi::ObjectSerializer
-
+class AccessTokenSerializer < ApplicationSerializer
   set_type :access_token
 
   attributes :access_token, :refresh_token,

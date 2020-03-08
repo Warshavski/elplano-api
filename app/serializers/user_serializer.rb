@@ -4,9 +4,7 @@
 #
 #   Used for the user data representation
 #
-class UserSerializer
-  include FastJsonapi::ObjectSerializer
-
+class UserSerializer < ApplicationSerializer
   set_type :user
 
   attributes :email, :username, :admin, :locale,

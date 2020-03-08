@@ -38,7 +38,7 @@ resource 'Admin announcements' do
 
       expected_body = AnnouncementSerializer
                         .new([announcement])
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -59,7 +59,7 @@ resource 'Admin announcements' do
 
       expected_body = AnnouncementSerializer
                         .new(announcement)
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)
@@ -92,7 +92,7 @@ resource 'Admin announcements' do
 
       expected_body = AnnouncementSerializer
                         .new(Announcement.last)
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(201)
       expect(response_body).to eq(expected_body)
@@ -125,7 +125,7 @@ resource 'Admin announcements' do
 
       expected_body = AnnouncementSerializer
                         .new(announcement.reload)
-                        .serialized_json
+                        .to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

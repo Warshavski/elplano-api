@@ -32,7 +32,7 @@ resource 'Announcements' do
 
       do_request
 
-      expected_body = AnnouncementSerializer.new([announcement]).serialized_json
+      expected_body = AnnouncementSerializer.new([announcement]).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

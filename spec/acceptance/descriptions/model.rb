@@ -331,8 +331,6 @@ module Descriptions
             - `device_name` - Represents name of the device(iPhone 6..).
             - `device_type` - Represents type of the device(tablet, smartphone...).
             - `timestamps`
-
-          Issued token presented by `id` property
         DESC
       end
     end

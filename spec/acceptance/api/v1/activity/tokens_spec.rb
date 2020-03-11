@@ -32,6 +32,10 @@ resource "Users's activity tokens" do
     El Plano active access tokens API
     
     #{Descriptions::Model.active_token}
+
+    <b>NOTES:</b>
+
+      - Issued token presented by `id` property.
   DESC
 
   get 'api/v1/activity/tokens' do

@@ -23,9 +23,9 @@ module Api
         # Get filtered list of groups
         #
         def index
-          users = filter_groups(filter_params).preload(president: :user)
+          groups = filter_groups(filter_params).preload(president: :user)
 
-          render_collection users,
+          render_collection groups,
                             include: %i[president.user],
                             status: :ok
         end

@@ -43,7 +43,7 @@ module Api
       private
 
       def filter_students(filters = {})
-        StudentsFinder.new(current_group, filters).execute
+        StudentsFinder.call(current_group, filters)
       end
     end
   end

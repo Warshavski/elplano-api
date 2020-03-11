@@ -161,7 +161,6 @@ group :test do
   gem 'shrine-memory'
   gem 'simplecov'
   gem 'webmock'
-  gem 'timecop'
 
   # Ruby Tests Profiling Toolbox
   # https://github.com/palkan/test-prof

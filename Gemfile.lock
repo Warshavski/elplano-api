@@ -384,7 +384,6 @@ GEM
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.10)
-    timecop (0.9.1)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uniform_notifier (1.13.0)
@@ -458,7 +457,6 @@ DEPENDENCIES
   simplecov
   sys-filesystem
   test-prof
-  timecop
   tzinfo-data
   vmstat
   webmock

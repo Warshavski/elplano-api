@@ -72,21 +72,21 @@ describe Announcement, type: :model do
 
     describe '#started?' do
       context 'when starts_at has passed' do
-        it { Timecop.travel(3.days.from_now) { expect(default).to be_started } }
+        it { travel_to(3.days.from_now) { expect(default).to be_started } }
       end
 
       context 'when start_at is in the upcoming' do
-        it { Timecop.travel(3.days.ago) { expect(default).not_to be_started } }
+        it { travel_to(3.days.ago) { expect(default).not_to be_started } }
       end
     end
 
     describe '#ended?' do
       context 'when ends_at has passed' do
-        it { Timecop.travel(3.days.from_now) { expect(default).to be_ended } }
+        it { travel_to(3.days.from_now) { expect(default).to be_ended } }
       end
 
       context 'when ends_at is in the upcoming' do
-        it { Timecop.travel(3.days.ago) { expect(default).not_to be_ended } }
+        it { travel_to(3.days.ago) { expect(default).not_to be_ended } }
       end
     end
   end

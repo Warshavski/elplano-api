@@ -89,7 +89,7 @@ RSpec.describe ActiveToken, :clean_elplano_redis_sessions do
     it 'adds timestamps and information from the request' do
       current_time = Time.zone.parse('2020-03-04 22:22')
 
-      Timecop.freeze(current_time) do
+      travel_to(current_time) do
         subject
 
         session = ActiveToken.list(user)
@@ -110,18 +110,16 @@ RSpec.describe ActiveToken, :clean_elplano_redis_sessions do
     it 'keeps the created_at from the login on consecutive requests' do
       now = Time.zone.parse('2020-03-04 22:22')
 
-      Timecop.freeze(now) do
+      travel_to(now) { subject }
+
+      travel_to(now + 1.minute) do
         subject
 
-        Timecop.freeze(now + 1.minute) do
-          subject
+        session = ActiveToken.list(user)
 
-          session = ActiveToken.list(user)
-
-          expect(session.first).to(
-            have_attributes(created_at: user.current_sign_in_at)
-          )
-        end
+        expect(session.first).to(
+          have_attributes(created_at: user.current_sign_in_at)
+        )
       end
     end
   end

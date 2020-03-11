@@ -79,6 +79,7 @@ Dir[Rails.root.join('spec/support/helpers/*.rb')].each(&method(:require))
 
 RSpec.configure do |config|
   config.include ActiveJob::TestHelper
+  config.include ActiveSupport::Testing::TimeHelpers
 
   config.include RestifyHelpers
   config.include RedisHelpers

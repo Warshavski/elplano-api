@@ -12,6 +12,8 @@ module Descriptions
             - `banned` - `true` if the user had been locked via admin ban action otherwise `true`.
             - `locked` - `true` if the user had been locked via login failed attempt otherwise `false`.
             - `locale` - Represents user's locale.
+            - `timezone` - Represents user's timezone(UTC is by default)
+            - `settings` - Represents custom user settings, such as UI configuration(custom JSON)
             - `avatar_url` - Represents user's avatar.
             - `timestamps`
         DESC

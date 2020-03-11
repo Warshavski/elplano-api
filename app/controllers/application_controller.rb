@@ -25,6 +25,8 @@ class ApplicationController < ActionController::API
 
   prepend_before_action :authorize_access!
 
+  around_action :configure_timezone, if: :current_user
+
   specify_title_header 'El Plano'
 
   authorize :user, through: :current_user
@@ -91,6 +93,10 @@ class ApplicationController < ActionController::API
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[email username])
+  end
+
+  def configure_timezone(&block)
+    Time.use_zone(current_user.timezone, &block)
   end
 
   def destroy_session

@@ -70,6 +70,8 @@ FactoryBot.define do
     initialize_with do
       {
         locale: 'en',
+        timezone: 'Moscow',
+        settings: { theme: 'Orchid' },
         student_attributes: build(:student_params)
       }
     end
@@ -79,6 +81,8 @@ FactoryBot.define do
     initialize_with do
       {
         locale: 'en',
+        timezone: nil,
+        settings: { theme: 'Orchid' },
         student_attributes: build(:invalid_student_params)
       }
     end

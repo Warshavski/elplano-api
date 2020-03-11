@@ -13,6 +13,8 @@ class User < ApplicationRecord
   STATUSES      = %w[active confirmed banned].freeze
   MAILING_TYPES = %w[unlock confirmation].freeze
 
+  DEFAULT_TIMEZONE = 'UTC'
+
   #
   # Include default devise modules. Others available are:
   #
@@ -82,6 +84,8 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :email, confirmation: true
 
+  validates :timezone, timezone_existence: true
+
   scope :admins, -> { where(admin: true) }
 
   scope :banned,    -> { where.not(banned_at: nil) }
@@ -89,6 +93,8 @@ class User < ApplicationRecord
   scope :confirmed, -> { where.not(confirmed_at: nil) }
 
   scope :by_username, ->(usernames) { iwhere(username: Array(usernames).map(&:to_s)) }
+
+  before_validation -> { self.timezone ||= DEFAULT_TIMEZONE }
 
   class << self
     #

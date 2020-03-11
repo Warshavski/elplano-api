@@ -8,7 +8,7 @@ class UserSerializer < ApplicationSerializer
   set_type :user
 
   attributes :email, :username, :admin, :locale,
-             :settings, :created_at, :updated_at
+             :settings, :timezone, :created_at, :updated_at
 
   #
   # just stub for the first time

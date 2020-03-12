@@ -29,7 +29,12 @@ module Handlers
       #
       rescue_from ActiveRecord::RecordNotFound do |e|
         handle_error(e, :not_found) do
-          [{ status: 404, detail: I18n.t('errors.messages.not_found_record') }]
+          options = {
+            model: I18n.t(e.model.downcase, scope: :'activerecord.models'),
+            id: e.id
+          }
+
+          [{ status: 404, detail: I18n.t('errors.messages.not_found_record', options) }]
         end
       end
 

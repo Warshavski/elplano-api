@@ -207,7 +207,7 @@ es:
       invalid_token: 'Token de autorización inválido'
       access_denied: 'Acción no permitida'
       not_found_endpoint: 'la ruta no existe'
-      not_found_record: 'Registro no encontrado'
+      not_found_record: "No se pudo encontrar %{model} con id = %{id}"
       invalid_auth: 'Error de autorización'
       not_exists: 'no existe'
       argument_missing: 'falta el argumento o el valor está vacío: %{param}'

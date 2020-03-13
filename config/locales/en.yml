@@ -43,7 +43,7 @@ en:
       invalid_token: 'Invalid authorization token'
       access_denied: 'Action not allowed'
       not_found_endpoint: 'Endpoint does not exists'
-      not_found_record: 'Record not found'
+      not_found_record: "Couldn't find %{model} with id = %{id}"
       invalid_auth: 'Authorization error'
       not_exists: 'does not exist'
       argument_missing: 'argument is missing or the value is empty: %{param}'

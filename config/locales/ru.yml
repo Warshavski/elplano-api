@@ -231,7 +231,7 @@ ru:
       invalid_token: 'Невалидный токен доступа'
       access_denied: 'Действие не доступно'
       not_found_endpoint: 'Путь не сушествует'
-      not_found_record: 'Запись не найдена'
+      not_found_record: 'Не удалось найти %{model} c id = %{id}'
       invalid_auth: 'Ошибка авторизации'
       not_exists: 'не существует'
       argument_missing: 'аргумент отсутствует или значение пусто: %{param}'

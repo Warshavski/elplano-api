@@ -18,7 +18,6 @@ Doorkeeper.configure do
       password: params[:password]
     }
 
-    request.env['warden'].logout(:user)
     request.env['devise.allow_params_authentication'] = true
     request.env['warden'].authenticate!(scope: :user)
   end

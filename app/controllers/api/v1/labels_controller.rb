@@ -7,9 +7,9 @@ module Api
     #   Used to manage labels created by authenticated student
     #
     class LabelsController < ApplicationController
-      set_default_serializer LabelSerializer
+      specify_title_header 'Labels'
 
-      denote_title_header 'Labels'
+      specify_serializers default: LabelSerializer
 
       # GET : api/v1/labels
       #

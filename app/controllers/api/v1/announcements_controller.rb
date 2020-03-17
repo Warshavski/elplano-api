@@ -7,9 +7,9 @@ module Api
     #   Retrieve current application announcements
     #
     class AnnouncementsController < ApplicationController
-      denote_title_header 'Announcements'
+      specify_title_header 'Announcements'
 
-      set_default_serializer AnnouncementSerializer
+      specify_serializers default: AnnouncementSerializer
 
       # GET : api/v1/announcements
       #

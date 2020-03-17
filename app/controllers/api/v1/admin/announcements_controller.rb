@@ -8,9 +8,9 @@ module Api
       #   Application announcements management
       #
       class AnnouncementsController < Admin::ApplicationController
-        denote_title_header 'Announcements'
+        specify_title_header 'Announcements'
 
-        set_default_serializer AnnouncementSerializer
+        specify_serializers default: AnnouncementSerializer
 
         # GET : api/v1/admin/announcements
         #

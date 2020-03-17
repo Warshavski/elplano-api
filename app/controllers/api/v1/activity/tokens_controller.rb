@@ -8,9 +8,9 @@ module Api
       #   Used to manage authenticated user's access tokens
       #
       class TokensController < ApplicationController
-        denote_title_header 'Activity', 'Tokens'
+        specify_title_header 'Activity', 'Tokens'
 
-        set_default_serializer ActiveTokenSerializer
+        specify_serializers default: ActiveTokenSerializer
 
         # GET : api/v1/activity/tokens
         #

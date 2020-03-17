@@ -8,9 +8,9 @@ module Api
       #   Retrieve authenticated user's audit evens
       #
       class EventsController < ApplicationController
-        denote_title_header 'Audit', 'Events'
+        specify_title_header 'Audit', 'Events'
 
-        set_default_serializer AuditEventSerializer
+        specify_serializers default: AuditEventSerializer
 
         # GET : api/v1/audit/events
         #

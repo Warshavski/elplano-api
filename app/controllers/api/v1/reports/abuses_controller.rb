@@ -10,7 +10,7 @@ module Api
       #     - report user
       #
       class AbusesController < ApplicationController
-        denote_title_header 'Reports', 'Abuses'
+        specify_title_header 'Reports', 'Abuses'
 
         # POST : api/v1/reports/abuses
         #

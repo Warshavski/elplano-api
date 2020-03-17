@@ -8,9 +8,9 @@ module Api
     #     (accomplish task and apply report for this task)
     #
     class AssignmentsController < ApplicationController
-      denote_title_header 'Tasks', 'Assignment'
+      specify_title_header 'Tasks', 'Assignment'
 
-      set_default_serializer ::AssignmentSerializer
+      specify_serializers default: ::AssignmentSerializer
 
       # GET : api/v1/tasks/{:task_id}/assignment
       #

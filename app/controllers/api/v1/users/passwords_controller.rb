@@ -12,7 +12,7 @@ module Api
 
         skip_before_action :authorize_access!
 
-        denote_title_header 'Users', 'Password'
+        specify_title_header 'Users', 'Password'
 
         # GET : api/v1/users/password/new
         def new

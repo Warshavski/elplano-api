@@ -7,7 +7,7 @@ module Api
     #   Authenticated user password management
     #
     class PasswordsController < ApplicationController
-      denote_title_header 'Password'
+      specify_title_header 'Password'
 
       # PATCH/PUT api/v1/password
       #

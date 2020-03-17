@@ -8,7 +8,7 @@ module Api
       #   Logs management
       #
       class LogsController < Admin::ApplicationController
-        denote_title_header 'Logs'
+        specify_title_header 'Logs'
 
         # GET : api/v1/admin/logs
         #

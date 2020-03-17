@@ -9,7 +9,7 @@ module JsonApi
     extend ActiveSupport::Concern
 
     included do
-      set_default_serializer UserSerializer
+      specify_serializers default: UserSerializer
 
       protected
 

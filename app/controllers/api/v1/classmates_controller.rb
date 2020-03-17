@@ -11,9 +11,9 @@ module Api
     #     - find group member by it's id
     #
     class ClassmatesController < ApplicationController
-      set_default_serializer StudentSerializer
+      specify_title_header 'Classmates'
 
-      denote_title_header 'Classmates'
+      specify_serializers default: StudentSerializer
 
       # GET : api/v1/classmates
       #

@@ -8,7 +8,7 @@ module Api
       #   Application statistics management
       #
       class StatisticsController < Admin::ApplicationController
-        denote_title_header 'Statistics'
+        specify_title_header 'Statistics'
 
         # GET : api/v1/admin/statistics
         #

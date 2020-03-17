@@ -7,7 +7,7 @@
 class UploadsController < ApplicationController
   skip_before_action :check_request_format
 
-  denote_title_header 'Uploads'
+  specify_title_header 'Uploads'
 
   # POST : uploads
   #

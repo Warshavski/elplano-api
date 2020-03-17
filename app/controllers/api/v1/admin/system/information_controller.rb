@@ -10,7 +10,7 @@ module Api
         #     (get information about CPU, RAM and DISK)
         #
         class InformationController < Admin::ApplicationController
-          denote_title_header 'System', 'Information'
+          specify_title_header 'System', 'Information'
 
           # GET : api/v1/admin/system/information
           #

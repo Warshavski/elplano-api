@@ -21,9 +21,9 @@ module Api
     #     - Delete event any created event(group and personal for any member).
     #
     class EventsController < ApplicationController
-      set_default_serializer EventSerializer
+      specify_serializers default: EventSerializer
 
-      denote_title_header 'Events'
+      specify_title_header 'Events'
 
       # GET : api/v1/events
       #

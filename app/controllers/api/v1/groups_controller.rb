@@ -21,11 +21,11 @@ module Api
     #     - create a new group and become a group president.
     #
     class GroupsController < ApplicationController
+      specify_title_header 'Group'
+
+      specify_serializers default: GroupSerializer
+
       authorize_with! GroupPolicy, except: :show
-
-      set_default_serializer GroupSerializer
-
-      denote_title_header 'Group'
 
       # GET : api/v1/group
       #

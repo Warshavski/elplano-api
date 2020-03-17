@@ -8,11 +8,11 @@ module Api
       #   Used to control group members invitations
       #
       class InvitesController < ApplicationController
+        specify_title_header 'Group', 'Invites'
+
+        specify_serializers default: InviteSerializer
+
         authorize_with! Groups::InvitePolicy
-
-        set_default_serializer InviteSerializer
-
-        denote_title_header 'Group', 'Invites'
 
         # GET : api/v1/group/invites
         #

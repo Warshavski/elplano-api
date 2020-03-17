@@ -51,14 +51,6 @@ RSpec.describe Notify, type: :mailer do
     end
   end
 
-  describe '#recipient' do
-    let(:user) { create(:user) }
-
-    subject { described_class.new.send(:recipient, user.id) }
-
-    it { expect(subject).to eq(user.email) }
-  end
-
   describe '#sender' do
     before do
       allow_any_instance_of(described_class).to receive(:default_sender_address).and_return(Mail::Address.new('wat'))

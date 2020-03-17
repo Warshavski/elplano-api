@@ -7,9 +7,9 @@ module Api
     #   Used to represent information about current user
     #
     class UsersController < ApplicationController
-      set_default_serializer UserSerializer
+      specify_title_header 'User'
 
-      denote_title_header 'User'
+      specify_serializers default: UserSerializer
 
       rescue_from Errno::ENOENT, KeyError do |e|
         handle_error(e, :bad_request) do

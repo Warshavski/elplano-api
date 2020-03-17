@@ -29,21 +29,9 @@ class Notify < ApplicationMailer
 
     return unless sender
 
-    address = default_sender_address
-    address.display_name = sender.username
-
-    address.format
-  end
-
-  # Look up a User by their ID and return their email address
-  #
-  # @param [Integer] recipient_id - User ID
-  #
-  # @return [String] - a String containing the User's email address.
-  #
-  def recipient(recipient_id)
-    @current_user = User.find(recipient_id)
-    @current_user.email
+    default_sender_address
+      .tap { |address| address.display_name = sender.username }
+      .format
   end
 
   # Formats arguments into a String suitable for use as an email subject

@@ -8,7 +8,7 @@ module Api
       #   Users emails management
       #
       class EmailsController < Admin::ApplicationController
-        denote_title_header 'Emails'
+        specify_title_header 'Emails'
 
         # POST : api/v1/admin/emails
         #

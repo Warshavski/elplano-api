@@ -7,9 +7,9 @@ module Api
     #   Used to control user's invites(accept/reject and list)
     #
     class InvitesController < ApplicationController
-      set_default_serializer InviteSerializer
+      specify_title_header 'Invites'
 
-      denote_title_header 'Invites'
+      specify_serializers default: InviteSerializer
 
       # GET : api/v1/invites
       #

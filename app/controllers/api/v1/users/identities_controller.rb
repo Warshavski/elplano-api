@@ -10,9 +10,9 @@ module Api
       class IdentitiesController < ApplicationController
         skip_before_action :authorize_access!, only: :create
 
-        set_default_serializer ::Auth::UserSerializer
+        specify_title_header 'Users', 'Identities'
 
-        denote_title_header 'Users', 'Identities'
+        specify_serializers default: ::Auth::UserSerializer
 
         # Return 401 - Unauthorized
         #

@@ -9,9 +9,9 @@ module Api
       #     (common logic across all of the admin controllers)
       #
       class ApplicationController < ::ApplicationController
-        authorize_with! ::Admin::UserPolicy
+        specify_title_header 'Admin'
 
-        denote_title_header 'Admin'
+        authorize_with! ::Admin::UserPolicy
       end
     end
   end

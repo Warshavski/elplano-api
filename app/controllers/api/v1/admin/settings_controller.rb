@@ -9,7 +9,7 @@ module Api
       #     (admin configurable application settings)
       #
       class SettingsController < Admin::ApplicationController
-        denote_title_header 'Settings'
+        specify_title_header 'Settings'
 
         # PATCH/PUT : api/v1/admin/settings
         #

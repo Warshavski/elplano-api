@@ -9,9 +9,9 @@ module Api
         #   Manage abuses reports
         #
         class AbusesController < Admin::ApplicationController
-          denote_title_header 'Reports', 'Abuses'
+          specify_title_header 'Reports', 'Abuses'
 
-          set_default_serializer ::AbuseReportSerializer
+          specify_serializers default: ::AbuseReportSerializer
 
           # GET : api/v1/admin/reports/abuses
           #

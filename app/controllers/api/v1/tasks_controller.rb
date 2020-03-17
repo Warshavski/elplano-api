@@ -7,9 +7,9 @@ module Api
     #   Used to manage authenticated user's(student) tasks
     #
     class TasksController < ApplicationController
-      set_default_serializer ::TaskSerializer
+      specify_title_header 'Tasks'
 
-      denote_title_header 'Tasks'
+      specify_serializers default: ::TaskSerializer
 
       # GET : api/v1/tasks
       #

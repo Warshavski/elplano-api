@@ -9,7 +9,7 @@ module Api
         #   Emails metrics management
         #
         class MetricsController < Admin::ApplicationController
-          denote_title_header 'Emails', 'Metrics'
+          specify_title_header 'Emails', 'Metrics'
 
           # GET : api/v1/admin/emails/metrics
           #

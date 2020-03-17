@@ -9,9 +9,9 @@ module Api
         #   Manage bugs reports
         #
         class BugsController < Admin::ApplicationController
-          denote_title_header 'Admin', 'Reports', 'Bugs'
+          specify_title_header 'Admin', 'Reports', 'Bugs'
 
-          set_default_serializer ::BugReportSerializer
+          specify_serializers default: ::BugReportSerializer
 
           # GET : api/v1/admin/reports/bugs
           #

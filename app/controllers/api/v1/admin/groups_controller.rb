@@ -8,9 +8,9 @@ module Api
       #   Application's groups management
       #
       class GroupsController < Admin::ApplicationController
-        denote_title_header 'Groups'
+        specify_title_header 'Groups'
 
-        set_default_serializer ::Admin::GroupSerializer
+        specify_serializers default: ::Admin::GroupSerializer
 
         # GET : api/v1/admin/groups
         #

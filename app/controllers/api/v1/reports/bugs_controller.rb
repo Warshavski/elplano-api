@@ -8,7 +8,7 @@ module Api
       #   Bugs reporting by user
       #
       class BugsController < ApplicationController
-        denote_title_header 'Reports', 'Bugs'
+        specify_title_header 'Reports', 'Bugs'
 
         # POST : api/v1/reports/bugs
         #

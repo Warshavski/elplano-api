@@ -8,9 +8,9 @@ module Api
       #   Application's users management
       #
       class UsersController < Admin::ApplicationController
-        set_default_serializer UserSerializer
+        specify_title_header 'Users'
 
-        denote_title_header 'Users'
+        specify_serializers default: UserSerializer
 
         # GET : api/v1/admin/users
         #

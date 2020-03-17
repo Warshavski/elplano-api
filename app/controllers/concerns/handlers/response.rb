@@ -12,8 +12,8 @@ module Handlers
       class << self
         attr_reader :default_serializer
 
-        def set_default_serializer(serializer)
-          @default_serializer = serializer
+        def specify_serializers(options)
+          @default_serializer = options[:default]
         end
       end
 

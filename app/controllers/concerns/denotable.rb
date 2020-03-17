@@ -10,7 +10,7 @@ module Denotable
   class_methods do
     attr_reader :title_segments
 
-    def denote_title_header(*segments)
+    def specify_title_header(*segments)
       segments.each_with_object(title_segments) { |s, memo| memo << s }
     end
 

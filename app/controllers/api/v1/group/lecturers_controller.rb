@@ -20,11 +20,11 @@ module Api
       #     - delete particular lecturer
       #
       class LecturersController < ApplicationController
+        specify_title_header 'Group', 'Lecturers'
+
+        specify_serializers default: LecturerSerializer
+
         authorize_with! Groups::LecturerPolicy, except: %i[index show]
-
-        set_default_serializer LecturerSerializer
-
-        denote_title_header 'Group', 'Lecturers'
 
         rescue_from Errno::ENOENT, KeyError do |e|
           handle_error(e, :bad_request) do

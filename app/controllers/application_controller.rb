@@ -25,7 +25,7 @@ class ApplicationController < ActionController::API
 
   prepend_before_action :authorize_access!
 
-  denote_title_header 'El Plano'
+  specify_title_header 'El Plano'
 
   authorize :user, through: :current_user
   authorize :student, through: :current_student

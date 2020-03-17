@@ -20,11 +20,11 @@ module Api
       #     - delete particular course
       #
       class CoursesController < ApplicationController
+        specify_title_header 'Group', 'Courses'
+
+        specify_serializers default: CourseSerializer
+
         authorize_with! Groups::CoursePolicy, except: %i[index show]
-
-        set_default_serializer CourseSerializer
-
-        denote_title_header 'Group', 'Courses'
 
         # GET : api/v1/group/courses
         #

@@ -9,9 +9,9 @@ module Api
       #     (activity feed)
       #
       class EventsController < ApplicationController
-        denote_title_header 'Activity', 'Events'
+        specify_title_header 'Activity', 'Events'
 
-        set_default_serializer ActivityEventSerializer
+        specify_serializers default: ActivityEventSerializer
 
         # GET : api/v1/activity/events
         #

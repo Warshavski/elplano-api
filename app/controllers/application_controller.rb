@@ -19,8 +19,8 @@ class ApplicationController < ActionController::API
 
   before_action :destroy_session
   before_action :check_request_format
-  before_action :set_default_headers
 
+  before_action :configure_default_headers
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   prepend_before_action :authorize_access!
@@ -56,7 +56,7 @@ class ApplicationController < ActionController::API
     request.content_type == Mime[:json]
   end
 
-  def set_default_headers
+  def configure_default_headers
     headers['X-Frame-Options'] = 'DENY'
     headers['X-XSS-Protection'] = '1; mode=block'
     headers['X-Content-Type-Options'] = 'nosniff'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_23_093842) do
+ActiveRecord::Schema.define(version: 2020_03_11_055900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -330,6 +330,7 @@ ActiveRecord::Schema.define(version: 2020_02_23_093842) do
     t.datetime "updated_at", null: false
     t.string "locale"
     t.jsonb "settings", default: {}, null: false
+    t.string "timezone", default: "UTC", null: false
     t.index ["admin"], name: "index_users_on_admin"
     t.index ["banned_at", "id"], name: "index_users_on_banned_at_and_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

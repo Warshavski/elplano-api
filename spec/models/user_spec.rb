@@ -73,6 +73,22 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:username) }
 
     it { should validate_uniqueness_of(:username) }
+
+    context 'timezone' do
+      subject { build(:user, timezone: timezone) }
+
+      context 'when timezone is exist' do
+        let(:timezone) { 'Moscow' }
+
+        it { is_expected.to be_valid }
+      end
+
+      context 'when timezone is not exist' do
+        let(:timezone) { 'Wat' }
+
+        it { is_expected.not_to be_valid }
+      end
+    end
   end
 
   describe 'user creation' do
@@ -81,6 +97,8 @@ RSpec.describe User, type: :model do
     it { expect(user.admin?).to be_falsey }
 
     it { expect(user.banned_at).to be_nil }
+
+    it { expect(user.timezone).to eq(User::DEFAULT_TIMEZONE) }
   end
 
   describe 'scopes' do

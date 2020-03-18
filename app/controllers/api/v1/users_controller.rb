@@ -55,7 +55,7 @@ module Api
       private
 
       def user_params
-        user_attributes = [:locale, :avatar, settings: {}]
+        user_attributes = [:locale, :avatar, :timezone, settings: {}]
         student_attributes = [
           :full_name, :email, :phone, :about, :gender, :birthday, social_networks: {}
         ]

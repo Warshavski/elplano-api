@@ -51,12 +51,13 @@ module Invites
     # @return [Invite]
     #
     def execute(params)
-      ApplicationRecord.transaction do
-        create_invite!(params).tap do |invite|
-          log_activity!(:created, sender.user, invite)
-          notify_about(invite)
+      invite = ApplicationRecord.transaction do
+        create_invite!(params).tap do |i|
+          log_activity!(:created, sender.user, i)
         end
       end
+
+      invite.tap { notify_about(invite) }
     end
 
     private

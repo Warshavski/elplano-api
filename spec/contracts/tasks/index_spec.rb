@@ -7,7 +7,7 @@ RSpec.describe Tasks::IndexContract do
 
   let(:default_params) do
     {
-      outdated: false,
+      expiration: 'active',
       accomplished: true,
       appointed: false,
       event_id: 2
@@ -17,14 +17,11 @@ RSpec.describe Tasks::IndexContract do
   it_behaves_like :valid
   it_behaves_like :valid, without: :outdated
 
-  [true, false].each { |flag| it_behaves_like :valid, with: { outdated: flag } }
+  Task::EXPIRATION_SCOPES.each { |scope| it_behaves_like :valid, with: { expiration: scope } }
 
-  it_behaves_like :invalid, with: { outdated: 'wat' }
-  it_behaves_like :invalid, with: { outdated: 'false' }
-  it_behaves_like :invalid, with: { outdated: 'true' }
-  it_behaves_like :invalid, with: { outdated: 0 }
-  it_behaves_like :invalid, with: { outdated: 1 }
-  it_behaves_like :invalid, with: { outdated: nil }
+  it_behaves_like :invalid, with: { expiration: 'wat' }
+  it_behaves_like :invalid, with: { expiration: '' }
+  it_behaves_like :invalid, with: { expiration: nil }
 
   it_behaves_like :valid, with: { event_id: 1 }
   it_behaves_like :invalid, with: { event_id: 'wat' }

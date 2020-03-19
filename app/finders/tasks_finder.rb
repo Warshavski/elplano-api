@@ -16,7 +16,6 @@
 #   - by default returns authored tasks(tasks created by current student)
 #
 class TasksFinder < Finder
-
   attr_reader :params, :current_student
 
   # @param current_student [Student]
@@ -28,8 +27,8 @@ class TasksFinder < Finder
   # @option params [Integer] :event_id
   #   Task event identity
   #
-  # @option params [Boolean] :outdated
-  #   Outdated flag(true/false)
+  # @option params [String] :expiration
+  #   Filter by expiration scope(@see Task::EXPIRATION_SCOPES)
   #
   # @option params [Boolean] :accomplished
   #   Accomplished flag(true/false)
@@ -74,13 +73,12 @@ class TasksFinder < Finder
   end
 
   def filter_by_expiration(items)
-    case params[:outdated]
-    when nil
-      items
-    when true
-      items.outdated
-    when false
-      items.active
+    expiration_scope = params[:expiration].to_s
+
+    return items if expiration_scope.blank?
+
+    if expiration_scope.in? Task::EXPIRATION_SCOPES
+      items.public_send(expiration_scope)
     else
       Task.none
     end

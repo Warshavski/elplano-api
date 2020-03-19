@@ -27,27 +27,43 @@ RSpec.describe Task, type: :model do
 
   describe 'validations' do
     it { should validate_presence_of(:title) }
+
+    it do
+      expect(described_class::EXPIRATION_SCOPES).to(
+        match_array(%w[outdated active today tomorrow upcoming])
+      )
+    end
   end
 
   context 'scopes' do
     context 'expiration' do
+      before do
+        allow(Date).to receive(:current).and_return(current_date)
+      end
+
+      let_it_be(:current_date) { Date.parse('2019-09-30') }
+
       let_it_be(:student) { create(:student, :group_supervisor) }
       let_it_be(:event)  { create(:event, eventable: student.group) }
 
       let_it_be(:expired) do
-        create(:task, :skip_validation, event: event, author: student, expired_at: '2019-09-29')
+        create(:task, :skip_validation, event: event, author: student, expired_at: current_date - 1.day)
       end
 
       let_it_be(:active) do
-        create(:task, :skip_validation, event: event, author: student, expired_at: '2019-10-02')
+        create(:task, :skip_validation, event: event, author: student, expired_at: current_date + 3.days)
       end
 
       let_it_be(:without_expiration) do
         create(:task, event: event, author: student, expired_at: nil)
       end
 
-      before do
-        allow(Time).to receive(:current).and_return(Time.parse('2019-09-30 00:00:00 UTC'))
+      let_it_be(:today) do
+        create(:task, :skip_validation, event: event, author: student, expired_at: current_date)
+      end
+
+      let_it_be(:tomorrow) do
+        create(:task, :skip_validation, event: event, author: student, expired_at: current_date + 1.day)
       end
 
       describe '.outdated' do
@@ -59,14 +75,32 @@ RSpec.describe Task, type: :model do
       describe '.active' do
         subject { described_class.active }
 
-        it { is_expected.to eq([active, without_expiration]) }
+        it { is_expected.to eq([active, without_expiration, today, tomorrow]) }
+      end
+
+      describe '.today' do
+        subject { described_class.today }
+
+        it { is_expected.to eq([today])}
+      end
+
+      describe '.tomorrow' do
+        subject { described_class.tomorrow }
+
+        it { is_expected.to eq([tomorrow]) }
+      end
+
+      describe '.upcoming' do
+        subject { described_class.upcoming }
+
+        it { is_expected.to eq([active]) }
       end
     end
   end
 
   describe '#outdated?' do
     before do
-      allow(Time).to receive(:current).and_return(Time.parse('2019-09-30 00:00:00 UTC'))
+      allow(Date).to receive(:current).and_return(Date.parse('2019-09-30'))
     end
 
     subject { task.outdated? }

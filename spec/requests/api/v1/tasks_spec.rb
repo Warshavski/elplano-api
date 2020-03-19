@@ -83,9 +83,9 @@ RSpec.describe Api::V1::TasksController, type: :request do
       end
     end
 
-    context 'when outdated filter is set' do
+    context 'when expiration filter is set' do
       before do
-        allow(Time).to receive(:current).and_return(Time.zone.parse('2020-02-15'))
+        allow(Date).to receive(:current).and_return(Date.parse('2020-02-15'))
       end
 
       let_it_be(:outdated_task) do
@@ -95,7 +95,7 @@ RSpec.describe Api::V1::TasksController, type: :request do
       let_it_be(:params) do
         {
           filters: {
-            outdated: true
+            expiration: 'outdated'
           }.to_json
         }
       end
@@ -175,7 +175,7 @@ RSpec.describe Api::V1::TasksController, type: :request do
     subject { post base_endpoint, params: request_params, headers: headers }
 
     let(:file) { fixture_file_upload('spec/fixtures/files/dk.png') }
-    let(:metadata) { AvatarUploader.new(:cache).upload(file) }
+    let(:metadata) { AttachmentUploader.new(:cache).upload(file) }
 
     let(:request_params) do
       params = task_params.merge(event_id: event.id, attachments: [metadata.to_json])

@@ -16,7 +16,7 @@ module Api
       #   optional filter parameters :
       #
       #     - event_id      - Filter by event identity
-      #     - outdated      - Filter by outdated flag(true/false)
+      #     - expiration    - Filter by expiration scope(@see Task::EXPIRATION_SCOPES)
       #     - appointed     - Filter by appointment flag(true/false)
       #     - accomplished  - Filter by accomplished flag(true/false)
       #

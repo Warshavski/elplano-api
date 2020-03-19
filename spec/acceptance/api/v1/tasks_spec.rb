@@ -52,7 +52,7 @@ resource "User's event tasks" do
         <b>OPTIONAL FILTERS</b> :
 
           - `"event_id": 1` - Returns tasks for the selected event.
-          - `"outdated": true/false` - Returns outdated or active tasks.
+          - `"expiration": - Returns tasks filtered by expiration scope(#{Task::EXPIRATION_SCOPES}).
           - `"appointed": true/false` - Returns appointed or authored tasks.
           - `"accomplished": true/false` - Returns accomplished or unfulfilled tasks.
 
@@ -62,7 +62,7 @@ resource "User's event tasks" do
         {
           "filters": {
             "event_id": 1,
-            "outdated": true,
+            "expiration": "active",
             "appointed": false,
             "accomplished": false
           }

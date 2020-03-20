@@ -21,7 +21,7 @@ gem 'dry-validation', '>=1.3.0'
 gem 'fast_jsonapi', '>= 1.5', git: 'https://github.com/fast-jsonapi/fast_jsonapi.git'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.2'
+gem 'rails', '~> 5.2.3'
 
 # Use postgresql as the database for Active Record
 # https://github.com/ged/ruby-pg

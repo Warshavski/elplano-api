@@ -37,6 +37,11 @@ Rails.application.routes.draw do
       end
 
       namespace :admin do
+        namespace :activity do
+          # (see Admin::Activity:EventsController)
+          resources :events, only: :index
+        end
+
         # (see Admin::AnnouncementsController)
         resources :announcements, except: %i[new edit]
 

@@ -10,4 +10,5 @@ class ActivityEventSerializer < ApplicationSerializer
   attributes :action, :details, :created_at, :updated_at
 
   belongs_to :target, polymorphic: true
+  belongs_to :author, serializer: ::UserSerializer
 end

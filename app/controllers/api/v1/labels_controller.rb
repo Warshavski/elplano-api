@@ -15,7 +15,7 @@ module Api
       #
       #   optional filter parameters :
       #
-      #     - search - Filter by search term(email, username)
+      #     - search - Filter by search term(title, description)
       #
       # @see #filter_params
       #
@@ -72,7 +72,7 @@ module Api
       end
 
       def filter_labels(filters = {})
-        LabelsFinder.call(current_group, filters)
+        LabelsFinder.call(owner: current_group, params: filters)
       end
 
       def label_params

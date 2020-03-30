@@ -11,11 +11,11 @@
 class ActivityEventsFinder < Finder
   attr_reader :params, :current_user
 
-  # @param user [User]
-  #   User for which activity events are filtered
+  # @param owner [User]
+  #   (optional, default: nil) User for which activity events are filtered
   #
   # @param params [Hash]
-  #   Optional filtration and sort parameters
+  #   (optional, default: {}) Optional filtration and sort parameters
   #
   # @option params [String, Symbol] :action
   #   Activity event action(created, updated)
@@ -23,8 +23,8 @@ class ActivityEventsFinder < Finder
   # @option params [Integer] :author_id
   #   Activity event author
   #
-  def initialize(user, params = {})
-    @current_user = user
+  def initialize(owner: nil, params: {})
+    @current_user = owner
     @params = params
   end
 
@@ -46,7 +46,7 @@ class ActivityEventsFinder < Finder
   private
 
   def resolve_scope
-    current_user ? current_user.activity_events : ActivityEvent.all
+    current_user&.activity_events || ActivityEvent.all
   end
 
   def filter_by_action(items)

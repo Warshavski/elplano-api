@@ -34,7 +34,7 @@ module Api
         private
 
         def filter_events(filters = {})
-          ActivityEventsFinder.call(current_user, filters)
+          ActivityEventsFinder.call(owner: current_user, params: filters)
         end
 
         def filter_params

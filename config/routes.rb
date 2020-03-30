@@ -56,6 +56,9 @@ Rails.application.routes.draw do
         # (see Admin::GroupsController)
         resources :groups, only: %i[index show]
 
+        # (see Admin::LabelsController)
+        resources :labels, only: %i[index show]
+
         # (see Admin::LogsController)
         resource :logs, only: :show
 

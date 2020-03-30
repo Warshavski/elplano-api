@@ -36,7 +36,7 @@ module Api
           private
 
           def filter_events(filters = {})
-            ActivityEventsFinder.call(nil, filters)
+            ActivityEventsFinder.call(params: filters)
           end
 
           def filter_params

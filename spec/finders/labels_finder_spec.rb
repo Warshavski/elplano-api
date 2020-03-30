@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe LabelsFinder do
   describe '#execute' do
-    subject { described_class.new(group, params).execute }
+    subject { described_class.new(owner: owner, params: params).execute }
 
     let_it_be(:group) { create(:group) }
 
@@ -19,16 +19,36 @@ RSpec.describe LabelsFinder do
       create(:label, description: 'wattest description', group: group)
     end
 
-    context 'when filters are not specified' do
-      let_it_be(:params) { {} }
+    context 'when owner is set' do
+      let_it_be(:owner) { group }
 
-      it { is_expected.to eq([another_expected_label, expected_label, unexpected_label]) }
+      context 'when filters are not specified' do
+        let_it_be(:params) { {} }
+
+        it { is_expected.to eq([another_expected_label, expected_label, unexpected_label]) }
+      end
+
+      context 'when search filter is specified' do
+        let_it_be(:params) { { search: 'wattest' } }
+
+        it { is_expected.to eq([another_expected_label, expected_label]) }
+      end
     end
 
-    context 'when search filter is specified' do
-      let_it_be(:params) { { search: 'wattest' } }
+    context 'when owner is not set' do
+      let(:owner) { nil }
 
-      it { is_expected.to eq([another_expected_label, expected_label]) }
+      context 'when filters are not specified' do
+        let_it_be(:params) { {} }
+
+        it { is_expected.to eq([another_expected_label, expected_label, another_unexpected_label, unexpected_label]) }
+      end
+
+      context 'when search filter is specified' do
+        let_it_be(:params) { { search: 'wattest' } }
+
+        it { is_expected.to eq([another_expected_label, expected_label]) }
+      end
     end
   end
 end

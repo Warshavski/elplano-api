@@ -43,7 +43,7 @@ module Api
                           status: :ok
         end
 
-        # GET : api/v1/admin/users
+        # PATCH/PUT : api/v1/admin/users/{:id}
         #
         # Update user state
         #

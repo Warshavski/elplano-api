@@ -8,12 +8,12 @@ module Localizable
   extend ActiveSupport::Concern
 
   included do
-    before_action :set_locale
+    before_action :configure_locale
   end
 
   private
 
-  def set_locale
+  def configure_locale
     locale = user_presented? ? user_locale : default_locale
 
     locale = default_locale unless supported_locale?(locale)

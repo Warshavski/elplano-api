@@ -10,7 +10,7 @@ module Api
       class RegistrationsController < Devise::RegistrationsController
         skip_before_action :authorize_access!
 
-        specify_title_header 'Users'
+        specify_title_header 'Users', 'Registration'
 
         specify_serializers default: UserSerializer
 

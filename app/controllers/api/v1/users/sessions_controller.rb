@@ -12,7 +12,7 @@ module Api
         skip_before_action :authorize_access!, only: %i[new create]
         skip_before_action :verify_signed_out_user
 
-        specify_title_header 'Users'
+        specify_title_header 'Users', 'Login'
 
         specify_serializers default: ::Auth::UserSerializer
 

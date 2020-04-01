@@ -9,9 +9,9 @@
 #   params: optional search, filter and sort parameters
 #
 class ActivityEventsFinder < Finder
-  attr_reader :params, :current_user
+  alias current_user context
 
-  # @param owner [User]
+  # @param context [User]
   #   (optional, default: nil) User for which activity events are filtered
   #
   # @param params [Hash]
@@ -23,9 +23,8 @@ class ActivityEventsFinder < Finder
   # @option params [Integer] :author_id
   #   Activity event author
   #
-  def initialize(owner: nil, params: {})
-    @current_user = owner
-    @params = params
+  def initialize(context: nil, params: {})
+    super
   end
 
   # Perform filtration and sort on list

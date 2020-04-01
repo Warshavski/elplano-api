@@ -21,7 +21,7 @@ RSpec.describe EventsFinder do
   end
 
   describe '#execute' do
-    subject { described_class.new(student, params).execute }
+    subject { described_class.new(context: student, params: params).execute }
 
     context 'when student is a group president' do
       let_it_be(:student) { president }

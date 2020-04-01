@@ -38,7 +38,7 @@ RSpec.describe TasksFinder do
 
     let_it_be(:appointed_tasks) { create_list(:task, 2, students: [author]) }
 
-    subject { described_class.new(author, params).execute }
+    subject { described_class.new(context: author, params: params).execute }
 
     context 'when empty params are provided' do
       let_it_be(:params) { {} }

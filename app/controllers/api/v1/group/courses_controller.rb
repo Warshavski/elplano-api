@@ -97,7 +97,7 @@ module Api
         end
 
         def filter_courses(filters = {})
-          CoursesFinder.call(current_group, filters)
+          CoursesFinder.call(context: current_group, params: filters)
         end
 
         def filter_params

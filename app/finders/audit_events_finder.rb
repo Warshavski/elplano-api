@@ -9,9 +9,9 @@
 #   params: optional search, filter and sort parameters
 #
 class AuditEventsFinder < Finder
-  attr_reader :params, :current_user
+  alias current_user context
 
-  # @param user [User]
+  # @param context [User]
   #   User for which audit events are filtered
   #
   # @param params [Hash]
@@ -20,9 +20,8 @@ class AuditEventsFinder < Finder
   # @option params [String, Symbol] :type
   #   Audit event type(authentication, permanent_action)
   #
-  def initialize(user, params = {})
-    @current_user = user
-    @params = params
+  def initialize(context: nil, params: {})
+    super
   end
 
   # Perform filtration and sort on list

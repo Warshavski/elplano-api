@@ -9,13 +9,6 @@
 #   params: optional search, filter and sort parameters
 #
 class BugReportsFinder < Finder
-  attr_reader :params
-
-  # @see #execute
-  def self.call(params = {})
-    new(params).execute
-  end
-
   # @param params [Hash] - (optional, default: {}) filter and sort parameters
   #
   # @option params [String, Symbol] :status
@@ -24,8 +17,8 @@ class BugReportsFinder < Finder
   # @option params [Integer] :user_id
   #   Bug report reporter identity
   #
-  def initialize(params = {})
-    @params = params
+  def initialize(context: nil, params: {})
+    super
   end
 
   # Perform filtration and sort on bug reports list

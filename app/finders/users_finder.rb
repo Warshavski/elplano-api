@@ -9,8 +9,6 @@
 #   params: optional search, filter and sort parameters
 #
 class UsersFinder < Finder
-  attr_reader :params
-
   # @param params [Hash] - (optional, default: {}) filter and sort parameters
   #
   # @option params [String, Symbol] :status -
@@ -19,8 +17,8 @@ class UsersFinder < Finder
   # @option params [String] :search -
   #   Search pattern to search for
   #
-  def initialize(params = {})
-    @params = params
+  def initialize(context: nil, params: {})
+    super
   end
 
   # Perform filtration and sort on users list

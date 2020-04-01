@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe BugReportsFinder do
   describe '#execute' do
-    subject { described_class.new(params).execute }
+    subject { described_class.new(params: params).execute }
 
     let_it_be(:first_report) { create(:bug_report) }
     let_it_be(:last_report)  { create(:bug_report) }

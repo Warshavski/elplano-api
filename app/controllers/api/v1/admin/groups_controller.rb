@@ -45,7 +45,7 @@ module Api
         private
 
         def filter_groups(filters = {})
-          GroupsFinder.call(filters)
+          GroupsFinder.call(params: filters)
         end
       end
     end

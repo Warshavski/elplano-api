@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe StudentsFinder do
   describe '#execute' do
-    subject { described_class.new(group, params).execute }
+    subject { described_class.new(context: group, params: params).execute }
 
     let_it_be(:phone_student)      { create(:student, phone: '9900348621') }
     let_it_be(:email_student)      { create(:student, email: 'wat@email.so') }

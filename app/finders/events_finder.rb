@@ -14,9 +14,10 @@
 #   - by default returns all appointed events(personal + group events).
 #
 class EventsFinder < Finder
-  attr_reader :params, :student
+  alias student context
 
-  # @param student [Student] -
+  # @param context [Student] -
+  #   A student in the scope of which filtration is performed
   #
   # @param params [Hash] - (optional, default: {}) filter_by and sort parameters
   #
@@ -29,9 +30,8 @@ class EventsFinder < Finder
   # @option params [Array<String>] :labels -
   #   Collection of the labels attached to the event
   #
-  def initialize(student, params = {})
-    @student = student
-    @params = params
+  def initialize(context:, params: {})
+    super
   end
 
   # Perform filtration and sort on student's events list

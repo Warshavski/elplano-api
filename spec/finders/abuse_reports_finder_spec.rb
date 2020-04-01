@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe AbuseReportsFinder do
   describe '#execute' do
-    subject { described_class.new(params).execute }
+    subject { described_class.new(params: params).execute }
 
     let_it_be(:first_report) { create(:abuse_report) }
     let_it_be(:last_report)  { create(:abuse_report) }

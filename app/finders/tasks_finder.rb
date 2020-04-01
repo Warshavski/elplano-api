@@ -16,9 +16,9 @@
 #   - by default returns authored tasks(tasks created by current student)
 #
 class TasksFinder < Finder
-  attr_reader :params, :current_student
+  alias current_student context
 
-  # @param current_student [Student]
+  # @param context [Student]
   #   A student in the scope of which task filtration is performed
   #
   # @param params [Hash]
@@ -38,9 +38,8 @@ class TasksFinder < Finder
   #
   # @note - accomplishment filtration can be applied in the scope of appointed tasks
   #
-  def initialize(current_student, params = {})
-    @current_student = current_student
-    @params = params
+  def initialize(context:, params: {})
+    super
   end
 
   # Perform task filtration and sort

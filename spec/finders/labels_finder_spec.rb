@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe LabelsFinder do
   describe '#execute' do
-    subject { described_class.new(owner: owner, params: params).execute }
+    subject { described_class.new(context: owner, params: params).execute }
 
     let_it_be(:group) { create(:group) }
 

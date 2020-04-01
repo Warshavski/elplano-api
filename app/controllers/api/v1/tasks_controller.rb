@@ -88,7 +88,7 @@ module Api
       end
 
       def filter_tasks(filters = {})
-        TasksFinder.call(current_student, filters)
+        TasksFinder.call(context: current_student, params: filters)
       end
 
       def filter_params

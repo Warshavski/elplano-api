@@ -52,7 +52,7 @@ module Api
           end
 
           def filter_reports(filters = {})
-            BugReportsFinder.call(filters)
+            BugReportsFinder.call(params: filters)
           end
 
           def filter_params

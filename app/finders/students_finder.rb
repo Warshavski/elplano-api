@@ -9,16 +9,19 @@
 #   params: optional search, filter and sort parameters
 #
 class StudentsFinder < Finder
-  attr_reader :params, :current_group
+  alias current_group context
 
-  # @param params [Hash] - (optional, default: {}) filter and sort parameters
+  # @param context [Group] -
+  #  A group in the scope of which filtration is performed
+  #
+  # @param params [Hash] -
+  #   (optional, default: {}) filter and sort parameters
   #
   # @option params [String] :search -
   #   Search pattern to search for
   #
-  def initialize(group, params = {})
-    @params = params
-    @current_group = group
+  def initialize(context:, params: {})
+    super
   end
 
   # Perform filtration and sort on students list

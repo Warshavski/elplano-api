@@ -15,9 +15,9 @@
 #   - by default returns paginated chunks(15 records per chunk)
 #
 class CoursesFinder < Finder
-  attr_reader :group, :params
+  alias group context
 
-  # @param group [Group]
+  # @param context [Group]
   #   The group by which the filtration is performed
   #
   # @param params [Hash]
@@ -26,9 +26,8 @@ class CoursesFinder < Finder
   # @option params [Boolean] :active -
   #   Availability flag(true, false)
   #
-  def initialize(group, params = {})
-    @group = group
-    @params = params
+  def initialize(context: nil, params: {})
+    super
   end
 
   # Perform filtration and sort on group's courses list

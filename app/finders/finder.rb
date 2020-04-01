@@ -7,8 +7,15 @@
 class Finder
   include Paginatable
 
-  def self.call(*args)
-    new(*args).execute
+  attr_reader :context, :params
+
+  def initialize(context: nil, params: {})
+    @context = context
+    @params = params
+  end
+
+  def self.call(context: nil, params: {})
+    new(context: context, params: params).execute
   end
 
   def execute

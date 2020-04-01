@@ -10,9 +10,9 @@
 #   params: optional search, filter and sort parameters
 #
 class LabelsFinder < Finder
-  attr_reader :owner, :params
+  alias owner context
 
-  # @param owner [Group] -
+  # @param context [Group] -
   #   (optional, default: nil) Owner of the searchable labels
   #
   # @param params [Hash] - (optional, default: {}) filter and sort parameters
@@ -20,9 +20,8 @@ class LabelsFinder < Finder
   # @option params [String] :search -
   #   Search pattern to search for(title, description part)
   #
-  def initialize(owner: nil, params: {})
-    @owner = owner
-    @params = params
+  def initialize(context: nil, params: {})
+    super
   end
 
   # Perform filtration and sort on users list

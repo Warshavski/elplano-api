@@ -72,7 +72,7 @@ module Api
       end
 
       def filter_labels(filters = {})
-        LabelsFinder.call(owner: current_group, params: filters)
+        LabelsFinder.call(context: current_group, params: filters)
       end
 
       def label_params

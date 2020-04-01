@@ -29,7 +29,7 @@ module Api
         private
 
         def filter_events(filters = {})
-          AuditEventsFinder.call(current_user, filters)
+          AuditEventsFinder.call(context: current_user, params: filters)
         end
 
         def filter_params

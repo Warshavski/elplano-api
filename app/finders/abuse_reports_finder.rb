@@ -9,10 +9,16 @@
 #   params: optional search, filter and sort parameters
 #
 class AbuseReportsFinder < Finder
-  attr_reader :params
-
-  def initialize(params = {})
-    @params = params
+  # @param params [Hash] - (optional, default: {}) filter and sort parameters
+  #
+  # @option params [String, Symbol] :reporter_id
+  #   Abuse report reporter identity
+  #
+  # @option params [Integer] :user_id
+  #   Abuser identity
+  #
+  def initialize(context: nil, params: {})
+    super
   end
 
   # Perform filtration and sort on abuse reports list

@@ -79,7 +79,7 @@ gem 'sidekiq-scheduler'
 
 # File Attachment toolkit for Ruby applications.
 # https://github.com/shrinerb/shrine
-gem 'shrine', '~> 2.0'
+gem 'shrine', '>= 3.2'
 
 # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator
 # https://github.com/kaminari/kaminari

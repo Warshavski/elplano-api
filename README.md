@@ -1,10 +1,10 @@
-#![Example](./app/assets/logo.svg)
+![Example](./app/assets/logo.svg)
+
+Classes schedule management application (API)
 
 [![Build Status](https://travis-ci.org/Warshavski/elplano-api.svg?branch=develop)](https://travis-ci.org/Warshavski/elplano-api)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a5e9ecd7da62ba334087/maintainability)](https://codeclimate.com/github/Warshavski/elplano-api/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/a5e9ecd7da62ba334087/test_coverage)](https://codeclimate.com/github/Warshavski/elplano-api/test_coverage)
-
-Classes schedule management application (API)
 
 ## Introduction
 

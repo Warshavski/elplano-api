@@ -1,9 +1,6 @@
 require 'shrine'
 require 'shrine/plugins/activerecord'
 require 'shrine/plugins/backgrounding'
-require 'shrine/plugins/delete_promoted'
-require 'shrine/plugins/delete_raw'
-require 'shrine/plugins/logging'
 require 'shrine/plugins/determine_mime_type'
 require 'shrine/plugins/cached_attachment_data'
 require 'shrine/plugins/restore_cached_data'
@@ -34,9 +31,9 @@ Shrine.plugin :cached_attachment_data
 #
 Shrine.plugin :determine_mime_type
 
-Shrine.plugin :instrumentation
-
 Shrine.logger = Rails.logger
+
+Shrine.plugin :instrumentation
 
 #
 # Re-extracts cached file's metadata on model assignment.

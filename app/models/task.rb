@@ -28,6 +28,10 @@ class Task < ApplicationRecord
   scope :tomorrow, -> { where(expired_at: Date.current + 1.day) }
   scope :upcoming, -> { where(arel_table[:expired_at].gt(Date.current + 1.day)) }
 
+  attribute :extra_links, ExtraLink.to_array_type
+
+  validates :extra_links, store_model: { merge_errors: true }, allow_nil: true
+
   validates :title, presence: true
 
   validates :expired_at,

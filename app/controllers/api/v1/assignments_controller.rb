@@ -42,7 +42,7 @@ module Api
       def report_params
         params.require(:assignment).permit(
           :accomplished, :report,
-          extra_links: [], attachments: []
+          extra_links: %i[service url], attachments: []
         )
       end
     end

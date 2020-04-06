@@ -7,7 +7,7 @@
 class TaskSerializer < ApplicationSerializer
   set_type :task
 
-  attributes :title, :description,
+  attributes :title, :description, :extra_links,
              :expired_at, :created_at, :updated_at
 
   attribute :outdated, &:outdated?

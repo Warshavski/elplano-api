@@ -83,6 +83,7 @@ module Descriptions
             - `title` - Represents task name(human readable identity).
             - `description` - Represents task description.
             - `outdated` - `true` if task is available in current time(not expired task), otherwise `false`.
+            - `extra_links` - Represents links(URL) to extra attachments on external storage(Google drive, for example)
             - `expired_at` - Represents expiration time(task completion deadline).
             - `timestamps`
         DESC

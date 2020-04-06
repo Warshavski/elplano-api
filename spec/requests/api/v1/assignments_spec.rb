@@ -17,12 +17,18 @@ RSpec.describe Api::V1::AssignmentsController, type: :request do
   let(:file) { fixture_file_upload('spec/fixtures/files/dk.png') }
   let(:metadata) { AttachmentUploader.new(:cache).upload(file) }
 
+  let(:extra_links) do
+    %w[Google DropBox].map do |service|
+      { service: service, url: Faker::Internet.url }
+    end
+  end
+
   let(:request_params) do
     {
       assignment: {
         report: Faker::Lorem.paragraph(sentence_count: 3),
         accomplished: true,
-        extra_links: (1..2).flat_map { Faker::Internet.url },
+        extra_links: extra_links,
         attachments: [metadata.to_json]
       }
     }
@@ -66,12 +72,17 @@ RSpec.describe Api::V1::AssignmentsController, type: :request do
       expect(response).to have_http_status(:ok)
       expect(json_data['type']).to eq('assignment')
 
-      %i[report accomplished extra_links].each do |attribute|
+      %i[report accomplished].each do |attribute|
         actual_attribute = json_data.dig(:attributes, attribute)
         expected_attribute = request_params.dig(:assignment, attribute)
 
         expect(actual_attribute).to eq(expected_attribute)
       end
+
+      actual_links_attribute = json_data.dig(:attributes, :extra_links)
+      expected_links_attribute = request_params.dig(:assignment, :extra_links).map(&:stringify_keys)
+
+      expect(actual_links_attribute).to eq(expected_links_attribute)
     end
 
     include_examples 'json:api examples',

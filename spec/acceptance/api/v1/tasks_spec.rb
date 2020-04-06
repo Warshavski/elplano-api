@@ -36,6 +36,12 @@ resource "User's event tasks" do
   let_it_be(:file) { fixture_file_upload('spec/fixtures/files/dk.png') }
   let_it_be(:metadata) { AttachmentUploader.new(:cache).upload(file) }
 
+  let_it_be(:external_links) do
+    %w[Google DropBox].map do |service|
+      { service: service, url: Faker::Internet.url }
+    end
+  end
+
   let_it_be(:attachment) do
     create(:attachment, author: user, attachable: task, attachment_data: metadata)
   end
@@ -131,6 +137,8 @@ resource "User's event tasks" do
       parameter :event_id, 'Event which task is attached to',
                 required: true
 
+      parameter :external_links, 'Extra attachments on external storage(Google drive, for example)'
+
       parameter :attachments, 'Uploaded files metadata(collection) received from `uploads` endpoint'
 
       parameter :student_ids, 'Collection of the students who are assigned to the task',
@@ -141,7 +149,8 @@ resource "User's event tasks" do
       params = build(:task_params).merge(
         event_id: event.id,
         attachments: [metadata.to_json],
-        student_ids: [classmate.id]
+        student_ids: [classmate.id],
+        external_links: external_links
       )
 
       { task:  params }.to_json
@@ -186,12 +195,17 @@ resource "User's event tasks" do
       parameter :event_id, 'Event which task is attached to',
                 required: true
 
+      parameter :external_links, 'Extra attachments on external storage(Google drive, for example)'
+
       parameter :student_ids, 'Collection of the students who are assigned to the task',
                 required: true
     end
 
     let(:raw_post) do
-      { task: build(:task_params).merge(event_id: event.id, student_ids: [classmate.id]) }.to_json
+      {
+        task: build(:task_params)
+                .merge(event_id: event.id, student_ids: [classmate.id], external_links: external_links)
+      }.to_json
     end
 
     example 'UPDATE : Update selected task information' do
@@ -269,7 +283,7 @@ resource "User's event tasks" do
             attachments: [metadata.to_json],
             report: Faker::Lorem.paragraph(sentence_count: 6),
             accomplished: true,
-            external_links: (1..2).flat_map { Faker::Internet.url }
+            external_links: external_links
           }
       }.to_json
     end

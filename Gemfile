@@ -69,6 +69,10 @@ gem 'oj'
 # https://github.com/sendgrid/sendgrid-ruby
 gem 'sendgrid-ruby'
 
+# Allows you to wrap JSON-backed DB columns with ActiveModel-like classes.
+# https://github.com/DmitryTsepelev/store_model
+gem 'store_model'
+
 # Simple, efficient background processing for Ruby
 # https://github.com/mperham/sidekiq
 gem 'sidekiq'

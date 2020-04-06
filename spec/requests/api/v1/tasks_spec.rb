@@ -47,7 +47,7 @@ RSpec.describe Api::V1::TasksController, type: :request do
 
         expect(task_data['type']).to eq('task')
         expect(task_data['attributes'].keys).to(
-          match_array(%w[title description outdated expired_at created_at updated_at])
+          match_array(%w[title description extra_links outdated expired_at created_at updated_at])
         )
       end
     end
@@ -78,7 +78,7 @@ RSpec.describe Api::V1::TasksController, type: :request do
         expect(task_data['id']).to eq(another_task.id.to_s)
         expect(task_data['type']).to eq('task')
         expect(task_data['attributes'].keys).to(
-          match_array(%w[title description outdated expired_at created_at updated_at])
+          match_array(%w[title description extra_links outdated expired_at created_at updated_at])
         )
       end
     end
@@ -109,7 +109,7 @@ RSpec.describe Api::V1::TasksController, type: :request do
         expect(task_data['id']).to eq(outdated_task.id.to_s)
         expect(task_data['type']).to eq('task')
         expect(task_data['attributes'].keys).to(
-          match_array(%w[title description outdated expired_at created_at updated_at])
+          match_array(%w[title description extra_links outdated expired_at created_at updated_at])
         )
       end
     end
@@ -136,7 +136,7 @@ RSpec.describe Api::V1::TasksController, type: :request do
         expect(task_data['id']).to eq(accomplished_task.id.to_s)
         expect(task_data['type']).to eq('task')
         expect(task_data['attributes'].keys).to(
-          match_array(%w[title description outdated expired_at created_at updated_at])
+          match_array(%w[title description extra_links outdated expired_at created_at updated_at])
         )
       end
     end
@@ -154,7 +154,7 @@ RSpec.describe Api::V1::TasksController, type: :request do
     include_examples 'json:api examples',
                      %w[data included],
                      %w[id type attributes relationships],
-                     %w[title description outdated expired_at created_at updated_at],
+                     %w[title description extra_links outdated expired_at created_at updated_at],
                      %w[event attachments]
 
     it 'returns requested task entity' do
@@ -199,7 +199,7 @@ RSpec.describe Api::V1::TasksController, type: :request do
       include_examples 'json:api examples',
                        %w[data included],
                        %w[id type attributes relationships],
-                       %w[title description outdated expired_at created_at updated_at],
+                       %w[title description extra_links outdated expired_at created_at updated_at],
                        %w[event attachments]
 
       include_examples 'request errors examples'
@@ -256,7 +256,7 @@ RSpec.describe Api::V1::TasksController, type: :request do
       include_examples 'json:api examples',
                        %w[data included],
                        %w[id type attributes relationships],
-                       %w[title description outdated expired_at created_at updated_at],
+                       %w[title description extra_links outdated expired_at created_at updated_at],
                        %w[event attachments]
 
       include_examples 'request errors examples'

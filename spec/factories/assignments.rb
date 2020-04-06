@@ -5,6 +5,8 @@ FactoryBot.define do
     student
     task
 
+    extra_links { [{ service: 'Google', url: Faker::Internet.url }] }
+
     accomplished { false }
 
     trait :accomplished do

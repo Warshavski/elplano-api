@@ -253,6 +253,8 @@ ru:
       on_or_before: 'должно быть в или раньше %{restriction}'
       after: 'должно быть после %{restriction}'
       on_or_after: 'должно быть в или после %{restriction}'
+      url:
+        invalid_format: 'должен быть действительным URL'
       validates_timeliness:
         error_value_formats:
           date: '%Y-%m-%d'

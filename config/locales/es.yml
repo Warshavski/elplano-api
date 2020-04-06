@@ -229,6 +229,8 @@ es:
       on_or_before: 'debe estar en o antes %{restriction}'
       after: 'debe ser después %{restriction}'
       on_or_after: 'debe estar encendido o después %{restriction}'
+      url:
+        invalid_format: 'debe ser una URL válida'
       validates_timeliness:
         error_value_formats:
           date: '%Y-%m-%d'

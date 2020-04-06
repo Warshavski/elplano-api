@@ -16,12 +16,18 @@ RSpec.describe TaskReports::Create do
     let_it_be(:file)      { fixture_file_upload('spec/fixtures/files/pdf_sample.pdf') }
     let_it_be(:metadata)  { AttachmentUploader.new(:cache).upload(file) }
 
+    let_it_be(:extra_links) do
+      %w[Google DropBox].map do |service|
+        { service: service, url: Faker::Internet.url }
+      end
+    end
+
     let_it_be(:params) do
       {
         attachments: [metadata.to_json],
         accomplished: true,
         report: Faker::Lorem.paragraph(sentence_count: 6),
-        extra_links: (1..2).flat_map { Faker::Internet.url }
+        extra_links: extra_links
       }
     end
 
@@ -32,7 +38,11 @@ RSpec.describe TaskReports::Create do
 
       expect(assignment.report).to eq(params[:report])
       expect(assignment.accomplished).to eq(params[:accomplished])
-      expect(assignment.extra_links).to eq(params[:extra_links])
+
+      actual_links = assignment.extra_links.map(&:attributes)
+      expected_links = params[:extra_links].map(&:stringify_keys)
+
+      expect(actual_links).to eq(expected_links)
     end
 
     it { expect { subject }.to change(Attachment, :count).by(1) }

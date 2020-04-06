@@ -13,5 +13,9 @@ class Assignment < ApplicationRecord
   scope :accomplished, -> { where(accomplished: true) }
   scope :unfulfilled, -> { where(accomplished: false) }
 
+  attribute :extra_links, ExtraLink.to_array_type
+
+  validates :extra_links, store_model: { merge_errors: true }, allow_nil: true
+
   validates :task_id, uniqueness: { scope: :student_id }
 end

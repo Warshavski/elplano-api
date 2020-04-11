@@ -56,6 +56,10 @@ class Student < ApplicationRecord
 
   has_many :appointed_tasks, through: :assignments, source: :task
 
+  attribute :social_networks, SocialNetwork.to_array_type
+
+  validates :social_networks, store_model: { merge_errors: true }, allow_nil: true
+
   validates :full_name, length: { maximum: 200 }
   validates :email,     length: { maximum: 100 }
   validates :phone,     length: { maximum: 50 }

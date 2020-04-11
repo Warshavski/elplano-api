@@ -5,7 +5,7 @@ FactoryBot.define do
     student
     task
 
-    extra_links { [{ service: 'Google', url: Faker::Internet.url }] }
+    extra_links { [{ description: Faker::Lorem.sentence, url: Faker::Internet.url }] }
 
     accomplished { false }
 

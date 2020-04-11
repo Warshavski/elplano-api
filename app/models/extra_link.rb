@@ -7,9 +7,8 @@
 class ExtraLink
   include StoreModel::Model
 
-  attribute :service, :string
+  attribute :description, :string
   attribute :url, :string
 
-  validates :service, :url, presence: true
-  validates :url, url: true
+  validates :url, presence: true, url: true
 end

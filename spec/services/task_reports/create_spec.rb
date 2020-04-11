@@ -17,8 +17,8 @@ RSpec.describe TaskReports::Create do
     let_it_be(:metadata)  { AttachmentUploader.new(:cache).upload(file) }
 
     let_it_be(:extra_links) do
-      %w[Google DropBox].map do |service|
-        { service: service, url: Faker::Internet.url }
+      %w[Google DropBox].map do |desc|
+        { description: desc, url: Faker::Internet.url }
       end
     end
 

@@ -33,19 +33,19 @@ RSpec.describe ExtraLink, type: :model do
       end
     end
 
-    it 'is expected to pass validation for not empty service' do
-      subject.service = 'service name'
+    it 'is expected to pass validation for not empty description' do
+      subject.description = 'description name'
 
       expect(subject).to be_valid
     end
 
-    it 'is expected to fail validation for blank service' do
+    it 'is expected to pass validation for blank description' do
       invalid_service_values = [nil, '']
 
-      invalid_service_values.each do |service|
-        subject.service = service
+      invalid_service_values.each do |description|
+        subject.description = description
 
-        expect(subject).not_to be_valid
+        expect(subject).to be_valid
       end
     end
   end

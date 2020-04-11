@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :extra_link, class: ExtraLink do
-    service   { Faker::Company.name }
-    url       { Faker::Internet.url }
+    description  { Faker::Lorem.sentence }
+    url          { Faker::Internet.url }
   end
 end

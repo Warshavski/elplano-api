@@ -64,9 +64,13 @@ describe Api::V1::UsersController, type: :request do
     it 'returns updated student info' do
       expect(user.reload.locale).to       eq(user_params[:locale])
       expect(student.full_name).to        eq(user_params.dig(:student_attributes, :full_name))
-      expect(student.social_networks).to  eq(user_params.dig(:student_attributes,:social_networks))
-      expect(student.phone).to            eq(user_params.dig(:student_attributes,:phone))
-      expect(student.email).to            eq(user_params.dig(:student_attributes,:email))
+      expect(student.phone).to            eq(user_params.dig(:student_attributes, :phone))
+      expect(student.email).to            eq(user_params.dig(:student_attributes, :email))
+
+      user_params.dig(:student_attributes, :social_networks).each_with_index do |network, index|
+        expect(student.social_networks[index].network).to  eq(network[:network])
+        expect(student.social_networks[index].url).to  eq(network[:url])
+      end
     end
 
     include_examples 'request errors examples'

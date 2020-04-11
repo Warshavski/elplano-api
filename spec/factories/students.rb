@@ -11,10 +11,16 @@ FactoryBot.define do
     gender    { Faker::Gender.binary_type.downcase }
 
     social_networks do
-      {
-        'twitter' => Faker::Internet.url(host: 'twitter'),
-        'facebook' => Faker::Internet.url(host:'facebook')
-      }
+      [
+        {
+          network: 'twitter',
+          url: Faker::Internet.url(host: 'twitter')
+        },
+        {
+          network: 'facebook',
+          url: Faker::Internet.url(host: 'facebook')
+        }
+      ]
     end
 
     user
@@ -45,10 +51,16 @@ FactoryBot.define do
         email: 'wat@wat.wat',
         phone: '+8 983 47 89 312',
         full_name: 'Sir Wat Name Yeah',
-        social_networks: {
-          'twitter' => 'https://twitter.com/watever',
-          'facebook' => 'https://facebook.com/watever'
-        }
+        social_networks: [
+          {
+            network: 'twitter',
+            url: Faker::Internet.url(host: 'twitter')
+          },
+          {
+            network: 'facebook',
+            url: Faker::Internet.url(host: 'facebook')
+          }
+        ]
       }
     end
   end

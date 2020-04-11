@@ -26,7 +26,7 @@ FactoryBot.define do
         title: Faker::Lorem.sentence(word_count: 3),
         description: Faker::Lorem.paragraph(sentence_count: 6),
         expired_at: Time.current + 1.day,
-        extra_links: [{ service: 'Google', url: Faker::Internet.url }]
+        extra_links: [{ description: Faker::Lorem.sentence, url: Faker::Internet.url }]
       }
     end
   end

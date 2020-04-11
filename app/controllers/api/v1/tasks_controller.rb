@@ -100,7 +100,7 @@ module Api
           .require(:task)
           .permit(
             :title, :description, :expired_at, :event_id,
-            attachments: [], student_ids: [], extra_links: %i[service url]
+            attachments: [], student_ids: [], extra_links: %i[description url]
           )
       end
     end

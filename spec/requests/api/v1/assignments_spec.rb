@@ -18,8 +18,8 @@ RSpec.describe Api::V1::AssignmentsController, type: :request do
   let(:metadata) { AttachmentUploader.new(:cache).upload(file) }
 
   let(:extra_links) do
-    %w[Google DropBox].map do |service|
-      { service: service, url: Faker::Internet.url }
+    %w[Google DropBox].map do |description|
+      { description: description, url: Faker::Internet.url }
     end
   end
 

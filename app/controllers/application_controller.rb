@@ -25,7 +25,7 @@ class ApplicationController < ActionController::API
 
   prepend_before_action :authorize_access!
 
-  around_action :configure_timezone, if: :current_user
+  around_action :configure_timezone, if: :user_signed_in?
 
   specify_title_header 'El Plano'
 

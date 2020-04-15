@@ -37,8 +37,8 @@ resource "User's event tasks" do
   let_it_be(:metadata) { AttachmentUploader.new(:cache).upload(file) }
 
   let_it_be(:external_links) do
-    %w[Google DropBox].map do |service|
-      { service: service, url: Faker::Internet.url }
+    %w[Google DropBox].map do |description|
+      { description: description, url: Faker::Internet.url }
     end
   end
 

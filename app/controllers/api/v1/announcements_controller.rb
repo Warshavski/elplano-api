@@ -16,7 +16,7 @@ module Api
       # Get list of the current announcements
       #
       def index
-        render_resource Announcement.current, status: :ok
+        render_collection Announcements::Cache.current, status: :ok
       end
     end
   end

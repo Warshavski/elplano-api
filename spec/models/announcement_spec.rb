@@ -19,85 +19,84 @@ describe Announcement, type: :model do
     it_should_behave_like 'color validatable', :foreground_color
   end
 
-  describe '.current', :use_clean_rails_memory_store_caching do
-    subject { described_class.current }
+  describe '.current_and_upcoming' do
+    subject { described_class.current_and_upcoming }
 
-    context 'when time match' do
-      let_it_be(:first_announcement)  { create(:announcement) }
-      let_it_be(:last_announcement)   { create(:announcement) }
+    let_it_be(:current) { create(:announcement, :current) }
 
-      it { is_expected.to include(first_announcement) }
+    let_it_be(:first_upcoming)  { create(:announcement, :upcoming) }
+    let_it_be(:second_upcoming) { create(:announcement, :upcoming) }
 
-      it { is_expected.to contain_exactly(first_announcement, last_announcement) }
+    let_it_be(:expired) { create(:announcement, :expired) }
 
-      it { expect { subject }.not_to change { described_class.count } }
-    end
-
-    context 'when time is not come' do
-      let_it_be(:announcement) { create(:announcement, :upcoming) }
-
-      it { is_expected.to be_empty }
-
-      it 'does not clear the cache' do
-        expect(Rails.cache).not_to receive(:delete).with(described_class::CACHE_KEY)
-        expect(subject.size).to eq(0)
-      end
-    end
-
-    context 'when time has passed' do
-      let_it_be(:announcement) { create(:announcement, :expired) }
-
-      it { is_expected.to be_empty }
+    it 'is expected to return current and upcoming alerts' do
+      is_expected.to eq([current, first_upcoming, second_upcoming])
     end
   end
 
-  context 'timeline checks' do
-    let_it_be(:default)   { build(:announcement) }
-    let_it_be(:upcoming)  { build(:announcement, :upcoming) }
-    let_it_be(:expired)   { build(:announcement, :expired) }
+  describe '#now?' do
+    subject { build(:announcement, type).now? }
 
-    describe '#active?' do
-      context 'when started and not ended' do
-        it { expect(default).to be_active }
-      end
+    context 'when announcement is current' do
+      let(:type) { :current }
 
-      context 'when ended' do
-        it { expect(expired).not_to be_active }
-      end
-
-      context 'when not started' do
-        it { expect(upcoming).not_to be_active }
-      end
+      it { is_expected.to be true }
     end
 
-    describe '#started?' do
-      context 'when starts_at has passed' do
-        it { travel_to(3.days.from_now) { expect(default).to be_started } }
-      end
+    context 'when announcement is upcoming' do
+      let(:type) { :upcoming }
 
-      context 'when start_at is in the upcoming' do
-        it { travel_to(3.days.ago) { expect(default).not_to be_started } }
-      end
+      it { is_expected.to be false }
     end
 
-    describe '#ended?' do
-      context 'when ends_at has passed' do
-        it { travel_to(3.days.from_now) { expect(default).to be_ended } }
-      end
+    context 'when announcement is expired' do
+      let(:type) { :expired }
 
-      context 'when ends_at is in the upcoming' do
-        it { travel_to(3.days.ago) { expect(default).not_to be_ended } }
-      end
+      it { is_expected.to be false }
     end
   end
 
-  describe '#flush_cache' do
-    it 'flushes the cache' do
-      message = create(:announcement)
+  describe '#upcoming?' do
+    subject { build(:announcement, type).upcoming? }
 
-      expect(Rails.cache).to receive(:delete).with(described_class::CACHE_KEY)
+    context 'when announcement is current' do
+      let(:type) { :current }
 
-      message.flush_cache
+      it { is_expected.to be false }
+    end
+
+    context 'when announcement is upcoming' do
+      let(:type) { :upcoming }
+
+      it { is_expected.to be true }
+    end
+
+    context 'when announcement is expired' do
+      let(:type) { :expired }
+
+      it { is_expected.to be false }
+    end
+  end
+
+  describe '#now_or_upcoming?' do
+    subject { build(:announcement, type).now_or_upcoming? }
+
+    context 'when announcement is current' do
+      let(:type) { :current }
+
+      it { is_expected.to be true }
+    end
+
+    context 'when announcement is upcoming' do
+      let(:type) { :upcoming }
+
+      it { is_expected.to be true }
+    end
+
+    context 'when announcement is expired' do
+      let(:type) { :expired }
+
+      it { is_expected.to be false }
     end
   end
 end

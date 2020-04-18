@@ -10,6 +10,11 @@ FactoryBot.define do
     background_color { Faker::Color.hex_color }
     foreground_color { Faker::Color.hex_color }
 
+    trait :current do
+      start_at  { 1.day.ago }
+      end_at    { 1.day.from_now }
+    end
+
     trait :expired do
       start_at  { 5.days.ago }
       end_at    { 3.days.ago }

@@ -10,9 +10,10 @@ RSpec.describe Tasks::Statistics do
 
     let_it_be(:current_date) { Date.parse('2019-09-30') }
 
-    let_it_be(:author)  { create(:student, :group_supervisor) }
-    let_it_be(:student) { create(:student, group: author.group) }
-    let_it_be(:event)   { create(:event, eventable: student.group) }
+    let_it_be(:author)    { create(:student, :group_supervisor) }
+    let_it_be(:student)   { create(:student, group: author.group) }
+    let_it_be(:classmate) { create(:student, group: author.group) }
+    let_it_be(:event)     { create(:event, eventable: student.group) }
 
     context 'when user has no tasks' do
       it 'is expected to return hash with zero counters' do
@@ -32,32 +33,32 @@ RSpec.describe Tasks::Statistics do
       let_it_be(:expired) do
         create_list(
           :task, 2, :skip_validation,
-          event: event, author: student, students: [student], expired_at: current_date - 1.day
+          event: event, author: author, students: [student, classmate], expired_at: current_date - 1.day
         )
       end
 
       let_it_be(:active) do
         create(
           :task, :skip_validation,
-          event: event, author: student, students: [student], expired_at: current_date + 3.days
+          event: event, author: author, students: [student, classmate], expired_at: current_date + 3.days
         )
       end
 
       let_it_be(:without_expiration) do
-        create(:task, event: event, author: student, students: [student], expired_at: nil)
+        create(:task, event: event, author: author, students: [student, classmate], expired_at: nil)
       end
 
       let_it_be(:today) do
         create_list(
           :task, 3, :skip_validation,
-          event: event, author: student, students: [student], expired_at: current_date
+          event: event, author: author, students: [student, classmate], expired_at: current_date
         )
       end
 
       let_it_be(:tomorrow) do
         create(
           :task, :skip_validation,
-          event: event, author: student, students: [student], expired_at: current_date + 1.day
+          event: event, author: author, students: [student, classmate], expired_at: current_date + 1.day
         )
       end
 

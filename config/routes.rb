@@ -133,6 +133,11 @@ Rails.application.routes.draw do
         resources :bugs, only: :create
       end
 
+      namespace :tasks do
+        # (see Tasks::StatisticsController)
+        resource :statistics, only: :show
+      end
+
       # (see TasksController)
       resources :tasks, except: %i[new edit] do
         # (see AssignmentsController)

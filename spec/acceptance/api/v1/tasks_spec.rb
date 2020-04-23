@@ -305,4 +305,35 @@ resource "User's event tasks" do
       expect(response_body).to eq(expected_data)
     end
   end
+
+  get 'api/v1/tasks/statistics' do
+    let_it_be(:expected_stats) do
+      {
+        outdated_count: 4,
+        today_count: 2,
+        tomorrow_count: 3,
+        upcoming_count: 12,
+        accomplished_count: 10
+      }
+    end
+
+    before do
+      allow(::Tasks::Statistics).to receive(:call).and_return(expected_stats)
+    end
+
+    example 'SHOW : Retrieves tasks statistics' do
+      explanation <<~DESC
+        Returns a metadata with different counters.
+
+        #{Descriptions::Model.tasks_statistics_meta}
+      DESC
+
+      do_request
+
+      expected_meta = { meta: expected_stats }
+
+      expect(status).to eq(200)
+      expect(response_body).to eq(expected_meta.to_json)
+    end
+  end
 end

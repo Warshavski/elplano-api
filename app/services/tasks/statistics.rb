@@ -6,6 +6,9 @@ module Tasks
   #   Used to calculate statistics about tasks
   #
   class Statistics
+    COUNTER_ATTRIBUTES =
+      %w[outdated_count today_count tomorrow_count upcoming_count accomplished_count].freeze
+
     attr_reader :student
 
     # @see #execute
@@ -26,15 +29,24 @@ module Tasks
     # @return [Hash]
     #
     def execute
-      counters = %w[outdated_count today_count tomorrow_count upcoming_count accomplished_count]
-      counters_query = construct_query
-
       resolve_tasks_scope
-        .then { |scope| scope.select(counters_query).take }
-        .then { |results| results.slice(counters) }
+        .then { |scope| perform_selection(scope) }
+        .then { |result| format_result(result) }
     end
 
     private
+
+    def resolve_tasks_scope
+      appointed_tasks = student.appointed_tasks
+
+      appointed_tasks.group(Assignment.arel_table[:student_id])
+    end
+
+    def perform_selection(scope)
+      counters_query = construct_query
+
+      scope.select(counters_query).take
+    end
 
     def construct_query
       current_date  = Date.current
@@ -49,8 +61,14 @@ module Tasks
       SQL
     end
 
-    def resolve_tasks_scope
-      student.appointed_tasks.joins(:appointments)
+    def format_result(result)
+      result.nil? ? empty_counters : result.slice(COUNTER_ATTRIBUTES)
+    end
+
+    def empty_counters
+      COUNTER_ATTRIBUTES.each_with_object({}) do |counter, result|
+        result[counter] = 0
+      end
     end
   end
 end

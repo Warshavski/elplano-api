@@ -336,6 +336,32 @@ module Descriptions
             - `timestamps`
         DESC
       end
+
+      def tasks_statistics_meta
+        <<~DESC
+          Meta entity attributes :
+      
+           - `outdated_count` - Represents the number of outdated tasks.
+           - `today_count` - Represents the number of tasks with today expiration.
+           - `tomorrow_count` - Represents the number of tasks with tomorrow expiration.
+           - `upcoming_count` - Represents the number of tasks with future expiration(exclude today and tomorrow).
+           - `accomplished_count` - Represents the number of accomplished tasks.
+
+          Example:
+      
+          <pre>
+          {
+            "meta": {
+              "outdated_count": 10,
+              "today_count": 1,
+              "tomorrow_count": 5,
+              "upcoming_count": 12,
+              "accomplished_count": 4
+            }
+          }
+          </pre>
+        DESC
+      end
     end
   end
 end

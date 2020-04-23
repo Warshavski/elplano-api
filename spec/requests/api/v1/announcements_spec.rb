@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Api::V1::ClassmatesController, type: :request do
+RSpec.describe Api::V1::AnnouncementsController, type: :request do
   include_context 'shared setup'
 
   subject { get '/api/v1/announcements', headers: headers }

@@ -23,6 +23,8 @@ resource "User's profile" do
     #{Descriptions::Model.user}
      
     #{Descriptions::Model.student}
+
+    #{Descriptions::Model.user_status}
     
     <b>NOTES</b :
 

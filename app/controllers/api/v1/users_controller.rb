@@ -23,7 +23,7 @@ module Api
       #
       def show
         render_resource current_user,
-                        include: [:student],
+                        include: %i[student status],
                         status: :ok
       end
 
@@ -35,7 +35,7 @@ module Api
         current_user.update!(user_params)
 
         render_resource current_user,
-                        include: [:student],
+                        include: %i[student status],
                         status: :ok
       end
 

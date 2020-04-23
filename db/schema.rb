@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_11_184533) do
+ActiveRecord::Schema.define(version: 2020_04_23_165333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -304,6 +304,15 @@ ActiveRecord::Schema.define(version: 2020_04_11_184533) do
     t.index ["updated_at", "id"], name: "index_tasks_on_updated_at_and_id"
   end
 
+  create_table "user_statuses", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "emoji", default: "speech_balloon", null: false
+    t.string "message", limit: 100
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_statuses_on_user_id", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.text "avatar_data"
@@ -374,4 +383,5 @@ ActiveRecord::Schema.define(version: 2020_04_11_184533) do
   add_foreign_key "students", "users"
   add_foreign_key "tasks", "events"
   add_foreign_key "tasks", "students", column: "author_id"
+  add_foreign_key "user_statuses", "users"
 end

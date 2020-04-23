@@ -41,7 +41,7 @@ describe Api::V1::Users::SessionsController, type: :request do
                          %w[data meta included],
                          %w[id type attributes relationships],
                          %w[email settings timezone username avatar admin confirmed banned locked locale created_at updated_at],
-                         %w[student recent_access_token]
+                         %w[student recent_access_token status]
       end
 
       context 'when request params are invalid' do

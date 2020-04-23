@@ -115,6 +115,10 @@ gem 'redis'
 gem 'redis-namespace'
 gem 'redis-rails'
 
+# Emoji images and names.
+# https://github.com/github/gemoji
+gem 'gemoji'
+
 # System information
 #
 # A focused and fast library to gather memory, cpu, network, load avg and disk information

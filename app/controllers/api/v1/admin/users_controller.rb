@@ -39,7 +39,7 @@ module Api
           user = find_user(params[:id])
 
           render_resource user,
-                          include: [:student],
+                          include: %i[student status],
                           status: :ok
         end
 
@@ -53,7 +53,7 @@ module Api
           end
 
           render_resource user,
-                          include: [:student],
+                          include: %i[student status],
                           status: :ok
         end
 

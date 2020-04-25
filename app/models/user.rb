@@ -57,6 +57,11 @@ class User < ApplicationRecord
           inverse_of: :user,
           dependent: :destroy
 
+  has_one :status,
+          class_name: 'UserStatus',
+          inverse_of: :user,
+          dependent: :delete
+
   has_many :reported_abuses,
            foreign_key: :reporter_id,
            class_name: 'AbuseReport',
@@ -75,6 +80,8 @@ class User < ApplicationRecord
   has_many :activity_events, foreign_key: :author_id, dependent: :delete_all
 
   accepts_nested_attributes_for :student
+
+  accepts_nested_attributes_for :status, allow_destroy: true
 
   #
   # Validations

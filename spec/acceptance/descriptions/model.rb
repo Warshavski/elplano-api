@@ -362,6 +362,16 @@ module Descriptions
           </pre>
         DESC
       end
+
+      def user_status
+        <<~DESC
+          User status attributes :
+
+            - `message` - Represents status message.
+            - `emoji` - Represents status emoji name.
+            - `timestamps`
+        DESC
+      end
     end
   end
 end

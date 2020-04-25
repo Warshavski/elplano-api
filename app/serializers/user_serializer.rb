@@ -28,4 +28,6 @@ class UserSerializer < ApplicationSerializer
   attribute :locked, &:access_locked?
 
   belongs_to :student, serializer: StudentSerializer
+
+  has_one :status, serializer: UserStatusSerializer
 end

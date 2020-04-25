@@ -125,6 +125,9 @@ Rails.application.routes.draw do
       # (see PasswordsController)
       resource :password, only: :update
 
+      # (see StatusesController)
+      resource :status, only: %i[show update destroy]
+
       namespace :reports do
         # (see Reports::AbusesController)
         resources :abuses, only: :create

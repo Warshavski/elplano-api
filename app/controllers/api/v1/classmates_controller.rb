@@ -27,7 +27,9 @@ module Api
       # Get list of group members
       #
       def index
-        render_collection filter_students(filter_params), status: :ok
+        classmates = filter_students(filter_params)
+
+        render_collection classmates, status: :ok
       end
 
       # GET : api/v1/classmates/{:id}
@@ -37,7 +39,7 @@ module Api
       def show
         student = filter_students.find(params[:id])
 
-        render_resource student, include: [:user], status: :ok
+        render_resource student, include: %i[user user.status], status: :ok
       end
 
       private

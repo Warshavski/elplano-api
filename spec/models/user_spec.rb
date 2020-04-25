@@ -28,6 +28,13 @@ RSpec.describe User, type: :model do
     it { should have_one(:student).dependent(:destroy) }
 
     it do
+      should have_one(:status)
+               .class_name('UserStatus')
+               .inverse_of(:user)
+               .dependent(:delete)
+    end
+
+    it do
       should have_many(:reported_bugs)
                .class_name('BugReport')
                .inverse_of(:reporter)

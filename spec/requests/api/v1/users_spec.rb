@@ -29,7 +29,7 @@ describe Api::V1::UsersController, type: :request do
                        %w[data included],
                        %w[id type attributes relationships],
                        %w[email settings timezone username avatar admin confirmed banned locked locale created_at updated_at],
-                       %w[student]
+                       %w[student status]
 
       it 'returns token owner' do
         actual_username = json_data.dig(:attributes, :username)
@@ -59,7 +59,7 @@ describe Api::V1::UsersController, type: :request do
                      %w[data included],
                      %w[id type attributes relationships],
                      %w[email settings timezone username avatar admin confirmed banned locked locale created_at updated_at],
-                     %w[student]
+                     %w[student status]
 
     it 'returns updated student info' do
       expect(user.reload.locale).to       eq(user_params[:locale])

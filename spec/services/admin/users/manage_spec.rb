@@ -10,67 +10,107 @@ RSpec.describe Admin::Users::Manage do
       )
     end
 
-    subject { described_class.call(user, action) }
+    subject { described_class.call(user, action, opts) }
 
-    before(:each) { subject }
+    let(:opts) { {} }
 
-    context 'when action is a ban' do
-      let_it_be(:user) { create(:user) }
-      let(:action) { :ban }
+    context 'when one time action is performed' do
+      before(:each) { subject }
 
-      it { is_expected.to eq(user) }
+      context 'when action is a ban' do
+        let_it_be(:user) { create(:user) }
+        let(:action) { :ban }
 
-      it 'sets banned at date' do
+        it { is_expected.to eq(user) }
 
-        expect(user.banned_at).to eq('2019-08-14')
-      end
-    end
+        it 'sets banned at date' do
 
-    context 'when action is unban' do
-      let_it_be(:user) { create(:user, :banned) }
-      let(:action) { :unban }
-
-      it { is_expected.to eq(user) }
-
-      it 'removes banned at date' do
-        expect(user.banned_at).to eq(nil)
-      end
-    end
-
-    context 'when action is confirm' do
-      let_it_be(:user) { create(:user, :unconfirmed) }
-      let(:action) { :confirm }
-
-      it { is_expected.to eq(user) }
-
-      it 'confirms user and sets confirmed at date' do
-        expect(user.confirmed?).to be(true)
-        expect(user.confirmed_at).not_to be(nil)
-      end
-    end
-
-    context 'when action is unlock' do
-      let_it_be(:user) { create(:user, :locked) }
-      let(:action) { :unlock }
-
-      it { is_expected.to eq(user) }
-
-      it 'unlocks user access and remove locked at date' do
-        expect(user.access_locked?).to be(false)
-        expect(user.locked_at).to be(nil)
-      end
-    end
-
-    context 'when action is logout' do
-      let_it_be(:user)    { create(:user) }
-      let_it_be(:tokens)  { create_list(:token, 2, resource_owner_id: user.id) }
-
-      let(:action) { :logout }
-
-      it 'revokes all access tokens for user' do
-        tokens.each do |token|
-          expect(token.reload.revoked?).to be(true)
+          expect(user.banned_at).to eq('2019-08-14')
         end
+      end
+
+      context 'when action is unban' do
+        let_it_be(:user) { create(:user, :banned) }
+        let(:action) { :unban }
+
+        it { is_expected.to eq(user) }
+
+        it 'removes banned at date' do
+          expect(user.banned_at).to eq(nil)
+        end
+      end
+
+      context 'when action is confirm' do
+        let_it_be(:user) { create(:user, :unconfirmed) }
+        let(:action) { :confirm }
+
+        it { is_expected.to eq(user) }
+
+        it 'confirms user and sets confirmed at date' do
+          expect(user.confirmed?).to be(true)
+          expect(user.confirmed_at).not_to be(nil)
+        end
+      end
+
+      context 'when action is unlock' do
+        let_it_be(:user) { create(:user, :locked) }
+        let(:action) { :unlock }
+
+        it { is_expected.to eq(user) }
+
+        it 'unlocks user access and remove locked at date' do
+          expect(user.access_locked?).to be(false)
+          expect(user.locked_at).to be(nil)
+        end
+      end
+
+      context 'when action is logout' do
+        let_it_be(:user)    { create(:user) }
+        let_it_be(:tokens)  { create_list(:token, 2, resource_owner_id: user.id) }
+
+        let(:action) { :logout }
+
+        it 'revokes all access tokens for user' do
+          tokens.each do |token|
+            expect(token.reload.revoked?).to be(true)
+          end
+        end
+      end
+    end
+
+    context 'when action is reset password' do
+      let_it_be(:user) { create(:user) }
+
+      let(:opts) do
+        { password: password, password_confirmation: password_confirmation }
+      end
+
+      let(:password) { 'P@$$w0rd' }
+      let(:password_confirmation) { 'P@$$w0rd' }
+
+      let(:action) { :reset_password }
+
+      it "is expected to reset user's password" do
+        mailer_stub = double('mailer', deliver_later: true)
+
+        expect(Devise::Mailer).to receive(:password_change).and_return(mailer_stub)
+
+        expect(Devise::Mailer).not_to receive(:reset_password_instructions)
+
+        expect { subject }.to(change { user.reload.encrypted_password })
+      end
+
+      context 'when new password is not valid' do
+        let_it_be(:password) { '123' }
+        let_it_be(:password_confirmation) { '123' }
+
+        it { expect { subject }.to raise_error(ActiveRecord::RecordInvalid) }
+      end
+
+      context 'when password and password confirmation are not equal' do
+        let_it_be(:password_confirmation) { '123' }
+
+        it { expect { subject }.to raise_error(ActiveRecord::RecordInvalid) }
       end
     end
   end

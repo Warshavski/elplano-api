@@ -17,8 +17,8 @@ module Admin
         end
 
         # see #execute
-        def call(user, action_type)
-          new.execute(user, action_type)
+        def call(user, action_type, **opts)
+          new.execute(user, action_type, opts)
         end
       end
 
@@ -32,6 +32,13 @@ module Admin
 
       action(:logout) do |user|
         Doorkeeper::AccessToken.revoke_all_for(nil, user)
+      end
+
+      action(:reset_password) do |user, params|
+        user.password = params[:password]
+        user.password_confirmation = params[:password_confirmation]
+
+        user.save!
       end
 
       # TODO : add current user for logger and permissions check?
@@ -49,17 +56,18 @@ module Admin
       #     - unlock - remove lock caused by wrong password input
       #     - confirm - confirm user account
       #     - logout - perform user's access tokens revocation
+      #     - reset_password - perform user's password reset
       #
       # @raise [ActiveRecord::RecordInvalid]
       #
       # @return [User]
       #
-      def execute(user, action_type)
+      def execute(user, action_type, **opts)
         user.tap do |u|
           action = self.class.actions[action_type.to_sym]
 
           if action
-            action.call(u)
+            action.call(u, opts)
             log_info("User - \"#{u.username}\" (#{u.email}) was \"#{action_type}\"")
           end
         end

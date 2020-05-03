@@ -85,7 +85,10 @@ Rails.application.routes.draw do
         end
 
         # (see Admin::UsersController)
-        resources :users, except: %i[new edit create]
+        resources :users, except: %i[new edit create] do
+          # (see Admin::PasswordsController)
+          resource :password, only: :update
+        end
       end
 
       # (see AnnouncementsController)

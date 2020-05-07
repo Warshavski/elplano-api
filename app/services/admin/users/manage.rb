@@ -17,28 +17,32 @@ module Admin
         end
 
         # see #execute
-        def call(user, action_type, **opts)
-          new.execute(user, action_type, opts)
+        def call(current_user, user, action_type, **opts)
+          new.execute(current_user, user, action_type, opts)
         end
       end
 
-      action(:ban) { |user| user.update!(banned_at: Time.current) }
+      action(:ban) do |user|
+        user.tap { |u| u.update!(banned_at: Time.current) }
+      end
 
-      action(:unban) { |user| user.update!(banned_at: nil) }
+      action(:unban) do |user|
+        user.tap { |u| u.update!(banned_at: nil) }
+      end
 
-      action(:unlock) { |user| user.unlock_access! }
+      action(:unlock) { |user| user.tap(&:unlock_access!) }
 
-      action(:confirm) { |user| user.confirm }
+      action(:confirm) { |user| user.tap(&:confirm) }
 
       action(:logout) do |user|
-        Doorkeeper::AccessToken.revoke_all_for(nil, user)
+        user.tap { |u| Doorkeeper::AccessToken.revoke_all_for(nil, u) }
       end
 
       action(:reset_password) do |user, params|
         user.password = params[:password]
         user.password_confirmation = params[:password_confirmation]
 
-        user.save!
+        user.tap(&:save!)
       end
 
       # TODO : add current user for logger and permissions check?
@@ -62,14 +66,17 @@ module Admin
       #
       # @return [User]
       #
-      def execute(user, action_type, **opts)
-        user.tap do |u|
-          action = self.class.actions[action_type.to_sym]
+      def execute(current_user, user, action_type, **opts)
+        action = self.class.actions[action_type.to_sym]
 
-          if action
-            action.call(u, opts)
-            log_info("User - \"#{u.username}\" (#{u.email}) was \"#{action_type}\"")
-          end
+        user if action.nil?
+
+        message =
+          "User - \"#{user.username}\" (#{user.email}) was \"#{action_type}\" " \
+          " by \"#{current_user.username}\" (#{current_user.email})"
+
+        ApplicationRecord.transaction do
+          action.call(user, opts).tap { log_info(message) }
         end
       end
     end

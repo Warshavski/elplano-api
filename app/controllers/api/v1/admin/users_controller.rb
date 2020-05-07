@@ -49,7 +49,7 @@ module Api
         #
         def update
           user = find_user(params[:id]).tap do |u|
-            ::Admin::Users::Manage.call(u, params[:action_type])
+            ::Admin::Users::Manage.call(current_user, u, params[:action_type])
           end
 
           render_resource user,

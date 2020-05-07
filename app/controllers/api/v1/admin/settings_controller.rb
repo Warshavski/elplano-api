@@ -16,20 +16,12 @@ module Api
         # Update application settings managed by admin
         #
         def update
-          settings = AdminSetting.new(settings_params)
+          ::Admin::Settings::Manage.call(current_user, settings_params)
 
-          settings.save ? process_success : process_error(settings)
+          render_meta message: I18n.t('generic.messages.saved')
         end
 
         private
-
-        def process_error(resource)
-          render_error(ErrorSerializer.new(resource).serialize, :unprocessable_entity)
-        end
-
-        def process_success
-          render_meta message: I18n.t('generic.messages.saved')
-        end
 
         def settings_params
           params.require(:admin_settings).permit(*AdminSetting::ATTRIBUTES)

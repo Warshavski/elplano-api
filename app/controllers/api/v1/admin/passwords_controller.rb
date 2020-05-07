@@ -27,7 +27,8 @@ module Api
         end
 
         def reset_password!(user)
-          ::Admin::Users::Manage.call(user, :reset_password, password_params)
+          ::Admin::Users::Manage
+            .call(current_user, user, :reset_password, password_params)
         end
 
         def password_params

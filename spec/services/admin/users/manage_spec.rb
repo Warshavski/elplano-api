@@ -3,78 +3,89 @@
 require 'rails_helper'
 
 RSpec.describe Admin::Users::Manage do
-  describe '.call' do
+  let_it_be(:admin) { create(:user, :admin) }
+
+  describe '#execute' do
     before do
       allow(Time).to(
         receive(:current).and_return(Time.parse('2019-08-14 00:00:00.000000000 +0000'))
       )
     end
 
-    subject { described_class.call(user, action, opts) }
+    let(:instance) { described_class.new }
+
+    subject { instance.execute(admin, user, action, opts) }
 
     let(:opts) { {} }
 
     context 'when one time action is performed' do
-      before(:each) { subject }
-
       context 'when action is a ban' do
-        let_it_be(:user) { create(:user) }
-        let(:action) { :ban }
+        let_it_be(:user)  { create(:user) }
+        let_it_be(:action) { :ban }
 
-        it { is_expected.to eq(user) }
-
-        it 'sets banned at date' do
-
+        it 'is expected to ban selected user' do
+          is_expected.to eq(user)
           expect(user.banned_at).to eq('2019-08-14')
         end
+
+        it_should_behave_like 'admin user management'
       end
 
       context 'when action is unban' do
         let_it_be(:user) { create(:user, :banned) }
-        let(:action) { :unban }
+        let_it_be(:action) { :unban }
 
-        it { is_expected.to eq(user) }
-
-        it 'removes banned at date' do
+        it 'is expected to unban selected user' do
+          is_expected.to eq(user)
           expect(user.banned_at).to eq(nil)
         end
+
+        it_should_behave_like 'admin user management'
       end
 
       context 'when action is confirm' do
         let_it_be(:user) { create(:user, :unconfirmed) }
-        let(:action) { :confirm }
+        let_it_be(:action) { :confirm }
 
-        it { is_expected.to eq(user) }
+        it 'is expected to confirm user and set confirmed at date' do
+          is_expected.to eq(user)
 
-        it 'confirms user and sets confirmed at date' do
           expect(user.confirmed?).to be(true)
           expect(user.confirmed_at).not_to be(nil)
         end
+
+        it_should_behave_like 'admin user management'
       end
 
       context 'when action is unlock' do
         let_it_be(:user) { create(:user, :locked) }
-        let(:action) { :unlock }
+        let_it_be(:action) { :unlock }
 
-        it { is_expected.to eq(user) }
+        it 'is expected to unlock user access' do
+          is_expected.to eq(user)
 
-        it 'unlocks user access and remove locked at date' do
           expect(user.access_locked?).to be(false)
           expect(user.locked_at).to be(nil)
         end
+
+        it_should_behave_like 'admin user management'
       end
 
       context 'when action is logout' do
         let_it_be(:user)    { create(:user) }
         let_it_be(:tokens)  { create_list(:token, 2, resource_owner_id: user.id) }
 
-        let(:action) { :logout }
+        let_it_be(:action) { :logout }
 
-        it 'revokes all access tokens for user' do
+        it 'is expected to revoke all access tokens for user' do
+          is_expected.to eq(user)
+
           tokens.each do |token|
             expect(token.reload.revoked?).to be(true)
           end
         end
+
+        it_should_behave_like 'admin user management'
       end
     end
 
@@ -88,7 +99,7 @@ RSpec.describe Admin::Users::Manage do
       let(:password) { 'P@$$w0rd' }
       let(:password_confirmation) { 'P@$$w0rd' }
 
-      let(:action) { :reset_password }
+      let_it_be(:action) { :reset_password }
 
       it "is expected to reset user's password" do
         mailer_stub = double('mailer', deliver_later: true)
@@ -99,6 +110,8 @@ RSpec.describe Admin::Users::Manage do
 
         expect { subject }.to(change { user.reload.encrypted_password })
       end
+
+      it_should_behave_like 'admin user management'
 
       context 'when new password is not valid' do
         let_it_be(:password) { '123' }

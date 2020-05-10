@@ -85,7 +85,7 @@ module Api
       #
       def update
         event = find_and_perform!(params[:id]) do |e|
-          e.update!(event_params)
+          ::Events::Update.call(e, event_params)
         end
 
         render_resource event, include: [:labels], status: :ok

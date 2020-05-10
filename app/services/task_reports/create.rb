@@ -44,8 +44,9 @@ module TaskReports
 
       ApplicationRecord.transaction do
         assignment.tap do
+          log_activity!(:updated, student.user, assignment, details: assignment.attributes)
+
           assignment.update!(assignment_params)
-          log_activity!(:updated, student.user, assignment)
           Attachments::Create.call(student.user, assignment, attachments_meta)
         end
       end

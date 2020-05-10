@@ -15,7 +15,9 @@ class ActivityEvent < ApplicationRecord
   TARGETS = {
     invite: 'Invite',
     assignment: 'Assignment',
-    user: 'User'
+    user: 'User',
+    event: 'Event',
+    task: 'Task'
   }.freeze
 
   belongs_to :author,

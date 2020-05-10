@@ -6,6 +6,8 @@ module Tasks
   #   Used to create a new event task
   #
   class Create
+    include Loggable
+
     # @see #execute
     def self.call(author, params)
       new.execute(author, params)
@@ -50,6 +52,7 @@ module Tasks
       ApplicationRecord.transaction do
         Task.create!(attributes).tap do |task|
           ::Attachments::Create.call(author.user, task, params.fetch(:attachments) { [] })
+          log_activity!(:created, author.user, task)
         end
       end
     end

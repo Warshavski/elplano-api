@@ -16,11 +16,15 @@ RSpec.describe Tasks::Create do
 
     let(:params) { valid_params }
 
-    it { expect { subject }.to change(Task, :count).by(1) }
-
-    it { expect { subject }.to change(Attachment, :count).by(1) }
-
     it { is_expected.to be_an(Task) }
+
+    it 'is expected to create task, attachment and activity event' do
+      expect { subject }.to(
+        change(Task, :count).by(1)
+          .and(change(Attachment, :count).by(1))
+          .and(change(ActivityEvent, :count).by(1))
+      )
+    end
 
     context 'when event_id is not provided' do
       let(:params) { { title: 'wat_title' } }

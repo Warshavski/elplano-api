@@ -6,6 +6,8 @@ module Tasks
   #   Used to perform task update
   #
   class Update
+    include Loggable
+
     # @see #execute
     def self.call(task, author, params)
       new.execute(task, author, params)
@@ -47,7 +49,12 @@ module Tasks
     def execute(task, author, params)
       attributes = Compose.call(author, params)
 
-      task.tap { |t| t.update!(attributes) }
+      task.tap do |t|
+        ApplicationRecord.transaction do
+          log_activity!(:updated, author.user, t, details: task.attributes)
+          t.update!(attributes)
+        end
+      end
     end
   end
 end

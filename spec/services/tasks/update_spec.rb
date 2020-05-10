@@ -34,6 +34,8 @@ RSpec.describe Tasks::Update do
       expect(task.students).to match_array(classmates)
     end
 
+    it { expect { subject }.to(change(ActivityEvent, :count).by(1)) }
+
     context 'when event_id is not provided' do
       let(:params) { { title: 'wat_title' } }
 

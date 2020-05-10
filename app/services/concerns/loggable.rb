@@ -8,8 +8,10 @@ module Loggable
 
   protected
 
-  def log_activity!(action, author, target)
-    ActivityEvent.create!(action: action, author: author, target: target)
+  def log_activity!(action, author, target, details: nil)
+    ActivityEvent.create!(
+      action: action, author: author, target: target, details: details
+    )
   end
 
   def log_info(message)

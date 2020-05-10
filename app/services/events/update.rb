@@ -1,21 +1,19 @@
 # frozen_string_literal: true
 
 module Events
-  # Events::Create
+  # Events::Update
   #
-  #   Used to create an event
+  #   Used to updaet an event
   #
-  class Create < Base
-    ALLOWED_TYPES = %w[student group].freeze
-
+  class Update < Base
     # see #execute
     def self.call(author, params, &block)
       new.execute(author, params, &block)
     end
 
-    # Perform event creation
+    # Perform event update
     #
-    # @param author [Student] - Event owner(creator)
+    # @param event [Event] - Updated event
     # @param params [Hash]  - Events params(attributes)
     #
     # @option params [String] :title -
@@ -66,24 +64,12 @@ module Events
     # @raise [ActiveRecord::RecordInvalid]
     # @return [Event, Array<Event>]
     #
-    def execute(author, params)
-      event = build_event(author, params.dup)
+    def execute(event, params)
+      original_attributes = event.attributes
 
-      yield(event) if event.valid? && block_given?
+      event.attributes = params
 
-      save_with_logging!(event, :created)
-    end
-
-    private
-
-    def build_event(author, params)
-      author.created_events.build(params) do |event|
-        event.eventable_type = nil unless type_allowed?(event.eventable_type)
-      end
-    end
-
-    def type_allowed?(type)
-      ALLOWED_TYPES.include?(type)
+      save_with_logging!(event, :updated, details: original_attributes)
     end
   end
 end

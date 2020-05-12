@@ -173,11 +173,7 @@ module Elplano
         #
         # If the file has content but it's invalid YAML, `load` returns false
         #
-        if yaml
-          yaml.fetch(@rails_env, false)
-        else
-          false
-        end
+        yaml ? yaml.fetch(@rails_env, false) : false
       end
     end
   end

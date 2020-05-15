@@ -45,4 +45,3 @@ module Information
     end
   end
 end
-

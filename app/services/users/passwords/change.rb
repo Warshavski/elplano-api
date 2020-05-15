@@ -7,7 +7,6 @@ module Users
     #   Used to change user's password
     #
     class Change
-
       # (see #execute)
       def self.call(user, password_params)
         new.execute(user, password_params)

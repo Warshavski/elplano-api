@@ -8,7 +8,7 @@ module Handlers
   module Response
     extend ActiveSupport::Concern
 
-    included do
+    included do # rubocop:disable Metrics/BlockLength
       class << self
         attr_reader :default_serializer
 

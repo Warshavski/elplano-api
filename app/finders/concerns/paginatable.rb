@@ -79,8 +79,8 @@ module Paginatable
     apply_filter(items, 'id', params[:direction], params[:last_id], '')
   end
 
-  def apply_filter(scope, field, direction, field_value, eq = '=')
-    comparer    = resolve_comparer(direction.to_sym, eq)
+  def apply_filter(scope, field, direction, field_value, quality_comparer = '=')
+    comparer    = resolve_comparer(direction.to_sym, quality_comparer)
     field_name  = resolve_field_name(field, scope.table_name)
 
     scope.where("#{field_name} #{comparer} ?", field_value)

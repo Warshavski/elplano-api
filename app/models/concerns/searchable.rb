@@ -8,8 +8,10 @@ module Searchable
   extend ActiveSupport::Concern
 
   MIN_CHARS_FOR_PARTIAL_MATCHING = 3
-  REGEX_QUOTED_WORD = /(?<=\A| )"[^"]+"(?= |\z)/
+  REGEX_QUOTED_WORD = /(?<=\A| )"[^"]+"(?= |\z)/.freeze
 
+  # Search methods
+  #
   module ClassMethods
     # Prepare and return query for partial search
     #
@@ -62,15 +64,15 @@ module Searchable
       words = select_fuzzy_words(term)
 
       if words.any?
-        words.map { |word| arel_table[column].matches(to_pattern(word)) }.reduce(:and)
+        words_match(column, words)
       elsif lower_exact_match
         #
         # No words of at least 3 chars, but we can search for an exact
         # case insensitive match with the query as a whole
         #
-        Arel::Nodes::NamedFunction.new('LOWER', [arel_table[column]]).eq(term)
+        term_exact_match(column, term)
       else
-        arel_table[column].matches(sanitize_sql_like(term))
+        term_like_match(column, term)
       end
     end
 
@@ -104,6 +106,18 @@ module Searchable
 
     def partial_matching?(query)
       query.length >= MIN_CHARS_FOR_PARTIAL_MATCHING
+    end
+
+    def words_match(column, words)
+      words.map { |word| arel_table[column].matches(to_pattern(word)) }.reduce(:and)
+    end
+
+    def term_exact_match(column, term)
+      Arel::Nodes::NamedFunction.new('LOWER', [arel_table[column]]).eq(term)
+    end
+
+    def term_like_match(column, term)
+      arel_table[column].matches(sanitize_sql_like(term))
     end
   end
 end

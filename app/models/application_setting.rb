@@ -28,7 +28,7 @@ class ApplicationSetting < RailsSettings::Base
     end
 
     def build_base_elplano_url
-      base_url(self.core).join('')
+      base_url(self.core).join('') # rubocop:disable Style/RedundantSelf
     end
 
     private

@@ -64,7 +64,7 @@ class ActiveToken
       "#{storage.lookup_namespaces(:user_sessions)}:#{user_id}"
     end
 
-    def compose_session_info(token, request, user) # rubocop:disable MethodLength
+    def compose_session_info(token, request, user) # rubocop:disable Metrics/MethodLength
       client    = DeviceDetector.new(request.user_agent)
       timestamp = Time.current
 

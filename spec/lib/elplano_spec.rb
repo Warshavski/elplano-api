@@ -11,9 +11,9 @@ describe Elplano do
 
   describe '.revision' do
     around do |example|
-      described_class.instance_variable_set(:@_revision, nil)
+      described_class.instance_variable_set(:@revision, nil)
       example.run
-      described_class.instance_variable_set(:@_revision, nil)
+      described_class.instance_variable_set(:@revision, nil)
     end
 
     context 'when a REVISION file exists' do

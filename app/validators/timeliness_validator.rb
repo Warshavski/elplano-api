@@ -61,7 +61,7 @@ class TimelinessValidator < ActiveModel::EachValidator
     model.timeliness_validated_attributes |= attributes
   end
 
-  def validate_each(record, attr_name, value)
+  def validate_each(record, attr_name, value) # rubocop:disable Metrics/CyclomaticComplexity
     raw_value = attribute_raw_value(record, attr_name) || value
     return if allow_nil_or_blank?(raw_value)
 

@@ -21,10 +21,8 @@ module Elplano
     end
 
     # Returns Result
-    def popen_with_detail(cmd, path = nil, vars = {})
-      unless cmd.is_a?(Array)
-        raise 'System commands must be given as an array of strings'
-      end
+    def popen_with_detail(cmd, path = nil, vars = {}) # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
+      raise 'System commands must be given as an array of strings' unless cmd.is_a?(Array)
 
       path ||= Dir.pwd
       vars['PWD'] = path

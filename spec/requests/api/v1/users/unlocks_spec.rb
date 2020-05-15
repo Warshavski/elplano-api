@@ -21,17 +21,19 @@ describe Api::V1::Users::UnlocksController, type: :request do
 
       before(:each) { get "#{unlock_url}=#{user.unlock_token}" }
 
-      it { expect(response).to have_http_status(:ok) }
+      it 'is expected to respond with meta' do
+        expect(response).to have_http_status(:ok)
 
-      it { expect(body_as_json.keys).to match_array(['meta'])}
+        expect(body_as_json.keys).to match_array(['meta'])
+      end
     end
 
     context 'when token is not valid' do
       before(:each) { get "#{unlock_url}=so" }
 
-      it { expect(response).to have_http_status(:unprocessable_entity) }
-
       it 'responds with errors' do
+        expect(response).to have_http_status(:unprocessable_entity)
+
         actual_keys = body_as_json[:errors].first.keys
         expected_keys = %w[status source detail]
 
@@ -47,11 +49,11 @@ describe Api::V1::Users::UnlocksController, type: :request do
       before(:each) { post '/api/v1/users/unlock', params: { user: user_params } }
 
       context 'when request params is valid' do
+        it 'is expected to respond with meta' do
+          expect(response).to have_http_status(:ok)
 
-
-        it { expect(response).to have_http_status(:ok) }
-
-        it { expect(body_as_json.keys).to match_array(['meta'])}
+          expect(body_as_json.keys).to match_array(['meta'])
+        end
       end
 
       context 'when request params are not valid' do
@@ -60,9 +62,9 @@ describe Api::V1::Users::UnlocksController, type: :request do
         context 'when request params are not provided' do
           before(:each) { post '/api/v1/users/unlock' }
 
-          it { expect(response).to have_http_status(:unprocessable_entity) }
-
           it 'responds with errors' do
+            expect(response).to have_http_status(:unprocessable_entity)
+
             actual_keys = body_as_json[:errors].first.keys
             expected_keys = %w[status source detail]
 
@@ -81,7 +83,7 @@ describe Api::V1::Users::UnlocksController, type: :request do
     context 'email sending' do
       subject { post '/api/v1/users/unlock', params: { user: user_params }  }
 
-      it 'enqueues unlock account email send' do
+      it 'is expected to enqueue unlock account email send' do
         expect { subject }.to(have_enqueued_job(ActionMailer::DeliveryJob))
       end
     end

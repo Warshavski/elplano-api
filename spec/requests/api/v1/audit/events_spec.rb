@@ -33,6 +33,7 @@ RSpec.describe Api::V1::Audit::EventsController, type: :request do
 
       it 'is expected to respond with audit events data' do
         expect(response).to have_http_status(:ok)
+
         expect(json_data.count).to eq(2)
       end
 
@@ -45,6 +46,7 @@ RSpec.describe Api::V1::Audit::EventsController, type: :request do
 
         it 'is expected to respond with events filtered by type' do
           expect(response).to have_http_status(:ok)
+
           expect(json_data.count).to be(1)
         end
       end

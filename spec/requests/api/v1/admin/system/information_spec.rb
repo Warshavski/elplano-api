@@ -34,8 +34,10 @@ RSpec.describe Api::V1::Admin::System::InformationController, type: :request do
   describe 'GET #show' do
     subject { get endpoint, headers: headers }
 
-    it { expect(response).to have_http_status(:ok) }
+    it 'is expected to respond with meta' do
+      expect(response).to have_http_status(:ok)
 
-    it { expect(body_as_json[:meta]).to eq(meta.deep_stringify_keys) }
+      expect(body_as_json[:meta]).to eq(meta.deep_stringify_keys)
+    end
   end
 end

@@ -15,9 +15,11 @@ RSpec.describe Api::V1::Admin::SettingsController, type: :request do
     context 'when params are valid' do
       let_it_be(:params) { { admin_settings: build(:admin_setting_params) } }
 
-      it { expect(response).to have_http_status(:ok) }
+      it 'is expected to respond with meta' do
+        expect(response).to have_http_status(:ok)
 
-      it { expect(body_as_json[:meta]).to eq('message' => 'Changes successfully saved!') }
+        expect(body_as_json[:meta]).to eq('message' => 'Changes successfully saved!')
+      end
     end
 
     context 'when params are not valid' do

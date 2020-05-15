@@ -13,18 +13,18 @@ RSpec.describe Api::V1::AnnouncementsController, type: :request do
 
   describe 'GET #index' do
     context 'when user is authorized user' do
-      it { expect(response).to have_http_status(:ok) }
+      it 'is expected to respond with announcements list' do
+        expect(response).to have_http_status(:ok)
 
-      it { expect(json_data.count).to eq(1) }
-
-      it 'returns entities of the announcement type' do
+        expect(json_data.count).to eq(1)
         expect(json_data.map { |e| e[:type] }).to match_array(['announcement'])
-      end
 
-      it 'returns announcement with expected attributes' do
         entity = json_data.first
 
-        expected_attributes = %w[message background_color foreground_color start_at end_at created_at updated_at]
+        expected_attributes = %w[
+          message background_color foreground_color
+          start_at end_at created_at updated_at
+        ]
 
         expect(entity[:attributes].keys).to match_array(expected_attributes)
       end

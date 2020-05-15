@@ -37,9 +37,11 @@ module Api
         # Get list of courses
         #
         def index
-          courses = filter_courses(filter_params).preload(:lecturers)
+          courses = filter_courses(filter_params)
 
-          render_collection courses, status: :ok
+          render_collection courses,
+                            serializer: ::Groups::ShortCourseSerializer,
+                            status: :ok
         end
 
         # GET : api/v1/group/courses/{:id}

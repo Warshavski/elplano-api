@@ -175,7 +175,7 @@ RSpec.describe Api::V1::EventsController, type: :request do
         expect(response).to have_http_status(:created)
 
         actual_label_ids = relationship_data(:labels).map { |r| r[:id].to_i }
-        expect(actual_label_ids).to eq(label_ids)
+        expect(actual_label_ids).to match_array(label_ids)
       end
     end
   end

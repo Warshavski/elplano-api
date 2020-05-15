@@ -28,9 +28,11 @@ RSpec.describe Api::V1::Admin::LabelsController, type: :request do
     context 'when no filter params are provided' do
       before(:each) { subject }
 
-      it { expect(response).to have_http_status(:ok) }
+      it 'is expected to respond with labels collection' do
+        expect(response).to have_http_status(:ok)
 
-      it { expect(json_data.count).to be(3) }
+        expect(json_data.count).to be(3)
+      end
     end
   end
 

@@ -31,9 +31,11 @@ RSpec.describe Api::V1::Reports::AbusesController, type: :request do
     context 'response' do
       before(:each) { subject }
 
-      it { expect(response).to have_http_status(:created) }
+      it 'is expected to respond with meta' do
+        expect(response).to have_http_status(:created)
 
-      it { expect(body_as_json.keys).to match_array(['meta'])}
+        expect(body_as_json.keys).to match_array(['meta'])
+      end
 
       include_examples 'request errors examples'
     end

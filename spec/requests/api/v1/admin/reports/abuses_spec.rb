@@ -21,9 +21,11 @@ RSpec.describe Api::V1::Admin::Reports::AbusesController, type: :request do
     end
 
     context 'when user is authorized user' do
-      it { expect(response).to have_http_status(:ok) }
+      it 'is expected to respond with abuses collection' do
+        expect(response).to have_http_status(:ok)
 
-      it { expect(json_data.count).to eq(1) }
+        expect(json_data.count).to eq(1)
+      end
     end
 
     context 'when user is anonymous' do
@@ -62,19 +64,19 @@ RSpec.describe Api::V1::Admin::Reports::AbusesController, type: :request do
   describe 'DELETE #destroy' do
     let(:endpoint)  { "#{base}/#{report.id}" }
 
-    it 'responds with a 204 status' do
+    it 'is expected to respond with a 204 status' do
       delete endpoint, headers: headers
 
       expect(response).to have_http_status(:no_content)
     end
 
-    it 'responds with a 404 status not existed abuse report' do
+    it 'is expected to respond with a 404 status not existed abuse report' do
       delete "#{base}/0", headers: headers
 
       expect(response).to have_http_status(:not_found)
     end
 
-    it 'deletes abuse report' do
+    it 'is expected to delete abuse report' do
       expect { delete endpoint, headers: headers }.to change(AbuseReport, :count).by(-1)
     end
   end

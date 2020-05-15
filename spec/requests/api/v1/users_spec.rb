@@ -15,15 +15,17 @@ describe Api::V1::UsersController, type: :request do
     context 'when user is anonymous' do
       let(:headers) { nil }
 
-      it { expect(response).to have_http_status(:unauthorized) }
-
-      it { expect(response.body).to eq("{\"errors\":[{\"status\":401,\"title\":\"Authorization error\",\"detail\":\"The access token is invalid\",\"source\":{\"pointer\":\"Authorization Header\"}}]}") }
+      it 'is expected to respond with error message' do
+        expect(response).to have_http_status(:unauthorized)
+        expect(response.body).to eq("{\"errors\":[{\"status\":401,\"title\":\"Authorization error\",\"detail\":\"The access token is invalid\",\"source\":{\"pointer\":\"Authorization Header\"}}]}")
+      end
     end
 
     context 'when user is authenticated user' do
-      it { expect(response).to have_http_status(:ok) }
-
-      it { expect(json_data['type']).to eq('user') }
+      it 'is expected to respond with user entity' do
+        expect(response).to have_http_status(:ok)
+        expect(json_data['type']).to eq('user')
+      end
 
       include_examples 'json:api examples',
                        %w[data included],
@@ -51,9 +53,10 @@ describe Api::V1::UsersController, type: :request do
 
     before(:each) { subject }
 
-    it { expect(response).to have_http_status(:ok) }
-
-    it { expect(json_data['type']).to eq('user') }
+    it 'is expected to respond with user entity' do
+      expect(response).to have_http_status(:ok)
+      expect(json_data['type']).to eq('user')
+    end
 
     include_examples 'json:api examples',
                      %w[data included],

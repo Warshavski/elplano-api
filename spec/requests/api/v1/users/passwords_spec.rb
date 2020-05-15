@@ -35,22 +35,23 @@ describe Api::V1::Users::PasswordsController, type: :request do
         }
       end
 
-      it { expect(response).to have_http_status(:ok) }
-
-      it { expect(body_as_json.keys).to eq(['meta']) }
+      it 'is expected to respond with meta' do
+        expect(response).to have_http_status(:ok)
+        expect(body_as_json.keys).to eq(['meta'])
+      end
     end
 
     context 'when request params are not valid' do
       let(:user_params) do
         {
-          pasword: '123',
-          pasword_confirmation: nil
+          password: '123',
+          password_confirmation: nil
         }
       end
 
-      it { expect(response).to have_http_status(:unprocessable_entity) }
+      it 'is expected to respond with errors' do
+        expect(response).to have_http_status(:unprocessable_entity)
 
-      it 'responds with errors' do
         actual_keys = body_as_json[:errors].first.keys
         expected_keys = %w[status source detail]
 
@@ -74,17 +75,21 @@ describe Api::V1::Users::PasswordsController, type: :request do
       before(:each) { subject }
 
       context 'when request params are valid' do
-        it { expect(response).to have_http_status(:ok) }
+        it 'is expected to respond with meta' do
+          expect(response).to have_http_status(:ok)
 
-        it { expect(body_as_json.keys).to match_array(['meta'])}
+          expect(body_as_json.keys).to match_array(['meta'])
+        end
       end
 
       context 'when request params are empty' do
         let(:user_params) { nil }
 
-        it { expect(response).to have_http_status(:ok) }
+        it 'is expected to respond with meta' do
+          expect(response).to have_http_status(:ok)
 
-        it { expect(body_as_json.keys).to match_array(['meta'])}
+          expect(body_as_json.keys).to match_array(['meta'])
+        end
       end
 
       context 'when request params are not valid' do

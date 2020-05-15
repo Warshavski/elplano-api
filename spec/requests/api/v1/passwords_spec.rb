@@ -28,9 +28,10 @@ RSpec.describe Api::V1::PasswordsController, type: :request do
         }
       end
 
-      it { expect(response).to have_http_status(:ok) }
-
-      it { expect(body_as_json.keys).to match_array(['meta']) }
+      it 'is expected to respond wth meta' do
+        expect(response).to have_http_status(:ok)
+        expect(body_as_json.keys).to match_array(['meta'])
+      end
     end
 
     context 'when password params is blank' do

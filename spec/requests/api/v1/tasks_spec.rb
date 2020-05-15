@@ -147,9 +147,10 @@ RSpec.describe Api::V1::TasksController, type: :request do
 
     before(:each) { subject }
 
-    it { expect(response).to have_http_status(:ok) }
-
-    it { expect(json_data['type']).to eq('task') }
+    it 'is expected to respond with task entity' do
+      expect(response).to have_http_status(:ok)
+      expect(json_data['type']).to eq('task')
+    end
 
     include_examples 'json:api examples',
                      %w[data included],

@@ -26,7 +26,7 @@ module Elplano
         # not passed to the underlying cache implementation because
         # RequestStore#write accepts only a key, and value params.
         #
-        def write(key, value, options = nil)
+        def write(key, value, _options = nil)
           store.write(key, value)
         end
       end

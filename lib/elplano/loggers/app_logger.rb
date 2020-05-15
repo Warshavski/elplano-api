@@ -15,7 +15,7 @@ module Elplano
         end
       end
 
-      def format_message(severity, timestamp, progname, msg)
+      def format_message(severity, timestamp, _progname, msg)
         "#{severity} -- [#{timestamp.to_s(:long)}] : #{msg}\n"
       end
     end

@@ -4,6 +4,8 @@ AllCops:
     - 'spec/**/*'
     - 'db/**/*'
     - 'app/views/**/*'
+    - 'app/validators/timeliness/**/*'
+    - 'app/validators/timeliness_validator.rb'
     - 'config/**/*'
     - 'bin/*'
     - 'Rakefile'
@@ -24,4 +26,13 @@ Layout/SpaceInsideHashLiteralBraces:
 
 Layout/LineLength:
   AllowURI: true
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Naming/RescuedExceptionsVariableName:
   Enabled: false

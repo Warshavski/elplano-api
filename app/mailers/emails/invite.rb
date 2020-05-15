@@ -6,7 +6,6 @@ module Emails
   #   Used to create email notification about invites.
   #
   module Invite
-
     # Create notification about new invite
     #
     # @param [Integer] invite_id - Invite ID

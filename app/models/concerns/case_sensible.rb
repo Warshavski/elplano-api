@@ -7,10 +7,14 @@
 module CaseSensible
   extend ActiveSupport::Concern
 
+  # Queries the given columns regardless of the casing used.
+  #
+  # Unlike other ActiveRecord methods this method only operates on a Hash.
+  #
   module ClassMethods
-    # Queries the given columns regardless of the casing used.
+    # @param params [Hash] conditions(key - value)
     #
-    # Unlike other ActiveRecord methods this method only operates on a Hash.
+    # @return [ApplicationRecord]
     #
     def iwhere(params)
       criteria = self

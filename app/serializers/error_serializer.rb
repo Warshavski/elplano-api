@@ -42,7 +42,7 @@ class ErrorSerializer
     attr_name = @resource.class.human_attribute_name(attribute, default: attr_name)
 
     localization_options = {
-      default: '%{attribute} %{message}',
+      default: '%{attribute} %{message}', # rubocop:disable Style/FormatStringToken
       attribute: attr_name,
       message: message
     }

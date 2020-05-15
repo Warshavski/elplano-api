@@ -18,7 +18,7 @@ class UrlValidator < ActiveModel::EachValidator
   end
 
   def valid_url?(value)
-    (value =~ /\A#{URI.regexp(%w[http https])}\z/).present?
+    (value =~ /\A#{URI::DEFAULT_PARSER.make_regexp(%w[http https])}\z/).present?
   end
 
   def add_error(record, attribute)

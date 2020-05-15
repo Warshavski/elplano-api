@@ -5,7 +5,6 @@
 #   Application logging additions
 #
 module Loggable
-
   protected
 
   def log_activity!(action, author, target, details: nil)

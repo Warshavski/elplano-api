@@ -8,7 +8,7 @@ module Handlers
   module Exception
     extend ActiveSupport::Concern
 
-    included do
+    included do # rubocop:disable Metrics/BlockLength
       # Return 500 - Internal Server Error
       #
       rescue_from StandardError do |e|

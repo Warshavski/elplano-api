@@ -127,7 +127,7 @@ module Elplano
 
       private
 
-      def redis_store_options
+      def redis_store_options # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
         config = raw_config_hash
         redis_url = config.delete(:url)
         redis_uri = URI.parse(redis_url)

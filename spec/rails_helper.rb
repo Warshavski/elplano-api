@@ -18,7 +18,6 @@ end
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'database_cleaner'
 require 'spec_helper'
-require 'support/helpers/restify_helpers'
 require 'support/helpers/redis_helpers'
 
 ENV['RAILS_ENV'] ||= 'test'
@@ -81,7 +80,6 @@ RSpec.configure do |config|
   config.include ActiveJob::TestHelper
   config.include ActiveSupport::Testing::TimeHelpers
 
-  config.include RestifyHelpers
   config.include RedisHelpers
 
   config.include FactoryBot::Syntax::Methods

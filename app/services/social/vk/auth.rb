@@ -7,7 +7,6 @@ module Social
     #   Used to perform auth via vkontakte provider
     #
     class Auth < Social::Oauth
-
       private
 
       def configure_oauth_client(oauth_client)

@@ -134,7 +134,7 @@ gem 'sys-filesystem'
 # https://github.com/zipmark/rspec_api_documentation
 gem 'rspec_api_documentation'
 
-# Apitome: /iˈpitəmē/ An API documentation reader for RSpec API Documentation.
+# An API documentation reader for RSpec API Documentation.
 # https://github.com/jejacks0n/apitome
 gem 'apitome'
 

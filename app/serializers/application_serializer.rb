@@ -7,7 +7,7 @@
 class ApplicationSerializer
   include FastJsonapi::ObjectSerializer
 
-  def to_json
+  def to_json # rubocop:disable Lint/ToJSON
     Oj.dump(serializable_hash)
   end
 end

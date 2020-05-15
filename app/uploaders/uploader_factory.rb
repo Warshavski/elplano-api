@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # UploaderFactory
 #
 #   Used to initialize uploader with proper storage
@@ -41,4 +43,3 @@ class UploaderFactory
     end
   end
 end
-

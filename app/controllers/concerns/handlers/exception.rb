@@ -13,7 +13,7 @@ module Handlers
       #
       rescue_from StandardError do |e|
         handle_error(e, :internal_server_error, send_report: true) do
-          [{ status: 500, detail: '(ノಠ益ಠ)ノ彡┻━┻', source: { pointer: 'server' } }]
+          [{ status: 500, detail: I18n.t('errors.messages.internal_server_error'), source: { pointer: 'server' } }]
         end
       end
 
@@ -51,6 +51,14 @@ module Handlers
       rescue_from ActionPolicy::Unauthorized do |e|
         handle_error(e, :forbidden) do
           [{ status: 403, detail: e.result.message, source: { pointer: 'authorization scope' } }]
+        end
+      end
+
+      # Return 408 - Request Timeout
+      #
+      rescue_from Rack::Timeout::RequestTimeoutException do |e|
+        handle_error(e, :request_timeout, send_report: true) do
+          [{ status: 408, detail: I18n.t('errors.messages.request_timeout'), source: { pointer: 'server' } }]
         end
       end
     end

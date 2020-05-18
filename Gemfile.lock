@@ -252,6 +252,7 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rack-timeout (0.6.0)
     rails (5.2.4.2)
       actioncable (= 5.2.4.2)
       actionmailer (= 5.2.4.2)
@@ -441,6 +442,7 @@ DEPENDENCIES
   puma (>= 4.3.3)
   rack-attack
   rack-cors (>= 1.0.6)
+  rack-timeout
   rails (~> 5.2.3)
   rails-settings-cached (~> 0.7.2)
   redis

@@ -227,7 +227,7 @@ ru:
     format: "%{attribute} %{message}"
     messages:
       unprocessable_auth: 'Невалидные параметры для провайдера аутентификации'
-      throttled: 'Слишком много запросов. Пожалуйста, повторите попытку позже.'
+      throttled: 'Слишком много запросов. Пожалуйста, повторите попытку позже. ಠ_ಠ'
       invalid_token: 'Невалидный токен доступа'
       access_denied: 'Действие не доступно'
       not_found_endpoint: 'Путь не сушествует'
@@ -235,6 +235,8 @@ ru:
       invalid_auth: 'Ошибка авторизации'
       not_exists: 'не существует'
       argument_missing: 'аргумент отсутствует или значение пусто: %{param}'
+      request_timeout: '┑(ツ)┍'
+      internal_server_error: '(ノಠ益ಠ)ノ彡┻━┻'
       student:
         already_in_group: 'уже находится в группе!'
       user:

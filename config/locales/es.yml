@@ -203,7 +203,7 @@ es:
     format: "%{attribute} %{message}"
     messages:
       unprocessable_auth: 'Parámetros de autorización no válidos'
-      throttled: 'Demasiadas solicitudes Por favor, inténtelo de nuevo más tarde.'
+      throttled: 'Demasiadas solicitudes Por favor, inténtelo de nuevo más tarde. ಠ_ಠ'
       invalid_token: 'Token de autorización inválido'
       access_denied: 'Acción no permitida'
       not_found_endpoint: 'la ruta no existe'
@@ -211,6 +211,8 @@ es:
       invalid_auth: 'Error de autorización'
       not_exists: 'no existe'
       argument_missing: 'falta el argumento o el valor está vacío: %{param}'
+      request_timeout: '┑(ツ)┍'
+      internal_server_error: '(ノಠ益ಠ)ノ彡┻━┻'
       student:
         already_in_group: 'ya tiene un grupo!'
       user:

@@ -101,6 +101,10 @@ gem 'rack-attack'
 # https://github.com/cyu/rack-cors
 gem 'rack-cors', '>= 1.0.6', require: 'rack/cors'
 
+# Abort requests that are taking too long
+# https://github.com/sharpstone/rack-timeout
+gem 'rack-timeout'
+
 # Exception tracking and logging from Ruby to Rollbar https://docs.rollbar.com/docs/ruby
 # https://github.com/rollbar/rollbar-gem
 gem 'rollbar'

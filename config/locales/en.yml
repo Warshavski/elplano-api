@@ -39,7 +39,7 @@ en:
   errors:
     messages:
       unprocessable_auth: 'Invalid authorization params'
-      throttled: 'Too many requests. Please, try again later.'
+      throttled: 'Too many requests. Please, try again later. ಠ_ಠ'
       invalid_token: 'Invalid authorization token'
       access_denied: 'Action not allowed'
       not_found_endpoint: 'Endpoint does not exists'
@@ -47,6 +47,8 @@ en:
       invalid_auth: 'Authorization error'
       not_exists: 'does not exist'
       argument_missing: 'argument is missing or the value is empty: %{param}'
+      request_timeout: '┑(ツ)┍'
+      internal_server_error: '(ノಠ益ಠ)ノ彡┻━┻'
       student:
         already_in_group: 'already has a group!'
       user:

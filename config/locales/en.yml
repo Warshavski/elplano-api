@@ -34,31 +34,40 @@ en:
     messages:
       saved: 'Changes successfully saved!'
       received: 'Thank you, your report has been registered.'
-      sent: 'An email was successfully sent!'
+      email_sent: 'An email was successfully sent!'
 
   errors:
     messages:
       unprocessable_auth: 'Invalid authorization params'
-      throttled: 'Too many requests. Please, try again later. ಠ_ಠ'
       invalid_token: 'Invalid authorization token'
-      access_denied: 'Action not allowed'
-      not_found_endpoint: 'Endpoint does not exists'
-      not_found_record: "Couldn't find %{model} with id = %{id}"
       invalid_auth: 'Authorization error'
+      access_denied: 'Action not allowed'
+
+      not_found_record: "Couldn't find %{model} with id = %{id}"
       not_exists: 'does not exist'
       argument_missing: 'argument is missing or the value is empty: %{param}'
-      request_timeout: '┑(ツ)┍'
-      internal_server_error: '(ノಠ益ಠ)ノ彡┻━┻'
-      student:
-        already_in_group: 'already has a group!'
-      user:
-        already_reported: 'has already been reported'
-      html:
-        invalid_markup: 'contains invalid HTML markup: %{error}'
-      timezone:
-        not_exist: 'does not exist'
-      color:
-        invalid_format: 'is not a valid hexadecimal color'
+
+      request:
+        internal_server_error: '(ノಠ益ಠ)ノ彡┻━┻'
+        request_timeout: '┑(ツ)┍'
+        not_found: 'Endpoint does not exists'
+        throttled: 'Too many requests. Please, try again later. ಠ_ಠ'
+
+      validators:
+        html:
+          invalid_markup: 'contains invalid HTML markup: %{error}'
+        timezone:
+          not_exist: 'does not exist'
+        color:
+          invalid_format: 'is not a valid hexadecimal color'
+        url:
+          invalid_format: 'must be a valid URL'
+        timeliness:
+          error_value_formats:
+            date: '%Y-%m-%d'
+            time: '%H:%M:%S'
+            datetime: '%Y-%m-%d %H:%M:%S'
+
       invalid_date: "is not a valid date"
       invalid_time: "is not a valid time"
       invalid_datetime: "is not a valid datetime"
@@ -67,17 +76,7 @@ en:
       on_or_before: "must be on or before %{restriction}"
       after: "must be after %{restriction}"
       on_or_after: "must be on or after %{restriction}"
-      url:
-        invalid_format: 'must be a valid URL'
-    validates_timeliness:
-      error_value_formats:
-        date: '%Y-%m-%d'
-        time: '%H:%M:%S'
-        datetime: '%Y-%m-%d %H:%M:%S'
 
-  restify:
-    errors:
-      missing: 'Parameters does not present by JSON:API format. Missing %{key} key'
   notifications:
     email:
       invite:
@@ -97,6 +96,14 @@ en:
           attributes:
             students:
               invalid_assignment: 'cannot be selected as performers'
+        abuse_report:
+          attributes:
+            user_id:
+              taken: 'has already been reported'
+        student:
+          attributes:
+            president:
+              taken: 'already has a group!'
 
     attributes:
       task:

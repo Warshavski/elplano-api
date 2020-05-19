@@ -66,11 +66,14 @@ module Groups
     def validate_owner!(owner)
       return unless owner.president? || owner.any_group?
 
-      raise ActiveRecord::RecordInvalid.new(owner), I18n.t('errors.messages.student.already_in_group')
+      owner.errors.add(:president, :taken)
+
+      raise ActiveRecord::RecordInvalid, owner
     end
 
     def log_success(group, owner_user)
-      message = "Group - \"#{group.title}\" (#{group.number}) was created by User - \"#{owner_user.username}\" (#{owner_user.email})"
+      message = "Group - \"#{group.title}\" (#{group.number}) was created by " \
+                "User - \"#{owner_user.username}\" (#{owner_user.email})"
 
       log_info(message)
     end

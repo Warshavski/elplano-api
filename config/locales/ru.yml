@@ -4,7 +4,7 @@ ru:
     messages:
       saved: 'Изменения успешно сохранены!'
       received: 'Спасибо, Ваш отчет был зарегистрирован.'
-      sent: 'Письмо было успешно отправлено!'
+      email_sent: 'Письмо было успешно отправлено!'
 
   notifications:
     email:
@@ -30,6 +30,15 @@ ru:
           attributes:
             students:
               invalid_assignment: 'невозможно выбрать в качестве исполнителей'
+        abuse_report:
+          attributes:
+            user_id:
+              taken: 'уже был зарегистрирован'
+        student:
+          attributes:
+            president:
+              taken: 'уже находится в группе!'
+
     models:
       event: 'Мероприятие'
       course: 'Курс'
@@ -223,30 +232,40 @@ ru:
       day: День
       month: Месяц
       year: Год
+
   errors:
     format: "%{attribute} %{message}"
     messages:
       unprocessable_auth: 'Невалидные параметры для провайдера аутентификации'
-      throttled: 'Слишком много запросов. Пожалуйста, повторите попытку позже. ಠ_ಠ'
       invalid_token: 'Невалидный токен доступа'
-      access_denied: 'Действие не доступно'
-      not_found_endpoint: 'Путь не сушествует'
-      not_found_record: 'Не удалось найти %{model} c id = %{id}'
       invalid_auth: 'Ошибка авторизации'
+      access_denied: 'Действие не доступно'
+
+      not_found_record: 'Не удалось найти %{model} c id = %{id}'
       not_exists: 'не существует'
       argument_missing: 'аргумент отсутствует или значение пусто: %{param}'
-      request_timeout: '┑(ツ)┍'
-      internal_server_error: '(ノಠ益ಠ)ノ彡┻━┻'
-      student:
-        already_in_group: 'уже находится в группе!'
-      user:
-        already_reported: 'уже был зарегистрирован'
-      html:
-        invalid_markup: 'невалидная разметка HTML: %{error}'
-      timezone:
-        not_exist: 'не существует'
-      color:
-        invalid_format: 'не является допустимым шестнадцатеричным цветом'
+
+      request:
+        internal_server_error: '(ノಠ益ಠ)ノ彡┻━┻'
+        request_timeout: '┑(ツ)┍'
+        not_found: 'Путь не сушествует'
+        throttled: 'Слишком много запросов. Пожалуйста, повторите попытку позже. ಠ_ಠ'
+
+      validators:
+        html:
+          invalid_markup: 'невалидная разметка HTML: %{error}'
+        timezone:
+          not_exist: 'не существует'
+        color:
+          invalid_format: 'не является допустимым шестнадцатеричным цветом'
+        url:
+          invalid_format: 'должен быть действительным URL'
+        timeliness:
+          error_value_formats:
+            date: '%Y-%m-%d'
+            time: '%H:%M:%S'
+            datetime: '%Y-%m-%d %H:%M:%S'
+
       invalid_date: 'невалидная дата'
       invalid_time: 'не является валидным временем'
       invalid_datetime: 'не является валидной датой и временем'
@@ -255,13 +274,6 @@ ru:
       on_or_before: 'должно быть в или раньше %{restriction}'
       after: 'должно быть после %{restriction}'
       on_or_after: 'должно быть в или после %{restriction}'
-      url:
-        invalid_format: 'должен быть действительным URL'
-      validates_timeliness:
-        error_value_formats:
-          date: '%Y-%m-%d'
-          time: '%H:%M:%S'
-          datetime: '%Y-%m-%d %H:%M:%S'
       accepted: 'нужно подтвердить'
       blank: 'не может быть пустым'
       confirmation: 'не совпадает со значением поля %{attribute}'

@@ -18,11 +18,19 @@ class HtmlValidator < ActiveModel::EachValidator
   private
 
   def html_errors(str)
-    fragment = Nokogiri::HTML.fragment(options[:wrap_with] ? "<#{options[:wrap_with]}>#{str}</#{options[:wrap_with]}>" : str)
+    fragment = Nokogiri::HTML.fragment(
+      options[:wrap_with] ? "<#{options[:wrap_with]}>#{str}</#{options[:wrap_with]}>" : str
+    )
+
     fragment.errors.select { |error| ERROR_RE =~ error.message }
   end
 
   def add_error(record, attribute)
-    record.errors.add(attribute, I18n.t('errors.messages.html.invalid_markup', error: errors.first.to_s))
+    message = I18n.t(
+      'errors.messages.validators.html.invalid_markup',
+      error: errors.first.to_s
+    )
+
+    record.errors.add(attribute, message)
   end
 end

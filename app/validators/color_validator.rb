@@ -31,6 +31,6 @@ class ColorValidator < ActiveModel::EachValidator
   end
 
   def add_error(record, attribute)
-    record.errors.add(attribute, I18n.t('errors.messages.color.invalid_format'))
+    record.errors.add(attribute, I18n.t('errors.messages.validators.color.invalid_format'))
   end
 end

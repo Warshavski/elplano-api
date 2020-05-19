@@ -15,7 +15,7 @@ Rack::Attack.throttled_response = lambda do |env|
     errors: [
       {
         status: 429,
-        detail: "#{I18n.t('errors.messages.throttled')}"
+        detail: "#{I18n.t('errors.messages.request.throttled')}"
       }
     ]
   }

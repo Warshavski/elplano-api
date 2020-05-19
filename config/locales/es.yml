@@ -4,7 +4,7 @@ es:
     messages:
       saved: 'Cambios guardados exitosamente!'
       received: 'Gracias, su informe ha sido registrado.'
-      sent: 'Un correo electrónico fue enviado con éxito!'
+      email_sent: 'Un correo electrónico fue enviado con éxito!'
 
   notifications:
     email:
@@ -30,6 +30,14 @@ es:
           attributes:
             students:
               invalid_assignment: 'imposible de elegir como intérpretes'
+        abuse_report:
+          attributes:
+            user_id:
+              taken: 'ya ha sido reportado'
+        student:
+          attributes:
+            president:
+              taken: 'ya tiene un grupo!'
     models:
       event: 'Acontecimiento'
       course: 'Por supuesto'
@@ -203,26 +211,35 @@ es:
     format: "%{attribute} %{message}"
     messages:
       unprocessable_auth: 'Parámetros de autorización no válidos'
-      throttled: 'Demasiadas solicitudes Por favor, inténtelo de nuevo más tarde. ಠ_ಠ'
       invalid_token: 'Token de autorización inválido'
-      access_denied: 'Acción no permitida'
-      not_found_endpoint: 'la ruta no existe'
-      not_found_record: "No se pudo encontrar %{model} con id = %{id}"
       invalid_auth: 'Error de autorización'
+      access_denied: 'Acción no permitida'
+
+      not_found_record: "No se pudo encontrar %{model} con id = %{id}"
       not_exists: 'no existe'
       argument_missing: 'falta el argumento o el valor está vacío: %{param}'
-      request_timeout: '┑(ツ)┍'
-      internal_server_error: '(ノಠ益ಠ)ノ彡┻━┻'
-      student:
-        already_in_group: 'ya tiene un grupo!'
-      user:
-        already_reported: 'ya ha sido reportado'
-      html:
-        invalid_markup: 'contiene código HTML no válido: %{error}'
-      timezone:
-        not_exist: 'no existe'
-      color:
-        invalid_format: 'no es un color hexadecimal válido'
+
+      request:
+        internal_server_error: '(ノಠ益ಠ)ノ彡┻━┻'
+        request_timeout: '┑(ツ)┍'
+        not_found: 'la ruta no existe'
+        throttled: 'Demasiadas solicitudes Por favor, inténtelo de nuevo más tarde. ಠ_ಠ'
+
+      validators:
+        html:
+          invalid_markup: 'contiene código HTML no válido: %{error}'
+        timezone:
+          not_exist: 'no existe'
+        color:
+          invalid_format: 'no es un color hexadecimal válido'
+        url:
+          invalid_format: 'debe ser una URL válida'
+        timeliness:
+          error_value_formats:
+            date: '%Y-%m-%d'
+            time: '%H:%M:%S'
+            datetime: '%Y-%m-%d %H:%M:%S'
+
       invalid_date: 'no es una fecha válida'
       invalid_time: 'no es un tiempo valido'
       invalid_datetime: 'no es una fecha y hora válida'
@@ -231,13 +248,6 @@ es:
       on_or_before: 'debe estar en o antes %{restriction}'
       after: 'debe ser después %{restriction}'
       on_or_after: 'debe estar encendido o después %{restriction}'
-      url:
-        invalid_format: 'debe ser una URL válida'
-      validates_timeliness:
-        error_value_formats:
-          date: '%Y-%m-%d'
-          time: '%H:%M:%S'
-          datetime: '%Y-%m-%d %H:%M:%S'
       accepted: debe ser aceptado
       blank: no puede estar en blanco
       confirmation: no coincide

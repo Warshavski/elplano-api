@@ -16,6 +16,6 @@ class TimezoneExistenceValidator < ActiveModel::EachValidator
   end
 
   def add_error(record, attribute)
-    record.errors.add(attribute, I18n.t(:'errors.messages.timezone.not_exist'))
+    record.errors.add(attribute, I18n.t(:'errors.messages.validators.timezone.not_exist'))
   end
 end

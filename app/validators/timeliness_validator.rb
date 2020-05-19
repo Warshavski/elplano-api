@@ -108,7 +108,7 @@ class TimelinessValidator < ActiveModel::EachValidator
   def format_error_value(value)
     i18n_options = {
       default: DEFAULT_ERROR_VALUE_FORMATS[@type],
-      scope: 'validates_timeliness.error_value_formats'
+      scope: 'validators.timeliness.error_value_formats'
     }
 
     format = I18n.t(@type, i18n_options)

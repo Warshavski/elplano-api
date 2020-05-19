@@ -22,6 +22,6 @@ class UrlValidator < ActiveModel::EachValidator
   end
 
   def add_error(record, attribute)
-    record.errors.add(attribute, I18n.t('errors.messages.url.invalid_format'))
+    record.errors.add(attribute, I18n.t('errors.messages.validators.url.invalid_format'))
   end
 end

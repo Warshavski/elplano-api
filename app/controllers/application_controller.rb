@@ -38,7 +38,7 @@ class ApplicationController < ActionController::API
 
   def route_not_found
     if user_signed_in?
-      not_found(I18n.t(:'errors.messages.not_found_endpoint'))
+      not_found(I18n.t(:'errors.messages.request.not_found'))
     else
       authorize_access!
     end

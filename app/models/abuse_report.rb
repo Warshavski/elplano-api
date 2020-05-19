@@ -14,5 +14,5 @@ class AbuseReport < ApplicationRecord
 
   validates :user, :reporter, :message, presence: true
 
-  validates :user_id, uniqueness: { message: I18n.t(:'errors.messages.user.already_reported') }
+  validates :user_id, uniqueness: true
 end

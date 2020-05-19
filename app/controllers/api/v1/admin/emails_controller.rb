@@ -22,7 +22,7 @@ module Api
             user.public_send("resend_#{mailing_params[:type]}_instructions")
           end
 
-          render_meta({ message: I18n.t(:'generic.messages.sent') }, status: :created)
+          render_meta({ message: I18n.t(:'generic.messages.email_sent') }, status: :created)
         end
 
         private

@@ -12,7 +12,7 @@ RSpec.describe Groups::Create do
       let_it_be(:owner) { create(:president) }
 
       it 'throws validation error' do
-        expect { subject }.to raise_error(ActiveRecord::RecordInvalid, 'already has a group!')
+        expect { subject }.to raise_error(ActiveRecord::RecordInvalid)
       end
     end
 

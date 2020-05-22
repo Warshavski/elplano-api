@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-# Finder
+# ApplicationFinder
 #
 #   User as base class for all finders and contains common logic
 #
-class Finder
+class ApplicationFinder
   include Paginatable
 
   attr_reader :context, :params

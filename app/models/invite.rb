@@ -40,7 +40,7 @@ class Invite < ApplicationRecord
   end
 
   def claim_by!(student)
-    update!(recipient: student, accepted_at: Time.now.utc, invitation_token: nil)
+    lock!.update!(recipient: student, accepted_at: Time.now.utc, invitation_token: nil)
   end
 
   def accepted?

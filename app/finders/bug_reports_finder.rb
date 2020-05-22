@@ -8,7 +8,7 @@
 #
 #   params: optional search, filter and sort parameters
 #
-class BugReportsFinder < Finder
+class BugReportsFinder < ApplicationFinder
   # @param params [Hash] - (optional, default: {}) filter and sort parameters
   #
   # @option params [String, Symbol] :status

@@ -14,7 +14,7 @@
 #   - by default returns all courses(active and not active).
 #   - by default returns paginated chunks(15 records per chunk)
 #
-class CoursesFinder < Finder
+class CoursesFinder < ApplicationFinder
   alias group context
 
   # @param context [Group]

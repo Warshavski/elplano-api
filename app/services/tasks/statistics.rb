@@ -43,9 +43,8 @@ module Tasks
     end
 
     def perform_selection(scope)
-      counters_query = construct_query
-
-      scope.select(counters_query).take
+      construct_query
+        .then { |counters_query| scope.select(counters_query).take }
     end
 
     def construct_query

@@ -8,7 +8,7 @@
 #
 #   params: optional search, filter and sort parameters
 #
-class GroupsFinder < Finder
+class GroupsFinder < ApplicationFinder
   # @param params [Hash] - (optional, default: {}) filter and sort parameters
   #
   # @option params [String] :search  Search pattern to search for

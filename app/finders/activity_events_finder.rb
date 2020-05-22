@@ -8,7 +8,7 @@
 #
 #   params: optional search, filter and sort parameters
 #
-class ActivityEventsFinder < Finder
+class ActivityEventsFinder < ApplicationFinder
   alias current_user context
 
   # @param context [User]

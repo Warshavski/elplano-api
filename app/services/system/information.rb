@@ -89,8 +89,11 @@ module System
     end
 
     def compose_metadata(memory, cpu_cores, disks_usage)
-      memory_usage = memory.nil? ? nil : { active_bytes: memory.active_bytes, total_bytes: memory.total_bytes }
-      cpu_cores_count = cpu_cores.nil? ? nil : cpu_cores.length
+      memory_usage =
+        memory.nil? ? nil : { active_bytes: memory.active_bytes, total_bytes: memory.total_bytes }
+
+      cpu_cores_count =
+        cpu_cores.nil? ? nil : cpu_cores.length
 
       { cpu_cores: cpu_cores_count, memory_usage: memory_usage, disks_usage: disks_usage }
     end

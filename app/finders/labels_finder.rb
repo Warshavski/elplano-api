@@ -9,7 +9,7 @@
 #
 #   params: optional search, filter and sort parameters
 #
-class LabelsFinder < Finder
+class LabelsFinder < ApplicationFinder
   alias owner context
 
   # @param context [Group] -

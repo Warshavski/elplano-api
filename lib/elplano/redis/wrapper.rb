@@ -25,7 +25,9 @@ module Elplano
         end
 
         def with
-          @pool ||= ConnectionPool.new(size: pool_size) { ::Redis.new(params) }
+          @pool ||=
+            ConnectionPool.new(size: pool_size) { ::Redis.new(params) }
+
           @pool.with { |redis| yield redis }
         end
 

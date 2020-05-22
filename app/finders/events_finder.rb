@@ -13,7 +13,7 @@
 #   - by default returns events sorted by recently added.
 #   - by default returns all appointed events(personal + group events).
 #
-class EventsFinder < Finder
+class EventsFinder < ApplicationFinder
   alias student context
 
   # @param context [Student] -

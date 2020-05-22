@@ -8,7 +8,7 @@
 #
 #   params: optional search, filter and sort parameters
 #
-class StudentsFinder < Finder
+class StudentsFinder < ApplicationFinder
   alias current_group context
 
   # @param context [Group] -

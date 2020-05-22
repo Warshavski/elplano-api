@@ -15,7 +15,7 @@
 #   - by default returns tasks by chunks(15)
 #   - by default returns authored tasks(tasks created by current student)
 #
-class TasksFinder < Finder
+class TasksFinder < ApplicationFinder
   alias current_student context
 
   # @param context [Student]

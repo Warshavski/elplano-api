@@ -17,9 +17,11 @@ RSpec.describe Api::V1::GroupsController, type: :request do
 
     before(:each) { get group_endpoint, headers: headers }
 
-    it { expect(response).to have_http_status(:ok) }
+    it 'is expected to respond with group entity' do
+      expect(response).to have_http_status(:ok)
 
-    it { expect(json_data['type']).to eq('group') }
+      expect(json_data['type']).to eq('group')
+    end
 
     include_examples 'json:api examples',
                      %w[data],
@@ -82,9 +84,10 @@ RSpec.describe Api::V1::GroupsController, type: :request do
     context 'when student is a group owner' do
       let_it_be(:student) { create(:student, :group_supervisor, user: user) }
 
-      it { expect(response).to have_http_status(:ok) }
-
-      it { expect(json_data['type']).to eq('group') }
+      it 'is expected to respond with group entity' do
+        expect(response).to have_http_status(:ok)
+        expect(json_data['type']).to eq('group')
+      end
 
       include_examples 'json:api examples',
                        %w[data],

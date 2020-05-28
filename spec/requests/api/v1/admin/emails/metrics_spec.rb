@@ -42,13 +42,12 @@ RSpec.describe Api::V1::Admin::Emails::MetricsController, type: :request do
 
     before(:each) { subject }
 
-    it { expect(response).to have_http_status(:ok) }
+    it 'is expected to respond with meta' do
+      expect(response).to have_http_status(:ok)
 
-    it { expect(body_as_json.keys).to eq(['meta']) }
+      expect(body_as_json.keys).to eq(['meta'])
 
-    it 'contains statistics metadata in responce' do
       actual_meta_keys = body_as_json['meta'].first.keys
-
       expect(actual_meta_keys).to match_array(%w[date metrics])
     end
   end

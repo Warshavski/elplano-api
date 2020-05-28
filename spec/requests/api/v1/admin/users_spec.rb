@@ -22,9 +22,11 @@ RSpec.describe Api::V1::Admin::UsersController, type: :request do
     end
 
     context 'when no request params are provided' do
-      it { expect(response).to have_http_status(:ok) }
+      it 'is expected to respond with users collection' do
+        expect(response).to have_http_status(:ok)
 
-      it { expect(json_data.count).to be(2) }
+        expect(json_data.count).to be(2)
+      end
     end
 
     context 'when status filter is provided' do
@@ -38,9 +40,11 @@ RSpec.describe Api::V1::Admin::UsersController, type: :request do
 
       let_it_be(:banned_user) { create(:user, :banned) }
 
-      it { expect(response).to have_http_status(:ok) }
+      it 'is expected to respond with banned users' do
+        expect(response).to have_http_status(:ok)
 
-      it { expect(json_data.map { |e| e[:id].to_i }).to eq([banned_user.id]) }
+        expect(json_data.map { |e| e[:id].to_i }).to eq([banned_user.id])
+      end
     end
 
     context 'when search filter is provided' do
@@ -52,9 +56,11 @@ RSpec.describe Api::V1::Admin::UsersController, type: :request do
         }
       end
 
-      it { expect(response).to have_http_status(:ok) }
+      it 'is expected to respond with users filtered by search term' do
+        expect(response).to have_http_status(:ok)
 
-      it { expect(json_data.map { |e| e[:id].to_i }).to eq([random_user.id]) }
+        expect(json_data.map { |e| e[:id].to_i }).to eq([random_user.id])
+      end
     end
   end
 
@@ -63,17 +69,18 @@ RSpec.describe Api::V1::Admin::UsersController, type: :request do
 
     before(:each) { subject }
 
-    it { expect(response).to have_http_status(:ok) }
+    it 'is expected to respond with user entity' do
+      expect(response).to have_http_status(:ok)
 
-    it { expect(json_data['type']).to eq('user') }
+      expect(json_data['id']).to eq(random_user.id.to_s)
+      expect(json_data['type']).to eq('user')
+    end
 
     include_examples 'json:api examples',
                      %w[data included],
                      %w[id type attributes relationships],
                      %w[email username settings timezone admin avatar confirmed banned locked locale created_at updated_at],
                      %w[student status]
-
-    it { expect(json_data['id']).to eq(random_user.id.to_s) }
 
     context 'when requested used does not exists' do
       let(:resource_endpoint) { "#{base_endpoint}/0" }
@@ -89,19 +96,19 @@ RSpec.describe Api::V1::Admin::UsersController, type: :request do
 
     before(:each) { subject }
 
-    it { expect(response).to have_http_status(:ok) }
+    it 'is expected to respond with user entity' do
+      expect(response).to have_http_status(:ok)
 
-    it { expect(json_data['type']).to eq('user') }
+      expect(json_data['id']).to eq(random_user.id.to_s)
+      expect(json_data['type']).to eq('user')
+      expect(json_data.dig('attributes', 'banned')).to be(true)
+    end
 
     include_examples 'json:api examples',
                      %w[data included],
                      %w[id type attributes relationships],
                      %w[email username settings timezone admin avatar confirmed banned locked locale created_at updated_at],
                      %w[student status]
-
-    it { expect(json_data['id']).to eq(random_user.id.to_s) }
-
-    it { expect(json_data.dig('attributes', 'banned')).to be(true) }
 
     context 'when requested used does not exists' do
       let(:resource_endpoint) { "#{base_endpoint}/0" }
@@ -113,19 +120,19 @@ RSpec.describe Api::V1::Admin::UsersController, type: :request do
   describe 'DELETE #destroy' do
     let_it_be(:random_user) { create(:user) }
 
-    it 'responds with a 204 status' do
+    it 'is expected to respond with a 204 status' do
       delete resource_endpoint, headers: headers
 
       expect(response).to have_http_status(:no_content)
     end
 
-    it 'responds with a 404 status for not existed user' do
+    it 'is expected to respond with a 404 status for not existed user' do
       delete "#{base_endpoint}/0", headers: headers
 
       expect(response).to have_http_status(:not_found)
     end
 
-    it 'deletes user' do
+    it 'is expected to delete user' do
       expect { delete resource_endpoint, headers: headers }.to change(User, :count).by(-1)
     end
   end

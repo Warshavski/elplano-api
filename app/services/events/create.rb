@@ -77,8 +77,20 @@ module Events
     private
 
     def build_event(author, params)
-      author.created_events.build(params) do |event|
-        event.eventable_type = nil unless type_allowed?(event.eventable_type)
+      events_relation = author.created_events
+
+      event = events_relation.build(params.except(:label_ids)) do |e|
+        e.eventable_type = nil unless type_allowed?(e.eventable_type)
+      end
+
+      resolve_labels!(event, author.group, params[:label_ids])
+    end
+
+    def resolve_labels!(event, group, label_ids)
+      return event if group.nil?
+
+      event.tap do |e|
+        e.labels = group.labels.where(id: label_ids)
       end
     end
 

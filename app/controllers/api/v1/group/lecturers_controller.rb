@@ -37,9 +37,11 @@ module Api
         # Get list of lecturers
         #
         def index
-          lecturers = filter_lecturers.preload(:courses)
+          lecturers = filter_lecturers
 
-          render_resource lecturers, status: :ok
+          render_resource lecturers,
+                          serializer: ::Groups::ShortLecturerSerializer,
+                          status: :ok
         end
 
         # GET : api/v1/group/lecturers/{:id}

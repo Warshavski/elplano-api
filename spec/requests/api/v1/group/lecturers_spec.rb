@@ -33,6 +33,7 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
 
       it 'is expected to respond with empty data' do
         expect(response).to have_http_status(:ok)
+
         expect(json_data).to eq([])
       end
     end
@@ -40,9 +41,11 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
     context 'when no sort or filter params are present' do
       before(:each) { subject }
 
-      it { expect(response).to have_http_status(:ok) }
+      it 'expected to respond with lecturers collection' do
+        expect(response).to have_http_status(:ok)
 
-      it { expect(json_data.count).to be(3) }
+        expect(json_data.count).to be(3)
+      end
     end
   end
 
@@ -51,20 +54,20 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
 
     before(:each) { subject }
 
-    it { expect(response).to have_http_status(:ok) }
+    it 'is expected to respond with lecturer entity' do
+      expect(response).to have_http_status(:ok)
+
+      actual_title = json_data.dig(:attributes, :first_name).downcase
+      expected_title = lecturer.first_name
+
+      expect(actual_title).to eq(expected_title)
+    end
 
     include_examples 'json:api examples',
                      %w[data],
                      %w[id type attributes relationships],
                      %w[avatar first_name last_name patronymic email phone active created_at updated_at],
                      %w[courses]
-
-    it 'returns correct expected data' do
-      actual_title = json_data.dig(:attributes, :first_name).downcase
-      expected_title = lecturer.first_name
-
-      expect(actual_title).to eq(expected_title)
-    end
 
     context 'when request params are not valid' do
       let(:resource_endpoint) { "#{base_endpoint}/wat_lecturer?" }
@@ -85,8 +88,9 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
                        %w[avatar first_name last_name patronymic email phone active created_at updated_at],
                        %w[courses]
 
-      it 'returns created model' do
+      it 'is expected to respond with created lecturer entity' do
         expect(response).to have_http_status(:created)
+
         expect(json_data['type']).to eq('lecturer')
 
         actual_title = json_data.dig(:attributes, :first_name)
@@ -163,11 +167,11 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
     before(:each) { subject }
 
     context 'when user is a group owner' do
-      it { expect(response).to have_http_status(:ok) }
+      it 'is expected to respond with updated lecturer entity' do
+        expect(response).to have_http_status(:ok)
 
-      it { expect(json_data['type']).to eq('lecturer') }
+        expect(json_data['type']).to eq('lecturer')
 
-      it 'updates requested lecturer entity' do
         actual_title = lecturer.reload.first_name
         expected_title = lecturer_params[:first_name].downcase
 
@@ -259,19 +263,19 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
 
   describe 'DELETE #destroy' do
     context 'when user is a group owner' do
-      it 'responds with a 204 status' do
+      it 'is expected to respond with a 204 status' do
         delete resource_endpoint, headers: headers
 
         expect(response).to have_http_status(:no_content)
       end
 
-      it 'responds with a 404 status not existed lecturer' do
+      it 'is expected to respond with a 404 status not existed lecturer' do
         delete "#{base_endpoint}/wat_lecturer?", headers: headers
 
         expect(response).to have_http_status(:not_found)
       end
 
-      it 'deletes publisher' do
+      it 'is expected to delete lecturer' do
         expect { delete resource_endpoint, headers: headers }.to change(Lecturer, :count).by(-1)
       end
     end
@@ -281,7 +285,7 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
       let!(:user)   { create(:user, :student) }
       let!(:token)  { create(:token, resource_owner_id: user.id) }
 
-      it 'responds with 403 - forbidden' do
+      it 'is expected to respond with 403 - forbidden' do
         delete resource_endpoint, headers: headers
 
         expect(response).to have_http_status(:forbidden)

@@ -65,7 +65,7 @@ resource "Group's courses" do
 
       do_request
 
-      expected_body = CourseSerializer.new(group.courses).to_json
+      expected_body = Groups::ShortCourseSerializer.new(group.courses).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

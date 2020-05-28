@@ -19,11 +19,11 @@ describe Api::V1::Users::SessionsController, type: :request do
 
     subject { delete '/api/v1/users/sign_out', headers: headers }
 
-    before { subject }
+    it 'is expected to revoke token' do
+      expect { subject }.to change { token.reload.revoked_at }.from(nil)
 
-    it { expect(response).to have_http_status(:ok) }
-
-    it { expect(token.reload.revoked_at).not_to be(nil) }
+      expect(response).to have_http_status(:ok)
+    end
   end
 
   describe 'POST #create' do

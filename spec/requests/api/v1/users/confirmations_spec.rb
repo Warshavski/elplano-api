@@ -17,23 +17,24 @@ describe Api::V1::Users::ConfirmationsController, type: :request do
     let(:confirmation_url) { '/api/v1/users/confirmation?confirmation_token' }
 
     context 'when token is valid' do
-      before(:each) { get "#{confirmation_url}=#{user.confirmation_token}" }
+      subject {  get "#{confirmation_url}=#{user.confirmation_token}"  }
 
-      it { expect(response).to have_http_status(:ok) }
+      it 'is expected to confirm user' do
+        expect { subject }.to change { user.reload.confirmed_at }.from(nil)
 
-      it { expect(body_as_json.keys).to eq(['meta']) }
-
-      it 'confirms user registration' do
-        expect(user.reload.confirmed_at).to_not be_nil
+        expect(response).to have_http_status(:ok)
+        expect(body_as_json.keys).to eq(['meta'])
       end
     end
 
     context 'when token is not valid' do
-      before(:each) { get "#{confirmation_url}=so" }
-
-      it { expect(response).to have_http_status(:unprocessable_entity) }
+      subject { get "#{confirmation_url}=so" }
 
       it 'responds with errors' do
+        expect { subject }.not_to change { user.reload.confirmed_at }
+
+        expect(response).to have_http_status(:unprocessable_entity)
+
         actual_keys = body_as_json[:errors].first.keys
         expected_keys = %w[status source detail]
 
@@ -51,9 +52,10 @@ describe Api::V1::Users::ConfirmationsController, type: :request do
       context 'request performing' do
         before(:each) { subject }
 
-        it { expect(response).to have_http_status(:ok) }
-
-        it { expect(body_as_json.keys).to match_array(['meta'])}
+        it 'is expected to respond with meta' do
+          expect(response).to have_http_status(:ok)
+          expect(body_as_json.keys).to match_array(['meta'])
+        end
       end
 
       context 'email sending' do
@@ -78,9 +80,9 @@ describe Api::V1::Users::ConfirmationsController, type: :request do
       context 'when no params are not provided' do
         before(:each) { post '/api/v1/users/confirmation' }
 
-        it { expect(response).to have_http_status(:unprocessable_entity) }
+        it 'is expected responds with errors' do
+          expect(response).to have_http_status(:unprocessable_entity)
 
-        it 'responds with errors' do
           actual_keys = body_as_json[:errors].first.keys
           expected_keys = %w[status source detail]
 

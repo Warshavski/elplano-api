@@ -79,15 +79,15 @@ RSpec.describe Api::V1::Group::CoursesController, type: :request do
     before(:each) { subject }
 
     context 'when user is a group owner' do
-      it { expect(response).to have_http_status(:created) }
-
       include_examples 'json:api examples',
                        %w[data included],
                        %w[id type attributes relationships],
                        %w[title active created_at updated_at],
                        %w[lecturers]
 
-      it 'returns created course entity' do
+      it 'is expected to respond with created course entity' do
+        expect(response).to have_http_status(:created)
+
         actual_title = json_data.dig(:attributes, :title).downcase
         expected_title = course_params[:title].downcase
 
@@ -101,7 +101,7 @@ RSpec.describe Api::V1::Group::CoursesController, type: :request do
           build(:course_params).merge(lecturer_ids: [lecturer.id])
         end
 
-        it 'returns created course entity with bound lecturer' do
+        it 'is expected to respond with created course entity with bound lecturer' do
           actual_lecturer_ids = relationship_data(:lecturers).map { |l| l[:id].to_i }
 
           expect(actual_lecturer_ids).to include(lecturer.id)
@@ -126,7 +126,7 @@ RSpec.describe Api::V1::Group::CoursesController, type: :request do
     before(:each) { subject }
 
     context 'when user is a group owner' do
-      it 'updates a course model' do
+      it 'is expected to update the course model' do
         expect(response).to have_http_status(:ok)
 
         actual_title = course.reload.title
@@ -150,7 +150,7 @@ RSpec.describe Api::V1::Group::CoursesController, type: :request do
           build(:course_params).merge(lecturer_ids: [lecturer.id])
         end
 
-        it 'return created model with bound lecturer' do
+        it 'is expected to respond with created model with bound lecturer' do
           actual_lecturer_ids = relationship_data(:lecturers).map { |l| l[:id].to_i }
 
           expect(actual_lecturer_ids).to include(lecturer.id)
@@ -179,6 +179,7 @@ RSpec.describe Api::V1::Group::CoursesController, type: :request do
 
       it 'is expected to deactivate the course' do
         expect(json_data.dig(:attributes, :active)).to be(false)
+
         expect(course.reload.active).to be(false)
       end
     end
@@ -186,19 +187,19 @@ RSpec.describe Api::V1::Group::CoursesController, type: :request do
 
   describe 'DELETE #destroy' do
     context 'when user is a group owner' do
-      it 'responds with a 204 status' do
+      it 'is expected to respond with a 204 status' do
         delete resource_endpoint, headers: headers
 
         expect(response).to have_http_status(:no_content)
       end
 
-      it 'responds with a 404 status not existed course' do
+      it 'is expected to respond with a 404 status not existed course' do
         delete "#{base_endpoint}/wat_course?", headers: headers
 
         expect(response).to have_http_status(:not_found)
       end
 
-      it 'deletes course' do
+      it 'is expected to delete course' do
         expect { delete resource_endpoint, headers: headers }.to change(Course, :count).by(-1)
       end
     end
@@ -210,7 +211,7 @@ RSpec.describe Api::V1::Group::CoursesController, type: :request do
       let(:student) { create(:student, :group_member, user: user) }
       let(:course)  { create(:course, title: 'some new course', group: student.group) }
 
-      it 'responds with 403 - forbidden' do
+      it 'is expected to respond with 403 - forbidden' do
         delete resource_endpoint, headers: headers
 
         expect(response).to have_http_status(:forbidden)

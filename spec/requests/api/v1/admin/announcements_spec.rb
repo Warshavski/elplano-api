@@ -27,9 +27,11 @@ RSpec.describe Api::V1::Admin::AnnouncementsController, type: :request do
     context 'when no filter params are provided' do
       before(:each) { subject }
 
-      it { expect(response).to have_http_status(:ok) }
+      it 'is expected to respond with announcements collection' do
+        expect(response).to have_http_status(:ok)
 
-      it { expect(json_data.count).to be(3) }
+        expect(json_data.count).to be(3)
+      end
     end
   end
 
@@ -38,21 +40,21 @@ RSpec.describe Api::V1::Admin::AnnouncementsController, type: :request do
 
     before(:each) { subject }
 
-    it { expect(response).to have_http_status(:ok) }
+    it 'is expected to respond with announcement entity' do
+      expect(response).to have_http_status(:ok)
 
-    it { expect(json_data['type']).to eq('announcement') }
+      expect(json_data['type']).to eq('announcement')
 
-    include_examples 'json:api examples',
-                     %w[data],
-                     %w[id type attributes],
-                     %w[message start_at end_at background_color foreground_color created_at updated_at]
-
-    it 'returns correct expected data' do
       actual_message = json_data.dig(:attributes, :message)
       expected_message = announcement.message
 
       expect(actual_message).to eq(expected_message)
     end
+
+    include_examples 'json:api examples',
+                     %w[data],
+                     %w[id type attributes],
+                     %w[message start_at end_at background_color foreground_color created_at updated_at]
 
     context 'when request params are not valid' do
       let(:resource_endpoint) { "#{base_endpoint}/wat_event?" }
@@ -66,21 +68,21 @@ RSpec.describe Api::V1::Admin::AnnouncementsController, type: :request do
 
     before(:each) { subject }
 
-    it { expect(response).to have_http_status(:created) }
+    it 'is expected to respond with created announcement entity' do
+      expect(response).to have_http_status(:created)
 
-    it { expect(json_data['type']).to eq('announcement') }
+      expect(json_data['type']).to eq('announcement')
 
-    include_examples 'json:api examples',
-                     %w[data],
-                     %w[id type attributes],
-                     %w[message start_at end_at background_color foreground_color created_at updated_at]
-
-    it 'returns created model' do
       actual_message = json_data.dig(:attributes, :message)
       expected_message = announcement_params[:message]
 
       expect(actual_message).to eq(expected_message)
     end
+
+    include_examples 'json:api examples',
+                     %w[data],
+                     %w[id type attributes],
+                     %w[message start_at end_at background_color foreground_color created_at updated_at]
 
     include_examples 'request errors examples'
   end
@@ -90,11 +92,11 @@ RSpec.describe Api::V1::Admin::AnnouncementsController, type: :request do
 
     before(:each) { subject }
 
-    it { expect(response).to have_http_status(:ok) }
+    it 'is expected to respond with updated announcement entity' do
+      expect(response).to have_http_status(:ok)
 
-    it { expect(json_data['type']).to eq('announcement') }
+      expect(json_data['type']).to eq('announcement')
 
-    it 'updates a announcement model' do
       actual_message = announcement.reload.message
       expected_message = announcement_params[:message]
 
@@ -116,19 +118,19 @@ RSpec.describe Api::V1::Admin::AnnouncementsController, type: :request do
   end
 
   describe 'DELETE #destroy' do
-    it 'responds with a 204 status' do
+    it 'is expected to respond with a 204 status' do
       delete resource_endpoint, headers: headers
 
       expect(response).to have_http_status(:no_content)
     end
 
-    it 'responds with a 404 status not existed announcement' do
+    it 'is expected to respond with a 404 status not existed announcement' do
       delete "#{base_endpoint}/0", headers: headers
 
       expect(response).to have_http_status(:not_found)
     end
 
-    it 'deletes announcement' do
+    it 'is expected to delete announcement' do
       expect { delete resource_endpoint, headers: headers }.to change(Announcement, :count).by(-1)
     end
   end

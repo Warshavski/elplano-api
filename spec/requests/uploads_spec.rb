@@ -15,11 +15,10 @@ describe UploadsController do
     before(:each) { subject }
 
     context 'valid request' do
-      it { expect(response).to have_http_status(:created) }
+      it 'is expected to return cached file metadata' do
+        expect(response).to have_http_status(:created)
+        expect(body_as_json.keys).to match_array(%w[id storage metadata])
 
-      it { expect(body_as_json.keys).to match_array(%w[id storage metadata]) }
-
-      it 'returns cached file metadata' do
         actual_metadata = body_as_json['metadata']
         expected_metadata = {
           'filename' => 'dk.png',
@@ -28,9 +27,7 @@ describe UploadsController do
         }
 
         expect(actual_metadata).to eq(expected_metadata)
-      end
 
-      it 'responds with cache storage type' do
         actual_storage = body_as_json['storage']
         expected_storage = 'cache'
 
@@ -42,9 +39,10 @@ describe UploadsController do
       context 'anonymous user' do
         let(:headers) { nil }
 
-        it { expect(response).to have_http_status(:unauthorized) }
-
-        it { expect(response.body).to eq("{\"errors\":[{\"status\":401,\"title\":\"Authorization error\",\"detail\":\"The access token is invalid\",\"source\":{\"pointer\":\"Authorization Header\"}}]}") }
+        it 'is expected to respond with error message' do
+          expect(response).to have_http_status(:unauthorized)
+          expect(response.body).to eq("{\"errors\":[{\"status\":401,\"title\":\"Authorization error\",\"detail\":\"The access token is invalid\",\"source\":{\"pointer\":\"Authorization Header\"}}]}")
+        end
       end
 
       context 'without file param' do

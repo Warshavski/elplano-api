@@ -29,9 +29,11 @@ RSpec.describe Api::V1::Group::InvitesController, type: :request do
     context 'when user is authorized' do
       before(:each) { subject }
 
-      it {  expect(response).to have_http_status(:ok) }
+      it 'is expected to respond with invites collection' do
+        expect(response).to have_http_status(:ok)
 
-      it { expect(json_data.count).to be(1) }
+        expect(json_data.count).to be(1)
+      end
     end
 
     context 'when user is unauthorized' do
@@ -54,30 +56,32 @@ RSpec.describe Api::V1::Group::InvitesController, type: :request do
       before(:each) { subject }
 
       context 'when request params are valid' do
-        it { expect(response).to have_http_status(:ok) }
+        it 'is expected to respond with invite entity' do
+          expect(response).to have_http_status(:ok)
 
-        it { expect(json_data['type']).to eq('invite') }
+          expect(json_data['type']).to eq('invite')
+
+          actual_token = json_data.dig(:attributes, :invitation_token)
+          expected_token = invite.invitation_token
+
+          expect(actual_token).to eq(expected_token)
+        end
 
         include_examples 'json:api examples',
                          %w[data],
                          %w[id type attributes relationships],
                          %w[email invitation_token status sent_at accepted_at created_at updated_at],
                          %w[sender recipient group]
-
-        it 'returns correct expected data' do
-          actual_token = json_data.dig(:attributes, :invitation_token)
-          expected_token = invite.invitation_token
-
-          expect(actual_token).to eq(expected_token)
-        end
       end
 
       context 'when request params are not valid' do
         let(:endpoint) { "#{base}/0" }
 
-        it { expect(response).to have_http_status(:not_found) }
+        it 'is expected to respond with not found error' do
+          expect(response).to have_http_status(:not_found)
 
-        it { expect(body_as_json['errors']).to_not be(nil) }
+          expect(body_as_json['errors']).to_not be(nil)
+        end
       end
     end
 
@@ -100,9 +104,16 @@ RSpec.describe Api::V1::Group::InvitesController, type: :request do
     context 'when user is authorized' do
       before(:each) { subject }
 
-      it { expect(response).to have_http_status(:created) }
+      it 'is expected to respond with created invite entity' do
+        expect(response).to have_http_status(:created)
 
-      it { expect(json_data['type']).to eq('invite') }
+        expect(json_data['type']).to eq('invite')
+
+        actual_title = json_data.dig(:attributes, :email)
+        expected_title = invite_params[:email]
+
+        expect(actual_title).to eq(expected_title)
+      end
 
       include_examples 'json:api examples',
                        %w[data],
@@ -110,20 +121,13 @@ RSpec.describe Api::V1::Group::InvitesController, type: :request do
                        %w[email invitation_token status sent_at accepted_at created_at updated_at],
                        %w[sender recipient group]
 
-      it 'returns created model' do
-        actual_title = json_data.dig(:attributes, :email)
-        expected_title = invite_params[:email]
-
-        expect(actual_title).to eq(expected_title)
-      end
-
       include_examples 'request errors examples'
     end
 
     context 'when user is unauthorized' do
       before { group.update!(president: create(:student, :president)) }
 
-      it 'responds with 403 status code' do
+      it 'is expected to respond with 403 status code' do
         subject
 
         expect(response).to have_http_status(:forbidden)

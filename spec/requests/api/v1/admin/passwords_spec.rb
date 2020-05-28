@@ -31,6 +31,7 @@ RSpec.describe Api::V1::Admin::PasswordsController, type: :request do
 
       it 'is expected to respond with success' do
         expect(response).to have_http_status(:ok)
+
         expect(body_as_json.keys).to match_array(['meta'])
       end
     end

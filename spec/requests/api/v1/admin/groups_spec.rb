@@ -25,6 +25,7 @@ RSpec.describe Api::V1::Admin::GroupsController, type: :request do
     context 'when no request params are provided' do
       it 'is expected to respond with groups list' do
         expect(response).to have_http_status(:ok)
+
         expect(json_data.count).to be(2)
       end
     end
@@ -40,6 +41,7 @@ RSpec.describe Api::V1::Admin::GroupsController, type: :request do
 
       it 'is expected to respond with filtered groups list' do
         expect(response).to have_http_status(:ok)
+
         expect(json_data.map { |e| e[:id].to_i }).to eq([expected_group.id])
       end
     end
@@ -52,6 +54,7 @@ RSpec.describe Api::V1::Admin::GroupsController, type: :request do
 
     it 'is expected to respond with detailed information about group' do
       expect(response).to have_http_status(:ok)
+
       expect(json_data['type']).to eq('group')
       expect(json_data['id']).to eq(expected_group.id.to_s)
     end

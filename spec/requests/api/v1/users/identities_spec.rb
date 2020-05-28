@@ -18,7 +18,7 @@ RSpec.describe Api::V1::Users::IdentitiesController, type: :request do
     before(:each) { subject }
 
     context 'when user is authorized user' do
-      it 'returns entities of the identity type' do
+      it 'is expected to respond with entities of the identity type' do
         expect(response).to have_http_status(:ok)
         expect(json_data.count).to eq(2)
 
@@ -27,7 +27,7 @@ RSpec.describe Api::V1::Users::IdentitiesController, type: :request do
         end
       end
 
-      it 'returns identities with expected attributes' do
+      it 'is expected to respond with identities with expected attributes' do
         entity = json_data.first
 
         expected_attributes = %w[provider created_at updated_at]
@@ -50,7 +50,7 @@ RSpec.describe Api::V1::Users::IdentitiesController, type: :request do
     let_it_be(:identity_id) { identity.id }
 
     context 'when user is authorized user' do
-      it 'responds with a 204 status' do
+      it 'is expected to respond with a 204 status' do
         subject
 
         expect(response).to have_http_status(:no_content)
@@ -61,7 +61,7 @@ RSpec.describe Api::V1::Users::IdentitiesController, type: :request do
       context 'when identity is not exist' do
         let_it_be(:identity_id) { 0 }
 
-        it 'responds with a 404 status not existed identity' do
+        it 'is expected to respond with a 404 status not existed identity' do
           subject
 
           expect(response).to have_http_status(:not_found)
@@ -72,7 +72,7 @@ RSpec.describe Api::V1::Users::IdentitiesController, type: :request do
     context 'when user is anonymous' do
       let(:headers) { nil }
 
-      it 'responds with unauthorized' do
+      it 'is expected to respond with unauthorized' do
         subject
 
         expect(response).to have_http_status(:unauthorized)

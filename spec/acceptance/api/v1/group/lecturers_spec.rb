@@ -45,7 +45,7 @@ resource "Group's lecturers" do
 
       do_request
 
-      expected_body = LecturerSerializer.new(group.lecturers).to_json
+      expected_body = Groups::ShortLecturerSerializer.new(group.lecturers).to_json
 
       expect(status).to eq(200)
       expect(response_body).to eq(expected_body)

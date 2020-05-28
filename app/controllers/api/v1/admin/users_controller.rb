@@ -24,7 +24,7 @@ module Api
         # Get filtered list of users
         #
         def index
-          users = filter_users(filter_params).preload(:student)
+          users = filter_users(filter_params).preload(:student, :status)
 
           render_collection users,
                             include: [:student],

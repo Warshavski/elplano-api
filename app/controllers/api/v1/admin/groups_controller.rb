@@ -23,7 +23,7 @@ module Api
         # Get filtered list of groups
         #
         def index
-          groups = filter_groups(filter_params).preload(president: :user)
+          groups = filter_groups(filter_params).preload(president: { user: :status })
 
           render_collection groups,
                             include: %i[president.user],

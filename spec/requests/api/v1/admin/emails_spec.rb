@@ -20,9 +20,11 @@ describe Api::V1::Admin::EmailsController, type: :request do
       context 'request performing' do
         before(:each) { subject }
 
-        it { expect(response).to have_http_status(:created) }
+        it 'is expected to respond with meta' do
+          expect(response).to have_http_status(:created)
 
-        it { expect(body_as_json.keys).to match_array(['meta'])}
+          expect(body_as_json.keys).to match_array(['meta'])
+        end
       end
 
       context 'email sending' do

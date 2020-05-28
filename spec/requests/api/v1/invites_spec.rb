@@ -24,9 +24,10 @@ RSpec.describe Api::V1::EventsController, type: :request do
     context 'when invites collection is unsorted' do
       before(:each) { subject }
 
-      it { expect(response).to have_http_status(:ok) }
-
-      it { expect(json_data.count).to be(1) }
+      it 'is expected to respond with invites collection' do
+        expect(response).to have_http_status(:ok)
+        expect(json_data.count).to be(1)
+      end
     end
   end
 
@@ -38,9 +39,10 @@ RSpec.describe Api::V1::EventsController, type: :request do
     context 'when request params are valid' do
       let(:endpoint) { "#{base}/#{invite.invitation_token}" }
 
-      it { expect(response).to have_http_status(:ok) }
-
-      it { expect(json_data['type']).to eq('invite') }
+      it 'is expected to respond with invite entity' do
+        expect(response).to have_http_status(:ok)
+        expect(json_data['type']).to eq('invite')
+      end
 
       include_examples 'json:api examples',
                        %w[data included],
@@ -59,9 +61,10 @@ RSpec.describe Api::V1::EventsController, type: :request do
     context 'when request params are not valid' do
       let(:endpoint) { "#{base}/wat_token" }
 
-      it { expect(response).to have_http_status(:ok) }
-
-      it { expect(json_data).to be(nil) }
+      it 'is expected to respond with empty data' do
+        expect(response).to have_http_status(:ok)
+        expect(json_data).to be(nil)
+      end
     end
   end
 
@@ -73,9 +76,10 @@ RSpec.describe Api::V1::EventsController, type: :request do
     context 'when request params are valid' do
       let(:endpoint) { "#{base}/#{invite.invitation_token}" }
 
-      it { expect(response).to have_http_status(:ok) }
-
-      it { expect(json_data['type']).to eq('invite') }
+      it 'is expected to respond with invite entity' do
+        expect(response).to have_http_status(:ok)
+        expect(json_data['type']).to eq('invite')
+      end
 
       it 'updates an invite status' do
         actual_status = body_as_json['data']['attributes']['status']

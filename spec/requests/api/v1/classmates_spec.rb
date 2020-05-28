@@ -27,9 +27,11 @@ RSpec.describe Api::V1::ClassmatesController, type: :request do
 
     context 'when user is authorized user' do
       context 'when no request params are provided' do
-        it { expect(response).to have_http_status(:ok) }
+        it 'is expected to respond with classmates collection' do
+          expect(response).to have_http_status(:ok)
 
-        it { expect(json_data.count).to be(2) }
+          expect(json_data.count).to be(2)
+        end
       end
 
       context 'when search filter is provided' do
@@ -41,9 +43,11 @@ RSpec.describe Api::V1::ClassmatesController, type: :request do
           }
         end
 
-        it { expect(response).to have_http_status(:ok) }
+        it 'is expected to respond with filtered classmates collection' do
+          expect(response).to have_http_status(:ok)
 
-        it { expect(json_data.map { |e| e[:id].to_i }).to eq([random_student.id]) }
+          expect(json_data.map { |e| e[:id].to_i }).to eq([random_student.id])
+        end
       end
     end
 

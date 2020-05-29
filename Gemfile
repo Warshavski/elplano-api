@@ -87,7 +87,7 @@ gem 'shrine', '>= 3.2'
 
 # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator
 # https://github.com/kaminari/kaminari
-gem 'kaminari'
+gem 'kaminari', '>= 1.2.1'
 
 # Settings is a plugin that makes managing a table of global key, value pairs easy.
 # https://github.com/huacnlee/rails-settings-cached

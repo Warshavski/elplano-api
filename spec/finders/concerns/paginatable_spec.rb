@@ -100,6 +100,6 @@ RSpec.describe Paginatable do
       }
     end
 
-    it { is_expected.to eq [first_user] }
+    it { is_expected.to eq [second_user] }
   end
 end

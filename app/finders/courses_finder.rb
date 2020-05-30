@@ -38,7 +38,9 @@ class CoursesFinder < ApplicationFinder
   def execute
     return Course.none if group.nil?
 
-    filter_by_availability(group.courses).then(&method(:paginate))
+    filter_by_availability(group.courses)
+      .then(&method(:paginate))
+      .then(&method(:apply_sort))
   end
 
   private

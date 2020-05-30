@@ -24,7 +24,9 @@ class GroupsFinder < ApplicationFinder
   # @return [ActiveRecord::Relation]
   #
   def execute
-    perform_search(Group).then(&method(:paginate))
+    perform_search(Group)
+      .then(&method(:paginate))
+      .then(&method(:apply_sort))
   end
 
   private

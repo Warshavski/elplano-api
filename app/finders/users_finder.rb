@@ -19,6 +19,8 @@ class UsersFinder < ApplicationFinder
   #
   def initialize(context: nil, params: {})
     super
+
+    @context = User.all
   end
 
   # Perform filtration and sort on users list
@@ -28,19 +30,21 @@ class UsersFinder < ApplicationFinder
   # @return [ActiveRecord::Relation]
   #
   def execute
-    perform_filtration.then(&method(:paginate))
+    perform_filtration
+      .then(&method(:paginate))
+      .then(&method(:apply_sort))
   end
 
   private
 
   def perform_filtration
-    User
+    context
       .then(&method(:filter_by_status))
       .then(&method(:perform_search))
   end
 
   def filter_by_status(items)
-    params[:status].blank? ? items : items.filter(params[:status])
+    params[:status].blank? ? items : items.filter_by(params[:status])
   end
 
   def perform_search(items)

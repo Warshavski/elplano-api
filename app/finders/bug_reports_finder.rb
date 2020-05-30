@@ -19,6 +19,8 @@ class BugReportsFinder < ApplicationFinder
   #
   def initialize(context: nil, params: {})
     super
+
+    @context = BugReport.all
   end
 
   # Perform filtration and sort on bug reports list
@@ -30,7 +32,9 @@ class BugReportsFinder < ApplicationFinder
   # @return [ActiveRecord::Relation]
   #
   def execute
-    filter_by_user(BugReport).then(&method(:paginate))
+    filter_by_user(context)
+      .then(&method(:paginate))
+      .then(&method(:apply_sort))
   end
 
   private

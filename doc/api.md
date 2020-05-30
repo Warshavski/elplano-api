@@ -194,6 +194,43 @@ In the case of page-based pagination additional pagination metadata is provided:
       }
     }
 
+&nbsp;
+
+#### Sorting
+
+The server support requests to sort resource collections according to one or more criteria ("sort fields").
+
+Any collection endpoint(INDEX) support requests to sort the primary data with a sort query parameter. 
+The value for sort MUST represent sort fields.
+
+<b>EXAMPLE</b> :
+
+<code>?sort=title</code>
+
+An endpoint support multiple sort fields by allowing comma-separated (U+002C COMMA, ",") sort fields. 
+
+<b>EXAMPLE</b> :
+
+<code>?sort=title,id</code>
+
+The sort order for each sort field MUST be ascending unless it is prefixed with a minus (U+002D HYPHEN-MINUS, “-“), in which case it MUST be descending.
+
+<b>EXAMPLE</b> :
+
+<code>?sort=-created_at,title</code>
+
+The above example should return the newest entities first. 
+Any entities created on the same date will then be sorted by their title in ascending alphabetical order.
+
+The server apply default sorting rules to top-level data if request parameter sort is not specified.
+
+<b>NOTES</b> : 
+
+- By default <code>?sort=-id</code> is applied.
+- By default support sort by any attribute specified in model(see model descriptions)
+- Sorting for not supported attributes will be ignored. 
+  <b>WARNING</b>: May change in the future(will return 400 status response)!
+
 ## Authentication
 
 API authentication is based on [OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749)

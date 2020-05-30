@@ -22,6 +22,8 @@
 #   - By default returns records limited by 15.
 #   - By default returns records sorted by recently created.
 #
+# TODO : rethink the idea of cursor-based pagination
+#
 module Paginatable
   COMPARATORS = { asc: '>', desc: '<' }.freeze
 
@@ -41,13 +43,11 @@ module Paginatable
   # @return [ActiveRecord::Relation<ApplicationRecord>]
   #
   def paginate(scope)
-    scope = if params[:page].blank?
-              perform_cursor_pagination(scope)
-            else
-              perform_default_pagination(scope)
-            end
-
-    sort(scope)
+    if params[:page].blank?
+      perform_cursor_pagination(scope)
+    else
+      perform_default_pagination(scope)
+    end
   end
 
   private
@@ -63,6 +63,7 @@ module Paginatable
       .then(&method(:filter_by_field))
       .then(&method(:filter_by_last_id))
       .then(&method(:limit_items))
+      .then(&method(:sort))
   end
 
   def filter_by_field(items)

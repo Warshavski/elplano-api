@@ -107,13 +107,17 @@ class ApplicationController < ActionController::API
   #
   #   - search - filter by given term(pattern)
   #
-  #   - pagination
+  #   - cursor pagination(DEPRECATED)
   #       - last_id       - Identity of the last record in previous chunk
   #       - limit         - Quantity of the records in requested chuck
   #       - direction     - Records sort direction(asc - ascending, desc - descending)
   #       - field         - Name of the sortable field
   #       - field_value   - Value of the sortable field
   #       - page          - Page number
+  #
+  #   - standard pagination(PREFERABLE)
+  #       - page  - Page number
+  #       - limit - Quantity of the records in requested chuck
   #
   #   @example:
   #     {
@@ -136,7 +140,7 @@ class ApplicationController < ActionController::API
                 {}
               end
 
-    validate_with(contract.new, filters)
+    validate_with(contract.new, filters).merge!(sort: params[:sort])
   end
 
   def current_resource_owner

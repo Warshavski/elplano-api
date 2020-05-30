@@ -6,6 +6,7 @@
 #
 class ApplicationFinder
   include Paginatable
+  include Sortable
 
   attr_reader :context, :params
 

@@ -116,7 +116,7 @@ class User < ApplicationRecord
       where(conditions).find_by('lower(username) = :value OR lower(email) = :value', value: login.downcase.strip)
     end
 
-    def filter(filter_name)
+    def filter_by(filter_name)
       case filter_name.to_s
       when 'admins'
         admins

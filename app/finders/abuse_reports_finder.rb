@@ -19,6 +19,8 @@ class AbuseReportsFinder < ApplicationFinder
   #
   def initialize(context: nil, params: {})
     super
+
+    @context = AbuseReport.all
   end
 
   # Perform filtration and sort on abuse reports list
@@ -30,7 +32,9 @@ class AbuseReportsFinder < ApplicationFinder
   # @return [ActiveRecord::Relation]
   #
   def execute
-    perform_filtration(AbuseReport).then(&method(:paginate))
+    perform_filtration(context)
+      .then(&method(:paginate))
+      .then(&method(:apply_sort))
   end
 
   private

@@ -40,6 +40,7 @@ class ActivityEventsFinder < ApplicationFinder
       .then(&method(:filter_by_action))
       .then(&method(:filter_by_author))
       .then(&method(:paginate))
+      .then(&method(:apply_sort))
   end
 
   private

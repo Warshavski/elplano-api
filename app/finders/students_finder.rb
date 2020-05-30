@@ -31,7 +31,9 @@ class StudentsFinder < ApplicationFinder
   # @return [ActiveRecord::Relation]
   #
   def execute
-    init_collection.then(&method(:perform_search))
+    init_collection
+      .then(&method(:perform_search))
+      .then(&method(:apply_sort))
   end
 
   private

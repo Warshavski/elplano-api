@@ -183,25 +183,25 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe '.filter' do
+  describe '.filter_by' do
     let_it_be(:user) { double }
 
     it 'filters by active users by default' do
       expect(described_class).to receive(:active).and_return([user])
 
-      expect(described_class.filter(nil)).to include(user)
+      expect(described_class.filter_by(nil)).to include(user)
     end
 
     it 'filters by admins' do
       expect(described_class).to receive(:admins).and_return([user])
 
-      expect(described_class.filter('admins')).to include(user)
+      expect(described_class.filter_by('admins')).to include(user)
     end
 
     it 'filters by banned' do
       expect(described_class).to receive(:banned).and_return([user])
 
-      expect(described_class.filter('banned')).to include(user)
+      expect(described_class.filter_by('banned')).to include(user)
     end
   end
 

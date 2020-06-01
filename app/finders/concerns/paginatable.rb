@@ -10,11 +10,11 @@
 #   @params params [Hash] - Pagination filter and sort options
 #
 #     @option params [Integer]  :last_id      - Identity of the last record in previous chunk
-#     @option params [Integer]  :limit        - Quantity of the records in requested chuck
 #     @option params [String]   :direction    - Records sort direction(asc - ascending, desc - descending)
 #     @option params [String]   :field        - Name of the sortable field
 #     @option params [String]   :field_value  - Value of the sortable field
-#     @option params [Integer]  :page         - Page number for page based pagination
+#     @option params [Integer]  :size         - Quantity of the records in requested chuck
+#     @option params [Integer]  :number       - Page number for page based pagination
 #
 # @note
 #
@@ -28,13 +28,13 @@ module Paginatable
   COMPARATORS = { asc: '>', desc: '<' }.freeze
 
   DEFAULT_DIRECTION = 'desc'
-  DEFAULT_LIMIT = 15
-  DEFAULT_PAGE = 1
+  DEFAULT_PAGE_SIZE = 15
+  DEFAULT_PAGE_NUMBER = 1
 
   DIRECTIONS = %w[asc desc].freeze
 
-  MAX_LIMIT = 100
-  MIN_LIMIT = 1
+  MAX_PAGE_SIZE = 100
+  MIN_PAGE_SIZE = 1
 
   private_constant :COMPARATORS, :DEFAULT_DIRECTION
 
@@ -43,7 +43,7 @@ module Paginatable
   # @return [ActiveRecord::Relation<ApplicationRecord>]
   #
   def paginate(scope)
-    if params[:page].blank?
+    if pagination_params[:number].blank?
       perform_cursor_pagination(scope)
     else
       perform_default_pagination(scope)
@@ -53,9 +53,9 @@ module Paginatable
   private
 
   def perform_default_pagination(scope)
-    return items if params[:page].blank?
+    return items if pagination_params[:number].blank?
 
-    scope.page(params[:page]).per(params[:limit] || DEFAULT_LIMIT)
+    scope.page(pagination_params[:number]).per(pagination_params[:size] || DEFAULT_PAGE_SIZE)
   end
 
   def perform_cursor_pagination(scope)
@@ -67,17 +67,22 @@ module Paginatable
   end
 
   def filter_by_field(items)
-    if params[:field] && params[:field_value]
-      apply_filter(items, params[:field], params[:direction], params[:field_value])
+    if pagination_params[:field] && pagination_params[:field_value]
+      apply_filter(
+        items,
+        pagination_params[:field],
+        pagination_params[:direction],
+        pagination_params[:field_value]
+      )
     else
       items
     end
   end
 
   def filter_by_last_id(items)
-    return items unless params[:last_id]
+    return items unless pagination_params[:last_id]
 
-    apply_filter(items, 'id', params[:direction], params[:last_id], '')
+    apply_filter(items, 'id', pagination_params[:direction], pagination_params[:last_id], '')
   end
 
   def apply_filter(scope, field, direction, field_value, quality_comparer = '=')
@@ -96,13 +101,13 @@ module Paginatable
   end
 
   def limit_items(items)
-    items.limit(params.fetch(:limit) { DEFAULT_LIMIT })
+    items.limit(pagination_params.fetch(:size) { DEFAULT_PAGE_SIZE })
   end
 
   def sort(items)
-    direction = params.fetch(:direction) { DEFAULT_DIRECTION }
+    direction = pagination_params.fetch(:direction) { DEFAULT_DIRECTION }
 
-    order_clause = params[:field] ? { params[:field] => direction } : {}
+    order_clause = pagination_params[:field] ? { pagination_params[:field] => direction } : {}
 
     items.reorder(order_clause.merge(id: direction))
   end

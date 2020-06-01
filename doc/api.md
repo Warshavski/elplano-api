@@ -132,51 +132,44 @@ Collection resources are paged and may be sorted and filtered(depending on avail
 Some collections support the ability to filter the results. 
 Filtering a collection resource is conducted via the filters parameter using the following notation:
 
+`filter[filter_name]=filter_value`
 
-    {
-      "filters": {
-        "search": "search term",
-        "status": "cancelled"
-      }
-    }
+<b>NOTES</b> : 
+
+- The example query parameters above use unencoded [ and ] characters simply for readability. In practice, these characters must be percent-encoded, per the requirements in [RFC 3986](http://tools.ietf.org/html/rfc3986#section-3.4).
+
+<b>EXAMPLE</b> :
+
+<code>?filter%5Bsearch%5D=searchTerm&filter%5Bstatus%5D=cancelled</code>
 
 &nbsp;
 
 #### Pagination
 
-Pagination uses filters notation and provides the ability to limit records with cursor-like style.
+Pagination provides the ability to fetch records by chunks and using the following notation:
 
-    {
-      "filters": {
-        "last_id": 15,
-        "limit": 10,
-        "direction": "desc",
-        "field_name": "email",
-        "fiend_value": "wat@email.huh"
-      }
-    }
+`page[size]=number_of_records_in_chunks&page[number]=number_of_chuck`
 
-<b>NOTE</b> : 
+<b>DEPRECATED</b>. To perform cursor-like pagination page params must contains:
 
-- Default chuck size is equal 15, minimum size is equal 1 and maximum size is equal 100.
-- Filters should be url encoded and passed as optional query parameters.
+- last_id       - Identity of the last record in previous chunk
+- size          - Quantity of the records in requested chuck
+- direction     - Records sort direction(asc - ascending, desc - descending)
+- field         - Name of the sortable field
+- field_value   - Value of the sortable field
 
 <b>EXAMPLE</b> : 
 
-<code>?filters=%7B%22last_id%22%3A1%2C%22direction%22%3A%22asc%22%7D</code>
+<code>?page%5Bdirection%5D=asc&page%5Bfield_name%5D=email&page%5Bfield_value%5D=wat%40mail.huh&page%5Blast_id%5D=1&page%size%5D=10</code>
 
-To perform page based pagination filters must contains page parameter
+<b>PREFERABLE</b>. To perform page based pagination filters must contains number in page parameter
 
-    {
-      "filters": {
-        "page": 2,
-        "limit": 10
-      }
-    }
+- number    - Page number
+- size      - Quantity of the records in requested chuck
 
 <b>EXAMPLE</b> :
 
-<code>?filters=%7B%22page%22%3A2%2C%22limit%22%3A10%7D</code>
+<code>?page%5Bnumber%5D=3&page%5Bsize%5D=10</code>
 
 In the case of page-based pagination additional pagination metadata is provided:
 
@@ -186,15 +179,20 @@ In the case of page-based pagination additional pagination metadata is provided:
         "total_pages": 3
       },
       "links": {
-        "self": "https://api.elplano.app/api/v1/users?limit=1&page=2",
-        "first": "https://api.elplano.app/api/v1/users?limit=1&page=1",
-        "prev": "https://api.elplano.app/api/v1/users?limit=1&page=1",
-        "next": "https://api.elplano.app/api/v1/users?limit=1&page=3",
-        "last": "https://api.elplano.app/api/v1/users?limit=1&page=3"
+        "self": "https://api.elplano.app/api/v1/users?page%5Bnumber%5D=2&page%5Bsize%5D=1'",
+        "first": "https://api.elplano.app/api/v1/users?page%5Bnumber%5D=1&page%5Bsize%5D=1",
+        "prev": "https://api.elplano.app/api/v1/users?page%5Bnumber%5D=1&page%5Bsize%5D=1",
+        "next": "https://api.elplano.app/api/v1/users?page%5Bnumber%5D=3&page%5Bsize%5D=1",
+        "last": "https://api.elplano.app/api/v1/users?page%5Bnumber%5D=3&page%5Bsize%5D=1"
       }
     }
 
 &nbsp;
+
+<b>NOTES</b> : 
+
+- Default chuck size is equal 15, minimum size is equal 1 and maximum size is equal 100.
+- Query parameters characters must be percent-encoded, per the requirements in [RFC 3986](http://tools.ietf.org/html/rfc3986#section-3.4).
 
 #### Sorting
 

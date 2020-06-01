@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe UsersFinder do
   describe '#execute' do
-    subject { described_class.new(params: params).execute }
+    subject { described_class.new(params: { filter: params }).execute }
 
     let_it_be(:confirmed_user)    { create(:user) }
     let_it_be(:unconfirmed_user)  { create(:user, :unconfirmed) }

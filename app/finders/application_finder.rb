@@ -22,4 +22,14 @@ class ApplicationFinder
   def execute
     raise NotImplementedError
   end
+
+  private
+
+  def pagination_params
+    params[:page] || {}
+  end
+
+  def filter_params
+    params[:filter] || {}
+  end
 end

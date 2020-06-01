@@ -109,38 +109,40 @@ class ApplicationController < ActionController::API
   #
   #   - cursor pagination(DEPRECATED)
   #       - last_id       - Identity of the last record in previous chunk
-  #       - limit         - Quantity of the records in requested chuck
+  #       - size          - Quantity of the records in requested chuck
   #       - direction     - Records sort direction(asc - ascending, desc - descending)
   #       - field         - Name of the sortable field
   #       - field_value   - Value of the sortable field
-  #       - page          - Page number
   #
   #   - standard pagination(PREFERABLE)
-  #       - page  - Page number
-  #       - limit - Quantity of the records in requested chuck
+  #       - number  - Page number
+  #       - size - Quantity of the records in requested chuck
   #
   #   @example:
   #     {
-  #       "filters": {
+  #       "filter": {
+  #         "search": "search term"
+  #       },
+  #       "page": {
   #         "last_id": 15,
   #         "limit": 10,
   #         "direction": "desc",
   #         "field_name": "email",
   #         "field_value": "wat@email.huh",
-  #         "search": "search term"
-  #         "page": 2
-  #       }
+  #         "number": 2,
+  #         "size": 20
+  #       },
+  #       "sort": "-id,name"
   #     }
   #
   def filter_params(contract = FilterContract)
-    # Try to parse filter params and in case of error just ignore them
-    filters = begin
-                params[:filters].blank? ? {} : JSON.parse(params[:filters])
-              rescue StandardError
-                {}
-              end
+    filters     = params[:filter] || {}
+    pagination  = params[:page]   || {}
 
-    validate_with(contract.new, filters).merge!(sort: params[:sort])
+    valid_filters     = validate_with(contract.new, filters)
+    valid_pagination  = validate_with(PaginationContract.new, pagination)
+
+    { filter: valid_filters, page: valid_pagination, sort: params[:sort] }
   end
 
   def current_resource_owner

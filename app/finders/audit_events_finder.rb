@@ -41,8 +41,8 @@ class AuditEventsFinder < ApplicationFinder
   private
 
   def filter_by_type(items)
-    return items if params[:type].blank?
+    return items if filter_params[:type].blank?
 
-    items.where(audit_type: AuditEvent.audit_types[params[:type]])
+    items.where(audit_type: AuditEvent.audit_types[filter_params[:type]])
   end
 end

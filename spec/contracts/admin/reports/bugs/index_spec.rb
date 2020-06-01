@@ -9,7 +9,7 @@ RSpec.describe Admin::Reports::Bugs::IndexContract do
   it_behaves_like :valid, without: :user_id
 
   it_behaves_like :invalid, with: { user_id: 'wat' }
-  it_behaves_like :invalid, with: { user_id: '1' }
+  it_behaves_like :valid, with: { user_id: '1' }
   it_behaves_like :invalid, with: { user_id: '' }
   it_behaves_like :invalid, with: { user_id: nil }
 end

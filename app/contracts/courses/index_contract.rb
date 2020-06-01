@@ -7,7 +7,7 @@ module Courses
   #
   class IndexContract < FilterContract
     params do
-      optional(:active).filled(:bool?)
+      optional(:active).type(:bool).filled(:bool?)
     end
   end
 end

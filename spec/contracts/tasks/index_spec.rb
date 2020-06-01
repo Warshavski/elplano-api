@@ -30,18 +30,18 @@ RSpec.describe Tasks::IndexContract do
   [true, false].each { |flag| it_behaves_like :valid, with: { accomplished: flag } }
 
   it_behaves_like :invalid, with: { accomplished: 'wat' }
-  it_behaves_like :invalid, with: { accomplished: 'false' }
-  it_behaves_like :invalid, with: { accomplished: 'true' }
-  it_behaves_like :invalid, with: { accomplished: 0 }
-  it_behaves_like :invalid, with: { accomplished: 1 }
+  it_behaves_like :valid, with: { accomplished: 'false' }
+  it_behaves_like :valid, with: { accomplished: 'true' }
+  it_behaves_like :valid, with: { accomplished: 0 }
+  it_behaves_like :valid, with: { accomplished: 1 }
   it_behaves_like :invalid, with: { accomplished: nil }
 
   [true, false].each { |flag| it_behaves_like :valid, with: { appointed: flag } }
 
   it_behaves_like :invalid, with: { appointed: 'wat' }
-  it_behaves_like :invalid, with: { appointed: 'false' }
-  it_behaves_like :invalid, with: { appointed: 'true' }
-  it_behaves_like :invalid, with: { appointed: 0 }
-  it_behaves_like :invalid, with: { appointed: 1 }
+  it_behaves_like :valid, with: { appointed: 'false' }
+  it_behaves_like :valid, with: { appointed: 'true' }
+  it_behaves_like :valid, with: { appointed: 0 }
+  it_behaves_like :valid, with: { appointed: 1 }
   it_behaves_like :invalid, with: { appointed: nil }
 end

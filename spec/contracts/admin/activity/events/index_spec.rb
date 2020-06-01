@@ -23,7 +23,7 @@ RSpec.describe Admin::Activity::Events::IndexContract do
   it_behaves_like :invalid, with: { action: nil }
 
   it_behaves_like :invalid, with: { author_id: 'wat' }
-  it_behaves_like :invalid, with: { author_id: '1' }
+  it_behaves_like :valid, with: { author_id: '1' }
   it_behaves_like :invalid, with: { author_id: '' }
   it_behaves_like :invalid, with: { author_id: nil }
 end

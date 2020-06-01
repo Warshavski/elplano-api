@@ -63,9 +63,7 @@ RSpec.describe Api::V1::TasksController, type: :request do
 
       let_it_be(:params) do
         {
-          filters: {
-            event_id: another_event.id
-          }.to_json
+          filter: { event_id: another_event.id }
         }
       end
 
@@ -94,9 +92,7 @@ RSpec.describe Api::V1::TasksController, type: :request do
 
       let_it_be(:params) do
         {
-          filters: {
-            expiration: 'outdated'
-          }.to_json
+          filter: { expiration: 'outdated' }
         }
       end
 
@@ -121,9 +117,9 @@ RSpec.describe Api::V1::TasksController, type: :request do
 
       let_it_be(:params) do
         {
-          filters: {
+          filter: {
             accomplished: true
-          }.to_json
+          }
         }
       end
 

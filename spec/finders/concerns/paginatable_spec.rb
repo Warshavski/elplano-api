@@ -7,10 +7,11 @@ RSpec.describe Paginatable do
     class FakeFinder
       include Paginatable
 
-      attr_reader :params
+      attr_reader :params, :pagination_params
 
       def execute(scope, params)
         @params = params
+        @pagination_params = params[:page]
 
         paginate(scope)
       end
@@ -26,11 +27,13 @@ RSpec.describe Paginatable do
 
     let(:params) do
       {
-        limit: nil,
-        field: nil,
-        direction: 'asc',
-        field_value: nil,
-        last_id: users.first.id - 1
+        page: {
+          size: nil,
+          field: nil,
+          direction: 'asc',
+          field_value: nil,
+          last_id: users.first.id - 1
+        }
       }
     end
 
@@ -45,11 +48,13 @@ RSpec.describe Paginatable do
     context 'when direction is ascending' do
       let(:params) do
         {
-          limit: 3,
-          field: 'username',
-          direction: 'asc',
-          field_value: nil,
-          last_id: nil
+          page: {
+            size: 3,
+            field: 'username',
+            direction: 'asc',
+            field_value: nil,
+            last_id: nil
+          }
         }
       end
 
@@ -59,11 +64,13 @@ RSpec.describe Paginatable do
     context 'when direction is descending' do
       let(:params) do
         {
-          limit: 3,
-          field: 'username',
-          direction: 'desc',
-          field_value: nil,
-          last_id: nil
+          page: {
+            size: 3,
+            field: 'username',
+            direction: 'desc',
+            field_value: nil,
+            last_id: nil
+          }
         }
       end
 
@@ -78,11 +85,13 @@ RSpec.describe Paginatable do
 
     let(:params) do
       {
-        limit: 2,
-        field: 'created_at',
-        direction: 'asc',
-        field_value: unexpected_user.created_at.to_s,
-        last_id: unexpected_user.id
+        page: {
+          size: 2,
+          field: 'created_at',
+          direction: 'asc',
+          field_value: unexpected_user.created_at.to_s,
+          last_id: unexpected_user.id
+        }
       }
     end
 
@@ -95,8 +104,10 @@ RSpec.describe Paginatable do
 
     let(:params) do
       {
-        limit: 1,
-        page: 2,
+        page: {
+          size: 1,
+          number: 2,
+        }
       }
     end
 

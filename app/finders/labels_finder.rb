@@ -44,6 +44,6 @@ class LabelsFinder < ApplicationFinder
   end
 
   def perform_filtration(scope)
-    params[:search].blank? ? scope : scope.search(params[:search])
+    filter_params[:search].blank? ? scope : scope.search(filter_params[:search])
   end
 end

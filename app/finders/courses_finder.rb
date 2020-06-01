@@ -46,7 +46,7 @@ class CoursesFinder < ApplicationFinder
   private
 
   def filter_by_availability(items)
-    case params[:active]
+    case filter_params[:active]
     when nil
       items
     when true

@@ -9,8 +9,9 @@ module Admin
       #
       class IndexContract < FilterContract
         params do
-          optional(:user_id).filled(:int?)
-          optional(:reporter_id).filled(:int?)
+          optional(:user_id).type(:integer).filled(:int?)
+
+          optional(:reporter_id).type(:integer).filled(:int?)
         end
       end
     end

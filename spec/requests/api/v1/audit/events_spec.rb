@@ -40,7 +40,7 @@ RSpec.describe Api::V1::Audit::EventsController, type: :request do
       context 'when type filter is set' do
         let(:params) do
           {
-            filters: { type: 'authentication' }.to_json
+            filter: { type: 'authentication' }
           }
         end
 

@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe AuditEventsFinder do
   describe '#execute' do
-    subject { described_class.new(context: user, params: params).execute }
+    subject { described_class.new(context: user, params: { filter: params }).execute }
 
     let_it_be(:user) { create(:user) }
 

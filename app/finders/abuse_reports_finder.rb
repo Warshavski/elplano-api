@@ -46,8 +46,8 @@ class AbuseReportsFinder < ApplicationFinder
   end
 
   def filter_by(key, items)
-    return items if params[key].blank?
+    return items if filter_params[key].blank?
 
-    items.where(key => params[key])
+    items.where(key => filter_params[key])
   end
 end

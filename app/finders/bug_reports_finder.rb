@@ -40,8 +40,8 @@ class BugReportsFinder < ApplicationFinder
   private
 
   def filter_by_user(items)
-    return items if params[:user_id].blank?
+    return items if filter_params[:user_id].blank?
 
-    items.where(reporter_id: params[:user_id])
+    items.where(reporter_id: filter_params[:user_id])
   end
 end

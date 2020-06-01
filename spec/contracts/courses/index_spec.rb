@@ -12,8 +12,8 @@ RSpec.describe Courses::IndexContract do
   it_behaves_like :invalid, with: { active: nil }
   it_behaves_like :invalid, with: { active: 'wat' }
   it_behaves_like :invalid, with: { active: '' }
-  it_behaves_like :invalid, with: { active: 'false' }
-  it_behaves_like :invalid, with: { active: 'true' }
-  it_behaves_like :invalid, with: { active: 1 }
-  it_behaves_like :invalid, with: { active: 0 }
+  it_behaves_like :valid, with: { active: 'false' }
+  it_behaves_like :valid, with: { active: 'true' }
+  it_behaves_like :valid, with: { active: 1 }
+  it_behaves_like :valid, with: { active: 0 }
 end

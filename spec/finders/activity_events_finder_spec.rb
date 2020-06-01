@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe ActivityEventsFinder do
   describe '#execute' do
-    subject { described_class.new(context: owner, params: params).execute }
+    subject { described_class.new(context: owner, params: { filter: params }).execute }
 
     let_it_be(:assignment)  { create(:assignment) }
     let_it_be(:user)        { assignment.student.user }

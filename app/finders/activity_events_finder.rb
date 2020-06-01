@@ -50,10 +50,14 @@ class ActivityEventsFinder < ApplicationFinder
   end
 
   def filter_by_action(items)
-    params[:action].blank? ? items : items.by_action(params[:action])
+    return items if filter_params[:action].blank?
+
+    items.by_action(filter_params[:action])
   end
 
   def filter_by_author(items)
-    params[:author_id].blank? ? items : items.where(author_id: params[:author_id])
+    return items if filter_params[:author_id].blank?
+
+    items.where(author_id: filter_params[:author_id])
   end
 end

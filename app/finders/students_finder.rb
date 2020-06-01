@@ -43,6 +43,6 @@ class StudentsFinder < ApplicationFinder
   end
 
   def perform_search(items)
-    params[:search].blank? ? items : items.search(params[:search])
+    filter_params[:search].blank? ? items : items.search(filter_params[:search])
   end
 end

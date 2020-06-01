@@ -54,7 +54,7 @@ class TasksFinder < ApplicationFinder
   private
 
   def resolve_scope
-    if params[:appointed].present? || !params[:accomplished].nil?
+    if filter_params[:appointed].present? || !filter_params[:accomplished].nil?
       current_student.appointed_tasks
     else
       current_student.authored_tasks
@@ -69,11 +69,11 @@ class TasksFinder < ApplicationFinder
   end
 
   def filter_by_event(items)
-    params[:event_id].blank? ? items : items.where(event_id: params[:event_id])
+    filter_params[:event_id].blank? ? items : items.where(event_id: filter_params[:event_id])
   end
 
   def filter_by_expiration(items)
-    expiration_scope = params[:expiration].to_s
+    expiration_scope = filter_params[:expiration].to_s
 
     return items if expiration_scope.blank?
 
@@ -85,7 +85,7 @@ class TasksFinder < ApplicationFinder
   end
 
   def filter_by_accomplishment(items)
-    case params[:accomplished]
+    case filter_params[:accomplished]
     when nil
       items
     when false

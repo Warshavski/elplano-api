@@ -55,11 +55,11 @@ class EventsFinder < ApplicationFinder
       'authored' => filter_authored
     }
 
-    filters.fetch(params[:scope]) { filter_appointed }
+    filters.fetch(filter_params[:scope]) { filter_appointed }
   end
 
   def filter_authored
-    student.created_events.filter_by(params[:type])
+    student.created_events.filter_by(filter_params[:type])
   end
 
   def filter_appointed
@@ -70,18 +70,14 @@ class EventsFinder < ApplicationFinder
                          .where(eventable_id: student.id)
     }
 
-    filters.fetch(params[:type]) { filters.values.inject(&:or) }
+    filters.fetch(filter_params[:type]) { filters.values.inject(&:or) }
   end
 
   def filter_by_labels(items)
-    return items if params[:labels].blank?
+    return items if filter_params[:labels].blank?
 
-    label_ids = params[:labels].split(',')
+    label_ids = filter_params[:labels].split(',')
 
     items.joins(:labels).where(labels: { id: label_ids }).distinct
-  end
-
-  def sort(items)
-    params[:sort].blank? ? items.reorder(id: :desc) : items.order_by(params[:sort])
   end
 end

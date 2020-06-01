@@ -33,9 +33,7 @@ RSpec.describe Api::V1::Admin::GroupsController, type: :request do
     context 'when search filter is provided' do
       let_it_be(:params) do
         {
-          filters: {
-            search: expected_group.title
-          }.to_json
+          filter: { search: expected_group.title }
         }
       end
 

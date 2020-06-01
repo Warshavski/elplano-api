@@ -8,7 +8,7 @@ RSpec.describe CoursesFinder do
   let_it_be(:deactivated_course)  { create(:course, group: group, active: false) }
 
   describe '#execute' do
-    subject { described_class.new(context: group, params: params).execute }
+    subject { described_class.new(context: group, params: { filter: params }).execute }
 
     context 'when active is set to true' do
       let_it_be(:params) { { active: true } }

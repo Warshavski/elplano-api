@@ -44,10 +44,10 @@ class UsersFinder < ApplicationFinder
   end
 
   def filter_by_status(items)
-    params[:status].blank? ? items : items.filter_by(params[:status])
+    filter_params[:status].blank? ? items : items.filter_by(filter_params[:status])
   end
 
   def perform_search(items)
-    params[:search].blank? ? items : items.search(params[:search])
+    filter_params[:search].blank? ? items : items.search(filter_params[:search])
   end
 end

@@ -59,7 +59,7 @@ RSpec.describe Api::V1::EventsController, type: :request do
       context 'when type filter param is provided' do
         let(:params) do
           {
-            filters: { type: 'group' }.to_json
+            filter: { type: 'group' }
           }
         end
 
@@ -72,7 +72,7 @@ RSpec.describe Api::V1::EventsController, type: :request do
       context 'when scope filter param is provided' do
         let(:params) do
           {
-            filters: { scope: 'authored' }.to_json
+            filter: { scope: 'authored' }
           }
         end
 
@@ -85,7 +85,7 @@ RSpec.describe Api::V1::EventsController, type: :request do
       context 'when scope filter param is provided' do
         let(:params) do
           {
-            filters: { labels: labels.map(&:id).join(',') }.to_json
+            filter: { labels: labels.map(&:id).join(',') }
           }
         end
 

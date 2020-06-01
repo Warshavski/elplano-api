@@ -9,7 +9,7 @@ module Admin
       #
       class IndexContract < ::Activity::Events::IndexContract
         params do
-          optional(:author_id).filled(:int?)
+          optional(:author_id).type(:integer).filled(:int?)
         end
       end
     end

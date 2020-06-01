@@ -37,9 +37,7 @@ RSpec.describe Api::V1::ClassmatesController, type: :request do
       context 'when search filter is provided' do
         let(:params) do
           {
-            filters: {
-              search: random_student.email
-            }.to_json
+            filter: { search: random_student.email }
           }
         end
 

@@ -43,7 +43,7 @@ RSpec.describe Api::V1::Admin::Activity::EventsController, action: :request do
       context 'when action filter is set' do
         let(:params) do
           {
-            filters: { action: 'created' }.to_json
+            filter: { action: 'created' }
           }
         end
 

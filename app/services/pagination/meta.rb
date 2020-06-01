@@ -11,7 +11,8 @@ module Pagination
   #
   class Meta
     attr_accessor :url
-    attr_reader :limit, :page, :total_pages, :filters
+
+    attr_reader :size, :number, :total_pages, :filter
 
     # see #execute
     #
@@ -30,11 +31,11 @@ module Pagination
     def initialize(request, collection, opts = {})
       @url = "#{request.base_url}#{request.path}"
 
-      @filters = opts.dup
+      @filter = opts.without(:page)
       @total_pages = collection.total_pages
 
-      @page   = (filters.delete(:page) || Paginatable::DEFAULT_PAGE).to_i
-      @limit  = (filters.delete(:limit) || Paginatable::DEFAULT_LIMIT).to_i
+      @number = (opts.dig(:page, :number) || Paginatable::DEFAULT_PAGE_NUMBER).to_i
+      @size   = (opts.dig(:page, :size)   || Paginatable::DEFAULT_PAGE_SIZE).to_i
     end
 
     # Perform metadata build
@@ -45,31 +46,31 @@ module Pagination
     #   Urls for current, previous, next, first and last chunks
     #
     # @option meta [Hash] :meta -
-    #   Current page number and total pages counter
+    #   Current number number and total pages counter
     #
     def execute
       @metadata = nil
 
       metadata.tap do
         gen_self
-        gen_first_prev if page > Paginatable::DEFAULT_PAGE
-        gen_next_last if page < total_pages
+        gen_first_prev if number > Paginatable::DEFAULT_PAGE_NUMBER
+        gen_next_last if number < total_pages
       end
     end
 
     private
 
     def gen_self
-      metadata[:links][:self] = generate_url(page)
+      metadata[:links][:self] = generate_url(number)
     end
 
     def gen_first_prev
-      metadata[:links][:first] = generate_url(Paginatable::DEFAULT_PAGE)
-      metadata[:links][:prev] = generate_url(page - 1)
+      metadata[:links][:first] = generate_url(Paginatable::DEFAULT_PAGE_NUMBER)
+      metadata[:links][:prev] = generate_url(number - 1)
     end
 
     def gen_next_last
-      metadata[:links][:next] = generate_url(page + 1)
+      metadata[:links][:next] = generate_url(number + 1)
       metadata[:links][:last] = generate_url(total_pages)
     end
 
@@ -77,18 +78,18 @@ module Pagination
       @metadata ||= {
         links: {},
         meta: {
-          current_page: @page,
+          current_page: @number,
           total_pages: @total_pages
         }
       }
     end
 
-    def generate_url(page)
-      [url, url_params(page)].reject(&:blank?).join('?')
+    def generate_url(number)
+      [url, url_params(number)].reject(&:blank?).join('?')
     end
 
-    def url_params(page)
-      { limit: limit, page: page }.merge(filters).to_query
+    def url_params(number)
+      { page: { size: size, number: number } }.merge(filter).to_query
     end
   end
 end

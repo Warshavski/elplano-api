@@ -32,9 +32,7 @@ RSpec.describe Api::V1::Admin::UsersController, type: :request do
     context 'when status filter is provided' do
       let_it_be(:params) do
         {
-          filters: {
-            status: 'banned'
-          }.to_json
+          filter: { status: 'banned' }
         }
       end
 
@@ -50,9 +48,7 @@ RSpec.describe Api::V1::Admin::UsersController, type: :request do
     context 'when search filter is provided' do
       let_it_be(:params) do
         {
-          filters: {
-            search: random_user.email
-          }.to_json
+          filter: { search: random_user.email }
         }
       end
 

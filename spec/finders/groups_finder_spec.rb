@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe GroupsFinder do
   describe '#execute' do
-    subject { described_class.new(params: params).execute }
+    subject { described_class.new(params: { filter: params }).execute }
 
     let_it_be(:first_group)  { create(:group, title: 'first', number: 'first') }
     let_it_be(:second_group) { create(:group, title: 'second', number: 'second') }

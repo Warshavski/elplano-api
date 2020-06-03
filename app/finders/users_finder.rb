@@ -32,7 +32,7 @@ class UsersFinder < ApplicationFinder
   def execute
     perform_filtration
       .then(&method(:paginate))
-      .then(&method(:apply_sort))
+      .then(&method(:sort))
   end
 
   private

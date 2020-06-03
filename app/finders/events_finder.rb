@@ -40,7 +40,7 @@ class EventsFinder < ApplicationFinder
   #   sorted by recently created
   #
   def execute
-    perform_filtration.then(&method(:apply_sort))
+    perform_filtration.then(&method(:sort))
   end
 
   private

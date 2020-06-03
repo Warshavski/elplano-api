@@ -7,12 +7,16 @@ RSpec.describe Sortable do
     class FakeFinder
       include Sortable
 
+      specify_sort :wat do |scope, direction|
+        scope.order(title: direction, id: direction)
+      end
+
       attr_reader :params
 
       def execute(scope, params)
         @params = params
 
-        apply_sort(scope)
+        sort(scope)
       end
     end
   end
@@ -58,6 +62,16 @@ RSpec.describe Sortable do
 
     it 'is expected to sort by provided parameters' do
       is_expected.to eq([labels.third, labels.first, labels.second, extra_label])
+    end
+  end
+
+  context 'when custom sort parameter is set' do
+    let_it_be(:extra_label) { create(:label, title: '1title' ) }
+
+    let(:params) { { sort: '-wat' } }
+
+    it 'is expected to sort by provided parameters' do
+      is_expected.to eq([labels.third, labels.first, extra_label, labels.second])
     end
   end
 end

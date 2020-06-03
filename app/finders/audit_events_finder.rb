@@ -35,7 +35,7 @@ class AuditEventsFinder < ApplicationFinder
   def execute
     filter_by_type(current_user.audit_events)
       .then(&method(:paginate))
-      .then(&method(:apply_sort))
+      .then(&method(:sort))
   end
 
   private

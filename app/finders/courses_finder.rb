@@ -40,7 +40,7 @@ class CoursesFinder < ApplicationFinder
 
     filter_by_availability(group.courses)
       .then(&method(:paginate))
-      .then(&method(:apply_sort))
+      .then(&method(:sort))
   end
 
   private

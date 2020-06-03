@@ -26,7 +26,7 @@ class GroupsFinder < ApplicationFinder
   def execute
     perform_search(Group)
       .then(&method(:paginate))
-      .then(&method(:apply_sort))
+      .then(&method(:sort))
   end
 
   private

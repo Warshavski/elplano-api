@@ -63,7 +63,7 @@ module Paginatable
       .then(&method(:filter_by_field))
       .then(&method(:filter_by_last_id))
       .then(&method(:limit_items))
-      .then(&method(:sort))
+      .then(&method(:apply_sort))
   end
 
   def filter_by_field(items)
@@ -104,7 +104,7 @@ module Paginatable
     items.limit(pagination_params.fetch(:size) { DEFAULT_PAGE_SIZE })
   end
 
-  def sort(items)
+  def apply_sort(items)
     direction = pagination_params.fetch(:direction) { DEFAULT_DIRECTION }
 
     order_clause = pagination_params[:field] ? { pagination_params[:field] => direction } : {}

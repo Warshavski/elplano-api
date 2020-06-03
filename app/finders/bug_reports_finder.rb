@@ -34,7 +34,7 @@ class BugReportsFinder < ApplicationFinder
   def execute
     filter_by_user(context)
       .then(&method(:paginate))
-      .then(&method(:apply_sort))
+      .then(&method(:sort))
   end
 
   private

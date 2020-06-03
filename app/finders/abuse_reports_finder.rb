@@ -34,7 +34,7 @@ class AbuseReportsFinder < ApplicationFinder
   def execute
     perform_filtration(context)
       .then(&method(:paginate))
-      .then(&method(:apply_sort))
+      .then(&method(:sort))
   end
 
   private

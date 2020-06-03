@@ -34,7 +34,7 @@ class LabelsFinder < ApplicationFinder
     resolve_scope
       .then(&method(:perform_filtration))
       .then(&method(:paginate))
-      .then(&method(:apply_sort))
+      .then(&method(:sort))
   end
 
   private

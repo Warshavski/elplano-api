@@ -43,7 +43,7 @@ module Sortable
     end
 
     def specify_sort(trigger, &block)
-      (@custom_sorts ||= {})[trigger] = block
+      (@custom_sorts ||= HashWithIndifferentAccess.new)[trigger] = block
     end
 
     def default_sort
@@ -51,13 +51,13 @@ module Sortable
     end
 
     def custom_sorts
-      @custom_sorts || {}
+      @custom_sorts || HashWithIndifferentAccess.new
     end
   end
 
   private
 
-  def apply_sort(items)
+  def sort(items)
     each_sort do |attribute, direction|
       next unless supported_attribute?(items, attribute)
 
@@ -68,10 +68,10 @@ module Sortable
   end
 
   def each_sort
-    sort_parameters.each do |sort_hash|
-      attribute, direction = sort_hash.flatten
-
-      yield attribute, direction
+    sort_parameters.each do |parameters_mapping|
+      parameters_mapping
+        .flatten
+        .then { |attribute, direction| yield attribute, direction }
     end
   end
 
@@ -101,7 +101,8 @@ module Sortable
   end
 
   def supported_attribute?(items, attribute)
-    items.klass.column_names.include? attribute.to_s
+    items.klass.column_names.include?(attribute.to_s) ||
+      self.class.custom_sorts.key?(attribute)
   end
 
   def perform_sort(scope, attribute, direction)

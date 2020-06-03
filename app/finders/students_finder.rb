@@ -33,7 +33,7 @@ class StudentsFinder < ApplicationFinder
   def execute
     init_collection
       .then(&method(:perform_search))
-      .then(&method(:apply_sort))
+      .then(&method(:sort))
   end
 
   private

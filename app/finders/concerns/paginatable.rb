@@ -43,6 +43,8 @@ module Paginatable
   # @return [ActiveRecord::Relation<ApplicationRecord>]
   #
   def paginate(scope)
+    return scope if pagination_params.blank?
+
     if pagination_params[:number].blank?
       perform_cursor_pagination(scope)
     else
@@ -55,7 +57,9 @@ module Paginatable
   def perform_default_pagination(scope)
     return items if pagination_params[:number].blank?
 
-    scope.page(pagination_params[:number]).per(pagination_params[:size] || DEFAULT_PAGE_SIZE)
+    scope
+      .page(pagination_params[:number])
+      .per(pagination_params[:size] || DEFAULT_PAGE_SIZE)
   end
 
   def perform_cursor_pagination(scope)

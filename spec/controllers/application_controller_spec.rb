@@ -87,14 +87,14 @@ describe ApplicationController do
     end
   end
 
-  describe '#set_endpoint_title_header' do
+  describe '#configure_title_header' do
     let(:controller) { described_class.new }
 
     it 'URI encodes UTF-8 characters in the title' do
       response = double(headers: {})
       allow(controller).to receive(:response).and_return(response)
 
-      controller.send(:set_endpoint_title_header)
+      controller.send(:configure_title_header)
 
       expect(response.headers['Endpoint-Title']).to eq('El%20Plano')
     end

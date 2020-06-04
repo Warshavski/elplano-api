@@ -21,7 +21,7 @@
 #   class UsersFinder
 #     include Sortable
 #
-#     specify_default_sort [{ id: :desc }, { name: :asc }]
+#     specify_sort default: [{ id: :desc }, { name: :asc }]
 #   end
 #
 # The sorting block will be called once for each sort attribute/direction requested.
@@ -35,31 +35,43 @@ module Sortable
   SORT_PARAMETERS_SEPARATOR = ','
   DESC_SIGN = '-'
 
-  private_constant :SORT_PARAMETERS_SEPARATOR
+  private_constant :SORT_PARAMETERS_SEPARATOR, :DESC_SIGN
 
   class_methods do
-    def specify_default_sort(parameters = nil)
-      @default_sort = Array.wrap(parameters)
+    attr_writer :configurations
+
+    def inherited(subclass)
+      super(subclass)
+
+      subclass.configurations = configurations.dup if configurations.present?
     end
 
-    def specify_sort(trigger, &block)
-      (@custom_sorts ||= HashWithIndifferentAccess.new)[trigger] = block
+    def specify_sort(trigger, attributes: nil, direction: nil, &block)
+      configurations[trigger] = pack_configuration(attributes, direction, &block)
     end
 
-    def default_sort
-      @default_sort || [{ id: :desc }]
+    def configurations
+      @configurations ||= HashWithIndifferentAccess.new
     end
 
-    def custom_sorts
-      @custom_sorts || HashWithIndifferentAccess.new
+    private
+
+    def pack_configuration(attributes, direction, &block)
+      if block_given?
+        block
+      else
+        { attributes: Array.wrap(attributes), direction: direction }
+      end
     end
   end
 
-  private
+  included do
+    specify_sort :default, attributes: :id, direction: :asc
+  end
 
   def sort(items)
     each_sort do |attribute, direction|
-      next unless supported_attribute?(items, attribute)
+      next unless supported_sorting?(items, attribute)
 
       items = perform_sort(items, attribute, direction)
     end
@@ -68,21 +80,15 @@ module Sortable
   end
 
   def each_sort
-    sort_parameters.each do |parameters_mapping|
+    fetch_sort_parameters.each do |parameters_mapping|
       parameters_mapping
         .flatten
         .then { |attribute, direction| yield attribute, direction }
     end
   end
 
-  def sort_parameters
-    @sort_parameters ||= begin
-                      if params[:sort].blank?
-                        self.class.default_sort
-                      else
-                        normalize_parameters(params[:sort])
-                      end
-                    end
+  def fetch_sort_parameters
+    params[:sort].blank? ? [default: :desc] : normalize_parameters(params[:sort])
   end
 
   def normalize_parameters(raw_sort_parameters)
@@ -100,18 +106,29 @@ module Sortable
     { attribute => direction }
   end
 
-  def supported_attribute?(items, attribute)
+  def supported_sorting?(items, attribute)
     items.klass.column_names.include?(attribute.to_s) ||
-      self.class.custom_sorts.key?(attribute)
+      self.class.configurations.key?(attribute)
   end
 
   def perform_sort(scope, attribute, direction)
-    sort = self.class.custom_sorts[attribute]
+    configuration = self.class.configurations[attribute]
 
-    if sort.is_a? Proc
-      sort.call(scope, direction)
-    else
+    unpack_configuration(configuration, scope, direction) do
       scope.order(attribute => direction)
+    end
+  end
+
+  def unpack_configuration(config, scope, fallback_direction)
+    if config.is_a? Proc
+      config.call(scope, fallback_direction)
+    elsif config.is_a? Hash
+      direction = config[:direction] || fallback_direction
+      params    = config[:attributes].map { |a| { a => direction } }
+
+      scope.order(*params)
+    else
+      yield
     end
   end
 end

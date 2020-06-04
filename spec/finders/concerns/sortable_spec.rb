@@ -11,6 +11,10 @@ RSpec.describe Sortable do
         scope.order(title: direction, id: direction)
       end
 
+      specify_sort :so, attributes: :description, direction: :asc
+
+      specify_sort :hey, attributes: :description
+
       attr_reader :params
 
       def execute(scope, params)
@@ -26,8 +30,8 @@ RSpec.describe Sortable do
   subject { FakeFinder.new.execute(Label.all, params) }
 
   let_it_be(:labels) do
-    %w[2title 1title 3title].map do |title|
-      create(:label, title: title)
+    [2, 1, 3].map do |number|
+      create(:label, title: "#{number}title", description:"#{number}description")
     end
   end
 
@@ -35,7 +39,7 @@ RSpec.describe Sortable do
     let(:params) { {} }
 
     it 'is expected to sort by id in descending direction' do
-      is_expected.to eq(labels.reverse)
+      is_expected.to eq(labels)
     end
   end
 
@@ -66,12 +70,46 @@ RSpec.describe Sortable do
   end
 
   context 'when custom sort parameter is set' do
-    let_it_be(:extra_label) { create(:label, title: '1title' ) }
+    let_it_be(:extra_label) do
+      create(:label, title: '1title', description: '0description' )
+    end
 
     let(:params) { { sort: '-wat' } }
 
     it 'is expected to sort by provided parameters' do
       is_expected.to eq([labels.third, labels.first, extra_label, labels.second])
+    end
+
+    context 'when sort specified via hash without direction' do
+      let(:params) { { sort: 'hey' } }
+
+      it 'is expected to sort by provided parameters' do
+        is_expected.to eq([extra_label, labels.second, labels.first, labels.third])
+      end
+
+      context 'when direction is set' do
+        let(:params) { { sort: '-hey' } }
+
+        it 'is expected to sort by provided parameters' do
+          is_expected.to eq([labels.third, labels.first, labels.second, extra_label])
+        end
+      end
+    end
+
+    context 'when sort specified via hash with direction' do
+      let(:params) { { sort: 'so' } }
+
+      it 'is expected to sort by provided parameters' do
+        is_expected.to eq([extra_label, labels.second, labels.first, labels.third])
+      end
+
+      context 'when direction is set' do
+        let(:params) { { sort: '-so' } }
+
+        it 'is expected to sort by provided parameters' do
+          is_expected.to eq([extra_label, labels.second, labels.first, labels.third])
+        end
+      end
     end
   end
 end

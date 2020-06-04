@@ -8,6 +8,8 @@ class ApplicationFinder
   include Paginatable
   include Sortable
 
+  specify_sort :default, attributes: :id, direction: :desc
+
   attr_reader :context, :params
 
   def initialize(context: nil, params: {})

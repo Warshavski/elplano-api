@@ -36,9 +36,9 @@ module Denotable
   end
 
   included do
-    append_before_action :set_endpoint_title_header
+    append_before_action :configure_title_header
 
-    def set_endpoint_title_header
+    def configure_title_header
       return if self.class.title_segments.blank?
 
       #

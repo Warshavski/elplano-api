@@ -21,7 +21,7 @@
 #   class UsersFinder
 #     include Sortable
 #
-#     specify_sort default: [{ id: :desc }, { name: :asc }]
+#     specify_sort :default, attributes: %i[id name], direction: :desc
 #   end
 #
 # The sorting block will be called once for each sort attribute/direction requested.
@@ -88,7 +88,7 @@ module Sortable
   end
 
   def fetch_sort_parameters
-    params[:sort].blank? ? [default: :desc] : normalize_parameters(params[:sort])
+    params[:sort].blank? ? [default: :asc] : normalize_parameters(params[:sort])
   end
 
   def normalize_parameters(raw_sort_parameters)

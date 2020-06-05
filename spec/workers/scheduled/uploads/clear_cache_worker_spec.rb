@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe UploadProcessors::ClearCacheWorker do
+RSpec.describe Scheduled::Uploads::ClearCacheWorker do
   describe '#perform' do
     subject { described_class.new }
 

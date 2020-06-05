@@ -135,14 +135,15 @@ class ApplicationController < ActionController::API
   #       "sort": "-id,name"
   #     }
   #
-  def filter_params(contract = FilterContract)
-    filters     = params[:filter] || {}
-    pagination  = params[:page]   || {}
+  def filter_params(filters_contract = FilterContract, pagination_contract: PaginationContract)
+    filter_params     = params[:filter] || {}
+    pagination_params = params[:page]   || {}
+    sort_params       = params[:sort]
 
-    valid_filters     = validate_with(contract.new, filters)
-    valid_pagination  = validate_with(PaginationContract.new, pagination)
+    valid_filters     = validate_with(filters_contract.new, filter_params)
+    valid_pagination  = validate_with(pagination_contract.new, pagination_params)
 
-    { filter: valid_filters, page: valid_pagination, sort: params[:sort] }
+    { filter: valid_filters, page: valid_pagination, sort: sort_params }
   end
 
   def current_resource_owner

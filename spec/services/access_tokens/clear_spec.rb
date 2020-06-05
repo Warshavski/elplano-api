@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Users::Tokens::Clear do
+RSpec.describe AccessTokens::Clear do
   describe '.call' do
     subject { described_class.call(2) }
 

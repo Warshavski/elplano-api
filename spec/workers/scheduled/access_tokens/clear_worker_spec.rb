@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Users::Tokens::ClearWorker do
+RSpec.describe Scheduled::AccessTokens::ClearWorker do
   describe '#perform' do
     subject { described_class.new }
 
@@ -11,7 +11,7 @@ RSpec.describe Users::Tokens::ClearWorker do
     end
 
     it 'is expected to trigger tokens clear service' do
-      expect(::Users::Tokens::Clear).to receive(:call).with(10).once
+      expect(::AccessTokens::Clear).to receive(:call).with(10).once
 
       subject.perform
     end

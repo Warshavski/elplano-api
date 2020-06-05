@@ -2,9 +2,9 @@
 
 require 'sidekiq-scheduler'
 
-module Users
-  module Tokens
-    # Users::Tokens::ClearWorker
+module Scheduled
+  module AccessTokens
+    # Scheduled::AccessTokens::ClearWorker
     #
     #   Used to perform access tokens clean up in the background
     #
@@ -12,7 +12,7 @@ module Users
       include Sidekiq::Worker
 
       def perform
-        ::Users::Tokens::Clear.call(ENV['DOORKEEPER_DAYS_TRIM_THRESHOLD'])
+        ::AccessTokens::Clear.call(ENV['DOORKEEPER_DAYS_TRIM_THRESHOLD'])
       end
     end
   end

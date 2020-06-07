@@ -37,6 +37,10 @@ gem 'puma', '>= 4.3.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# An API documentation reader for RSpec API Documentation.
+# https://github.com/jejacks0n/apitome
+gem 'apitome'
+
 # Authorization framework for Ruby/Rails applications
 # https://github.com/palkan/action_policy
 gem 'action_policy'
@@ -138,9 +142,9 @@ gem 'sys-filesystem'
 # https://github.com/zipmark/rspec_api_documentation
 gem 'rspec_api_documentation'
 
-# An API documentation reader for RSpec API Documentation.
-# https://github.com/jejacks0n/apitome
-gem 'apitome'
+# Static code analyzer and formatter. Keep your code clean.
+gem 'rubocop', require: false
+gem 'rubocop-rspec', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

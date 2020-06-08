@@ -8,7 +8,7 @@ module Handlers
   module Response
     extend ActiveSupport::Concern
 
-    included do # rubocop:disable Metrics/BlockLength
+    included do
       class << self
         attr_reader :default_serializer
 
@@ -16,47 +16,47 @@ module Handlers
           @default_serializer = options[:default]
         end
       end
+    end
 
-      def render_collection(collection, options = {})
-        render_resource(collection, pagination_meta(collection).merge!(options))
-      end
+    def render_collection(collection, options = {})
+      render_resource(collection, pagination_meta(collection).merge!(options))
+    end
 
-      def render_resource(resource, options = {})
-        serializer, status = process_render_options(options)
-        serializer_options = process_serializer_options(options)
+    def render_resource(resource, options = {})
+      serializer, status = process_render_options(options)
+      serializer_options = process_serializer_options(options)
 
-        data = serializer
-               .new(resource, serializer_options)
-               .to_json
+      data = serializer
+             .new(resource, serializer_options)
+             .to_json
 
-        render json: data, status: status
-      end
+      render json: data, status: status
+    end
 
-      def render_meta(data, status: :ok)
-        render json: { meta: data }, status: status
-      end
+    def render_meta(data, status: :ok)
+      render json: { meta: data }, status: status
+    end
 
-      private
+    private
 
-      # NOTE : for the first time generate eta only for page-based pagination
-      def pagination_meta(resources)
-        return {} if filter_params[:page].blank?
+    # NOTE : for the first time generate eta only for page-based pagination
+    def pagination_meta(resources)
+      return {} if filter_params[:page].blank?
 
-        ::Pagination::Meta.call(request, resources, filter_params)
-      end
+      ::Pagination::Meta.call(request, resources, filter_params)
+    end
 
-      def process_serializer_options(options)
-        options_keys = %i[fields meta links is_collection params include]
+    def process_serializer_options(options)
+      options_keys = %i[fields meta links is_collection params include]
 
-        options_keys.each_with_object({}) { |key, hash| hash[key] = options[key] }
-      end
+      options_keys.each_with_object({}) { |key, hash| hash[key] = options[key] }
+    end
 
-      def process_render_options(options)
-        serializer = options[:serializer] || self.class.default_serializer
-        status = options[:status] || :ok
+    def process_render_options(options)
+      serializer = options[:serializer] || self.class.default_serializer
+      status = options[:status] || :ok
 
-        [serializer, status]
-      end
+      [serializer, status]
     end
   end
 end

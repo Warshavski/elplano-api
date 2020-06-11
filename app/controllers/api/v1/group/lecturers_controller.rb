@@ -27,9 +27,7 @@ module Api
         authorize_with! Groups::LecturerPolicy, except: %i[index show]
 
         rescue_from Errno::ENOENT, KeyError do |e|
-          handle_error(e, :bad_request) do
-            [{ status: 400, detail: e.message, source: { pointer: '/data/attributes/avatar' } }]
-          end
+          handle_error(e, :missing_file, status: :bad_request, pointer: { pointer: '/data/attributes/avatar' })
         end
 
         # GET : api/v1/group/lecturers

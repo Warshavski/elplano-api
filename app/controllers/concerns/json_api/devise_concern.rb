@@ -16,7 +16,10 @@ module JsonApi
       def process_error(resource)
         yield if block_given?
 
-        render_error(ErrorSerializer.new(resource).serialize, :unprocessable_entity)
+        representation =
+          ::Errors::RecordErrorsSerializer.new(resource, 422).serialize
+
+        render json: { errors: representation }, status: :unprocessable_entity
       end
 
       # Helper for use after calling send_*_instructions methods on a resource.

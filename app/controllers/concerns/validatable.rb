@@ -7,17 +7,22 @@
 module Validatable
   extend ActiveSupport::Concern
 
-  # Serializer
+  # Validatable::Serializer
   #
   #   Used to serialize validation error in JSON:API format
   #
   # TODO : add localization
   #
   class Serializer
-    def serialize(errors)
-      errors.each_with_object([]) do |(attribute, messages), result|
+    def initialize(error, status_code)
+      @error_messages = error.validation_errors.to_h
+      @status_code = status_code
+    end
+
+    def serialize
+      @error_messages.each_with_object([]) do |(attribute, messages), result|
         messages.each do |error_message|
-          result << compose_error(attribute, 400, error_message)
+          result << compose_error(attribute, @status_code, error_message)
         end
       end
     end
@@ -32,10 +37,8 @@ module Validatable
   end
 
   included do
-    rescue_from Api::UnprocessableParams do |ex|
-      handle_error(ex, :bad_request) do
-        Serializer.new.serialize(ex.validation_errors.to_h)
-      end
+    rescue_from Api::UnprocessableParams do |e|
+      handle_error(e, :validation, status: :bad_request)
     end
   end
 

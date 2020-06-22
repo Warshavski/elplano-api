@@ -20,12 +20,12 @@ class Uploader < Shrine
   #
 
   Attacher.promote_block do
-    UploadProcessors::PromoteWorker
+    Uploads::PromoteWorker
       .perform_async(self.class.name, record.class.name, record.id, name, file_data)
   end
 
   Attacher.destroy_block do
-    UploadProcessors::DeleteWorker
+    Uploads::DeleteWorker
       .perform_async(self.class.name, data)
   end
 end

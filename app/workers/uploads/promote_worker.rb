@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
-module UploadProcessors
-  # UploadProcessors::PromoteWorker
+module Uploads
+  # Uploads::PromoteWorker
   #
-  #   [DESCRIPTION]
+  #   Used to promote uploaded attachment
   #
   class PromoteWorker
     include Sidekiq::Worker
 
     def perform(attacher_class, record_class, record_id, name, file_data)
+      # TODO : consider to move logic to the service class
       attacher_class = Object.const_get(attacher_class)
       record         = Object.const_get(record_class).find(record_id)
 

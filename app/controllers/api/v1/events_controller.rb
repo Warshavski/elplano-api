@@ -20,6 +20,8 @@ module Api
     #     - Update information about any created event(group and personal for any member).
     #     - Delete event any created event(group and personal for any member).
     #
+    # TODO : Perform refactoring. Simplify update logic
+    #
     class EventsController < ApplicationController
       specify_serializers default: EventSerializer
 

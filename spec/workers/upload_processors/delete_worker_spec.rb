@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe UploadProcessors::DeleteWorker do
+RSpec.describe Uploads::DeleteWorker do
   describe '#perform' do
     # subject { described_class.new }
     #

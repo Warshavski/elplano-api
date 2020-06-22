@@ -48,13 +48,10 @@ module Handlers
 
     private
 
-    # TODO : maybe `then {}` chain?
     def handle_error(error, type, status:, send_report: false, **opts)
       log_error(error, send_report: send_report)
-
-      representation = serializer_error(error, type, status, opts)
-
-      render_error(representation, status)
+        .then { |err| serializer_error(err, type, status, opts) }
+        .then { |representation| render_error(representation, status) }
     end
 
     def log_error(error, send_report: false)

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe UploadProcessors::PromoteWorker do
+RSpec.describe Uploads::PromoteWorker do
   describe '#perform' do
     # subject { described_class.new }
     #

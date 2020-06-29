@@ -9,8 +9,7 @@ module Api
     attr_reader :param
 
     def initialize(param)
-      @param = param
-      super(I18n.t(:'errors.messages.unprocessable_auth', param: param))
+      super(I18n.t(:'errors.messages.unprocessable_auth', param: param)).tap { @param = param }
     end
   end
 end

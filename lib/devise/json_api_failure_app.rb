@@ -27,7 +27,7 @@ module Devise
     def json_api_error_response
       self.status        = 401
       self.content_type  = 'application/vnd.api+json'
-      self.response_body = { errors: [{ status: 401, detail: i18n_message }] }.to_json
+      self.response_body = Oj.dump(errors: [{ status: 401, detail: i18n_message }])
     end
   end
 end

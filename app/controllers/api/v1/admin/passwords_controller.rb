@@ -8,7 +8,7 @@ module Api
       #   Users password management (by application administrator)
       #
       class PasswordsController < ApplicationController
-        specify_title_header 'Admin', 'Users', 'Password'
+        specify_title_header 'Users', 'Password'
 
         # PATCH/PUT api/v1/admin/users/{:user_id}/password
         #

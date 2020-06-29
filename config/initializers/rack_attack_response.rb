@@ -20,5 +20,5 @@ Rack::Attack.throttled_response = lambda do |env|
     ]
   }
 
-  [429, headers, [body.to_json]]
+  [429, headers, [Oj.dump(body)]]
 end

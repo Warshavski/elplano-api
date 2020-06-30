@@ -25,6 +25,7 @@ jobs:
     - chmod +x ./cc-test-reporter
     - "./cc-test-reporter before-build"
     - cp config/database.yml.travis config/database.yml
+    - cp .env.example .env
     - psql -c 'create database travis_ci_test;' -U postgres
     script:
     - bundle exec rails db:migrate RAILS_ENV=test

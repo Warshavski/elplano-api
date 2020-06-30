@@ -22,11 +22,11 @@ Rails.application.config.middleware.insert_before(0, Rack::Cors) do
   # Cross-origin requests must not have the session cookie available
   #
   allow do
-    origins '*'
+    origins(*ENV.fetch('CORS_ORIGINS').split(',').map(&:strip))
+
     resource '*',
              credentials: false,
              headers: :any,
-             methods: :any,
-             expose: %w[Link X-Total X-Total-Pages X-Per-Page X-Page X-Next-Page X-Prev-Page]
+             methods: :any
   end
 end

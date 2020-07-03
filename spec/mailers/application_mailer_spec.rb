@@ -18,16 +18,18 @@ RSpec.describe ApplicationMailer, type: :mailer do
   describe '#default_sender_address' do
     subject { described_class.new.send(:default_sender_address) }
 
-    it { expect(subject.display_name).to eq('wat') }
-
-    it { expect(subject.address).to eq('seems@legit.email') }
+    it 'is expected to compose sender address' do
+      expect(subject.display_name).to eq('wat')
+      expect(subject.address).to eq('seems@legit.email')
+    end
   end
 
   describe '#default_reply_to_address' do
     subject { described_class.new.send(:default_reply_to_address) }
 
-    it { expect(subject.display_name).to eq('wat') }
-
-    it { expect(subject.address).to eq('no@way.email') }
+    it 'is expected to compose reply address' do
+      expect(subject.display_name).to eq('wat')
+      expect(subject.address).to eq('no@way.email')
+    end
   end
 end

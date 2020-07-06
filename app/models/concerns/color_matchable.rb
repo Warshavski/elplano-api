@@ -11,9 +11,9 @@ module ColorMatchable
   WHITE = '#FFFFFF'
 
   def generate_text_color(bg_color)
-    r, g, b = split_color(bg_color)
+    red, green, blue = split_color(bg_color)
 
-    (r + g + b) > 500 ? NIGHT_RIDER : WHITE
+    (red + green + blue) > 500 ? NIGHT_RIDER : WHITE
   end
 
   def split_color(color)

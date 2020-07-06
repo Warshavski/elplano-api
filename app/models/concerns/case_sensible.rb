@@ -20,18 +20,17 @@ module CaseSensible
       criteria = self
 
       params.each do |key, value|
-        criteria = case value
-                   when Array
-                     criteria.where(value_in(key, value))
-                   else
-                     criteria.where(value_equal(key, value))
-                   end
+        criteria = criteria.where(resolve_condition(key, value))
       end
 
       criteria
     end
 
     private
+
+    def resolve_condition(key, value)
+      value.is_a?(Array) ? value_in(key, value) : value_equal(key, value)
+    end
 
     def value_equal(column, value)
       lower_value = lower_value(value)

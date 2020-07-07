@@ -3,11 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe BugReport, type: :model do
-  context 'associations' do
+  describe 'associations' do
     it { should belong_to(:reporter).class_name('User').inverse_of(:reported_bugs) }
   end
 
-  context 'validations' do
+  describe 'validations' do
     it { should validate_presence_of(:message) }
 
     it { should validate_presence_of(:reporter) }

@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe Announcement, type: :model do
-  context 'validations' do
+  describe 'validations' do
     subject { build(:announcement) }
 
     it { is_expected.to be_valid }

@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Attachment, type: :model do
-  context 'associations' do
+  describe 'associations' do
     it do
       should belong_to(:author)
                .class_name('User')

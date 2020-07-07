@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe Label, type: :model do
-  context 'associations' do
+  describe 'associations' do
     it { should belong_to(:group) }
 
     it { should have_many(:label_links).dependent(:delete_all) }
@@ -11,7 +11,7 @@ describe Label, type: :model do
     it { should have_many(:events).through(:label_links).source(:target) }
   end
 
-  context 'validations' do
+  describe 'validations' do
     subject { build(:label) }
 
     it { is_expected.to be_valid }
@@ -47,9 +47,10 @@ describe Label, type: :model do
     describe 'before_validation' do
       let_it_be(:subject) { create(:label, title: ' lOoK ', color: ' ') }
 
-      it { expect(subject.title).to eq('look') }
-
-      it { expect(subject.color).to eq('#428BCA') }
+      it 'is expected to normalize title and set default color' do
+        expect(subject.title).to eq('look')
+        expect(subject.color).to eq('#428BCA')
+      end
     end
   end
 

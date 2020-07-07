@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe ActivityEvent, type: :model do
-  context 'associations' do
+  describe 'associations' do
     it do
       should belong_to(:author)
                .with_foreign_key(:author_id)
@@ -14,7 +14,7 @@ RSpec.describe ActivityEvent, type: :model do
     it { should belong_to(:target) }
   end
 
-  context 'validations' do
+  describe 'validations' do
     it { should validate_presence_of(:author_id) }
 
     it { should validate_presence_of(:target_id) }

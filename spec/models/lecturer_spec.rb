@@ -47,13 +47,12 @@ RSpec.describe Lecturer, type: :model do
         create(:lecturer, first_name: 'lOoK', last_name: 'MA', patronymic: 'DiFFeReNt_CasE', email: 'StraNgE@eMAil')
       end
 
-      it { expect(subject.first_name).to eq('look') }
-
-      it { expect(subject.last_name).to eq('ma') }
-
-      it { expect(subject.patronymic).to eq('different_case') }
-
-      it { expect(subject.email).to eq('strange@email') }
+      it 'is expected to normalize name attributes' do
+        expect(subject.first_name).to eq('look')
+        expect(subject.last_name).to eq('ma')
+        expect(subject.patronymic).to eq('different_case')
+        expect(subject.email).to eq('strange@email')
+      end
     end
   end
 

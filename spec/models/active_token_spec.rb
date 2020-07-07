@@ -9,23 +9,23 @@ RSpec.describe ActiveToken, :clean_elplano_redis_sessions do
     end
   end
 
-  let(:token) do
-    '6919a6f1bb119dd7396fadc38fd18d0d'
-  end
+  let(:token) { '6919a6f1bb119dd7396fadc38fd18d0d' }
 
   let(:request) do
     double(
       :request,
       {
         user_agent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_1_3 like Mac OS X) AppleWebKit/600.1.4 ' \
-        '(KHTML, like Gecko) Mobile/12B466 [FBDV/iPhone7,2]',
+                    '(KHTML, like Gecko) Mobile/12B466 [FBDV/iPhone7,2]',
         ip: '127.0.0.1'
       }
     )
   end
 
   describe '.list' do
-    it 'returns all sessions by user' do
+    subject { described_class.list(user) }
+
+    it 'is expected to return all sessions by user' do
       Elplano::Redis::Sessions.with do |redis|
         redis.set("session:elplano:#{user.id}:6919a6f1bb119dd7396fadc38fd18d0d", Marshal.dump({ token: 'a' }))
         redis.set("session:elplano:#{user.id}:59822c7d9fcdfa03725eff41782ad97d", Marshal.dump({ token: 'b' }))
@@ -40,10 +40,10 @@ RSpec.describe ActiveToken, :clean_elplano_redis_sessions do
         )
       end
 
-      expect(ActiveToken.list(user)).to match_array [{ token: 'a' }, { token: 'b' }]
+      is_expected.to match_array([{ token: 'a' }, { token: 'b' }])
     end
 
-    it 'does not return obsolete entries and cleans them up' do
+    it 'is expected to not return obsolete entries and cleans them up' do
       Elplano::Redis::Sessions.with do |redis|
         redis.set("session:elplano:#{user.id}:6919a6f1bb119dd7396fadc38fd18d0d", Marshal.dump({ token: 'a' }))
 
@@ -56,7 +56,7 @@ RSpec.describe ActiveToken, :clean_elplano_redis_sessions do
         )
       end
 
-      expect(ActiveToken.list(user)).to eq [{ token: 'a' }]
+      is_expected.to eq([{ token: 'a' }])
 
       Elplano::Redis::Sessions.with do |redis|
         actual_result = redis.sscan_each("session:lookup:user:elplano:#{user.id}").to_a
@@ -65,15 +65,15 @@ RSpec.describe ActiveToken, :clean_elplano_redis_sessions do
       end
     end
 
-    it 'returns an empty array if the use does not have any active session' do
-      expect(ActiveToken.list(user)).to eq []
+    context 'when the user does not have any active session' do
+      it { is_expected.to eq [] }
     end
   end
 
   describe '.set' do
     subject { described_class.set(user, token, request) }
 
-    it 'sets a new redis entry for the user session and a lookup entry' do
+    it 'is expected to set a new redis entry for the user session and a lookup entry' do
       expected_results = %W[
         session:elplano:#{user.id}:#{token}
         session:lookup:user:elplano:#{user.id}
@@ -86,7 +86,7 @@ RSpec.describe ActiveToken, :clean_elplano_redis_sessions do
       end
     end
 
-    it 'adds timestamps and information from the request' do
+    it 'is expected to add timestamps and information from the request' do
       current_time = Time.zone.parse('2020-03-04 22:22')
 
       travel_to(current_time) do
@@ -107,7 +107,7 @@ RSpec.describe ActiveToken, :clean_elplano_redis_sessions do
       end
     end
 
-    it 'keeps the created_at from the login on consecutive requests' do
+    it 'is expected to keep the created_at from the login on consecutive requests' do
       now = Time.zone.parse('2020-03-04 22:22')
 
       travel_to(now) { subject }
@@ -127,7 +127,7 @@ RSpec.describe ActiveToken, :clean_elplano_redis_sessions do
   describe '.destroy' do
     subject { ActiveToken.destroy(user, token) }
 
-    it 'removes the entry associated with the currently killed user session' do
+    it 'is expecte to remove the entry associated with the currently killed user session' do
       Elplano::Redis::Sessions.with do |redis|
         redis.set("session:elplano:#{user.id}:6919a6f1bb119dd7396fadc38fd18d0d", '')
         redis.set("session:elplano:#{user.id}:59822c7d9fcdfa03725eff41782ad97d", '')
@@ -146,7 +146,7 @@ RSpec.describe ActiveToken, :clean_elplano_redis_sessions do
       end
     end
 
-    it 'removes the lookup entry' do
+    it 'is expected to remove the lookup entry' do
       Elplano::Redis::Sessions.with do |redis|
         redis.set("session:elplano:#{user.id}:6919a6f1bb119dd7396fadc38fd18d0d", '')
         redis.sadd("session:lookup:user:elplano:#{user.id}", '6919a6f1bb119dd7396fadc38fd18d0d')
@@ -159,7 +159,7 @@ RSpec.describe ActiveToken, :clean_elplano_redis_sessions do
       end
     end
 
-    it 'removes the devise session' do
+    it 'is expected to remove the session' do
       Elplano::Redis::Sessions.with do |redis|
         redis.set("session:elplano:#{user.id}:6919a6f1bb119dd7396fadc38fd18d0d", '')
         redis.set("session:elplano:6919a6f1bb119dd7396fadc38fd18d0d", '')
@@ -180,7 +180,7 @@ RSpec.describe ActiveToken, :clean_elplano_redis_sessions do
 
     subject { ActiveToken.cleanup(user) }
 
-    it 'removes obsolete lookup entries' do
+    it 'is expected to remove obsolete lookup entries' do
       Elplano::Redis::Sessions.with do |redis|
         redis.set("session:elplano:#{user.id}:6919a6f1bb119dd7396fadc38fd18d0d", '')
         redis.sadd("session:lookup:user:elplano:#{user.id}", '6919a6f1bb119dd7396fadc38fd18d0d')
@@ -194,11 +194,11 @@ RSpec.describe ActiveToken, :clean_elplano_redis_sessions do
       end
     end
 
-    it 'does not bail if there are no lookup entries' do
+    it 'is expected to not bail if there are no lookup entries' do
       subject
     end
 
-    context 'cleaning up old sessions' do
+    context 'when old session are presented' do
       let(:max_number_of_sessions_plus_one) { ActiveToken::ACTIVE_TOKENS_LIMIT + 1 }
       let(:max_number_of_sessions_plus_two) { ActiveToken::ACTIVE_TOKENS_LIMIT + 2 }
 
@@ -217,7 +217,7 @@ RSpec.describe ActiveToken, :clean_elplano_redis_sessions do
         end
       end
 
-      it 'removes obsolete active sessions entries' do
+      it 'is expected to remove obsolete active sessions entries' do
         subject
 
         Elplano::Redis::Sessions.with do |redis|
@@ -233,7 +233,7 @@ RSpec.describe ActiveToken, :clean_elplano_redis_sessions do
         end
       end
 
-      it 'removes obsolete lookup entries' do
+      it 'is expected to remove obsolete lookup entries' do
         subject
 
         Elplano::Redis::Sessions.with do |redis|
@@ -246,7 +246,7 @@ RSpec.describe ActiveToken, :clean_elplano_redis_sessions do
         end
       end
 
-      it 'removes obsolete lookup entries even without active session' do
+      it 'is expected to remove obsolete lookup entries even without active session' do
         Elplano::Redis::Sessions.with do |redis|
           redis.sadd(
             "session:lookup:user:elplano:#{user.id}",
@@ -277,7 +277,7 @@ RSpec.describe ActiveToken, :clean_elplano_redis_sessions do
           end
         end
 
-        it 'does not remove active session entries, but removes lookup entries' do
+        it 'is expected to not remove active session entries, but removes lookup entries' do
           lookup_entries_before_cleanup = Elplano::Redis::Sessions.with do |redis|
             redis.smembers("session:lookup:user:elplano:#{user.id}")
           end

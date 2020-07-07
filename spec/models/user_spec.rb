@@ -101,11 +101,17 @@ RSpec.describe User, type: :model do
   describe 'user creation' do
     let_it_be(:user) { create(:user, username: 'wat_user') }
 
-    it { expect(user.admin?).to be_falsey }
+    it 'is expected to set default values' do
+      expect(user.admin?).to be_falsey
+      expect(user.banned_at).to be_nil
+      expect(user.timezone).to eq(User::DEFAULT_TIMEZONE)
+    end
+  end
 
-    it { expect(user.banned_at).to be_nil }
+  describe 'DEFAULT_TIMEZONE' do
+    subject { User::DEFAULT_TIMEZONE }
 
-    it { expect(user.timezone).to eq(User::DEFAULT_TIMEZONE) }
+    it { is_expected.to eq('UTC') }
   end
 
   describe 'scopes' do

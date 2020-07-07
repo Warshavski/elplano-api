@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe ExtraLink, type: :model do
   subject { build(:extra_link) }
 
-  context 'validations' do
+  describe 'validations' do
     it_should_behave_like 'url validation'
 
     it 'is expected to pass validation for not empty description' do

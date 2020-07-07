@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe SocialNetwork, type: :model do
   subject { build(:social_network) }
 
-  context 'validations' do
+  describe 'validations' do
     it_should_behave_like 'url validation'
 
     it 'is expected to pass validation for not empty network' do

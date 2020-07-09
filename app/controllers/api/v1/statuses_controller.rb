@@ -24,9 +24,8 @@ module Api
       # Update authenticated user status
       #
       def update
-        status = UserStatus.find_or_initialize_by(user_id: current_user.id)
-
-        status.update!(status_params)
+        status =
+          ::Users::Status::Manage.call(:upsert, current_user, status_params)
 
         render_resource status, status: :ok
       end
@@ -36,7 +35,7 @@ module Api
       # Delete authenticated user status
       #
       def destroy
-        current_user.status&.destroy!
+        ::Users::Status::Manage.call(:destroy, current_user)
 
         head :no_content
       end

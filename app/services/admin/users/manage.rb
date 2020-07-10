@@ -45,6 +45,8 @@ module Admin
         user.tap(&:save!)
       end
 
+      action(:destroy) { |user| user.tap(&:destroy!) }
+
       # TODO : add current user for logger and permissions check?
       #
       # Perform action execution
@@ -61,15 +63,16 @@ module Admin
       #     - confirm - confirm user account
       #     - logout - perform user's access tokens revocation
       #     - reset_password - perform user's password reset
+      #     - destroy - perform user's delete
       #
       # @raise [ActiveRecord::RecordInvalid]
       #
-      # @return [User]
+      # @return [User, nil]
       #
       def execute(current_user, user, action_type, **opts)
         action = self.class.actions[action_type.to_sym]
 
-        user if action.nil?
+        return nil if action.nil?
 
         message =
           "User - \"#{user.username}\" (#{user.email}) was \"#{action_type}\" " \

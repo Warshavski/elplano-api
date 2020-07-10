@@ -87,6 +87,21 @@ RSpec.describe Admin::Users::Manage do
 
         it_should_behave_like 'admin user management'
       end
+
+      context 'when action is destroy' do
+        let_it_be(:user) { create(:user) }
+        let_it_be(:action) { :destroy }
+
+        it 'is expected to destroy user' do
+          expect { subject }.to change(User, :count).by(-1)
+
+          is_expected.to eq(user)
+
+          expect(User.exists?(user.id)).to be(false)
+        end
+
+        it_should_behave_like 'admin user management'
+      end
     end
 
     context 'when action is reset password' do

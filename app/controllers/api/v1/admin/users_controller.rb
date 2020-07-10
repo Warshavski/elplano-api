@@ -62,8 +62,10 @@ module Api
         # Delete selected user and associated data
         #
         def destroy
-          find_user(params[:id]).tap do |user|
-            user.destroy! unless user == current_user
+          user = find_user(params[:id])
+
+          if user != current_user
+            ::Admin::Users::Manage.call(current_user, user, :destroy)
           end
 
           head :no_content

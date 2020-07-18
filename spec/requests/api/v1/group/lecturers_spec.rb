@@ -64,7 +64,7 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
     end
 
     include_examples 'json:api examples',
-                     %w[data],
+                     %w[data included],
                      %w[id type attributes relationships],
                      %w[avatar first_name last_name patronymic email phone active created_at updated_at],
                      %w[courses]
@@ -83,7 +83,7 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
 
     context 'when user is a group owner' do
       include_examples 'json:api examples',
-                       %w[data],
+                       %w[data included],
                        %w[id type attributes relationships],
                        %w[avatar first_name last_name patronymic email phone active created_at updated_at],
                        %w[courses]
@@ -179,7 +179,7 @@ RSpec.describe Api::V1::Group::LecturersController, type: :request do
       end
 
       include_examples 'json:api examples',
-                       %w[data],
+                       %w[data included],
                        %w[id type attributes relationships],
                        %w[avatar first_name last_name patronymic email phone active created_at updated_at],
                        %w[courses]

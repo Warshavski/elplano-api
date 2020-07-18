@@ -49,7 +49,7 @@ module Api
         def show
           lecturer = filter_lecturers.find(params[:id])
 
-          render_resource lecturer, status: :ok
+          render_resource lecturer, include: [:courses], status: :ok
         end
 
         # POST : api/v1/group/lecturers
@@ -59,7 +59,7 @@ module Api
         def create
           lecturer = current_group.lecturers.create!(lecturer_params)
 
-          render_resource lecturer, status: :created
+          render_resource lecturer, include: [:courses], status: :created
         end
 
         # PATCH/PUT : api/v1/group/lecturers/{:id}
@@ -71,7 +71,7 @@ module Api
 
           lecturer.update!(lecturer_params)
 
-          render_resource lecturer, status: :ok
+          render_resource lecturer, include: [:courses], status: :ok
         end
 
         # DELETE : api/v1/group/lecturers/{:id}

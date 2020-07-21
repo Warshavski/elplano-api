@@ -39,19 +39,53 @@ es:
             president:
               taken: 'ya tiene un grupo!'
     models:
-      event: 'Acontecimiento'
-      course: 'Por supuesto'
-      group: 'Grupo'
-      invite: 'Invitar'
-      lecturer: 'Profesor'
-      lecture: 'Conferencia'
-      student: 'Estudiante'
-      user: 'Usuario'
-      bug_report: 'Informe de error'
+      abuse_report: 'Reporte de abuso'
+      activity_event: 'Evento de actividad'
       announcement: 'Anuncio'
+      assignment: 'Asignación'
+      attachment: 'Adjunto archivo'
+      audit_event: 'Evento de auditoría'
+      bug_report: 'Informe de error'
+      course: 'Por supuesto'
+      event: 'Acontecimiento'
+      extra_link: 'Enlace extra'
+      group: 'Grupo'
+      identity: ''
+      invite: 'Invitar'
       label: 'Etiqueta'
+      lecture: 'Conferencia'
+      lecturer: 'Profesor'
+      social_network: 'Red social'
+      student: 'Estudiante'
       task: 'Tarea'
+      user: 'Usuario'
+      user_status: 'Estatus de usuario'
     attributes:
+      abuse_report:
+        user: 'Usuario'
+        reporter: 'Reportero'
+      activity_event:
+        author_id: 'Identificación del autor'
+        target_id: 'Identificación del objetivo'
+        target_type: 'Tipo de objetivo'
+      announcement:
+        message: 'Mensaje'
+        start_at: 'Empieza en'
+        end_at: 'Termina en'
+        foreground_color: 'Color de primer plano'
+        background_color: 'Color de fondo'
+      attachment:
+        author: 'Autor'
+        attachable: 'Conectable'
+      audit_event:
+        author_id: 'Identificación del autor'
+        entity_id: 'Identificación de entidad'
+        entity_type: 'Tipo de entidad'
+      bug_report:
+        message: 'Mensaje'
+      course:
+        title: 'Titulo'
+        group: 'Grupo de estudiantes'
       event:
         start_at: 'Empieza en'
         end_at: 'Termina en'
@@ -64,18 +98,24 @@ es:
         creator: 'Autor del eventoя'
         eventable: 'Cita del evento'
         status: 'Estado'
-      course:
-        title: 'Titulo'
-        group: 'Grupo de estudiantes'
+      extra_link:
+        url: 'Url'
       group:
         number: 'Numero'
         title: 'Titulo'
         president: 'Presidente del grupo'
+      identity:
+        provider: 'Proveedor'
+        uid: 'Identificador único'
       invite:
         email: 'Crreo electronico'
         sent_at: 'Enviado a'
         group: 'Grupo de estudiantes'
         sender: 'Remitente'
+      label:
+        title: 'Titulo'
+        color: 'Color'
+        description: 'Descripción'
       lecture:
         group: 'Grupo de estudiantes'
         course: 'Por supuesto'
@@ -84,30 +124,26 @@ es:
         last_name: 'Apellido'
         patronymic: 'Patronímico'
         group: 'Grupo de estudiantes'
+      social_network:
+        network: 'Red'
+        url: 'Url'
       student:
         social_networks: 'Redes sociales'
         email: 'Correo electronico'
         user: 'Usuario'
+      task:
+        students: 'Estudiantes'
+        expired_at: 'Tarea fecha límite'
       user:
         email: 'Correo electronico'
         username: 'Nombre de usuario'
         password: 'Contraseña'
         password_confirmation: 'Confirmación de contraseña'
-      bug_report:
+      user_status:
+        user: 'Usuario'
         message: 'Mensaje'
-      announcement:
-        message: 'Mensaje'
-        start_at: 'Empieza en'
-        end_at: 'Termina en'
-        foreground_color: 'Color de primer plano'
-        background_color: 'Color de fondo'
-      label:
-        title: 'Titulo'
-        color: 'Color'
-        description: 'Descripción'
-      task:
-        students: 'Estudiantes'
-        expired_at: 'Tarea fecha límite'
+        emoji: 'Emoji'
+
   date:
     abbr_day_names:
       - dom

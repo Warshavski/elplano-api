@@ -40,19 +40,53 @@ ru:
               taken: 'уже находится в группе!'
 
     models:
-      event: 'Мероприятие'
-      course: 'Курс'
-      group: 'Группа'
-      invite: 'Приглашение'
-      lecturer: 'Преподаватель'
-      lecture: 'Лекция'
-      student: 'Студент'
-      user: 'Пользователь'
-      bug_report: 'Сообщение об ошибке'
+      abuse_report: 'Сообщение о нарушении'
+      activity_event: 'Активность'
       announcement: 'Объявление'
+      assignment: 'Назначение'
+      attachment: 'Вложение'
+      audit_event: 'Событие аудита'
+      bug_report: 'Сообщение об ошибке'
+      course: 'Курс'
+      event: 'Мероприятие'
+      extra_link: 'Дополнительная ссылка'
+      group: 'Группа'
+      identity: 'Идентификация'
+      invite: 'Приглашение'
       label: 'Метка'
+      lecture: 'Лекция'
+      lecturer: 'Преподаватель'
+      social_network: 'Социальная сеть'
+      student: 'Студент'
       task: 'Задание'
+      user: 'Пользователь'
+      user_status: 'Статус пользователя'
     attributes:
+      abuse_report:
+        user: 'Пользователь'
+        reporter: 'Заявитель'
+      activity_event:
+        author_id: 'Идентификатор автора'
+        target_id: 'Идентификатор цели'
+        target_type: 'Тип цели'
+      announcement:
+        message: 'Сообщение'
+        start_at: 'Начинается в'
+        end_at: 'Заканчивается в'
+        foreground_color: 'Цвет переднего плана'
+        background_color: 'Фоновый цвет'
+      attachment:
+        author: 'Автор'
+        attachable: 'Присоединяемый'
+      audit_event:
+        author_id: 'Идентификатор автора'
+        entity_id: 'Идентификатор сущности'
+        entity_type: 'Тип сущности'
+      bug_report:
+        message: 'Сообщение'
+      course:
+        title: 'Зголовок'
+        group: 'Студенческая группа'
       event:
         start_at: 'Начало'
         end_at: 'Конец'
@@ -65,18 +99,24 @@ ru:
         creator: 'Автор мероприятия'
         eventable: 'Назначение мероприятия'
         status: 'Статус'
-      course:
-        title: 'Зголовок'
-        group: 'Студенческая группа'
+      extra_link:
+        url: 'Ссылка'
       group:
         number: 'Номер'
         title: 'Заголовок'
         president: 'Староста группы'
+      identity:
+        provider: 'Поставщик'
+        uid: 'Уникальный идентификатор'
       invite:
         email: 'Электронный адрес'
         sent_at: 'Отправлено в'
         group: 'Студенческая группа'
         sender: 'Отправитель'
+      label:
+        title: 'Титул'
+        color: 'Цвет'
+        description: 'Описание'
       lecture:
         group: 'Студенческая группа'
         course: 'Курс'
@@ -85,30 +125,26 @@ ru:
         last_name: 'Фамилия'
         patronymic: 'Отчество'
         group: 'Студенческая группа'
+      social_network:
+        network: 'Сеть'
+        url: 'Ссылка'
       student:
         social_networks: 'Социальные сети'
         email: 'Электронный адрес'
         user: 'Пользователь'
+      task:
+        students: 'Студенты'
+        expired_at: 'Крайний срок выполнения задания'
       user:
         email: 'Электронный адрес'
         username: 'Имя пользователя'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
-      bug_report:
+      user_status:
+        user: 'Пользователь'
         message: 'Сообщение'
-      announcement:
-        message: 'Сообщение'
-        start_at: 'Начинается в'
-        end_at: 'Заканчивается в'
-        foreground_color: 'Цвет переднего плана'
-        background_color: 'Фоновый цвет'
-      label:
-        title: 'Титул'
-        color: 'Цвет'
-        description: 'Описание'
-      task:
-        students: 'Студенты'
-        expired_at: 'Крайний срок выполнения задания'
+        emoji: 'Эмоджи'
+
   date:
     abbr_day_names:
       - Вс

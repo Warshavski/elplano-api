@@ -150,7 +150,7 @@ RSpec.describe User, type: :model do
       let_it_be(:user) { create(:user) }
 
       it 'returns only banned users' do
-        banned_user = create(:user, banned_at: Time.now)
+        banned_user = create(:user, banned_at: Time.current)
 
         expect(described_class.banned).to eq([banned_user])
       end
@@ -161,7 +161,7 @@ RSpec.describe User, type: :model do
     end
 
     describe '.active' do
-      let_it_be(:banned_user) { create(:user, banned_at: Time.now) }
+      let_it_be(:banned_user) { create(:user, banned_at: Time.current) }
 
       it 'returns only active users' do
         active_user = create(:user)

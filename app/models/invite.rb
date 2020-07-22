@@ -36,11 +36,11 @@ class Invite < ApplicationRecord
   #
   def generate_invitation_token
     self.invitation_token = Devise.friendly_token
-    self.sent_at = Time.now.utc
+    self.sent_at = Time.current
   end
 
   def claim_by!(student)
-    lock!.update!(recipient: student, accepted_at: Time.now.utc, invitation_token: nil)
+    lock!.update!(recipient: student, accepted_at: Time.current, invitation_token: nil)
   end
 
   def accepted?

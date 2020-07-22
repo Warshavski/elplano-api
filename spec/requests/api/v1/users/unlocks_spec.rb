@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe Api::V1::Users::UnlocksController, type: :request do
-  let_it_be(:user) { create(:user, locked_at: Time.now, unlock_token: 'wat') }
+  let_it_be(:user) { create(:user, locked_at: Time.current, unlock_token: 'wat') }
 
   describe 'GET #new' do
     it 'responds with not found' do

@@ -12,7 +12,7 @@ FactoryBot.define do
     end
 
     trait :accepted do
-      accepted_at { Time.now.utc }
+      accepted_at { Time.current }
 
       after(:create) do |invite, _|
         invite.update!(invitation_token: nil, recipient: create(:student))

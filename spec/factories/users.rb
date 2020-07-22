@@ -8,7 +8,7 @@ FactoryBot.define do
     username  { Faker::Internet.username }
     password  { '12345678' }
 
-    confirmed_at        { Time.now }
+    confirmed_at        { Time.current }
     confirmation_token  { nil }
 
     locked_at     { nil }
@@ -19,7 +19,7 @@ FactoryBot.define do
     end
 
     trait :banned do
-      after(:build) { |user, _| user.update!(banned_at: Time.now) }
+      after(:build) { |user, _| user.update!(banned_at: Time.current) }
     end
 
     factory :admin, traits: [:admin]
@@ -35,7 +35,7 @@ FactoryBot.define do
     trait :reset_password do
       after(:build) do |user, _|
         user.reset_password_token = Devise.token_generator.digest(user, :reset_password_token, 'token')
-        user.reset_password_sent_at = Time.now
+        user.reset_password_sent_at = Time.current
       end
     end
   end
@@ -44,14 +44,14 @@ FactoryBot.define do
     after(:build) do |user, _|
       user.confirmation_token = Devise.token_generator.digest(user, :confirmation_token, 'token')
       user.confirmed_at = nil
-      user.confirmation_sent_at = Time.now.utc
+      user.confirmation_sent_at = Time.current
     end
   end
 
   trait :locked do
     after(:build) do |user, _|
       user.unlock_token = Devise.token_generator.digest(user, :unlock_token, 'token')
-      user.locked_at = Time.now.utc
+      user.locked_at = Time.current
     end
   end
 

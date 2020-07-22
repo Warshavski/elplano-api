@@ -31,8 +31,6 @@ module Api
 
       # GET : api/v1/tasks/{:id}
       #
-      # Get details information about task
-      #
       def show
         task = find_task!(params[:id])
 
@@ -43,8 +41,6 @@ module Api
 
       # POST : api/v1/tasks
       #
-      # Create a new task
-      #
       def create
         task = ::Tasks::Create.call(current_student, task_params)
 
@@ -54,8 +50,6 @@ module Api
       end
 
       # PATCH/PUT : api/v1/tasks/{:id}
-      #
-      # Update selected task
       #
       def update
         task = find_task!(params[:id])
@@ -70,8 +64,6 @@ module Api
       end
 
       # DELETE : api/v1/tasks/{:id}
-      #
-      # Delete selected task
       #
       def destroy
         find_task!(params[:id])

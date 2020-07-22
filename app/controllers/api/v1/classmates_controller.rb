@@ -34,8 +34,6 @@ module Api
 
       # GET : api/v1/classmates/{:id}
       #
-      # Get group member by id
-      #
       def show
         student = filter_students.find(params[:id])
 

@@ -4,7 +4,7 @@ module Api
   module V1
     # Api::V1::StatusesController
     #
-    #   Authenticated user status management
+    #   Authenticated user(authenticated user) status management
     #
     class StatusesController < ApplicationController
       specify_title_header 'Status'
@@ -13,15 +13,11 @@ module Api
 
       # GET : api/v1/status
       #
-      # Get authenticated user status
-      #
       def show
         render_resource current_user.status, status: :ok
       end
 
       # PATCH/PUT : api/v1/status
-      #
-      # Update authenticated user status
       #
       def update
         status =
@@ -31,8 +27,6 @@ module Api
       end
 
       # DELETE : api/v1/status
-      #
-      # Delete authenticated user status
       #
       def destroy
         ::Users::Status::Manage.call(:destroy, current_user)

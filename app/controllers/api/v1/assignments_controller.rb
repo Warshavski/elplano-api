@@ -14,8 +14,6 @@ module Api
 
       # GET : api/v1/tasks/{:task_id}/assignment
       #
-      # Get information about task assignment
-      #
       def show
         render_resource find_assignment!(params[:task_id]),
                         status: :ok

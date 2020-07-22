@@ -46,8 +46,6 @@ module Api
 
         # GET : api/v1/group/courses/{:id}
         #
-        # Get course by id (information about course)
-        #
         def show
           course = find_course(params[:id])
 
@@ -58,8 +56,6 @@ module Api
 
         # POST : api/v1/group/courses
         #
-        # Create new course
-        #
         def create
           course = current_group.courses.create!(course_params)
 
@@ -69,8 +65,6 @@ module Api
         end
 
         # PATCH/PUT : api/v1/group/courses/{:id}
-        #
-        # Update course(information about course)
         #
         def update
           course = find_course(params[:id])
@@ -83,8 +77,6 @@ module Api
         end
 
         # DELETE : api/v1/group/courses/{:id}
-        #
-        # Delete course
         #
         def destroy
           find_course(params[:id]).destroy!

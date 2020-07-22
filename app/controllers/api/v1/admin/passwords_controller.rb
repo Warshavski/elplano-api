@@ -12,8 +12,6 @@ module Api
 
         # PATCH/PUT api/v1/admin/users/{:user_id}/password
         #
-        # Update current password with a new one
-        #
         def update
           find_user!.then { |user| reset_password!(user) }
 

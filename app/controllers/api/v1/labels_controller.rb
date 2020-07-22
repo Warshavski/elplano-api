@@ -27,15 +27,11 @@ module Api
 
       # GET : api/v1/labels/{:id}
       #
-      # Get information about requested label
-      #
       def show
         render_resource find_label!(params[:id]), status: :ok
       end
 
       # POST : api/v1/labels
-      #
-      # Create a new label
       #
       def create
         label = current_group.labels.create!(label_params)
@@ -44,8 +40,6 @@ module Api
       end
 
       # PATCH/PUT : api/v1/labels/{:id}
-      #
-      # Update requested label
       #
       def update
         label = find_label!(params[:id]).tap do |l|
@@ -56,8 +50,6 @@ module Api
       end
 
       # DELETE : api/v1/labels/{:id}
-      #
-      # Delete requested label
       #
       def destroy
         find_label!(params[:id]).destroy!

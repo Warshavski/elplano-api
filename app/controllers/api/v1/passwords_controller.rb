@@ -11,8 +11,6 @@ module Api
 
       # PATCH/PUT api/v1/password
       #
-      # Update current password with a new one
-      #
       def update
         ::Users::Passwords::Change.call(current_user, password_params)
 

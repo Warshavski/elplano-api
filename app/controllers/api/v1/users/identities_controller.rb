@@ -14,17 +14,9 @@ module Api
 
         specify_serializers default: ::Auth::UserSerializer
 
-        # Return 401 - Unauthorized
-        #
-        rescue_from Api::UnprocessableAuth do |e|
-          handle_error(e, :unauthorized) do
-            [{ status: 401, detail: e.message, source: { pointer: "/attributes/#{e.param}" } }]
-          end
-        end
-
         # GET : api/v1/users/identities
         #
-        #   Get a list of linked(connected) oauth providers
+        # Get a list of linked(connected) oauth providers
         #
         def index
           render_collection current_user.identities,
@@ -34,7 +26,7 @@ module Api
 
         # POST : api/v1/users/identities
         #
-        #   Perform sign in via oauth provider and link oauth provider
+        # Perform sign in via oauth provider and link oauth provider
         #
         def create
           user = fabricate_provider
@@ -48,7 +40,7 @@ module Api
 
         # DELETE : api/v1/users/identities/:id
         #
-        #   Destroy(unlink) oauth provider from current user's profile
+        # Destroy(unlink) oauth provider from current user's profile
         #
         def destroy
           find_provider!.then(&:destroy!)

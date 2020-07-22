@@ -13,8 +13,6 @@ module Api
 
         # PATCH/PUT : api/v1/admin/settings
         #
-        # Update application settings managed by admin
-        #
         def update
           ::Admin::Settings::Manage.call(current_user, settings_params)
 

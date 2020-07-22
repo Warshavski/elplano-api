@@ -59,8 +59,6 @@ module Api
 
       # GET : api/v1/events/{:id}
       #
-      # Get detailed information about event
-      #
       def show
         event = filter_events
                 .or(filter_events(scope: 'authored'))
@@ -71,8 +69,6 @@ module Api
 
       # POST : api/v1/events
       #
-      # Creates(schedule) new event
-      #
       def create
         event = ::Events::Create.call(current_student, event_params) do |e|
           authorize! e
@@ -82,8 +78,6 @@ module Api
       end
 
       # PATCH/PUT : api/v1/events/{:id]}
-      #
-      # Updates/renew information about scheduled event
       #
       def update
         event = find_event!(params[:id])
@@ -96,8 +90,6 @@ module Api
       end
 
       # DELETE : api/v1/events/{:id}
-      #
-      # Deletes scheduled event
       #
       def destroy
         find_event!(params[:id])

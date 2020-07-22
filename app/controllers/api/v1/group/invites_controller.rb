@@ -16,15 +16,11 @@ module Api
 
         # GET : api/v1/group/invites
         #
-        # Get list of group invites
-        #
         def index
           render_resource filter_invites, status: :ok
         end
 
         # GET : api/v1/group/invites/{:id}
-        #
-        # Get group invites by id
         #
         def show
           invite = filter_invites.find(params[:id])
@@ -33,8 +29,6 @@ module Api
         end
 
         # POST : api/v1/group/invites
-        #
-        # Create new invitation
         #
         def create
           invite = Invites::Create.call(

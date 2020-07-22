@@ -33,8 +33,6 @@ module Api
 
         # GET : api/v1/admin/users/{:id}
         #
-        # Get information about selected user
-        #
         def show
           user = find_user(params[:id])
 
@@ -44,8 +42,6 @@ module Api
         end
 
         # PATCH/PUT : api/v1/admin/users/{:id}
-        #
-        # Update user state
         #
         def update
           user = find_user(params[:id]).tap do |u|
@@ -58,8 +54,6 @@ module Api
         end
 
         # DELETE : api/v1/admin/users/{:id}
-        #
-        # Delete selected user and associated data
         #
         def destroy
           user = find_user(params[:id])

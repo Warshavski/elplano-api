@@ -30,8 +30,6 @@ module Api
 
           # GET : api/v1/admin/reports/abuses/{:id}
           #
-          # Get abuse report by it's identity
-          #
           def show
             render_resource find_report!(params[:id]),
                             include: %i[reporter user],
@@ -40,10 +38,8 @@ module Api
 
           # DELETE : api/v1/admin/reports/abuses/{:id}
           #
-          # Delete abuse report by it's identity
-          #
           def destroy
-            find_report!(params[:id]).tap(&:destroy!)
+            find_report!(params[:id]).destroy!
 
             head :no_content
           end

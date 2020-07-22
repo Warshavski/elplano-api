@@ -29,18 +29,14 @@ module Api
 
           # GET : api/v1/admin/reports/bugs/{:id}
           #
-          # Get bug report by it's identity
-          #
           def show
             render_resource find_report!(params[:id]), status: :ok
           end
 
           # DELETE : api/v1/admin/reports/bugs/{:id}
           #
-          # Delete bug report by it's identity
-          #
           def destroy
-            find_report!(params[:id]).tap(&:destroy!)
+            find_report!(params[:id]).destroy!
 
             head :no_content
           end

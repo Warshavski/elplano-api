@@ -12,8 +12,6 @@ module Api
 
         # GET : api/v1/admin/logs
         #
-        #  Get logs
-        #
         def show
           render_meta ::Admin::Logs::Fetch.call
         end

@@ -13,8 +13,6 @@ module Api
 
       # GET : api/v1/invites
       #
-      # Get list of user's invites
-      #
       def index
         invitations = filter_invites.preload(:group)
 

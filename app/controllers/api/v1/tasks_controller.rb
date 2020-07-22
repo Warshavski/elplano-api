@@ -31,10 +31,8 @@ module Api
 
       # GET : api/v1/tasks/{:id}
       #
-      # Get details information about task
-      #
       def show
-        task = find_task(params[:id])
+        task = find_task!(params[:id])
 
         render_resource task,
                         include: %i[event attachments],
@@ -42,8 +40,6 @@ module Api
       end
 
       # POST : api/v1/tasks
-      #
-      # Create a new task
       #
       def create
         task = ::Tasks::Create.call(current_student, task_params)
@@ -55,10 +51,8 @@ module Api
 
       # PATCH/PUT : api/v1/tasks/{:id}
       #
-      # Update selected task
-      #
       def update
-        task = find_task(params[:id])
+        task = find_task!(params[:id])
 
         authorize_action!(task) do |a|
           ::Tasks::Update.call(a, current_student, task_params)
@@ -71,19 +65,16 @@ module Api
 
       # DELETE : api/v1/tasks/{:id}
       #
-      # Delete selected task
-      #
       def destroy
-        find_task(params[:id]).then do |task|
-          authorize_action!(task, &:destroy!)
-        end
+        find_task!(params[:id])
+          .then { |task| authorize_action!(task, &:destroy!) }
 
         head :no_content
       end
 
       private
 
-      def find_task(id)
+      def find_task!(id)
         filter_tasks.find(id)
       end
 

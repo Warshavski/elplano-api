@@ -55,6 +55,10 @@ module Errors
       { status: opts[:status_code], detail: error.message, source: opts[:pointer] }
     end
 
+    resolver :unauthorized do |error, opts|
+      { status: opts[:status_code], detail: error.message, source: { pointer: "/attributes/#{error.param}" } }
+    end
+
     def initialize(error, type)
       @error = error
       @type = type

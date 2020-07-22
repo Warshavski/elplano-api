@@ -13,8 +13,6 @@ module Api
 
       # GET : api/v1/announcements
       #
-      # Get list of the current announcements
-      #
       def index
         render_collection Announcements::Cache.current, status: :ok
       end

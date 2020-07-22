@@ -26,8 +26,6 @@ module Api
 
         # POST : api/v1/users/password
         #
-        # Create reset password token and send email
-        #
         def create
           self.resource = resource_class.send_reset_password_instructions(resource_params)
 
@@ -39,8 +37,6 @@ module Api
         end
 
         # PATCH/PUT : api/v1/users/password
-        #
-        # Execute reset password
         #
         def update
           self.resource = resource_class.reset_password_by_token(resource_params)

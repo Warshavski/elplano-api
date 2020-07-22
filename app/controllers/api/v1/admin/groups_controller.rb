@@ -32,8 +32,6 @@ module Api
 
         # GET : api/v1/admin/groups/{:id}
         #
-        # Get information about requested group
-        #
         def show
           group = filter_groups.preload(students: :user).find(params[:id])
 

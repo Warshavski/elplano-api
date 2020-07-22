@@ -20,8 +20,6 @@ module Api
 
         # POST : api/v1/users
         #
-        # Register new user in application
-        #
         def create
           user = ::Users::Register.call { build_resource(sign_up_params) }
 

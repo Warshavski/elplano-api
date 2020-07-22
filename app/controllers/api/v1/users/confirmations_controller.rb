@@ -24,8 +24,6 @@ module Api
 
         # GET : api/v1/users/confirmation?confirmation_token=abcdef
         #
-        # Confirm user registration
-        #
         def show
           self.resource = resource_class.confirm_by_token(params[:confirmation_token])
 
@@ -39,8 +37,6 @@ module Api
         end
 
         # POST /api/v1/users/confirmation
-        #
-        # Generate confirmation token
         #
         def create
           self.resource = resource_class.send_confirmation_instructions(resource_params)

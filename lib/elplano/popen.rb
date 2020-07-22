@@ -33,7 +33,7 @@ module Elplano
       cmd_stdout = ''
       cmd_stderr = ''
       cmd_status = nil
-      start = Time.now
+      start = Time.current
 
       Open3.popen3(vars, *cmd, options) do |stdin, stdout, stderr, wait_thr|
         #
@@ -52,7 +52,7 @@ module Elplano
         cmd_status = wait_thr.value
       end
 
-      Result.new(cmd, cmd_stdout, cmd_stderr, cmd_status, Time.now - start)
+      Result.new(cmd, cmd_stdout, cmd_stderr, cmd_status, Time.current - start)
     end
   end
 end

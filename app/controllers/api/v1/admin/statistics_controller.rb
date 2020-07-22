@@ -12,8 +12,6 @@ module Api
 
         # GET : api/v1/admin/statistics
         #
-        # Get application statistics data
-        #
         def show
           render_meta ::Admin::Statistics::Compose.cached_call
         end

@@ -59,19 +59,15 @@ module Api
 
       # GET : api/v1/events/{:id}
       #
-      # Get detailed information about event
-      #
       def show
-        scope = filter_events.or(filter_events(scope: 'authored'))
-
-        event = scope.find(params[:id])
+        event = filter_events
+                .or(filter_events(scope: 'authored'))
+                .find(params[:id])
 
         render_resource event, include: [:labels], status: :ok
       end
 
       # POST : api/v1/events
-      #
-      # Creates(schedule) new event
       #
       def create
         event = ::Events::Create.call(current_student, event_params) do |e|
@@ -83,10 +79,10 @@ module Api
 
       # PATCH/PUT : api/v1/events/{:id]}
       #
-      # Updates/renew information about scheduled event
-      #
       def update
-        event = find_and_perform!(params[:id]) do |e|
+        event = find_event!(params[:id])
+
+        authorize_action!(event) do |e|
           ::Events::Update.call(e, event_params)
         end
 
@@ -95,10 +91,9 @@ module Api
 
       # DELETE : api/v1/events/{:id}
       #
-      # Deletes scheduled event
-      #
       def destroy
-        find_and_perform!(params[:id], &:destroy!)
+        find_event!(params[:id])
+          .then { |event| authorize_action!(event, &:destroy!) }
 
         head :no_content
       end
@@ -109,17 +104,12 @@ module Api
         EventsFinder.call(context: current_student, params: filters)
       end
 
-      def filter_params
-        super(::Events::IndexContract)
+      def find_event!(id)
+        filter_events(scope: 'authored').find(id)
       end
 
-      def find_and_perform!(id)
-        scope = filter_events(scope: 'authored')
-
-        scope.find(id).tap do |event|
-          authorize! event
-          yield(event)
-        end
+      def filter_params
+        super(::Events::IndexContract)
       end
 
       def event_params

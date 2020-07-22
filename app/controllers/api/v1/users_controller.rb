@@ -4,7 +4,7 @@ module Api
   module V1
     # Api::V1::UsersController
     #
-    #   Used to represent information about current user
+    #   Used to represent information about current user(authenticated user)
     #
     class UsersController < ApplicationController
       specify_title_header 'User'
@@ -17,8 +17,6 @@ module Api
 
       # GET : api/v1/user
       #
-      # Get information about current user
-      #
       def show
         render_resource current_user,
                         include: %i[student status],
@@ -26,8 +24,6 @@ module Api
       end
 
       # PATCH/PUT : api/v1/user
-      #
-      # Update authenticated user
       #
       def update
         current_user.update!(user_params)

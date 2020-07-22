@@ -28,8 +28,6 @@ module Api
 
         # GET : api/v1/labels/{:id}
         #
-        # Get information about requested label
-        #
         def show
           render_resource find_label!(params[:id]), status: :ok
         end

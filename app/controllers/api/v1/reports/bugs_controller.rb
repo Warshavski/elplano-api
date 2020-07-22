@@ -12,8 +12,6 @@ module Api
 
         # POST : api/v1/reports/bugs
         #
-        # Report bug(create bug report)
-        #
         def create
           current_user.reported_bugs.create!(report_params)
 

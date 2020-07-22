@@ -14,16 +14,12 @@ module Api
 
         # GET : api/v1/admin/announcements
         #
-        # Get list of announcements
-        #
         def index
           render_resource filter_announcements,
                           status: :ok
         end
 
         # GET : api/v1/admin/announcements/{:id}
-        #
-        # Get detailed information about application announcement
         #
         def show
           render_resource find_announcement(params[:id]),
@@ -32,8 +28,6 @@ module Api
 
         # POST: api/v1/admin/announcements
         #
-        # Create new application announcement
-        #
         def create
           announcement = Announcement.create!(announcement_params)
 
@@ -41,8 +35,6 @@ module Api
         end
 
         # PATCH/PUT : api/v1/admin/announcements/{:id}
-        #
-        # Update application announcement
         #
         def update
           announcement = find_announcement(params[:id]).tap do |a|
@@ -53,8 +45,6 @@ module Api
         end
 
         # DELETE : api/v1/admin/announcements/{:id}
-        #
-        # Delete application announcement
         #
         def destroy
           find_announcement(params[:id]).destroy!

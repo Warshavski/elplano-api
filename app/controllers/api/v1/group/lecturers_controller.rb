@@ -32,8 +32,6 @@ module Api
 
         # GET : api/v1/group/lecturers
         #
-        # Get list of lecturers
-        #
         def index
           lecturers = filter_lecturers
 
@@ -44,8 +42,6 @@ module Api
 
         # GET : api/v1/group/lecturers/{:id}
         #
-        # Get lecturer by id (information about lecturer)
-        #
         def show
           lecturer = filter_lecturers.find(params[:id])
 
@@ -54,8 +50,6 @@ module Api
 
         # POST : api/v1/group/lecturers
         #
-        # Create new lecturer
-        #
         def create
           lecturer = current_group.lecturers.create!(lecturer_params)
 
@@ -63,8 +57,6 @@ module Api
         end
 
         # PATCH/PUT : api/v1/group/lecturers/{:id}
-        #
-        # Update lecturer(information about lecturer)
         #
         def update
           lecturer = filter_lecturers.find(params[:id])
@@ -76,10 +68,8 @@ module Api
 
         # DELETE : api/v1/group/lecturers/{:id}
         #
-        # Delete lecturer
-        #
         def destroy
-          filter_lecturers.find(params[:id]).tap(&:destroy!)
+          filter_lecturers.find(params[:id]).destroy!
 
           head :no_content
         end

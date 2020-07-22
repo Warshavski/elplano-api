@@ -14,8 +14,6 @@ module Api
 
         # POST : api/v1/reports/abuses
         #
-        # Create(register) new abuse report
-        #
         def create
           current_user.reported_abuses.create!(report_params)
 

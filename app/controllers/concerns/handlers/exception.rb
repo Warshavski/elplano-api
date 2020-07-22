@@ -44,6 +44,11 @@ module Handlers
       rescue_from Rack::Timeout::RequestTimeoutException do |e|
         handle_error(e, :timeout, status: :request_timeout, send_report: true)
       end
+
+      # Return 401 - Unauthorized
+      rescue_from Api::UnprocessableAuth do |e|
+        handle_error(e, :unauthorized, status: :unauthorized)
+      end
     end
 
     private

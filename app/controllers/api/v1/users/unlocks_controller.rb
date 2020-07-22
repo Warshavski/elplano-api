@@ -24,8 +24,6 @@ module Api
 
         # GET : api/v1/users/unlock?unlock_token=abcdef
         #
-        # Unlock user
-        #
         def show
           self.resource = unlock_access(params[:unlock_token])
 
@@ -39,8 +37,6 @@ module Api
         end
 
         # POST : api/v1/users/unlock
-        #
-        # Create unlock token
         #
         def create
           self.resource = resource_class.send_unlock_instructions(resource_params)

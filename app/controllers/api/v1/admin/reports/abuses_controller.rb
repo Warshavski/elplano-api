@@ -43,7 +43,7 @@ module Api
           # Delete abuse report by it's identity
           #
           def destroy
-            find_report!(params[:id]).tap(&:destroy!)
+            find_report!(params[:id]).destroy!
 
             head :no_content
           end

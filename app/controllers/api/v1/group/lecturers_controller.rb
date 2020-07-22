@@ -79,7 +79,7 @@ module Api
         # Delete lecturer
         #
         def destroy
-          filter_lecturers.find(params[:id]).tap(&:destroy!)
+          filter_lecturers.find(params[:id]).destroy!
 
           head :no_content
         end

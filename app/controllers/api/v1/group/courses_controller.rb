@@ -87,7 +87,7 @@ module Api
         # Delete course
         #
         def destroy
-          find_course(params[:id]).tap(&:destroy!)
+          find_course(params[:id]).destroy!
 
           head :no_content
         end

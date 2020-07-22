@@ -34,7 +34,7 @@ module Api
       # Get details information about task
       #
       def show
-        task = find_task(params[:id])
+        task = find_task!(params[:id])
 
         render_resource task,
                         include: %i[event attachments],
@@ -58,7 +58,7 @@ module Api
       # Update selected task
       #
       def update
-        task = find_task(params[:id])
+        task = find_task!(params[:id])
 
         authorize_action!(task) do |a|
           ::Tasks::Update.call(a, current_student, task_params)
@@ -74,16 +74,15 @@ module Api
       # Delete selected task
       #
       def destroy
-        find_task(params[:id]).then do |task|
-          authorize_action!(task, &:destroy!)
-        end
+        find_task!(params[:id])
+          .then { |task| authorize_action!(task, &:destroy!) }
 
         head :no_content
       end
 
       private
 
-      def find_task(id)
+      def find_task!(id)
         filter_tasks.find(id)
       end
 

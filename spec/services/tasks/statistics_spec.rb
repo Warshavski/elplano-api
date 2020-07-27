@@ -29,7 +29,7 @@ RSpec.describe Tasks::Statistics do
       end
     end
 
-    context 'when user has taks in different conditions' do
+    context 'when user has tasks in different conditions' do
       let_it_be(:expired) do
         create_list(
           :task, 2, :skip_validation,
@@ -68,6 +68,22 @@ RSpec.describe Tasks::Statistics do
           'today_count' => 3,
           'tomorrow_count' => 1,
           'upcoming_count' => 1,
+          'accomplished_count' => 0
+        }
+
+        is_expected.to eq(expected_hash)
+      end
+    end
+
+    context 'when user is nil' do
+      let(:student) { nil }
+
+      it 'is expected to return hash with zero counters' do
+        expected_hash = {
+          'outdated_count' => 0,
+          'today_count' => 0,
+          'tomorrow_count' => 0,
+          'upcoming_count' => 0,
           'accomplished_count' => 0
         }
 

@@ -29,6 +29,8 @@ module Tasks
     # @return [Hash]
     #
     def execute
+      return empty_counters if student.nil?
+
       resolve_tasks_scope
         .then { |scope| perform_selection(scope) }
         .then { |result| format_result(result) }

@@ -41,10 +41,10 @@ RSpec.describe Invites::Create do
       # HA! tricky things down here
       context 'notification presence' do
         it 'triggers notification' do
-          service = described_class.new(student)
+          service = described_class.new
           expect(service).to receive(:notify_about).once
 
-          service.execute(params)
+          service.execute(student, params)
         end
       end
     end

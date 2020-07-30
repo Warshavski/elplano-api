@@ -11,8 +11,6 @@ module Users
   class Register
     include Loggable
 
-    attr_accessor :params
-
     # Create(register) new user
     #
     # @param [Hash] params (optional, default = {})
@@ -34,9 +32,11 @@ module Users
     # @return [User]
     #
     def self.call(params = {}, &block)
-      new(params).execute(&block)
+      new.execute(params, &block)
     end
 
+    # Create(register) new user
+    #
     # @param [Hash] params (optional, default = {})
     #
     # @option [String] :email -
@@ -51,17 +51,11 @@ module Users
     # @option [String] :username -
     #   Username(nickname) alternative user identity
     #
-    def initialize(params = {})
-      @params = params
-    end
-
-    # Create(register) new user
-    #
     # @yield - Alternative user constructor
     #
     # @return [User]
     #
-    def execute(&block)
+    def execute(params, &block)
       User.transaction do
         user = block ? yield : User.new(params)
 

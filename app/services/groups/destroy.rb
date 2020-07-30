@@ -26,7 +26,8 @@ module Groups
     private
 
     def log_success(group, actor)
-      message = "Group - \"#{group.title}\" (#{group.number}) was deleted by User - \"#{actor.username}\" (#{actor.email})"
+      message = "Group - \"#{group.title}\" (#{group.number}) " \
+                "was deleted by User - \"#{actor.username}\" (#{actor.email})"
 
       log_info(message)
     end

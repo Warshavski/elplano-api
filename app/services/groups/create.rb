@@ -10,8 +10,6 @@ module Groups
   class Create
     include Loggable
 
-    attr_reader :owner
-
     # Create new group
     #
     # @param [Student] owner - Group owner(group president).
@@ -25,19 +23,13 @@ module Groups
     # @return [Group]
     #
     def self.call(owner, params)
-      new(owner).execute(params)
-    end
-
-    # @param [Student] owner - Group owner(group president).
-    #   A Person, who can administer the group.
-    #
-    def initialize(owner)
-      raise ArgumentError, owner if owner.nil?
-
-      @owner = owner
+      new.execute(owner, params)
     end
 
     # Create new group
+    #
+    # @param [Student] owner - Group owner(group president).
+    #   A Person, who can administer the group.
     #
     # @param [Hash] params Parameters required for group creation
     #
@@ -46,7 +38,7 @@ module Groups
     #
     # @return [Group]
     #
-    def execute(params)
+    def execute(owner, params)
       validate_owner!(owner)
 
       group = ActiveRecord::Base.transaction do

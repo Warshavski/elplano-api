@@ -8,8 +8,6 @@ module Invites
   class Create
     include Loggable
 
-    attr_reader :sender
-
     # Create and send invite
     #
     # @param [Student] sender -
@@ -26,21 +24,13 @@ module Invites
     # @return [Invite]
     #
     def self.call(sender, params)
-      new(sender).execute(params)
-    end
-
-    # @param [Student] sender -
-    #   The student who initiates the invitation to the group(originally group owner)
-    #
-    # @raise [Api::ArgumentMissing] error on invalid input(nil sender)
-    #
-    def initialize(sender)
-      raise Api::ArgumentMissing, sender if sender.nil?
-
-      @sender = sender
+      new.execute(sender, params)
     end
 
     # Create and send invitation
+    #
+    # @param [Student] sender -
+    #   The student who initiates the invitation to the group(originally group owner)
     #
     # @param [Hash] params -
     #   the parameters that determine the recipient and group for the invitation
@@ -50,9 +40,11 @@ module Invites
     #
     # @return [Invite]
     #
-    def execute(params)
+    def execute(sender, params)
+      raise Api::ArgumentMissing, sender if sender.nil?
+
       invite = ApplicationRecord.transaction do
-        create_invite!(params).tap do |i|
+        create_invite!(params, sender).tap do |i|
           log_activity!(:created, sender.user, i)
         end
       end
@@ -62,7 +54,7 @@ module Invites
 
     private
 
-    def create_invite!(params)
+    def create_invite!(params, sender)
       Invite.create!(params) { |i| i.sender = sender }
     end
 

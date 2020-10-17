@@ -163,8 +163,15 @@ group :development, :test do
 end
 
 group :development do
+  # Static analysis tool which checks Ruby on Rails applications for security vulnerabilities.
+  # https://github.com/presidentbeef/brakeman
+  gem 'brakeman'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'pry-rails'
+
+  # Provide a quality report of your Ruby code.
+  # https://github.com/whitesmith/rubycritic
+  gem 'rubycritic', require: false
 end
 
 group :test do

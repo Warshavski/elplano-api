@@ -162,4 +162,6 @@ Rails.application.routes.draw do
 
   # (see UploadsController)
   resource :uploads, only: :create
+
+  match '*path', to: 'application#route_not_found', via: %i[get post put patch delete]
 end

@@ -18,10 +18,10 @@ gem 'dry-validation', '>=1.3.0'
 
 # https://github.com/Netflix/fast_jsonapi
 # A lightning fast JSON:API serializer for Ruby Objects.
-gem 'fast_jsonapi', '>= 1.5', git: 'https://github.com/fast-jsonapi/fast_jsonapi.git'
+gem 'jsonapi-serializer', '>= 2.1', git: 'https://github.com/jsonapi-serializer/jsonapi-serializer'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.3'
+gem 'rails', '~> 5.2.4'
 
 # Use postgresql as the database for Active Record
 # https://github.com/ged/ruby-pg

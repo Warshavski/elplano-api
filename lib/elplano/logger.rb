@@ -36,7 +36,7 @@ module Elplano
       end
 
       def cache_key
-        'logger:' + full_log_path.to_s
+        "logger:#{full_log_path}"
       end
     end
   end

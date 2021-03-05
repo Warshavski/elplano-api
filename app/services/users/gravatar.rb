@@ -6,8 +6,7 @@ module Users
   #   Used to generate gravatar in case if avatar is not set
   #
   class Gravatar
-    attr_reader :gravatar_config
-    attr_reader :elplano_config
+    attr_reader :gravatar_config, :elplano_config
 
     # Generate gravatar URL
     #
@@ -26,7 +25,7 @@ module Users
     # @return [String]
     #
     def self.call(params)
-      scale = params.fetch(:scale) { 2 }
+      scale = params.fetch(:scale, 2)
 
       new.execute(params[:email], params[:size], scale, username: params[:username])
     end

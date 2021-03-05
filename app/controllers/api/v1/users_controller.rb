@@ -49,16 +49,17 @@ module Api
       private
 
       def user_params
-        user_attributes = [:locale, :avatar, :timezone, settings: {}]
+        user_attributes = [:locale, :avatar, :timezone, { settings: {} }]
         student_attributes = [
-          :full_name, :email, :phone, :about, :gender, :birthday, social_networks: %i[network url]
+          :full_name, :email, :phone, :about, :gender, :birthday,
+          { social_networks: %i[network url] }
         ]
 
         permitted = params
                     .require(:user)
                     .permit(*user_attributes, student_attributes: student_attributes)
 
-        permitted.tap { |p| p.dig(:student_attributes)&.merge!(id: current_student.id) }
+        permitted.tap { |p| p[:student_attributes]&.merge!(id: current_student.id) }
       end
 
       def owner_params

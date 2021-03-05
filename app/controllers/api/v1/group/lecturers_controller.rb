@@ -81,7 +81,11 @@ module Api
         end
 
         def lecturer_params
-          attributes = [:first_name, :last_name, :patronymic, :avatar, :email, :phone, :active, course_ids: []]
+          attributes = [
+            :first_name, :last_name, :patronymic,
+            :avatar, :email, :phone, :active,
+            { course_ids: [] }
+          ]
 
           params.require(:lecturer).permit(*attributes)
         end

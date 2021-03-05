@@ -55,9 +55,10 @@ module Validatable
   private
 
   def normalize_params(raw_params)
-    if raw_params.is_a?(Hash)
+    case raw_params
+    when Hash
       raw_params
-    elsif raw_params.is_a?(ActionController::Parameters)
+    when ActionController::Parameters
       raw_params.to_unsafe_h
     else
       {}

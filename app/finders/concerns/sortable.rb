@@ -79,11 +79,9 @@ module Sortable
     items
   end
 
-  def each_sort
+  def each_sort(&block)
     fetch_sort_parameters.each do |parameters_mapping|
-      parameters_mapping
-        .flatten
-        .then { |attribute, direction| yield attribute, direction }
+      parameters_mapping.flatten.then(&block)
     end
   end
 
@@ -120,9 +118,10 @@ module Sortable
   end
 
   def unpack_configuration(config, scope, fallback_direction)
-    if config.is_a? Proc
+    case config
+    when Proc
       config.call(scope, fallback_direction)
-    elsif config.is_a? Hash
+    when Hash
       direction = config[:direction] || fallback_direction
       params    = config[:attributes].map { |a| { a => direction } }
 

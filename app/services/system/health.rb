@@ -46,9 +46,7 @@ module System
     end
 
     def compose_results(results)
-      results.each_with_object({}) do |(name, info), memo|
-        memo[name] = info.to_h
-      end
+      results.transform_values(&:to_h)
     end
   end
 end

@@ -417,7 +417,7 @@ GEM
     shrine-memory (0.1.0)
       down
       shrine
-    sidekiq (6.1.3)
+    sidekiq (6.2.1)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)

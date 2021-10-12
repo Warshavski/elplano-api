@@ -46,6 +46,7 @@ module Handlers
       end
 
       # Return 401 - Unauthorized
+      #
       rescue_from Api::UnprocessableAuth do |e|
         handle_error(e, :unauthorized, status: :unauthorized)
       end

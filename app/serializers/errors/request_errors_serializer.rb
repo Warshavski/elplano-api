@@ -25,7 +25,7 @@ module Errors
     resolver :not_found do |error, opts|
       model = error.model.downcase
 
-      model_name  = I18n.t(error.model.downcase, scope: :'activerecord.models')
+      model_name  = I18n.t(model, scope: :'activerecord.models')
       message     = I18n.t('errors.messages.not_found_record', model: model_name, id: error.id)
 
       { status: opts[:status_code], detail: message, pointer: model }
